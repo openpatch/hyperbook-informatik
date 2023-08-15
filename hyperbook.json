@@ -7,5 +7,11 @@
     "url": "https://openpatch.org"
   },
   "license": "CC-BY-SA",
-  "language": "de"
+  "language": "de",
+  "colors": {
+    "brand": "#e6ba56",
+    "brandDark": "#f2dcaa",
+    "brandText": "#f2dcaa"
+  },
+  "logo": "/logo.png"
 }
