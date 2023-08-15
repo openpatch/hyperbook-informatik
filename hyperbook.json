@@ -1,12 +1,11 @@
 {
-  "name": "Hyperbook GitHub Pages",
+  "name": "Informatik",
   "version": "0.0.1",
-  "description": "This is an example for deploying Hyperbook on GitHub pages",
+  "description": "In diesem Hyperbook lernst du viele Themen der Informatik kennen.",
   "author": {
-    "name": "Mike Barkmin",
-    "url": "https://barkmin.eu"
+    "name": "OpenPatch",
+    "url": "https://openpatch.org"
   },
   "license": "CC-BY-SA",
-  "language": "en",
-  "basePath": "/hyperbook-github-pages"
+  "language": "de",
 }
