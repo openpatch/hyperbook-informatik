@@ -13,5 +13,10 @@
     "brandDark": "#f2dcaa",
     "brandText": "#f2dcaa"
   },
+  "links": [{
+    "href": "/glossary",
+    "icon": "📚",
+    "label": "Glossar"
+  }],
   "logo": "/logo.png"
 }

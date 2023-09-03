@@ -1,0 +1,4 @@
+---
+name: Sequenzdiagramme
+hide: true
+---
