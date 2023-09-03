@@ -11,6 +11,10 @@ index: 3
 
 - :t[Variable]{#variable}
 
+## Übungen zu den neuen Begriffen
+
+- [Variablen](/oop/variablen)
+
 ## Scratch for Java API
 
 - [Window](https://scratch4j.openpatch.org/de/reference/window)
