@@ -1,6 +1,7 @@
 ---
 name: Steuerung
 index: 4
+lang: de
 ---
 
 # Steuerung
@@ -13,6 +14,10 @@ index: 4
 - :t[Attribut]{#attribut}
 - :t[Zugriffsmodifikator]{#zugriffsmodifikator}
 - :t[Double]{#double}
+
+## Übungen zu den neuen Begriffen
+
+- [Bedingte Anweisungen](/oop/verzweigungen)
 
 ## Scratch for Java API
 
