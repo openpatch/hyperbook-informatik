@@ -12,6 +12,10 @@ index: 5
 - :t[String]{#string}
 - :t[int]{#integer}
 
+## Übungen zu den neuen Begriffen
+
+- [Datentypen](/oop/datentypen)
+
 ## Scratch for Java API
 
 - [Sprite](https://scratch4j.openpatch.org/de/reference/sprite)
