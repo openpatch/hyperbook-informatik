@@ -13,7 +13,8 @@ Zur Verwaltung der Ereignisse benutzen wir die lineare Datenstruktur des Arrays.
 ## Aufgaben
 
 1. Informiere dich über die lineare Datenstruktur des Arrays. Nutze dafür die Seite [Arrays](https://www.learnj.de/doku.php?id=types:arrays:start).
-2. Lade das BlueJ-Projekt "Smart Home Ereignisse" herunter oder nutze die OnlineIDE (siehe unten).
+2. Lade das BlueJ-Projekt "Smart Home Ereignisse" herunter.
+::archive[BlueJ-Projekt: Smart Home Ereignisse]{name="smart-home-ereignisse"}
 3. Implementiere die Methode "showBacklog".
 4. Informiere dich über den "instanceof"-Operator und Casting. Nutze dafür die Seite [instanceof](https://www.learnj.de/doku.php?id=klassen2:casting:start).
 5. Implementiere die Methode "showLights".
@@ -21,34 +22,3 @@ Zur Verwaltung der Ereignisse benutzen wir die lineare Datenstruktur des Arrays.
 7. Implementiere die Methode "countAutomationTriggered".
 
 
-### BlueJ
-
-::archive[BlueJ-Projekt: Smart Home Ereignisse]{name="smart-home-ereignisse"}
-
-
-### Online-IDE
-
-:::onlineide{id="smart-home-ereignisse"}
-
-```java SmartHome.java
-{{{file "/archives/smart-home-ereignisse/SmartHome.java"}}} 
-```
-
-```java Event.java
-{{{file "/archives/smart-home-ereignisse/Event.java"}}} 
-```
-
-```java TemperatureChangedEvent.java
-{{{file "/archives/smart-home-ereignisse/TemperatureChangedEvent.java"}}} 
-```
-
-```java StateChangedEvent.java
-{{{file "/archives/smart-home-ereignisse/StateChangedEvent.java"}}} 
-```
-
-```java AutomationTriggeredEvent.java
-{{{file "/archives/smart-home-ereignisse/AutomationTriggeredEvent.java"}}} 
-```
-
-
-:::
