@@ -11,7 +11,7 @@ Ereignisse bilden die Basis von Home Assistant. Immer, wenn etwas passiert wird 
 Eine Klasse die diese Ereignisse repräsentiert, könnte wie folgt aussehen.
 
 ```mermaid
-classDiagram 
+classDiagram
     class Event {
         -id: int
         -timeFired: Date
@@ -26,7 +26,7 @@ classDiagram
 Damit verschiedene Ereignisse verwaltet werden können, wird in Home Assistant zwischen verschiedenen Ereignistypen unterschieden. In der objektorientierten Programmierung können wir dies mit Unterklassen realisieren.
 
 ```mermaid
-classDiagram 
+classDiagram
     class Event {
         -id: int
         -timeFired: LocalDateTime
@@ -62,10 +62,10 @@ In unserem Fall haben wir zunächst zwei Spezialisierungen. Einaml das StateChan
 
 1. Erstelle Objekdiagramme zu den folgenden Ereignissen:
     1. "23:12 Licht3 im Wohnzimmer angeschaltet."
-    2. "10:15 TempaturSensor3 im Schlafzimmer misst 21 °C."
+    2. "10:15 TemperaturSensor3 im Schlafzimmer misst 21 °C."
     3. "14:10 Eingangstüre erkennt eine Bewegung."
     4. "15:30 Bundesliga"
 2. Beschreibe welche Ereignisse durch die Automatisierung "Bundesliga" ausgelöst werden könnten.
 3. Modelliere eine Klasse "TemperatureChangedEvent" in Anlehnung an die "StateChangedEvent" Klasse. Ergänze das Klassendiagramm.
 3. Besuche erneut das [Beispieldashboard](https://demo.home-assistant.io/) und erstelle weitere Objektdiagramme zu den Ereignissen.
-4. Reichen die Eregbnisse? Schaue dir alle Demos an und überlege, ob weitere Spezialisierungen benötigt werden.
+4. Reichen die Ereignisse? Schaue dir alle Demos an und überlege, ob weitere Spezialisierungen benötigt werden.
