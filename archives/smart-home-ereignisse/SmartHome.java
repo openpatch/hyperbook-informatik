@@ -37,7 +37,9 @@ public class SmartHome {
      * Diese Methode soll alle Events im Array eventBacklog ausgeben.
      * Die Ausgabe soll die folgende Form haben
      * 
-     * id, timeFired, context
+     * 1. id, timeFired, context
+     * 2. id, timeFired, context
+     * 3. id, timeFired, context
      */
     public void showBacklog() {
 
