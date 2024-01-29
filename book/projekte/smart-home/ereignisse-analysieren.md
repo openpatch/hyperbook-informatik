@@ -19,7 +19,7 @@ Zur Verwaltung der Ereignisse benutzen wir die lineare Datenstruktur des Arrays.
 4. Informiere dich über den "instanceof"-Operator und Casting. Nutze dafür die Seite [instanceof](https://www.learnj.de/doku.php?id=klassen2:casting:start).
 5. Implementiere die Methode "showLights". Nutze dazu die Methode [endsWith](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#endsWith-java.lang.String-) oder [contains](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#contains-java.lang.CharSequence-).
 6. Implementiere die Methode "getMaxTemperature".
-7. Füge AutomationTriggeredEvents dem Array `eventBacklog` hinzu.
+7. Füge Objekte der Klasse AutomationTriggeredEvent dem Array `eventBacklog` hinzu.
 7. Implementiere die Methode "countAutomationTriggered".
 
 
