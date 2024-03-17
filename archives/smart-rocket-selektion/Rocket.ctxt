@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Rocket
+comment1.params=pPosition\ pDna\ pZiel
+comment1.target=Rocket(org.openpatch.scratch.extensions.math.Vector2,\ DNA,\ Ziel)
+comment2.params=
+comment2.target=void\ berechneFit()
+comment3.params=
+comment3.target=double\ gibFit()
+comment4.params=
+comment4.target=DNA\ gibDNA()
+comment5.params=
+comment5.target=void\ run()
+numComments=6
