@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Level
+comment1.params=
+comment1.target=Level()
+comment2.params=
+comment2.target=void\ neuerHintergrund()
+comment3.params=
+comment3.target=void\ neuePlattform()
+numComments=4

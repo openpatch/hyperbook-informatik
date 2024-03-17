@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Spieler
+comment1.params=pLevel
+comment1.target=Spieler(Level)
+comment2.params=
+comment2.target=void\ run()
+numComments=3

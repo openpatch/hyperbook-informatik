@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Level
+comment1.params=pSpiel
+comment1.target=Level(BunnyHop)
+comment2.params=
+comment2.target=Plattform\ getLetzte()
+comment3.params=pLetzte
+comment3.target=void\ setLetzte(Plattform)
+comment4.params=
+comment4.target=void\ run()
+numComments=5
