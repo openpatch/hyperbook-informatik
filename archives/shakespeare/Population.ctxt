@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Population
+comment1.params=pTarget\ pMutationrate\ pNumber
+comment1.target=Population(java.lang.String,\ float,\ int)
+comment10.params=limit
+comment10.target=java.lang.String\ getAllPhrases(int)
+comment2.params=
+comment2.target=void\ calculateFit()
+comment3.params=
+comment3.target=void\ naturalselection()
+comment4.params=
+comment4.target=void\ newGeneration()
+comment5.params=
+comment5.target=java.lang.String\ getBest()
+comment6.params=
+comment6.target=void\ evaluate()
+comment7.params=
+comment7.target=boolean\ isFinished()
+comment8.params=
+comment8.target=int\ getGeneration()
+comment9.params=
+comment9.target=float\ gibDurchschnittlichenFit()
+numComments=11

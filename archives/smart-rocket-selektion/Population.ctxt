@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Population
+comment1.params=pStage\ pMutationsrate\ pPopulationsgroesse\ pStartPosition\ pZiel\ pLebenszeit
+comment1.target=Population(SmartRocket.Level,\ double,\ int,\ org.openpatch.scratch.extensions.math.Vector2,\ SmartRocket.Ziel,\ int)
+comment2.params=
+comment2.target=void\ berechneFit()
+comment3.params=
+comment3.target=void\ natuerlicheSelektionFitness()
+comment4.params=
+comment4.target=void\ natuerlicheSelektionBesten()
+comment5.params=
+comment5.target=void\ natuerlicheSelektionTurnier()
+comment6.params=
+comment6.target=void\ neueGeneration()
+comment7.params=
+comment7.target=int\ gibGenerationen()
+comment8.params=
+comment8.target=double\ gibMaxFit()
+comment9.params=
+comment9.target=double\ gibDurchschnittlichenFit()
+numComments=10
