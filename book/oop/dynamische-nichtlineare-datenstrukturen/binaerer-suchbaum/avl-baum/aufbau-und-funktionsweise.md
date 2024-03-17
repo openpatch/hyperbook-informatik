@@ -1,4 +1,3 @@
-
 ---
 name: Aufbau und Funktionsweise
 index: 0
@@ -42,7 +41,7 @@ flowchart TD
 
 :::collapsible{title="Lösung" id="aaaaaa" }
 
-![A description](/Bilder/lineare-datenstrukturen/avl/avlBaum1.jpeg)
+![A description](/images/avl-baum.1.jpg)
 
 :::
 
@@ -50,6 +49,6 @@ flowchart TD
 
 :::collapsible{title="Lösung" id="bbbbb"}
 
-![A description](/Bilder/lineare-datenstrukturen/avl/avlBaum2.jpeg)
+![A description](/images/avl-baum-2.jpg)
 
 :::
