@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=DNA
+comment1.params=pLebenszeit
+comment1.target=DNA(int)
+comment2.params=pGene
+comment2.target=DNA(org.openpatch.scratch.extensions.math.Vector2[])
+comment3.params=partner
+comment3.target=SmartRocket.DNA\ crossover(SmartRocket.DNA)
+comment4.params=mutationsrate
+comment4.target=void\ mutiere(double)
+comment5.params=
+comment5.target=org.openpatch.scratch.extensions.math.Vector2[]\ gibGene()
+numComments=6
