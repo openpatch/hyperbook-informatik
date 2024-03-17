@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=BunnyHop
+comment1.params=
+comment1.target=BunnyHop()
+comment2.params=
+comment2.target=void\ zuruecksetzen()
+comment3.params=
+comment3.target=int\ getDistanz()
+comment4.params=wert
+comment4.target=void\ veraendereDistanz(int)
+numComments=5

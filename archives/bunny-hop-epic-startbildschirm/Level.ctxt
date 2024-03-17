@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Level
+comment1.params=pWindow
+comment1.target=Level(org.openpatch.scratch.Window)
+comment2.params=pKeyCode
+comment2.target=void\ whenKeyPressed(int)
+comment3.params=
+comment3.target=void\ neuePlattform()
+comment4.params=
+comment4.target=void\ run()
+numComments=5

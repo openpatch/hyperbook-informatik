@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Plattform
+comment1.params=pLevel\ pSpieler\ pIstKaputt
+comment1.target=Plattform(Level,\ Spieler,\ boolean)
+comment2.params=
+comment2.target=void\ beruehren()
+comment3.params=
+comment3.target=void\ run()
+numComments=4

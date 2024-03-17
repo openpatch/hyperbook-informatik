@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Ende
+comment1.params=pSpiel
+comment1.target=Ende(BunnyHop)
+comment2.params=code
+comment2.target=void\ whenKeyPressed(int)
+comment3.params=
+comment3.target=void\ run()
+numComments=4

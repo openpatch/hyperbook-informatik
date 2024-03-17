@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Stachelball
+comment1.params=pSpieler
+comment1.target=Stachelball(Spieler)
+comment2.params=
+comment2.target=void\ ueberpruefeKollision()
+comment3.params=
+comment3.target=void\ teleportiereZumStart()
+comment4.params=
+comment4.target=void\ run()
+numComments=5

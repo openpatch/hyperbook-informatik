@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Startbildschirm
+comment1.params=pWindow
+comment1.target=Startbildschirm(org.openpatch.scratch.Window)
+comment2.params=keyCode
+comment2.target=void\ whenKeyPressed(int)
+comment3.params=
+comment3.target=void\ run()
+numComments=4
