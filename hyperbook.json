@@ -1,5 +1,7 @@
 {
   "name": "Informatik",
+  "qrcode": true,
+  "search": true,
   "version": "0.0.1",
   "description": "In diesem Hyperbook lernst du viele Themen der Informatik kennen.",
   "author": {
@@ -13,10 +15,12 @@
     "brandDark": "#f2dcaa",
     "brandText": "#f2dcaa"
   },
-  "links": [{
-    "href": "/glossary",
-    "icon": "📚",
-    "label": "Glossar"
-  }],
+  "links": [
+    {
+      "href": "/glossary",
+      "icon": "📚",
+      "label": "Glossar"
+    }
+  ],
   "logo": "/logo.png"
 }
