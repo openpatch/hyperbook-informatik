@@ -27,7 +27,7 @@ https://keiwan.itch.io/evolution
 
 ## Aufgabe 3: Hintergrund
 
-Lies dir den Glossareintrag zu :t[evolutionären Algorithmen]{#evoltionarer-algorithmus} durch, um zu verstehen, wie sich deine Kreatur immer weiterentwickelt.
+Lies dir den Glossareintrag zu :t[evolutionären Algorithmen]{#evolutionaerer-algorithmus} durch, um zu verstehen, wie sich deine Kreatur immer weiterentwickelt.
 
 ## Aufgabe 4: Eigene Kreatur
 
