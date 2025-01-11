@@ -1,6 +1,10 @@
 ---
 name: Scratch for Java RPG
 lang: de
+keywords: 
+    - scratch4j
+    - java
+    - level-0
 ---
 
 # Scratch for Java RPG

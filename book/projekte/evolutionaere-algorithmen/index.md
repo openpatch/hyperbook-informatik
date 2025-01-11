@@ -2,6 +2,10 @@
 name: Evolutionäre Algortihmen
 index: 5
 lang: de
+keywords: 
+    - java
+    - scratch4j
+    - level-1
 ---
 
 # Evolutionäre Algorithmen

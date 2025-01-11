@@ -1,5 +1,6 @@
 {
   "name": "Informatik",
+  "importExport": true,
   "qrcode": true,
   "search": true,
   "version": "0.0.1",
