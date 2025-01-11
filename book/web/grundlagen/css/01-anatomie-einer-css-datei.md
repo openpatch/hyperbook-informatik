@@ -1,6 +1,7 @@
 ---
 name: Anatomie einer CSS-Datei
 lang: de
+index: 1
 ---
 
 # Anatomie einer CSS-Datei
