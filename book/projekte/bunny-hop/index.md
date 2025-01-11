@@ -2,6 +2,10 @@
 name: Bunny Hop
 index: 6
 lang: de
+keywords: 
+    - scratch4j
+    - java
+    - level-1
 ---
 
 # Bunny Hop

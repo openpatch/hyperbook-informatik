@@ -1,6 +1,10 @@
 ---
 name: Scratch for Java Donut IO
 lang: de
+keywords: 
+    - scratch4j
+    - java
+    - level-1
 ---
 
 # Scratch for Java Donut IO
