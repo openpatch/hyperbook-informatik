@@ -118,5 +118,5 @@ ul.nav li.active {
 Hier die Berechnung der Spezifizität für jede Regel:
 
 - Regel 1: 1 Punkt (1 Element)
-- Regel 2: 22 Punkte (2 Element + 2 Klassen)
+- Regel 2: 22 Punkte (2 Elemente + 2 Klassen)
 - Regel 3: 101 Punkte (1 ID + 1 Element)
