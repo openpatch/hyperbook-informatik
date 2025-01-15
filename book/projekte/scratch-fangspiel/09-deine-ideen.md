@@ -17,4 +17,4 @@ Hier ein paar Ideen:
 - Zwei Körbe: Man könnte auch zu zwei spielen und einen weiteren Korb hinzufügen. Doch wie macht man dann die Steuerung? 🤔
 - Geschwindigkeiten anpassen. Ist dir das Spiel zu schnell oder zu langsam?
 
-Happy coding! 🤔🥳
+Happy coding! 🥳
