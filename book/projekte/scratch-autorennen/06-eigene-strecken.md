@@ -2,6 +2,7 @@
 name: Eigene Strecken
 index: 6
 lang: de
+next:
 ---
 
 # Eigene Strecken
