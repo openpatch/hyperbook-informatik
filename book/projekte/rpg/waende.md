@@ -16,8 +16,8 @@ lang: de
 
 ## Übungen zu den neuen Begriffen
 
-- [Wiederholungen](/oop/wiederholungen)
-- [Vererbung](/oop/vererbung)
+- [Wiederholungen](/oop/grundlagen/wiederholungen)
+- [Vererbung](/oop/grundlagen/vererbung)
 
 ## Scratch for Java API
 

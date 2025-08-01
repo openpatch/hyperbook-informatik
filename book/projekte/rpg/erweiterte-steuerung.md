@@ -15,7 +15,7 @@ lang: de
 
 ## Übungen zu den neuen Begriffen
 
-- [Bedingte Anweisungen](/oop/verzweigungen)
+- [Bedingte Anweisungen](/oop/grundlagen/verzweigungen)
 
 ## Scratch for Java API
 
