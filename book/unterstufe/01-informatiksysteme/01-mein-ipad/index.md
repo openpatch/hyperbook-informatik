@@ -58,6 +58,15 @@ Dein iPad arbeitet nach dem EVA-Prinzip:
 
 :::
 
+:::tab{title="Aufgeblähter Akku"}
+## Warum bläht sich ein Akku auf?
+
+::youtube{#SgUqEEiU_dc}
+
+[Kahoot zum Video](https://create.kahoot.it/share/smartphoneakku-aufgeblaht-daran-liegt-es/665c9915-6084-4d4f-acb3-192e5146a2cf)
+
+:::
+
 :::tab{title="Vibrationsalarm"}
 ## Wie funktioniert der Vibrationsalarm?
 
