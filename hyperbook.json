@@ -22,6 +22,19 @@
       "href": "/glossary",
       "icon": "📚",
       "label": "Glossar"
+    },
+    {
+      "label": "Über",
+      "links": [
+        {
+          "href": "/impressum",
+          "label": "Impressum"
+        },
+        {
+          "href": "/mitmachen",
+          "label": "Mitmachen"
+        }
+      ]
     }
   ],
   "logo": "/logo.png"
