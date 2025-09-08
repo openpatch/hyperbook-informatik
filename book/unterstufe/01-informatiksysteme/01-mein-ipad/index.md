@@ -6,14 +6,39 @@ permaid: "6"
 
 # Mein iPad
 
-::::tabs
+:::::tabs
 
-:::tab{title="Aufbau"}
+::::tab{title="Aufbau"}
 ## Wie ist mein iPad aufgebaut?
 
 ::excalidraw{src="/unterstufe/01-informatiksysteme/01-mein-ipad/aufbau-ipad.excalidraw" edit=true}
 
+:::snippet{#aufgabe}
+- Zeichne ein iPad in dein Heft
+- Übertrage die Beschriftung
 :::
+
+::::
+
+::::tab{title="EVA-Prinzip"}
+## Das EVA-Prinzip
+
+:::snippet{#merken}
+Dein iPad arbeitet nach dem EVA-Prinzip:
+
+- Schritt 1: Eingabe: Mithilfe von Eingabegeräten gelangen Anweisungen von außen in dein iPad
+- Schritt 2: Verarbeitung: Dein iPad verarbeitet die eingegebenen Anweisungen
+- Schritt 3: Ausgabe: Ausgabegeräte machen sichtbar, wie dein iPad die eingegebenen Anweisungen verarbeitet hat.
+:::
+
+:::snippet{#aufgabe}
+1. Übertrage den Merkkasten in dein Heft.
+2. Schreibe auf welche Eingaben du bei deinem iPad machen kannst.
+3. Schreibe auf wie dein iPad dir etwas ausgeben kann.
+:::
+
+::::
+
 
 :::tab{title="Touchscreen"}
 ## Wie funktioniert der Touchscreen?
@@ -40,4 +65,4 @@ permaid: "6"
 
 :::
 
-::::
+:::::
