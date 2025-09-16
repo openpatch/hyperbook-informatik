@@ -123,6 +123,19 @@ System.out.println(a);
 
 Schreibe ein Programm, das die bei den Testfällen stehenden Rechnenaufgaben berechnet, die Ergebnisse in einer Variablen speichert und die Werte der Variablen auf der Konsole ausgibt.
 
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+
+```java Rechnungen.java
+
+int result = 1 + 7 - 9 + 43;
+print(result);
+
+result = 0;
+
+```
+
+:::
+
 ### Testfälle
 
 - 1 + 7 - 9 + 43 = 42
