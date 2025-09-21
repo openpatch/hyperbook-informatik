@@ -214,7 +214,7 @@ System.out.println("Mit for-each - Max: " + max2 + "°C, Min: " + min2 + "°C");
 :::onlineide{url="https://nrw.onlineide.openpatch.org"}
 ```java ElementSuchen.java
 String[] staedte = {"Berlin", "Hamburg", "München", "Köln", "Frankfurt"};
-String gesuchteStadt = Input.readText("Welche Stadt suchst du?");
+String gesuchteStadt = Input.readString("Welche Stadt suchst du?");
 
 boolean gefunden = false;
 int position = -1;
@@ -357,7 +357,7 @@ double[] preise = new double[5];
 // Eingabe der Artikel und Preise
 System.out.println("Gib 5 Artikel und ihre Preise ein:");
 for (int i = 0; i < 5; i++) {
-    artikel[i] = Input.readText("Artikel " + (i + 1) + ":");
+    artikel[i] = Input.readString("Artikel " + (i + 1) + ":");
     preise[i] = Input.readDouble("Preis für " + artikel[i] + ":");
 }
 

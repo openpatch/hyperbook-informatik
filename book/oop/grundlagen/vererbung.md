@@ -450,12 +450,21 @@ mgr.teamMeeting();
 - Manager kann arbeiten, Team-Meetings leiten und Gehaltserhöhung bekommen
 - Alle Methoden der Basisklasse funktionieren bei beiden Unterklassen
 
+## Expertenbereich
+
 :::snippet{#brain}
 
 **Erweiterte Aufgaben**:
 - Erstelle eine Klassenhierarchie für verschiedene Tiere (Säugetiere, Vögel, Fische)
 - Implementiere ein Spiel mit verschiedenen Charakter-Klassen (Krieger, Magier, Bogenschütze)
 - Entwerfe ein Fahrzeug-System mit Auto, Motorrad, LKW als Unterklassen
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java ExpertenAufgaben.java
+// Hier kannst du die erweiterten Aufgaben bearbeiten
+
+```
+:::
 
 :::
 
