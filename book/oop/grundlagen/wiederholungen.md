@@ -4,161 +4,377 @@ lang: de
 index: 2
 ---
 
-# Wiederholungen
+# Wiederholungen (Schleifen)
 
-Wenn man Anweisungen in ähnlicher Weise mehrfach wiederholen möchte, schreibt man sie nicht mehrfach hintereinander ins Programm, sondern nutzt Wiederholungen ("Schleifen"/"Loops").
+Schleifen ermöglichen es, Code mehrfach auszuführen, ohne ihn mehrfach schreiben zu müssen. Das spart Zeit und macht Programme übersichtlicher!
 
-## :t[Kopfgesteuerte-Schleife]{#kopfgesteuerte-schleife} (while-loop)
+:::snippet{#beispiel}
 
-Wir schreiben den Text "Hallo Welt!" 10-mal untereinander in die Ausgabe. Zuerst möchte ich Euch zeigen, wie man es nicht machen sollte:
+**Stell dir vor**: Du sollst 100 Mal "Ich mache meine Hausaufgaben" schreiben. Würdest du das wirklich 100 Mal tippen? 
 
-:::onlineide
-
-```java Wiederholung1.java
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-println("Hallo Welt!");
-```
+Mit Schleifen sagst du dem Computer einfach: "Wiederhole diese Aktion 100 Mal!"
 
 :::
 
+In Java gibt es verschiedene Arten von Schleifen:
+1. **while-Schleife** (kopfgesteuert)
+2. **for-Schleife** (zählergesteuert)
+3. **do-while-Schleife** (fußgesteuert)
 
-Viel besser ist es, den Computer anzuweisen, die Ausgabe von "Hallo Welt!" 10-mal zu wiederholen. Das geht so:
+## Die while-Schleife
 
-:::onlineide
+Die :t[kopfgesteuerte-schleife]{#kopfgesteuerte-schleife} (while-loop) prüft **vor** jedem Durchgang, ob die Bedingung noch erfüllt ist.
 
-```java Wiederholung2.java
-int n = 1;
+### Falscher Ansatz (ohne Schleife)
 
-while (n <= 10) {
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java OhneSchleife.java
+// So solltest du es NICHT machen:
+System.out.println("Hallo Welt!");
+System.out.println("Hallo Welt!");
+System.out.println("Hallo Welt!");
+System.out.println("Hallo Welt!");
+System.out.println("Hallo Welt!");
+// ... noch 95 Mal ...
+```
+:::
 
-  println("Hallo Welt!");
-  n = n + 1;
+### Richtiger Ansatz (mit while-Schleife)
 
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java MitWhileSchleife.java
+int zaehler = 1;
+
+while (zaehler <= 10) {
+    System.out.println("Hallo Welt! (zum " + zaehler + "-ten Mal)");
+    zaehler = zaehler + 1;  // oder: zaehler++;
 }
 
-println("Fertig!", Color.green);
+System.out.println("Fertig! Alle " + (zaehler - 1) + " Wiederholungen abgeschlossen.");
 ```
+:::
+
+### Aufbau einer while-Schleife
+
+```java
+while (Bedingung) {
+    // Code, der wiederholt wird
+    // Wichtig: Bedingung muss irgendwann false werden!
+}
+```
+
+:::snippet{#merken}
+
+**Wichtig**: Die Bedingung muss irgendwann `false` werden, sonst läuft die Schleife unendlich!
 
 :::
 
-### Erklärung der einzelnen Anweisungen
+### Praktisches Beispiel: Passwort-Eingabe
 
-```java
-int n = 1;
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java PasswortSchleife.java
+String korrektesPIN = "1234";
+String eingabe = "";
+int versuche = 0;
+
+while (!eingabe.equals(korrektesPIN)) {
+    versuche++;
+    eingabe = Input.readText("Versuch " + versuche + " - Gib das Passwort ein:");
+    
+    if (eingabe.equals(korrektesPIN)) {
+        System.out.println("✓ Korrekt! Du warst beim " + versuche + ". Versuch erfolgreich.");
+    } else {
+        System.out.println("✗ Falsch! Versuche es nochmal.");
+    }
+    
+    if (versuche >= 3 && !eingabe.equals(korrektesPIN)) {
+        System.out.println("Zu viele Versuche! Zugang gesperrt.");
+        break;  // Schleife verlassen
+    }
+}
 ```
+:::
 
-Die Variable n benutzen wir, um zu zählen, wie oft wir schon wiederholt haben. n == 1 bedeutet, dass wir im 1. Wiederholungsdurchgang sind.
+## Die for-Schleife
+
+Die :t[zählergesteuerte-schleife]{#zaehlergesteuerte-schleife} (for-loop) ist perfekt, wenn du weißt, wie oft etwas wiederholt werden soll.
+
+### Aufbau einer for-Schleife
 
 ```java
-while(n <= 10){
-   println("Hallo Welt!");
-   n = n + 1;
+for (Initialisierung; Bedingung; Aktualisierung) {
+    // Code, der wiederholt wird
 }
 ```
 
-Die Anweisung while(n < = 10) bedeutet: Wiederhole die Anweisungen zwischen den nachfolgenden {}, solange n kleiner oder gleich 10 ist. Damit die Anweisungen nicht unendlich oft wiederholt werden, müssen wir dafür sorgen, dass die Aussage n < = 10 irgendwann nicht mehr zutrifft. Deshalb erhöhen wir am Ende der des wiederholten Blocks n um 1, indem wir schreiben: n = n + 1;.
+### Vergleich: while vs. for
 
-```java
-println("Fertig!", Color.green);
-```
-
-Sobald die Bedingung hinter while nicht mehr zutrifft, werden die Anweisungen in {} übersprungen und der Computer fährt mit den Anweisungen fort, die hinter den {} stehen. In diesem Fall gibt er "Fertig!" aus.
-
-## :t[Zählergesteuerte-Schleife]{#zaehlergesteuerte-schleife} (for-loop)
-
-Die while-loop hat zwei große Nachteile:
-
-- Zum bloßen Zählen ist sie sehr umständlich, da insgesamt drei Zeilen benötigt werden:
-
-```java
-int i = 0;         // Deklaration der Zählvariable
-while(i <= 10){    // Bedingung
-   // Anweisungen
-   i++;            // Erhöhung der Zählvariable
-}
-```
-
-- Oft stehen zwischen der Deklaration der Zählvariable und der Bedingung sowie zwischen der Bedingung und der Erhöhung der Zählvariable sehr viele Anweisungen und es ist schwer, "auf einen Blick" zu erfassen, wie oft wiederholt wird und welche Werte die Zählvariable bei jedem Wiederholungsschritt annimmt.
-
-Für alle Anwendungsfälle, in denen auf irgendeine Art und Weise gezählt wird, verwendet man daher üblicherweise eine Kurzschreibweise der while-loop, die for-loop. Hier eine Gegenüberstellung der beiden. Beide Programme sind gleichwertig:
-
-```java
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java WhileVsFor.java
+// Mit while-Schleife:
+System.out.println("Mit while-Schleife:");
 int i = 1;
-while(i <= 10) {
-  i++;
+while (i <= 5) {
+    System.out.println("Durchgang " + i);
+    i++;
+}
+
+System.out.println();
+
+// Mit for-Schleife (kompakter):
+System.out.println("Mit for-Schleife:");
+for (int j = 1; j <= 5; j++) {
+    System.out.println("Durchgang " + j);
 }
 ```
+:::
 
-```java
-for(int i = 1; i <= 10; i++) {
+### Praktische for-Schleifen-Beispiele
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java ForBeispiele.java
+// 1. Countdown
+System.out.println("Countdown:");
+for (int i = 10; i >= 1; i--) {
+    System.out.println(i);
 }
-```
+System.out.println("Start! 🚀");
 
-Wir schreiben den Text "Hallo Welt!" 10-mal untereinander in die Ausgabe. Mit der Variablen i zählen wir dabei, wie oft wir ihn schon ausgegeben haben.
+System.out.println();
 
-:::onlineide
+// 2. Nur gerade Zahlen
+System.out.println("Gerade Zahlen von 2 bis 20:");
+for (int i = 2; i <= 20; i = i + 2) {
+    System.out.println(i);
+}
 
-```java Wiederholung3.java
+System.out.println();
+
+// 3. Multiplikationstabelle
+int zahl = 7;
+System.out.println("Multiplikationstabelle für " + zahl + ":");
 for (int i = 1; i <= 10; i++) {
-   println("Hallo Welt (zum " + i + "-ten Mal)!");
+    System.out.println(zahl + " × " + i + " = " + (zahl * i));
 }
-println("Fertig!", Color.lightgreen);
 ```
+:::
+
+## Verschachtelte Schleifen
+
+Du kannst Schleifen ineinander verwenden - das nennt man "verschachteln":
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java VerschachtelteSchleifen.java
+// Multiplikationstabelle von 1 bis 5
+System.out.println("Kleine Multiplikationstabelle:");
+for (int zeile = 1; zeile <= 5; zeile++) {
+    for (int spalte = 1; spalte <= 5; spalte++) {
+        int ergebnis = zeile * spalte;
+        System.out.print(ergebnis + "\t");  // \t = Tabulator
+    }
+    System.out.println();  // Neue Zeile
+}
+
+System.out.println();
+
+// Sterne-Dreieck
+System.out.println("Sterne-Dreieck:");
+for (int zeile = 1; zeile <= 5; zeile++) {
+    for (int stern = 1; stern <= zeile; stern++) {
+        System.out.print("★");
+    }
+    System.out.println();
+}
+```
+:::
+
+## Nützliche Schleifenmuster
+
+### Summen berechnen
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java Summenberechnung.java
+// Summe der Zahlen von 1 bis 100
+int summe = 0;
+for (int i = 1; i <= 100; i++) {
+    summe = summe + i;
+}
+System.out.println("Summe von 1 bis 100: " + summe);
+
+// Summe der geraden Zahlen von 2 bis 50
+int geradeZahlenSumme = 0;
+for (int i = 2; i <= 50; i = i + 2) {
+    geradeZahlenSumme += i;
+}
+System.out.println("Summe der geraden Zahlen von 2 bis 50: " + geradeZahlenSumme);
+
+// Fakultät berechnen (5! = 5 × 4 × 3 × 2 × 1)
+int n = 5;
+int fakultaet = 1;
+for (int i = 1; i <= n; i++) {
+    fakultaet = fakultaet * i;
+}
+System.out.println(n + "! = " + fakultaet);
+```
+:::
+
+### Maximum/Minimum finden
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java MaxMinFinden.java
+int anzahlZahlen = 5;
+int maximum = Integer.MIN_VALUE;  // Kleinstmöglicher int-Wert
+int minimum = Integer.MAX_VALUE;  // Größtmöglicher int-Wert
+
+System.out.println("Gib " + anzahlZahlen + " Zahlen ein:");
+
+for (int i = 1; i <= anzahlZahlen; i++) {
+    int zahl = Input.readInt("Zahl " + i + ":");
+    
+    if (zahl > maximum) {
+        maximum = zahl;
+    }
+    
+    if (zahl < minimum) {
+        minimum = zahl;
+    }
+}
+
+System.out.println("Maximum: " + maximum);
+System.out.println("Minimum: " + minimum);
+```
+:::
+
+## Besondere Schleifenbefehle
+
+### break - Schleife vorzeitig verlassen
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java BreakBeispiel.java
+// Zahlenraten-Spiel
+int geheimeZahl = 42;
+int maxVersuche = 5;
+
+for (int versuch = 1; versuch <= maxVersuche; versuch++) {
+    int tipp = Input.readInt("Versuch " + versuch + " - Rate die Zahl (1-100):");
+    
+    if (tipp == geheimeZahl) {
+        System.out.println("🎉 Richtig! Du hast die Zahl in " + versuch + " Versuchen erraten!");
+        break;  // Schleife verlassen
+    } else if (tipp < geheimeZahl) {
+        System.out.println("Zu klein!");
+    } else {
+        System.out.println("Zu groß!");
+    }
+    
+    if (versuch == maxVersuche) {
+        System.out.println("💀 Leider verloren! Die Zahl war " + geheimeZahl);
+    }
+}
+```
+:::
+
+### continue - Aktuellen Durchlauf überspringen
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java ContinueBeispiel.java
+// Nur ungerade Zahlen ausgeben
+System.out.println("Ungerade Zahlen von 1 bis 20:");
+for (int i = 1; i <= 20; i++) {
+    if (i % 2 == 0) {  // Wenn gerade
+        continue;  // Überspringe den Rest und gehe zum nächsten Durchlauf
+    }
+    System.out.println(i);
+}
+```
+:::
+
+## Übung: Primzahlen finden
+
+:::snippet{#aufgabe}
+
+Eine Primzahl ist eine Zahl, die nur durch 1 und sich selbst teilbar ist.
+Schreibe ein Programm, das prüft, ob eine eingegebene Zahl eine Primzahl ist.
+
+**Tipp**: Prüfe, ob die Zahl durch irgendetwas zwischen 2 und der Zahl-1 teilbar ist.
 
 :::
 
-## Test-dich-Projekt 1
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java Primzahlentest.java
+int zahl = Input.readInt("Gib eine Zahl ein:");
 
-### Aufgabenstellung
-
-Schreibe ein Programm, das mit einer for-Schleife die Summe der Zahlen von 3 bis 27 berechnet und das Ergebnis in der Konsole ausgibt.
-
-
-:::onlineide
-
-```java ProjektWiederholung.java
+// Deine Lösung hier:
+// Verwende eine Schleife, um zu prüfen, ob die Zahl teilbar ist
 
 ```
+:::
 
+:::collapsible{title="Lösung" id="primzahl_lösung"}
+```java
+boolean istPrimzahl = true;
+
+if (zahl <= 1) {
+    istPrimzahl = false;
+} else {
+    for (int i = 2; i < zahl; i++) {
+        if (zahl % i == 0) {
+            istPrimzahl = false;
+            break;
+        }
+    }
+}
+
+if (istPrimzahl) {
+    System.out.println(zahl + " ist eine Primzahl");
+} else {
+    System.out.println(zahl + " ist keine Primzahl");
+}
+```
+:::
+
+## Teste-Dich-Projekt 1: Zahlen-Pyramide
+
+:::snippet{#aufgabe}
+
+Erstelle ein Programm, das eine Zahlen-Pyramide ausgibt:
+```
+1
+12
+123
+1234
+12345
+```
+
+Die Höhe der Pyramide soll vom Benutzer eingegeben werden.
+
+:::
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java ZahlenPyramide.java
+int hoehe = Input.readInt("Wie hoch soll die Pyramide sein?");
+
+// Deine Lösung hier:
+
+```
 :::
 
 ### Testfälle
+- Höhe 3: 
+  ```
+  1
+  12
+  123
+  ```
+- Höhe 5: Wie oben gezeigt
 
-- Das Ergebnis der Summe von 3 bis 27 ist 375.
-- Das Ergebnis der Summe von 1 bis 100 ist 5050.
+## Teste-Dich-Projekt 2: Domino-Steine
 
-:::collapsible{title="Tipp" id="542052"}
+:::snippet{#aufgabe}
 
-- Deklariere und initialisiere zunächst die Variable, die die Summe beinhalten soll. 
-- Gehe die Zahlen von 3 bis 27 nacheinander durch. 
-- Addiere zur Summenvariable die aktuelle Zählerzahl.
+Gib alle Dominosteine ohne Dopplungen aus. Domino-Steine haben zwei Seiten mit Zahlen von 0 bis 6.
 
-:::
-
-## Test-dich-Projekt 2
-
-### Aufgabenstellung
-
-Gebe die for-Schleifen an, mit wir denen alle Dominosteine ohne Dopplungen in der Konsole ausgeben können. Zur Erinnerung sind im Testfälle-Abschnitt alle Dominosteine angegeben, und dein Programm soll genau diese Ausgabe in der Konsole erzeugen.
-
-:::onlineide
-
-```java ProjektWiederholung2.java
-
-```
-
-:::
-
-### Testfälle
-
+**Ausgabe soll so aussehen**:
 ```
 (0|0)(0|1)(0|2)(0|3)(0|4)(0|5)(0|6) 
      (1|1)(1|2)(1|3)(1|4)(1|5)(1|6) 
@@ -169,10 +385,41 @@ Gebe die for-Schleifen an, mit wir denen alle Dominosteine ohne Dopplungen in de
                               (6|6)
 ```
 
-:::collapsible{title="Tipps" id="394097"}
+:::
 
-- Mit jeder Zeile verringert sich die Anzahl der ausgegebenen Dominosteine um eins. Auch die Startzahl wird um eins erhöht.
-- Zur Umsetzung könntest du zwei Schleifen ineinander verschachteln. Die Start- und Endzahlen kannst du von den Ziffern auf den Dominosteinen ableiten.
-- Erzeuge zunächst die Leerzeichen und gebe dann die Dominosteine in der Zeile aus. Ist die Zeile fertig, kannst du einen Zeilenumbruch erzeugen
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java DominoSteine.java
+// Deine Lösung hier:
+// Tipp: Verwende verschachtelte for-Schleifen
+// Die äußere Schleife geht von 0 bis 6 (erste Zahl)
+// Die innere Schleife geht von der ersten Zahl bis 6 (zweite Zahl)
+
+```
+:::
+
+:::collapsible{title="Lösung" id="domino_lösung"}
+```java
+for (int erste = 0; erste <= 6; erste++) {
+    // Leerzeichen für die Einrückung
+    for (int leer = 0; leer < erste; leer++) {
+        System.out.print("     ");
+    }
+    
+    // Dominosteine der aktuellen Zeile
+    for (int zweite = erste; zweite <= 6; zweite++) {
+        System.out.print("(" + erste + "|" + zweite + ")");
+    }
+    
+    System.out.println();  // Neue Zeile
+}
+```
+:::
+
+:::snippet{#brain}
+
+**Erweiterte Aufgaben**:
+- Erstelle ein Programm, das das kleine 1×1 (Multiplikationstabelle bis 10×10) übersichtlich ausgibt
+- Programmiere ein Muster aus Sternen, das ein Herz ♥ darstellt
+- Erstelle einen ASCII-Art-Generator, der Text in großen Buchstaben ausgibt
 
 :::
