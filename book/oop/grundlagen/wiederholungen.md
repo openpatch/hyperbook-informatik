@@ -424,11 +424,11 @@ for (int erste = 0; erste <= 6; erste++) {
 - Programmiere ein Muster aus Sternen, das ein Herz ♥ darstellt
 - Erstelle einen ASCII-Art-Generator, der Text in großen Buchstaben ausgibt
 
+:::
+
 :::onlineide{url="https://nrw.onlineide.openpatch.org"}
 ```java ExpertenAufgaben.java
 // Hier kannst du die erweiterten Aufgaben bearbeiten
 
 ```
-:::
-
 :::
