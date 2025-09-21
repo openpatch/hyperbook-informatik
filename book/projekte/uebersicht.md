@@ -5,6 +5,12 @@ lang: de
 
 # Übersicht
 
+## Programmierung mit Scratch
+
+Das sind Pr
+
+::pagelist{source="keyword(scratch)"}
+
 ## Programmierung mit Java (Level 0)
 
 Das sind Projekte, die sich an Anfänger:innen richten. Hier wird die Programmiersprache Java und die objektorientierte Programmierung erlernt.
