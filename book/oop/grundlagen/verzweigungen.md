@@ -6,142 +6,357 @@ index: 3
 
 # Verzweigungen
 
-In Java können wir auf zwei Arten unseren Programmablauf verzweigen. Einmal mit der bedingten Anweisung und einmal mit der Fallunterscheidung.
+Verzweigungen ermöglichen es deinem Programm, Entscheidungen zu treffen! Je nach Bedingung wird ein anderer Programmteil ausgeführt.
 
-## Bedingte Anweisung
+:::snippet{#beispiel}
 
-Oft soll ein bestimmter Programmteil nur ausgeführt werden, wenn eine Bedingung erfüllt ist, z.B.
+**Alltags-Beispiel**: 
+Wenn es regnet, nehme ich einen Regenschirm mit. Wenn es nicht regnet, gehe ich ohne Regenschirm.
 
-- Wenn ein Felsen das Raumschiff trifft, soll ein Leben abgezogen werden.
-- Wenn die Anzahl der Leben auf 0 sinkt, ist das Spiel beendet.
-- …
-
-Für diese Zwecke gibt es die if-Anweisung.
-
-### Beispiel 1: PIN-Eingabe
-
-Der Benutzer gibt eine PIN ein. Das Programm prüft, ob die PIN korrekt ist (1372) und gibt in diesem Fall "PIN korrekt!" aus. Hier die Ausgaben zweier Programmläufe: 
-
-> Geben Sie bitte Ihre PIN ein: 1221 
->
-> Programmende.
-
-> Geben Sie bitte Ihre PIN ein: 1372
->
-> Die PIN ist korrekt!
->
-> Programmende.
-
-:::alert{info}
-**Benutzereingaben**
-
-Die Anweisung `int pinEingabe = Input.readInt("Bitte geben Sie die PIN ein:");` nimmt vom Benutzer eine Zahl entgegen und legt sie in der Variable pe ab.
-
-**Detailinfo**
-
-`readInt` ist eine statische Methode der Klasse Input. Mehr zu Klassen und statischen Methoden später! 
-:::
-
-:::onlineide{id="578827"}
-
-```java Beispiel.java
-
-int pinEingabe = Input.readInt("Geben Sie bitte Ihre PIN ein:");
-
-if (pinEingabe == 1372) {
-    System.out.println("Die PIN ist korrekt");
-}
-System.out.println("Programmende.");
-```
+In der Programmierung können wir solche Entscheidungen mit `if`-Anweisungen umsetzen.
 
 :::
 
+In Java gibt es zwei Hauptarten von Verzweigungen:
+1. **Bedingte Anweisung** (`if`, `else`)
+2. **Fallunterscheidung** (`switch`)
 
-Mit dem Schlüsselwort if weist man den Computer an, etwas nur dann zu tun, wenn eine bestimmte Bedingung erfüllt ist.
+## Die if-Anweisung
+
+Die `if`-Anweisung führt Code nur aus, wenn eine Bedingung erfüllt ist.
+
+### Grundform
 
 ```java
-if(Bedingung){
-   Anweisungen
+if (Bedingung) {
+    // Code, der ausgeführt wird, wenn die Bedingung wahr ist
 }
 ```
 
-Der Computer führt die Anweisungen nur dann aus, wenn die Bedingung zutrifft (genauer: wenn der Term Bedingung den Wert true hat).
+### Beispiel 1: Einfache Bedingung
 
-#### Aufgabe 1
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java EinfachesBedingung.java
+int alter = 16;
 
-Erweitere das Programm, sodass es dem Benutzer drei Eingabeversuche zugesteht und jeweils ausgibt, wie viele Versuche er noch hat. Zwei mögliche Programmabläufe sehen also so aus: 
-
-> Noch 3 Versuche
->
-> Sie haben eingegeben: 5654
->
-> falsche PIN!
->
-> Noch 2 Versuche
->
-> Sie haben eingegeben: 4432
->
-> falsche PIN!
->
-> Noch 1 Versuche
->
-> Sie haben eingegeben: 8983
->
-> falsche PIN!
->
-> Programmende.
-
-> Noch 3 Versuche
->
-> Sie haben eingegeben: 2674
->
-> falsche PIN!
->
-> Noch 2 Versuche
->
-> Sie haben eingegeben: 1372
->
-> Die PIN ist korrekt!
->
-> Programmende.
-
-[Link zur Lösung](https://onlineide.openpatch.org/#json=CSgolLwHeJjDFwl80Oou-)
-
-
-### Beispiel 2: Teilbarkeit
-
-Ob eine Zahl durch 2, 3, 4, 5 oder 9 teilbar ist, lässt sich durch einfache Teilbarkeitsregeln leicht ermitteln. Aber ist beispielsweise 534 durch 17 teilbar? Wir entwickeln ein kleines Programm, das uns hilft, das herauszufinden. 
-
-:::alert{info}
-**Der Modulo-Operator**
-
-Der Modulo-Operator (mod) ermittelt den Rest einer Division. Es ist beispielsweise $11 \mod 4=3$, weil 11 beim Teilen durch 4 den Rest 3 lässt $(11=4⋅2+3)$. In Java wird für den Modulo-Operator das Prozentzeichen '%' verwendet. Wenn wir also prüfen wollen, ob der Wert der Variable 'z' durch 17 teilbar ist (also beim Teilen durch 17 den Rest 0 lässt), schreiben wir:
-
-```java
-if(z % 17 == 0){
-   println("Die Zahl ist in der Tat durch 17 teilbar!");
+if (alter >= 18) {
+    System.out.println("Du bist volljährig!");
 }
-```
 
-Bemerkung: Du erinnerst Dich sicher an den Vergleichsoperator '==' (nicht zu verwechseln mit dem Zuweisungsoperator '='). 
+if (alter < 18) {
+    System.out.println("Du bist noch minderjährig.");
+}
+
+System.out.println("Programm beendet.");
+```
 :::
 
-:::onlineide{id="869273"}
+**Aufgabe**: Ändere das Alter auf verschiedene Werte und beobachte die Ausgabe!
 
-```java Beispiel.java
-int z = Input.readInt("Bitte geben Sie eine ganze Zahl ein:");
+### if-else: Zwei Möglichkeiten
 
-if(z % 17 == 0) {
-   println("Die Zahl " + z + " ist durch 17 teilbar.");
+Mit `else` können wir festlegen, was passiert, wenn die Bedingung NICHT erfüllt ist:
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java IfElse.java
+int punkte = 85;
+
+if (punkte >= 50) {
+    System.out.println("Bestanden! Du hast " + punkte + " Punkte erreicht.");
 } else {
-   println("Die Zahl " + z + " ist NICHT durch 17 teilbar.");
+    System.out.println("Leider nicht bestanden. Du hast nur " + punkte + " Punkte.");
+}
+
+// Beispiel 2: Wetter-Entscheidung
+boolean regnet = true;
+
+if (regnet) {
+    System.out.println("Ich nehme einen Regenschirm mit.");
+} else {
+    System.out.println("Ich gehe ohne Regenschirm.");
 }
 ```
+:::
+
+### if-else if-else: Mehrere Möglichkeiten
+
+Für komplexere Entscheidungen können wir mehrere Bedingungen verknüpfen:
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java NotenSystem.java
+int punkte = Input.readInt("Wie viele Punkte hast du erreicht?");
+
+if (punkte >= 90) {
+    System.out.println("Note: Sehr gut (1)");
+} else if (punkte >= 80) {
+    System.out.println("Note: Gut (2)"); 
+} else if (punkte >= 70) {
+    System.out.println("Note: Befriedigend (3)");
+} else if (punkte >= 60) {
+    System.out.println("Note: Ausreichend (4)");
+} else if (punkte >= 50) {
+    System.out.println("Note: Mangelhaft (5)");
+} else {
+    System.out.println("Note: Ungenügend (6)");
+}
+```
+:::
+
+## Vergleichsoperatoren
+
+Für Bedingungen brauchst du Vergleichsoperatoren:
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java Vergleichsoperatoren.java
+int a = 5;
+int b = 3;
+
+System.out.println("a == b: " + (a == b));  // gleich
+System.out.println("a != b: " + (a != b));  // ungleich
+System.out.println("a > b: " + (a > b));    // größer
+System.out.println("a < b: " + (a < b));    // kleiner
+System.out.println("a >= b: " + (a >= b));  // größer oder gleich
+System.out.println("a <= b: " + (a <= b));  // kleiner oder gleich
+
+// String-Vergleiche (WICHTIG!)
+String name1 = "Anna";
+String name2 = "Anna";
+String name3 = "ANNA";
+
+System.out.println("name1.equals(name2): " + name1.equals(name2));
+System.out.println("name1.equals(name3): " + name1.equals(name3));
+System.out.println("name1.equalsIgnoreCase(name3): " + name1.equalsIgnoreCase(name3));
+```
+:::
+
+:::snippet{#merken}
+
+**Wichtig**: 
+- Für Zahlen: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Für Strings: Immer `.equals()` verwenden, nie `==`!
 
 :::
 
-#### Aufgabe 2
+## Logische Operatoren
 
-Erweitere das Programm oben so, dass es prüft, ob die eingegebene Zahl durch 2, 3, 4, …, 10 teilbar ist und entsprechende Meldungen ausgibt. 
+Du kannst mehrere Bedingungen miteinander verknüpfen:
 
-[Link zur Lösung](https://onlineide.openpatch.org/#json=4rP6mWq1iNn-xlFJNwP7k)
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java LogischeOperatoren.java
+int alter = 16;
+boolean hatFührerschein = false;
+boolean istMüde = false;
+
+// UND-Verknüpfung (&&): Beide Bedingungen müssen wahr sein
+if (alter >= 18 && hatFührerschein) {
+    System.out.println("Du darfst Auto fahren!");
+} else {
+    System.out.println("Du darfst noch nicht Auto fahren.");
+}
+
+// ODER-Verknüpfung (||): Eine Bedingung muss wahr sein
+if (alter < 18 || istMüde) {
+    System.out.println("Du solltest nicht fahren.");
+} else {
+    System.out.println("Du kannst fahren.");
+}
+
+// NICHT-Operator (!): Kehrt den Wahrheitswert um
+if (!istMüde) {
+    System.out.println("Du bist wach!");
+}
+
+// Komplexe Bedingung
+if ((alter >= 18 && hatFührerschein) && !istMüde) {
+    System.out.println("Alle Bedingungen für's Fahren erfüllt!");
+}
+```
+:::
+
+## Praktisches Beispiel: Login-System
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java LoginSystem.java
+String korrekterBenutzer = "admin";
+String korrektesPIN = "1234";
+
+String benutzer = Input.readText("Benutzername:");
+String pin = Input.readText("PIN:");
+
+if (benutzer.equals(korrekterBenutzer) && pin.equals(korrektesPIN)) {
+    System.out.println("✓ Login erfolgreich! Willkommen, " + benutzer + "!");
+} else if (!benutzer.equals(korrekterBenutzer)) {
+    System.out.println("✗ Unbekannter Benutzername!");
+} else if (!pin.equals(korrektesPIN)) {
+    System.out.println("✗ Falsche PIN!");
+} else {
+    System.out.println("✗ Login fehlgeschlagen!");
+}
+```
+:::
+
+## Der Modulo-Operator (%)
+
+Mit dem Modulo-Operator kannst du den Rest einer Division berechnen:
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java ModuloBeispiele.java
+// Prüfung auf gerade/ungerade Zahlen
+int zahl = Input.readInt("Gib eine Zahl ein:");
+
+if (zahl % 2 == 0) {
+    System.out.println(zahl + " ist eine gerade Zahl");
+} else {
+    System.out.println(zahl + " ist eine ungerade Zahl");
+}
+
+// Teilbarkeit prüfen
+int prüfzahl = Input.readInt("Durch welche Zahl soll geteilt werden?");
+
+if (zahl % prüfzahl == 0) {
+    System.out.println(zahl + " ist durch " + prüfzahl + " teilbar");
+} else {
+    System.out.println(zahl + " ist NICHT durch " + prüfzahl + " teilbar");
+    System.out.println("Rest: " + (zahl % prüfzahl));
+}
+```
+:::
+
+## Übung: Schaltjahr berechnen
+
+:::snippet{#aufgabe}
+
+Ein Jahr ist ein Schaltjahr, wenn:
+- Es durch 4 teilbar ist, UND
+- Es NICHT durch 100 teilbar ist, ODER
+- Es durch 400 teilbar ist
+
+Beispiele: 2020 (Schaltjahr), 1900 (kein Schaltjahr), 2000 (Schaltjahr)
+
+:::
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java Schaltjahr.java
+int jahr = Input.readInt("Gib ein Jahr ein:");
+
+// Deine Lösung hier:
+// if (...) {
+//     System.out.println(jahr + " ist ein Schaltjahr");
+// } else {
+//     System.out.println(jahr + " ist kein Schaltjahr");
+// }
+```
+:::
+
+:::collapsible{title="Lösung" id="schaltjahr_lösung"}
+```java
+if ((jahr % 4 == 0 && jahr % 100 != 0) || (jahr % 400 == 0)) {
+    System.out.println(jahr + " ist ein Schaltjahr");
+} else {
+    System.out.println(jahr + " ist kein Schaltjahr");
+}
+```
+:::
+
+## Die switch-Anweisung
+
+Für viele aufeinanderfolgende `if-else if`-Abfragen gibt es eine elegantere Lösung:
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java SwitchBeispiel.java
+int wochentag = Input.readInt("Welcher Wochentag? (1-7):");
+
+switch (wochentag) {
+    case 1:
+        System.out.println("Montag - Wochenstart!");
+        break;
+    case 2:
+        System.out.println("Dienstag - Vollgas!");
+        break;
+    case 3:
+        System.out.println("Mittwoch - Bergfest!");
+        break;
+    case 4:
+        System.out.println("Donnerstag - Fast geschafft!");
+        break;
+    case 5:
+        System.out.println("Freitag - Wochenende naht!");
+        break;
+    case 6:
+    case 7:
+        System.out.println("Wochenende - Hurra!");
+        break;
+    default:
+        System.out.println("Ungültige Eingabe!");
+        break;
+}
+```
+:::
+
+:::snippet{#merken}
+
+**Wichtig bei switch**: 
+- Vergiss nicht das `break;` nach jedem Fall!
+- `default` wird ausgeführt, wenn kein Fall passt
+
+:::
+
+## Teste-Dich-Projekt 1: Taschenrechner
+
+:::snippet{#aufgabe}
+
+Erstelle einen einfachen Taschenrechner, der:
+- Zwei Zahlen einliest
+- Eine Operation (+, -, *, /) einliest
+- Das Ergebnis berechnet und ausgibt
+- Bei Division durch 0 eine Fehlermeldung ausgibt
+
+:::
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java Taschenrechner.java
+double zahl1 = Input.readDouble("Erste Zahl:");
+double zahl2 = Input.readDouble("Zweite Zahl:");
+String operation = Input.readText("Operation (+, -, *, /):");
+
+// Deine Lösung hier:
+
+```
+:::
+
+### Testfälle
+- 10 + 5 = 15
+- 8 - 3 = 5  
+- 4 * 6 = 24
+- 15 / 3 = 5
+- 10 / 0 = Fehlermeldung
+
+## Teste-Dich-Projekt 2: Ampelschaltung
+
+:::snippet{#aufgabe}
+
+Simuliere eine Ampelschaltung:
+- Eingabe: Aktueller Zustand der Ampel ("rot", "gelb", "grün")
+- Ausgabe: Nächster Zustand und was zu tun ist
+
+Ampelreihenfolge: rot → rot-gelb → grün → gelb → rot
+
+:::
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java Ampel.java
+String aktuellerZustand = Input.readText("Aktueller Ampelzustand (rot/gelb/grün):");
+
+// Deine Lösung hier:
+
+```
+:::
+
+:::snippet{#brain}
+
+**Erweiterte Aufgabe**: 
+- Erstelle eine Fußgängerampel, die parallel zur Autoampel läuft
+- Baue einen Timer ein, der automatisch alle 3 Sekunden schaltet
+- Implementiere einen "Anforderungsknopf" für Fußgänger
+
+:::
