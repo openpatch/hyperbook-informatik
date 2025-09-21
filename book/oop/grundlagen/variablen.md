@@ -206,8 +206,8 @@ $$
 int r = 255;
 int g = 100;
 int b = 20;
-int w = Math.max(r,g);
-w = Math.max(w,b);
+double w = Math.max(r / 255.0,g / 255.0);
+w = Math.max(w,b / 255.0);
 
 ```
 
