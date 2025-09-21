@@ -180,8 +180,8 @@ if ((alter >= 18 && hatFührerschein) && !istMüde) {
 String korrekterBenutzer = "admin";
 String korrektesPIN = "1234";
 
-String benutzer = Input.readText("Benutzername:");
-String pin = Input.readText("PIN:");
+String benutzer = Input.readString("Benutzername:");
+String pin = Input.readString("PIN:");
 
 if (benutzer.equals(korrekterBenutzer) && pin.equals(korrektesPIN)) {
     System.out.println("✓ Login erfolgreich! Willkommen, " + benutzer + "!");
@@ -317,7 +317,7 @@ Erstelle einen einfachen Taschenrechner, der:
 ```java Taschenrechner.java
 double zahl1 = Input.readDouble("Erste Zahl:");
 double zahl2 = Input.readDouble("Zweite Zahl:");
-String operation = Input.readText("Operation (+, -, *, /):");
+String operation = Input.readString("Operation (+, -, *, /):");
 
 // Deine Lösung hier:
 
@@ -345,7 +345,7 @@ Ampelreihenfolge: rot → rot-gelb → grün → gelb → rot
 
 :::onlineide{url="https://nrw.onlineide.openpatch.org"}
 ```java Ampel.java
-String aktuellerZustand = Input.readText("Aktueller Ampelzustand (rot/gelb/grün):");
+String aktuellerZustand = Input.readString("Aktueller Ampelzustand (rot/gelb/grün):");
 
 // Deine Lösung hier:
 

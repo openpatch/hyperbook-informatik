@@ -79,7 +79,7 @@ int versuche = 0;
 
 while (!eingabe.equals(korrektesPIN)) {
     versuche++;
-    eingabe = Input.readText("Versuch " + versuche + " - Gib das Passwort ein:");
+    eingabe = Input.readString("Versuch " + versuche + " - Gib das Passwort ein:");
     
     if (eingabe.equals(korrektesPIN)) {
         System.out.println("✓ Korrekt! Du warst beim " + versuche + ". Versuch erfolgreich.");
@@ -415,11 +415,20 @@ for (int erste = 0; erste <= 6; erste++) {
 ```
 :::
 
+## Expertenbereich
+
 :::snippet{#brain}
 
 **Erweiterte Aufgaben**:
 - Erstelle ein Programm, das das kleine 1×1 (Multiplikationstabelle bis 10×10) übersichtlich ausgibt
 - Programmiere ein Muster aus Sternen, das ein Herz ♥ darstellt
 - Erstelle einen ASCII-Art-Generator, der Text in großen Buchstaben ausgibt
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java ExpertenAufgaben.java
+// Hier kannst du die erweiterten Aufgaben bearbeiten
+
+```
+:::
 
 :::
