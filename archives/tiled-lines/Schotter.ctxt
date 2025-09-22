@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Schotter
+comment1.params=
+comment1.target=Schotter()
+comment2.params=keyCode
+comment2.target=void\ whenKeyPressed(int)
+comment3.params=
+comment3.target=void\ run()
+numComments=4
