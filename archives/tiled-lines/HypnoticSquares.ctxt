@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=HypnoticSquares
+comment1.params=
+comment1.target=HypnoticSquares()
+comment2.params=keyCode
+comment2.target=void\ whenKeyPressed(int)
+comment3.params=
+comment3.target=void\ run()
+numComments=4
