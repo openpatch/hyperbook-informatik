@@ -6,154 +6,277 @@ lang: de
 
 # Datentypen
 
-In Java gibt es verschiedene Datentypen, die man Variablen zuweisen kann, um bestimmte Daten der Variablen zuzuweisen. In Java kann man zwischen primitiven Datentypen und Referenzdatentypen unterscheiden.
+In Java gibt es verschiedene Datentypen, die bestimmen, welche Art von Werten eine :t[Variable]{#variable} speichern kann. Man unterscheidet zwischen **primitiven Datentypen** und **Referenzdatentypen**.
 
-Wenn eine :t[Variable]{#variable} von einem primitiven Datentyp ist, dann wird der gewünschte Wert direkt der Variablen zugewiesen.
+:::snippet{#merken}
 
-Wenn eine :t[Variable]{#variable} hingegen von einem Referenzdatentyp ist, dann wird eine Referenz, die auf ein :t[Objekt]{#objekt} vereweist, der Variablen zugewiesen. Erst über das sogenannte Dereferenizieren,
-mit dem Punktoperator, können wir auf das Objekt zugreifen.
+**Wichtiger Unterschied**:
+- **Primitive Datentypen**: Der Wert wird direkt in der Variable gespeichert
+- **Referenzdatentypen**: Die Variable enthält eine Referenz (Verweis) auf ein :t[Objekt]{#objekt}
 
-Das folgende Beispiel zeigt den Unterschied zwischen primitiven Datentypen (hier int) und Referenzdatentypen (hier String).
+:::
 
-:::onlineide{id="623835" height=200 fileList=false}
+Das folgende Beispiel zeigt den Unterschied zwischen primitiven Datentypen (hier int) und Referenzdatentypen (hier String):
 
-```java
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java DatentypenUnterschied.java
 int a = 1;
 String b = "Hallo";
-```
 
+System.out.println("Primitive Variable a: " + a);
+System.out.println("Referenz Variable b: " + b);
+```
 :::
 
 So können wir uns die Zuweisung zu den beiden Variablen visuell vorstellen. Während bei der Variable a direkt der gewünschte Wert steht, verweist der Wert der Variable b auf ein anderes Objekt.
 
 ![](/images/datentypen-arbeitsspeicher.png)
 
-## Referenzdatentypen
-
-Jede :t[Klasse]{#klasse}, die du definierst oder die schon definiert ist, stellt einen Referenzdatentypen dar. Das heißt, dass alle Variablen dieser Datentypen verweisen auf ein Objekt. In Java gibt es unter anderem die vordefinierte Klasse String.
-
-### String
-
-In einer Variable vom Datentyp String kann man beliebige Abfolgen von Zeichen (Buchstaben, Ziffern, Sonderzeichen) speichern. Der wörtlichen englischen Übersetzung entspricht der entsprechende deutsche Fachbegriff Zeichenkette.
-Zeichenketten-Konstanten schreibt man in Gänsefüßchen, also z.B. "Das ist ein Text." oder "3, 2, 1, 0, Liftoff!".
-Strings kann man mit dem Operator + hintereinanderhängen ("konkatenieren"). Der Wert des Terms "Das ist " + "praktisch." ist "Das ist praktisch". 
-
-:::onlineide{id="105544" height=200 fileList=false}
-
-```java Test.java
-String a = "Das stört ";
-String b = "keinen großen Geist.";
-
-String c = a + b;
-System.out.println(c);
-```
-
-:::
-
-
 ## Primitive Datentypen
 
-Im Folgenden werden nun die alle relevanten primitiven Datentypen, die in der Programmiersprache Java zur Verfügung stehen, erklärt.
+Die primitiven Datentypen sind die Grundbausteine für die Datenspeicherung in Java. Hier sind die wichtigsten:
 
-### int
+### int (Ganze Zahlen)
 
-Der Datentyp `int` ist zum Speichern von ganzzahligen Werten (z. B. 1, 2, -4, 20, ...).
+Der Datentyp `int` speichert ganze Zahlen von etwa -2 Milliarden bis +2 Milliarden.
 
-:::onlineide{id="622663" height=200 fileList=false}
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java IntBeispiel.java
+int alter = 16;
+int temperatur = -5;
+int punktzahl = 1250;
 
-```java Int.java
-int a = 1;
-int b = 2;
+System.out.println("Ich bin " + alter + " Jahre alt");
+System.out.println("Es sind " + temperatur + " Grad draußen");
+System.out.println("Du hast " + punktzahl + " Punkte erreicht");
 
-System.out.println("Addieren: " + (a + b));
-System.out.println("Multiplizieren: " + (a * b));
-// Die Division bei Integern ist nur ganzzahlig möglich!
-System.out.println("Dividieren: " + (a / b));
-System.out.println("Subtrahieren: " + (a - b));
-System.out.println("Modulo: " + (a % b));
+// Rechnen mit int
+int a = 10;
+int b = 3;
+System.out.println("Addition: " + (a + b));
+System.out.println("Subtraktion: " + (a - b));
+System.out.println("Multiplikation: " + (a * b));
+System.out.println("Division: " + (a / b));  // Achtung: Ganzzahldivision!
+System.out.println("Modulo (Rest): " + (a % b));
 ```
+:::
+
+:::snippet{#merken}
+
+**Wichtig bei int-Division**: `10 / 3` ergibt `3`, nicht `3.33...`! Der Rest wird abgeschnitten.
 
 :::
 
-### float
+### double (Kommazahlen)
 
-Variablen vom Datentyp float können rationale Zahlen (ggf. näherungsweise!) speichern. Die Bezeichnung dieses Datentyps ist eine Kurzform für "floating point number", auf Deutsch "Fließkommazahl" oder "Gleitkommazahl".
+Der Datentyp `double` speichert Dezimalzahlen mit hoher Genauigkeit.
 
-Führe das folgende Beispielprogramm in Einzelschritten aus und schau' Dir dabei den Inhalt des Reiters "Variablen" auf der rechten Seite an!
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java DoubleBeispiel.java
+double pi = 3.14159;
+double preis = 19.99;
+double geschwindigkeit = 120.5;
 
-:::onlineide{id="892926" height=300 fileList=false}
+System.out.println("Pi ist ungefähr: " + pi);
+System.out.println("Das kostet: " + preis + " Euro");
+System.out.println("Wir fahren " + geschwindigkeit + " km/h");
 
-```java FloatTest.java
-float radius = 1.5;
-float umfang = 2 * 3.14159 * radius;
-float flaecheninhalt = 3.14159 * radius * radius;
+// Rechnen mit double
+double radius = 5.0;
+double flaeche = pi * radius * radius;
+double umfang = 2 * pi * radius;
 
-println("Ein Kreis mit Radius " + radius + " hat den Umfang " + umfang + " und den Flächeninhalt " + flaecheninhalt);
+System.out.println("Kreisfläche: " + flaeche);
+System.out.println("Kreisumfang: " + umfang);
 ```
+:::
+
+#### int vs. double bei Berechnungen
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java IntVsDouble.java
+// Nur int - Ganzzahldivision
+int intA = 7;
+int intB = 2;
+System.out.println("int-Division: " + intA + " / " + intB + " = " + (intA / intB));
+
+// Mit double - normale Division  
+double doubleA = 7.0;
+double doubleB = 2.0;
+System.out.println("double-Division: " + doubleA + " / " + doubleB + " = " + (doubleA / doubleB));
+
+// Gemischt - wird zu double
+System.out.println("Gemischt: " + 7 + " / " + 2.0 + " = " + (7 / 2.0));
+
+// Typumwandlung
+int ganzeZahl = 5;
+double kommaZahl = (double) ganzeZahl;
+System.out.println("Umgewandelt: " + ganzeZahl + " wird zu " + kommaZahl);
+```
+:::
+
+### boolean (Wahrheitswerte)
+
+Variablen vom Typ `boolean` können nur `true` (wahr) oder `false` (falsch) speichern.
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java BooleanBeispiel.java
+boolean istSonnig = true;
+boolean regnet = false;
+boolean istWochenende = true;
+
+System.out.println("Ist es sonnig? " + istSonnig);
+System.out.println("Regnet es? " + regnet);
+
+// Vergleiche ergeben boolean-Werte
+int alter = 16;
+boolean istErwachsen = alter >= 18;
+boolean istSchüler = alter < 18;
+
+System.out.println("Ist erwachsen? " + istErwachsen);
+System.out.println("Ist Schüler? " + istSchüler);
+
+// Logische Operatoren
+boolean geheBaden = istSonnig && !regnet;  // und + nicht
+boolean bleibeDrinnen = regnet || !istSonnig;  // oder
+
+System.out.println("Gehe baden? " + geheBaden);
+System.out.println("Bleibe drinnen? " + bleibeDrinnen);
+```
+:::
+
+### char (Einzelne Zeichen)
+
+Der Datentyp `char` speichert genau ein Zeichen.
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java CharBeispiel.java
+char note = 'A';
+char erstersuchstabe = 'M';
+char sonderzeichen = '!';
+
+System.out.println("Note: " + note);
+System.out.println("Erster Buchstabe: " + erstersuchstabe);
+System.out.println("Sonderzeichen: " + sonderzeichen);
+
+// char aus String extrahieren
+String name = "Max";
+char erstesZeichen = name.charAt(0);
+char letztesZeichen = name.charAt(name.length() - 1);
+
+System.out.println("Erstes Zeichen von " + name + ": " + erstesZeichen);
+System.out.println("Letztes Zeichen von " + name + ": " + letztesZeichen);
+```
+:::
+
+## Referenzdatentypen
+
+### String (Zeichenketten)
+
+Jede :t[Klasse]{#klasse} stellt einen Referenzdatentyp dar. Die wichtigste vordefinierte Klasse ist `String`.
+
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java StringBeispiel.java
+String vorname = "Anna";
+String nachname = "Müller";
+String vollername = vorname + " " + nachname;
+
+System.out.println("Vollständiger Name: " + vollername);
+
+// Nützliche String-Methoden
+System.out.println("Länge: " + vollername.length());
+System.out.println("Großbuchstaben: " + vollername.toUpperCase());
+System.out.println("Kleinbuchstaben: " + vollername.toLowerCase());
+System.out.println("Enthält 'Anna': " + vollername.contains("Anna"));
+
+// String-Vergleich (WICHTIG!)
+String passwort1 = "geheim123";
+String passwort2 = "geheim123";
+String passwort3 = "GEHEIM123";
+
+System.out.println("Passwörter gleich? " + passwort1.equals(passwort2));
+System.out.println("Passwörter gleich (ignoriere Groß/Klein)? " + passwort1.equalsIgnoreCase(passwort3));
+```
+:::
+
+:::snippet{#merken}
+
+**Wichtig**: Verwende bei Strings IMMER `.equals()` für Vergleiche, niemals `==`!
 
 :::
 
-### double
+## Übung: Datentypen erkennen
 
-Variablen vom Datentyp double können - ähnlich wie float-Variablen - rationale Zahlen (näherungsweise) speichern, verwenden dazu jeweils doppelt so viel Speicherplatz (64 Bit je Wert) und sind daher doppelt genau. → Daher auch der Name ;-).
+:::snippet{#aufgabe}
 
-Ein double-Wert besitzt ca. 14 gültige Ziffern.
+Welcher Datentyp ist für folgende Werte am besten geeignet?
 
-Ein einfaches Beispiel:
-
-Ein Kapital von 1000 € wird jährlich mit 3 % verzinst. Wie viel Geld ist nach 0, 1, 2, … Jahren auf dem Konto?
-
-:::onlineide{id="995525" height=300 fileList=false}
-
-```java Test.java
-double kapital = 1000;
-double zinssatzInProzent = 3;
-
-for (int i = 0; i < 6; i++) {
-   println("Kapital nach " + i + " Jahren: " + kapital);
-   kapital = kapital + kapital * zinssatzInProzent / 100;
-}
-```
+1. Das Alter einer Person
+2. Der Preis eines Produkts
+3. Ob jemand verheiratet ist
+4. Der erste Buchstabe des Nachnamens
+5. Die Adresse einer Person
+6. Die Anzahl der Tage im Jahr
+7. Die Körpergröße in Metern
 
 :::
 
-### char
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java DatentypenÜbung.java
+// Erstelle für jeden Wert oben eine passende Variable
+// Beispiel für das Alter:
+int alter = 25;
 
-In einer Variable vom Datentyp char kann man genau ein Zeichen (Buchstabe, Ziffer oder Sonderzeichen) speichern. char ist die Kurzform von character (Zeichen).
-Zeichen-Konstanten schreibt man in einfachen Anführungszeichen also z.B. char c = 'T'. 
+// Deine Lösungen hier:
 
-:::alert{info}
-Die Methode charAt der Klasse String gibt einen Wert vom Datentyp char zurück.
+```
 :::
 
-:::onlineide{id="490934" height=200 fileList=false}
-
-```java Test.java
-String text = "Das ist ein Text";
-char zeichen = 'T';
-if(text.charAt(12) == 'T') {
-   println("Das 12. Zeichen des Textes ist ein T.");
-}
+:::collapsible{title="Lösung" id="datentypen_lösung"}
+```java
+int alter = 25;                    // 1. Ganze Zahl
+double preis = 19.99;              // 2. Kommazahl
+boolean verheiratet = false;        // 3. Wahrheitswert
+char ersterbuchstabe = 'M';        // 4. Einzelnes Zeichen
+String adresse = "Musterstraße 1"; // 5. Text
+int tageImJahr = 365;              // 6. Ganze Zahl
+double groesse = 1.75;             // 7. Kommazahl
 ```
+:::
+
+## Teste-Dich-Projekt: Persönliche Daten
+
+:::snippet{#aufgabe}
+
+Erstelle ein Programm, das verschiedene persönliche Daten speichert und ausgibt:
+- Name (String)
+- Alter (int)
+- Größe in Metern (double)
+- Ist Schüler (boolean)
+- Lieblings-Netzzeichen (char)
+
+Das Programm soll diese Daten schön formatiert ausgeben und zusätzlich berechnen:
+- Wie alt die Person in 10 Jahren sein wird
+- Ob die Person erwachsen ist (>= 18)
 
 :::
 
-### boolean
+:::onlineide{url="https://nrw.onlineide.openpatch.org"}
+```java PersönlicheDaten.java
+// Deine Lösung hier
 
-Variablen vom Datentyp boolean können nur zwei verschiedene Werte speichern: true oder false. Man nennt sie auch Wahrheitswerte.
-
-Wahrheitswerte können mit den Operatoren && (und) und || (oder) verknüft werden. Mit dem vorangestellten Operator ! (nicht) erhält man das "Gegenteil" des Wahrheitswertes. 
-
-:::onlineide{id="810483" height=200 fileList=false}
-
-```java Test.java
-boolean b1 = 3 < 5;
-System.out.println(b1);
-boolean b2 = 7 > 12;
-System.out.println(b2);
-System.out.println(b1 || b2);
-System.out.println(b1 && b2);
-System.out.println(!b1);
 ```
+:::
+
+### Testfälle
+- Name: "Lisa Schmidt", Alter: 16, Größe: 1.65, Schüler: true, Zeichen: '♥'
+- Erwartete Ausgabe: Aktuelle Daten + "In 10 Jahren bist du 26 Jahre alt" + "Du bist noch nicht erwachsen"
+
+:::snippet{#brain}
+
+**Erweitere das Programm**:
+- Berechne das Geburtsjahr (aktuelles Jahr - Alter)
+- Zeige an, in wie vielen Jahren die Person erwachsen wird (falls noch nicht erwachsen)
+- Erstelle einen "Steckbrief" mit allen Informationen schön formatiert
 
 :::
