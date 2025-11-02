@@ -4,12 +4,17 @@ hide: true
 permaid: mtt
 ---
 
-# Maus- und Tastaturtraining
+#https://unterricht-digital.ch/fit-bit-fuer-bit-2/fit-mit-digitalen-medien/ Maus- und Tastaturtraining
+
+## Computer
+
+- []
 
 ## Maustraining
 
 - [Mausübungen](https://maustraining.zawiw.de/level/0)
 - [Mausgenauigkeit](https://mouseaccuracy.com)
+- [Maus-Diplom](https://unterricht-digital.ch/fit-bit-fuer-bit-2/fit-mit-digitalen-medien/)
 
 ## Tastaturtraining
 
