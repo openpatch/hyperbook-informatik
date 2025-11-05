@@ -13,10 +13,13 @@
   "license": "CC-BY-SA",
   "language": "de",
   "colors": {
-    "brand": "#e6ba56",
+    "brand": "#ba7720",
     "brandDark": "#f2dcaa",
     "brandText": "#f2dcaa"
   },
+  "styles": [
+    "/index.css"
+  ],
   "links": [
     {
       "href": "/glossary",
