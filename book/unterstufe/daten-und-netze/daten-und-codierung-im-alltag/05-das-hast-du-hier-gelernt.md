@@ -28,3 +28,9 @@ Die gesuchten Wörter sind:
 - decodieren
 - Daten
 :::
+
+## Biber-Rätsel zum Thema Codierung
+
+Teste deine Fähighkeiten bei den Biber-Rätseln, die mit dem Thema Codierung zu tun haben. Klicke auf diesen Link:
+
+[Biber-Rätsel: Codierung](https://wettbewerb.informatik-biber.de/quiz/3d6c0dcc830a0acd)
