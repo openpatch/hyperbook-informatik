@@ -1,6 +1,7 @@
 {
   "name": "Informatik",
   "importExport": true,
+  "allowDangerousHtml": true,
   "qrcode": true,
   "search": true,
   "version": "0.0.1",
