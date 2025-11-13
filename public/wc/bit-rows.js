@@ -97,8 +97,8 @@ class BitRows extends HTMLElement {
 
         .row-container {
           display: flex;
-          align-items: center;
-          gap: 15px;
+          flex-direction: column;
+          gap: 8px;
           margin-bottom: 10px;
           padding: 10px;
         }
@@ -107,16 +107,21 @@ class BitRows extends HTMLElement {
           display: flex;
           gap: 10px;
           flex: 1;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          min-width: 0;
+          align-items: center;
         }
 
         .bit {
-          width: 60px;
-          height: 60px;
+          flex: 1 1 0;
+          aspect-ratio: 1 / 1;
+          max-width: 60px;
+          max-height: 60px;
+          min-width: 30px;
           border-radius: 8px;
           border: none;
           cursor: pointer;
-          font-size: 2.5em;
+          font-size: clamp(1.2em, 2.5vw, 2.5em);
           font-weight: bold;
           display: flex;
           align-items: center;
@@ -154,6 +159,7 @@ class BitRows extends HTMLElement {
           display: flex;
           gap: 8px;
           flex-direction: row;
+          justify-content: center;
         }
 
         .btn {
@@ -234,21 +240,6 @@ class BitRows extends HTMLElement {
           .map(
             (row, rowIndex) => `
           <div class="row-container">
-            <div class="bits">
-              ${row
-                .map(
-                  (bit, bitIndex) => `
-                <button 
-                  class="bit ${bit.flipped ? "flipped" : ""} ${bit.justFlipped ? "flip-animation" : ""}" 
-                  onclick="this.getRootNode().host.flipBit(${rowIndex}, ${bitIndex})"
-                  title="Klicken zum Umschalten"
-                >
-                  ${bit.flipped ? "1" : "0"}
-                </button>
-              `,
-                )
-                .join("")}
-            </div>
             <div class="controls">
               <button 
                 class="btn btn-add" 
@@ -273,6 +264,21 @@ class BitRows extends HTMLElement {
               >
                 ✕
               </button>
+            </div>
+            <div class="bits">
+              ${row
+                .map(
+                  (bit, bitIndex) => `
+                <button 
+                  class="bit ${bit.flipped ? "flipped" : ""} ${bit.justFlipped ? "flip-animation" : ""}" 
+                  onclick="this.getRootNode().host.flipBit(${rowIndex}, ${bitIndex})"
+                  title="Klicken zum Umschalten"
+                >
+                  ${bit.flipped ? "1" : "0"}
+                </button>
+              `,
+                )
+                .join("")}
             </div>
           </div>
         `,

@@ -4,11 +4,11 @@ index: 0
 prev: 
 ---
 
-# Binärdarstellung von Information
-
 :::alert{info}
 Diese Lernstrecke ist eine Abwandlung und Erweiterung der Lernstrecke von [inf-schule.de](https://inf-schule.de/kids/datennetze/binaerdarstellung).
 :::
+
+# Binärdarstellung von Information
 
 ![](./fingers.png)-{width="200px"}
 

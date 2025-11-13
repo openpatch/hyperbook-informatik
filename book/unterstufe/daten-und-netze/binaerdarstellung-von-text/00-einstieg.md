@@ -3,11 +3,11 @@ name: Einstieg
 index: 0
 ---
 
-# Binärdarstellung von Text
-
 :::alert{info}
 Diese Lernstrecke ist eine Abwandlung und Erweiterung der Lernstrecke von [inf-schule.de](https://inf-schule.de/kids/datennetze/text).
 :::
+
+# Binärdarstellung von Text
 
 Damit Texte vom Computer oder Tablet dargestellt werden können, müssen diese zuerst in geeigneter Form auf dem Gerät gespeichert werden. Wie du wahrscheinlich schon weißt, müssen die Informationen dazu binär dargestellt werden, also z.B. mit Hilfe der Zahlen 0 und 1.
 
