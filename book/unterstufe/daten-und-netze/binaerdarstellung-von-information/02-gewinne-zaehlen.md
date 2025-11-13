@@ -3,6 +3,7 @@ name: Gewinne zählen
 index: 2
 scripts:
   - /wc/coin-rows.js
+  - /wc/rock-paper-scissors.js
 ---
 
 # Gewinne zählen
@@ -26,3 +27,5 @@ Du kannst auch die Münzen am Computer benutzen. Klicke oder tippe auf eine Mün
 :::
 
 <coin-rows id="gewinne-zaehlen-reihen"></coin-rows>
+
+<rock-paper-scissors id="gewinne-zaehlen-spiel"></rock-paper-scissors>

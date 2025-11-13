@@ -97,8 +97,8 @@ class CoinRows extends HTMLElement {
 
         .row-container {
           display: flex;
-          align-items: center;
-          gap: 15px;
+          flex-direction: column;
+          gap: 8px;
           margin-bottom: 10px;
           padding: 10px;
         }
@@ -107,16 +107,21 @@ class CoinRows extends HTMLElement {
           display: flex;
           gap: 10px;
           flex: 1;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          min-width: 0;
+          align-items: center;
         }
 
         .coin {
-          width: 60px;
-          height: 60px;
+          flex: 1 1 0;
+          aspect-ratio: 1 / 1;
+          max-width: 60px;
+          max-height: 60px;
+          min-width: 30px;
           border-radius: 50%;
           border: none;
           cursor: pointer;
-          font-size: 2em;
+          font-size: clamp(1em, 2vw, 2em);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -152,6 +157,7 @@ class CoinRows extends HTMLElement {
           display: flex;
           gap: 8px;
           flex-direction: row;
+          justify-content: center;
         }
 
         .btn {
@@ -232,21 +238,6 @@ class CoinRows extends HTMLElement {
           .map(
             (row, rowIndex) => `
           <div class="row-container">
-            <div class="coins">
-              ${row
-                .map(
-                  (coin, coinIndex) => `
-                <button 
-                  class="coin ${coin.flipped ? "flipped" : ""} ${coin.justFlipped ? "flip-animation" : ""}" 
-                  onclick="this.getRootNode().host.flipCoin(${rowIndex}, ${coinIndex})"
-                  title="Klicken zum Umdrehen"
-                >
-                  ${coin.flipped ? "⚪" : "🟡"}
-                </button>
-              `,
-                )
-                .join("")}
-            </div>
             <div class="controls">
               <button 
                 class="btn btn-add" 
@@ -271,6 +262,21 @@ class CoinRows extends HTMLElement {
               >
                 ✕
               </button>
+            </div>
+            <div class="coins">
+              ${row
+                .map(
+                  (coin, coinIndex) => `
+                <button 
+                  class="coin ${coin.flipped ? "flipped" : ""} ${coin.justFlipped ? "flip-animation" : ""}" 
+                  onclick="this.getRootNode().host.flipCoin(${rowIndex}, ${coinIndex})"
+                  title="Klicken zum Umdrehen"
+                >
+                  ${coin.flipped ? "⚪" : "🟡"}
+                </button>
+              `,
+                )
+                .join("")}
             </div>
           </div>
         `,

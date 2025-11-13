@@ -5,11 +5,11 @@ lang: de
 prev:
 ---
 
-# Daten und Codierung im Alltag
-
 :::alert{info}
 Diese Lernstrecke ist eine Abwandlung und Erweiterung der Lernstrecke von [inf-schule.de](https://inf-schule.de/kids/datennetze/daten-im-alltag).
 :::
+
+# Daten und Codierung im Alltag
 
 ## Wer versteht denn sowas?
 
