@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Matching Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .instructions {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .instructions h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+    .instructions ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Card Matching Game</h1>
+  
+  <div class="instructions">
+    <h2>How to Play:</h2>
+    <ul>
+      <li><strong>Blue pins</strong> on the left should match with <strong>orange pins</strong> on the right</li>
+      <li><strong>Drag</strong> a blue card onto an orange card to connect them</li>
+      <li>Click on the <strong>connection dot</strong> (middle of the line) to disconnect cards</li>
+      <li>When cards are connected, <strong>dragging one moves both</strong></li>
+      <li>Click <strong>"Check"</strong> to verify your connections</li>
+      <li>Correct connections will <strong>disappear</strong>, incorrect ones stay</li>
+    </ul>
+  </div>
+
+  <card-matching pairs='[
+    {"blue": "text:Dog", "orange": "text:Animal"},
+    {"blue": "text:Rose", "orange": "text:Flower"},
+    {"blue": "text:Paris", "orange": "text:Capital"},
+    {"blue": "text:Python", "orange": "text:Programming Language"},
+    {"blue": "text:Guitar", "orange": "text:Musical Instrument"}
+  ]'></card-matching>
+
+  <h2 style="margin-top: 50px;">Example with Images:</h2>
+  
+  <card-matching pairs='[
+    {"blue": "image:https://via.placeholder.com/150x80/2196F3/FFFFFF?text=Cat", "orange": "text:Mammal"},
+    {"blue": "text:Oak", "orange": "image:https://via.placeholder.com/150x80/FF9800/FFFFFF?text=Tree"},
+    {"blue": "image:https://via.placeholder.com/150x80/2196F3/FFFFFF?text=Sun", "orange": "image:https://via.placeholder.com/150x80/FF9800/FFFFFF?text=Star"}
+  ]'></card-matching>
+
+  <script src="card-matching.js"></script>
+</body>
+</html>
