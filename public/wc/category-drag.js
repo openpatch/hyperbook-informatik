@@ -6,12 +6,15 @@ class CategoryDrag extends HTMLElement {
     this.categories = [];
     this.placements = {};
     this.checked = false;
+    this.touchDraggedItem = null;
+    this.touchDraggedElement = null;
   }
 
   async connectedCallback() {
     await this.loadState();
     this.initializeGame();
     this.render();
+    this.setupTouchHandlers();
   }
 
   async loadState() {
@@ -113,23 +116,7 @@ class CategoryDrag extends HTMLElement {
     dropZone.classList.remove("drag-over");
 
     const itemId = e.dataTransfer.getData("text/plain");
-
-    // Remove item from any previous placement
-    Object.keys(this.placements).forEach((catId) => {
-      this.placements[catId] = this.placements[catId].filter(
-        (id) => id !== itemId,
-      );
-    });
-
-    // Add to new category
-    if (!this.placements[categoryId]) {
-      this.placements[categoryId] = [];
-    }
-    this.placements[categoryId].push(itemId);
-
-    this.checked = false;
-    this.saveState();
-    this.render();
+    this.moveItemToCategory(itemId, categoryId);
   }
 
   handleCheck() {
@@ -159,6 +146,89 @@ class CategoryDrag extends HTMLElement {
     return this.items.filter((item) => !placedIds.includes(item.id));
   }
 
+  setupTouchHandlers() {
+    const container = this.shadowRoot.querySelector('.container');
+    if (!container) return;
+
+    container.addEventListener('touchstart', (e) => {
+      const item = e.target.closest('.item');
+      if (!item) return;
+
+      this.touchDraggedItem = item.dataset?.itemId || item.getAttribute('data-item-id');
+      this.touchDraggedElement = item;
+      item.style.opacity = '0.5';
+      e.preventDefault();
+    }, { passive: false });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!this.touchDraggedItem || !this.touchDraggedElement) return;
+      
+      e.preventDefault();
+      const touch = e.touches[0];
+      const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+      
+      // Remove all drag-over classes
+      this.shadowRoot.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.classList.remove('drag-over');
+      });
+      
+      // Add drag-over class to current drop zone
+      if (elementBelow) {
+        const dropZone = elementBelow.closest('.drop-zone');
+        if (dropZone) {
+          dropZone.classList.add('drag-over');
+        }
+      }
+    }, { passive: false });
+
+    container.addEventListener('touchend', (e) => {
+      if (!this.touchDraggedItem || !this.touchDraggedElement) return;
+
+      this.touchDraggedElement.style.opacity = '1';
+      
+      const touch = e.changedTouches[0];
+      const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+      
+      // Remove all drag-over classes
+      this.shadowRoot.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.classList.remove('drag-over');
+      });
+      
+      if (elementBelow) {
+        const dropZone = elementBelow.closest('.drop-zone');
+        if (dropZone) {
+          const categoryId = dropZone.dataset?.categoryId || dropZone.getAttribute('data-category-id');
+          if (categoryId) {
+            this.moveItemToCategory(this.touchDraggedItem, categoryId);
+          }
+        }
+      }
+      
+      this.touchDraggedItem = null;
+      this.touchDraggedElement = null;
+    });
+  }
+
+  moveItemToCategory(itemId, categoryId) {
+    // Remove item from any previous placement
+    Object.keys(this.placements).forEach((catId) => {
+      this.placements[catId] = this.placements[catId].filter(
+        (id) => id !== itemId,
+      );
+    });
+
+    // Add to new category
+    if (!this.placements[categoryId]) {
+      this.placements[categoryId] = [];
+    }
+    this.placements[categoryId].push(itemId);
+
+    this.checked = false;
+    this.saveState();
+    this.render();
+    this.setupTouchHandlers();
+  }
+
   render() {
     const unplacedItems = this.getUnplacedItems();
     let totalCorrect = 0;
@@ -179,7 +249,6 @@ class CategoryDrag extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           box-sizing: border-box;
         }
 
@@ -189,9 +258,10 @@ class CategoryDrag extends HTMLElement {
 
         .container {
           margin: 0 auto;
-          border: 2px solid #e5e7eb;
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 12px;
           padding: 20px;
+          background: var(--color-background, white);
         }
 
         .actions {
@@ -244,7 +314,7 @@ class CategoryDrag extends HTMLElement {
         .items-pool {
           margin-bottom: 20px;
           padding: 15px;
-          background: #f9fafb;
+          background: var(--color-nav, #f5f5f5);
           border-radius: 8px;
           min-height: 100px;
         }
@@ -252,7 +322,7 @@ class CategoryDrag extends HTMLElement {
         .items-pool-title {
           font-weight: bold;
           margin-bottom: 10px;
-          color: #374151;
+          color: var(--color-text, black);
         }
 
         .items-grid {
@@ -265,8 +335,8 @@ class CategoryDrag extends HTMLElement {
           cursor: move;
           border-radius: 8px;
           overflow: hidden;
-          background: white;
-          border: 2px solid #e5e7eb;
+          background: var(--color-background, white);
+          border: 2px solid var(--color-spacer, #a4a4a4);
           transition: all 0.2s ease;
         }
 
@@ -289,18 +359,18 @@ class CategoryDrag extends HTMLElement {
         }
 
         .category {
-          border: 2px solid #e5e7eb;
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 8px;
           padding: 15px;
-          background: #f9fafb;
+          background: var(--color-nav, #f5f5f5);
         }
 
         .category-title {
           font-weight: bold;
           margin-bottom: 10px;
           padding-bottom: 10px;
-          border-bottom: 2px solid #e5e7eb;
-          color: #374151;
+          border-bottom: 2px solid var(--color-spacer, #a4a4a4);
+          color: var(--color-text, black);
         }
 
         .drop-zone {
@@ -315,8 +385,8 @@ class CategoryDrag extends HTMLElement {
         }
 
         .drop-zone.drag-over {
-          background: #e0e7ff;
-          border-color: var(--color-brand, #3b82f6);
+          background: var(--color-nav, #f5f5f5);
+          border-color: var(--color-brand, #007864);
           border-style: dashed;
         }
 
@@ -384,6 +454,7 @@ class CategoryDrag extends HTMLElement {
               <div
                 class="item"
                 draggable="true"
+                data-item-id="${item.id}"
                 ondragstart="this.getRootNode().host.handleDragStart(event, '${item.id}')"
                 ondragend="this.getRootNode().host.handleDragEnd(event)"
               >
@@ -403,6 +474,7 @@ class CategoryDrag extends HTMLElement {
               <div class="category-title">${category.label}</div>
               <div
                 class="drop-zone"
+                data-category-id="${category.id}"
                 ondragover="this.getRootNode().host.handleDragOver(event)"
                 ondragenter="this.getRootNode().host.handleDragEnter(event)"
                 ondragleave="this.getRootNode().host.handleDragLeave(event)"
@@ -424,6 +496,7 @@ class CategoryDrag extends HTMLElement {
                       <div
                         class="item placed-item ${statusClass}"
                         draggable="true"
+                        data-item-id="${itemId}"
                         ondragstart="this.getRootNode().host.handleDragStart(event, '${itemId}')"
                         ondragend="this.getRootNode().host.handleDragEnd(event)"
                       >

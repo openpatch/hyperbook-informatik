@@ -176,7 +176,6 @@ class MemoryGame extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           box-sizing: border-box;
         }
 
@@ -186,9 +185,10 @@ class MemoryGame extends HTMLElement {
 
         .container {
           margin: 0 auto;
-          border: 2px solid #e5e7eb;
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 12px;
           padding: 20px;
+          background: var(--color-background, white);
         }
 
         .header {
@@ -203,7 +203,7 @@ class MemoryGame extends HTMLElement {
         .stats {
           font-size: 1.1em;
           font-weight: bold;
-          color: #374151;
+          color: var(--color-text, black);
         }
 
         .btn-reset {
@@ -214,8 +214,8 @@ class MemoryGame extends HTMLElement {
           font-size: 1em;
           font-weight: bold;
           transition: all 0.2s ease;
-          background: var(--color-brand, #3b82f6);
-          color: white;
+          background: var(--color-brand, #007864);
+          color: var(--color-brand-text, white);
         }
 
         .btn-reset:hover {
@@ -279,14 +279,15 @@ class MemoryGame extends HTMLElement {
         }
 
         .card-front {
-          background: var(--color-brand, #3b82f6);
+          background: var(--color-brand, #007864);
           color: var(--color-brand-text, white);
         }
 
         .card-back-face {
-          background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
-          color: #374151;
+          background: var(--color-background, white);
+          color: var(--color-text, black);
           transform: rotateY(180deg);
+          border: 1px solid var(--color-spacer, #a4a4a4);
         }
 
         .card:hover:not(.flipped):not(.matched) .card-inner {
