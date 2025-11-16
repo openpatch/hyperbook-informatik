@@ -23,4 +23,7 @@ Hier lernst du,
 
 ## Voraussetzungen
 
-Es ist hilfreich, wenn du schon weißt, wie man Informationen prinzipiell binär codieren kann. Du solltest außerdem die Begriffe Bit und Byte kennen. Du kannst das erforderliche Wissen z.B. im Projekt [Binärdarstellung von Information](../binaerdarstellung-von-information) erlangen. 
+Es ist hilfreich, wenn du schon weißt, wie man Informationen prinzipiell binär
+codieren kann. Du solltest außerdem die Begriffe Bit und Byte kennen. Du kannst
+das erforderliche Wissen z.B. im Projekt [Binärdarstellung von
+Information](../binaerdarstellung-von-information/00-einstieg) erlangen. 

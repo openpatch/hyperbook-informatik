@@ -37,15 +37,15 @@ class PixelMagnifier extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           box-sizing: border-box;
         }
 
         .container {
           margin: 0 auto;
-          border: 2px solid #e5e7eb;
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 12px;
           padding: 20px;
+          background: var(--color-background, white);
         }
 
         .controls {
@@ -67,14 +67,14 @@ class PixelMagnifier extends HTMLElement {
         .zoom-label {
           font-weight: bold;
           min-width: 120px;
-          color: #374151;
+          color: var(--color-text, black);
         }
 
         input[type="range"] {
           flex: 1;
           height: 6px;
           border-radius: 3px;
-          background: #e5e7eb;
+          background: var(--color-spacer, #a4a4a4);
           outline: none;
           -webkit-appearance: none;
         }
@@ -85,7 +85,7 @@ class PixelMagnifier extends HTMLElement {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--color-brand, #3b82f6);
+          background: var(--color-brand, #007864);
           cursor: pointer;
         }
 
@@ -93,7 +93,7 @@ class PixelMagnifier extends HTMLElement {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--color-brand, #3b82f6);
+          background: var(--color-brand, #007864);
           cursor: pointer;
           border: none;
         }
@@ -103,9 +103,9 @@ class PixelMagnifier extends HTMLElement {
           justify-content: center;
           align-items: center;
           overflow: auto;
-          background: #f9fafb;
+          background: var(--color-nav, #f5f5f5);
           border-radius: 8px;
-          border: 1px solid #9ca3af;
+          border: 1px solid var(--color-spacer, #a4a4a4);
           padding: 20px;
           min-height: 300px;
           position: relative;

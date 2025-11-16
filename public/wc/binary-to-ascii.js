@@ -140,7 +140,6 @@ class BinaryToAscii extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           max-width: ${isUnicode ? '900px' : '600px'};
           margin: 0 auto;
           padding: 20px;
@@ -148,11 +147,11 @@ class BinaryToAscii extends HTMLElement {
         }
 
         .container {
-          background: linear-gradient(135deg, ${isUnicode ? '#06b6d4 0%, #3b82f6 100%' : '#667eea 0%, #764ba2 100%'});
+          background: var(--color-brand, #007864);
           border-radius: 15px;
           padding: 30px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-          color: white;
+          color: var(--color-brand-text, white);
         }
 
         h2 {
@@ -195,7 +194,7 @@ class BinaryToAscii extends HTMLElement {
 
         .bit.active {
           background: rgba(255, 255, 255, 0.9);
-          color: ${isUnicode ? '#0891b2' : '#667eea'};
+          color: var(--color-brand, #007864);
           border-color: white;
         }
 

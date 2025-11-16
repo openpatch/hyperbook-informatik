@@ -68,13 +68,16 @@ class CardMatching extends HTMLElement {
       const bluePositions = [];
       const orangePositions = [];
 
+      // Use percentage-based positioning for responsiveness
       for (let i = 0; i < parsedPairs.length; i++) {
         bluePositions.push({
-          x: 50,
+          x: 10,
+          xPercent: true,
           y: startY + i * (cardHeight + cardSpacing),
         });
         orangePositions.push({
-          x: 450,
+          x: 65,
+          xPercent: true,
           y: startY + i * (cardHeight + cardSpacing),
         });
       }
@@ -137,8 +140,8 @@ class CardMatching extends HTMLElement {
           position: relative;
           width: 100%;
           height: 600px;
-          background: #f5f5f5;
-          border: 2px solid #ddd;
+          background: var(--color-background, white);
+          border: 2px solid var(--color-spacer, #a4a4a4);
           border-radius: 8px;
           overflow: hidden;
           user-select: none;
@@ -158,8 +161,8 @@ class CardMatching extends HTMLElement {
           position: absolute;
           width: 150px;
           padding: 20px 15px 15px 15px;
-          background: white;
-          border: 2px solid #333;
+          background: var(--color-background, white);
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 8px;
           box-shadow: 0 2px 5px rgba(0,0,0,0.2);
           cursor: move;
@@ -206,6 +209,7 @@ class CardMatching extends HTMLElement {
           font-size: 14px;
           word-wrap: break-word;
           text-align: center;
+          color: var(--color-text, black);
         }
 
         .card-image {
@@ -283,21 +287,21 @@ class CardMatching extends HTMLElement {
           position: relative;
           display: block;
           padding: 10px 20px;
-          background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-          color: white;
+          background: var(--color-brand, #007864);
+          color: var(--color-brand-text, white);
           border: none;
           border-radius: 25px;
           font-size: 18px;
           font-weight: bold;
           cursor: pointer;
-          box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           transition: all 0.3s;
         }
 
         .check-button:hover {
-          background: linear-gradient(135deg, #45a049 0%, #4CAF50 100%);
+          opacity: 0.9;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .check-button:active {
@@ -317,8 +321,8 @@ class CardMatching extends HTMLElement {
           position: relative;
           padding: 8px 20px;
           height: 100%;
-          background: #e0e0e0;
-          color: #666;
+          background: var(--color-nav, #f5f5f5);
+          color: var(--color-text, black);
           border: none;
           border-radius: 20px;
           font-size: 14px;
@@ -329,8 +333,7 @@ class CardMatching extends HTMLElement {
         }
 
         .reset-button:hover {
-          background: #d0d0d0;
-          color: #555;
+          opacity: 0.9;
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
@@ -395,6 +398,92 @@ class CardMatching extends HTMLElement {
         .connection-line {
           pointer-events: none;
         }
+
+        @media (max-width: 768px) {
+          .container {
+            height: 800px;
+          }
+
+          .card {
+            width: 120px;
+            padding: 15px 10px 10px 10px;
+            font-size: 12px;
+          }
+
+          .card-content {
+            font-size: 11px;
+          }
+
+          .card-image {
+            max-height: 60px;
+          }
+
+          .pin {
+            width: 12px;
+            height: 12px;
+          }
+
+          .check-button {
+            font-size: 16px;
+            padding: 8px 16px;
+          }
+
+          .reset-button {
+            font-size: 12px;
+            padding: 6px 16px;
+          }
+
+          .message {
+            padding: 20px 30px;
+            font-size: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .container {
+            height: 900px;
+          }
+
+          .card {
+            width: 100px;
+            padding: 12px 8px 8px 8px;
+            font-size: 11px;
+          }
+
+          .card-content {
+            font-size: 10px;
+          }
+
+          .card-image {
+            max-height: 50px;
+          }
+
+          .pin {
+            width: 10px;
+            height: 10px;
+            top: -6px;
+          }
+
+          .check-button {
+            font-size: 14px;
+            padding: 8px 14px;
+          }
+
+          .reset-button {
+            font-size: 11px;
+            padding: 6px 14px;
+          }
+
+          .message {
+            padding: 15px 20px;
+            font-size: 16px;
+            max-width: 90%;
+          }
+
+          .button-container {
+            gap: 10px;
+          }
+        }
       </style>
 
       <div class="container">
@@ -423,7 +512,13 @@ class CardMatching extends HTMLElement {
       const cardEl = document.createElement("div");
       cardEl.className = "card";
       cardEl.dataset.id = card.id;
-      cardEl.style.left = `${card.position.x}px`;
+      
+      // Use percentage or pixel positioning
+      if (card.position.xPercent) {
+        cardEl.style.left = `${card.position.x}%`;
+      } else {
+        cardEl.style.left = `${card.position.x}px`;
+      }
       cardEl.style.top = `${card.position.y}px`;
 
       let contentHTML = "";
@@ -450,6 +545,7 @@ class CardMatching extends HTMLElement {
 
   updateConnections() {
     const svg = this.shadowRoot.getElementById("connections");
+    const container = this.shadowRoot.querySelector(".container");
     svg.innerHTML = "";
 
     this.connections.forEach((conn, index) => {
@@ -464,7 +560,24 @@ class CardMatching extends HTMLElement {
         const orangeHeight = orangeCard.height || 80;
 
         const tapeOverlap = 15;
-        const x = blueCard.position.x + 40;
+        
+        // Calculate actual pixel positions for tape
+        let blueX, orangeX;
+        if (blueCard.position.xPercent) {
+          const containerWidth = container.offsetWidth;
+          blueX = (blueCard.position.x / 100) * containerWidth;
+        } else {
+          blueX = blueCard.position.x;
+        }
+        
+        if (orangeCard.position.xPercent) {
+          const containerWidth = container.offsetWidth;
+          orangeX = (orangeCard.position.x / 100) * containerWidth;
+        } else {
+          orangeX = orangeCard.position.x;
+        }
+        
+        const x = blueX + 40;
         const y = blueCard.position.y + blueHeight - tapeOverlap;
         const width = 100;
         const height =
@@ -547,9 +660,12 @@ class CardMatching extends HTMLElement {
       }
     });
 
-    cardsContainer.addEventListener("mousedown", (e) => {
+    const handleStart = (e) => {
       const cardEl = e.target.closest(".card");
       if (!cardEl) return;
+
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
       this.wasDragging = false;
       this.draggedCard = this.cards.find((c) => c.id === cardEl.dataset.id);
@@ -557,22 +673,40 @@ class CardMatching extends HTMLElement {
       const containerRect = container.getBoundingClientRect();
 
       this.dragOffset = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+        x: clientX - rect.left,
+        y: clientY - rect.top,
       };
 
       cardEl.classList.add("dragging");
-    });
+      if (e.type === "touchstart") {
+        e.preventDefault();
+      }
+    };
 
-    container.addEventListener("mousemove", (e) => {
+    cardsContainer.addEventListener("mousedown", handleStart);
+    cardsContainer.addEventListener("touchstart", handleStart, { passive: false });
+
+    const handleMove = (e) => {
       if (!this.draggedCard) return;
+
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
       this.wasDragging = true;
       const containerRect = container.getBoundingClientRect();
-      const newX = e.clientX - containerRect.left - this.dragOffset.x;
-      const newY = e.clientY - containerRect.top - this.dragOffset.y;
-
-      const deltaX = newX - this.draggedCard.position.x;
+      
+      let newX, deltaX;
+      if (this.draggedCard.position.xPercent) {
+        // Convert to percentage
+        const pixelX = clientX - containerRect.left - this.dragOffset.x;
+        newX = (pixelX / containerRect.width) * 100;
+        deltaX = newX - this.draggedCard.position.x;
+      } else {
+        newX = clientX - containerRect.left - this.dragOffset.x;
+        deltaX = newX - this.draggedCard.position.x;
+      }
+      
+      const newY = clientY - containerRect.top - this.dragOffset.y;
       const deltaY = newY - this.draggedCard.position.y;
 
       this.draggedCard.position.x = newX;
@@ -589,9 +723,15 @@ class CardMatching extends HTMLElement {
       }
 
       this.updateCards();
-    });
+      if (e.type === "touchmove") {
+        e.preventDefault();
+      }
+    };
 
-    container.addEventListener("mouseup", (e) => {
+    container.addEventListener("mousemove", handleMove);
+    container.addEventListener("touchmove", handleMove, { passive: false });
+
+    const handleEnd = (e) => {
       if (!this.draggedCard) return;
 
       const cardEl = this.shadowRoot.querySelector(
@@ -643,7 +783,10 @@ class CardMatching extends HTMLElement {
       }
 
       this.draggedCard = null;
-    });
+    };
+
+    container.addEventListener("mouseup", handleEnd);
+    container.addEventListener("touchend", handleEnd);
 
     svg.addEventListener("click", (e) => {
       const tape = e.target.closest(".tape");
@@ -671,18 +814,30 @@ class CardMatching extends HTMLElement {
     const blueCard = card1.type === "blue" ? card1 : card2;
     const orangeCard = card1.type === "blue" ? card2 : card1;
 
-    const centerX = (blueCard.position.x + orangeCard.position.x) / 2 + 90;
-    const centerY = (blueCard.position.y + orangeCard.position.y) / 2;
+    // Calculate center position
+    let centerX, centerY;
+    if (blueCard.position.xPercent && orangeCard.position.xPercent) {
+      centerX = (blueCard.position.x + orangeCard.position.x) / 2;
+    } else {
+      centerX = (blueCard.position.x + orangeCard.position.x) / 2 + 90;
+    }
+    centerY = (blueCard.position.y + orangeCard.position.y) / 2;
 
     const blueHeight = blueCard.height || 80;
     const orangeHeight = orangeCard.height || 80;
     const tapeGap = 10;
     const totalHeight = blueHeight + tapeGap + orangeHeight;
 
-    blueCard.position.x = centerX - 90;
+    // Position cards vertically aligned
+    if (blueCard.position.xPercent) {
+      blueCard.position.x = centerX;
+      orangeCard.position.x = centerX;
+    } else {
+      blueCard.position.x = centerX - 90;
+      orangeCard.position.x = centerX - 90;
+    }
+    
     blueCard.position.y = centerY - totalHeight / 2;
-
-    orangeCard.position.x = centerX - 90;
     orangeCard.position.y = centerY - totalHeight / 2 + blueHeight + tapeGap;
 
     this.updateCards();

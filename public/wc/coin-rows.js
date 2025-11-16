@@ -82,7 +82,6 @@ class CoinRows extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           padding: 20px;
           box-sizing: border-box;
         }
@@ -90,9 +89,10 @@ class CoinRows extends HTMLElement {
         .container {
           max-width: 900px;
           margin: 0 auto;
-          border: 2px solid #e5e7eb;
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 12px;
           padding: 20px;
+          background: var(--color-background, white);
         }
 
         .row-container {
@@ -203,7 +203,7 @@ class CoinRows extends HTMLElement {
         }
 
         .btn-remove:disabled {
-          background: #d1d5db;
+          background: var(--color-spacer, #a4a4a4);
           cursor: not-allowed;
           opacity: 0.5;
         }
@@ -228,7 +228,7 @@ class CoinRows extends HTMLElement {
 
         h1 {
           text-align: center;
-          color: #374151;
+          color: var(--color-text, black);
           margin-bottom: 15px;
         }
       </style>
