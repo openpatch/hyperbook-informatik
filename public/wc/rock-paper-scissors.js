@@ -258,7 +258,6 @@ class RockPaperScissors extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           max-width: 800px;
           margin: 0 auto;
           padding: 20px;
@@ -562,7 +561,7 @@ class RockPaperScissors extends HTMLElement {
         }
 
         .history-panel {
-          background: white;
+          background: var(--color-background, white);
           border-radius: 15px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           position: relative;
@@ -581,7 +580,7 @@ class RockPaperScissors extends HTMLElement {
         .history-header {
           font-size: 1.2em;
           font-weight: bold;
-          color: #667eea;
+          color: var(--color-brand, #007864);
           margin-bottom: 15px;
           text-align: center;
         }
@@ -642,7 +641,7 @@ class RockPaperScissors extends HTMLElement {
 
         .history-round {
           font-size: 0.75em;
-          color: #666;
+          color: var(--color-text-deactivated, #242428);
           min-width: 25px;
         }
 
@@ -657,7 +656,7 @@ class RockPaperScissors extends HTMLElement {
 
         .history-empty {
           text-align: center;
-          color: #999;
+          color: var(--color-text-deactivated, #242428);
           padding: 20px;
           font-style: italic;
         }

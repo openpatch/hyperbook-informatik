@@ -82,7 +82,6 @@ class BitRows extends HTMLElement {
       <style>
         :host {
           display: block;
-          font-family: Arial, sans-serif;
           padding: 20px;
           box-sizing: border-box;
         }
@@ -90,9 +89,10 @@ class BitRows extends HTMLElement {
         .container {
           max-width: 900px;
           margin: 0 auto;
-          border: 2px solid #e5e7eb;
+          border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 12px;
           padding: 20px;
+          background: var(--color-background, white);
         }
 
         .row-container {
@@ -107,9 +107,10 @@ class BitRows extends HTMLElement {
           display: flex;
           gap: 10px;
           flex: 1;
-          flex-wrap: nowrap;
+          flex-wrap: wrap;
           min-width: 0;
           align-items: center;
+          justify-content: center;
         }
 
         .bit {
@@ -117,7 +118,7 @@ class BitRows extends HTMLElement {
           aspect-ratio: 1 / 1;
           max-width: 60px;
           max-height: 60px;
-          min-width: 30px;
+          min-width: 40px;
           border-radius: 8px;
           border: none;
           cursor: pointer;
@@ -128,8 +129,9 @@ class BitRows extends HTMLElement {
           justify-content: center;
           transition: all 0.3s ease;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-          color: white;
+          background: var(--color-brand, #007864);
+          color: var(--color-brand-text, white);
+          touch-action: manipulation;
         }
 
         .bit:hover {
@@ -142,7 +144,8 @@ class BitRows extends HTMLElement {
         }
 
         .bit.flipped {
-          background: linear-gradient(135deg, #6b7280 0%, #374151 100%);
+          background: var(--color-spacer, #a4a4a4);
+          color: var(--color-text, black);
         }
 
         .bit.flip-animation {
@@ -160,6 +163,7 @@ class BitRows extends HTMLElement {
           gap: 8px;
           flex-direction: row;
           justify-content: center;
+          flex-wrap: wrap;
         }
 
         .btn {
@@ -170,19 +174,20 @@ class BitRows extends HTMLElement {
           font-weight: bold;
           transition: all 0.2s ease;
           white-space: nowrap;
-          width: 36px;
-          height: 36px;
+          width: 40px;
+          height: 40px;
           display: flex;
           align-items: center;
           justify-content: center;
+          touch-action: manipulation;
         }
 
-        .btn:hover {
+        .btn:hover:not(:disabled) {
           transform: translateY(-2px);
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .btn:active {
+        .btn:active:not(:disabled) {
           transform: translateY(0);
         }
 
@@ -191,7 +196,7 @@ class BitRows extends HTMLElement {
           color: white;
         }
 
-        .btn-add:hover {
+        .btn-add:hover:not(:disabled) {
           background: #059669;
         }
 
@@ -200,19 +205,14 @@ class BitRows extends HTMLElement {
           color: white;
         }
 
-        .btn-remove:hover {
+        .btn-remove:hover:not(:disabled) {
           background: #dc2626;
         }
 
         .btn-remove:disabled {
-          background: #d1d5db;
+          background: var(--color-text-deactivated, #242428);
           cursor: not-allowed;
           opacity: 0.5;
-        }
-
-        .btn-remove:disabled:hover {
-          transform: none;
-          box-shadow: none;
         }
 
         .global-controls {
@@ -226,12 +226,53 @@ class BitRows extends HTMLElement {
           padding: 12px 24px;
           font-size: 1em;
           min-width: 150px;
+          width: auto;
+          height: auto;
         }
 
-        h1 {
-          text-align: center;
-          color: #374151;
-          margin-bottom: 15px;
+        @media (max-width: 768px) {
+          :host {
+            padding: 10px;
+          }
+
+          .container {
+            padding: 15px;
+          }
+
+          .bit {
+            min-width: 35px;
+            max-width: 50px;
+            max-height: 50px;
+          }
+
+          .btn {
+            width: 36px;
+            height: 36px;
+            font-size: 1em;
+          }
+
+          .btn-large {
+            padding: 10px 20px;
+            font-size: 0.9em;
+            min-width: 120px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .bit {
+            min-width: 30px;
+            max-width: 40px;
+            max-height: 40px;
+            font-size: 1em;
+          }
+
+          .bits {
+            gap: 5px;
+          }
+
+          .controls {
+            gap: 5px;
+          }
         }
       </style>
 
