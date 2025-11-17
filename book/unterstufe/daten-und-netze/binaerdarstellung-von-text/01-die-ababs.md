@@ -12,6 +12,7 @@ Weit entfernt im Universum leben (vielleicht?) die ABABs, die nur die Buchstaben
 Du siehst hier den Chef der ABABs, der den stolzen Namen **BABBA** trägt: 
 
 ![Ein ABAB mit dem Namen BABBA](./alien-1295828.svg){width="150px"}
+
 ## Aufgabe 1 - Namen der ABABs codieren
 
 :::snippet{#aufgabe}

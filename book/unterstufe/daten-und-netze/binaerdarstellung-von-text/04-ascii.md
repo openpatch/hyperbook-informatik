@@ -46,7 +46,24 @@ Die ASCII-Tabelle ordnet jedem Zeichen eine Zahl zu. Diese Zahl wird dann in Bin
 | Space   | 00100000 |
 | !       | 00100001 |
 
-## Aufgabe 2 - Codieren mit ASCII
+
+## Aufgabe 2 - Zeichen erkennen
+
+::::multievent
+:::snippet{#aufgabe}
+Du bist der Computer uns muss folgende Binärcodes in Zeichen umwandeln. Benutze dafür den Umwandler weiter unten.
+
+- 01000001: {T{A}}
+- 01100010: {T{b}}
+- 00110010: {T{2}}
+- 00111111: {T{$}}
+:::
+::::
+
+<binary-to-ascii id="binaercode-reihen-ascii-umwandeln"></binary-to-ascii>
+
+
+## Aufgabe 3 - Codieren mit ASCII
 
 :::snippet{#aufgabe}
 Ändere den Binärcode so ab, dass die Zeichen B,C,D ... erscheinen. Probiere danach auch die Kleinbuchstaben a,b,c ... und die Ziffern 0,1,2 ... aus.
