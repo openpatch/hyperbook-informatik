@@ -3,6 +3,7 @@ name: Die Menschen
 index: 3
 scripts:
   - /wc/bit-rows.js
+prev: ./02-die-ahs
 ---
 
 # Die Menschen
