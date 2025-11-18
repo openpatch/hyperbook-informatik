@@ -1,76 +1,12 @@
 ---
 name: Die AHs
 index: 2
-scripts:
-  - /wc/bit-rows.js
+next: ./02a-die-ahs
 ---
 
 # Die AHs
 
-Etwas näher an der Erde wohnen die AHs. Die Bewohner kennen die Buchstaben von A bis H. Die Einwohner heißen z.B. FEBE, CHABA und DEBAHA. Das hier ist z.B. Königin **FEBE**: 
+Du kannst zwischen zwei Schwierigkeitsgraden wählen: Einsteiger und Entdecker. Wähle den für dich passenden aus.
 
-![Eine AH mit dem Namen FEBE](./alien-1295484.svg){width="150px"}
-
-::::::tabs{id="344625"}
-
-::::tab{title="Mittel" id="mittel"}
-
-Lina hat sich überlegt mehr Stellen zu benutzen, um mehr Buchstaben darzustellen. Dazu hat sie folgende Tabelle erstellt:
-
-| Buchstabe | Codierung |
-| --------- | --------- |
-| A         | 1         |
-| B         | 0         |
-| C         | 10        |
-| D         | 11        |
-| E         | 100       |
-| F         | 010       |
-| G         | 001       |
-| H         | 000       |
-
-## Aufgabe 1
-
-:::snippet{#aufgabe}
-Codiere den Namen FEBE mit Linas Codierung.
-:::
-
-<bit-rows id="binaercode-reihen-mittel-ahs"></bit-rows>
-
-## Aufgabe 2
-
-:::snippet{#aufgabe}
-Tim behaupt, dass Linas Codierung nicht eindeutig ist. Er sagt, dass der Code 10010 sowohl für den Namen **CE** als auch für den Namen **ABBA** stehen kann. 
-
-Überprüfe Tims Behauptung und erkläre, warum das so ist.
-:::
-
-::textinput{placeholder="Hier kannst du deine Erklärung eintragen..." height="200px"}
-
-::::
-
-::::tab{title="Schwer" id="schwer"}
-
-## Aufgabe 1 - Mehr Buchstaben codieren
-
-:::snippet{#aufgabe}
-Vermutlich hast du die Namen der ABABs codiert, indem die 0 für das A stand und die 1 für das B (oder umgekehrt). Bei den AHs funktioniert dies nicht mehr ganz so leicht. Überlege dir eine Codierung für die Buchstaben A bis F. 
-:::
-
-
-::textinput{placeholder="Hier kannst du deine Codierung eintragen..." height="200px"}
-
-## Aufgabe 2 - Namen der AHs codieren
-
-:::snippet{#aufgabe}
-Teste deine Codierung anhand der Namen **FEBE**, **CHABA** und **DEBAHA**. 
-:::
-
-<bit-rows id="binaercode-reihen-ahs"></bit-rows>
-
-:::snippet{#aufgabe}
-Überlege dir einen weiteren Namen, codiere ihn und gib ihn einem Mitschüler, der ihn decodieren soll. Falls es dabei Probleme gibt und dein Mitschüler nicht sicher entscheiden kann, welchen Namen du gemeint hast, musst du möglicherweise deine Codierung überarbeiten. 
-:::
-
-<bit-rows id="binaercode-reihen-ahs-2"></bit-rows>
-
-::::
+- [Einsteiger](./02a-die-ahs)
+- [Entdecker](./02b-die-ahs)
