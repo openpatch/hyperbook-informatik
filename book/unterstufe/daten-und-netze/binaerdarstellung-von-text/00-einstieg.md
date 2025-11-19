@@ -9,17 +9,24 @@ Diese Lernstrecke ist eine Abwandlung und Erweiterung der Lernstrecke von [inf-s
 
 # Binärdarstellung von Text
 
-Damit Texte vom Computer oder Tablet dargestellt werden können, müssen diese zuerst in geeigneter Form auf dem Gerät gespeichert werden. Wie du wahrscheinlich schon weißt, müssen die Informationen dazu binär dargestellt werden, also z.B. mit Hilfe der Zahlen 0 und 1.
+## 📱 Stell dir vor...
 
-In diesem Kapitel wirst du lernen, wie man alleine mit den Zahlen 0 und 1 beliebige Texte darstellen kann. 
+...du schreibst deinen Freunden eine WhatsApp-Nachricht: "Hi! 😊" 
 
-:::alert{info}
-Hier lernst du,
+Was passiert eigentlich in deinem Handy? Wie werden die Buchstaben "H" und "i", das Ausrufezeichen und der Smiley gespeichert? 
 
-- wie man mit selbst erfundenen Codierungen Zeichen speichern kann.
-- welchen Speicherplatz man für ein einzelnes Zeichen benötigt.
-- wie man üblicherweise Zeichen binär codiert.
-:::
+**Die Antwort ist verblüffend:** Dein Handy kennt nur zwei Zeichen - **0** und **1**! 
+
+Aber wie kann man mit nur zwei Zeichen alle Buchstaben, Zahlen, Emojis und Sonderzeichen darstellen? Genau das wirst du in diesem Kapitel herausfinden! 🕵️
+
+## 🎯 Deine Mission
+
+In diesem Kapitel wirst du:
+
+✨ **lernen**, wie Computer nur mit 0 und 1 alle Zeichen speichern  
+🔢 **entdecken**, wie viel Speicherplatz ein einzelner Buchstabe braucht  
+🌍 **verstehen**, wie dein Handy Emojis und Zeichen aus aller Welt darstellt  
+🎮 **spielerisch** eigene Geheimcodes entwickeln
 
 ## Voraussetzungen
 
