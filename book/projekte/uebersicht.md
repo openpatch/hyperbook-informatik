@@ -7,7 +7,7 @@ lang: de
 
 ## Programmierung mit Scratch
 
-Das sind Pr
+Das sind Projekte, die sich an Anfänger:innen richten. Hier wird die visuelle Programmiersprache Scratch verwendet, um die Grundlagen der Programmierung zu erlernen.
 
 ::pagelist{source="keyword(scratch)"}
 

@@ -57,7 +57,7 @@ Lina hatte eine Idee und hat diese Tabelle erstellt:
 2. Suche E in der Tabelle → `100`  
 3. Suche B in der Tabelle → `0`
 4. Suche E in der Tabelle → `100`
-5. Schreibe alles hintereinander: `010` + `100` + `0` + `100` = ?
+5. Schreibe alles hintereinaner.
 :::
 
 **Dein Code-Werkzeug:**
@@ -69,9 +69,7 @@ Lina hatte eine Idee und hat diese Tabelle erstellt:
 :::snippet{#aufgabe}
 **Tim hat ein Problem entdeckt!** 🚨
 
-Er sagt, dass Linas Codierung **nicht eindeutig** ist. Der Code `10010` könnte zwei verschiedene Namen bedeuten:
-- Einmal **CE** (10 + 010 = C + E)
-- Aber auch **ABBA** (1 + 0 + 0 + 1 + 0 = A + B + B + A... Moment, das geht nicht auf!)
+Er sagt, dass Linas Codierung **nicht eindeutig** ist. Der Code `10010` könnte zwei verschiedene Namen bedeuten.
 
 Lass uns das überprüfen:
 
@@ -81,7 +79,7 @@ Lass uns das überprüfen:
 **Variante 2:** 10010 = ?
 - 1 (= A) + 0 (= B) + 0 (= B) + 1 (= A) + 0 (= B) = **ABBAB**
 
-**Siehst du das Problem?** Man kann nicht erkennen, wo ein Buchstabe aufhört und der nächste anfängt! 😱
+**Siehst du das Problem?** 
 
 Schreibe deine Erklärung, warum das ein Problem ist:
 :::

@@ -13,7 +13,7 @@ index: 3
 
 ## Übungen zu den neuen Begriffen
 
-- [Variablen](/oop/grundlagen/variablen)
+- [Variablen](/oberstufe/oop/grundlagen/variablen)
 
 ## Scratch for Java API
 

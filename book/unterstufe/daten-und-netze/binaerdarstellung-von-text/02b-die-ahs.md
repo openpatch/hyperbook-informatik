@@ -48,13 +48,13 @@ Bei den ABABs war es einfach: 2 Buchstaben, 1 Bit. Aber jetzt hast du 8 Buchstab
 
 **Entwickle hier deine Codierung:**
 
-::textinput{placeholder="Beispiel:\nA = 000\nB = 001\nC = 010\n...\n\nSchreibe deine vollständige Codierung für A bis H!" height="250px"}
+::textinput{placeholder="Schreibe deine vollständige Codierung für A bis H!" height="250px"}
 
 :::collapsible{title="💡 Tipp: Mathematik hilft!"}
 **Berechne die Möglichkeiten:**
-- 1 Bit → 2¹ = 2 Möglichkeiten (zu wenig für 8 Buchstaben)
-- 2 Bits → 2² = 4 Möglichkeiten (zu wenig für 8 Buchstaben)
-- 3 Bits → 2³ = 8 Möglichkeiten (genau richtig! ✓)
+- 1 Bit → $2^1 = 2 $ Möglichkeiten (zu wenig für 8 Buchstaben)
+- 2 Bits → $2^2 = 2 \cdot 2 = 4 $ Möglichkeiten (zu wenig für 8 Buchstaben)
+- 3 Bits → $2^3 = 2 \cdot 2 \cdot 2 = 8 $ Möglichkeiten (genau richtig! ✓)
 
 Mit 3 Bits kannst du genau 8 verschiedene Kombinationen erstellen:
 000, 001, 010, 011, 100, 101, 110, 111
