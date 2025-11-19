@@ -3,52 +3,168 @@ name: Speichern von Daten in Tabellen
 index: 2
 ---
 
-# Speichern von Daten in Tabellen
+# Speichern von Daten in Tabellen 📊
 
-Um Daten strukturiert zu speichern, verwendet man relationale Datenbanken. Diese speichern Daten in Tabellen, die aus Zeilen und Spalten bestehen.
+## 🎯 Von der Sammlung zur Struktur
+
+Du hast Daten über Städte gesammelt. Aber wie speichert man diese **übersichtlich und sinnvoll**?
+
+**Die Lösung:** Tabellen! (Wie in Excel, aber viel mächtiger! 💪)
+
+## 📋 Was ist eine relationale Datenbank?
 
 :::snippet{#merken}
-Eine **relationale Datenbank** ist im einfachsten Fall eine **Sammlung von Tabellen**.
+Eine **relationale Datenbank** ist eine **Sammlung von Tabellen**, die miteinander in Beziehung (**Relation**) stehen können.
 
-Eine Datenbanktabelle besteht aus mehreren Elementen:
+**Eine Datenbanktabelle besteht aus:**
 
-- einem eindeutigen Namen,
-- einer Reihe von eindeutig benannten Spalten (**Attribute**),
-- einem genau definierten Wertebereich (**Datentyp**) für jedes Attribut (Zahl, Text, Datum, etc.),
-- beliebig vielen Zeilen (**Datensätze**). Jeder Datensatz besitzt Werte in den Attributen.
+| Element | Bedeutung | Beispiel |
+|---------|-----------|----------|
+| 📝 **Tabellenname** | Eindeutiger Name der Tabelle | "Stadt", "Land" |
+| 🔤 **Attribute** (Spalten) | Eigenschaften der gespeicherten Daten | "Name", "Einwohner", "Land" |
+| 🎯 **Datentyp** | Wertebereich für jedes Attribut | Text, Zahl, Kommazahl, Datum |
+| 📄 **Datensätze** (Zeilen) | Einzelne Einträge mit konkreten Werten | "Berlin", 3500000, "Deutschland" |
 :::
+
+### 📊 Beispiel: Stadt-Tabelle
 
 ![Begriffe Relationale Datenbank](./begriffe_tabelle.svg "Tabelle mit Begriffen - Urheber: TM - Lizenz: inf-schule.de")
 
-Der Begriff "relational" kommt von einer mathematischen Betrachtung einer Datenbank in der sog. Relationenalgebra.
+**Merke dir die Begriffe:**
+- 📋 **Tabelle** = Die gesamte Datensammlung zu einem Thema
+- 🔤 **Attribut/Spalte** = Eine Eigenschaft (z.B. "Name")
+- 📄 **Datensatz/Zeile** = Ein kompletter Eintrag (z.B. alle Daten über Berlin)
+- 🎯 **Wert** = Ein einzelner Eintrag in einer Zelle
 
-![Nicht atomare Werte](./nicht_atomare_werte.svg "Beispiel für nicht atomare Werte - Urheber: TM - Lizenz: inf-schule.de")-
+:::alert{info}
+**Woher kommt "relational"?**
 
-Klassentabelle, die als Attribut jeweils eine Liste von Lehrern enthält.Ein Wert für ein Attribut in einem Datensatz soll **atomar** sein. Das bedeutet unter anderem, dass nur einfache Werte und keine Listen gespeichert werden dürfen. Das Beispiel einer Klassen-Tabelle rechts wäre also aufgrund der Lehrerliste nicht korrekt!
+Der Begriff kommt aus der Mathematik (Relationenalgebra). Er bedeutet, dass Tabellen **Beziehungen** (Relationen) zueinander haben können.
 
-## Gleichzeitiger Zugriff
+Beispiel: Die Tabelle "Stadt" ist mit der Tabelle "Land" verbunden, weil jede Stadt zu einem Land gehört!
+:::
 
-Tabellen kennst du ja auch von Tabellenkalkulationsprogrammen (z.B. OpenOffice Calc oder MS Excel). Warum dann eine Datenbank verwenden?
+## ⚛️ Atomare Werte - Eine wichtige Regel!
 
-Vielleicht habt ihr bei der Bearbeitung der Aufgabe 2 aus dem Einstieg die folgende (oder eine ähnliche) Fehlermeldung bekommen:
+:::snippet{#merken}
+**Regel:** Ein Wert in einer Tabellenzelle soll **atomar** sein.
+
+**Atomar bedeutet:** Nur **ein einzelner Wert**, keine Listen oder mehrere Werte!
+:::
+
+### ❌ Falsch: Nicht atomare Werte
+
+![Nicht atomare Werte](./nicht_atomare_werte.svg "Beispiel für nicht atomare Werte - Urheber: TM - Lizenz: inf-schule.de")
+
+**Problem:** Die Tabelle speichert in der Spalte "Lehrer" eine **Liste** von Lehrern!
+
+**Warum ist das schlecht?**
+- 🔍 Schwer zu durchsuchen ("Welche Klassen hat Herr Müller?")
+- 📊 Schwer zu sortieren
+- 🔄 Schwer zu ändern (Was, wenn ein Lehrer dazukommt?)
+
+### ✅ Richtig: Atomare Werte
+
+**Bessere Lösung:** Mehrere Tabellen nutzen!
+
+**Tabelle 1: Klasse**
+| KlassenID | Klassenname |
+|-----------|-------------|
+| 1 | 9a |
+| 2 | 9b |
+
+**Tabelle 2: Klasse_Lehrer** (Verbindungstabelle)
+| KlassenID | LehrerName |
+|-----------|------------|
+| 1 | Müller |
+| 1 | Schmidt |
+| 2 | Weber |
+
+**Vorteil:** Jetzt ist jeder Wert atomar und trotzdem können mehrere Lehrer einer Klasse zugeordnet werden! 🎯
+
+## 👥 Gleichzeitiger Zugriff - Der große Vorteil!
+
+### 🤔 Excel vs. Datenbank - Was ist der Unterschied?
+
+**Du fragst dich vielleicht:** "Warum nicht einfach Excel nutzen? Das hat doch auch Tabellen!"
+
+**Gute Frage!** Hier ist der Unterschied:
+
+#### ❌ Problem mit Excel/Calc
 
 ![Zugriffkonflikt](./CalcZugriffskonflikt.png "Beispiel für Zugriffkonflikt - Urheber: TM - Lizenz: inf-schule.de")
 
-Das Tabellenkalkulationsprogramm erlaubt immer nur einem Benutzer, die Daten zu verändern - alle anderen müssen warten oder dürfen das Dokument nur schreibgeschützt anschauen.
-Stell' dir das einmal bei einem großen Informationssystem (z.B. bei TikTok) vor...
+**Excel-Regel:** Nur **eine Person** darf gleichzeitig Änderungen machen!
+- 🔒 Person 1 bearbeitet → Alle anderen können nur zuschauen
+- ⏳ Alle anderen müssen warten
+- 😤 Nervt bei Teamarbeit!
 
-Echte Datenbanksysteme erlauben daher den **gleichzeitigen vollen Zugriff** mehrerer Benutzer auf die gleichen Daten.
+#### ✅ Vorteil von Datenbanken
 
-## Datenbasis für unterschiedliche Programme
+**Datenbanken erlauben:** **Hunderte oder Tausende** Benutzer können **gleichzeitig** Daten ändern!
 
-Denkt man z.B. an das Informationssystem der Bahn, dann wird klar, dass unterschiedliche Programme auf die gleichen Daten zugreifen müssen:
+**Stell dir vor:**
+- 📱 **Instagram:** Millionen Nutzer posten gleichzeitig Bilder
+- 🎮 **Online-Spiel:** Tausende Spieler gleichzeitig aktiv
+- 🛒 **Amazon:** Gleichzeitig Bestellungen, Bewertungen, Warenkorb
+- 🎵 **Spotify:** Millionen hören gleichzeitig Musik
 
-- Die Fahrplanauskunft im Internet
-- Das Buchungsprogramm im Reisebüro
-- Das Smartphone eines Schaffners, wenn er mögliche Anschlüsszüge durchgibt
-- Vielleicht sogar die Infotafel im Bahnhof
-- u.v.m.
+**Ohne Datenbank wäre das unmöglich!** ❌
+
+:::alert{success}
+**Merke:** Datenbanken sind für **viele gleichzeitige Zugriffe** optimiert!
+:::
+
+## 🌐 Eine Datenbasis für viele Programme
+
+### 🚂 Beispiel: Deutsche Bahn
+
+Denk mal an die Bahn - wie viele verschiedene Programme nutzen die **gleichen** Fahrplandaten?
+
+**Programme, die auf die Bahn-Datenbank zugreifen:**
+- 💻 **Fahrplanauskunft** im Internet (bahn.de)
+- 📱 **DB Navigator App** auf deinem Smartphone
+- 🎫 **Buchungssystem** im Reisebüro
+- 📺 **Anzeigetafeln** im Bahnhof
+- 🚂 **Schaffner-Tablet** im Zug (für Anschlüsse)
+- 🔔 **Verspätungs-Benachrichtigungen**
 
 ![DB Informationssystem Bahn](./db_basis_infosystem.svg "Datenbankbasis - Urheber: TM - Lizenz: inf-schule.de")
 
-Typisch für ein Datenbanksystem ist es, dass es zentral auf einem **Server** läuft und dass viele unterschiedliche Programme (**Clients**) auf die gleichen Daten zugreifen können.
+### 🏢 Das Client-Server-Prinzip
+
+:::snippet{#merken}
+**So funktioniert's:**
+
+🖥️ **Server** (einer)
+- Zentrale Datenbank
+- Läuft 24/7
+- Verwaltet alle Daten
+- Beantwortet Anfragen
+
+📱 **Clients** (viele)
+- Verschiedene Programme/Apps
+- Stellen Anfragen an den Server
+- Bekommen Antworten zurück
+- Zeigen Daten an
+:::
+
+**Vorteile:**
+- ✅ **Eine Wahrheit:** Alle sehen die gleichen (aktuellen!) Daten
+- ✅ **Zentral:** Änderungen nur an einem Ort nötig
+- ✅ **Sicher:** Zugriffsrechte zentral verwaltet
+- ✅ **Flexibel:** Neue Programme können einfach hinzugefügt werden
+
+:::collapsible{title="🎮 Weitere Beispiele aus deinem Alltag"}
+**Instagram/TikTok:**
+- Server: Datenbank mit allen Posts, Likes, Kommentaren
+- Clients: App, Website, verschiedene Geräte
+
+**Netflix:**
+- Server: Datenbank mit Filmen, Bewertungen, Watchlists
+- Clients: TV-App, Smartphone, Tablet, Browser
+
+**Schule:**
+- Server: Datenbank mit Noten, Stundenplänen, Vertretungsplan
+- Clients: WebUntis-App, Stundenplan-App, Lehrer-PC
+:::
