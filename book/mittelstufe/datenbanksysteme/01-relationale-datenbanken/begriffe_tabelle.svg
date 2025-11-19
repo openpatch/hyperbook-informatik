@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="616.14703"
+   height="190.96817"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="begriffe_tabelle.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="324.48267"
+     inkscape:cy="-19.492231"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="0"
+     fit-margin-bottom="5"
+     inkscape:window-width="1368"
+     inkscape:window-height="849"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-52.490818,-305.59406)">
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.02941191;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3837"
+       width="616.42859"
+       height="188.57143"
+       x="1.4285715"
+       y="2.3967416"
+       transform="translate(52.490818,305.59406)" />
+    <g
+       id="g4622"
+       transform="matrix(0.88785916,0,0,0.88785916,40.71434,44.977242)">
+      <path
+         d="m 116.27707,356.1558 584.09902,0 0,146.37256 -584.09902,0 z"
+         style="fill:none;stroke:#000000;stroke-width:0.92488754px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="99"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 117.18972,357.09308 0,29.68067 581.20895,0 0,-29.68067 -581.20895,0 z"
+         style="fill:#f3e689;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         id="100"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:18.49774933px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Verdana"
+         y="375.80063"
+         x="133.00374"
+         xml:space="preserve"
+         id="101">Name</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:18.49774933px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Verdana"
+         y="375.80063"
+         x="272.6001"
+         xml:space="preserve"
+         id="102">Einwohner</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:18.49774933px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Verdana"
+         y="375.80063"
+         x="394.43863"
+         xml:space="preserve"
+         id="103">Breite</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:18.49774933px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Verdana"
+         y="375.80063"
+         x="473.11569"
+         xml:space="preserve"
+         id="104">Laenge</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:18.49774933px;font-style:italic;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Verdana"
+         y="375.80063"
+         x="559.93182"
+         xml:space="preserve"
+         id="105">Land</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="403.91721"
+         x="133.00374"
+         xml:space="preserve"
+         id="106">Berlin</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="403.91721"
+         x="272.6001"
+         xml:space="preserve"
+         id="107">3458763 </text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="403.91721"
+         x="394.43863"
+         xml:space="preserve"
+         id="108">52,52</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="403.91721"
+         x="473.11569"
+         xml:space="preserve"
+         id="109">13,41</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="403.91721"
+         x="559.93182"
+         xml:space="preserve"
+         id="110">Deutschland</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="429.81406"
+         x="133.00374"
+         xml:space="preserve"
+         id="111">Mainz</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="429.81406"
+         x="284.43866"
+         xml:space="preserve"
+         id="112">184752</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="429.81406"
+         x="394.43863"
+         xml:space="preserve"
+         id="113">50,00</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="429.81406"
+         x="484.95428"
+         xml:space="preserve"
+         id="114">8,27</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="429.81406"
+         x="559.93182"
+         xml:space="preserve"
+         id="115">Deutschland</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="455.95755"
+         x="133.00374"
+         xml:space="preserve"
+         id="116">Paris</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="455.95755"
+         x="272.6001"
+         xml:space="preserve"
+         id="117">2181300</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="455.95755"
+         x="394.43863"
+         xml:space="preserve"
+         id="118">48,86</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="455.95755"
+         x="484.95428"
+         xml:space="preserve"
+         id="119">2,35</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="455.95755"
+         x="559.93182"
+         xml:space="preserve"
+         id="120">Frankreich</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="481.8544"
+         x="133.00374"
+         xml:space="preserve"
+         id="121">Speyer</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="481.8544"
+         x="296.27722"
+         xml:space="preserve"
+         id="122">50600 </text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="481.8544"
+         x="394.43863"
+         xml:space="preserve"
+         id="123">49,31</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="481.8544"
+         x="484.95428"
+         xml:space="preserve"
+         id="124">8,43</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:19.73093414px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#000000;font-family:Courier New"
+         y="481.8544"
+         x="559.93182"
+         xml:space="preserve"
+         id="125">Deutschland</text>
+      <path
+         d="m 119.01503,387.71103 576.34146,0"
+         style="fill:none;stroke:#000000;stroke-width:0.92488754px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="126"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 249.52465,358.96765 0,138.71807"
+         style="fill:none;stroke:#000000;stroke-width:0.92488754px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="127"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:22.19729996px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;font-family:Tahoma"
+         y="343.83029"
+         x="128.53351"
+         xml:space="preserve"
+         id="128">ort</text>
+      <path
+         d="m 537.31511,358.96765 0,138.71807"
+         style="fill:none;stroke:#000000;stroke-width:0.92488754px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="129"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 374.25413,358.96765 0,138.71807"
+         style="fill:none;stroke:#000000;stroke-width:0.92488754px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="130"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 457.76204,358.96765 0,138.71807"
+         style="fill:none;stroke:#000000;stroke-width:0.92488754px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="131"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 360.73163,425.68667 51.47373,-87.58922 -1.04955,-0.64047 -51.45852,87.58921 1.03434,0.64048 z m -3.01176,-3.32736 -0.65407,8.35745 6.90576,-4.48334 -6.25169,-3.87411 z"
+         style="fill:#aa3c3c;fill-opacity:1;fill-rule:nonzero;stroke:#aa3c3c;stroke-width:0.01541479px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="132"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 284.87481,361.88885 -14.9219,-45.00526 1.14082,-0.40616 14.9219,45.02089 -1.14082,0.39053 z m 3.63541,-2.59315 -1.11039,8.31059 -5.79536,-5.88927 6.90575,-2.42132 z"
+         style="fill:#aa3c3c;fill-opacity:1;fill-rule:nonzero;stroke:#aa3c3c;stroke-width:0.01541479px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="133"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:17.26456642px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#aa3c3c;font-family:Verdana"
+         y="308.32568"
+         x="222.71793"
+         xml:space="preserve"
+         id="134">Attribut</text>
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:17.26456642px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#aa3c3c;font-family:Verdana"
+         y="324.97363"
+         x="396.13431"
+         xml:space="preserve"
+         id="135">Datenwert</text>
+      <path
+         d="m 110.34481,418.39147 595.96353,0 0,24.83804 -595.96353,0 z"
+         style="fill:none;stroke:#aa3c3c;stroke-width:1.84977508px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="136"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:17.26456642px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#aa3c3c;font-family:Verdana"
+         y="487.5997"
+         x="17.546999"
+         xml:space="preserve"
+         id="137">Datensatz</text>
+      <path
+         d="m 97.628488,439.02735 -24.261405,32.08636 0.958287,0.76545 24.261405,-32.08636 -0.958287,-0.76545 z m 2.616272,3.67103 1.58194,-8.23248 -7.346871,3.62416 5.764931,4.60832 z"
+         style="fill:#aa3c3c;fill-opacity:1;fill-rule:nonzero;stroke:#aa3c3c;stroke-width:0.01541479px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="138"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.98677375,1.0134035)"
+         style="font-size:17.26456642px;font-style:normal;font-weight:bold;text-align:start;text-anchor:start;fill:#aa3c3c;font-family:Verdana"
+         y="312.9501"
+         x="37.740433"
+         xml:space="preserve"
+         id="139">Name</text>
+      <path
+         d="m 119.69952,327.39679 -18.04014,-5.42063 0.34985,-1.20284 18.04014,5.42062 -0.34985,1.20285 z m 0.0304,-4.54583 5.97789,5.70182 -8.03136,1.49965 2.05347,-7.20147 z"
+         style="fill:#aa3c3c;fill-opacity:1;fill-rule:nonzero;stroke:#aa3c3c;stroke-width:0.01541479px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="140"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
