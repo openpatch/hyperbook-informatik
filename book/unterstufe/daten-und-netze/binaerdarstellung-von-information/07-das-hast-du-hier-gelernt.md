@@ -23,3 +23,7 @@ Bringe die Buchstaben in die richtige Reihenfolge, um die Wörter zu erhalten, d
 Die gesuchten Wörter sind:
 binär, Bitfolge, Binärdaten, Bit, Byte
 :::
+
+## Zeig was du kannst!
+
+[Binärspiel](https://learningcontent.cisco.com/games/binary/index.html)
