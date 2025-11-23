@@ -12,7 +12,7 @@ Hier siehst du ein Bild der Villa Kunterbunt und die dazugehörigen Zahlen.
 
 Jedes Kästen wird aus einer Zahlenkombination aus drei Ziffern zwischen 0 und 1 dargestellt: Zum Beispiel das Kästchen ganz links oben wird codiert mit 1 1 1.
 
-<pixel-editor id="pbm-editor-haus-grau" readOnly>
+<pixel-editor id="pbm-editor-haus-bunt" readOnly>
 P3
 5 6
 1
@@ -27,10 +27,25 @@ P3
 
 ## Aufgabe 1
 
-<card-matching id="matching-farben" pairs='[
-  {"blue": "image:blume1.jpg", "orange": "Animal"},
-  {"blue": "Rose", "orange": "Flower"},
-  {"blue": "Paris", "orange": "Capital"},
-  {"blue": "Python", "orange": "Programming Language"},
-  {"blue": "Guitar", "orange": "Musical Instrument"}
-]'></card-matching>
+::embed{src="https://learningapps.org/show.php?id=p5901p2u320"}
+
+## Aufgabe 2
+
+:::snippet{#aufgabe}
+Veränder die Villa Kunterbunt so, dass sie aussieht, wie auf diesem Bild:
+
+![Villa Kunterbunt](canvas.png)
+:::
+
+<pixel-editor id="pbm-editor-haus-rgb-mirror" readOnly>
+P3
+5 6
+1
+---
+1 1 1   1 1 1   1 0 0   1 1 1   1 1 1
+1 1 1   1 0 0   1 0 0   1 0 0   1 1 1
+1 0 0   1 0 0   1 0 0   1 0 0   1 0 0
+0 1 0   0 1 0   0 1 0   0 1 0   0 1 0
+0 1 0   0 0 1   0 0 1   0 1 0   0 1 0
+0 1 0   0 0 1   0 0 1   0 1 0   0 1 0
+</pixel-editor>
