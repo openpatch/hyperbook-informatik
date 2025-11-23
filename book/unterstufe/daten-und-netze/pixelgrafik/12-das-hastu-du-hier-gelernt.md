@@ -53,7 +53,7 @@ Das bedeutet: PGM-Format mit 8 Spalten, 9 Zeilen und Maximalwert 15.
 
 ### Probiere Piskel aus!
 
-Schaue dir [Piskel](https://www.piskelapp.com/) an - ein kostenloser Online-Pixelgrafik-Editor! Damit kannst du:
+Schaue dir [Piskel](https://www.piskelapp.com/kids/) an - ein kostenloser Online-Pixelgrafik-Editor! Damit kannst du:
 
 - Eigene Pixelgrafiken erstellen
 - Charaktere und Objekte für Spiele entwerfen
