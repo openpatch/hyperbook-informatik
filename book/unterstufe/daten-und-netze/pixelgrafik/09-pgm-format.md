@@ -7,10 +7,12 @@ scripts:
 
 # Das PGM-Format
 
-:::snippet{#merken}
-Das PGM-Format ("Portable Graymap") wird benutzt, um Graustufen-Bilder darzustellen.
+## Graustufen-Bilder richtig codieren
 
-Der Kopf eines PGM-Dokuments beginnt mit P2 (für das Format PGM), gefolgt von der Spalten- und Zeilenanzahl (hier 8 und 9).
+:::snippet{#merken}
+Das **PGM-Format** ("Portable Graymap") wird benutzt, um Graustufen-Bilder darzustellen.
+
+Der Kopf eines PGM-Dokuments hat jetzt **drei Zeilen**:
 
 ```
 P2
@@ -18,13 +20,30 @@ P2
 15
 ```
 
-Bei dem PGM Dokument wurde der Kopf um eine weitere Zeile erweitert: Der Maximalwert für die Helligkeit (hier die Zahl 15 aus der dritten Zeile): Die Zahl 15 wurde als weiß festgelegt. Die Zahl 0 stellt die Farbe schwarz dar. Die Zahlen zwischen 0 und 15 stellen Graustufen dar.
+**Das bedeutet:**
+1. **P2** = Das Format ist PGM (also Graustufen statt nur Schwarz-Weiß)
+2. **8 9** = Das Bild hat 8 Spalten (Breite) und 9 Zeilen (Höhe)
+3. **15** = Der **Maximalwert für die Helligkeit**
+
+**Die Zahlen im Bild bedeuten:**
+- **0** = Schwarz (dunkelste Farbe)
+- **15** = Weiß (hellste Farbe, weil 15 unser Maximalwert ist)
+- **Zahlen dazwischen** (1-14) = Graustufen von dunkel nach hell
+
+Je höher der Maximalwert, desto mehr verschiedene Graustufen kannst du verwenden!
 :::
 
 ## Aufgabe
 
 :::snippet{#aufgabe}
-Erstelle ein PGM-Graustufen-Bild eines Hauses. Das Dach soll dunkler dargestellt sein als das Erdgeschoss. Die Fenster und Türen sollen am dunkelsten sein.
+Erstelle ein PGM-Graustufen-Bild eines Hauses:
+
+**Anforderungen:**
+- Das Dach soll **dunkel** sein (kleine Zahlen)
+- Das Erdgeschoss soll **heller** sein (mittlere Zahlen) 
+- Die Fenster und Türen sollen am **dunkelsten** sein (0 oder sehr kleine Zahlen)
+
+Benutze die Hilfe unten, wenn du nicht weiterkommst!
 :::
 
 
@@ -35,7 +54,12 @@ P2
 </pixel-editor>
 
 :::collapsible{title="Hilfe"}
-Du kannst folgenden Code kopieren und in das Leerfeld einfügen. Durch Veränderung der Zahl 4 (in 3,2,1 oder 0) kannst du die Farben im Bild verändern.
+**Tipp:** Du kannst folgenden Code als Startpunkt kopieren und in das leere Feld einfügen. 
+
+Verändere dann die Zahlen:
+- 0 = schwarz
+- 5 = weiß (weil wir 5 als Maximalwert haben)
+- 1, 2, 3, 4 = verschiedene Graustufen
 
 ```
 P2

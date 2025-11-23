@@ -7,13 +7,17 @@ scripts:
 
 # Bildschärfe und Auflösung
 
-## Ein Bild verkleinern
+## Warum sind manche Bilder schärfer als andere?
 
 :::alert{info}
-Beim Vergrößern und Verkleinern von Bildern hast du gesehen, dass ein Bild aus vielen kleinen Bildpunkten zusammengesetzt ist.
+Beim Vergrößern und Verkleinern von Bildern hast du gesehen, dass ein Bild aus vielen kleinen Bildpunkten (Pixeln) zusammengesetzt ist.
 
-Verwendet man für ein digitales Bild nur wenige Pixel, dann ist es unscharf, es hat eine niedrige Auflösung.
-Je mehr Pixel man für das Bild verwendet, desto besser kann man Einzelheiten erkennen, das Bild ist scharf und hat eine hohe Auflösung. 
+Je mehr Pixel ein Bild hat, desto schärfer ist es:
+
+- **Wenige Pixel** → Das Bild ist unscharf und verpixelt → **niedrige Auflösung**
+- **Viele Pixel** → Das Bild ist scharf und detailreich → **hohe Auflösung**
+
+Die **Auflösung** eines Bildes sagt also aus, wie viele Pixel es hat!
 :::
 
 | Hohe Auflösung | Niedrige Auflösung |
@@ -31,7 +35,7 @@ Ziehe die Bilder in die passende Kategorie.
 ## Aufgabe 2
 
 :::snippet{#aufgabe}
-Trage die fehlenden Wörter ein!
+Ergänze die fehlenden Wörter! Überlege dabei, was du gerade über Pixel und Auflösung gelernt hast.
 :::
 
 ::::multievent

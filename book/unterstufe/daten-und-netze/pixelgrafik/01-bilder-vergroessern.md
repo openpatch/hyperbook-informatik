@@ -5,16 +5,20 @@ scripts:
   - /wc/pixel-magnifier.js
 ---
 
-# Bilder vergrößeren
+# Bilder vergrößern
 
-## Ein Bild vergrößern
+## Wie zeigt der Computer Bilder an?
 
-Damit ein Computer oder ein Handy Bilder darstellen kann, werden diese codiert.
+Damit ein Computer oder ein Handy Bilder darstellen kann, müssen diese in eine besondere Form gebracht werden - sie werden codiert. Das ist so ähnlich wie eine Geheimschrift, die nur der Computer verstehen kann.
+
+Lass uns gemeinsam herausfinden, wie das funktioniert!
 
 ## Aufgabe 1
 
 :::snippet{#aufgabe}
-Schiebe den Schieberegler nach rechts, um das Bild zu vergrößern. Beobachte dabei genau, was mit dem Bild passiert. Schreibe deine Beobachtungen unten auf.
+Schiebe den Regler langsam nach rechts, um das Bild immer mehr zu vergrößern.
+
+**Beobachte genau:** Was siehst du, wenn das Bild sehr groß wird? Verändert sich etwas? Schreibe deine Beobachtungen in das Textfeld unten.
 :::
 
 <pixel-magnifier id="pixel-vergroessern" src="./blume1.jpg"></pixel-magnifier>
