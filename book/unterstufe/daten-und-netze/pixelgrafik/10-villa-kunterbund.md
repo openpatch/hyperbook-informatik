@@ -6,11 +6,20 @@ scripts:
   - /wc/card-matching.js
 ---
 
-# Villa Kunterbund
+# Villa Kunterbunt
 
-Hier siehst du ein Bild der Villa Kunterbunt und die dazugehörigen Zahlen.
+## Endlich wird es bunt!
 
-Jedes Kästen wird aus einer Zahlenkombination aus drei Ziffern zwischen 0 und 1 dargestellt: Zum Beispiel das Kästchen ganz links oben wird codiert mit 1 1 1.
+Jetzt hast du gelernt:
+- Mit 0 und 1 kannst du schwarz-weiße Bilder machen
+- Mit mehr Zahlen kannst du Graustufen darstellen
+
+Aber wie macht der Computer **bunte** Bilder? Das schauen wir uns jetzt an!
+
+Hier siehst du ein buntes Bild der Villa Kunterbunt und die dazugehörigen Zahlen.
+
+**Wichtig:** Jedes farbige Kästchen wird mit **drei Zahlen** dargestellt! 
+Zum Beispiel: Das Kästchen ganz links oben hat die Zahlen **1 1 1**.
 
 <pixel-editor id="pbm-editor-haus-bunt" readOnly>
 P3
@@ -32,9 +41,11 @@ P3
 ## Aufgabe 2
 
 :::snippet{#aufgabe}
-Veränder die Villa Kunterbunt so, dass sie aussieht, wie auf diesem Bild:
+Verändere die Villa Kunterbunt so, dass sie **genau** wie auf diesem Bild aussieht:
 
 ![Villa Kunterbunt](canvas.png)
+
+**Tipp:** Verändere die Dreierpakete der Zahlen!
 :::
 
 <pixel-editor id="pbm-editor-haus-rgb-mirror" readOnly>

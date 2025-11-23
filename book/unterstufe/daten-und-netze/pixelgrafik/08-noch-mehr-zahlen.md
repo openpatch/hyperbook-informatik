@@ -7,14 +7,23 @@ scripts:
 
 # Noch mehr Zahlen...
 
-Der Computer kann natürlich nicht nur scharz-weiße Bilder mit 0 und 1, sondern auch Bilder in verschiedenen Graustufen verarbeiten.
+## Von Schwarz-Weiß zu Graustufen
+
+Du kannst jetzt Bilder nur mit den Zahlen 0 und 1 erstellen - aber das sind nur zwei Farben: schwarz und weiß. Das ist ganz schön eingeschränkt, oder?
+
+Der Computer kann natürlich viel mehr! Mit mehr Zahlen kann er auch **Graustufen** darstellen - also alle Farben zwischen schwarz und weiß.
 
 ## Aufgabe 1
 
 :::snippet{#aufgabe}
-Ersetze in dem Code alle 1er durch 4en: Was passiert mit dem Schnabel der Ente?
+**Experimentiere mit den Zahlen:**
 
-Erkunde: Was bedeuten die Zahlen 0-5? 
+a) Ersetze im Code alle 1er durch 4en. Was passiert mit dem Schnabel der Ente?
+
+b) Finde heraus: Was bedeuten die verschiedenen Zahlen von 0 bis 5? 
+   - Welche Zahl ist am dunkelsten? 
+   - Welche Zahl ist am hellsten?
+   - Was liegt dazwischen?
 :::
 
 <pixel-editor id="pbm-editor-ente-grau">
@@ -33,7 +42,12 @@ P2
 ## Aufgabe 2
 
 :::snippet{#aufgabe}
-Finde durch Ausprobieren heraus, was die Zahl 15 aus der dritten Zeile bedeuten könnte (setze für diese z.B. 20, 50 oder 100 ein). 
+Jetzt wird's knifflig! 
+
+Finde durch Ausprobieren heraus, was die Zahl **15** in der dritten Zeile bedeutet:
+- Probiere stattdessen mal 20, 50 oder 100 aus
+- Beobachte genau, was sich am Bild ändert
+- Was könntest du mit einer größeren Zahl erreichen?
 :::
 
 

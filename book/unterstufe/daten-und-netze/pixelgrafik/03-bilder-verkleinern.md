@@ -8,9 +8,11 @@ scripts:
 
 # Bilder verkleinern
 
-## Ein Bild verkleinern
+## Was passiert beim Verkleinern?
 
-Bei der Vergrößerung des Bildes hast du gesehen, dass sich jedes Bild aus vielen kleinen Quadraten - den Pixeln - zusammen setzt. Unser Auge setzt diese winzig kleinen Quadrate zu einem vollständigen Bild zusammen.
+Bei der Vergrößerung des Bildes hast du gesehen, dass sich jedes Bild aus vielen kleinen Quadraten - den **Pixeln** - zusammensetzt. 
+
+Wenn wir ein Bild normal betrachten, sind diese Pixel so klein, dass unser Auge sie zu einem vollständigen Bild zusammensetzt. Erst wenn wir ganz nah heranzoomen, sehen wir die einzelnen Pixel.
 
 ## Aufgabe 1
 
@@ -21,7 +23,9 @@ Spiele Memory - finde das richtige Bild zur jeweiligen Bildvergrößerung.
 ## Aufgabe 2
 
 :::snippet{#aufgabe}
-Beobachte die Verkleinerung dieses verpixelten Bildes - was passiert, wenn das Bild kleiner wird? Schreibe deine Beobachtungen unten auf.
+Beobachte jetzt, was passiert, wenn dieses verpixelte Bild immer kleiner wird.
+
+**Frage:** Was macht dein Auge mit den Pixeln, wenn das Bild kleiner wird? Schreibe deine Beobachtungen in das Textfeld unten.
 :::
 
 <pixel-minifier id="pixel-verkleinern" src="./Giraffe.png"></pixel-minifier>
