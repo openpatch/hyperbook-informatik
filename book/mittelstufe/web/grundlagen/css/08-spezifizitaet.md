@@ -93,7 +93,7 @@ Die Berechnung der Spezifizität erfolgt durch die Zählung der verschiedenen Se
 - CSS-Klassen (z.B. .alert, .js) = 10 Punkte
 - Pseudo-Klassen/Elemente (z.B. :nth-of-type) = 10 Punkte
 - CSS-IDs (z.B. #container, #header) = 100 Punkte
-- Inline-Styles (z.B. <h1 style="color: red;"></h1>) = 1000 Punkte
+- Inline-Styles (z.B. `<h1 style="color: red;"></h1>`) = 1000 Punkte
 - !important gewinnt immer, es sei denn mehere Selektoren haben ein !important erhalten.
 
 Hier ein Beispiel:
