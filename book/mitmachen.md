@@ -13,8 +13,8 @@ Auf jeder Seite findest du unten links ein Stiftsymbol. Darüber kannst du Korre
 
 ## Gliederung des Buches
 
-- Die Themen ist nach Kategorien gegliedert.
-- Jedes Thema setzt sich auf mehreren Kapitel zusammen.
+- Die Themen sind nach Kategorien gegliedert.
+- Jedes Thema setzt sich aus mehreren Kapitel zusammen.
 - Jedes Kapitel besteht aus mehreren Seiten.
 
 ## Gliederung der Übersichtsseite
