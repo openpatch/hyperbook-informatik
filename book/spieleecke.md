@@ -3,10 +3,6 @@ name: Spieleecke
 permaid: spiele
 ---
 
-## Computer
-
-- []
-
 ## Maustraining
 
 - [Mausübungen](https://maustraining.zawiw.de/level/0)
@@ -25,3 +21,12 @@ permaid: spiele
 - [Compute It](http://compute-it.toxicode.fr/): Du bist der Computer und musst Befehle ausführen, um Aufgaben zu lösen.
 - [Little Dot](https://little-dot.toxicode.fr/): Steuere einen kleinen Roboter durch verschiedene Level, indem du ihm Befehle mit der Tastatur ausführst.
 - [Silent Teacher](http://silentteacher.toxicode.fr/): Du lernst Programmieren, ohne dass dir jemand etwas erklärt.
+
+## Grafiken
+
+- [Pixel Art Maker](https://www.piskelapp.com/kids/): Erstelle Pixelgrafiken online.
+
+## Weitere
+
+- [Tonis Escape](https://tonis-escape.sichere-digitale-zukunft.de/v3.2/): Ein Spiel über das Hacken und den Folgen
+- [Code Knacker](www.wdrmaus.de/spiel-und-spass/spiele/codeknacker.php5): 
