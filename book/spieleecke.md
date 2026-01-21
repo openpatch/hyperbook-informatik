@@ -29,5 +29,5 @@ permaid: spiele
 ## Weitere
 
 - [Tonis Escape](https://tonis-escape.sichere-digitale-zukunft.de/v3.2/): Ein Spiel über das Hacken und den Folgen
-- [Code Knacker](www.wdrmaus.de/spiel-und-spass/spiele/codeknacker.php5): 
+- [Code Knacker](https://www.wdrmaus.de/spiel-und-spass/spiele/codeknacker.php5): 
 - [Tinkercad](https://www.tinkercad.com/joinclass/CUQMZ9CSE): Einfache 3D-Modellierung für Anfänger, um eigene Objekte für den 3D-Druck zu erstellen. Den Anmeldecode bekommst du von deiner Lehrperson.
