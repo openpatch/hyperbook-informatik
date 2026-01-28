@@ -1,0 +1,26 @@
+---
+name: Einstieg
+index: 0
+prev: 
+---
+
+# Spieleentwicklung
+
+Die Entwicklung von Spielen macht Spaß! Aber manchmal schleichen sich Fehler ein, die das Spielerlebnis stören. In diesem Kapitel wirst dich mit den Grundlagen der Spieleentwicklung beschäftigen.
+
+---
+
+:::alert{info}
+Hier lernst du,
+
+- wie man Fehler in Spielen finden und beheben kann.
+- warum das Testen von Spielen wichtig ist.
+- wie du Spiele erweiterst und anpasst.
+:::
+
+## Voraussetzungen
+
+Für dieses Projekt solltest du bereits Vorkenntnisse in der Programmierung mit Scratch haben.
+
+Am besten hast du [Programmieren mit der Maus](https://programmieren.wdrmaus.de/) vorher bearbeitet. Dort lernst du die Grundlagen der Programmierung mit Scratch kennen, die dir in diesem Projekt helfen werden.
+
