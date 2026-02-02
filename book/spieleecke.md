@@ -3,6 +3,8 @@ name: Spieleecke
 permaid: spiele
 ---
 
+# Spieleecke
+
 ## Maustraining
 
 - [Mausübungen](https://maustraining.zawiw.de/level/0)
