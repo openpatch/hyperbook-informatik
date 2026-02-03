@@ -20,7 +20,4 @@ Hier lernst du,
 
 ## Voraussetzungen
 
-Für dieses Projekt solltest du bereits Vorkenntnisse in der Programmierung mit Scratch haben.
-
-Am besten hast du [Programmieren mit der Maus](https://programmieren.wdrmaus.de/) vorher bearbeitet. Dort lernst du die Grundlagen der Programmierung mit Scratch kennen, die dir in diesem Projekt helfen werden.
-
+Für diese Kapitel benötigst du keine besonderen Vorkenntnisse. Starte einfach mit dem [Trainingscamp](./trainingscamp).
