@@ -2,7 +2,7 @@
 
 Ein interaktives Hyperbook zum Lernen und Lehren von Informatik, entwickelt von [OpenPatch](https://openpatch.org).
 
-## 📚 Über das Projekt
+## Über das Projekt
 
 In diesem Hyperbook lernst du viele Themen der Informatik kennen. Die Inhalte sind nach Schulstufen gegliedert:
 
@@ -12,11 +12,11 @@ In diesem Hyperbook lernst du viele Themen der Informatik kennen. Die Inhalte si
 
 Das Hyperbook verwendet interaktive Elemente, Web Components und moderne Lernmethoden, um Informatik anschaulich und praxisnah zu vermitteln.
 
-## 🚀 Nutzung
+## Nutzung
 
 Das Hyperbook ist online verfügbar und kann direkt im Browser genutzt werden.
 
-## 🛠️ Lokale Entwicklung
+## Lokale Entwicklung
 
 Um das Hyperbook lokal zu entwickeln und zu testen:
 
@@ -31,7 +31,7 @@ npx hyperbook dev
 
 **Alternative:** Installiere die [Hyperbook Extension für VS Code](https://marketplace.visualstudio.com/items?itemName=openpatch.hyperbook) für eine noch bessere Entwicklungserfahrung direkt in deinem Editor.
 
-## 🤝 Mitmachen
+## Mitmachen
 
 Wir freuen uns über jede Unterstützung! 
 
@@ -39,7 +39,7 @@ Wir freuen uns über jede Unterstützung!
 
 Für ausführliche Informationen zum Mitmachen, zur Projektstruktur, zu Snippets und Web Components, siehe die [Mitmachen-Seite](book/mitmachen.md).
 
-## 📁 Projektstruktur
+## Projektstruktur
 
 ```
 ├── book/              # Inhaltsdateien (Markdown)
@@ -55,7 +55,9 @@ Für ausführliche Informationen zum Mitmachen, zur Projektstruktur, zu Snippets
 └── hyperbook.json     # Konfigurationsdatei
 ```
 
-## 📝 Lizenz
+`public` sollte nur noch sporadisch genutzt werden. Zum Beispiel wenn die Datei auf mehreren Seiten verwendet wird. Am besten werden statische Dateien direkt neben der Markdown-Datei abgelegt, die diese verwendet.
+
+## Lizenz
 
 Dieses Projekt ist unter der **CC-BY-SA** (Creative Commons Attribution-ShareAlike) Lizenz veröffentlicht.
 
@@ -67,13 +69,13 @@ Das bedeutet:
 
 Weitere Informationen findest du unter: https://creativecommons.org/licenses/by-sa/4.0/deed.de
 
-## 📞 Kontakt
+## Kontakt
 
 - **GitHub**: https://github.com/openpatch/hyperbook-informatik
 - **Website**: https://openpatch.org
 - **Issues**: Für Fehler und Verbesserungsvorschläge nutze bitte die [GitHub Issues](https://github.com/openpatch/hyperbook-informatik/issues)
 
-## 🙏 Danksagungen
+## Danksagungen
 
 Vielen Dank an alle Mitwirkenden, die zu diesem Projekt beitragen!
 
