@@ -4,7 +4,7 @@ navigation: page
 index: 2
 ---
 
-![](./banner.png)
+![](./banner.webp)
 
 # Spieletest: Donut Klicker
 
