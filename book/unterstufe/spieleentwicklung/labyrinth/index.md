@@ -1,12 +1,12 @@
 ---
-title: Labyrinth
+title: "Spieletest: Labyrinth"
 navigation: page
-index: 3
+index: 2
 ---
 
 ![](./banner.png)
 
-# Labyrinth
+# Spieletest: Labyrinth
 
 Beim Labyrinth-Spiel muss der Käfer den Ausgang finden ohne dabei die Wände zu berühren.
 
