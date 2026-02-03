@@ -13,6 +13,7 @@ Die Entwicklung von Spielen macht Spaß! Aber manchmal schleichen sich Fehler ei
 :::alert{info}
 Hier lernst du,
 
+- wie man mit Scratch Spiele erstellen kann.
 - wie man Fehler in Spielen finden und beheben kann.
 - warum das Testen von Spielen wichtig ist.
 - wie du Spiele erweiterst und anpasst.
