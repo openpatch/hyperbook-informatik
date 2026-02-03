@@ -1,5 +1,5 @@
 ---
-title: "Spieltest: Schießbude"
+title: "Spieletest: Schießbude"
 navigation: page
 index: 4
 ---
