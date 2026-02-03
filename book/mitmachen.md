@@ -24,6 +24,12 @@ Auf jeder Seite findest du unten links ein Stiftsymbol. Darüber kannst du Korre
     - Für dieses Thema musst du ... (Vorwissen mit Links zu den passenden Zusammenfassungsseiten)
     - Hier lernst du ... (Lernziele)
 
+## Banner
+
+- Banner sollten immer **1024x280 Pixel** oder in diesem Verhältnis (ca. 3,66:1) groß sein
+- Das Banner wird **über der Überschrift** der Seite platziert
+- Achte auf gute Lesbarkeit und passende Kontraste
+
 ## Absprachen zur einhaltlichen Gestaltung
 
 :::alert{info}
