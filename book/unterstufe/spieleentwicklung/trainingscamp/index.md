@@ -1,6 +1,7 @@
 ---
 title: Trainingscamp
 navigation: page
+index: 1
 ---
 
 ![](./banner.png "Erstellt mit Google Gemini (KI-Modell), am 3. Februar 2026.")
