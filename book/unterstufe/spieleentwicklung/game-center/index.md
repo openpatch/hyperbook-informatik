@@ -5,7 +5,7 @@ permaid: game-center
 index: 5
 ---
 
-![](./banner.png "Erstellt mit Google Gemini (KI-Modell), am 3. Februar 2026.")
+![](./banner.webp "Erstellt mit Google Gemini (KI-Modell), am 3. Februar 2026.")
 
 # Game Center
 
