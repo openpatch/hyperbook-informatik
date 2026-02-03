@@ -1,7 +1,7 @@
 ---
 title: "Spieltest: Schießbude"
 navigation: page
-index: 3
+index: 4
 ---
 
 ![](./banner.png)

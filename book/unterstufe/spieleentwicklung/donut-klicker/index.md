@@ -1,7 +1,7 @@
 ---
 title: "Spieletest: Donut-Klicker"
 navigation: page
-index: 1
+index: 2
 ---
 
 ![](./banner.png)
