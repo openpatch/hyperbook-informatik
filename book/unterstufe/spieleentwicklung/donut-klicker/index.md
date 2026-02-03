@@ -1,12 +1,12 @@
 ---
-title: Donut-Klicker
+title: "Spieletest: Donut-Klicker"
 navigation: page
 index: 1
 ---
 
 ![](./banner.png)
 
-# Donut Klicker
+# Spieletest: Donut Klicker
 
 Beim Donut-Klicker-Spiel musst du so viele Klicks wie möglich sammeln. Du kannst dir auch kleiner Helfer kaufen. Aber nehme dich vor dem Blitz in Acht!
 
