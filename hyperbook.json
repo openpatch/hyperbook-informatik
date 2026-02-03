@@ -18,9 +18,6 @@
     "brandDark": "#f2dcaa",
     "brandText": "#f2dcaa"
   },
-  "styles": [
-    "/index.css"
-  ],
   "links": [
     {
       "href": "/glossary",
