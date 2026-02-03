@@ -4,7 +4,7 @@ navigation: page
 index: 4
 ---
 
-![](./banner.png)
+![](./banner.webp)
 
 # Schießbude
 

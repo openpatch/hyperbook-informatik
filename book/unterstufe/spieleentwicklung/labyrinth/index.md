@@ -4,7 +4,7 @@ navigation: page
 index: 3
 ---
 
-![](./banner.png)
+![](./banner.webp)
 
 # Spieletest: Labyrinth
 
