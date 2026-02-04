@@ -2,7 +2,7 @@
 title: Game Center
 navigation: page
 permaid: game-center
-index: 5
+index: 6
 ---
 
 ![](./banner.webp "Erstellt mit Google Gemini (KI-Modell), am 3. Februar 2026.")
