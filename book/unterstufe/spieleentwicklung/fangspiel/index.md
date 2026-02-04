@@ -1,5 +1,5 @@
 ---
-name: "Spieleentwickler: Fangspiel"
+name: "Spieleentwicklung: Fangspiel"
 lang: de
 index: 5
 navigation: page
