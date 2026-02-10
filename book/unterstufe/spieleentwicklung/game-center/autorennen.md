@@ -7,3 +7,13 @@ title: Autorennen
 Beim Autorennen fahren zwei Autos auf einer Rennstrecke. Das Ziel ist es mehr Runden zu fahren als der Gegner. Doch wer auf das Gras fährt, wird langsamer. Außerdem musst du auf die Hindernisse auf der Strecke achten.
 
 ::embed{src="https://scratch.mit.edu/projects/1120776555/embed"  height="calc(100vh - 120px)"}
+
+## Scratch-Projekt
+
+Hier kannst du das Projekt herunterladen.
+
+::download[Autorennen.sb3]{src="./autorennen.sb3"}
+
+## Tipp und Tricks
+
+Folgen noch ...
