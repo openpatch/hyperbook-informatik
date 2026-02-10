@@ -1,5 +1,9 @@
 {
   "name": "Informatik",
+  "cloud": {
+    "url": "https://cloud.hyperbook.openpatch.org",
+    "id": "hyperbook-informatik"
+  },
   "breadcrumb": true,
   "importExport": true,
   "allowDangerousHtml": true,
