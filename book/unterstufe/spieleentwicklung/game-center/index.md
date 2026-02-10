@@ -28,5 +28,7 @@ Auch Tipps und Tricks, wie du die Spiele erweitern und verbessern kannst, sind h
 ::tile{title="Suchspiel" href="./suchspiel" icon=":mag_right:"}
 
 ::tile{title="Elfmeterschießen" href="./elfmeterschiessen" icon=":soccer:"}
+
+::tile{title="Plattformer" href="./plattformer" icon=":running:"}
  
 :::
