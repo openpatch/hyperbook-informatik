@@ -16,4 +16,23 @@ Hier kannst du das Projekt herunterladen.
 
 ## Tipp und Tricks
 
-Folgen noch ...
+:::collapsible{title="Weitere Level hinzufügen"}
+
+Jedes Kostüm in der Figur Level ist ein Level. Du kannst
+weitere Kostüme hinzufügen, um mehr Level zu erstellen.
+
+:::
+
+:::collapsible{title="Hintergrund ändern"}
+
+Du kannst den Hintergrund ändern, um dein Labyrinth interessanter zu gestalten.
+Klicke auf die Bühne und wähle einen neuen Hintergrund aus.
+
+:::
+
+:::collapsible{title="Kostüm des Balls ändern"}
+
+Du kannst das Kostüm des Balls ändern, um ihn einzigartig zu machen. Klicke auf
+die Figur Ball und wähle ein neues Kostüm aus.
+
+:::
