@@ -6,7 +6,7 @@ title: Donut-Klicker
 
 Beim Donut-Klicker-Spiel musst du so viele Klicks wie möglich sammeln. Du kannst dir auch kleiner Helfer kaufen. Aber nehme dich vor dem Blitz in Acht!
 
-::embed{src="https://scratch.mit.edu/projects/1120631603/embed"  height="calc(100vh - 120px)"}
+::blockflow-player{src="./donut-klicker.sb3"}
 
 ## Scratch-Projekt
 

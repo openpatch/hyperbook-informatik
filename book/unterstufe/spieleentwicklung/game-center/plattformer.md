@@ -8,7 +8,7 @@ Beim Plattformer musst du deinen Charakter bis an den rechten Bildrand steuern, 
 
 Schaffst du alle Level?
 
-::embed{src="https://scratch.mit.edu/projects/1277119681/embed"   height="calc(100vh - 120px)"}
+::blockflow-player{src="./plattformer.sb3"}
 
 ## Scratch-Projekt
 
