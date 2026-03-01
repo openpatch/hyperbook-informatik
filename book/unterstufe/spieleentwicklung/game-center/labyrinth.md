@@ -19,7 +19,8 @@ Hier kannst du das Projekt herunterladen.
 :::collapsible{title="Weitere Level hinzufügen"}
 
 Jedes Kostüm in der Figur Level ist ein Level. Du kannst
-weitere Kostüme hinzufügen, um mehr Level zu erstellen.
+weitere Kostüme hinzufügen, um mehr Level zu erstellen. So kannst du auch neue
+Stacheln hinzufügen. Jedes Kostüm der Stacheln gehört zu einem Level.
 
 :::
 
@@ -34,5 +35,7 @@ Klicke auf die Bühne und wähle einen neuen Hintergrund aus.
 
 Du kannst das Kostüm des Balls ändern, um ihn einzigartig zu machen. Klicke auf
 die Figur Ball und wähle ein neues Kostüm aus.
+
+![](./bild-hochladen.png)
 
 :::

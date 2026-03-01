@@ -18,4 +18,17 @@ Hier kannst du das Projekt herunterladen.
 
 ## Tipp und Tricks
 
-Folgen noch ...
+:::collapsible{title="Weitere Level hinzufügen"}
+
+Jedes Kostüm in der Figur Level ist ein Level. Du kannst
+weitere Kostüme hinzufügen, um mehr Level zu erstellen. So kannst du auch neue
+Stacheln hinzufügen. Jedes Kostüm der Stacheln gehört zu einem Level.
+
+:::
+
+:::collapsible{title="Hintergrund ändern"}
+
+Du kannst den Hintergrund ändern, um dein Labyrinth interessanter zu gestalten.
+Klicke auf die Bühne und wähle einen neuen Hintergrund aus.
+
+:::
