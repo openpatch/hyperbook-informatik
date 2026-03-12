@@ -1,11 +1,11 @@
 {
   "name": "Informatik",
+  "version": "text",
   "breadcrumb": true,
   "importExport": true,
   "allowDangerousHtml": true,
   "qrcode": true,
   "search": true,
-  "version": "0.0.1",
   "description": "In diesem Hyperbook lernst du viele Themen der Informatik kennen.",
   "repo": "https://github.com/openpatch/hyperbook-informatik/edit/main",
   "author": {
