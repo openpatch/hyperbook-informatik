@@ -1,5 +1,5 @@
 ---
-title: Summen von Objekten
+title: Kombination von Objekten
 index: 9
 ---
 
