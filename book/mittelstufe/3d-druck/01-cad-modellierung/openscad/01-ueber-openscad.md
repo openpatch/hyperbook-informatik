@@ -1,6 +1,7 @@
 ---
 title: Über OpenSCAD
 index: 1
+permaid: openscad
 ---
 
 # Über OpenSCAD
