@@ -9,30 +9,11 @@ In OpenSCAD werden die meisten 3D-Modelle durch eine Kombination von 3D-Körpern
 
 Die 3D-Körper solltest du schon aus dem Mathematikunterricht kennen.
 
-Es gibt Befehle zum Erstellen von Kugeln, Würfeln, Zylindern und Polyedern.
+Es gibt Befehle zum Erstellen von Kugeln, Würfeln und Zylindern. In den Beispielen auf dieser Seite wird außerdem `translate` verwendet, um Objekte nebeneinander zu positionieren – du wirst diesen Befehl im nächsten Kapitel genauer kennenlernen.
 
-Damit die Beispiele nicht zu unübersichtlich werden, werden wir vorher noch den Befehl zum Verschieben von Objekten kennenlernen.
-
-## Verschieben
-
-Mit dem Befehl `translate` kannst du Objekte verschieben. Er nimmt einen Vektor als Argument, der die Verschiebung in den drei Raumrichtungen angibt. Die Syntax sieht so aus:
-
-```scad
-translate([x,y,z]) Anweisung;
-
-// Zum Beispiel:
-translate([10, 20, 30]) Anweisung;
-```
-
-Wichtig ist, dass die Anweisung, die du verschieben möchtest, direkt nach dem `translate`-Befehl steht. Wenn du mehrere Anweisungen verschieben möchtest, kannst du sie in einem Block zusammenfassen:
-
-```scad
-translate([10, 20, 30]) {
-    Anweisung1;
-    Anweisung2;
-    // ...
-}
-```
+:::alert{info}
+Es gibt in OpenSCAD auch einen `polyhedron`-Befehl für beliebige Vielflächner. Dieser ist für Fortgeschrittene und wird in diesem Kurs nicht behandelt.
+:::
 
 ## Kugel
 
@@ -47,6 +28,21 @@ translate([50, 0, 0]) sphere(r=50);  // Radius
 
 :::snippet{#aufgabe}
 Verändere den Quelltext, sodass die Kugeln unterschiedlich groß sind.
+:::
+
+## Auflösung der Kugel
+
+Standardmäßig sieht eine Kugel in OpenSCAD kantig aus. Das liegt daran, dass sie aus vielen kleinen Dreiecken besteht, die zusammen die Oberfläche bilden. Je mehr Dreiecke, desto runder sieht die Kugel aus. Du kannst die Anzahl der Dreiecke mit dem globalen Parameter `$fn` erhöhen:
+
+:::openscad
+```scad
+$fn=8;
+translate([0, 0, 0]) sphere(d=100);
+```
+:::
+
+:::snippet{#aufgabe}
+Experimentiere mit verschiedenen Werten für `$fn` und beobachte, wie sich die Kugel verändert.
 :::
 
 ## Würfel
@@ -81,21 +77,6 @@ Der Würfel wird standardmäßig an der Ecke positioniert, die durch die Koordin
 ```scad
 cube([Länge, Breite, Höhe], center=true);
 ```
-:::
-
-## Kugel
-
-Standardmäßig sieht eine Kugel in OpenSCAD komisch aus. Das liegt daran, dass sie aus vielen kleinen Dreiecken besteht, die zusammen die Oberfläche bilden. Je mehr Dreiecke, desto runder sieht die Kugel aus. Du kannst die Anzahl der Dreiecke mit dem globalen Parameter `$fn` erhöhen:
-
-:::openscad
-```scad
-$fn=8;
-translate([0, 0, 0]) sphere(d=100); // Durchmesser und Anzahl der Dreiecke
-```
-:::
-
-:::snippet{#aufgabe}
-Experimentiere mit verschiedenen Werten für `fn` und beobachte, wie sich die Kugel verändert.
 :::
 
 ## Zylinder

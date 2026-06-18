@@ -9,9 +9,9 @@ Der Text-Befehl `text()` ermöglicht es dir, eine 2D-Textform zu erstellen, die 
 
 :::openscad{height="600px"}
 ```scad
-text = "Hallo Welt!";
+mein_text = "Hallo Welt!";
 linear_extrude(height=5) 
-text(text, size=10, halign="center", valign="center");
+text(mein_text, size=10, halign="center", valign="center");
 ```
 :::
 

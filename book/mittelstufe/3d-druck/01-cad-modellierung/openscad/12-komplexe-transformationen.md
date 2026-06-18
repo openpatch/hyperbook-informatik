@@ -33,9 +33,17 @@ hull() {
 ```
 :::
 
-## Rotierende Extrusion (Rotationslörper)
+## Rotierende Extrusion (Rotationskörper)
 
-Mit der rotierenden Extrusion kannst du ein 2D-Profil um eine Achse rotieren, um ein 3D-Objekt zu erstellen. In OpenSCAD kannst du dies mit der rotate_extrude-Operation erreichen:
+Mit der rotierenden Extrusion kannst du ein 2D-Profil um eine Achse rotieren, um ein 3D-Objekt zu erstellen. In OpenSCAD kannst du dies mit der `rotate_extrude`-Operation erreichen.
+
+:::alert{info}
+**2D-Formen** sind flache Formen ohne Höhe, zum Beispiel:
+- `circle(r=5)` – ein Kreis mit Radius 5
+- `square([10, 5])` – ein Rechteck mit Breite 10 und Höhe 5
+
+Sie werden erst durch Extrusion zu 3D-Objekten.
+:::
 
 :::openscad{height="600px"}
 ```scad
@@ -47,7 +55,7 @@ rotate_extrude() {
 
 ## Linear Extrusion
 
-Mit der linearen Extrusion kannst du ein 2D-Profil entlang einer geraden Linie extrudieren, um ein 3D-Objekt zu erstellen. In OpenSCAD kannst du dies mit der linear_extrude-Operation erreichen:
+Mit der linearen Extrusion kannst du ein 2D-Profil entlang einer geraden Linie extrudieren, um ein 3D-Objekt zu erstellen. In OpenSCAD kannst du dies mit der `linear_extrude`-Operation erreichen:
 
 :::openscad{height="600px"}
 ```scad
