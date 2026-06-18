@@ -11,28 +11,48 @@ Bilde die jeweiligen Objekte in OpenSCAD nach.
 
 ![](./spielfigur.png)
 
-::openscad
+:::openscad
+```scad
+
+```
+:::
 
 ## Modell: Rad mit Aussparungen
 
 ![](./rad.png)
 
-::openscad
+:::openscad
+```scad
+
+```
+:::
 
 ## Modell: Tetraeder mit abgerundeten Kanten
 
 ![](./tetraeder.png)
 
-::openscad
+:::openscad
+```scad
+
+```
+:::
 
 ## Modell: Podest, innen hohl
 
 ![](./podest.png)
 
-::openscad
+:::openscad
+```scad
+
+```
+:::
 
 ## Modell: Schlüsselanhänger
 
 ![](./anhaenger.png)
 
-::openscad
+:::openscad
+```scad
+
+```
+:::

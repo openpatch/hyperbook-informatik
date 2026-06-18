@@ -15,7 +15,11 @@ Im letzten Kapitel hast du die grundlegenden 3D-Körper in OpenSCAD kennengelern
 Bilde das obige Modell in OpenSCAD nach.
 :::
 
-::openscad
+:::openscad
+```scad
+
+```
+:::
 
 :::snippet{#aufgabe}
 Verändere den Quelltext so, dass aus dem runden Modell ein eckiges wird.
@@ -31,4 +35,8 @@ Tipp: Erinnere dich an `$fn` aus dem Kapitel über die Kugel.
 Bilde den Berliner Fernsehturm in OpenSCAD nach. Nutze dafür nur Zylinder und Kugeln.
 :::
 
-::openscad
+:::openscad
+```scad
+
+```
+:::

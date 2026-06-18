@@ -35,11 +35,14 @@ Wenn du OpenSCAD im Browser verwendest, dann sieht der Bereich ein wenig anders 
 
 In beiden Varianten funktioniert die Vorschau gleich.
 
-| Interaktion      | Wirkung            |
-| ---------------- | ------------------ |
-| Linke Maustaste  | Modell drehen      |
-| Rechte Maustaste | Modell verschieben |
-| Mausrad          | Zoom               |
+| Interaktion               | Wirkung            |
+| ------------------------- | ------------------ |
+| Linke Maustaste           | Modell drehen      |
+| Rechte Maustaste          | Modell verschieben |
+| Mausrad                   | Zoom               |
+| Ein Finger ziehen         | Modell drehen      |
+| Zwei Finger auseinander   | Zoom               |
+| Zwei Finger verschieben   | Modell verschieben |
 
 Hier kannst du es ausprobieren:
 

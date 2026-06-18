@@ -5,9 +5,40 @@ index: 8
 
 # Einfache Transformationen
 
-Bis jetzt hast du den `translate`-Befehl kennengelernt, mit dem du Objekte verschieben kannst. Es gibt aber noch weitere Möglichkeiten, um deine Modelle zu transformieren.
+Bis jetzt hast du gelernt, wie man 3D-Körper erstellt. In diesem Kapitel lernst du, wie du diese Körper im Raum bewegen, drehen und skalieren kannst. Diese Operationen nennt man **Transformationen**.
 
-Du wirst in diesem Kapitel die Befehle `rotate` und `scale` kennenlernen, mit denen du Objekte drehen und skalieren kannst.
+Du wirst die Befehle `translate`, `rotate` und `scale` kennenlernen.
+
+## Verschieben
+
+Mit dem Befehl `translate` kannst du Objekte verschieben. Er nimmt einen Vektor als Argument, der die Verschiebung in den drei Raumrichtungen (x, y, z) angibt:
+
+```scad
+translate([x, y, z]) Anweisung;
+
+// Zum Beispiel:
+translate([10, 20, 30]) Anweisung;
+```
+
+Wenn du mehrere Objekte gemeinsam verschieben möchtest, kannst du sie in geschweifte Klammern einschließen:
+
+```scad
+translate([10, 20, 30]) {
+    Anweisung1;
+    Anweisung2;
+}
+```
+
+:::openscad{height="600px"}
+```scad
+translate([0, 0, 0])  cube([10, 20, 30]);
+translate([40, 0, 0]) cube([10, 20, 30]);
+```
+:::
+
+:::snippet{#aufgabe}
+Verschiebe den zweiten Würfel so, dass beide Würfel sich berühren, aber nicht überlappen.
+:::
 
 ## Drehen
 

@@ -7,7 +7,7 @@ index: 9
 
 Objekte können auf verschiedene Arten miteinander kombiniert werden. 
 
-## Summme
+## Summe
 
 Die einfachste Möglichkeit, Objekte zu kombinieren, ist die Summe. Dabei werden die Volumen der Objekte einfach addiert. In OpenSCAD kannst du dies erreichen, indem du die Anweisungen für die Objekte einfach hintereinander schreibst:
 
@@ -76,3 +76,4 @@ difference() {
     sphere(40);
 }
 ```
+:::
