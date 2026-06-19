@@ -61,3 +61,23 @@ Verändere das Beispiel so, dass jeder Zylinder eine andere Höhe bekommt. Nutze
 
 Tipp: `cylinder(h=i*5+5, r=5)`
 :::
+
+## Wissensüberprüfung
+
+:::multievent
+Wie oft wird der Inhalt von `for (i = [0:1:4])` ausgeführt?
+
+{r1{4 mal}} {r1{!5 mal}} {r1{1 mal}} {r1{unendlich oft}}
+:::
+
+:::multievent
+Was ergibt `for (i = [0:2:6])` – welche Werte nimmt `i` an?
+
+{r2{0, 1, 2, 3, 4, 5, 6}} {r2{!0, 2, 4, 6}} {r2{0, 6}} {r2{2, 4, 6}}
+:::
+
+:::multievent
+Du willst 10 Kugeln in einer Reihe erstellen, jeweils 15 Einheiten auseinander. Welcher Code ist richtig?
+
+{r3{`for (i = [0:10]) sphere(r=5);`}} {r3{!`for (i = [0:9]) translate([i*15, 0, 0]) sphere(r=5);`}} {r3{`for (i = [1:10]) sphere([i*15, 0, 0], r=5);`}}
+:::

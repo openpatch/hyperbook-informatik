@@ -7,16 +7,9 @@ index: 9
 
 Objekte können auf verschiedene Arten miteinander kombiniert werden. 
 
-## Summe
+## Summe (union)
 
-Die einfachste Möglichkeit, Objekte zu kombinieren, ist die Summe. Dabei werden die Volumen der Objekte einfach addiert. In OpenSCAD kannst du dies erreichen, indem du die Anweisungen für die Objekte einfach hintereinander schreibst:
-
-```scad
-Anweisung1;
-Anweisung2;
-```
-
-Oder mit dem union-Operator:
+Die einfachste Möglichkeit, Objekte zu kombinieren, ist die Summe. Dabei werden die Volumen der Objekte einfach addiert. In OpenSCAD kannst du dies erreichen, indem du die Anweisungen einfach hintereinander schreibst – oder explizit mit `union()`:
 
 ```scad
 union() {
@@ -25,9 +18,18 @@ union() {
 }
 ```
 
-## Schnittmenge
+:::openscad{height="400px"}
+```scad
+union() {
+    cube(40, center=true);
+    translate([20, 0, 0]) sphere(25);
+}
+```
+:::
 
-Die Schnittmenge von Objekten ist die Menge der Punkte, die in allen Objekten enthalten sind. In OpenSCAD kannst du dies mit dem intersection-Operator erreichen:
+## Schnittmenge (intersection)
+
+Die Schnittmenge ergibt nur den Teil, der in **allen** Objekten gleichzeitig enthalten ist:
 
 ```scad
 intersection() {
@@ -36,9 +38,18 @@ intersection() {
 }
 ```
 
-## Differenz
+:::openscad{height="400px"}
+```scad
+intersection() {
+    cube(60, center=true);
+    sphere(40);
+}
+```
+:::
 
-Die Differenz von Objekten ist die Menge der Punkte, die in einem Objekt enthalten sind, aber nicht in einem anderen. In OpenSCAD kannst du dies mit dem difference-Operator erreichen:
+## Differenz (difference)
+
+Die Differenz schneidet das zweite Objekt aus dem ersten heraus. Das erste Objekt im Block bleibt erhalten, alle weiteren werden abgezogen:
 
 ```scad
 difference() {
@@ -47,13 +58,23 @@ difference() {
 }
 ```
 
-## Beispiele betrachten
+:::openscad{height="400px"}
+```scad
+difference() {
+    cube(60, center=true);
+    sphere(40);
+}
+```
+:::
 
-Hier siehst du ein Beispiel wie zwei Objekte auf verschiedene Arten kombiniert werden können.
+:::alert{warn}
+Bei `difference()` ist die **Reihenfolge** entscheidend: Das erste Objekt ist das Ausgangsobjekt, alle weiteren werden davon abgezogen. Tauschst du die Reihenfolge, erhältst du ein völlig anderes Ergebnis.
+:::
 
+## Vergleich aller drei Operationen
 
 :::snippet{#aufgabe}
-Verändere die Reihenfolge der Anweisungen in den Blöcken `union`, `intersection` und `difference` und beobachte, wie sich das Ergebnis verändert.
+Verändere die Reihenfolge der Anweisungen im `difference`-Block und beobachte, wie sich das Ergebnis verändert.
 :::
 
 :::openscad{height="600px"}
@@ -76,4 +97,30 @@ difference() {
     sphere(40);
 }
 ```
+:::
+
+## Wissensüberprüfung
+
+:::multievent
+Welche Operation ergibt nur den Teil, der in **beiden** Objekten gleichzeitig enthalten ist?
+
+{r1{union}} {r1{difference}} {r1{!intersection}}
+:::
+
+:::multievent
+Du möchtest ein Loch in einen Würfel bohren. Welche Operation verwendest du?
+
+{r2{union}} {r2{!difference}} {r2{intersection}}
+:::
+
+:::multievent
+Bei `difference()` – welches Objekt bleibt erhalten?
+
+{r3{Das letzte im Block.}} {r3{!Das erste im Block.}} {r3{Keines – beide werden entfernt.}} {r3{Das größere der beiden.}}
+:::
+
+:::multievent
+Was ist der Unterschied zwischen Anweisungen einfach hintereinander schreiben und `union()` verwenden?
+
+{r4{!Es gibt keinen Unterschied – beide addieren die Objekte.}} {r4{union() ist schneller.}} {r4{Ohne union() überlappen sich Objekte nicht.}}
 :::

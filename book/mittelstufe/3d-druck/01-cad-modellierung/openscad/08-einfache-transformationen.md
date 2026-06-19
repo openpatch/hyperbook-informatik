@@ -82,36 +82,62 @@ scale([2, 1, 1]) cube([10, 20, 30]);
 
 ## Kombinieren von Transformationen
 
-Du kannst mehrere Transformationen kombinieren, indem du sie hintereinander schreibst. Die Reihenfolge der Transformationen ist wichtig, da sie das Ergebnis beeinflusst.
+Du kannst mehrere Transformationen kombinieren, indem du sie hintereinander schreibst.
+
+:::alert{warn}
+**Achtung – Lesereihenfolge vs. Ausführungsreihenfolge!**
+
+OpenSCAD wendet Transformationen von **innen nach außen** an – also von rechts nach links. In dieser Zeile:
 
 ```scad
-translate([10, 0, 0]) rotate([0, 0, 45]) scale([2, 1, 1]) Anweisung;
+translate([10, 0, 0]) rotate([0, 0, 45]) cube(10);
 ```
 
-In diesem Beispiel wird das Objekt zuerst skaliert, dann gedreht und schließlich verschoben. Wenn du die Reihenfolge der Transformationen änderst, erhältst du ein anderes Ergebnis.
+wird der Würfel **zuerst gedreht**, dann **verschoben** – obwohl `translate` im Code zuerst steht.
+
+Eine gute Eselsbrücke: Lies den Code von rechts nach links (oder von unten nach oben, wenn jeder Befehl auf einer eigenen Zeile steht).
+:::
 
 :::snippet{#aufgabe}
-Beobachte, wie sich die Reihenfolge der Transformationen auf das Ergebnis auswirkt. Probiere verschiedene Kombinationen von `translate`, `rotate` und `scale` aus und beobachte die Unterschiede.
+Beobachte, wie sich die Reihenfolge der Transformationen auf das Ergebnis auswirkt. Der gelbe und der rote Würfel verwenden dieselben Transformationen in unterschiedlicher Reihenfolge.
 :::
 
 :::openscad{height="600px"}
 ```scad
 color("yellow")
-translate([10, 0, 0]) 
-rotate([10, 0, 45]) 
-scale([2, 1, 1]) 
+translate([40, 0, 0]) 
+rotate([0, 0, 45]) 
 cube([10, 20, 30]);
 
 color("red")
-translate([10, 0, 0]) 
-scale([2, 1, 1]) 
-rotate([10, 0, 45]) 
-cube([10, 20, 30]);
-
-color("green")
-scale([2, 1, 1]) 
-rotate([10, 0, 45]) 
-translate([10, 0, 0]) 
+rotate([0, 0, 45])
+translate([40, 0, 0]) 
 cube([10, 20, 30]);
 ```
+:::
+
+## Wissensüberprüfung
+
+:::multievent
+Mit welchem Befehl verschiebst du ein Objekt?
+
+{r1{rotate}} {r1{!translate}} {r1{scale}} {r1{move}}
+:::
+
+:::multievent
+In welcher Einheit gibt man Drehungen bei `rotate()` an?
+
+{r2{Radiant}} {r2{Prozent}} {r2{!Grad}} {r2{Umdrehungen}}
+:::
+
+:::multievent
+Was passiert bei `translate([10, 0, 0]) rotate([0, 0, 45]) cube(10);` zuerst?
+
+{r3{Das Objekt wird verschoben, dann gedreht.}} {r3{!Das Objekt wird gedreht, dann verschoben.}} {r3{Beide passieren gleichzeitig.}}
+:::
+
+:::multievent
+Mit welchem Befehl kannst du ein Objekt in X-Richtung doppelt so breit machen?
+
+{r4{translate([2, 1, 1])}} {r4{rotate([2, 0, 0])}} {r4{!scale([2, 1, 1])}} {r4{resize([2, 1, 1])}}
 :::
