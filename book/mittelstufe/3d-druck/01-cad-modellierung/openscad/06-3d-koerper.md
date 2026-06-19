@@ -9,7 +9,7 @@ In OpenSCAD werden die meisten 3D-Modelle durch eine Kombination von 3D-Körpern
 
 Die 3D-Körper solltest du schon aus dem Mathematikunterricht kennen.
 
-Es gibt Befehle zum Erstellen von Kugeln, Würfeln und Zylindern. In den Beispielen auf dieser Seite wird außerdem `translate` verwendet, um Objekte nebeneinander zu positionieren – du wirst diesen Befehl im nächsten Kapitel genauer kennenlernen.
+Es gibt Befehle zum Erstellen von Kugeln, Würfeln und Zylindern. In den Beispielen auf dieser Seite wird außerdem `translate` verwendet, um Objekte nebeneinander zu positionieren – du wirst diesen Befehl in [Einfache Transformationen](./08-einfache-transformationen.md) genauer kennenlernen.
 
 :::alert{info}
 Es gibt in OpenSCAD auch einen `polyhedron`-Befehl für beliebige Vielflächner. Dieser ist für Fortgeschrittene und wird in diesem Kurs nicht behandelt.
@@ -103,4 +103,30 @@ Verändere die Höhe und die Durchmesser der Zylinder, um verschiedene Formen zu
 Du hast gesehen, dass wir manchmal den Radius und manchmal den Durchmesser angeben. Das liegt daran, dass es in OpenSCAD für einige Formen beide Möglichkeiten gibt. Es ist wichtig, die Dokumentation zu lesen, um zu wissen, welche Parameter du verwenden musst.
 
 https://openscad.org/cheatsheet/
+:::
+
+## Wissensüberprüfung
+
+:::multievent
+Mit welchem Befehl erzeugst du eine Kugel mit Radius 10?
+
+{r1{cube(10)}} {r1{!sphere(r=10)}} {r1{cylinder(r=10)}} {r1{ball(r=10)}}
+:::
+
+:::multievent
+Welcher Parameter gibt die Höhe eines Zylinders an?
+
+{r2{!h}} {r2{d}} {r2{r}} {r2{z}}
+:::
+
+:::multievent
+Was bewirkt `center=true` bei einem Würfel?
+
+{r3{Der Würfel wird unsichtbar.}} {r3{!Der Würfel wird um den Ursprung (0,0,0) zentriert.}} {r3{Der Würfel wird kleiner.}} {r3{Der Würfel erhält abgerundete Kanten.}}
+:::
+
+:::multievent
+Wie kannst du eine Kugel glatter (runder) machen?
+
+{r4{`r` erhöhen}} {r4{`d` erhöhen}} {r4{!`$fn` erhöhen}} {r4{`center=true` setzen}}
 :::

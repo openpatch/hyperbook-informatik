@@ -35,8 +35,36 @@ translate([80, 0, 0]) box(5, 30, 15);
 ```
 :::
 
+## Standardwerte für Parameter
+
+Du kannst Parametern einen **Standardwert** geben. Dann musst du beim Aufruf nicht immer alle Werte angeben – fehlende werden durch den Standardwert ersetzt:
+
+```scad
+module modulname(parameter = Standardwert) {
+    // Anweisungen
+}
+```
+
+:::openscad{height="500px"}
+```scad
+module zylinder_mit_kugel(hoehe=30, radius=10, kugelradius=8) {
+    cylinder(h=hoehe, r=radius);
+    translate([0, 0, hoehe]) sphere(r=kugelradius);
+}
+
+// Aufruf mit allen Standardwerten
+zylinder_mit_kugel();
+
+// Nur Höhe anpassen
+translate([40, 0, 0]) zylinder_mit_kugel(hoehe=50);
+
+// Alle Werte anpassen
+translate([90, 0, 0]) zylinder_mit_kugel(hoehe=20, radius=15, kugelradius=12);
+```
+:::
+
 :::snippet{#aufgabe}
-Erstelle ein Modul `tisch`, das einen einfachen Tisch aus einem flachen Quader (Tischplatte) und vier Zylindern (Beine) zusammensetzt. Rufe das Modul anschließend zweimal mit unterschiedlichen Größen auf.
+Erstelle ein Modul `tisch`, das einen einfachen Tisch aus einem flachen Quader (Tischplatte) und vier Zylindern (Beine) zusammensetzt. Gib allen Parametern sinnvolle Standardwerte. Rufe das Modul anschließend zweimal auf – einmal mit Standardwerten, einmal mit eigenen Werten.
 :::
 
 :::openscad{height="600px"}
