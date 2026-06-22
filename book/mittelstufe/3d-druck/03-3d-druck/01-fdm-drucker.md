@@ -58,23 +58,41 @@ Es gibt auch ältere Drucker (z. B. Prusa i3, Creality Ender 3), bei denen sich 
 :::multievent
 Was bedeutet FDM?
 
-{r1{Fast Digital Manufacturing}} {r1{!Fused Deposition Modeling}} {r1{Filament Direct Movement}} {r1{Fixed Design Modeling}}
-:::
+{r1{Fast Digital Manufacturing}}
 
-:::multievent
+{r1{!Fused Deposition Modeling}} 
+
+{r1{Filament Direct Movement}} 
+
+{r1{Fixed Design Modeling}}
+
 Welches Bauteil schmilzt das Filament und drückt es durch die Düse?
 
-{r2{Extruder}} {r2{Heizbett}} {r2{!Hotend}} {r2{Stepper-Motor}}
-:::
+{r2{Extruder}} 
 
-:::multievent
+{r2{Heizbett}} 
+
+{r2{!Hotend}} 
+
+{r2{Stepper-Motor}}
+
 Wie bewegt sich der Druckkopf bei einem CoreXY-Drucker in der X-Y-Ebene?
 
-{r3{Der Druckkopf bewegt sich nur links und rechts.}} {r3{Das Druckbett bewegt sich vor und zurück.}} {r3{!Durch zwei Motoren und ein Riemensystem in beide Richtungen.}} {r3{Der Druckkopf kann sich frei in alle Richtungen bewegen.}}
-:::
+{r3{Der Druckkopf bewegt sich nur links und rechts.}} 
 
-:::multievent
+{r3{Das Druckbett bewegt sich vor und zurück.}} 
+
+{r3{!Durch zwei Motoren und ein Riemensystem in beide Richtungen.}} 
+
+{r3{Der Druckkopf kann sich frei in alle Richtungen bewegen.}}
+
 Was ist ein Vorteil von CoreXY-Druckern?
 
-{r4{CoreXY ist immer günstiger.}} {r4{Das Bett bewegt sich auch bei CoreXY mit.}} {r4{!CoreXY erreicht höhere Druckgeschwindigkeiten mit besserer Qualität.}} {r4{CoreXY ist einfacher zu warten.}}
+{r4{CoreXY ist immer günstiger.}} 
+
+{r4{Das Bett bewegt sich auch bei CoreXY mit.}} 
+
+{r4{!CoreXY erreicht höhere Druckgeschwindigkeiten mit besserer Qualität.}} 
+
+{r4{CoreXY ist einfacher zu warten.}}
 :::

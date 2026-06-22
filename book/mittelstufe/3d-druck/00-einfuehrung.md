@@ -1,5 +1,6 @@
 ---
 title: Einführung in den 3D-Druck
+prev: null
 ---
 
 # Einführung in den 3D-Druck
