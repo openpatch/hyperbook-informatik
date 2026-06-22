@@ -14,6 +14,8 @@ Material hinzugefügt wird.
 In diesem Kapitel lernst du wie du selbst 3D-Modelle erstellen
 und anschließend drucken kannst.
 
+::video{src="./druck.webm"}
+
 ## 3D CAD Modellierung
 
 Der erste Schritt zum 3D-Druck ist die Erstellung eines
