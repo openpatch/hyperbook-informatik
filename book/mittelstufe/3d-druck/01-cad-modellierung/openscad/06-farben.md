@@ -1,6 +1,7 @@
 ---
 title: Farben
-index: 7.5
+index: 6
+permaid: openscad-farben
 ---
 
 # Farben
@@ -12,9 +13,11 @@ color("Farbname") Anweisung;
 ```
 
 :::alert{info}
-Farben sind **nur für die Vorschau** – beim 3D-Druck spielt die Farbe im Quelltext keine Rolle. Die Farbe des gedruckten Modells hängt vom Filament ab.
-Wenn eine Farbe gesetzt wurde, dann erkennt das der Slicer und lässt dich beim
-Slicen die Farbe des Modells auswählen.
+Farben in OpenSCAD:
+- **Vorschau:** Farben werden in der Vorschau angezeigt
+- **3D-Druck:** Die Farbinformationen werden **nur im 3MF-Format** exportiert
+- **STL-Format:** Farben gehen verloren – das gedruckte Modell verwendet das Filament deines Druckers
+- **Multi-Material-Drucker:** Mit 3MF und passendem Slicer kannst du farbige Modelle drucken
 :::
 
 ## Farbnamen
@@ -63,12 +66,15 @@ color("red", 0.4) sphere(r=25);
 ```
 :::
 
-:::snippet{#aufgabe}
+## Übung
+
+::::snippet{#aufgabe}
 Erstelle ein Modell aus mindestens drei Objekten, jedes in einer anderen Farbe. Verwende auch Transparenz bei einem Objekt.
-:::
 
 :::openscad{height="500px"}
 ```scad
-
+cube(30);
 ```
 :::
+
+::::

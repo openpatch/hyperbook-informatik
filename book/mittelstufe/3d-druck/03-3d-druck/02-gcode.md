@@ -5,7 +5,7 @@ index: 2
 
 # G-Code
 
-Wenn der [Slicer](../02-slicing/01-slicer-software.md) dein 3D-Modell verarbeitet hat, erzeugt er eine **G-Code-Datei** (Dateiendung `.gcode`). Diese Datei enthält die genauen Anweisungen für den Drucker: wohin er den Druckkopf bewegen soll, wie schnell, bei welcher Temperatur und wie viel Filament er dabei extrudieren soll.
+Wenn der [Slicer](../02-slicing/01-slicer-software.md) (z. B. OrcaSlicer) dein 3D-Modell verarbeitet hat, erzeugt er eine **G-Code-Datei** (Dateiendung `.gcode`). Diese Datei enthält die genauen Anweisungen für den Drucker: wohin er den Druckkopf bewegen soll, wie schnell, bei welcher Temperatur und wie viel Filament er dabei extrudieren soll.
 
 ## Was ist G-Code?
 
@@ -43,18 +43,15 @@ Befehle **nach dem Druck**:
 
 ## Wichtige G-Code-Befehle
 
+Hier sind die **fünf wichtigsten Befehle**, die du kennen solltest:
+
 | Befehl | Bedeutung | Beispiel |
 | ------ | --------- | ------- |
-| `G0` | Schnelle Bewegung ohne Extrusion | `G0 X100 Y50 F6000` |
-| `G1` | Langsame Bewegung mit Extrusion | `G1 X110 Y50 E1.5 F3000` |
 | `G28` | Alle Achsen in die Ausgangsposition (Homing) | `G28` |
-| `G92` | Koordinaten zurücksetzen | `G92 E0` |
-| `M104` | Hotend-Temperatur setzen (ohne zu warten) | `M104 S200` |
-| `M109` | Hotend-Temperatur setzen und warten | `M109 S200` |
-| `M140` | Bett-Temperatur setzen (ohne zu warten) | `M140 S60` |
-| `M190` | Bett-Temperatur setzen und warten | `M190 S60` |
-| `M106` | Lüfter einschalten | `M106 S255` |
-| `M107` | Lüfter ausschalten | `M107` |
+| `G0` | Schnelle Bewegung **ohne** Extrusion | `G0 X100 Y50` |
+| `G1` | Langsame Bewegung **mit** Extrusion | `G1 X110 Y50 E1.5` |
+| `M104` | Hotend-Temperatur setzen | `M104 S200` |
+| `M140` | Bett-Temperatur setzen | `M140 S60` |
 
 **Parameter in Bewegungsbefehlen:**
 
@@ -63,7 +60,7 @@ Befehle **nach dem Druck**:
 | `X`, `Y`, `Z` | Zielposition auf der jeweiligen Achse (in mm) |
 | `E` | Menge Filament, die extrudiert wird (in mm) |
 | `F` | Geschwindigkeit (Feed Rate) in mm/min |
-| `S` | Sollwert (z. B. Temperatur in °C oder Lüfterdrehzahl 0–255) |
+| `S` | Sollwert (z. B. Temperatur in °C) |
 
 ---
 
@@ -72,23 +69,16 @@ Befehle **nach dem Druck**:
 So könnte der Anfang einer G-Code-Datei aussehen:
 
 ```gcode
-; === Start G-Code ===
-M140 S60          ; Bett auf 60°C vorheizen (ohne zu warten)
-M104 S200         ; Hotend auf 200°C vorheizen (ohne zu warten)
-G28               ; Alle Achsen homen (in Ausgangsposition fahren)
-M190 S60          ; Warten, bis Bett 60°C erreicht hat
-M109 S200         ; Warten, bis Hotend 200°C erreicht hat
-
-; === Düse reinigen ===
-G92 E0            ; Extruder-Position auf 0 setzen
-G1 X5 Y20 Z0.3 F5000  ; Druckkopf zur Startposition bewegen
-G1 X5 Y200 E15 F1500  ; Purge-Linie drucken
-
-; === Druck beginnt ===
-G92 E0            ; Extruder erneut auf 0 setzen
+; Start G-Code
+M140 S60    ; Bett auf 60°C vorheizen
+M104 S200   ; Hotend auf 200°C vorheizen
+G28         ; Alle Achsen in Ausgangsposition
+M190 S60    ; Warten, bis Bett 60°C erreicht hat
+M109 S200   ; Warten, bis Hotend 200°C erreicht hat
+; Druck beginnt...
 ```
 
-> 📸 **Screenshot-Hinweis:** Screenshot des Slicer-Bereichs „Drucker-Einstellungen → Start-G-Code" einfügen und die einzelnen Bereiche erklären.
+> 📸 **Screenshot-Hinweis:** Screenshot des Slicer-Bereichs "Drucker-Einstellungen -> Start-G-Code" einfügen.
 
 ---
 
@@ -105,15 +95,14 @@ G1 X45.3 Y80.1 E0.5 F2400  ; Außenwand
 
 ## Wie kommt der G-Code zum Drucker?
 
-> 📸 **Foto-Hinweis:** Foto mit drei Varianten einfügen: SD-Karte im Drucker, USB-Kabel, WLAN-Symbol/App.
+> 📸 **Foto-Hinweis:** Foto mit zwei Varianten einfügen: SD-Karte im Drucker, USB-Kabel.
 
-Es gibt drei gängige Wege:
+Es gibt zwei gängige Wege:
 
 | Methode | Beschreibung |
 | ------- | ------------ |
 | **SD-Karte / USB-Stick** | G-Code-Datei auf Speicherkarte kopieren und am Drucker einlegen |
 | **USB-Kabel** | Direktverbindung zum Computer, Slicer sendet G-Code direkt |
-| **WLAN / Netzwerk** | Moderner Weg bei Druckern wie Bambu Lab oder über OctoPrint |
 
 ---
 
@@ -132,9 +121,9 @@ Welcher Befehl fährt alle Achsen in die Ausgangsposition?
 :::
 
 :::multievent
-Was bedeutet `M109 S210` in G-Code?
+Was bedeutet `M104 S210` in G-Code?
 
-{r3{Fahre den Druckkopf auf Position 210.}} {r3{Setze die Lüfterdrehzahl auf 210.}} {r3{!Heize das Hotend auf 210 °C und warte, bis die Temperatur erreicht ist.}} {r3{Drucke 210 mm Filament.}}
+{r3{Fahre den Druckkopf auf Position 210.}} {r3{Setze die Lüfterdrehzahl auf 210.}} {r3{!Heize das Hotend auf 210 °C (ohne zu warten).}} {r3{Drucke 210 mm Filament.}}
 :::
 
 :::multievent

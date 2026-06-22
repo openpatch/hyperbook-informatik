@@ -5,56 +5,67 @@ index: 1
 
 # Slicer-Software
 
-Nachdem du dein 3D-Modell in OpenSCAD erstellt hast, kann der Drucker es noch nicht direkt verwenden. Du brauchst ein Zwischenprogramm: den **Slicer**.
+Dein 3D-Modell – zum Beispiel ein Schlüsselanhänger, eine Handyhalterung oder ein Gehäuse – kann der Drucker nicht direkt drucken. Dazu brauchst du ein **Slicer-Programm** (von englisch *to slice* = schneiden).
 
 ## Was macht ein Slicer?
 
-Ein Slicer (von englisch *to slice* = schneiden) übernimmt drei Aufgaben:
+Ein Slicer bereitet dein Modell für den Drucker vor und erledigt dabei drei Dinge:
 
-1. **Zerlegen** – Das 3D-Modell wird in viele dünne horizontale Schichten (Lagen) geschnitten.
-2. **Berechnen** – Für jede Schicht berechnet der Slicer den genauen Weg, den der Druckkopf fahren soll.
-3. **Übersetzen** – Das Ergebnis wird als **G-Code**-Datei gespeichert, die der Drucker versteht.
+1. **Schneiden** – Das Modell wird in viele dünne Schichten (wie Scheiben eines Brotlaibs) zerlegt.
+2. **Planen** – Für jede Schicht berechnet der Slicer, welchen Weg der Druckkopf fahren muss.
+3. **Übersetzen** – Das Ergebnis wird als **G-Code**-Datei gespeichert – eine Art Anleitung, die der Drucker versteht.
 
-> 📸 **Screenshot-Hinweis:** Screenshot eines Slicers (z. B. PrusaSlicer) mit geöffnetem Modell und sichtbaren Schichten (Layer-Ansicht) einfügen.
+![](./orca-layers.png)
 
-## Bekannte Slicer-Programme
+## Welche Slicer-Programme gibt es?
+
+Es gibt verschiedene kostenlose Slicer-Programme. Für den Schulunterricht eignet sich besonders **OrcaSlicer** – ein modernes Open-Source-Programm, das mit allen gängigen Druckern funktioniert.
 
 | Slicer | Hersteller | Besonderheit |
 | -------- | ---------- | ------------ |
-| **Cura** | Ultimaker | Kostenlos, sehr weit verbreitet, viele Einstellungen |
-| **PrusaSlicer** | Prusa Research | Kostenlos, Open Source, gute Voreinstellungen |
-| **OrcaSlicer** | Community | Kostenlos, sehr aktiv entwickelt, schnelle Druckprofile |
-| **Bambu Studio** | Bambu Lab | Für Bambu-Drucker optimiert, einfache Bedienung |
+| **OrcaSlicer** | Community | **Kostenlos, Open Source**, modern, schnelle Druckprofile |
+| PrusaSlicer | Prusa Research | Kostenlos, Open Source, optimal für Prusa-Drucker |
+| Cura | Ultimaker | Kostenlos, weit verbreitet, viele Einstellungen |
 
-Für dieses Hyperbook verwenden wir **PrusaSlicer** oder **OrcaSlicer**, da beide kostenlos und für alle gängigen Drucker geeignet sind.
+Für dieses Hyperbook verwenden wir **OrcaSlicer**, da es ein Open-Source-Projekt ist und mit allen Druckern funktioniert.
 
-## Die wichtigsten Bereiche im Slicer
+## Die Oberflächen eines Slicers
 
-> 📸 **Screenshot-Hinweis:** Annotierten Screenshot des Slicers mit markierten Bereichen einfügen: 3D-Vorschau, Einstellungs-Panel, Schichten-Schieberegler, Slice-Button.
+![](./orca-slicer-annotated.excalidraw.png)
 
-Ein typischer Slicer besteht aus folgenden Bereichen:
+Ein Slicer-Programm wie OrcaSlicer hat folgende Bereiche:
 
-- **3D-Vorschau** – Hier siehst du dein Modell und kannst es ausrichten, skalieren und drehen.
-- **Einstellungs-Panel** – Hier stellst du alle Druckparameter ein (Schichthöhe, Infill, Temperatur …).
-- **Schichten-Ansicht** – Nach dem Slicen kannst du Schicht für Schicht durch das Modell scrollen und den Druckweg sehen.
-- **Slice-Button** – Startet die Berechnung. Danach siehst du Druckzeit und Filamentverbrauch.
+- **3D-Vorschau** – Hier siehst du dein Modell und kannst es drehen, vergrößern oder ausrichten.
+- **Einstellungen** – Hier stellst du ein, wie das Modell gedruckt werden soll (z. B. Schichtdicke, Füllung).
+- **Schichten-Ansicht** – Nach dem "Slicen" kannst du durch die einzelnen Schichten blättern und sehen, wie der Drucker das Modell aufbaut.
+- **Slice-Button** – Startet die Berechnung. Danach siehst du, wie lange der Druck dauert und wie viel Material verbraucht wird.
 
-## Ablauf: vom Modell zum Druck
+## Vom Modell zum gedruckten Objekt
+
+Der Weg von deinem Modell zum fertigen Druck ist immer gleich:
 
 ```
-OpenSCAD  →  STL exportieren  →  Slicer  →  G-Code  →  SD-Karte / USB / WLAN  →  Drucker
+3D-Modell  →  STL-Datei exportieren  →  OrcaSlicer  →  G-Code-Datei  →  3D-Drucker
 ```
 
-Was genau in einer G-Code-Datei steht und wie der Drucker damit umgeht, erfährst du in [G-Code](../../03-3d-druck/02-gcode.md).
+Was genau in einer G-Code-Datei steht, erfährst du in [G-Code](../03-3d-druck/02-gcode.md).
 
 :::multievent
 Was ist die Aufgabe eines Slicers?
 
-{r1{Das 3D-Modell direkt drucken.}} {r1{!Das 3D-Modell in druckerverständlichen G-Code umwandeln.}} {r1{Das 3D-Modell in OpenSCAD öffnen.}} {r1{Das Filament schmelzen.}}
-:::
+{r1{Das 3D-Modell direkt drucken.}}
 
-:::multievent
+{r1{!Das 3D-Modell in druckerverständlichen G-Code umwandeln.}}
+
+{r1{Das 3D-Modell in OpenSCAD öffnen.}} {r1{Das Filament schmelzen.}}
+
 In welchem Dateiformat exportiert man ein Modell aus OpenSCAD, um es in den Slicer zu laden?
 
-{r2{.scad}} {r2{.png}} {r2{!.stl}} {r2{.gcode}}
+{r2{.scad}}
+
+{r2{.png}} 
+
+{r2{!.stl}}
+
+{r2{.gcode}}
 :::

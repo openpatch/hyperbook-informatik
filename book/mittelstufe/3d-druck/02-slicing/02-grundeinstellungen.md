@@ -5,119 +5,90 @@ index: 2
 
 # Grundeinstellungen
 
-Die wichtigsten Einstellungen im Slicer bestimmen, wie gut, wie schnell und wie stabil dein Modell gedruckt wird. Hier lernst du die sechs wichtigsten kennen.
+Damit dein Modell gut gedruckt wird, musst du im Slicer einige Einstellungen anpassen. Hier lernst du die **vier wichtigsten** kennen, die du für fast jeden Druck brauchst.
 
 ---
 
 ## 1. Schichthöhe (Layer Height)
 
-Die Schichthöhe gibt an, wie dick jede einzelne Druckschicht ist. Sie beeinflusst direkt die **Druckqualität** und die **Druckzeit**.
+Die Schichthöhe gibt an, wie dick jede Schicht deines Modells ist. Sie bestimmt mit, wie **glatt** die Oberfläche wird und wie **lange** der Druck dauert.
 
 > 📸 **Screenshot-Hinweis:** Zwei Vergleichsfotos einfügen: dasselbe Objekt einmal mit 0,1 mm (glatt) und einmal mit 0,3 mm (sichtbare Schichten) gedruckt.
 
-| Schichthöhe | Qualität | Druckzeit |
-| ----------- | -------- | --------- |
-| 0,1 mm | ✨ Sehr fein, glatte Oberfläche | 🐢 Lang |
-| 0,2 mm | ✅ Gut (Standard) | ⚖️ Mittel |
-| 0,3 mm | 🔨 Grober, Schichten sichtbar | 🐇 Schnell |
+| Schichthöhe | Oberfläche | Druckzeit | Empfehlung |
+| ----------- | ---------- | --------- | ----------- |
+| 0,1 mm | Sehr glatt, fast keine sichtbaren Schichten | Langsam (2–3× länger) | Für besondere Modelle mit feinen Details |
+| 0,2 mm | Glatt, leichte Schichten sichtbar | Mittel | **Standard für die meisten Drucke** |
+| 0,3 mm | Schichten gut sichtbar | Schnell | Für große Objekte oder schnelle Tests |
 
 :::alert{info}
-Die Schichthöhe sollte maximal **75 % des Düsendurchmessers** betragen. Bei einer Standard-Düse (0,4 mm) sind also maximal 0,3 mm sinnvoll.
+Die Schichthöhe sollte nicht dicker als **0,3 mm** sein (bei Standard-Düsen mit 0,4 mm).
 :::
 
 ---
 
 ## 2. Fülldichte (Infill)
 
-Der Infill beschreibt, wie viel Material ins **Innere** des Modells gedruckt wird – also wie hohl oder massiv es ist.
+Der Infill bestimmt, wie viel Material **im Inneren** deines Modells gedruckt wird. Ein höherer Infill macht das Objekt stabiler, verbraucht aber mehr Material und Zeit.
 
-> 📸 **Screenshot-Hinweis:** Slicer-Screenshot mit Layer-Ansicht einfügen, auf der das Infill-Muster (z. B. Gitter) sichtbar ist. Gerne mehrere Muster nebeneinander.
+> 📸 **Screenshot-Hinweis:** OrcaSlicer-Screenshot mit Layer-Ansicht einfügen, auf der das Infill-Muster (z. B. Gitter) sichtbar ist.
 
-| Infill | Verwendung |
-| ------ | ---------- |
-| 5–15 % | Dekorationsobjekte, die keine Kräfte aushalten müssen |
-| 15–25 % | Standard für die meisten Objekte |
-| 40–60 % | Technische Teile, die belastet werden |
-| 80–100 % | Maximale Festigkeit (selten nötig) |
+| Infill | Verwendung | Beispiel |
+| ------ | ---------- | -------- |
+| 10–15 % | Leichte, dekorative Objekte | Vase, Schlüsselanhänger |
+| 20–25 % | **Standard für die meisten Modelle** | Handyhalter, Gehäuse |
+| 50–100 % | Sehr stabile, belastbare Teile | Werkzeughalter, Ersatzteile |
 
-**Infill-Muster** beeinflussen Stabilität und Druckzeit:
-
-- **Gitter (Grid)** – schnell, gut für Standardteile
-- **Gyroid** – sehr gleichmäßige Festigkeit in alle Richtungen
-- **Wabenstruktur (Honeycomb)** – gut für leichte, stabile Teile
-- **Konzentrisch (Concentric)** – gut für flexible Materialien
+**Infill-Muster:**
+Die meisten Slicer bieten verschiedene Muster an. Für den Anfang reicht:
+- **Gitter (Grid)** – schnell und einfach, gut für die meisten Objekte
+- **Wabenstruktur (Honeycomb)** – sehr stabil, gut für belastbare Teile
 
 ---
 
-## 3. Druckgeschwindigkeit (Print Speed)
+## 3. Drucktemperatur
 
-Die Druckgeschwindigkeit gibt an, wie schnell der Druckkopf sich bewegt (in mm/s).
+Damit das Filament schmilzt und gut haftet, müssen zwei Dinge geheizt werden:
 
-> 📸 **Screenshot-Hinweis:** Geschwindigkeitseinstellungen im Slicer-Panel als Screenshot einfügen.
+> 📸 **Screenshot-Hinweis:** Temperatureinstellungen in OrcaSlicer als Screenshot einfügen, Hotend und Druckbett markiert.
 
-| Geschwindigkeit | Empfehlung |
-| --------------- | ---------- |
-| 20–40 mm/s | Sehr hohe Qualität, für feine Details |
-| 40–80 mm/s | Standard für die meisten FDM-Drucker |
-| 80–200+ mm/s | Moderne Drucker (z. B. Bambu Lab, Voron) mit CoreXY |
+### Hotend (Düse)
+Hier wird das Filament geschmolzen:
 
-:::alert{warn}
-Zu hohe Geschwindigkeit bei älteren Druckern führt zu Qualitätsverlust: unscharfe Kanten, Schichtversatz oder fehlende Schichten.
+| Material | Temperatur |
+| -------- | ---------- |
+| **PLA** | 190–210 °C |
+| **PETG** | 230–240 °C |
+
+### Druckbett (Heatbed)
+Das beheizte Bett hält die erste Schicht fest:
+
+| Material | Betttemperatur |
+| -------- | -------------- |
+| **PLA** | 50–60 °C |
+| **PETG** | 70–80 °C |
+
+:::alert{info}
+Die richtige Temperatur hängt vom Filament-Hersteller ab. Die Angaben auf der Verpackung beachten!
 :::
 
 ---
 
-## 4. Drucktemperatur
+## 4. Druckgeschwindigkeit (Print Speed)
 
-FDM-Drucker haben zwei Heizelemente mit eigener Temperatur:
+Die Druckgeschwindigkeit gibt an, wie schnell der Druckkopf sich bewegt (in mm/s). CoreXY-Drucker (wie Prusa Core One+ oder Voron) können sehr schnell drucken.
 
-> 📸 **Screenshot-Hinweis:** Temperatureinstellungen im Slicer als Screenshot einfügen, Hotend und Druckbett markiert.
+> 📸 **Screenshot-Hinweis:** Geschwindigkeitseinstellung in OrcaSlicer als Screenshot einfügen.
 
-### Hotend (Düse)
+| Geschwindigkeit | Qualität | Empfehlung |
+| --------------- | -------- | ---------- |
+| 30–50 mm/s | Sehr gute Qualität, feine Details | Für kleine, detailreiche Modelle |
+| **60–120 mm/s** | **Gute Qualität, Standard** | **Für die meisten Drucke ideal** |
+| 150–200 mm/s | Schnell, aber weniger präzise | Für große, einfache Objekte mit CoreXY-Druckern |
 
-Schmilzt das Filament. Die richtige Temperatur hängt vom Material ab:
+:::alert{warn}
+Zu hohe Geschwindigkeiten könnnen zu Qualitätsproblemen führen: unscharfe Kanten oder fehlende Schichten. CoreXY-Drucker ermöglichen aber höhere Geschwindigkeiten als ältere Modelle.
 
-| Material | Hotend-Temperatur |
-| -------- | ----------------- |
-| PLA | 190–220 °C |
-| PETG | 230–250 °C |
-| ABS | 230–260 °C |
-| TPU | 220–240 °C |
-
-### Druckbett (Heatbed)
-
-Hält die erste Schicht am Bett und verhindert Verzug:
-
-| Material | Betttemperatur |
-| -------- | -------------- |
-| PLA | 50–65 °C |
-| PETG | 70–85 °C |
-| ABS | 90–110 °C |
-
----
-
-## 5. Wandanzahl (Walls / Perimeters)
-
-Die Wandanzahl gibt an, wie viele Außenhüllen das Objekt bekommt, bevor das Infill gedruckt wird.
-
-| Wände | Empfehlung |
-| ----- | ---------- |
-| 2 | Dekorationsobjekte |
-| 3 | Standard |
-| 4–5 | Technische Teile, Gewinde, Verbindungsstücke |
-
----
-
-## 6. Kühlung (Cooling)
-
-Der Lüfter am Druckkopf kühlt das frisch gedruckte Material schnell ab. Das ist wichtig für:
-
-- **Überhänge** – Material hängt ohne Kühlung durch
-- **Brücken (Bridges)** – Querstücke über freiem Raum gelingen nur mit Kühlung
-- **Detailgenauigkeit** – scharfe Kanten und feine Details
-
-:::alert{info}
-**Ausnahme:** Bei ABS-Druck den Lüfter ausschalten oder sehr niedrig stellen, da ABS sonst Risse bekommt (Warping).
 :::
 
 ---
@@ -127,29 +98,51 @@ Der Lüfter am Druckkopf kühlt das frisch gedruckte Material schnell ab. Das is
 :::multievent
 Du möchtest ein sehr glattes, detailreiches Modell drucken. Welche Schichthöhe wählst du?
 
-{r1{0,3 mm}} {r1{0,2 mm}} {r1{!0,1 mm}} {r1{0,5 mm}}
-:::
+{r1{0,3 mm}} 
 
-:::multievent
-Für welches Objekt ist ein Infill von 5 % ausreichend?
+{r1{0,2 mm}} 
 
-{r2{Eine Halterung für einen Fahrradlenker.}} {r2{!Eine dekorative Vase.}} {r2{Ein Schraubenverbinder.}} {r2{Ein Schlüsselhalter, der täglich benutzt wird.}}
-:::
+{r1{!0,1 mm}} 
 
-:::multievent
+{r1{0,5 mm}}
+
+Für welches Objekt ist ein Infill von 10–15 % ausreichend?
+
+{r2{Eine Halterung für einen Fahrradlenker.}} 
+
+{r2{!Eine dekorative Vase.}} 
+
+{r2{Ein Schraubenverbinder.}} 
+
+{r2{Ein Schlüsselhalter, der täglich benutzt wird.}}
+
 Warum wird das Druckbett beim FDM-Druck geheizt?
 
-{r3{Um das Filament zu schmelzen.}} {r3{Um den Druckkopf zu kühlen.}} {r3{!Damit die erste Schicht haftet und das Modell sich nicht vom Bett löst.}} {r3{Um die Druckgeschwindigkeit zu erhöhen.}}
-:::
+{r3{Um das Filament zu schmelzen.}} 
 
-:::multievent
+{r3{Um den Druckkopf zu kühlen.}} 
+
+{r3{!Damit die erste Schicht haftet und das Modell sich nicht vom Bett löst.}} 
+
+{r3{Um die Druckgeschwindigkeit zu erhöhen.}}
+
 Was passiert bei zu hoher Druckgeschwindigkeit?
 
-{r4{Das Modell wird stabiler.}} {r4{!Die Qualität sinkt: unscharfe Kanten, Versatz oder fehlende Schichten.}} {r4{Die Schichthöhe erhöht sich automatisch.}} {r4{Nichts – Geschwindigkeit hat keinen Einfluss auf Qualität.}}
-:::
+{r4{Das Modell wird stabiler.}} 
 
-:::multievent
-Welches Material braucht die höchste Druckbett-Temperatur?
+{r4{!Die Qualität sinkt: unscharfe Kanten, Versatz oder fehlende Schichten.}} 
 
-{r5{PLA}} {r5{PETG}} {r5{!ABS}} {r5{TPU}}
+{r4{Die Schichthöhe erhöht sich automatisch.}} 
+
+{r4{Nichts – Geschwindigkeit hat keinen Einfluss auf Qualität.}}
+
+Welche Temperatur braucht das Hotend für PLA-Filament?
+
+{r5{150–170 °C}} 
+
+{r5{230–250 °C}} 
+
+{r5{!190–210 °C}} 
+
+{r5{260–280 °C}}
 :::

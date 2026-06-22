@@ -1,6 +1,7 @@
 ---
 title: "BOSL2: Abgerundete Formen"
-index: 18
+index: 22
+permaid: openscad-bosl2-abgerundete-formen
 ---
 
 # BOSL2: Abgerundete Formen
@@ -26,9 +27,20 @@ translate([40, 0, 0]) cuboid([30, 30, 30], rounding=5);
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Probiere verschiedene Werte für `rounding` aus. Was passiert, wenn `rounding` gleich der halben Seitenlänge ist?
+
+:::openscad{height="400px" library="BOSL2"}
+```scad
+include <BOSL2/std.scad>
+// Links: normaler Quader
+translate([-40, 0, 0]) cube([30, 30, 30]);
+// Rechts: abgerundeter Quader
+translate([40, 0, 0]) cuboid([30, 30, 30], rounding=5);
+```
 :::
+
+::::
 
 :::alert{info}
 Mit `edges` kannst du festlegen, welche Kanten abgerundet werden sollen, z. B. nur die oberen Kanten:
@@ -56,13 +68,16 @@ translate([40, 0, 0])  cyl(h=50, r=15, rounding1=0, rounding2=10);
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Erstelle einen Stempel: Ein abgerundeter Zylinder als Griff, oben drauf ein flacher Quader mit leicht abgerundeten Kanten. Nutze `cuboid()` und `cyl()`.
-:::
 
 :::openscad{height="500px" library="BOSL2"}
 ```scad
 include <BOSL2/std.scad>
-
+// Beispiel-Stempel (zum Verändern)
+translate([0, 0, 0]) cyl(h=50, r=15, rounding=5);
+translate([0, 0, 50]) cuboid([30, 30, 5], rounding=2);
 ```
 :::
+
+::::

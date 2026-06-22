@@ -1,6 +1,7 @@
 ---
 title: Das Koordinatensystem
-index: 5.5
+index: 9
+permaid: openscad-koordinatensystem
 ---
 
 # Das Koordinatensystem
@@ -52,11 +53,20 @@ color("blue")  translate([0, 0, 30]) sphere(r=5);
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Verschiebe die blaue Kugel so, dass sie genau **über** der roten Kugel schwebt.
 
-Tipp: Die rote Kugel ist bei `[30, 0, 0]`. Die blaue soll bei `[30, 0, 30]` sein.
+:::openscad{height="500px"}
+```scad
+$fn = 32;
+// Rote Kugel
+color("red")   translate([30, 0, 0]) sphere(r=5);
+// Blaue Kugel
+color("blue")  translate([0, 0, 30]) sphere(r=5);
+```
 :::
+
+::::
 
 ## Negative Werte
 
@@ -66,7 +76,10 @@ Negative Werte verschieben in die entgegengesetzte Richtung:
 - `[0, -10, 0]` → 10 Einheiten nach **vorne**
 - `[0, 0, -10]` → 10 Einheiten nach **unten**
 
-:::openscad{height="400px"}
+::::snippet{#aufgabe}
+Ergänze zwei weitere Kugeln: eine 20 Einheiten nach vorne und eine 20 Einheiten nach hinten.
+
+:::openscad{height="600px"}
 ```scad
 $fn = 32;
 color("orange") translate([-20, 0, 0]) sphere(r=5);
@@ -75,6 +88,4 @@ color("purple") translate([20, 0, 0])  sphere(r=5);
 ```
 :::
 
-:::snippet{#aufgabe}
-Ergänze zwei weitere Kugeln: eine 20 Einheiten nach vorne und eine 20 Einheiten nach hinten.
-:::
+::::

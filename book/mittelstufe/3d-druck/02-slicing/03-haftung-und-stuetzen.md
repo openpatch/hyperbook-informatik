@@ -5,9 +5,9 @@ index: 3
 
 # Haftung und Stützstrukturen
 
-Zwei der häufigsten Probleme beim 3D-Druck sind:
-1. Das Modell **löst sich vom Druckbett** während des Drucks.
-2. Teile des Modells **hängen in der Luft** und können nicht ohne Unterstützung gedruckt werden.
+Damit dein Modell erfolgreich gedruckt wird, musst du zwei Dinge beachten:
+1. **Das Modell muss gut am Druckbett haften**, sonst löst es sich während des Drucks.
+2. **Teile, die in der Luft hängen**, brauchen Unterstützung, sonst fallen sie durch oder verziehen sich.
 
 Für beide Probleme gibt es Lösungen im Slicer.
 
@@ -15,30 +15,32 @@ Für beide Probleme gibt es Lösungen im Slicer.
 
 ## Bett-Haftung (Bed Adhesion)
 
+Damit die erste Schicht deines Modells gut am Druckbett haftet, kannst du eine dieser Hilfen aktivieren:
+
 ### Skirt
 
-Ein Skirt ist eine einfache Linie, die außen um das Modell herum gedruckt wird – **ohne das Modell zu berühren**. Er hat keinen Haftungseffekt, aber er:
-- füllt die Düse vor dem eigentlichen Druck
-- zeigt, ob das Bett richtig nivelliert ist
+Ein Skirt ist eine einfache Linie, die **außen um das Modell herum** gedruckt wird – **ohne das Modell zu berühren**.
+- Der Skirt hilft nicht direkt bei der Haftung
+- Aber er füllt die Düse vor dem eigentlichen Druck
+- Und er zeigt, ob das Bett richtig nivelliert ist
 
-> 📸 **Screenshot-Hinweis:** Slicer-Vorschau mit Skirt (gestrichelte Linie um das Modell) als Screenshot einfügen.
+> 📸 **Screenshot-Hinweis:** OrcaSlicer-Vorschau mit Skirt (gestrichelte Linie um das Modell) als Screenshot einfügen.
 
 ### Brim
 
-Ein Brim ist eine breite, flache Fläche, die direkt an das Modell **angebaut** wird. Er vergrößert die Kontaktfläche mit dem Druckbett und verhindert, dass sich Ecken hochbiegen.
-
-- Empfohlen bei: kleinen Grundflächen, scharfen Ecken, ABS
+Ein Brim ist eine breite, flache Fläche, die **direkt am Modell anhaftet**. Er vergrößert die Kontaktfläche mit dem Druckbett.
+- Verhindert, dass sich Ecken des Modells hochbiegen
+- Empfohlen bei: kleinen Grundflächen, scharfen Ecken
 - Nach dem Druck wird der Brim **abgebrochen oder abgeschnitten**
 
 > 📸 **Screenshot-Hinweis:** Foto eines gedruckten Teils mit sichtbarem Brim einfügen (vor dem Entfernen).
 
 ### Raft
 
-Ein Raft ist eine mehrschichtige Gitterfläche **unter dem gesamten Modell**. Das Modell wird auf dem Raft gedruckt.
-
+Ein Raft ist eine mehrschichtige Gitterfläche, die **unter dem gesamten Modell** gedruckt wird. Das Modell wird dann auf dem Raft aufgebaut.
 - Maximale Haftung, gut für große, flache Objekte
 - Nachteil: Die Unterseite des Modells wird rauer
-- Selten notwendig bei gut kalibrierten Druckern
+- Selten notwendig bei gut eingestellten Druckern
 
 | Methode | Haftung | Materialverbrauch | Nacharbeit |
 | ------- | ------- | ----------------- | ---------- |
@@ -50,39 +52,26 @@ Ein Raft ist eine mehrschichtige Gitterfläche **unter dem gesamten Modell**. Da
 
 ## Stützstrukturen (Supports)
 
-Der FDM-Drucker druckt Schicht für Schicht von unten nach oben. Teile, die **mehr als etwa 45° überhängen**, haben keine Unterstützung darunter – das Material würde durchhängen oder in die Luft fallen.
+Der FDM-Drucker druckt Schicht für Schicht von unten nach oben. **Alles, was steil nach oben ragt, braucht Unterstützung.** Ohne Unterstützung würde das Material einfach in die Luft gedruckt werden und durchhängen.
 
-> 📸 **Screenshot-Hinweis:** Foto oder Grafik einfügen, die den „45°-Regel"-Überhang zeigt: links ohne Support (durchgehangen), rechts mit Support (sauber).
+> 📸 **Screenshot-Hinweis:** OrcaSlicer-Vorschau einfügen: Ein Modell mit Überhängen (z. B. ein Haus mit Dach) – links ohne Support (durchgehangen), rechts mit Support (sauber gedruckt).
 
 ### Wann brauche ich Supports?
 
-- Überhänge **steiler als 45°** zur Senkrechten
-- **Brücken** über mehr als ~5 mm Abstand
-- **Horizontale Löcher** (z. B. Schraubenlöcher von der Seite)
-
-### Support-Arten
-
-**Normale Supports (Normal/Linear)**
-- Einfaches Gitter, das von der Druckbett-Oberfläche oder einem Modell-Teil wächst
-- Schnell zu drucken, manchmal schwer zu entfernen
-
-**Baum-Supports (Tree Supports)**
-- Supports wachsen wie Äste von einem dünnen Stamm
-- Berühren das Modell nur minimal → leichter zu entfernen, bessere Oberfläche
-- Empfohlen für organische Formen
-
-> 📸 **Screenshot-Hinweis:** Slicer-Vorschau mit normalen Supports und Baum-Supports im Vergleich einfügen.
+Supports werden automatisch für folgende Teile erstellt:
+- **Überhänge steiler als 45°** (z. B. ein Dach, das stark geneigt ist)
+- **Brücken** über mehr als ~5 mm Abstand (z. B. ein Horizontalstab zwischen zwei Säulen)
+- **Horizontale Löcher** (z. B. ein Schraubenloch von der Seite)
 
 ### Support-Einstellungen
 
 | Einstellung | Bedeutung |
 | ----------- | --------- |
-| **Überhang-Winkel** | Ab welchem Winkel werden Supports generiert (Standard: 45°) |
-| **Z-Abstand** | Kleiner Luftspalt zwischen Support und Modell → leichter ablösen |
-| **Dichte** | Wie dicht ist das Support-Gitter (10–30 % typisch) |
+| **Überhang-Winkel** | Ab welchem Winkel Supports generiert werden (Standard: 45°) |
+| **Dichte** | Wie dicht das Support-Gitter ist (10–20 % reicht meist) |
 
 :::alert{info}
-**Tipp beim Design:** Versuche, Supports durch clevere Modellgestaltung zu vermeiden. Überhänge können oft durch **Fasen** (45°-Kanten) oder das **Drehen des Modells** im Slicer vermieden werden.
+**Tipp:** Versuche, Supports durch geschicktes Design zu vermeiden. Oft hilft es schon, das Modell im Slicer zu **drehen** oder **Fasen (45°-Kanten)** einzubauen.
 :::
 
 ---
@@ -92,23 +81,31 @@ Der FDM-Drucker druckt Schicht für Schicht von unten nach oben. Teile, die **me
 :::multievent
 Was ist der Hauptunterschied zwischen Brim und Raft?
 
-{r1{Beide sind identisch.}} {r1{!Ein Brim ist eine flache Randschicht um das Modell, ein Raft liegt unter dem gesamten Modell.}} {r1{Ein Raft ist kleiner als ein Brim.}} {r1{Ein Brim wird automatisch entfernt, ein Raft nicht.}}
-:::
+{r1{Beide sind identisch.}} 
 
-:::multievent
+{r1{!Ein Brim ist eine flache Randschicht um das Modell, ein Raft liegt unter dem gesamten Modell.}} 
+
+{r1{Ein Raft ist kleiner als ein Brim.}} 
+
+{r1{Ein Brim wird automatisch entfernt, ein Raft nicht.}}
+
 Ab welchem Überhang-Winkel braucht man typischerweise Stützstrukturen?
 
-{r2{10°}} {r2{30°}} {r2{!45°}} {r2{90°}}
-:::
+{r2{10°}} 
 
-:::multievent
-Welcher Support-Typ hinterlässt in der Regel eine bessere Oberfläche am Modell?
+{r2{30°}} 
 
-{r3{Normal-Supports}} {r3{!Baum-Supports (Tree Supports)}} {r3{Beide sind gleich.}} {r3{Raft-Supports}}
-:::
+{r2{!45°}} 
 
-:::multievent
+{r2{90°}}
+
 Du druckst ein Modell mit einer sehr kleinen Grundfläche und es löst sich immer wieder vom Bett. Was hilft?
 
-{r4{Infill erhöhen}} {r4{Schichthöhe verringern}} {r4{!Brim aktivieren}} {r4{Druckgeschwindigkeit erhöhen}}
+{r3{Infill erhöhen}} 
+
+{r3{Schichthöhe verringern}} 
+
+{r3{!Brim aktivieren}} 
+
+{r3{Druckgeschwindigkeit erhöhen}}
 :::

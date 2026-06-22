@@ -1,6 +1,7 @@
 ---
 title: "BOSL2: Objekte positionieren mit Ankern"
-index: 19
+index: 23
+permaid: openscad-bosl2-positionierung
 ---
 
 # BOSL2: Objekte positionieren mit Ankern
@@ -35,25 +36,26 @@ Elternobjekt() {
 
 Beispiel: Ein Zylinder sitzt genau oben auf einem Quader – ohne `translate`:
 
-:::openscad{height="400px" library="BOSL2"}
 ```scad
 include <BOSL2/std.scad>
 cuboid([40, 40, 20]) {
     position(TOP) cyl(h=30, r=8);
 }
 ```
-:::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Platziere mithilfe von `position()` einen kleineren Würfel auf der Vorderseite (`FRONT`) eines größeren Würfels.
-:::
 
 :::openscad{height="400px" library="BOSL2"}
 ```scad
 include <BOSL2/std.scad>
-
+cuboid([40, 40, 40]) {
+    position(FRONT) cube([20, 20, 20]);
+}
 ```
 :::
+
+::::
 
 ## `orient()` – Objekte ausrichten
 
@@ -83,13 +85,16 @@ cyl(h=40, r=4) {
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Erstelle einen einfachen Pilz: Ein Zylinder als Stiel, eine flachgedrückte Kugel (`scale([1,1,0.5]) sphere(r=20)`) als Hut. Nutze `position(TOP)`, um den Hut auf dem Stiel zu platzieren.
-:::
 
 :::openscad{height="500px" library="BOSL2"}
 ```scad
 include <BOSL2/std.scad>
-
+cyl(h=40, r=8) {
+    position(TOP) scale([1,1,0.5]) sphere(r=20);
+}
 ```
 :::
+
+::::
