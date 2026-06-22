@@ -1,6 +1,7 @@
 ---
 title: Einfache Transformationen
-index: 8
+index: 12
+permaid: openscad-einfache-transformationen
 ---
 
 # Einfache Transformationen
@@ -36,9 +37,17 @@ translate([40, 0, 0]) cube([10, 20, 30]);
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Verschiebe den zweiten Würfel so, dass beide Würfel sich berühren, aber nicht überlappen.
+
+:::openscad
+```scad
+translate([0, 0, 0])  cube([10, 20, 30]);
+translate([40, 0, 0]) cube([10, 20, 30]);
+```
 :::
+
+::::
 
 ## Drehen
 
@@ -50,15 +59,16 @@ rotate([x,y,z]) Anweisung;
 rotate([0, 0, 45]) Anweisung; // Dreht das Objekt um 45 Grad um die Z-Achse
 ```
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Experimentiere mit dem `rotate`-Befehl, um verschiedene Drehungen an deinen Modellen auszuprobieren. Versuche zum Beispiel, ein Objekt um die X-Achse oder um die Y-Achse zu drehen.
-:::
 
 :::openscad{height="600px"}
 ```scad
 rotate([0, 0, 45]) cube([10, 20, 30]);
 ```
 :::
+
+::::
 
 ## Skalieren
 
@@ -70,15 +80,16 @@ scale([x,y,z]) Anweisung;
 scale([2, 1, 1]) Anweisung; // Verdoppelt die Größe des Objekts in X-Richtung
 ```
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Experimentiere mit dem `scale`-Befehl, um verschiedene Skalierungen an deinen Modellen auszuprobieren. Versuche zum Beispiel, ein Objekt in einer Richtung zu skalieren und in einer anderen Richtung zu verkleinern.
-:::
 
 :::openscad{height="600px"}
 ```scad
 scale([2, 1, 1]) cube([10, 20, 30]);
 ```
 :::
+
+::::
 
 ## Kombinieren von Transformationen
 
@@ -98,9 +109,8 @@ wird der Würfel **zuerst gedreht**, dann **verschoben** – obwohl `translate` 
 Eine gute Eselsbrücke: Lies den Code von rechts nach links (oder von unten nach oben, wenn jeder Befehl auf einer eigenen Zeile steht).
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Beobachte, wie sich die Reihenfolge der Transformationen auf das Ergebnis auswirkt. Der gelbe und der rote Würfel verwenden dieselben Transformationen in unterschiedlicher Reihenfolge.
-:::
 
 :::openscad{height="600px"}
 ```scad
@@ -116,28 +126,46 @@ cube([10, 20, 30]);
 ```
 :::
 
+::::
+
 ## Wissensüberprüfung
 
 :::multievent
 Mit welchem Befehl verschiebst du ein Objekt?
 
-{r1{rotate}} {r1{!translate}} {r1{scale}} {r1{move}}
-:::
+{r1{rotate}} 
 
-:::multievent
+{r1{!translate}} 
+
+{r1{scale}} 
+
+{r1{move}}
+
 In welcher Einheit gibt man Drehungen bei `rotate()` an?
 
-{r2{Radiant}} {r2{Prozent}} {r2{!Grad}} {r2{Umdrehungen}}
-:::
+{r2{Radiant}} 
 
-:::multievent
+{r2{Prozent}} 
+
+{r2{!Grad}} 
+
+{r2{Umdrehungen}}
+
 Was passiert bei `translate([10, 0, 0]) rotate([0, 0, 45]) cube(10);` zuerst?
 
-{r3{Das Objekt wird verschoben, dann gedreht.}} {r3{!Das Objekt wird gedreht, dann verschoben.}} {r3{Beide passieren gleichzeitig.}}
-:::
+{r3{Das Objekt wird verschoben, dann gedreht.}} 
 
-:::multievent
+{r3{!Das Objekt wird gedreht, dann verschoben.}} 
+
+{r3{Beide passieren gleichzeitig.}}
+
 Mit welchem Befehl kannst du ein Objekt in X-Richtung doppelt so breit machen?
 
-{r4{translate([2, 1, 1])}} {r4{rotate([2, 0, 0])}} {r4{!scale([2, 1, 1])}} {r4{resize([2, 1, 1])}}
+{r4{translate([2, 1, 1])}} 
+
+{r4{rotate([2, 0, 0])}} 
+
+{r4{!scale([2, 1, 1])}} 
+
+{r4{resize([2, 1, 1])}}
 :::

@@ -1,6 +1,7 @@
 ---
 title: Externe Bibliotheken
-index: 17
+index: 21
+permaid: openscad-externe-bibliotheken
 ---
 
 # Externe Bibliotheken

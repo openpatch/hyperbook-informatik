@@ -1,6 +1,7 @@
 ---
 title: Kombination von Objekten
-index: 9
+index: 13
+permaid: openscad-kombination-objekte
 ---
 
 # Kombination von Objekten
@@ -73,9 +74,8 @@ Bei `difference()` ist die **Reihenfolge** entscheidend: Das erste Objekt ist da
 
 ## Vergleich aller drei Operationen
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Verändere die Reihenfolge der Anweisungen im `difference`-Block und beobachte, wie sich das Ergebnis verändert.
-:::
 
 :::openscad{height="600px"}
 ```scad
@@ -99,28 +99,42 @@ difference() {
 ```
 :::
 
+::::
+
 ## Wissensüberprüfung
 
 :::multievent
 Welche Operation ergibt nur den Teil, der in **beiden** Objekten gleichzeitig enthalten ist?
 
-{r1{union}} {r1{difference}} {r1{!intersection}}
-:::
+{r1{union}} 
 
-:::multievent
+{r1{difference}} 
+
+{r1{!intersection}}
+
 Du möchtest ein Loch in einen Würfel bohren. Welche Operation verwendest du?
 
-{r2{union}} {r2{!difference}} {r2{intersection}}
-:::
+{r2{union}} 
 
-:::multievent
+{r2{!difference}} 
+
+{r2{intersection}}
+
 Bei `difference()` – welches Objekt bleibt erhalten?
 
-{r3{Das letzte im Block.}} {r3{!Das erste im Block.}} {r3{Keines – beide werden entfernt.}} {r3{Das größere der beiden.}}
-:::
+{r3{Das letzte im Block.}} 
 
-:::multievent
+{r3{!Das erste im Block.}} 
+
+{r3{Keines – beide werden entfernt.}} 
+
+{r3{Das größere der beiden.}}
+
 Was ist der Unterschied zwischen Anweisungen einfach hintereinander schreiben und `union()` verwenden?
 
-{r4{!Es gibt keinen Unterschied – beide addieren die Objekte.}} {r4{union() ist schneller.}} {r4{Ohne union() überlappen sich Objekte nicht.}}
+{r4{!Es gibt keinen Unterschied – beide addieren die Objekte.}} 
+
+{r4{union() ist schneller.}} 
+
+{r4{Ohne union() überlappen sich Objekte nicht.}}
 :::

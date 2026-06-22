@@ -1,6 +1,7 @@
 ---
 title: Bilder
-index: 14
+index: 18
+permaid: openscad-bilder
 ---
 
 # Bilder

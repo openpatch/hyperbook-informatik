@@ -1,6 +1,7 @@
 ---
 title: Eigene Module
-index: 16
+index: 20
+permaid: openscad-eigene-module
 ---
 
 # Eigene Module
@@ -63,12 +64,26 @@ translate([90, 0, 0]) zylinder_mit_kugel(hoehe=20, radius=15, kugelradius=12);
 ```
 :::
 
-:::snippet{#aufgabe}
-Erstelle ein Modul `tisch`, das einen einfachen Tisch aus einem flachen Quader (Tischplatte) und vier Zylindern (Beine) zusammensetzt. Gib allen Parametern sinnvolle Standardwerte. Rufe das Modul anschließend zweimal auf – einmal mit Standardwerten, einmal mit eigenen Werten.
-:::
+::::snippet{#aufgabe}
+Erstelle ein Modul `tisch`, das einen einfachen Tisch aus einem flachen Quader (Tischplatte) und vier Zylindern (Beinen) zusammensetzt. Gib allen Parametern sinnvolle Standardwerte. Rufe das Modul anschließend zweimal auf – einmal mit Standardwerten, einmal mit eigenen Werten.
 
 :::openscad{height="600px"}
 ```scad
+// Beispiel: Modul-Definition
+module tisch(platten_breite=50, platten_tiefe=30, platten_hoehe=2, bein_hoehe=40, bein_radius=2) {
+    // Tischplatte
+    cube([platten_breite, platten_tiefe, platten_hoehe]);
+    // Tischbeine (an den 4 Ecken)
+    translate([0, 0, 0]) cylinder(h=bein_hoehe, r=bein_radius);
+    translate([platten_breite, 0, 0]) cylinder(h=bein_hoehe, r=bein_radius);
+    translate([0, platten_tiefe, 0]) cylinder(h=bein_hoehe, r=bein_radius);
+    translate([platten_breite, platten_tiefe, 0]) cylinder(h=bein_hoehe, r=bein_radius);
+}
 
+// Aufrufe
+translate([0, 0, 0]) tisch();
+translate([80, 0, 0]) tisch(platten_breite=60, bein_radius=3);
 ```
 :::
+
+::::

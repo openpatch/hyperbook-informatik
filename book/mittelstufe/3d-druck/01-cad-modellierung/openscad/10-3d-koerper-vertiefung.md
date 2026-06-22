@@ -1,15 +1,16 @@
 ---
-title: 3D-Körper
-index: 6
+title: 3D-Körper – Vertiefung
+index: 10
+permaid: openscad-3d-koerper-vertiefung
 ---
 
-# 3D-Körper
+# 3D-Körper – Vertiefung
 
 In OpenSCAD werden die meisten 3D-Modelle durch eine Kombination von 3D-Körpern erstellt. (Es gibt auch komplexere Möglichkeiten, aber wir werden uns zunächst auf die grundlegenden 3D-Körper konzentrieren.)
 
 Die 3D-Körper solltest du schon aus dem Mathematikunterricht kennen.
 
-Es gibt Befehle zum Erstellen von Kugeln, Würfeln und Zylindern. In den Beispielen auf dieser Seite wird außerdem `translate` verwendet, um Objekte nebeneinander zu positionieren – du wirst diesen Befehl in [Einfache Transformationen](./08-einfache-transformationen.md) genauer kennenlernen.
+Es gibt Befehle zum Erstellen von Kugeln, Würfeln und Zylindern. In den Beispielen auf dieser Seite wird außerdem `translate` verwendet, um Objekte nebeneinander zu positionieren – du wirst diesen Befehl in [Einfache Transformationen](./12-einfache-transformationen.md) genauer kennenlernen.
 
 :::alert{info}
 Es gibt in OpenSCAD auch einen `polyhedron`-Befehl für beliebige Vielflächner. Dieser ist für Fortgeschrittene und wird in diesem Kurs nicht behandelt.
@@ -26,9 +27,17 @@ translate([50, 0, 0]) sphere(r=50);  // Radius
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Verändere den Quelltext, sodass die Kugeln unterschiedlich groß sind.
+
+:::openscad
+```scad
+translate([-50,0,0]) sphere(d=100); // Durchmesser
+translate([50, 0, 0]) sphere(r=50);  // Radius
+```
 :::
+
+::::
 
 ## Auflösung der Kugel
 
@@ -41,9 +50,17 @@ translate([0, 0, 0]) sphere(d=100);
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Experimentiere mit verschiedenen Werten für `$fn` und beobachte, wie sich die Kugel verändert.
+
+:::openscad
+```scad
+$fn=8;
+translate([0, 0, 0]) sphere(d=100);
+```
 :::
+
+::::
 
 ## Würfel
 
@@ -66,9 +83,17 @@ translate([50, 0, 0]) cube(50);          // Seitenlänge
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Füge einen weiteren Würfel hinzu, der eine andere Größe und Position hat.
+
+:::openscad
+```scad
+translate([-60,0,0]) cube([100, 50, 25]); // Länge, Breite, Höhe
+translate([50, 0, 0]) cube(50);          // Seitenlänge
+```
 :::
+
+::::
 
 
 :::alert{info}
@@ -95,9 +120,17 @@ translate([50, 0, 0]) cylinder(h=100, d1=50, d2=20);
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Verändere die Höhe und die Durchmesser der Zylinder, um verschiedene Formen zu erstellen.
+
+:::openscad
+```scad
+translate([-50, 0, 0]) cylinder(h=100, d=50);
+translate([50, 0, 0]) cylinder(h=100, d1=50, d2=20);
+```
 :::
+
+::::
 
 :::alert{info}
 Du hast gesehen, dass wir manchmal den Radius und manchmal den Durchmesser angeben. Das liegt daran, dass es in OpenSCAD für einige Formen beide Möglichkeiten gibt. Es ist wichtig, die Dokumentation zu lesen, um zu wissen, welche Parameter du verwenden musst.
@@ -110,23 +143,41 @@ https://openscad.org/cheatsheet/
 :::multievent
 Mit welchem Befehl erzeugst du eine Kugel mit Radius 10?
 
-{r1{cube(10)}} {r1{!sphere(r=10)}} {r1{cylinder(r=10)}} {r1{ball(r=10)}}
-:::
+{r1{cube(10)}} 
 
-:::multievent
+{r1{!sphere(r=10)}} 
+
+{r1{cylinder(r=10)}} 
+
+{r1{ball(r=10)}}
+
 Welcher Parameter gibt die Höhe eines Zylinders an?
 
-{r2{!h}} {r2{d}} {r2{r}} {r2{z}}
-:::
+{r2{!h}} 
 
-:::multievent
+{r2{d}} 
+
+{r2{r}} 
+
+{r2{z}}
+
 Was bewirkt `center=true` bei einem Würfel?
 
-{r3{Der Würfel wird unsichtbar.}} {r3{!Der Würfel wird um den Ursprung (0,0,0) zentriert.}} {r3{Der Würfel wird kleiner.}} {r3{Der Würfel erhält abgerundete Kanten.}}
-:::
+{r3{Der Würfel wird unsichtbar.}} 
 
-:::multievent
+{r3{!Der Würfel wird um den Ursprung (0,0,0) zentriert.}} 
+
+{r3{Der Würfel wird kleiner.}} 
+
+{r3{Der Würfel erhält abgerundete Kanten.}}
+
 Wie kannst du eine Kugel glatter (runder) machen?
 
-{r4{`r` erhöhen}} {r4{`d` erhöhen}} {r4{!`$fn` erhöhen}} {r4{`center=true` setzen}}
+{r4{`r` erhöhen}} 
+
+{r4{`d` erhöhen}} 
+
+{r4{!`$fn` erhöhen}} 
+
+{r4{`center=true` setzen}}
 :::

@@ -1,11 +1,12 @@
 ---
 title: "BOSL2: diff() – Löcher und Aussparungen"
-index: 20
+index: 24
+permaid: openscad-bosl2-diff
 ---
 
 # BOSL2: diff() – Löcher und Aussparungen
 
-Du kennst bereits `difference()` aus [Kombination von Objekten](./09-kombination-von-objekten.md). Dabei ist die Reihenfolge entscheidend: Das erste Objekt bleibt, alle weiteren werden abgezogen. Das kann bei komplexen Modellen schnell unübersichtlich werden.
+Du kennst bereits `difference()` aus [Kombination von Objekten](./13-kombination-von-objekten.md). Dabei ist die Reihenfolge entscheidend: Das erste Objekt bleibt, alle weiteren werden abgezogen. Das kann bei komplexen Modellen schnell unübersichtlich werden.
 
 BOSL2 bietet eine einfachere Alternative: `diff()`. Dabei markierst du Objekte mit **Tags** (Etiketten), die bestimmen, ob ein Objekt hinzugefügt oder entfernt wird.
 
@@ -41,16 +42,20 @@ diff() {
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Erstelle mit `diff()` einen Quader mit drei Löchern: je eines von oben, von vorne und von der Seite.
-:::
 
 :::openscad{height="500px" library="BOSL2"}
 ```scad
 include <BOSL2/std.scad>
-
+diff() {
+    cuboid([60, 40, 20]);
+    // Dein Code hier: 3 Löcher mit tag("remove")
+}
 ```
 :::
+
+::::
 
 ## Kombination mit position()
 
@@ -70,13 +75,20 @@ diff() {
 ```
 :::
 
-:::snippet{#aufgabe}
+::::snippet{#aufgabe}
 Modelliere eine einfache Dose (Zylinder) mit einem Deckel (flacher Quader mit Loch in der Mitte). Nutze `diff()` für das Loch im Deckel.
-:::
 
 :::openscad{height="500px" library="BOSL2"}
 ```scad
 include <BOSL2/std.scad>
-
+// Dose
+cyl(h=40, r=15);
+// Deckel mit Loch
+translate([0, 0, 40]) diff() {
+    cuboid([35, 35, 3]);
+    // Dein Code hier: Loch in der Mitte
+}
 ```
 :::
+
+::::
