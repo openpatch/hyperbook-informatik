@@ -11,8 +11,6 @@ Damit dein Modell erfolgreich gedruckt wird, musst du zwei Dinge beachten:
 
 Für beide Probleme gibt es Lösungen im Slicer.
 
----
-
 ## Bett-Haftung (Bed Adhesion)
 
 Damit die erste Schicht deines Modells gut am Druckbett haftet, kannst du eine dieser Hilfen aktivieren:
@@ -24,16 +22,12 @@ Ein Skirt ist eine einfache Linie, die **außen um das Modell herum** gedruckt w
 - Aber er füllt die Düse vor dem eigentlichen Druck
 - Und er zeigt, ob das Bett richtig nivelliert ist
 
-> 📸 **Screenshot-Hinweis:** OrcaSlicer-Vorschau mit Skirt (gestrichelte Linie um das Modell) als Screenshot einfügen.
-
 ### Brim
 
 Ein Brim ist eine breite, flache Fläche, die **direkt am Modell anhaftet**. Er vergrößert die Kontaktfläche mit dem Druckbett.
 - Verhindert, dass sich Ecken des Modells hochbiegen
 - Empfohlen bei: kleinen Grundflächen, scharfen Ecken
 - Nach dem Druck wird der Brim **abgebrochen oder abgeschnitten**
-
-> 📸 **Screenshot-Hinweis:** Foto eines gedruckten Teils mit sichtbarem Brim einfügen (vor dem Entfernen).
 
 ### Raft
 
@@ -48,13 +42,9 @@ Ein Raft ist eine mehrschichtige Gitterfläche, die **unter dem gesamten Modell*
 | Brim | Gut | Gering | Abbrechen |
 | Raft | Sehr gut | Hoch | Ablösen |
 
----
-
 ## Stützstrukturen (Supports)
 
 Der FDM-Drucker druckt Schicht für Schicht von unten nach oben. **Alles, was steil nach oben ragt, braucht Unterstützung.** Ohne Unterstützung würde das Material einfach in die Luft gedruckt werden und durchhängen.
-
-> 📸 **Screenshot-Hinweis:** OrcaSlicer-Vorschau einfügen: Ein Modell mit Überhängen (z. B. ein Haus mit Dach) – links ohne Support (durchgehangen), rechts mit Support (sauber gedruckt).
 
 ### Wann brauche ich Supports?
 

@@ -13,8 +13,6 @@ Damit dein Modell gut gedruckt wird, musst du im Slicer einige Einstellungen anp
 
 Die Schichthöhe gibt an, wie dick jede Schicht deines Modells ist. Sie bestimmt mit, wie **glatt** die Oberfläche wird und wie **lange** der Druck dauert.
 
-> 📸 **Screenshot-Hinweis:** Zwei Vergleichsfotos einfügen: dasselbe Objekt einmal mit 0,1 mm (glatt) und einmal mit 0,3 mm (sichtbare Schichten) gedruckt.
-
 | Schichthöhe | Oberfläche | Druckzeit | Empfehlung |
 | ----------- | ---------- | --------- | ----------- |
 | 0,1 mm | Sehr glatt, fast keine sichtbaren Schichten | Langsam (2–3× länger) | Für besondere Modelle mit feinen Details |
@@ -25,13 +23,11 @@ Die Schichthöhe gibt an, wie dick jede Schicht deines Modells ist. Sie bestimmt
 Die Schichthöhe sollte nicht dicker als **0,3 mm** sein (bei Standard-Düsen mit 0,4 mm).
 :::
 
----
+Für eine ausführliche Erklärung kannst du diesen Artikel lesen: https://help.prusa3d.com/de/article/schichten-und-konturen_1748
 
 ## 2. Fülldichte (Infill)
 
 Der Infill bestimmt, wie viel Material **im Inneren** deines Modells gedruckt wird. Ein höherer Infill macht das Objekt stabiler, verbraucht aber mehr Material und Zeit.
-
-> 📸 **Screenshot-Hinweis:** OrcaSlicer-Screenshot mit Layer-Ansicht einfügen, auf der das Infill-Muster (z. B. Gitter) sichtbar ist.
 
 | Infill | Verwendung | Beispiel |
 | ------ | ---------- | -------- |
@@ -44,13 +40,11 @@ Die meisten Slicer bieten verschiedene Muster an. Für den Anfang reicht:
 - **Gitter (Grid)** – schnell und einfach, gut für die meisten Objekte
 - **Wabenstruktur (Honeycomb)** – sehr stabil, gut für belastbare Teile
 
----
+Für eine ausführliche Erklärung kannst du diesen Artikel lesen: https://help.prusa3d.com/de/article/infill_42
 
 ## 3. Drucktemperatur
 
 Damit das Filament schmilzt und gut haftet, müssen zwei Dinge geheizt werden:
-
-> 📸 **Screenshot-Hinweis:** Temperatureinstellungen in OrcaSlicer als Screenshot einfügen, Hotend und Druckbett markiert.
 
 ### Hotend (Düse)
 Hier wird das Filament geschmolzen:
@@ -78,8 +72,6 @@ Die richtige Temperatur hängt vom Filament-Hersteller ab. Die Angaben auf der V
 
 Die Druckgeschwindigkeit gibt an, wie schnell der Druckkopf sich bewegt (in mm/s). CoreXY-Drucker (wie Prusa Core One+ oder Voron) können sehr schnell drucken.
 
-> 📸 **Screenshot-Hinweis:** Geschwindigkeitseinstellung in OrcaSlicer als Screenshot einfügen.
-
 | Geschwindigkeit | Qualität | Empfehlung |
 | --------------- | -------- | ---------- |
 | 30–50 mm/s | Sehr gute Qualität, feine Details | Für kleine, detailreiche Modelle |
@@ -87,7 +79,7 @@ Die Druckgeschwindigkeit gibt an, wie schnell der Druckkopf sich bewegt (in mm/s
 | 150–200 mm/s | Schnell, aber weniger präzise | Für große, einfache Objekte mit CoreXY-Druckern |
 
 :::alert{warn}
-Zu hohe Geschwindigkeiten könnnen zu Qualitätsproblemen führen: unscharfe Kanten oder fehlende Schichten. CoreXY-Drucker ermöglichen aber höhere Geschwindigkeiten als ältere Modelle.
+Zu hohe Geschwindigkeiten können zu Qualitätsproblemen führen: unscharfe Kanten oder fehlende Schichten. CoreXY-Drucker ermöglichen aber höhere Geschwindigkeiten als ältere Modelle.
 
 :::
 
