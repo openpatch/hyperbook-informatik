@@ -1,7 +1,7 @@
 ---
 title: Dein erstes 3D-Modell
 index: 1
-permaid: openscad-erstes-modell
+permaid: openscad
 ---
 
 # Dein erstes 3D-Modell
