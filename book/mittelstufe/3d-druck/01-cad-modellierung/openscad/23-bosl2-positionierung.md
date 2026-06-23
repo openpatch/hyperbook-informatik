@@ -43,6 +43,37 @@ cuboid([40, 40, 20]) {
 }
 ```
 
+## Das `anchor`-Attribut – eigener Ankerpunkt eines Objekts
+
+Jedes BOSL2-Objekt hat standardmäßig seinen Mittelpunkt (`CENTER`) als Referenzpunkt. Mit dem `anchor`-Attribut kannst du festlegen, welcher Punkt des Objekts als Referenz dient.
+
+**Wozul?** Normalerweise wird ein Objekt mit seinem Mittelpunkt platziert. Mit `anchor` kannst du das ändern, sodass z.B. die Rückseite (`BACK`), Vorderseite (`FRONT`), Oberseite (`TOP`) usw. als Referenzpunkt dient.
+
+Beispiel: Ein Würfel soll mit seiner Rückseite an der Vorderseite eines anderen Würfels platziert werden:
+
+```scad
+include <BOSL2/std.scad>
+cuboid([40, 40, 40]) {
+    position(FRONT) cube([50, 20, 20], anchor=BACK);
+}
+```
+
+**Was passiert hier?**
+1. `anchor=BACK` bewirkt, dass der kleine Würfel so verschoben wird, dass seine Rückseite am Ursprung (0,0,0) liegt
+2. `position(FRONT)` platziert diesen verschobenen Würfel dann so, dass seine Rückseite an der Vorderseite (`FRONT`) des großen Würfels anliegt
+3. Das Ergebnis: Die Rückseite des kleinen Würfels liegt bündig an der Vorderseite des großen Würfels
+
+**Mögliche Ankerpunkte:**
+- `CENTER` – Mittelpunkt (Standard)
+- `TOP` – Mitte der Oberseite
+- `BOTTOM` – Mitte der Unterseite
+- `FRONT` – Mitte der Vorderseite
+- `BACK` – Mitte der Rückseite
+- `LEFT` – Mitte der linken Seite
+- `RIGHT` – Mitte der rechten Seite
+
+Du kannst auch Kombinationen verwenden, z.B. `TOP+LEFT` für die obere linke Kante.
+
 ::::snippet{#aufgabe}
 Platziere mithilfe von `position()` einen kleineren Würfel auf der Vorderseite (`FRONT`) eines größeren Würfels.
 
