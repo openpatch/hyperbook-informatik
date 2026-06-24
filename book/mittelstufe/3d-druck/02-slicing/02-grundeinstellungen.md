@@ -83,7 +83,17 @@ Zu hohe Geschwindigkeiten können zu Qualitätsproblemen führen: unscharfe Kant
 
 :::
 
----
+## Ausprobieren
+
+:::snippet{#aufgabe}
+1. Lade eine STL-Datei herunter z.B. von einem vorherigen OpenSCAD Project.
+2. Öffne die Datei im Online-Slicer Kiri (File->Import).
+3. Wähle die Grundeinstellungen aus, die du gelernt hast (Schichthöhe, Infill, Temperatur, Geschwindigkeit)
+4. Klicke auf Slice und warte, bis der Slicer fertig ist.
+5. Klicke auf Preview/Vorschau und überprüfe den Einfluss deiner Einstellungen auf das Modell.
+:::
+
+::embed{src="https://grid.space/kiri" width="100%" height="600px"}
 
 ## Wissensüberprüfung
 
