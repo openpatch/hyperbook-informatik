@@ -1,6 +1,7 @@
 ---
 title: Slicer-Software
 index: 1
+permaid: slicer
 ---
 
 # Slicer-Software
@@ -57,7 +58,9 @@ Was ist die Aufgabe eines Slicers?
 
 {r1{!Das 3D-Modell in druckerverständlichen G-Code umwandeln.}}
 
-{r1{Das 3D-Modell in OpenSCAD öffnen.}} {r1{Das Filament schmelzen.}}
+{r1{Das 3D-Modell in OpenSCAD öffnen.}} 
+
+{r1{Das Filament schmelzen.}}
 
 In welchem Dateiformat exportiert man ein Modell aus OpenSCAD, um es in den Slicer zu laden?
 
