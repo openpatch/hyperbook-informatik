@@ -1,6 +1,7 @@
 ---
 title: FDM-Drucker
 index: 1
+permaid: fdm-drucker
 ---
 
 # FDM-Drucker
