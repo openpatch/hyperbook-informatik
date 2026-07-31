@@ -1,0 +1,3170 @@
+
+### class Object
+  public Object()
+  public String toString()
+  public boolean equals(Object otherObject)
+  public final void wait()
+  public final void wait(long milliseconds)
+  public final void notify()
+  public final void notifyAll()
+  public final Class<?> getClass()
+
+### final class String extends Object implements Comparable<String>
+  public String()
+  public String(String original)
+  public String(char[] value)
+  public final String toString()
+  public final int length()
+  public final int indexOf(string str)
+  public final int indexOf(string str, int fromIndex)
+  public final int indexOf(char c)
+  public final int indexOf(char c, int fromIndex)
+  public final char charAt(int index)
+  public final int compareTo(String otherString)
+  public final int compareToIgnoreCase(String otherString)
+  public final string concat(string otherString)
+  public final boolean contains(string otherString)
+  public final boolean endsWith(string otherString)
+  public final boolean startsWith(string otherString)
+  public boolean equals(Object otherObject)
+  public boolean equals(String otherObject)
+  public final boolean equalsIgnoreCase(string otherString)
+  public final boolean isEmpty()
+  public final int lastIndexOf(string str)
+  public final int lastIndexOf(string str, int fromIndex)
+  public final int lastIndexOf(char c)
+  public final int lastIndexOf(char c, int fromIndex)
+  public final string toLowerCase()
+  public final string toUpperCase()
+  public final string substring(int beginIndex)
+  public final string substring(int beginIndex, int endIndex)
+  public final string trim()
+  public final string replace(string target, string replacement)
+  public final string replaceAll(string regex, string replacement)
+  public final boolean matches(string regex)
+  public final string replaceFirst(string regex, string replacement)
+  public final string[] split(string regex)
+  public final int hashCode()
+  public final char[] toCharArray()
+  public static string valueOf(boolean b)
+  public static string valueOf(char c)
+  public static string valueOf(int i)
+  public static string valueOf(long l)
+  public static string valueOf(float f)
+  public static string valueOf(double d)
+  public static string valueOf(char[] data)
+  public static String valueOf(Object o)
+
+### class Class<T>
+  string getName()
+
+### class Throwable extends Object
+  public Throwable()
+  public Throwable(String message)
+  public Throwable(Throwable cause)
+  public Throwable(String message, Throwable cause)
+  public String toString()
+  public String getMessage()
+
+### class Exception extends Throwable
+  public Exception()
+  public Exception(String message)
+  public Exception(Throwable cause)
+  public Exception(String message, Throwable cause)
+  public String toString()
+
+### class RuntimeException extends Exception
+  public RuntimeException()
+  public RuntimeException(String message)
+  public RuntimeException(Throwable cause)
+  public RuntimeException(String message, Throwable cause)
+  public String toString()
+
+### class MethodOfDestroyedObjectCalledException extends RuntimeException
+
+### class ArithmeticException extends RuntimeException
+  public ArithmeticException()
+  public ArithmeticException(String message)
+  public ArithmeticException(Throwable cause)
+  public ArithmeticException(String message, Throwable cause)
+  public String toString()
+
+### class ClassCastException extends RuntimeException
+
+### class IndexOutOfBoundsException extends RuntimeException
+
+### class NullPointerException extends RuntimeException
+
+### class Enum extends Object
+  public String name()
+  public int ordinal()
+  public String toString()
+
+### abstract class Actor extends Object
+  Actor()
+  void act()
+  void act(double deltaTime)
+  void onKeyTyped(String key)
+  void onKeyUp(String key)
+  void onKeyDown(String key)
+  void destroy()
+  final boolean isKeyUp(string key)
+  final boolean isKeyDown(string key)
+  final boolean isActing()
+  final boolean isDestroyed()
+  final void stopActing()
+  final void restartActing()
+  final boolean isGamepadButtonDown(int gamepadIndex, int buttonIndex)
+  final boolean isGamepadConnected(int gamepadIndex)
+  final double getGamepadAxisValue(int gamepadIndex, int axisIndex)
+  static void setActFrequency(int frequencyInHz)
+
+### class Vector2 extends Object
+  [F] public double x
+  [F] public double y
+  Vector2(double x, double y)
+  static Vector2 fromPolarCoordinates(double r, double angle)
+  final double getAngleDeg()
+  final double getAngleRad()
+  final double getLength()
+  final Vector2 getUnitVector()
+  final Vector2 clone()
+  final Vector2 setLength(double newLength)
+  final Vector2 scaledBy(double factor)
+  final Vector2 scale(double factor)
+  final Vector2 rotatedBy(double angleDeg)
+  final Vector2 rotate(double angleDeg)
+  final Vector2 plus(Vector2 otherVector)
+  final Vector2 minus(Vector2 otherVector)
+  final Vector2 add(Vector2 otherVector)
+  final Vector2 sub(Vector2 otherVector)
+  final Vector2 normalized()
+  final Vector2 normalize()
+  final double scalarProduct(Vector2 otherVector)
+  final double distanceTo(Vector2 otherVector)
+  final static double distance(double x1, double y1, double x2, double y2)
+  public boolean equals(Vector2 otherVector)
+  String toString()
+
+### class Vector3 extends Object
+  [F] public double x
+  [F] public double y
+  [F] public double z
+  Vector3(double x, double y, double z)
+  Vector3(Vector2 xy, double z)
+  Vector3(double x, Vector2 yz)
+  final double getLength()
+  final Vector3 getUnitVector()
+  final Vector3 clone()
+  final Vector2 xy()
+  final Vector2 xz()
+  final Vector2 yz()
+  final Vector3 setLength(double newLength)
+  final Vector3 scaledBy(double factor)
+  final Vector3 scale(double factor)
+  final Vector3 plus(Vector3 otherVector)
+  final Vector3 minus(Vector3 otherVector)
+  final Vector3 add(Vector3 otherVector)
+  final Vector3 sub(Vector3 otherVector)
+  final double scalarProduct(Vector3 otherVector)
+  final double distanceTo(Vector3 otherVector)
+  final static double distance(double x1, double y1, double z1, double x2, double y2, double z2)
+  final Vector3 applyMatrix4(Matrix4 m)
+  public boolean equals(Vector3 otherVector)
+  String toString()
+
+### class BaseWorld
+  public BaseWorld()
+  void addMouseListener(MouseListener mouseListener)
+  void lockPointer()
+  void unlockPointer()
+
+### class World3d extends BaseWorld
+  World3d()
+  void setBackgroundColor(int colorAsRGBInt)
+  void setBackgroundColor(String colorAsString)
+  void setBackgroundColor(Color colorObject)
+  void setCursor(string cursor)
+  void clear()
+  Light3d[] getLights()
+  void removeAllLights()
+  void removeLight(Light3d light)
+  void addLight(Light3d light)
+  void setCamera(Camera3d camera)
+  Camera3d getCamera()
+  void removeCoordinateAxes()
+  void removeOrbitControls()
+  static World3d getWorld3d()
+  Vector3 getVectorFromCameraThroughScreenPoint(double screenXRelative, double screenYRelative)
+
+### abstract final class Object3d extends Actor
+  Object3d()
+  abstract void move(double x,double y,double z)
+  final void move(Vector3 v)
+  abstract void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void lookAt(double xTarget, double yTarget, double zTarget, Vector3 up)
+  void lookAt(Object3d target, Vector3 up)
+  abstract void rotateX(double angleDeg)
+  abstract void rotateY(double angleDeg)
+  abstract void rotateZ(double angleDeg)
+  abstract void scaleX(double angleDeg)
+  abstract void scaleY(double angleDeg)
+  abstract void scaleZ(double angleDeg)
+  abstract void scale(Vector3 v)
+  abstract void scale(double d)
+  final double getX()
+  final double getY()
+  final double getZ()
+  Vector3 getPosition()
+  final World3d getWorld3d()
+  void setVisible(boolean isVisible)
+  abstract void destroy()
+
+### abstract class Camera3d extends Object3d
+  Camera3d()
+  void move(double x,double y,double z)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void lookAt(double xTarget, double yTarget, double zTarget, Vector3 up, boolean keepTarget)
+  void lookAt(Object3d target, Vector3 up, boolean keepTarget)
+  Vector3 getViewingDirection()
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  final void scaleX(double angleDeg)
+  final void scaleY(double angleDeg)
+  final void scaleZ(double angleDeg)
+  final void scale(Vector3 v)
+  final void scale(double d)
+  final void applyMatrix4(Matrix4 matrix)
+  void destroy()
+
+### class ArrayCamera3d extends Camera3d
+  ArrayCamera3d(PerspectiveCamera3d[] cameras)
+
+### abstract final class Material3d extends Object
+  Material3d setColor(Color color)
+  Material3d setColor(int color)
+  Material3d setColor(String color)
+  int getColor()
+  [F] private boolean transparent
+  boolean isTransparent()
+  Material3d setTransparent(boolean value)
+  [F] private boolean flatShading
+  boolean isFlatShading()
+  Material3d setFlatShading(boolean value)
+  [F] private double alpha
+  Material3d setAlpha(double value)
+  double getAlpha(double value)
+  [F] private boolean wireframe
+  Material3d setWireframe(boolean value)
+  boolean isWireframe()
+
+### final class PhongMaterial3d extends Material3d
+  PhongMaterial3d(int color)
+  PhongMaterial3d(int color, double shininess)
+  PhongMaterial3d(string color, double shininess)
+  PhongMaterial3d(Color color, double shininess)
+  PhongMaterial3d(Texture texture)
+  PhongMaterial3d(SpriteLibrary spriteLibrary, int imageIndex)
+  [F] private double shininess
+  void setShininess(double shininess)
+  double getShininess()
+  [F] private int specular
+  void setSpecular(int color)
+  void setSpecular(string color)
+  void setSpecular(Color color)
+  int getSpecular()
+  [F] private int emissive
+  void setEmissive(int color)
+  void setEmissive(string color)
+  void setEmissive(Color color)
+  int getEmissive()
+  [F] boolean wireframe
+  boolean isWireframe()
+  void setWireframe(boolean value)
+
+### class Mesh3d extends Object3d
+  Mesh3d()
+  [F] private Material3d material
+  Material3d getMaterial()
+  void setMaterial(Material3d material)
+  void move(double x,double y,double z)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  final void scaleX(double scale)
+  final void scaleY(double scale)
+  final void scaleZ(double scale)
+  final void scale(Vector3 v)
+  final void scale(double d)
+  final void applyMatrix4(Matrix4 matrix)
+  final void enableFrontBackSide(boolean frontSideVisible, boolean backSideVisible)
+  final void repeatTexture(int repeatX, int repeatY)
+  final void renderTransparent(boolean transparent)
+  void destroy()
+
+### final class LambertMaterial3d extends Material3d
+  LambertMaterial3d(int color)
+  LambertMaterial3d(string color)
+  LambertMaterial3d(Color color)
+  LambertMaterial3d(Texture texture)
+  LambertMaterial3d(SpriteLibrary spriteLibrary, int imageIndex)
+  [F] private int emissive
+  void setEmissive(int color)
+  void setEmissive(string color)
+  void setEmissive(Color color)
+  int getEmissive()
+  [F] boolean wireframe
+  boolean isWireframe()
+  void setWireframe(boolean value)
+
+### class Box3d extends Mesh3d
+  Box3d(double width, double height, double depth, int widthSegments, int heightSegments, int depthSegments)
+  Box3d(double width, double height, double depth)
+  Box3d()
+  void setCubemapTexture(SpriteLibrary spriteLibrary, int imageIndex)
+  void setSingleTextureForAllSides(SpriteLibrary spriteLibrary, int imageIndex)
+  void setTextures(SpriteLibrary spriteLibrary, int[] imageIndices)
+
+### class Circle3d extends Mesh3d
+  Circle3d(double radius, int segments, double thetaStart, double thetaLength)
+  Circle3d(double radius, int segments)
+  Circle3d(double radius)
+  Circle3d()
+
+### class Cone3d extends Mesh3d
+  Cone3d(double radius, double height, int radialSegments, int heightSegments, boolean openEnded, double thetaStart, double thetaLength)
+  Cone3d(double radius, double height, int radialSegments, int heightSegments, boolean openEnded)
+  Cone3d(double radius, double height)
+  Cone3d()
+
+### class Cylinder3d extends Mesh3d
+  Cylinder3d(double radiusTop, double radiusBottom, double height, int radialSegments, int heightSegments, boolean openEnded, double thetaStart, double thetaLength)
+  Cylinder3d(double radiusTop, double radiusBottom, double height, int radialSegments, int heightSegments, boolean openEnded)
+  Cylinder3d(double radiusTop, double radiusBottom, double height)
+  Cylinder3d(double radius, double height)
+  Cylinder3d()
+
+### class Group3d<O3d extends Object3d> extends Object3d
+  Group3d()
+  void move(double x,double y,double z)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  final void scaleX(double angleDeg)
+  final void scaleY(double angleDeg)
+  final void scaleZ(double angleDeg)
+  final void scale(Vector3 v)
+  final void scale(double d)
+  final void applyMatrix4(Matrix4 matrix)
+  final void add(O3d object)
+  final void remove(O3d object)
+  final int size()
+  final O3d get(int index)
+  void destroy()
+
+### class Light3d extends Object3d
+  Light3d()
+  [F] public Material3d material
+  void move(double x,double y,double z)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void destroy()
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  [F] private double intensity
+  void setIntensity(double intensity)
+  double getIntensity()
+  [F] private int color
+  void setColor(int color)
+  void setColor(String color)
+  void setColor(Color color)
+
+### class AmbientLight3d extends Light3d
+  AmbientLight3d()
+  AmbientLight3d(double intensity)
+
+### class DirectionalLight3d extends Light3d
+  DirectionalLight3d()
+  DirectionalLight3d(double x,double y,double z)
+  DirectionalLight3d(Vector3 position)
+  DirectionalLight3d setTarget(Object3d object3d)
+
+### class PointLight3d extends Light3d
+  PointLight3d()
+  PointLight3d(double x,double y,double z)
+  PointLight3d(Vector3 position)
+
+### final class BasicMaterial3d extends Material3d
+  BasicMaterial3d(int color)
+  BasicMaterial3d(int color, boolean wireframe)
+  BasicMaterial3d(string color, boolean wireframe)
+  BasicMaterial3d(Color color, boolean wireframe)
+  BasicMaterial3d(Texture texture)
+  BasicMaterial3d(SpriteLibrary spriteLibrary, int imageIndex)
+  [F] boolean wireframe
+  boolean isWireframe()
+  void setWireframe(boolean value)
+
+### final class PhysicallyBasedMaterial3d extends Material3d
+  PhysicallyBasedMaterial3d(int color, double roughness, double metalness)
+  PhysicallyBasedMaterial3d(string color, double roughness, double metalness)
+  PhysicallyBasedMaterial3d(Color color, double roughness, double metalness)
+  PhysicallyBasedMaterial3d(Texture texture)
+  PhysicallyBasedMaterial3d(SpriteLibrary spriteLibrary, int imageIndex)
+  [F] private int emissive
+  void setEmissive(int color)
+  void setEmissive(string color)
+  void setEmissive(Color color)
+  int getEmissive()
+  [F] boolean wireframe
+  boolean isWireframe()
+  void setWireframe(boolean value)
+  [F] private double roughness
+  void setRoughness(double value)
+  double getRoughness(double value)
+  [F] private double metalness
+  void setMetalness(double value)
+  double getMetalness(double value)
+
+### enum Texture
+
+### class Matrix4 extends Object
+  Matrix4()
+  Matrix4( double n11, double n12, double n13, double n14, double n21, double n22, double n23, double n24, double n31, double n32, double n33, double n34, double n41, double n42, double n43, double n44)
+  Matrix4( Matrix4 otherMatrix)
+  Matrix4 makeRotationX(double angleInDegrees)
+  Matrix4 makeRotationY(double angleInDegrees)
+  Matrix4 makeRotationZ(double angleInDegrees)
+  Matrix4 makeRotationAxis(Vector3 axis)
+  Matrix4 makeScale(double x, double y, double z)
+  Matrix4 makeTranslation(Vector3 v)
+  Matrix4 makeTranslation(double x, double y, double z)
+  Matrix4 multiplyScalar(double factor)
+  Matrix4 invert()
+  double determinant()
+  Matrix4 clone()
+  Matrix4 copyFrom(Matrix4 m)
+  Matrix4 multiply(Matrix4 m)
+  Matrix4 premultiply(Matrix4 m)
+
+### class OrthographicCamera3d extends Camera3d
+  OrthographicCamera3d(double left, double right, double top, double bottom, double near, double far)
+
+### class PerspectiveCamera3d extends Camera3d
+  PerspectiveCamera3d(double fov, double aspect, double near, double far)
+  void setViewport(double xRel, double yRel, double widthRel, double heightRel)
+
+### class Plane3d extends Mesh3d
+  Plane3d(double width, double height, int widthSegments, int heightSegments)
+  Plane3d(double width, double height)
+  Plane3d()
+
+### class Ring3d extends Mesh3d
+  Ring3d(double innerRadius, double outerRadius, int thetaSegments, int phiSegments, double thetaStart, double thetaLength)
+  Ring3d(double innerRadius, double outerRadius, int thetaSegments, int phiSegments)
+  Ring3d(double innerRadius, double outerRadius)
+  Ring3d()
+
+### class Sphere3d extends Mesh3d
+  Sphere3d(double radius, int widthSegments, int heightSegments, double phiStart, double phiLength, double thetastart, double thetaLength)
+  Sphere3d(double radius, int widthSegments, int heightSegments)
+  Sphere3d(double radius)
+  Sphere3d()
+
+### class Torus3d extends Mesh3d
+  Torus3d(double radius, double tube, int radialSegments, int tubularSegments, double arc)
+  Torus3d(double radius, double tube, int radialSegments, int tubularSegments)
+  Torus3d()
+
+### enum Alignment
+  [F] final static Color 
+
+### class Color extends Object
+  [F] int red
+  [F] int green
+  [F] int blue
+  [F] double alpha
+  Color(int red, int green, int blue)
+  Color(int red, int green, int blue, double alpha)
+  static int randomColor()
+  static int randomColor(int minimumBrightness)
+  static int randomColor(int minimumBrightness, int maximumBrightness)
+  final String toString()
+  final int toInt()
+  final boolean equals(Color otherColor)
+  final int getRed()
+  final int getGreen()
+  final int getBlue()
+  static int fromRGB(int red, int green, int blue)
+  static string fromRGBA(int red, int green, int blue, double alpha)
+  static string fromHSLA(double hue, double saturation, double luminance, double alpha)
+  static int fromHSL(double hue, double saturation, double luminance)
+
+### enum Direction
+
+### abstract class Shape extends Actor
+  [F] private double angle
+  [F] protected double centerX
+  [F] protected double centerY
+  [F] private double scaleFactor
+  Shape()
+  final This move(double dx, double dy)
+  final This rotate(double angleInDeg, double centerX, double centerY)
+  final This rotate(double angleInDeg)
+  final This scale(double factor, double centerX, double centerY)
+  final This setScale(double newScale)
+  final This scale(double factor)
+  final This mirrorX()
+  final This mirrorY()
+  final This defineDirection(double angleInDeg)
+  final This forward(double distance)
+  final boolean isOutsideView()
+  final double getCenterX()
+  final double getCenterY()
+  final double getAngle()
+  final This setAngle(double newAngle)
+  final boolean containsPoint(double x, double y)
+  final This moveTo(double x, double y)
+  final This setX(double x)
+  final This setY(double y)
+  final This defineCenter(double x, double y)
+  final This defineCenterRelative(double x, double y)
+  final double getTopLeftX()
+  final double getTopLeftY()
+  final This tint(int color)
+  final This tint(string color)
+  final This tint(Color color)
+  final Direction directionRelativeTo(Shape otherShape)
+  final This moveBackFrom(Shape otherShape, boolean keepColliding)
+  static void setDefaultVisibility(boolean isVisible)
+  final This setVisible(boolean isVisible)
+  final boolean isVisible()
+  final This setStatic(boolean isStatic)
+  final This bringToFront()
+  final This sendToBack()
+  final boolean collidesWith(Shape otherShape)
+  final boolean collidesWithAnyShape()
+  final boolean collidesWithFillColor(int color)
+  final boolean collidesWithFillColor(string color)
+  final boolean collidesWithFillColor(Color color)
+  final Sprite getFirstCollidingSprite(int imageIndex)
+  final Shape getFirstCollidingShape()
+  final <T extends Shape> T[] getCollidingShapes(Group<T> group)
+  final <T extends Shape> T[] getCollidingShapes(ArrayList<T> listOfShapes)
+  final void reactToMouseEventsWhenInvisible(boolean b)
+  void onMouseUp(double x, double y, int button)
+  void onMouseDown(double x, double y, int button)
+  void onMouseEnter(double x, double y)
+  void onMouseLeave(double x, double y)
+  void onMouseMove(double x, double y)
+  void startTrackingEveryMouseMovement()
+  void stopTrackingEveryMouseMovement()
+  void setHitPolygon(double[][] points)
+  abstract Shape copy()
+  final World getWorld()
+
+### abstract class FilledShape extends Shape
+  FilledShape()
+  Color getFillColor()
+  int getFillColorAsInt()
+  final This setFillColor(Color color)
+  final This setFillColor(Color color, double alpha)
+  final This setFillColor(int color)
+  final This setFillColor(int color, double alpha)
+  final This setFillColor(string color)
+  final This setFillColor(string color, double alpha)
+  Color getBorderColor()
+  int getBorderColorAsInt()
+  final This setBorderColor(Color color)
+  final This setBorderColor(Color color, double alpha)
+  final This setBorderColor(int color)
+  final This setBorderColor(int color, double alpha)
+  final This setBorderColor(string color)
+  final This setBorderColor(string color, double alpha)
+  final This setBorderWidth(double width)
+  double getBorderWidth()
+  final This setAlpha(double alpha)
+  double getAlpha()
+  static void setDefaultBorder(double width, string color)
+  static void setDefaultBorder(double width, int color, double alpha)
+  static void setDefaultFillColor(string color)
+  static void setDefaultFillColor(int color, double alpha)
+  static void setDefaultFillColor(int color)
+
+### class Arc extends FilledShape
+  Arc(double mx, double my, double innerRadius, double outerRadius, double startAngle, double endAngle)
+  Arc()
+  final void setInnerRadius(double innerRadius)
+  final double getInnerRadiusX()
+  final void setOuterRadius(double outerRadius)
+  final double getOuterRadiusX()
+  final void setStartAngle(double startAngle)
+  final double getStartAngleX()
+  final void setEndAngle(double endAngle)
+  final double getEndAngleX()
+  final Arc copy()
+  final boolean containsPoint(double x, double y)
+  String toString()
+
+### class Position extends Object
+  [F] int x
+  [F] int y
+  Position(int x, int y)
+  String toString()
+
+### class Bitmap extends Shape
+  Bitmap(int resolutionX, int resolutionY, double left, double top, double displayWidth, double displayHeight)
+  final int getResolutionX()
+  final int getResolutionY()
+  final void setColor(int x, int y, int color, double alpha)
+  final void setColor(int x, int y, string color, double alpha)
+  final void setColor(int x, int y, int color)
+  final void setColor(int x, int y, string color)
+  final Color getColor(int x, int y)
+  final int getColorAsInt(int x, int y)
+  double getAlpha(int x, int y)
+  final boolean isColor(int x, int y, string colorAsRGBString)
+  final boolean isColor(int x, int y, int color)
+  final Position screenCoordinatesToBitmapCoordinates(double x, double y)
+  final void fillAll(int color, double alpha)
+  final void fillAll(string colorAsRGBString, double alpha)
+  final void downloadAsPngFile(string filename)
+  final Bitmap copy()
+  String toString()
+
+### class Circle extends FilledShape
+  [F] private double radius
+  Circle()
+  Circle(double mx, double my, double r)
+  final void setRadius(double radius)
+  final double getRadius()
+  final Circle copy()
+  final boolean containsPoint(double x, double y)
+  String toString()
+
+### class CollisionPair<U extends Shape, V extends Shape> extends Object
+  CollisionPair(U ShapeA, V shapeB)
+  [F] public U shapeA
+  [F] public V shapeB
+
+### class Ellipse extends FilledShape
+  [F] private double radiusX
+  [F] private double radiusY
+  Ellipse()
+  Ellipse(double mx, double my, double rx, double ry)
+  final void setRadiusX(double radiusX)
+  final double getRadiusX()
+  final void setRadiusY(double radiusY)
+  final double getRadiusY()
+  final Ellipse copy()
+  final boolean containsPoint(double x, double y)
+  String toString()
+
+### enum RepeatType
+
+### enum ScaleMode
+
+### enum SpriteLibrary
+
+### class Sprite extends Shape
+  Sprite(double x, double y, SpriteLibrary spriteLibraryEntry, int index, ScaleMode scalemode)
+  Sprite(double x, double y, SpriteLibrary spriteLibraryEntry, int index)
+  Sprite(double x, double y, SpriteLibrary spriteLibraryEntry)
+  Sprite(Shape shape, ScaleMode scalemode)
+  Sprite(Shape shape)
+  void setImage(SpriteLibrary spriteLibrary, int imageIndex)
+  void setImageIndex(int imageIndex)
+  void playAnimation(int[] imageIndexArray, RepeatType repeatType, int imagesPerSecond)
+  void playAnimation(int fromIndex, int toIndex, RepeatType repeatType, int imagesPerSecond)
+  void stopAnimation()
+  void pauseAnimation()
+  void resumeAnimation()
+  void setAsBackgroundImage()
+  void setAlpha(double alphaValue)
+  Sprite copy()
+  double getWidth()
+  double getHeight()
+  int getImageIndex()
+  void makeTiling(double width, double height)
+  void makeTiling(double width, double height, double gapX, double gapY)
+  TileImage getTileImage()
+  int getPixelColor(int x, int y)
+  double getPixelAlpha(int x, int y)
+
+### class TileImage extends Object
+  private TileImage()
+  void move(double x, double y)
+  void scale(double factor)
+  void mirrorX()
+  void mirrorY()
+
+### class Group<T extends Shape> extends Shape
+  Group()
+  Group(T... shapes)
+  final void add(T shape)
+  final void add(T... shapes)
+  final void remove(T shape)
+  final void remove(int index)
+  final T get(int index)
+  final int indexOf(T shape)
+  final int size()
+  final void empty()
+  final void destroyAllChildren()
+  final void renderAsStaticBitmap()
+  final Group<T> copy()
+  final T[] getCollidingShapes(Shape otherShape)
+  final <V extends Shape> CollisionPair<T, V>[] getCollisionPairs(Group<V> otherGroup, boolean maxOneCollisionPerShape)
+  final boolean collidesWith(Shape otherShape)
+  final boolean collidesWithAnyShape()
+  final boolean collidesWithFillColor(int color)
+  final boolean collidesWithFillColor(string color)
+  final boolean collidesWithFillColor(Color color)
+  final Sprite getFirstCollidingSprite(int imageIndex)
+
+### abstract class GuiComponent extends FilledShape
+  GuiComponent()
+  void addChangeListener(GuiChangeListener changeListener)
+  final double getWidth()
+  final double getHeight()
+  void onChange(String newValue)
+
+### abstract class GuiTextComponent extends GuiComponent
+  GuiTextComponent()
+  void setFontsize(double fontsize)
+  void setText(string text)
+  string getText()
+  double getFontsize()
+  void setStyle(boolean isBold, boolean isItalic)
+  void setTextColor(Color color)
+  void setTextColor(int color)
+  void setTextColor(string color)
+
+### class Button extends GuiTextComponent
+  Button(double x, double y, double fontsize, string text)
+  Button(double x, double y, double fontsize, string text, string fontFamily)
+  Button copy()
+  boolean isDown()
+
+### interface GuiChangeListener
+  void onChange(Object changedObject, String newValue)
+
+### class Checkbox extends GuiTextComponent
+  Checkbox(double x, double y, double width, double fontsize, string text)
+  Checkbox(double x, double y, double width, double fontsize, string text, string fontFamily)
+  Checkbox(double x, double y, double width, double fontsize, string text, boolean checked)
+  Checkbox copy()
+  void setCrossColor(int color)
+  void setChecked(boolean checked)
+  boolean isChecked()
+
+### class RadioButton extends GuiTextComponent
+  RadioButton(double x, double y, double width, double fontsize, string text, int index)
+  RadioButton(double x, double y, double width, double fontsize, string text, string fontFamily, int index)
+  RadioButton copy()
+  int getIndex()
+  int getIndexOfSelectedRadiobutton()
+  int getTextOfSelectedRadiobutton()
+  void setIndex()
+  void setDotColor()
+  void connectTo(RadioButton... otherButtons)
+  void select()
+  boolean isSelected()
+
+### class TextField extends GuiTextComponent
+  TextField(double x, double y, double width, double fontsize, string caption)
+  TextField(double x, double y, double width, double fontsize, string caption, string fontFamily)
+  TextField copy()
+  void setPadding(double padding)
+
+### class JavaHamsterWorld extends FilledShape
+  JavaHamsterWorld(int Breite, int Höhe)
+  final int getBreite()
+  final int getHöhe()
+  final void löscheAlles()
+  final void setzeMauer(int x, int y)
+  final void setzeGetreide(int x, int y, int anzahl)
+  final void init(string worldAsString)
+  final void scale(double factor)
+
+### class Hamster extends Object
+  [F] static int NORD
+  [F] static int OST
+  [F] static int SÜD
+  [F] static int WEST
+  Hamster(JavaHamsterWorld world, int reihe, int spalte, int blickrichtung, int anzahlkörner)
+  final void vor()
+  final JavaHamsterWorld getWorld()
+  final int getBlickrichtung()
+  final int getReihe()
+  final int getSpalte()
+  final int getAnzahlKoerner()
+  final void linksUm()
+  final void gib()
+  final void nimm()
+  final boolean vornFrei()
+  final boolean maulLeer()
+  final boolean kornDa()
+  final void schreib(string text)
+
+### class JavaKaraWorld extends FilledShape
+  [F] static int NORTH
+  [F] static int WEST
+  [F] static int SOUTH
+  [F] static int EAST
+  JavaKaraWorld(int sizeX, int sizeY)
+  final int getSizeX()
+  final int getSizeY()
+  final void clearAll()
+  final void setLeaf(int x, int y)
+  final void setTree(int x, int y)
+  final void setMushroom(int x, int y)
+  final boolean isEmpty(int x, int y)
+  final void init(string s)
+  final void scale(double factor)
+
+### class Kara extends Object
+  Kara(JavaKaraWorld world, int x, int y, int direction)
+  final Position getPosition()
+  final void move()
+  final JavaKaraWorld getWorld()
+  final int getDirection()
+  final boolean onLeaf()
+  final boolean treeFront()
+  final boolean treeLeft()
+  final boolean treeRight()
+  final boolean mushroomFront()
+  final void turnLeft()
+  final void turnRight()
+  final void putLeaf()
+  final void removeLeaf()
+
+### class Line extends FilledShape
+  Line()
+  Line(double x1, double y1, double x2, double y2)
+  final void setPoints(double x1, double y1, double x2, double y2)
+  final Line copy()
+  String toString()
+
+### interface MouseListener
+  void onMouseUp(double x, double y, int button)
+  void onMouseDown(double x, double y, int button)
+  void onMouseMove(double x, double y)
+  void onMouseEnter(double x, double y)
+  void onMouseLeave(double x, double y)
+
+### class Polygon extends FilledShape
+  Polygon()
+  Polygon(boolean closeAndFill)
+  Polygon(boolean closeAndFill, double... coordinates)
+  Polygon(boolean closeAndFill, double[] coordinates)
+  Polygon(Shape shape)
+  void addPoint(double x, double y)
+  void setPoints(double[] points)
+  void addPoints(double[] points)
+  void insertPoint(double x, double y, int index)
+  void movePointTo(double x, double y, int index)
+  void open()
+  void close()
+  final boolean containsPoint(double x, double y)
+  final Polygon copy()
+  String toString()
+
+### class PApplet extends Object
+  [F] int mouseX
+  [F] int mouseY
+  [F] int pMouseX
+  [F] int pMouseY
+  [F] int mouseButton
+  [F] string key
+  [F] int LEFT
+  [F] int CENTER
+  [F] int RIGHT
+  [F] int TOP
+  [F] int BASELINE
+  [F] int BOTTOM
+  [F] int CORNER
+  [F] int CORNERS
+  [F] int RADIUS
+  [F] int POINTS
+  [F] int LINES
+  [F] int TRIANGLES
+  [F] int TRIANGLE_STRIP
+  [F] int TRIANGLE_FAN
+  [F] string QUADS
+  [F] string QUAD_STRIP
+  [F] string TESS
+  [F] string CLOSE
+  [F] string DEGREES
+  [F] string RADIANS
+  [F] string WEBGL
+  [F] string P2D
+  [F] string RGB
+  [F] string HSL
+  [F] string HSB
+  [F] string PI
+  [F] string QUARTER_PI
+  [F] string TWO_PI
+  [F] string TAU
+  PApplet()
+  void main()
+  void loop()
+  void noLoop()
+  void size(int width, int height)
+  void createCanvas(int width, int height)
+  void createCanvas(int width, int height, string renderer)
+  void setup()
+  void settings()
+  void preload()
+  void draw()
+  void mousePressed()
+  void mouseReleased()
+  void mouseClicked()
+  void mouseDragged()
+  void mouseEntered()
+  void mouseExited()
+  void mouseMoved()
+  void keyPressed()
+  void keyReleased()
+  final void clear()
+  final void background(double rgb)
+  final string background(string colorAsString)
+  final void background(double v1, double v2, double v3)
+  final void fill(int rgb)
+  final void fill(string rgb)
+  final void fill(int rgb, double alpha)
+  final void fill(double gray)
+  final void fill(double v1, double v2, double v3)
+  final void fill(double v1, double v2, double v3, double alpha)
+  final void noFill()
+  final void stroke(int rgb)
+  final void stroke(string rgb)
+  final void stroke(int rgb, double alpha)
+  final void stroke(double gray)
+  final void stroke(double v1, double v2, double v3)
+  final void stroke(double v1, double v2, double v3, double alpha)
+  final void strokeWeight(double weight)
+  final void noStroke()
+  final string color(double gray)
+  final string color(string colorAsString)
+  final string color(double gray, double alpha)
+  final string color(double v1, double v2, double v3)
+  final string color(double v1, double v2, double v3, double alpha)
+  final string lerpColor(string colorA, string colorB, double t)
+  final void colorMode(string mode)
+  final void colorMode(string mode, double max)
+  final void colorMode(string mode, double max1, double max2, double max3)
+  final void colorMode(string mode, double max1, double max2, double max3, double maxAlpha)
+  final void rectMode(string mode)
+  final void rect(double left, double top, double width, double height)
+  final void rect(double left, double top, double width, double height, double radius)
+  final void rect(double left, double top, double width, double height, double radius1, double radius2, double radius3, double radius4)
+  final void square(double left, double top, double width)
+  final void square(double left, double top, double width, double radius)
+  final void square(double left, double top, double width, double radius1, double radius2, double radius3, double radius4)
+  final void rect(double left, double top, double width, double height, double radius)
+  final void ellipse(double left, double top, double width, double height)
+  final void circle(double x, double y, double extent)
+  final void ellipseMode(string mode)
+  final void line(double x1, double y1, double x2, double y2)
+  final void line(double x1, double y1, double z1, double x2, double y2, double z2)
+  final void triangle(double x1, double y1, double x2, double y2, double x3, double y3)
+  final void quad(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4)
+  final void bezier(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4)
+  final void curve(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4)
+  final float curvePoint(double a, double b, double c, double d, double t)
+  final float curveTangent(double a, double b, double c, double d, double t)
+  final float bezierPoint(double x1, double x2, double x3, double x4, double t)
+  final float bezierTangent(double x1, double x2, double x3, double x4, double t)
+  final void beginShape()
+  final void endShape()
+  final void beginShape(string kind)
+  final void endShape(string kind)
+  final void vertex(double x, double y)
+  final void point(double x, double y)
+  final void set(double x, double y, string color)
+  final void vertex(double x, double y, double z)
+  final void point(double x, double y, double z)
+  final void curveVertex(double x, double y)
+  final void curvevertex(double x, double y, double z)
+  final void box(double size)
+  final void box(double sizeX, double sizeY, double sizeZ)
+  final void resetMatrix()
+  final void push()
+  final void pop()
+  final void scale(double factor)
+  final void scale(double factorX, double factorY)
+  final void scale(double factorX, double factorY, double factorZ)
+  final void translate(double x, double y)
+  final void translate(double x, double y, double z)
+  final void rotate(double angle)
+  final void rotateX(double angle)
+  final void rotateY(double angle)
+  final void shearX(double angle)
+  final void shearY(double angle)
+  final void rotateZ(double angle)
+  final void angleMode(string mode)
+  final void textSize(double size)
+  final void textAlign(int alignX)
+  final void textAlign(int alignX, int alignY)
+  final void text(string text, double x, double y)
+  final void text(string text, double x, double y, double x2, double y2)
+  final float random(double low, double high)
+  final float random(double high)
+  final float sqrt(double n)
+  final float pow(double basis, double exponent)
+  final float max(double a, double b)
+  final float min(double a, double b)
+  final float abs(double n)
+  final float sin(double n)
+  final float cos(double n)
+  final float tan(double n)
+  final float asin(double n)
+  final float acos(double n)
+  final float radians(double angle)
+  final float degrees(double angle)
+  final float atan(double n)
+  final float atan2(double x, double y)
+  final float sqrt(double x, double y)
+  final float sq(double x, double y)
+  final int abs(int n)
+  final int round(double n)
+  final int ceil(double n)
+  final int floor(double n)
+  final float dist(double x1, double y1, double x2, double y2)
+  final float lerp(double a, double b, double t)
+  final float constrain(double value, double min, double max)
+  final int year()
+  final int month()
+  final int day()
+  final int hour()
+  final int minute()
+  final int second()
+  final void frameRate(int n)
+  final float textWidth(string text)
+  final float textAscent(string text)
+  final float textDescent(string text)
+  final void textLeading(double leading)
+  final void cursor(string type)
+  final void noCursor(string type)
+  final void copy(double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh)
+  final void millis()
+  final void redraw()
+
+### class Rectangle extends FilledShape
+  [F] private double width
+  [F] private double height
+  Rectangle()
+  Rectangle(double left, double top, double width, double height)
+  final void setWidth(double width)
+  final void setHeight(double height)
+  final double getWidth()
+  final double getHeight()
+  final Rectangle copy()
+  final Rectangle moveTo(double x, double y)
+  String toString()
+
+### class RobotWorld extends Object
+  RobotWorld(int worldX, int worldY)
+  RobotWorld(string initialeWelt)
+  void setzeMaximalhöhe(int hoehe)
+  void setzeZiegel(int x, int y, string farbe, int anzahl)
+  void setzeMarke(int x, int y, string farbe)
+
+### class Robot extends Object
+  Robot()
+  Robot(int startX, int startY)
+  Robot(int startX, int startY, int worldX, int worldY)
+  Robot(int startX, int startY, string initialWorld)
+  RobotWorld getWelt()
+  void rechtsDrehen()
+  void linksDrehen()
+  void schritt()
+  void schritt(int anzahl)
+  void hinlegen()
+  void hinlegen(int n)
+  void hinlegen(string farbe)
+  void markeSetzen()
+  void markeSetzen(string farbe)
+  void markeLöschen()
+  void aufheben()
+  void aufheben(int n)
+  void beenden()
+  boolean istWand()
+  boolean nichtIstWand()
+  boolean istZiegel()
+  boolean istZiegel(int anzahl)
+  boolean istZiegel(string farbe)
+  boolean nichtIstZiegel()
+  boolean nichtIstZiegel(int anzahl)
+  boolean nichtIstZiegel(string farbe)
+  boolean istMarke()
+  boolean istMarke(string farbe)
+  boolean nichtIstMarke()
+  boolean nichtIstMarke(string farbe)
+  boolean istNorden()
+  boolean istSüden()
+  boolean istOsten()
+  boolean istWesten()
+  boolean istLeer()
+  boolean nichtIstLeer()
+  boolean istVoll()
+  boolean nichtIstVoll()
+  boolean hatZiegel()
+  void setzeAnzahlSteine(int anzahl)
+  void setzeRucksackGröße(int anzahl)
+
+### class RoundedRectangle extends FilledShape
+  [F] private double width
+  [F] private double height
+  [F] private double radius
+  RoundedRectangle()
+  RoundedRectangle(double left, double top, double width, double height, double radius)
+  final void setWidth(double width)
+  final void setHeight(double height)
+  final double getWidth()
+  final double getHeight()
+  final RoundedRectangle copy()
+  final RoundedRectangle moveTo(double x, double y)
+  String toString()
+
+### class Sector extends FilledShape
+  Sector()
+  Sector(double mx, double my, double radius, double startAngle, double endAngle)
+  final void setRadius(double Radius)
+  final double getRadiusX()
+  final void setStartAngle(double startAngle)
+  final double getStartAngleX()
+  final void setEndAngle(double endAngle)
+  final double getEndAngleX()
+  final void drawRadii(boolean drawRadii)
+  final Sector copy()
+  final boolean containsPoint(double x, double y)
+  String toString()
+
+### class Text extends FilledShape
+  Text()
+  Text(double x, double y, double fontSize, string text)
+  Text(double x, double y, double fontSize, string text, string fontFamily)
+  Text(double x, double y, double fontSize, double text)
+  Text(double x, double y, double fontSize, double text, string fontFamily)
+  void setFontsize(double fontsize)
+  void setText(string text)
+  void setText(double text)
+  void setAlignment(Alignment alignment)
+  void setStyle(boolean bold, boolean italic)
+  double getFontsize()
+  string getText()
+  double getWidth()
+  double getHeight()
+  final Text moveTo(double x, double y)
+  final Text copy()
+  String toString()
+
+### class Triangle extends Polygon
+  Triangle()
+  Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
+  void setPoints(double x1, double y1, double x2, double y2, double x3, double y3)
+  final Triangle copy()
+
+### class Turtle extends FilledShape
+  Turtle()
+  Turtle(double x, double y)
+  Turtle(double x, double y, boolean showTurtle)
+  final Turtle forward(double length)
+  final void turn(double angleInDeg)
+  final void penUp()
+  final void penDown()
+  final void closeAndFill(boolean closeAndFill)
+  final void showTurtle(boolean showTurtle)
+  final void clear()
+  final boolean collidesWithBorderColor(int borderColor)
+  final boolean collidesWithBorderColor(string borderColor)
+  final boolean collidesWithBorderColor(Color borderColor)
+  final double getLastSegmentLength()
+  final double getX()
+  final double getY()
+  final Turtle moveTo(double x, double y)
+  final double getTurtleAngle()
+  final Turtle copy()
+  String toString()
+  final boolean collidesWith(Shape otherShape)
+
+### class World extends BaseWorld
+  World()
+  World(int width, int height)
+  void setBackgroundColor(Color colorAsObject)
+  void setBackgroundColor(int colorAsRGBInt)
+  void setBackgroundColor(string colorAsString)
+  void move(double dx, double dy)
+  void rotate(double angleInDeg, double centerX, double centerY)
+  void scale(double factor, double centerX, double centerY)
+  void flipY()
+  void setCoordinateSystem(double left, double top, double width, double height)
+  void setCursor(string cursor)
+  static void clear()
+  double getWidth()
+  double getHeight()
+  double getTop()
+  double getLeft()
+  Group getDefaultGroup()
+  void setDefaultGroup(Group defaultGroup)
+  void follow(Shape shape, double margin, double xMin, double xMax, double yMin, double yMax)
+  void follow(Shape shape, double marginTop, double marginRight, double marginBottom, double marginLeft, double xMin, double xMax, double yMin, double yMax)
+  Shape[] getAllShapes()
+  static World getWorld()
+
+### class HttpHeader extends Object
+  [F] string key
+  [F] string value
+
+### class HttpResponse extends Object
+  string uri()
+  string body()
+  int statusCode()
+  string statusText()
+  HttpRequest request()
+  HttpHeader[] headers()
+
+### class HttpClient extends Object
+  HttpClient()
+  HttpResponse send(HttpRequest request)
+
+### class HttpRequest extends Object
+  HttpRequest()
+  HttpRequest uri(string uri)
+  HttpRequest header(string key, string value)
+  HttpRequest POST(string data)
+  HttpRequest GET(string data)
+
+### class JsonElement extends Object
+  string getType()
+  JsonElement getAttributeValue(string identifier)
+  JsonElement[] getArrayValues()
+  JsonElement getArrayValue(string identifier)
+  string getAsString()
+  string getAsString(string identifier)
+  int getAsInt()
+  int getAsInt(string identifier)
+  double getAsDouble()
+  double getAsDouble(string identifier)
+  boolean getAsBoolean()
+  boolean getAsBoolean(string identifier)
+  string toJson()
+  string[] getAttributeIdentifiers()
+
+### class JsonParser extends Object
+  static JsonElement parse(string jsonString)
+
+### class URLEncoder extends Object
+  static string encode(string url)
+
+### class PrintStream extends Object
+  void print(char text)
+  void print(string text)
+  void print(int number)
+  void print(double number)
+  void print(boolean b)
+  void print(Object o)
+  void println(char text)
+  void println(string text)
+  void println(int number)
+  void println(double number)
+  void println(boolean b)
+  void println(Object o)
+  void println()
+
+### class System extends Object
+  [F] static PrintStream out
+  static void exit(int status)
+  static int currentTimeMillis()
+  static long nanoTime()
+
+### class WebSocketClient extends Object
+  void send(string message, string messageType)
+  void setUserData(string key, Object value)
+  Object getUserData(string key)
+  string getFirstName()
+  string getLastName()
+  string getNickname()
+  string getUserName()
+  [F] private string rufname
+  [F] private string familienname
+  [F] private string nickname
+  [F] private string username
+  string getNumber()
+  string getIndex()
+
+### class WebSocket extends Object
+  WebSocket()
+  void open(string sessionCode, string nickname)
+  void sendToAll(string message, string messageType)
+  void findClients(int count)
+  void findClients(string[] nicknames)
+  void findClient(string nicknames)
+  void close()
+  WebSocketClient getOtherClients()
+  void onOpen()
+  void onClose()
+  void onMessage(WebSocketClient sender, String message, String messageType)
+  void onOtherClientConnected(WebSocketClient otherClient)
+  void onOtherClientDisconnected(WebSocketClient otherClient)
+  void onClientsFound(WebSocketClient[] otherClients, int ownNumber)
+
+### class Assertions extends Object
+  public static void assertCodeReached(string message)
+  public static void assertTrue(boolean condition, string message)
+  public static void assertFalse(boolean condition, string message)
+  public static void assertEquals(boolean expected, boolean actual, string message)
+  public static void assertEquals(byte expected, byte actual, string message)
+  public static void assertEquals(int expected, int actual, string message)
+  public static void assertEquals(long expected, long actual, string message)
+  public static void assertEquals(double expected, double actual, string message)
+  public static void assertEquals(float expected, float actual, string message)
+  public static void assertEquals(char expected, char actual, string message)
+  public static void assertEquals(string expected, string actual, string message)
+  public static void assertEquals(Object expected, Object actual, string message)
+  public static void fail(string message)
+
+### class Console extends Object
+  static void log(int value)
+  static void log(long value)
+  static void log(float value)
+  static void log(double value)
+  static void log(char value)
+  static void log(boolean value)
+  static void log(Object object)
+
+### class Files extends Object
+  static string read(string filename)
+  static void write(string filename, string text)
+  static void append(string filename, string text)
+
+### class Gamepad extends Object
+  static boolean isButtonDown(int gamepadIndex, int buttonIndex)
+  static boolean isConnected(int gamepadIndex)
+  static double getAxisValue(int gamepadIndex, int axisIndex)
+
+### class Input extends Object
+  static string readString(string message, string defaultValue)
+  static string readString(string message)
+  static boolean readBoolean(string message, boolean defaultValue)
+  static boolean readBoolean(string message)
+  static int readInt(string message, int defaultValue)
+  static int readInt(string message)
+  static float readFloat(string message, float defaultValue)
+  static float readFloat(string message)
+  static int readDouble(string message, double defaultValue)
+  static double readDouble(string message)
+  static char readChar(string message, char defaultValue)
+  static char readChar(string message)
+  static string waitForKey(string... possibleKeys)
+  static string waitForKey()
+  static boolean isKeyDown(string key)
+
+### class Key extends Object
+  [F] public static final string ArrowUp
+  [F] public static final string ArrowDown
+  [F] public static final string ArrowLeft
+  [F] public static final string ArrowRight
+  [F] public static final string Enter
+  [F] public static final string Space
+  [F] public static final string Shift
+  [F] public static final string Alt
+  [F] public static final string Strg
+  [F] public static final string PageUp
+  [F] public static final string PageDown
+  [F] public static final string Backspace
+  [F] public static final string Escape
+  [F] public static final string Entf
+  [F] public static final string Einf
+  [F] public static final string Ende
+
+### interface KeyListener
+  void onKeyTyped(String key)
+
+### class MathTools extends Object
+  static Vector2[] intersectCircleWithPolygon(double mx, double my, double r, Vector2[] polygon)
+  static Vector2 intersectLineSegments(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
+  static boolean polygonContainsPoint(Vector2[] polygonPoints, Vector2 p)
+  static double distancePointToLine(Vector2 p, Vector2 a, Vector2 b)
+  static double distancePointToLineSegment(Vector2 p, Vector2 a, Vector2 b)
+  [F] static string 
+
+### class Sound extends Object
+  static void playSound(string sound)
+  static double getVolume()
+
+### class SystemTools extends Object
+  static void clearScreen()
+  static void setSpeed(int stepsPerSecond)
+  static int getSpeed()
+  static void pause(int milliseconds)
+  static int getStepCount()
+  static void addKeyListener(KeyListener keyListener)
+  static int getNumberOfProcessorCores()
+  static void startLoggingPrintOutput()
+  static void stopLoggingPrintOutput()
+  static string getPrintLog()
+
+### class Timer extends Object
+  static void executeLater(Runnable runnable, int deltaTimeMilliseconds)
+  void repeat(Runnable runnable, int deltaTimeMilliseconds)
+  static void repeat(Runnable runnable, int deltaTimeMilliseconds)
+  void pause()
+  void restart()
+
+### private class SystemStream<T> implements Stream<T>
+  Object[] toArray()
+  long count()
+  void forEach(Consumer<? super T> action)
+  Stream<T> filter(Predicate<? super T> predicate)
+  <R> Stream<R> map(Function<? super T, R> mapper)
+
+### class ArrayList<E> implements List<E>
+  ArrayList()
+  ArrayList(Collection<? extends E> c)
+  Iterator<E> iterator()
+  void forEach(Consumer<? super E> action)
+  Object[] toArray()
+  <T> T[] toArray(T[] a)
+  boolean add(E e)
+  boolean addAll(Collection<? extends E> c)
+  void clear()
+  boolean contains(E Element)
+  boolean containsAll(Collection<?> c)
+  boolean isEmpty()
+  boolean remove(E element)
+  boolean removeAll(Collection<?> c)
+  int size()
+  Stream<E> stream()
+  boolean add(int index, E element)
+  boolean addAll(int index, Collection<? extends E> c)
+  E get (int index)
+  int indexOf (E Element)
+  E remove (int index)
+  E set (int index, E Element)
+  void sort(Comparator<? super E> comparator)
+  String toString()
+
+### interface Iterable<T>
+  Iterator<T> iterator()
+  default void forEach(Consumer<? super T> action)
+
+### interface Collection<E> extends Iterable<E>
+  boolean add(E e)
+  boolean addAll(Collection<? extends E> c)
+  void clear()
+  boolean contains(E element)
+  boolean containsAll(Collection<?> c)
+  boolean isEmpty()
+  boolean remove(E element)
+  boolean removeAll(Collection<?> c)
+  int size()
+  Object[] toArray()
+  <T> T[] toArray(T[] a)
+  Stream<E> stream()
+
+### class Collections extends Object
+  static void shuffle(List<?> list)
+  static <T extends Comparable> void sort(List<T> list)
+  static <T> void sort(List<T> list, Comparator<? super T> comparator)
+
+### interface Comparable<T>
+  int compareTo(T object)
+
+### interface Comparator<T>
+  int compare(T object1, T object2)
+
+### interface Queue<E> extends Collection<E>
+  E remove()
+  E poll()
+  E peek()
+  boolean offer(E element)
+
+### interface Deque<E> extends Queue<E>
+  boolean removeFirstOccurrence(E element)
+  boolean removeLastOccurrence(E element)
+  void addFirst(E element)
+  void addLast(E element)
+  E removeFirst()
+  E removeLast()
+  E peekFirst()
+  E peekLast()
+  E pop()
+  void push(E element)
+  Iterator<E> descendingIterator()
+
+### class EmptyStackException extends RuntimeException
+  public EmptyStackException()
+  public EmptyStackException(String message)
+  public EmptyStackException(Throwable cause)
+  public EmptyStackException(String message, Throwable cause)
+  public String toString()
+
+### class HashSet<E> implements Set<E>
+  HashSet()
+  Iterator<E> iterator()
+  void forEach(Consumer<? super E> action)
+  boolean add(E e)
+  boolean addAll(Collection<? extends E> c)
+  void clear()
+  boolean contains(E element)
+  boolean containsAll(Collection<?> c)
+  boolean isEmpty()
+  boolean remove(E element)
+  boolean removeAll(Collection<?> c)
+  int size()
+  Object[] toArray()
+  <T> T[] toArray(T[] a)
+  String toString()
+
+### class HashMap<K, V> implements Map<K, V>
+  HashMap()
+  int size()
+  boolean isEmpty()
+  boolean containsKey(K key)
+  boolean containsValue(V value)
+  V get(K key)
+  V put(K key, V value)
+  void clear()
+  void forEach(BiConsumer<? super K, ? super V> action)
+  Collection<V> values()
+  Set<K> keySet()
+  V remove(K key)
+  boolean remove(K key, V value)
+  String toString()
+
+### interface Iterator<E>
+  boolean hasNext()
+  E next()
+
+### class LinkedList<E> implements Deque<E>
+  LinkedList()
+  Iterator<E> iterator()
+  void forEach(Consumer<? super E> action)
+  Object[] toArray()
+  <T> T[] toArray(T[] a)
+  boolean add(E e)
+  boolean addAll(Collection<? extends E> c)
+  void clear()
+  boolean contains(E Element)
+  boolean containsAll(Collection<?> c)
+  boolean isEmpty()
+  boolean remove(E element)
+  boolean removeAll(Collection<?> c)
+  int size()
+  E remove()
+  E poll()
+  E peek()
+  boolean offer(E element)
+  boolean removeFirstOccurrence(E element)
+  boolean removeLastOccurrence(E element)
+  void addFirst(E element)
+  void addLast(E element)
+  E removeFirst()
+  E removeLast()
+  E peekFirst()
+  E peekLast()
+  E pop()
+  void push(E element)
+  Iterator<E> descendingIterator()
+  boolean add(int index, E element)
+  E get (int index)
+  int indexOf (E Element)
+  E remove (int index)
+  E set (int index, E Element)
+  void sort(Comparator<? super E> comparator)
+  String toString()
+
+### interface List<E> extends Collection<E>
+  boolean add(int index, E element)
+  boolean addAll(int index, Collection<? extends E> c)
+  E get (int index)
+  int indexOf (E element)
+  E remove (int index)
+  E set (int index, E element)
+  default void sort(Comparator<? super E> comparator)
+
+### interface Map<K, V>
+  int size()
+  boolean isEmpty()
+  boolean containsKey(K key)
+  boolean containsValue(V value)
+  V get(K key)
+  V put(K key, V value)
+  void clear()
+  void forEach(BiConsumer<? super K, ? super V> action)
+  Collection<V> values()
+  Set<K> keySet()
+  V remove(K key)
+  boolean remove(K key, V value)
+
+### interface Set<E> extends Collection<E>
+  boolean contains(E element)
+  boolean containsAll(Collection c)
+
+### class Vector<E> extends ArrayList<E>
+  Vector()
+  E firstElement()
+  E lastElement()
+  void removeElementAt(int index)
+
+### class Stack<E> extends Vector<E>
+  Stack()
+  E push(E element)
+  E pop()
+  E peek()
+  boolean empty()
+  int search(E element)
+
+### enum DayOfWeek
+
+### interface BiConsumer<T, U>
+  void accept(T t, U u)
+
+### interface Consumer<T>
+  void accept(T t)
+
+### interface Function<E,F>
+  F apply(E e)
+
+### class BigInteger extends Object
+  BigInteger(long val)
+  BigInteger(string val)
+  final BigInteger add(BigInteger otherNumber)
+  final BigInteger subtract(BigInteger otherNumber)
+  final BigInteger divide(BigInteger otherNumber)
+  final BigInteger multiply(BigInteger otherNumber)
+  final BigInteger remainder(BigInteger otherNumber)
+  final BigInteger modPow(BigInteger exponent,BigInteger m)
+  final String toString()
+  final int intValue()
+
+### class DecimalFormat extends Object
+  DecimalFormat(string format)
+  public final string format(double number)
+
+### class IllegalMonitorStateException extends RuntimeException
+
+### class LocalDateTime extends Object implements Comparable<LocalDateTime>
+  LocalDateTime()
+  static LocalDateTime now()
+  static LocalDateTime of(int year, int month, int dayOfMonth, int hour, int minute, int second)
+  LocalDateTime plusDays(int days)
+  LocalDateTime minusDays(int days)
+  int until(LocalDateTime object)
+  int getYear()
+  int getMonth()
+  int getDayOfMonth()
+  int getHour()
+  int getMinute()
+  int getSecond()
+  int compareTo(LocalDateTime object)
+  String toString()
+
+### class Math extends Object
+  private Math()
+  [F] public static final double PI
+  [F] public static final double E
+  public static int abs(int a)
+  public static long abs(long a)
+  public static float abs(float a)
+  public static double abs(double a)
+  public static double sin(double angleInRadians)
+  public static double cos(double angleInRadians)
+  public static double tan(double angleInRadians)
+  public static double asin(double angleInRadians)
+  public static double acos(double angleInRadians)
+  public static double atan(double angleInRadians)
+  public static double atan2(double y, double x)
+  public static int round(double value)
+  public static int floor(double value)
+  public static int ceil(double value)
+  public static int signum(double value)
+  public static double sqrt(double a)
+  public static double random()
+  public static double pow(double basis, double exponent)
+  public static double toDegrees(double angleInRad)
+  public static double toRadians(double angleInDegrees)
+  public static double exp(double value)
+  public static double log(double value)
+  public static double log10(double value)
+  public static int max(int a, int b)
+  public static long max(long a, long b)
+  public static float max(float a, float b)
+  public static double max(double a, double b)
+  public static int min(int a, int b)
+  public static long min(long a, long b)
+  public static float min(float a, float b)
+  public static double min(double a, double b)
+
+### class Optional<T>
+  private Optional()
+  public static Optional<T> empty()
+  public boolean equals(Object o)
+  public boolean isEmpty()
+  public <U> Optional<U> map(Function<T,U> f)
+  public <U> Optional<U> flatMap(Function<T,Optional<U>> f)
+  public static <T> Optional<T> of(T t)
+  public T orElse(T t)
+  public void ifPresent(Consumer<? super T> c)
+  public String toString()
+
+### class string extends Object
+  public final int length()
+  public final int indexOf(string str)
+  public final int indexOf(string str, int fromIndex)
+  public final int indexOf(char c)
+  public final int indexOf(char c, int fromIndex)
+  public final char charAt(int index)
+  public final int compareTo(string otherString)
+  public final int compareToIgnoreCase(string otherString)
+  public final string concat(string otherString)
+  public final boolean contains(string otherString)
+  public final boolean endsWith(string otherString)
+  public final boolean startsWith(string otherString)
+  public final boolean equals(string otherString)
+  public final boolean equalsIgnoreCase(string otherString)
+  public final boolean isEmpty()
+  public final int lastIndexOf(string str)
+  public final int lastIndexOf(string str, int fromIndex)
+  public final int lastIndexOf(char c)
+  public final int lastIndexOf(char c, int fromIndex)
+  public final string toLowerCase()
+  public final string toUpperCase()
+  public final string substring(int beginIndex)
+  public final string substring(int beginIndex, int endIndex)
+  public final string trim()
+  public final string replace(string target, string replacement)
+  public final string replaceAll(string regex, string replacement)
+  public final boolean matches(string regex)
+  public final string replaceFirst(string regex, string replacement)
+  public final string[] split(string regex)
+  public final int hashCode()
+  public final char[] toCharArray()
+  public final string toString()
+
+### class Random extends Object
+  Random()
+  public static int randint(int from, int to)
+  public final int nextInt(int to)
+  public static double randdouble(double from, double to)
+
+### interface Runnable
+  void run()
+
+### class Semaphore extends Object
+  public Semaphore(int permits)
+  public final int availablePermits()
+  public void acquire()
+  public void release()
+
+### class IO extends Object
+  static void print(char text)
+  static void print(string text)
+  static void print(int number)
+  static void print(double number)
+  static void print(boolean b)
+  static void print(Object o)
+  static void println(char text)
+  static void println(string text)
+  static void println(int number)
+  static void println(double number)
+  static void println(boolean b)
+  static void println(Object o)
+  static void println()
+  static string readln(string prompt)
+  static string readln()
+
+### enum Thread.State
+
+### class Thread extends Object implements Runnable
+  public Thread()
+  public Thread(Runnable runnable)
+  public Thread(Runnable runnable, string name)
+  public Thread(string name)
+  public Thread.State getState()
+  public void run()
+  public void start()
+  public void join()
+  public void join(int milliseconds)
+  public string getName()
+  public void setName(string name)
+  public void setSpeed(int maxStepsPerSecond)
+  public static void sleep(int milliseconds)
+  public static Thread currentThread()
+
+### class Boolean extends Object implements Comparable<Boolean>
+  [F] static final boolean FALSE
+  [F] static final boolean TRUE
+  public final boolean booleanValue()
+  public int compareTo(Boolean otherBoolean)
+  public static boolean getBoolean(String name)
+  public static boolean parseBoolean(String name)
+
+### class Character extends Object implements Comparable<Character>
+  Character(char value)
+  public final char charValue()
+  public int compareTo(Character otherCharacter)
+  public static Character valueOf(char c)
+  public static boolean isLetter(char c)
+  public static boolean isLetterOrDigit(char c)
+  public static boolean isDigit(char c)
+  public static boolean isLowerCase(char c)
+  public static boolean isUpperCase(char c)
+  public static char toUpperCase(char c)
+  public static char toLowerCase(char c)
+  public String toString()
+
+### abstract class Number extends Object
+  public byte byteValue()
+  public short shortValue()
+  abstract public double doubleValue()
+  abstract public float floatValue()
+  abstract public int intValue()
+  abstract public long longValue()
+  public String toString()
+
+### class Double extends Number implements Comparable<Double>
+  public Double(double d)
+  [F] static final int MAX_VALUE
+  [F] static final int POSITIVE_INFINITY
+  [F] static final int NEGATIVE_INFINITY
+  [F] static final int MIN_VALUE
+  public final double doubleValue()
+  public final float floatValue()
+  public final int intValue()
+  public final long longValue()
+  public int compareTo(Double otherValue)
+  public static double parseDouble(String s)
+  public static Double valueOf(double f)
+  public static Double valueOf(string s)
+
+### class Float extends Number implements Comparable<Float>
+  [F] static final int MAX_VALUE
+  [F] static final int MIN_VALUE
+  [F] static final int POSITIVE_INFINITY
+  [F] static final int NEGATIVE_INFINITY
+  public Float(float d)
+  public final double doubleValue()
+  public final float floatValue()
+  public final int intValue()
+  public final long longValue()
+  public int compareTo(Float otherValue)
+  public static float parseFloat(String s)
+  public static Float valueOf(float f)
+  public static Float valueOf(String s)
+
+### class Integer extends Number implements Comparable<Integer>
+  [F] static final int MAX_VALUE
+  [F] static final int MIN_VALUE
+  public Integer(int value)
+  public Integer(string value)
+  public final double doubleValue()
+  public final float floatValue()
+  public final int intValue()
+  public final long longValue()
+  public int compareTo(Integer anotherInteger)
+  public static int parseInt(String s)
+  public static int parseInt(String sr, int radix)
+  public static Integer valueOf(int i)
+  public static Integer valueOf(string s)
+  public static Integer valueOf(string s, int radix)
+  public static string toBinary(int number)
+  public static string toHex(int number)
+  public static string toOctal(int number)
+  public static string toString(int number, int radix)
+  public static string toString(int number)
+
+### class Long extends Number implements Comparable<Long>
+  [F] static final int MAX_VALUE
+  [F] static final int MIN_VALUE
+  public Long(long d)
+  public final double doubleValue()
+  public final float floatValue()
+  public final int intValue()
+  public final long longValue()
+  public int compareTo(Long anotherLong)
+  public long parseLong(String s)
+  public long parseLong(String sr, int radix)
+  public static Long valueOf(long i)
+  public static Long valueOf(String s)
+  public static Long valueOf(String s, int radix)
+
+### class Short extends Number implements Comparable<Short>
+  [F] static final int MAX_VALUE
+  [F] static final int MIN_VALUE
+  public Short(short d)
+  public final double doubleValue()
+  public final float floatValue()
+  public final int intValue()
+  public final long longValue()
+  public int compareTo(Short otherShort)
+  public static short parseShort(String s)
+  public static short parseShort(String sr, int radix)
+  public static Short valueOf(short i)
+  public static Short valueOf(String s)
+  public static Short valueOf(String s, short radix)
+
+### class Sprite3d extends Object3d
+  Sprite3d(double width, SpriteLibrary spriteLibrary, int index)
+  void move(double x,double y,double z)
+  void moveTo(double x,double y,double z)
+  double getX()
+  double getY()
+  double getZ()
+  void setColor(int color)
+  void setAlpha(double alpha)
+  void scaleX(double angleDeg)
+  void scaleY(double angleDeg)
+  void scaleZ(double angleDeg)
+  void scale(Vector3 v)
+  void scale(double d)
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  void rotate(double angleDeg)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  final void scale(double d)
+  void destroy()
+
+### class Icosahedron3d extends Mesh3d
+  Icosahedron3d(double radius, int detail)
+  Icosahedron3d(double radius)
+  Icosahedron3d()
+
+### class CopyOnWriteArrayList<E> implements List<E>
+  CopyOnWriteArrayList()
+  Iterator<E> iterator()
+  void forEach(Consumer<? super E> action)
+  Object[] toArray()
+  <T> T[] toArray(T[] a)
+  boolean add(E e)
+  boolean addAll(Collection<? extends E> c)
+  void clear()
+  boolean contains(E Element)
+  boolean containsAll(Collection<?> c)
+  boolean isEmpty()
+  boolean remove(E element)
+  boolean removeAll(Collection<?> c)
+  int size()
+  boolean add(int index, E element)
+  boolean addAll(int index, Collection<? extends E> c)
+  E get (int index)
+  int indexOf (E Element)
+  E remove (int index)
+  E set (int index, E Element)
+  void sort(Comparator<? super E> comparator)
+  String toString()
+
+### interface Stream<T>
+  Object[] toArray()
+  long count()
+  void forEach(Consumer<? super T> action)
+  Stream<T> filter(Predicate<? super T> predicate)
+  <R> Stream<R> map(Function<? super T, R> mapper)
+
+### interface Predicate<T>
+  boolean test(T t)
+
+### class IllegalArgumentException extends RuntimeException
+  public IllegalArgumentException()
+  public IllegalArgumentException(String message)
+  public IllegalArgumentException(Throwable cause)
+  public IllegalArgumentException(String message, Throwable cause)
+  public String toString()
+
+### class IllegalStateException extends Exception
+  public IllegalStateException()
+  public IllegalStateException(String message)
+  public IllegalStateException(Throwable cause)
+  public IllegalStateException(String message, Throwable cause)
+  public String toString()
+
+### class Line3 extends Object
+  Line3(Vector3 lineStart, Vector3 lineEnd)
+  final double getLength()
+  final Line3 clone()
+  final Line3 applyMatrix4(Matrix4 m)
+  final Vector3 closestPointTo(Vector3 point, boolean clampToLine)
+  final double distanceToPoint(Vector3 point, boolean clampToLine)
+  final Vector3 at(double t)
+  final Vector3 start()
+  final Vector3 end()
+  String toString()
+
+### class BatchedObject3d extends Object3d
+  private BatchedObject3d()
+  void move(double x,double y,double z)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  final void scaleX(double scale)
+  final void scaleY(double scale)
+  final void scaleZ(double scale)
+  final void scale(Vector3 v)
+  final void scale(double d)
+  final void applyMatrix4(Matrix4 matrix)
+  void setVisible(boolean isVisible)
+  void setColor(int color)
+  void destroy()
+  boolean isDestroyed()
+
+### class Object3dBatch extends Object3d
+  Object3dBatch(Mesh3d template, int maxInstanceCount)
+  BatchedObject3d createInstance()
+  void setOpacity(float opacity)
+  void move(double x,double y,double z)
+  final void move(Vector3 v)
+  void moveTo(double x,double y,double z)
+  final void moveTo(Vector3 p)
+  void rotateX(double angleDeg)
+  void rotateY(double angleDeg)
+  void rotateZ(double angleDeg)
+  final void scaleX(double scale)
+  final void scaleY(double scale)
+  final void scaleZ(double scale)
+  final void scale(Vector3 v)
+  final void scale(double d)
+  final void applyMatrix4(Matrix4 matrix)
+  void destroy()
+
+### class Arrays extends Object
+  public static <T> List<T> asList(T... a)
+
+### class ResultSet extends Object
+  final boolean next()
+  final int size()
+  final int getIndex()
+  final boolean wasNull()
+  final boolean getBoolean(int index)
+  final int getInt(int index)
+  final float getFloat(int index)
+  final double getDouble(int index)
+  final String getString(int index)
+  final boolean getBoolean(string columnLabel)
+  final int getInt(string columnLabel)
+  final float getFloat(string columnLabel)
+  final double getDouble(string columnLabel)
+  final string getString(string columnLabel)
+
+### class PreparedStatement extends Object
+  final ResultSet executeQuery()
+  final int executeUpdate()
+  final boolean setBoolean(int parameterIndex, boolean value)
+  final int setInt(int parameterIndex, int value)
+  final float setFloat(int parameterIndex, float value)
+  final double setDouble(int parameterIndex, double value)
+  final String setString(int parameterIndex, string value)
+
+### class Statement extends Object
+  final ResultSet executeQuery(string query)
+  final int executeUpdate(string query)
+
+### class Connection extends Object
+  final Statement createStatement()
+  final PreparedStatement prepareStatement(string query)
+  final void close()
+
+### class DatabaseManager extends Object
+  static Connection getConnection(string code)
+
+### interface Aktionsempfaenger
+  void Ausführen()
+  void Taste(char taste)
+  void SonderTaste(int sondertaste)
+  void Geklickt(int x, int y, int anzahl)
+
+### abstract class GNGBaseFigur extends Object
+  [F] protected string farbe
+  [F] protected int x
+  [F] protected int y
+  [F] protected int winkel
+  [F] protected int größe
+  [F] protected boolean sichtbar
+  void PositionSetzen(int x, int y)
+  void Verschieben(int deltaX, int deltaY)
+  void Drehen(int grad)
+  void FarbeSetzen(string farbe)
+  void WinkelSetzen(int winkel)
+  void SichtbarkeitSetzen(boolean sichtbarkeit)
+  void Entfernen()
+  void GanzNachVornBringen()
+  void GanzNachHintenBringen()
+  void NachVornBringen()
+  void NachHintenBringen()
+
+### class Dreieck extends GNGBaseFigur
+  Dreieck()
+  [F] protected int breite
+  [F] protected int höhe
+  void GrößeSetzen(int breite, int höhe)
+
+### class Ereignisbehandlung extends Object
+  Ereignisbehandlung()
+  void Starten()
+  void Anhalten()
+  void TaktdauerSetzen(int dauer)
+  void TaktImpulsAusführen()
+  void TasteGedrückt(char taste)
+  void SonderTasteGedrückt(int sondertaste)
+  void MausGeklickt(int x, int y, int anzahl)
+
+### class Figur extends Object
+  Figur()
+  [F] int x
+  [F] int y
+  [F] int winkel
+  [F] int größe
+  [F] boolean sichtbar
+  void GrößeSetzen(int größe)
+  void Drehen(int grad)
+  void Gehen(double länge)
+  void PositionSetzen(int x, int y)
+  void ZumStartpunktGehen()
+  void WinkelSetzen(int winkel)
+  int WinkelGeben()
+  int XPositionGeben()
+  int YPositionGeben()
+  void SichtbarkeitSetzen(boolean isSichtbar)
+  void Entfernen()
+  void GanzNachVornBringen()
+  void GanzNachHintenBringen()
+  void NachVornBringen()
+  void NachHintenBringen()
+  void EigeneFigurLöschen()
+  boolean Berührt()
+  boolean Berührt(string farbe)
+  boolean Berührt(Object objekt)
+  void FigurteilFestlegenDreieck(int x1, int y1, int x2, int y2, int x3, int y3, string farbe)
+  void FigurteilFestlegenRechteck(int x, int y, int breite, int höhe, string farbe)
+  void FigurteilFestlegenEllipse(int x, int y, int breite, int höhe, string farbe)
+  void AktionAusführen()
+  void TasteGedrückt(char taste)
+  void SonderTasteGedrückt(int sondertaste)
+  void MausGeklickt(int x, int y, int anzahl)
+  Group<FilledShape> FigurteileGeben()
+
+### class Kreis extends GNGBaseFigur
+  Kreis()
+  void RadiusSetzen(int radius)
+  double RadiusGeben()
+
+### class Rechteck extends GNGBaseFigur
+  Rechteck()
+  [F] protected int breite
+  [F] protected int höhe
+  void GrößeSetzen(int breite, int höhe)
+
+### class GText extends GNGBaseFigur
+  GText()
+  [F] protected string text
+  [F] protected int textgröße
+  void TextSetzen(string text)
+  void TextGrößeSetzen(int textGröße)
+  void TextVergrößern()
+  void TextVerkleinern()
+  string getText()
+
+### class GTurtle extends Object
+  [F] protected int x
+  [F] protected int y
+  [F] protected int winkel
+  [F] protected int größe
+  [F] protected boolean sichtbar
+  [F] protected boolean stiftUnten
+  GTurtle()
+  void GrößeSetzen(int größe)
+  void FarbeSetzen(string farbe)
+  void Drehen(int winkelInGrad)
+  void Gehen(double länge)
+  void StiftHeben()
+  void StiftSenken()
+  void Löschen()
+  void PositionSetzen(int x, int y)
+  void ZumStartpunktGehen()
+  void WinkelSetzen(int winkelInGrad)
+  int WinkelGeben()
+  int XPositionGeben()
+  int YPositionGeben()
+  void SichtbarkeitSetzen(boolean sichtbarkeit)
+  void Entfernen()
+  void GanzNachVornBringen()
+  void GanzNachHintenBringen()
+  void NachVornBringen()
+  void NachHintenBringen()
+  boolean Berührt()
+  boolean Berührt(Object object)
+  boolean Berührt(string farbe)
+  void AktionAusführen()
+  void TasteGedrückt(char taste)
+  void SonderTasteGedrückt(int sondertaste)
+  void MausGeklickt(int x, int y, int anzahl)
+
+### class Zeichenfenster extends Object
+  static int MalflächenBreiteGeben()
+  static int MalflächenHöheGeben()
+  static void AktionsEmpfängerEintragen(Aktionsempfaenger aktionsempfaenger)
+  static void AktionsEmpfängerEntfernen(Aktionsempfaenger aktionsempfaenger)
+  static void TaktgeberStarten()
+  static void TaktgeberStoppen()
+  static void TaktdauerSetzen(int dauer)
+
+### interface BooleanSupplier
+  boolean getAsBoolean()
+
+### enum KeyCode
+
+### enum Layer
+
+### enum MouseCode
+
+### enum RotationStyle
+
+### class Color extends Object
+  Color()
+  Color(string hexCode)
+  Color(double h)
+  Color(double r, double g, double b)
+  Color(Color c)
+  int get()
+  double getHSB()
+  void setHSB(double h)
+  void setHSB(double h, double s, double l)
+  void setRGB(double r, double g, double b)
+  void changeColor(double h)
+  double getRed()
+  double getGreen()
+  double getBlue()
+  double getH()
+  double getS()
+  double getL()
+  String toString()
+  boolean equals(Object other)
+
+### class Bounds extends Object
+  Bounds(double x, double y, double width, double height)
+  double x()
+  double y()
+  double width()
+  double height()
+  boolean intersects(Bounds other)
+  String toString()
+
+### class Shape extends Object
+  boolean contains(double x, double y)
+  boolean intersects(Shape other)
+  Shape scale(double scaleX, double scaleY)
+  Shape translate(double dx, double dy)
+  Shape rotate(double theta, double anchorX, double anchorY)
+  Bounds getBounds()
+  void draw()
+
+### class Circle extends Shape
+  Circle(double x, double y, double radius)
+
+### class Rectangle extends Shape
+  Rectangle(double x, double y, double width, double height)
+
+### class Ellipse extends Shape
+  Ellipse(double x, double y, double width, double height)
+
+### class Triangle extends Shape
+  Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
+
+### class Polygon extends Shape
+  Polygon()
+  Polygon(double[] xPoints, double[] yPoints)
+  void addPoint(double x, double y)
+
+### class Hitbox extends Object
+  Hitbox(double[] xPoints, double[] yPoints)
+  Hitbox(Shape shape)
+  Shape getShape()
+  void translateAndRotateAndResize(double degrees, double originX, double originY, double translateX, double translateY, double size)
+  boolean contains(double x, double y)
+  Bounds getBounds()
+  boolean intersects(Hitbox hitbox)
+  void drawDebug()
+  void drawShape()
+
+### class Pen extends Object
+  Pen()
+  void down()
+  void up()
+  void setColor(Color c)
+  void setColor(double h)
+  void setColor(double r, double g, double b)
+  void changeColor(double c)
+  void setSize(double size)
+  double getSize()
+  void changeSize(double size)
+  Color getColor()
+  void setTransparency(double transparency)
+  void changeTransparency(double step)
+  void goToBackground()
+  void goToForeground()
+  boolean isInBackground()
+  void goToRandomPosition()
+  void goToMousePointer()
+  void stamp()
+  String toString()
+  void setPosition(double x, double y)
+  void setPosition(Vector2 v)
+  void eraseAll()
+  void addedToStage(Stage stage)
+  void removedFromStage(Stage stage)
+
+### class Vector2 extends Object
+  Vector2()
+  Vector2(double x, double y)
+  Vector2(Vector2 v)
+  static Vector2 fromPolar(double magnitude, double angle)
+  double length()
+  double lengthSq()
+  double distanceSq(Vector2 v)
+  double distance(Vector2 v)
+  double angle()
+  Vector2 unitVector()
+  Vector2 normalVector()
+  Vector2 add(Vector2 v)
+  Vector2 sub(Vector2 v)
+  Vector2 multiply(double scalar)
+  double dot(Vector2 v)
+  Vector2 rotateBy(double angle)
+  Vector2 rotateTo(double angle)
+  Vector2 reverse()
+  double getX()
+  double getY()
+  Vector2 clone()
+  boolean equals(Object obj)
+  String toString()
+  int hashCode()
+
+### enum TextAlign
+
+### enum TextStyle
+
+### class Text extends Object
+  Text()
+  Text(string text, double x, double y, double width)
+  Text(string text, double x, double y, double width, TextStyle style)
+  void showText(string text)
+  void showText(string text, int millis)
+  void setPosition(double x, double y)
+  void setPosition(Vector2 v)
+  Vector2 getPosition()
+  void setX(double x)
+  double getX()
+  void setY(double y)
+  double getY()
+  void setTextColor(int r, int g, int b)
+  void setTextColor(double h)
+  void setTextColor(Color c)
+  void setBackgroundColor(int r, int g, int b)
+  void setBackgroundColor(double h)
+  void setBackgroundColor(Color c)
+  void setStrokeColor(int r, int g, int b)
+  void setStrokeColor(double h)
+  void setStrokeColor(Color c)
+  void addFont(string name, string fontFamily)
+  void switchFont(string name)
+  void nextFont()
+  string getCurrentFontName()
+  int getCurrentFontIndex()
+  void setFont(string name)
+  string getFont()
+  void setTextSize(int size)
+  int getTextSize()
+  double getWidth()
+  void setWidth(double width)
+  void setAlign(TextAlign align)
+  TextAlign getAlign()
+  void setStyle(TextStyle style)
+  TextStyle getStyle()
+  void remove()
+  boolean isUI()
+  void setIsUI(boolean isUI)
+  Stage getStage()
+  void addedToStage(Stage stage)
+  void removedFromStage(Stage stage)
+  void whenAddedToStage()
+  void whenAddedToStage(Stage stage)
+  void whenRemovedFromStage()
+  void whenRemovedFromStage(Stage stage)
+  static string getDefaultFont()
+  static int getDefaultFontSize()
+  static int[] getDefaultFontSizes()
+  static void useFont(string path, int size)
+  static void useFont(string path)
+  static void useFontSizes(int... sizes)
+  static void useSmoothing(boolean smooth)
+  boolean isSmoothing()
+
+### class Timer extends Object
+  Timer()
+  void reset()
+  static int millis()
+  boolean everyMillis(int millis)
+  boolean forMillis(int millis)
+  boolean afterMillis(int millis)
+  boolean intervalMillis(int millis)
+  boolean intervalMillis(int millis, boolean skipFirst)
+  boolean intervalMillis(int millis1, int millis2)
+  boolean intervalMillis(int millis1, int millis2, boolean skipFirst)
+
+### class Sprite extends Actor
+  Sprite()
+  Sprite(string name, string imagePath)
+  Sprite(Sprite s)
+  void run()
+  void whenAddedToStage()
+  void whenRemovedFromStage()
+  void whenClicked()
+  void whenKeyPressed(KeyCode key)
+  void whenKeyReleased(KeyCode key)
+  void whenMouseClicked(MouseCode button)
+  void whenMouseMoved(double x, double y)
+  void whenIReceive(String message)
+  void whenBackdropSwitches(String name)
+  void say(string text)
+  void say(string text, int millis)
+  void think(string text)
+  void think(string text, int millis)
+  void addCostume(string name)
+  void addCostume(string name, string imagePath)
+  void addCostume(string name, string spriteSheetPath, int x, int y, int width, int height)
+  void addCostumes(string prefix, string spriteSheet, int tileWidth, int tileHeight)
+  void switchCostume(string name)
+  void switchCostume(double index)
+  void nextCostume()
+  void previousCostume()
+  string getCurrentCostumeName()
+  int getCurrentCostumeIndex()
+  void addSound(string name)
+  void addSound(string name, string soundPath)
+  void playSound(string name)
+  void stopSound(string name)
+  void stopAllSounds()
+  boolean isSoundPlaying(string name)
+  void setVolume(double percent)
+  void changeVolume(double step)
+  double getVolume()
+  void move(double steps)
+  void move(Vector2 v)
+  void setPosition(double x, double y)
+  void setPosition(Vector2 v)
+  void changePosition(double x, double y)
+  void changePosition(Vector2 v)
+  Vector2 getPosition()
+  void glide(double seconds, double x, double y)
+  boolean isGliding()
+  void goToMousePointer()
+  double getX()
+  double getY()
+  void setX(double x)
+  void setY(double y)
+  void changeX(double x)
+  void changeY(double y)
+  void goToRandomPosition()
+  void ifOnEdgeBounce()
+  void turnRight(double degrees)
+  void turnLeft(double degrees)
+  void setDirection(double degrees)
+  void setDirection(Vector2 v)
+  void goToSprite(Sprite sprite)
+  void pointInDirection(double degrees)
+  void pointInDirection(Vector2 v)
+  void pointTowardsMousePointer()
+  void pointTowardsSprite(Sprite other)
+  double getDirection()
+  void setRotationStyle(RotationStyle style)
+  void show()
+  void hide()
+  boolean isVisible()
+  void setSize(double percentage)
+  void changeSize(double amount)
+  double getSize()
+  void setTransparency(double percentage)
+  void changeTransparency(double step)
+  double getTransparency()
+  int getWidth()
+  int getHeight()
+  void setTint(Color c)
+  void setTint(double h)
+  void setTint(double r, double g, double b)
+  void changeTint(double step)
+  Color getTint()
+  void goToFrontLayer()
+  void goToBackLayer()
+  void goLayersForwards(int number)
+  void goLayersBackwards(int number)
+  boolean isTouchingSprite(Sprite other)
+  boolean isTouchingSprite(Class<? extends Sprite> c)
+  <T extends Sprite> T getTouchingSprite(Class<T> c)
+  <T extends Sprite> List<T> getTouchingSprites(Class<T> c)
+  boolean isTouchingEdge()
+  boolean isTouchingMousePointer()
+  boolean isKeyPressed(KeyCode key)
+  double getMouseX()
+  double getMouseY()
+  Vector2 getMouse()
+  boolean isMouseDown()
+  double distanceToSprite(Sprite other)
+  double distanceToMousePointer()
+  Stage getStage()
+  void broadcast(String message)
+  void ask(string question)
+  string getAnswer()
+  boolean isAsking()
+  int pickRandom(int from, int to)
+  double getDeltaTime()
+  Text getText()
+  void debug(Object... values)
+  Timer getTimer()
+  Timer getTimer(string name)
+  void setHitbox(double... points)
+  void setHitbox(Shape shape)
+  Hitbox getHitbox()
+  void enableHitbox()
+  void disableHitbox()
+  void stamp()
+  void stamp(Layer layer)
+  Pen getPen()
+  void remove()
+  Sprite clone()
+  Shaders getShaders()
+
+### class AnimatedSprite extends Sprite
+  AnimatedSprite()
+  AnimatedSprite(AnimatedSprite other)
+  AnimatedSprite clone()
+  String toString()
+  void addAnimation(string name, string pattern, int frames)
+  void addAnimation(string name, string imagePath, int frames, int width, int height)
+  void addAnimation(string name, string imagePath, int frames, int width, int height, int row)
+  void addAnimation(string name, string imagePath, int frames, int width, int height, int column, boolean useColumns)
+  void addAnimation(string name, Function<Integer, String> builder, int frames)
+  void playAnimation(string name)
+  void playAnimation(string name, boolean once)
+  void resetAnimation()
+  void setAnimationInterval(int interval)
+  int getAnimationInterval()
+  int getAnimationFrame()
+  void setAnimationFrame(int frame)
+  boolean isAnimationPlayed()
+
+### class Camera extends Object
+  Camera()
+  void setPosition(double x, double y)
+  void setPosition(Vector2 v)
+  Vector2 getPosition()
+  Vector2 toLocalPosition(Vector2 v)
+  double toLocalX(double x)
+  double toLocalY(double y)
+  Vector2 toGlobalPosition(Vector2 v)
+  double toGlobalX(double x)
+  double toGlobalY(double y)
+  double getX()
+  void setX(double x)
+  void changeX(double x)
+  double getY()
+  void setY(double y)
+  void changeY(double y)
+  void setZoomLimit(double low, double high)
+  void setZoom(double zoom)
+  double getZoom()
+  void resetZoom()
+  void changeZoom(double dz)
+
+### class Clock extends Object
+  static int getYear()
+  static int getMonth()
+  static int getDay()
+  static int getDayOfWeek()
+  static int getHour()
+  static int getMinute()
+  static int getSecond()
+  static int getMillisecond()
+  static int getDaysSince2000()
+
+### class Pixels extends Object
+  int[] main()
+  int[] background()
+  int[] foreground()
+
+### class Sorting extends Object
+  void byY()
+  void off()
+  boolean isOn()
+
+### class Shader extends Object
+  Shader(string name, string fragmentShaderPath, string vertexShaderPath)
+  string getName()
+  void setName(string name)
+  void set(string name, int x)
+  void set(string name, boolean x)
+  void set(string name, double x)
+  void set(string name, int x, int y)
+  void set(string name, boolean x, boolean y)
+  void set(string name, double x, double y)
+  void set(string name, Vector2 vec)
+  void set(string name, Color c)
+  void set(string name, int[] values, int ncoords)
+  void set(string name, double[] values, int ncoords)
+
+### class Shaders extends Object
+  Shaders(string owner)
+  Shader add(string name, string fragmentShaderPath, string vertexShaderPath)
+  Shader get(string name)
+  void switchTo(string name)
+  void switchTo(double index)
+  void next()
+  void reset()
+  Shader getCurrent()
+  int getCurrentIndex()
+  string getCurrentName()
+
+### class Recorder extends Object
+  void start()
+  void stop()
+  boolean isRecording()
+
+### class GifRecorder extends Recorder
+  GifRecorder(string path)
+
+### class FFmpegRecorder extends Recorder
+  FFmpegRecorder(string path)
+
+### class FrameRecorder extends Recorder
+  FrameRecorder(string path)
+
+### class File extends Object
+  File(string path)
+  string read()
+  void write(string content)
+  void append(string content)
+  boolean exists()
+  void delete()
+
+### class MapObject extends Object
+  [F] double height
+  [F] int id
+  [F] String name
+  [F] double rotation
+  [F] boolean visible
+  [F] double width
+  [F] String type
+  [F] double x
+  [F] double y
+  int getPropertyInt(string name)
+  string getProperty(string name)
+  float getPropertyFloat(string name)
+  boolean getPropertyBoolean(string name)
+
+### class TiledMap extends Object
+  TiledMap(string path, Stage stage)
+  MapObject[] getObjectsFromLayer(string name)
+  void stampLayerToForeground(string name)
+  void stampLayerToBackground(string name)
+
+### class Property extends Object
+  [F] String name
+  [F] String type
+  [F] String value
+
+### class TilesetImage extends Object
+  [F] String source
+  [F] int width
+  [F] int height
+
+### class ScratchException extends RuntimeException
+  public ScratchException(String message)
+  public String toString()
+
+### class HtmlColor extends Object
+  [F] static Color ALICE_BLUE
+  [F] static Color ANTIQUE_WHITE
+  [F] static Color AQUA
+  [F] static Color AQUAMARINE
+  [F] static Color AZURE
+  [F] static Color BEIGE
+  [F] static Color BISQUE
+  [F] static Color BLACK
+  [F] static Color BLANCHED_ALMOND
+  [F] static Color BLUE
+  [F] static Color BLUE_VIOLET
+  [F] static Color BROWN
+  [F] static Color BURLYWOOD
+  [F] static Color CADET_BLUE
+  [F] static Color CHARTREUSE
+  [F] static Color CHOCOLATE
+  [F] static Color CORAL
+  [F] static Color CORNFLOWER_BLUE
+  [F] static Color CORNSILK
+  [F] static Color CRIMSON
+  [F] static Color CYAN
+  [F] static Color DARK_BLUE
+  [F] static Color DARK_CYAN
+  [F] static Color DARK_GOLDENROD
+  [F] static Color DARK_GRAY
+  [F] static Color DARK_GREEN
+  [F] static Color DARK_KHAKI
+  [F] static Color DARK_MAGENTA
+  [F] static Color DARK_OLIVE_GREEN
+  [F] static Color DARK_ORANGE
+  [F] static Color DARK_ORCHID
+  [F] static Color DARK_RED
+  [F] static Color DARK_SALMON
+  [F] static Color DARK_SEA_GREEN
+  [F] static Color DARK_SLATE_BLUE
+  [F] static Color DARK_SLATE_GRAY
+  [F] static Color DARK_TURQUOISE
+  [F] static Color DARK_VIOLET
+  [F] static Color DEEP_PINK
+  [F] static Color DEEP_SKY_BLUE
+  [F] static Color DIM_GRAY
+  [F] static Color DODGER_BLUE
+  [F] static Color FIREBRICK
+  [F] static Color FLORAL_WHITE
+  [F] static Color FOREST_GREEN
+  [F] static Color FUCHSIA
+  [F] static Color GAINSBORO
+  [F] static Color GHOST_WHITE
+  [F] static Color GOLD
+  [F] static Color GOLDENROD
+  [F] static Color GRAY
+  [F] static Color GREEN
+  [F] static Color GREEN_YELLOW
+  [F] static Color HONEYDEW
+  [F] static Color HOT_PINK
+  [F] static Color INDIAN_RED
+  [F] static Color INDIGO
+  [F] static Color IVORY
+  [F] static Color KHAKI
+  [F] static Color LAVENDER
+  [F] static Color LAVENDER_BLUSH
+  [F] static Color LAWN_GREEN
+  [F] static Color LEMON_CHIFFON
+  [F] static Color LIGHT_BLUE
+  [F] static Color LIGHT_CORAL
+  [F] static Color LIGHT_CYAN
+  [F] static Color LIGHT_GOLDENROD_YELLOW
+  [F] static Color LIGHT_GRAY
+  [F] static Color LIGHT_GREEN
+  [F] static Color LIGHT_PINK
+  [F] static Color LIGHT_SALMON
+  [F] static Color LIGHT_SEA_GREEN
+  [F] static Color LIGHT_SKY_BLUE
+  [F] static Color LIGHT_SLATE_GRAY
+  [F] static Color LIGHT_STEEL_BLUE
+  [F] static Color LIGHT_YELLOW
+  [F] static Color LIME
+  [F] static Color LIME_GREEN
+  [F] static Color LINEN
+  [F] static Color MAGENTA
+  [F] static Color MAROON
+  [F] static Color MEDIUM_AQUAMARINE
+  [F] static Color MEDIUM_BLUE
+  [F] static Color MEDIUM_ORCHID
+  [F] static Color MEDIUM_PURPLE
+  [F] static Color MEDIUM_SEA_GREEN
+  [F] static Color MEDIUM_SLATE_BLUE
+  [F] static Color MEDIUM_SPRING_GREEN
+  [F] static Color MEDIUM_TURQUOISE
+  [F] static Color MEDIUM_VIOLET_RED
+  [F] static Color MIDNIGHT_BLUE
+  [F] static Color MINT_CREAM
+  [F] static Color MISTY_ROSE
+  [F] static Color MOCCASIN
+  [F] static Color NAVAJO_WHITE
+  [F] static Color NAVY
+  [F] static Color OLD_LACE
+  [F] static Color OLIVE
+  [F] static Color OLIVE_DRAB
+  [F] static Color ORANGE
+  [F] static Color ORANGE_RED
+  [F] static Color ORCHID
+  [F] static Color PALE_GOLDENROD
+  [F] static Color PALE_GREEN
+  [F] static Color PALE_TURQUOISE
+  [F] static Color PALE_VIOLET_RED
+  [F] static Color PAPAYA_WHIP
+  [F] static Color PEACH_PUFF
+  [F] static Color PERU
+  [F] static Color PINK
+  [F] static Color PLUM
+  [F] static Color POWDER_BLUE
+  [F] static Color PURPLE
+  [F] static Color RED
+  [F] static Color ROSY_BROWN
+  [F] static Color ROYAL_BLUE
+  [F] static Color SADDLE_BROWN
+  [F] static Color SALMON
+  [F] static Color SANDY_BROWN
+  [F] static Color SEA_GREEN
+  [F] static Color SEASHELL
+  [F] static Color SIENNA
+  [F] static Color SILVER
+  [F] static Color SKY_BLUE
+  [F] static Color SLATE_BLUE
+  [F] static Color SLATE_GRAY
+  [F] static Color SNOW
+  [F] static Color SPRING_GREEN
+  [F] static Color STEEL_BLUE
+  [F] static Color TAN
+  [F] static Color TEAL
+  [F] static Color THISTLE
+  [F] static Color TOMATO
+  [F] static Color TURQUOISE
+  [F] static Color VIOLET
+  [F] static Color WHEAT
+  [F] static Color WHITE
+  [F] static Color WHITE_SMOKE
+  [F] static Color YELLOW
+  [F] static Color YELLOW_GREEN
+  static Color getRandom()
+
+### class Operators extends Object
+  static final double lerp(double start, double stop, double amt)
+  static final double constrain(double amt, double low, double high)
+  static final int constrain(int amt, int low, int high)
+  static final double min(double... v)
+  static final double max(double... v)
+  static final int min(int... v)
+  static final int max(int... v)
+  static final double map(double value, double start1, double stop1, double start2, double stop2)
+  static final int round(double x)
+  static final double round(double x, int precision)
+  static final double mod(double x, double y)
+  static final int mod(int x, int y)
+  static final int absOf(int x)
+  static final double absOf(double x)
+  static final double floorOf(double x)
+  static final double ceilingOf(double x)
+  static final double sqrtOf(double x)
+  static final double sinOf(double x)
+  static final double cosOf(double x)
+  static final double tanOf(double x)
+  static final double asinOf(double x)
+  static final double acosOf(double x)
+  static final double atanOf(double x)
+  static final double lnOf(double x)
+  static final double logOf(double x)
+  static final double eToThePowerOf(double x)
+  static final double tenToThePowerOf(double x)
+
+### class Random extends Object
+  static double noise(double x)
+  static double noise(double x, double y)
+  static double noise(double x, double y, double z)
+  static void noiseSeed(long noiseSeed)
+  static Vector2 randomVector2()
+  static double randomX()
+  static double randomY()
+  static Vector2 randomPosition()
+  static double random()
+  static double random(double max)
+  static double random(double min, double max)
+  static int randomInt(int max)
+  static int randomInt(int min, int max)
+  static void randomSeed(long seed)
+
+### class Stage extends Actor
+  Stage()
+  Stage(int width, int height)
+  Stage(int width, int height, string assets)
+  void run()
+  void whenIReceive(String message)
+  void whenKeyPressed(KeyCode key)
+  void whenKeyReleased(KeyCode key)
+  void whenMouseClicked(MouseCode button)
+  void whenMouseMoved(double x, double y)
+  void whenMouseWheelMoved(int steps)
+  void whenBackdropSwitches(String name)
+  void broadcast(String message)
+  void add(Sprite sprite)
+  void add(Pen pen)
+  void add(Text text)
+  void remove(Text text)
+  void remove(Pen pen)
+  void remove(Sprite sprite)
+  void removeAll()
+  void remove(Class<? extends Sprite> c)
+  List<Sprite> getAll()
+  <T extends Sprite> List<T> find(Class<T> c)
+  <T extends Sprite> int count(Class<T> c)
+  void addBackdrop(string name)
+  void addBackdrop(string name, string imagePath)
+  void addBackdrop(string name, string imagePath, boolean stretch)
+  void switchBackdrop(string name)
+  void nextBackdrop()
+  void previousBackdrop()
+  void randomBackdrop()
+  string getCurrentBackdropName()
+  int getCurrentBackdropIndex()
+  void addSound(string name)
+  void addSound(string name, string soundPath)
+  void playSound(string name)
+  void stopSound(string name)
+  void stopAllSounds()
+  boolean isSoundPlaying(string name)
+  void setVolume(double percent)
+  void changeVolume(double step)
+  double getVolume()
+  void setColor(double h)
+  void setColor(double r, double g, double b)
+  void setColor(Color c)
+  Color getColor()
+  void changeColor(double h)
+  Camera getCamera()
+  void setTint(double r, double g, double b)
+  void setTint(double h)
+  void changeTint(double step)
+  void setTransparency(double transparency)
+  void changeTransparency(double step)
+  void setDebug(boolean debug)
+  boolean isDebug()
+  void debug(Object... values)
+  void waitUntil(BooleanSupplier condition)
+  void exit()
+  void setCursor(string path)
+  void setCursor(string path, int x, int y)
+  Pixels getPixels()
+  Shaders getShaders()
+  Sorting getSorting()
+  int getWidth()
+  int getHeight()
+  boolean isKeyPressed(KeyCode key)
+  double getMouseX()
+  double getMouseY()
+  Vector2 getMouse()
+  boolean isMouseDown()
+  Timer getTimer()
+  Timer getTimer(string name)
+  double getDeltaTime()
+  double getFrameRate()
+  void eraseAll()
+  void display(string text)
+  void display(string text, int millis)
+  void wait(int millis)
+  void ask(string question)
+  string getAnswer()
+  boolean isAsking()
+  int pickRandom(int from, int to)
+
+### class UISprite extends Sprite
+  UISprite()
+  void setWidth(double width)
+  void setHeight(double height)
+  void changeWidth(double amount)
+  void changeHeight(double amount)
+  void setNineSlice(int top, int right, int bottom, int left)
+  void disableNineSlice()
+
+### enum TextureSampling
+  int getMode()
+
+### class Window extends Object
+  Window()
+  Window(string assets)
+  Window(int width, int height)
+  Window(int width, int height, string assets)
+  static Window getInstance()
+  int getWidth()
+  int getHeight()
+  double getDeltaTime()
+  Stage getStage()
+  void setStage(Stage stage)
+  void transitionToStage(Stage stage, int duration)
+  void setDebug(boolean debug)
+  boolean isDebug()
+  void debug(Object... values)
+  void exit()
+  void whenExits()
+  string getLibraryVersion()
+  string getLibraryTitle()
+  static void useFullScreen()
+  static void useTextureSampling(TextureSampling sampling)
+  static TextureSampling getTextureSampling()
+  static void useSplashLogo(string path)
+  static string getSplashLogo()
+
+### class DynArray implements Iterable<Object>
+  DynArray()
+  boolean isEmpty()
+  Object getItem(int index)
+  void append(Object x)
+  void insertAt(int index, Object x)
+  void setItem(int index, Object x)
+  void delete(int index)
+  int getLength()
+  Iterator<Object> iterator()
+  String toString()
+
+### class BinTree
+  BinTree()
+  BinTree(Object o)
+  Object getItem()
+  void setItem(Object o)
+  boolean isLeaf()
+  BinTree getLeft()
+  BinTree getRight()
+  void setLeft(BinTree b)
+  void setRight(BinTree b)
+  boolean isEmpty()
+  void setEmpty()
+  String toString()
+
+### class Element
+  Element()
+  Element(Object inhalt, Element next)
+  String toString()
+  [F] Object inhalt
+  [F] Element next
+
+### class Stack
+  Stack()
+  boolean isEmpty()
+  void push(Object pContent)
+  Object pop()
+  Object top()
+  String toString()
+
+### class Queue
+  Queue()
+  boolean isEmpty()
+  Object head()
+  void enqueue(Object neu)
+  Object dequeue()
+  String toString()
+
+### class BinarySearchTree<ContentType extends ComparableContent<ContentType>>
+  BinarySearchTree()
+  ContentType getContent()
+  void insert(ContentType pContent)
+  void remove(ContentType pContent)
+  ContentType search(ContentType pContent)
+  BinarySearchTree<ContentType> getLeftTree()
+  BinarySearchTree<ContentType> getRightTree()
+  boolean isEmpty()
+
+### class BinaryTree<ContentType>
+  BinaryTree()
+  BinaryTree(ContentType pContent)
+  BinaryTree(ContentType pContent, BinaryTree<ContentType> pLeftTree, BinaryTree<ContentType> pRightTree)
+  void setContent(ContentType pContent)
+  ContentType getContent()
+  void setLeftTree(BinaryTree<ContentType> pTree)
+  void setRightTree(BinaryTree<ContentType> pTree)
+  BinaryTree<ContentType> getLeftTree()
+  BinaryTree<ContentType> getRightTree()
+  boolean isEmpty()
+
+### interface ComparableContent<ContentType>
+  boolean isGreater(ContentType pContent)
+  boolean isLess(ContentType pContent)
+  boolean isEqual(ContentType pContent)
+
+### class QueryResult
+  private QueryResult(string[][] pData, string[] pColumnNames, string[] pColumnTypes)
+  string[][] getData()
+  string[] getColumnNames()
+  string[] getColumnTypes()
+  int getColumnCount()
+
+### class DatabaseConnector
+  public DatabaseConnector(string code)
+  void executeStatement(string statement)
+  QueryResult getCurrentQueryResult()
+  string getErrorMessage()
+  void close()
+
+### class Edge
+  Edge()
+  boolean isMarked()
+  void setMark(boolean pMark)
+  Vertex[] getVertices()
+  void setWeight(double pWeight)
+  double getWeight(double pWeight)
+
+### class List<ContentType>
+  List()
+  boolean isEmpty()
+  boolean hasAccess()
+  void next()
+  void toFirst()
+  void toLast()
+  ContentType getContent()
+  void setContent(ContentType pContent)
+  void insert(ContentType pContent)
+  void append(ContentType pContent)
+  void concat(List<ContentType> pList)
+  void remove()
+  String toString()
+
+### class Graph
+  Graph()
+  List<Vertex> getVertices()
+  List<Edge> getEdges()
+  Vertex getVertex(string pID)
+  void addVertex(Vertex pVertex)
+  void addEdge(Edge pEdge)
+  void removeVertex(Vertex pVertex)
+  void removeEdge(Edge pEdge)
+  void setAllVertexMarks(boolean pMark)
+  void setAllEdgeMarks(boolean pMark)
+  boolean allVerticesMarked()
+  boolean allEdgesMarked()
+  List<Vertex> getNeighbours(Vertex pVertex)
+  List<Edge> getEdges(Vertex pVertex)
+  Edge getEdge(Vertex pVertex, Vertex pAnotherVertex)
+  boolean isEmpty()
+
+### class Queue<ContentType>
+  Queue()
+  boolean isEmpty()
+  void enqueue(ContentType pContent)
+  void dequeue()
+  ContentType front()
+  String toString()
+
+### class Stack<ContentType>
+  Stack()
+  boolean isEmpty()
+  void push(ContentType pContent)
+  void pop()
+  ContentType top()
+  String toString()
+
+### class Vertex
+  Vertex(String pID)
+  String getID()
+  boolean isMarked()
+  void setMark(boolean pMark)
+
+### class FileNotFoundException extends Exception
+  public FileNotFoundException()
+  public FileNotFoundException(String message)
+  public FileNotFoundException(Throwable cause)
+  public FileNotFoundException(String message, Throwable cause)
+  public String toString()
+
+// 238 Deklarationen

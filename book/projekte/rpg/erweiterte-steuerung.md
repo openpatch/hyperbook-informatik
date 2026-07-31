@@ -15,7 +15,7 @@ lang: de
 
 ## Übungen zu den neuen Begriffen
 
-- [Bedingte Anweisungen](/oberstufe/oop/grundlagen/verzweigungen)
+- [Bedingte Anweisungen](/oberstufe/oop/01-grundlagen/03-kontrollstrukturen/01-verzweigungen)
 
 ## Scratch for Java API
 
