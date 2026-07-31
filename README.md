@@ -31,6 +31,20 @@ npx hyperbook dev
 
 **Alternative:** Installiere die [Hyperbook Extension für VS Code](https://marketplace.visualstudio.com/items?itemName=openpatch.hyperbook) für eine noch bessere Entwicklungserfahrung direkt in deinem Editor.
 
+## Prüfen
+
+Mehrere Lernpfade enthalten ausführbaren Code – Java, SQL, HTML und CSS. Damit dort nichts Kaputtes steht, gibt es Prüfskripte:
+
+```bash
+# nur die statischen Prüfungen, dauert Sekunden
+python3 tools/pruefe-alles.py --schnell
+
+# alles: statische Prüfungen, Bauen und Browserprüfungen
+python3 tools/pruefe-alles.py
+```
+
+Das Skript findet die Prüfungen selbst und startet den Dev-Server bei Bedarf. Was es wo prüft, wie man ein neues Werkzeug ergänzt und was einmalig einzurichten ist, steht in [tools/README.md](tools/README.md).
+
 ## Mitmachen
 
 Wir freuen uns über jede Unterstützung! 
@@ -52,6 +66,7 @@ Für ausführliche Informationen zum Mitmachen, zur Projektstruktur, zu Snippets
 │   └── wc/            # Web Components
 ├── snippets/          # Snippet-Templates
 ├── archives/          # Projektarchive (Java, etc.)
+├── tools/             # Prüfskripte und Generatoren, siehe tools/README.md
 └── hyperbook.json     # Konfigurationsdatei
 ```
 
