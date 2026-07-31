@@ -14,7 +14,7 @@ index: 5
 
 ## Übungen zu den neuen Begriffen
 
-- [Datentypen](/oberstufe/oop/grundlagen/datentypen)
+- [Datentypen](/oberstufe/oop/01-grundlagen/02-variablen-und-datentypen/02-datentypen)
 
 ## Scratch for Java API
 

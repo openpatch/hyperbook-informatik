@@ -12,7 +12,7 @@ Zur Verwaltung der Ereignisse benutzen wir die lineare Datenstruktur des Arrays.
 
 ## Aufgaben
 
-1. Informiere dich über die lineare Datenstruktur des Arrays. Nutze dafür die Seite [Arrays](/oop/arrays).
+1. Informiere dich über die lineare Datenstruktur des Arrays. Nutze dafür die Seite [Arrays](/oberstufe/oop/01-grundlagen/05-felder/01-eindimensionale-felder).
 2. Lade das BlueJ-Projekt "Smart Home Ereignisse" herunter.
 ::archive[BlueJ-Projekt: Smart Home Ereignisse]{name="smart-home-ereignisse"}
 3. Implementiere die Methode "showBacklog".

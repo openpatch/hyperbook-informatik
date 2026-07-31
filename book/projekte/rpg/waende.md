@@ -16,8 +16,8 @@ lang: de
 
 ## Übungen zu den neuen Begriffen
 
-- [Wiederholungen](/oberstufe/oop/grundlagen/wiederholungen)
-- [Vererbung](/oberstufe/oop/grundlagen/vererbung)
+- [Wiederholungen](/oberstufe/oop/01-grundlagen/03-kontrollstrukturen/03-kopfgesteuerte-schleifen)
+- [Vererbung](/oberstufe/oop/01-grundlagen/06-objektorientierung/04-vererbung)
 
 ## Scratch for Java API
 
