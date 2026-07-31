@@ -38,14 +38,23 @@ grünen Haken verwechseln.
 Den Dev-Server startet und beendet das Skript bei Bedarf selbst. Läuft schon
 einer, benutzt es ihn und überspringt das separate Bauen.
 
-**Wie lange das dauert:** Die statischen Prüfungen sind in **Sekunden** durch,
-das Bauen dauert **eine bis zwei Minuten**. Die Browserprüfungen brauchen
-zusammen **eine knappe Stunde** – sie laden jede gebaute Seite in einem echten
-Chromium und warten, bis die eingebettete Entwicklungsumgebung fertig ist.
+**Wie lange das dauert** (gemessen, Größenordnung):
 
-Für die tägliche Arbeit genügt deshalb `--schnell`. Der vollständige Lauf lohnt
-sich, bevor man einen größeren Stand abgibt – und immer dann, wenn man am Code
-**in** den Lernpfaden etwas geändert hat.
+| Teil | Dauer |
+| --- | --- |
+| alle statischen Prüfungen | **unter 1 s** |
+| `npx hyperbook build` | rund **20 s** |
+| Browserprüfung Web | rund **2 min** |
+| Browserprüfung Datenbanken | rund **5 min** |
+| Browserprüfung Java | rund **14 min** |
+
+Ein vollständiger Lauf braucht also etwa **20 Minuten**, fast alles davon in den
+Browserprüfungen: Sie laden jede gebaute Seite in einem echten Chromium und
+warten, bis die eingebettete Entwicklungsumgebung fertig ist.
+
+Für die tägliche Arbeit genügt deshalb `--schnell`. Wer nur an einem Pfad
+gearbeitet hat, nimmt `--nur web` und ist in zwei Minuten durch. Der
+vollständige Lauf lohnt sich, bevor man einen größeren Stand abgibt.
 
 ## Einmalige Einrichtung
 
