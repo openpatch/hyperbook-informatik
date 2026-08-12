@@ -1255,8 +1255,61 @@ verlinkt.
 
 ::::
 
+::::collapsible{title="projekte/bunny-hop (8 Lösungen)"}
 
-Insgesamt 361 geschützte Lösungen.
+
+**[🥇 Ducken](/projekte/bunny-hop/euer-spiel/epics/dodge)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-ducken-1` |
+
+**[🥈 Höchststand](/projekte/bunny-hop/euer-spiel/epics/hoechststand)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-rekord-1` |
+
+**[🥈 Lücken im Boden](/projekte/bunny-hop/euer-spiel/epics/luecken)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-luecken-1` |
+
+**[🥉 Pause](/projekte/bunny-hop/euer-spiel/epics/pause)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-pause-1` |
+
+**[🥉 Schwieriger mit der Zeit](/projekte/bunny-hop/euer-spiel/epics/schneller-mit-der-zeit)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-tempo-1` |
+
+**[🥉 Startbildschirm](/projekte/bunny-hop/euer-spiel/epics/startbildschirm)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-start-1` |
+
+**[🥈 Tag und Nacht](/projekte/bunny-hop/euer-spiel/epics/tag-nacht)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Tipps | `bh-epic-nacht-1` |
+
+**[Ideen sammeln](/projekte/bunny-hop/euer-spiel/ideen-sammeln)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Das Programm verstehen | `bh-ideen-1` |
+
+::::
+
+
+Insgesamt 369 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.
