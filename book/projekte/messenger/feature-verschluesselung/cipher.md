@@ -1,6 +1,6 @@
 ---
 name: Abstrakte Klasse Cipher
-index: 4
+index: 5
 lang: de
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: Integration in den Messenger
-index: 5
+index: 6
 lang: de
 ---
 

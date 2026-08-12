@@ -1,4 +1,4 @@
 ---
 name: Euer Spiel
-index: 2
+index: 4
 ---

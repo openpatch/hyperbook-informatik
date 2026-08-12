@@ -1,5 +1,6 @@
 ---
 name: Scratch for Java Donut IO
+index: 10
 lang: de
 keywords: 
     - scratch4j

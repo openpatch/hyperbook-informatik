@@ -79,6 +79,24 @@ Es heißt bewusst nicht `check_…` oder `pruefe_…`: `pruefe-alles.py` soll es
 nicht mitlaufen lassen, denn es ist ein Bericht und keine Prüfung. Die
 erzeugte Datei gehört **nicht** ins Buch und nicht ins Repository.
 
+## Reihenfolge im Buch prüfen
+
+```bash
+python3 tools/check_reihenfolge.py
+```
+
+Seit Hyperbook 0.101 werden **Seiten und Sektionen gemeinsam** nach ihrem
+`index:` sortiert. Vorher hatten sie getrennte Reihenfolgen – eine
+Übersichtsseite mit `index: 0` und ein Kapitel mit `index: 0` konnten also
+nebeneinander bestehen. Heute konkurrieren sie, und Übersichtsseiten landen
+plötzlich hinter den Kapiteln.
+
+Das Skript meldet zwei Fälle: **doppelt vergebene Indexe** innerhalb eines
+Ordners und Ordner, in denen **manche** Einträge einen Index haben und andere
+nicht – Letztere rutschen ans Ende, auch wenn der Dateiname (`00-einleitung.md`)
+etwas anderes nahelegt. Ordner ganz ohne Indexe sind in Ordnung; dort gilt die
+alphabetische Reihenfolge als bewusste Entscheidung.
+
 ## Die Passwortseite im Buch
 
 Anders als die Übersicht oben richtet sich die Seite [Lösungspasswörter](../book/loesungen.md)

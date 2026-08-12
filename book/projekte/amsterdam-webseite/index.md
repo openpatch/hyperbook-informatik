@@ -1,5 +1,6 @@
 ---
 name: Amsterdam Webseite
+index: 7
 lang: de
 keywords:
     - web

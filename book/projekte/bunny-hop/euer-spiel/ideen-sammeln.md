@@ -1,6 +1,6 @@
 ---
 name: Ideen sammeln
-index: 0
+index: 1
 lang: de
 ---
 
