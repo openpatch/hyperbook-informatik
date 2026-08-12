@@ -1,5 +1,6 @@
 ---
 name: Spieleecke
+index: 6
 permaid: spiele
 ---
 

@@ -40,6 +40,8 @@ keywords:
   - lösungen
   - passwörter
 lang: de
+hide: true
+index: 999
 ---
 
 # Lösungspasswörter

@@ -1,6 +1,6 @@
 ---
 name: Scrum
-index: 0
+index: 2
 lang: de
 ---
 

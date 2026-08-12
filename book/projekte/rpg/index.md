@@ -1,5 +1,6 @@
 ---
 name: Scratch for Java RPG
+index: 11
 lang: de
 keywords: 
     - scratch4j

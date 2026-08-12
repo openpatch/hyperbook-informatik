@@ -1,6 +1,6 @@
 ---
 name: Smart Home
-index: 0
+index: 1
 lang: de
 ---
 

@@ -1,5 +1,5 @@
 ---
 name: "Feature: Kontakte"
-index: 2
+index: 3
 lang: de
 ---

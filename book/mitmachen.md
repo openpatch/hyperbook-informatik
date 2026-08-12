@@ -114,6 +114,18 @@ lernpfad/
 
 Die **Zahlenpräfixe** im Dateinamen stimmen mit dem `index:` im Frontmatter überein. Kapitelseiten tragen `name:`, Lektionen `title:`.
 
+:::alert{warn}
+**Der `index:` muss innerhalb eines Ordners eindeutig sein – auch zwischen Seiten und Sektionen.**
+
+Seit Hyperbook 0.101 werden beide in **einer** Reihenfolge sortiert. Früher hatten Seiten und Sektionen getrennte Reihenfolgen, weshalb eine Übersichtsseite mit `index: 0` und ein Kapitel mit `index: 0` nebeneinander bestehen konnten. Heute konkurrieren sie, und welche zuerst kommt, entscheidet dann nicht mehr die Absicht.
+
+Dasselbe gilt für Einträge **ohne** `index:`: Sie rutschen ans Ende, auch wenn der Dateiname etwas anderes nahelegt. Geprüft wird das mit:
+
+```bash
+python3 tools/check_reihenfolge.py
+```
+:::
+
 ### Die Startseite
 
 Sie beantwortet drei Fragen und nicht mehr:
