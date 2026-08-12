@@ -101,6 +101,7 @@ Für die durchgehenden Lernpfade – etwa [Einführung mit Turtle-Grafiken](/mit
 - **Tipps** sind gestuft und eingeklappt: `::::collapsible{title="Tipp 1: …"}`. Der erste Tipp gibt einen Denkanstoß, der letzte ein Codegerüst.
 - **Lösungen** stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`. Die Passwörter sind global eindeutig; `python3 tools/passwoerter.py` listet sie mit Seite und Abschnitt auf.
 - **Jede Lektion endet mit einem Selbsttest**: nach einem `---` folgt `## Selbsttest` und ein `::::multievent`-Block.
+- **Jedes Kapitel endet mit einem Rückblick**: einer Seite `NN-rueckblick.md` mit einer Checkliste „Das kann ich jetzt", zwei bis drei **gemischten Aufgaben** über mehrere Lektionen hinweg und einem Selbsttest über das ganze Kapitel. Der Selbsttest einer Lektion prüft nur, was zwei Bildschirmseiten vorher stand – der Rückblick ist die Stelle, an der die Lernenden merken, ob es auch zusammen trägt. Projekt- und Referenzkapitel brauchen keinen.
 - **Bezüge zum Kernlehrplan** stehen in HTML-Kommentaren, damit sie im Hyperbook nicht erscheinen.
 
 :::alert{info}
