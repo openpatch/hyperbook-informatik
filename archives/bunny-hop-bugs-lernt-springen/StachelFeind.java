@@ -1,6 +1,6 @@
 public class StachelFeind extends Feind {
     public StachelFeind() {
-        this.addCostume("stehen", "assets/Enemies/spikeMan_stand.png");
+        this.addCostume("stehen", "spikeMan_stand");
     }
     
     public void run() {

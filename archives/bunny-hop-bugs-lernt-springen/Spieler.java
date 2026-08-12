@@ -1,5 +1,4 @@
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.animation.*;
 
 public class Spieler extends AnimatedSprite
 {
@@ -13,7 +12,7 @@ public class Spieler extends AnimatedSprite
 
     public Spieler()
     {
-        this.addAnimation("gehen", "assets/Players/bunny1_walk%d.png", 2);
+        this.addAnimation("gehen", "bunny1_walk", 2);
     }
 
     public void run() {
@@ -34,7 +33,7 @@ public class Spieler extends AnimatedSprite
             }
         }
         
-        if (!faellt && !springt && isKeyPressed(KeyCode.VK_SPACE)) {
+        if (!faellt && !springt && isKeyPressed(KeyCode.SPACE)) {
             springt = true;
         }
     }
