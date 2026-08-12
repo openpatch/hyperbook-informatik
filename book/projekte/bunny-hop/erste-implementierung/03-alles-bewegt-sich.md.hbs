@@ -1,0 +1,156 @@
+---
+name: Alles bewegt sich
+index: 3
+lang: de
+---
+
+# Alles bewegt sich
+
+## Das Ziel
+
+Bugs bleibt stehen, die **Welt** zieht an ihm vorbei – und zwar endlos. Genau so
+machen es alle Jump-and-Run-Spiele.
+
+## So sieht das aus
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Plattform.java
+{{{rfile "/archives/bunny-hop-03-bewegung/Plattform.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-03-bewegung/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-03-bewegung/Spieler.java" "reg:^import "}}}
+```
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-03-bewegung/Main.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+Jedes Sprite hat eine Methode `run`. Sie wird etwa **60-mal pro Sekunde**
+aufgerufen – einmal für jedes Bild. Was darin steht, passiert also ständig:
+
+```java
+public void run() {
+    this.changeX(-spiel.getGeschwindigkeit());
+
+    if (this.getX() < -450) {
+        this.changeX(BunnyHop.PLATTFORMEN * BunnyHop.BREITE);
+    }
+}
+```
+
+Zeile 1 schiebt die Plattform ein Stück nach links. Die `if`-Abfrage prüft, ob sie
+links aus dem Bild gewandert ist, und schiebt sie dann um die ganze Weltbreite nach
+rechts – dorthin, wo gerade Platz frei geworden ist.
+
+:::snippet{#merken}
+Es entstehen **keine neuen** Plattformen. Es sind immer dieselben neun, sie werden
+nur immer wieder nach hinten gestellt. Das nennt man Recycling – es spart Speicher
+und ist der übliche Trick bei endlosen Spielwelten.
+:::
+
+Die Plattform kennt das Spiel: Im Konstruktor bekommt sie es übergeben und merkt es
+sich im Attribut `spiel`. So kann sie jederzeit `spiel.getGeschwindigkeit()` fragen.
+Diese Verbindung zwischen zwei Klassen heißt :t[Assoziation]{#assoziation}.
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Starte das Programm. Zieht der Boden gleichmäßig vorbei, ohne Lücke?
+
+b) Ändere die Geschwindigkeit auf 1 und auf 10. Was fällt dir bei 10 auf?
+
+c) Ersetz in der `if`-Abfrage die −450 durch −400. Beobachte den linken Rand genau.
+   Was passiert und warum?
+
+d) Lass die Welt rückwärts laufen.
+:::
+
+::::collapsible{title="Tipp 1: Warum −450 und nicht −400?"}
+
+Der Bildrand liegt bei −400. Eine Plattform ist 100 Pixel breit, ihr Mittelpunkt
+also noch 50 Pixel im Bild, wenn ihre rechte Kante gerade verschwindet.
+
+Erst bei −450 ist sie **ganz** draußen. Wer früher umsetzt, tut das vor den Augen
+der Spielerin.
+
+::::
+
+::::collapsible{title="Tipp 2: Rückwärts"}
+
+`changeX` mit einer positiven Zahl schiebt nach rechts. Dann muss auch die
+`if`-Abfrage auf die andere Seite schauen: `if (this.getX() > 450)`.
+
+::::
+
+:::protect{password="bh-03-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+Zu b): Bei 10 springt der Boden sichtbar ruckartig. Pro Bild werden 10 Pixel
+übersprungen – das Auge nimmt die einzelnen Sprünge wahr.
+
+Zu c): Die Plattform verschwindet und taucht sofort wieder auf, während sie noch
+halb im Bild ist. Es blitzt am linken Rand.
+
+Zu d):
+
+```java
+public void run() {
+    this.changeX(spiel.getGeschwindigkeit());
+
+    if (this.getX() > 450) {
+        this.changeX(-BunnyHop.PLATTFORMEN * BunnyHop.BREITE);
+    }
+}
+```
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Alles bewegt sich]{name="bunny-hop-03-bewegung"}
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Wie oft wird die Methode run aufgerufen?**
+
+{r1{einmal beim Start}}
+
+{r1{!etwa 60-mal pro Sekunde}}
+
+{r1{immer wenn eine Taste gedrückt wird}}
+
+{h{Sie ist die Schleife, die das Spiel am Laufen hält.}}
+{H{Richtig! Einmal pro Bild.}}
+
+**2. Wie viele Plattform-Objekte gibt es nach einer Minute Spielzeit?**
+
+{z{9}}
+
+{h{Es entstehen keine neuen.}}
+{H{Richtig! Es sind immer dieselben neun.}}
+
+**3. Warum steht in changeX ein Minus vor der Geschwindigkeit?**
+
+{r2{Damit die Plattform langsamer wird.}}
+
+{r2{!Weil x nach links kleiner wird.}}
+
+{r2{Das ist Geschmackssache.}}
+
+{h{Nach rechts wächst x, nach links schrumpft es.}}
+{H{Richtig!}}
+
+::::

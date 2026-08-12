@@ -1,0 +1,176 @@
+---
+name: Ingo, der Stachelmann
+index: 6
+lang: de
+---
+
+# Ingo, der Stachelmann
+
+## Das Ziel
+
+Jetzt kann man verlieren. Ingo läuft Bugs entgegen; eine Berührung beendet das Spiel –
+und mit **r** geht es von vorn los.
+
+## So sieht das aus
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Stachel.java
+{{{rfile "/archives/bunny-hop-06-stachel/Stachel.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-06-stachel/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-06-stachel/Spieler.java" "reg:^import "}}}
+```
+
+```java Muenze.java
+{{{rfile "/archives/bunny-hop-06-stachel/Muenze.java" "reg:^import "}}}
+```
+
+```java Plattform.java
+{{{rfile "/archives/bunny-hop-06-stachel/Plattform.java" "reg:^import "}}}
+```
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-06-stachel/Main.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+Die Bühne merkt sich in `vorbei`, ob das Spiel läuft. Dieses eine Attribut wirkt an
+drei Stellen:
+
+| Stelle | Wirkung |
+| --- | --- |
+| `getGeschwindigkeit` | liefert 0 – die ganze Welt bleibt stehen |
+| `Spieler.run` | zeigt das Kostüm `verletzt` und macht sonst nichts mehr |
+| `whenKeyPressed` | nur jetzt startet **r** ein neues Spiel |
+
+:::snippet{#merken}
+Das Spiel hat zwei **Zustände**: *läuft* und *vorbei*. Ein einziges Attribut
+entscheidet, welcher gilt, und alle anderen Klassen fragen danach. Wer den Zustand an
+mehreren Stellen speichert, bekommt früher oder später Widersprüche.
+:::
+
+Der Neustart baut die Bühne einfach neu auf:
+
+```java
+Window.getInstance().setStage(new BunnyHop());
+```
+
+Alle Objekte sind damit frisch – kein Aufräumen von Hand nötig.
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Lauf absichtlich in Ingo hinein. Bleibt wirklich alles stehen?
+
+b) Ingo steht im Weg, sobald er auftaucht. Sorg dafür, dass zwischen zwei Ingos
+   immer genug Platz zum Landen bleibt.
+
+c) Gib Bugs drei Leben statt einem. Erst beim dritten Treffer ist Schluss.
+
+d) Lass Ingo laufen, statt nur zu stehen: Er hat die Kostüme `spikeMan_walk1` und
+   `spikeMan_walk2`.
+:::
+
+::::collapsible{title="Tipp 1: Abstand"}
+
+`this.setX(450 + this.pickRandom(0, 300));` setzt Ingo an eine zufällige Stelle
+rechts. Je größer die zweite Zahl, desto größer die möglichen Abstände. Für einen
+**Mindest**abstand addierst du eine feste Zahl dazu.
+
+::::
+
+::::collapsible{title="Tipp 2: Leben"}
+
+Ein Treffer darf nicht in jedem Bild zählen – sonst sind alle drei Leben in einer
+Zwanzigstelsekunde weg. Nach einem Treffer braucht Bugs eine kurze Zeit der
+Unverwundbarkeit. `this.getTimer("treffer").everyMillis(1500)` hilft dabei.
+
+::::
+
+:::protect{password="bh-06-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+Zu c) in `BunnyHop`:
+
+```java
+private int leben = 3;
+
+/// Zieht ein Leben ab und beendet das Spiel beim letzten.
+public void treffer() {
+    leben = leben - 1;
+    if (leben <= 0) {
+        vorbei = true;
+        anzeige.showText("Ende! Punkte: " + punkte + " - drücke r für ein neues Spiel");
+    }
+}
+
+public int getLeben() {
+    return leben;
+}
+```
+
+In `Spieler.run` wird daraus:
+
+```java
+if (this.isTouchingSprite(Stachel.class) && this.getTimer("treffer").everyMillis(1500)) {
+    this.playSound("aua");
+    spiel.treffer();
+}
+```
+
+Die Anzeige zeigt am besten beides: `"Punkte: " + punkte + "   Leben: " + leben`.
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Ingo, der Stachelmann]{name="bunny-hop-06-stachel"}
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Warum bleibt beim Spielende die ganze Welt stehen?**
+
+{r1{Weil alle run-Methoden abgeschaltet werden.}}
+
+{r1{!Weil getGeschwindigkeit dann 0 liefert.}}
+
+{r1{Weil das Fenster geschlossen wird.}}
+
+{h{Alle beweglichen Objekte fragen dieselbe Methode.}}
+{H{Richtig! Eine Stelle steuert alles.}}
+
+**2. Was passiert beim Drücken von r?**
+
+{r2{Alle Objekte werden einzeln zurückgesetzt.}}
+
+{r2{!Es wird eine neue Bühne erzeugt und eingesetzt.}}
+
+{r2{Das Programm startet neu.}}
+
+{h{Sieh dir whenKeyPressed an.}}
+{H{Richtig! Damit ist alles automatisch frisch.}}
+
+**3. Warum sollte der Zustand nur an einer Stelle stehen?**
+
+{c1{!Sonst können sich die Stellen widersprechen.}}
+
+{c1{!Änderungen wirken sofort überall.}}
+
+{c1{Weil Java nur ein boolean pro Klasse erlaubt.}}
+
+{h{Die dritte Aussage stimmt nicht.}}
+{H{Richtig!}}
+
+::::
