@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Erzeugt die Archive der einzelnen Bunny-Hop-Lektionen.
 
-Die Endfassung liegt in `archives/bunny-hop-07-deko`. Jede Lektion ist ein
-Ausschnitt davon: dieselben Dateien, nur mit weniger Klassen und weniger Zeilen.
+Die Endfassung ist `bunny-hop-07-deko`. Jede Lektion ist ein Ausschnitt davon: dieselben Dateien, nur mit weniger Klassen und weniger Zeilen.
 So kann keine Stufe von der Endfassung abweichen - und die Seiten holen sich
 ihren Quelltext per `rfile` direkt aus diesen Ordnern.
 
@@ -16,8 +15,12 @@ from pathlib import Path
 
 WURZEL = Path(__file__).resolve().parents[2]
 ARCHIVE = WURZEL / "archives"
-QUELLE = ARCHIVE / "bunny-hop-spiel"
 JAR = "scratch-5.3.0-all.jar"
+# Die Bibliothek liegt in jedem erzeugten Archiv; als Vorlage dient das erste,
+# das schon existiert, sonst der Bau von scratch-for-java daneben.
+BIBLIOTHEK = [ARCHIVE / "bunny-hop-07-deko" / "+libs" / JAR,
+              ARCHIVE / "bunny-hop-01-vorbereitung" / "+libs" / JAR,
+              Path(__file__).resolve().parents[3] / "scratch-for-java" / "target" / JAR]
 
 MAIN = '''import org.openpatch.scratch.*;
 
@@ -244,7 +247,7 @@ SPIELER_MUENZEN = SPIELER_SPRINGT.replace(
     }'''
 )
 
-AUFBAU_MUENZEN = '''        for (int i = 0; i < PLATTFORMEN; i++) {
+AUFBAU_MUENZEN = '''        anzeige = new Text();\n\n        for (int i = 0; i < PLATTFORMEN; i++) {
             Plattform p = new Plattform(this);
             p.setPosition(-400 + i * BREITE, -120);
             this.add(p);
@@ -259,7 +262,6 @@ AUFBAU_MUENZEN = '''        for (int i = 0; i < PLATTFORMEN; i++) {
         Spieler bugs = new Spieler(this);
         this.add(bugs);
 
-        anzeige = new Text();
         anzeige.setPosition(-380, 160);
         anzeige.setAlign(TextAlign.LEFT);
         anzeige.setTextSize(20);
@@ -458,9 +460,11 @@ STUFEN["bunny-hop-07-deko"] = {
 }
 
 def main():
-    if not QUELLE.is_dir():
-        sys.exit(f"Endfassung fehlt: {QUELLE}")
-    jar = QUELLE / "+libs" / JAR
+    quelle = next((p for p in BIBLIOTHEK if p.is_file()), None)
+    if quelle is None:
+        sys.exit("Bibliothek " + JAR + " nicht gefunden")
+    # Erst lesen, dann loeschen: die Vorlage kann selbst in einem der Ziele liegen.
+    bibliothek = quelle.read_bytes()
     stufen = dict(STUFEN)
     # Die letzte Stufe ist die Endfassung selbst.
     fehler = 0
@@ -468,7 +472,7 @@ def main():
         ziel = ARCHIVE / name
         shutil.rmtree(ziel, ignore_errors=True)
         (ziel / "+libs").mkdir(parents=True)
-        shutil.copy2(jar, ziel / "+libs" / JAR)
+        (ziel / "+libs" / JAR).write_bytes(bibliothek)
         for datei, inhalt in dateien.items():
             (ziel / datei).write_text(inhalt, encoding="utf-8")
         with tempfile.TemporaryDirectory() as out:

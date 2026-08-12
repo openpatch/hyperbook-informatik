@@ -15,6 +15,8 @@ public class BunnyHop extends Stage {
     public BunnyHop() {
         this.setColor(140, 200, 235);
 
+        anzeige = new Text();
+
         for (int i = 0; i < PLATTFORMEN; i++) {
             Plattform p = new Plattform(this);
             p.setPosition(-400 + i * BREITE, -120);
@@ -30,7 +32,6 @@ public class BunnyHop extends Stage {
         Spieler bugs = new Spieler(this);
         this.add(bugs);
 
-        anzeige = new Text();
         anzeige.setPosition(-380, 160);
         anzeige.setAlign(TextAlign.LEFT);
         anzeige.setTextSize(20);
