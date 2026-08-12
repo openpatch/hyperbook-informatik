@@ -125,7 +125,7 @@ Fehlt Punkt 1, läuft die Rekursion endlos und das Programm bricht mit einem Üb
 
 ::::
 
-:::onlineide{height="520px" speed="1000000"}
+:::onlineide{height="640px" speed="1000000"}
 
 ```java Main.java
 void main() {
@@ -136,7 +136,21 @@ void main() {
     IO.println(potenz(2, 10));
 }
 
-// Deine Methoden:
+int summe(int[] pWerte, int pIndex) {
+    // Deine Loesung. Die Rueckgabewerte sind nur Platzhalter,
+    // damit das Programm von Anfang an laeuft.
+    return 0;
+}
+
+String umgekehrt(String pText) {
+    // Deine Loesung.
+    return pText;
+}
+
+int potenz(int pBasis, int pExponent) {
+    // Deine Loesung.
+    return 1;
+}
 ```
 
 :::
