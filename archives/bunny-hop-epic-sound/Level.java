@@ -13,7 +13,7 @@ public class Level extends Stage {
         ball.setPosition(900, 250);
         this.add(ball);
 
-        this.addSound("hintergrund", "assets/sounds/hintergrund.wav");
+        this.addSound("hintergrund", "jingles_NES00");
     }
     
     public void run() {

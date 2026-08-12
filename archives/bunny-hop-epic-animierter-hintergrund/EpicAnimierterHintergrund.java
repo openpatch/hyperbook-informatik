@@ -2,8 +2,8 @@ import org.openpatch.scratch.*;
 
 public class EpicAnimierterHintergrund extends Window {
     public EpicAnimierterHintergrund() {
-        super(800, 400, "assets");
+        super(800, 400);
         
-        this.addStage("level", new Level());
+        this.setStage(new Level());
     }
 }

@@ -1,7 +1,6 @@
  
 
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.math.*;
 
 public class Rocket extends Sprite {
   private Vector2 geschwindigkeit;
@@ -13,7 +12,7 @@ public class Rocket extends Sprite {
   private Ziel ziel;
 
   public Rocket(Vector2 pPosition, DNA pDna, Ziel pZiel) {
-    this.addCostume("rocket", "assets/rocket.png");
+    this.addCostume("rocket", "fishGreen");
     this.setPosition(pPosition);
     this.setHitbox(68, 27, 68, 20, 76, 21, 76, 26);
     this.beschleunigung = new Vector2();

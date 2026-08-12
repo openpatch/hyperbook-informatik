@@ -4,7 +4,7 @@ import org.openpatch.scratch.*;
 
 public class SmartRocket extends Window {
   public SmartRocket() {
-    super(800, 600, "SmartRocket/assets");
+    super(800, 600);
     this.setStage(new Level());
   }
 

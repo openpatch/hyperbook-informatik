@@ -18,8 +18,8 @@ public class Level extends Stage {
         }
     }
     
-    public void whenKeyPressed(int pKeyCode) {
-        if(pKeyCode == KeyCode.VK_P) {
+    public void whenKeyPressed(KeyCode pKeyCode) {
+        if(pKeyCode == KeyCode.P) {
             // pause umkehren;
             this.pause = !this.pause;
         }

@@ -12,7 +12,6 @@ public class BunnyHop extends Stage
     public BunnyHop()
     {
         this.setDebug(false);
-        this.setSize(800, 400);
         
         bugs = new Spieler();
         bugs.setPosition(80, 180);

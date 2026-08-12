@@ -1,12 +1,11 @@
-import org.openpatch.scratch.extensions.animation.*;
-
+import org.openpatch.scratch.*;
 public class Stachelball extends AnimatedSprite {
 
     private Spieler spieler;
     
     public Stachelball(Spieler pSpieler) {
         this.spieler = pSpieler;
-        this.addAnimation("rollen", "assets/grafiken/spikeBall_%d.png", 2);
+        this.addAnimation("rollen", "spikeBall1", 1);
     }
     
     public void ueberpruefeKollision() {

@@ -1,3 +1,4 @@
+import org.openpatch.scratch.*;
 public class StachelFeind extends Feind {
     
     Spieler spieler;
@@ -5,7 +6,7 @@ public class StachelFeind extends Feind {
     
     public StachelFeind(Spieler pSpieler) {
         this.spieler = pSpieler;
-        this.addCostume("stehen", "assets/Enemies/spikeMan_stand.png");
+        this.addCostume("stehen", "spikeMan_stand");
         this.setHitbox(0, 154, 0, 65, 44, 0, 90, 66, 90, 155);
     }
     

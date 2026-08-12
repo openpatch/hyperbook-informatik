@@ -6,7 +6,7 @@ public class NachtFilter extends Sprite {
     
     public NachtFilter(Level pLevel) {
         this.level = pLevel;
-        this.addCostume("nacht", "assets/grafiken/nacht.png");
+        this.addCostume("nacht", "background");
         this.setTransparency(160);
     }
     

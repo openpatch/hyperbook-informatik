@@ -1,6 +1,6 @@
+import org.openpatch.scratch.*;
 import org.openpatch.scratch.Stage;
 import org.openpatch.scratch.KeyCode;
-import org.openpatch.scratch.extensions.math.Random;
 
 public class HoursOfDark extends Stage {
 
@@ -16,8 +16,8 @@ public class HoursOfDark extends Stage {
         this.add(myPen);
     }
 
-    public void whenKeyPressed(int keyCode) {
-        if (keyCode == KeyCode.VK_SPACE) {
+    public void whenKeyPressed(KeyCode keyCode) {
+        if (keyCode == KeyCode.SPACE) {
             seed += 1;
         }
     }

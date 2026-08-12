@@ -1,7 +1,4 @@
- 
-
-import org.openpatch.scratch.extensions.math.*;
-
+import org.openpatch.scratch.*;
 public class DNA {
   private Vector2[] gene;
   private double maximaleKraft = 0.5;

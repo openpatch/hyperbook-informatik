@@ -6,9 +6,9 @@ public class Hintergrund extends Sprite {
     
     public Hintergrund(Level pLevel, int ebene) {
         this.level = pLevel;
-        this.addCostume("ebene1","assets/grafiken/bg_layer2.png");
-        this.addCostume("ebene2","assets/grafiken/bg_layer3.png");
-        this.addCostume("ebene3","assets/grafiken/bg_layer4.png");
+        this.addCostume("ebene1","background");
+        this.addCostume("ebene2","cloud");
+        this.addCostume("ebene3","sun1");
         
         if (ebene == 1) {
             this.switchCostume("ebene1");

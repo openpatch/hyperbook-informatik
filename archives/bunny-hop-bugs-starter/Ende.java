@@ -1,5 +1,4 @@
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.text.*;
 
 public class Ende extends Stage {
     private Text text;
@@ -12,10 +11,9 @@ public class Ende extends Stage {
         this.add(text);
     }
     
-    public void whenKeyPressed(int code) {
-        if (code == KeyCode.VK_R) {
+    public void whenKeyPressed(KeyCode code) {
+        if (code == KeyCode.R) {
             spiel.zuruecksetzen();
-            spiel.switchStage("level");
         }
     }
     

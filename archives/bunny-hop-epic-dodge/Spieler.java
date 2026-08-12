@@ -1,4 +1,3 @@
-import org.openpatch.scratch.extensions.animation.*;
 import org.openpatch.scratch.*;
 
 public class Spieler extends AnimatedSprite {
@@ -11,16 +10,13 @@ public class Spieler extends AnimatedSprite {
 
     public Spieler() {
         
-        this.addAnimation("schmerzen", "assets/grafiken/bunny1_hurt.png", 1);
-        this.addAnimation("gehen", "assets/grafiken/bunny1_walk%d.png", 2);
-        this.addAnimation("ausweichen", "assets/grafiken/bunny1_dodge%d.png", 2);
-    
-        this.addTimer("ausweichen-animation");
-        this.addTimer("ausweichen-cooldown");
+        this.addAnimation("schmerzen", "bunny1_hurt", 1);
+        this.addAnimation("gehen", "bunny1_walk%d", 2);
+        this.addAnimation("ausweichen", "bunny1_ready", 1);
     }
 
-    public void whenKeyPressed(int keyCode) {
-        if (keyCode == KeyCode.VK_D 
+    public void whenKeyPressed(KeyCode keyCode) {
+        if (keyCode == KeyCode.D 
             && !ausweichen
             && !verletzt 
             && darfAusweichen
