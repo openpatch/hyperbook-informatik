@@ -1190,8 +1190,73 @@ verlinkt.
 
 ::::
 
+::::collapsible{title="projekte/amsterdam-webseite (10 Lösungen)"}
 
-Insgesamt 351 geschützte Lösungen.
+
+**[Amsterdam Webseite – Erste HTML-Datei](/projekte/amsterdam-webseite/04-erste-html-datei)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-04-1` |
+
+**[Amsterdam Webseite – Erste Texte](/projekte/amsterdam-webseite/05-erste-texte)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-05-1` |
+
+**[Amsterdam Webseite – Ein Bild sagt mehr als 1000 Worte](/projekte/amsterdam-webseite/06-ein-bild-sagt-mehr-als-1000-worte)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-06-1` |
+
+**[Amsterdam Webseite – Liste von Erlebnissen](/projekte/amsterdam-webseite/07-liste-von-erlebnissen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-07-1` |
+
+**[Amsterdam Webseite – Die Sehenswürdigkeiten von Amsterdam](/projekte/amsterdam-webseite/08-die-sehenswuerdigkeiten)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-08-1` |
+
+**[Amsterdam Webseite – Eine Navigation muss her](/projekte/amsterdam-webseite/09-eine-navigation-muss-her)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-09-1` |
+
+**[Amsterdam Webseite – Eine Karte von Amsterdam](/projekte/amsterdam-webseite/10-eine-karte-von-amsterdam)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-10-1` |
+
+**[Amsterdam Webseite – Die Geräusche der Stadt](/projekte/amsterdam-webseite/11-die-geraeusche-der-stadt)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-11-1` |
+
+**[Amsterdam Webseite – Das Promo-Video](/projekte/amsterdam-webseite/12-das-promo-video)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-12-1` |
+
+**[Amsterdam Webseite – Pubquiz Amsterdam](/projekte/amsterdam-webseite/13-pubquiz-amsterdam)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `ams-13-1` |
+
+::::
+
+
+Insgesamt 361 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.

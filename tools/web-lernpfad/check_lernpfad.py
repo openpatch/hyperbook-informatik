@@ -30,6 +30,11 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BOOK = ROOT / "book" / "mittelstufe" / "web"
+
+# Das webide-Element kommt auch im Projekt "Amsterdam Webseite" vor. Dieselben
+# Regeln gelten dort: eindeutige id, gesetzte Hoehe, wohlgeformtes HTML.
+# Kapitelabschluesse verlangt ein Projekt dagegen nicht.
+WEITERE = [ROOT / "book" / "projekte" / "amsterdam-webseite"]
 PUBLIC = ROOT / "public"
 
 problems: list[str] = []
@@ -334,6 +339,8 @@ def main() -> int:
         print(f"{BOOK} gibt es nicht.")
         return 1
     files = sorted(BOOK.rglob("*.md"))
+    for weiterer in WEITERE:
+        files += sorted(weiterer.rglob("*.md"))
     ids: dict[str, str] = {}
     for path in files:
         text = path.read_text(encoding="utf-8")
@@ -349,7 +356,8 @@ def main() -> int:
 
     print(
         f"{len(ids)} webide-Bloecke, {kapitel} Kapitelabschluesse, "
-        f"{len(files)} Seiten geprueft."
+        f"{len(files)} Seiten geprueft (davon "
+        f"{sum(len(list(w.rglob('*.md'))) for w in WEITERE)} im Projekt Amsterdam)."
     )
     if problems:
         print(f"\n{len(problems)} Problem(e):\n")
