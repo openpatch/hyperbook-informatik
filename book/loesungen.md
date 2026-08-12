@@ -1255,23 +1255,8 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="projekte/smart-home (5 Lösungen)"}
 
-
-**[Smart Home – Ereignisse analysieren](/projekte/smart-home/ereignisse-analysieren)**
-
-| Aufgabe | Passwort |
-| --- | --- |
-| Aufgabe 1: Den Verlauf ausgeben | `sh-3-1` |
-| Aufgabe 2: Nur die Lampen | `sh-3-2` |
-| Aufgabe 3: Die höchste Temperatur | `sh-3-3` |
-| Aufgabe 4: Automationen zählen | `sh-3-4` |
-| Aufgabe 5: Neue Ereignisse annehmen | `sh-3-5` |
-
-::::
-
-
-Insgesamt 366 geschützte Lösungen.
+Insgesamt 361 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.
