@@ -117,7 +117,7 @@ Code, der nicht läuft.
 | `NOTIZEN.md` | was die Online-IDE kann; Hausstil `void main()` und `IO.println` |
 | `api-online-ide.txt` | die vollständige Klassenbibliothek der Online-IDE, aus dem gebauten JavaScript extrahiert |
 | `extract_api.js` | erzeugt diese Datei neu, wenn die IDE aktualisiert wird |
-| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, Passwörter, `onlineide`-Blöcke, nicht unterstützte Java-Konstrukte |
+| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, **Kapitelabschlüsse**, Passwörter, `onlineide`-Blöcke, nicht unterstützte Java-Konstrukte |
 | `pruefe_seiten.js` | lädt jede Seite und liest den Fehlerreiter der IDE aus |
 | `pruefe_seite.js` | dieselbe Prüfung für **eine** offene Seite, zum Einfügen in die Browserkonsole |
 
@@ -127,7 +127,7 @@ Code, der nicht läuft.
 | --- | --- |
 | `NOTIZEN.md` | was die SQL-IDE kann; die Liste der Konstrukte, die sie ablehnt |
 | `erzeuge_datenbanken.py` | erzeugt die vier SQLite-Dateien in `public/datenbanken/` |
-| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, Passwörter, `sqlide`-Blöcke, verbotene SQL-Konstrukte |
+| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, **Kapitelabschlüsse**, Passwörter, `sqlide`-Blöcke, verbotene SQL-Konstrukte |
 | `pruefe_sql.py` | führt **jede** SQL-Anweisung des Lernpfads gegen die echte Datenbank aus |
 | `pruefe_seiten.js` | liest den Fehlerreiter der SQL-IDE aus – findet, was nur deren Übersetzer bemängelt |
 
@@ -136,7 +136,7 @@ Code, der nicht läuft.
 | Datei | Zweck |
 | --- | --- |
 | `NOTIZEN.md` | was das `webide`-Element kann; warum kein JavaScript verwendet wird |
-| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, Passwörter, `webide`-Blöcke, **Wohlgeformtheit des HTML**, Klammern im CSS |
+| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, **Kapitelabschlüsse**, Passwörter, `webide`-Blöcke, **Wohlgeformtheit des HTML**, Klammern im CSS |
 | `pruefe_seiten.js` | im Browser: Bilder, die nicht laden; CSS-Deklarationen, die verworfen werden (`CSS.supports`) |
 
 Die Aufteilung hat hier einen besonderen Grund: Der Browser meldet **nichts**.

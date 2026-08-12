@@ -279,6 +279,40 @@ def check_selbsttest(path: pathlib.Path, rel: pathlib.Path, text: str) -> None:
         problems.append(f"{rel}: Selbsttest ohne multievent-Block")
 
 
+# Ordner, die keinen Kapitelabschluss brauchen: Projekt und Referenz sind
+# selbst schon Abschluss beziehungsweise Nachschlagewerk. Verglichen wird der
+# **ganze** Name ohne Nummernpraefix - eine Teilzeichenkette wuerde auch
+# "02-felder-referenzen-generik" ausnehmen, und das ist ein Inhaltskapitel.
+OHNE_RUECKBLICK = {"referenz", "projekt", "projekte"}
+
+
+def check_rueckblick(kapitelwurzeln: list[pathlib.Path]) -> int:
+    """Jedes Inhaltskapitel endet mit einer Rueckblick-Seite.
+
+    Der Rueckblick buendelt, was in den Lektionen einzeln geuebt wurde:
+    Checkliste, gemischte Aufgaben ueber mehrere Lektionen, Selbsttest. Ohne
+    ihn testet jede Lektion nur, was zwei Bildschirmseiten vorher stand.
+    """
+    gefunden = 0
+    for wurzel in kapitelwurzeln:
+        if not wurzel.is_dir():
+            continue
+        for kapitel in sorted(p for p in wurzel.iterdir() if p.is_dir()):
+            if re.sub(r"^\d+-", "", kapitel.name) in OHNE_RUECKBLICK:
+                continue
+            lektionen = [p for p in kapitel.rglob("*.md") if p.name != "index.md"]
+            if not lektionen:
+                continue
+            if any("rueckblick" in p.name for p in kapitel.glob("*.md")):
+                gefunden += 1
+            else:
+                problems.append(
+                    f"{kapitel.relative_to(ROOT)}: kein Rueckblick "
+                    f"(erwartet eine Datei mit rueckblick im Namen)"
+                )
+    return gefunden
+
+
 def check_passwords(files: list[pathlib.Path]) -> None:
     seen: dict[str, pathlib.Path] = {}
     for path in files:
@@ -311,8 +345,12 @@ def main() -> int:
         check_images(path, rel, text)
         check_selbsttest(path, rel, text)
     check_passwords(files)
+    kapitel = check_rueckblick([BOOK])
 
-    print(f"{len(ids)} webide-Bloecke, {len(files)} Seiten geprueft.")
+    print(
+        f"{len(ids)} webide-Bloecke, {kapitel} Kapitelabschluesse, "
+        f"{len(files)} Seiten geprueft."
+    )
     if problems:
         print(f"\n{len(problems)} Problem(e):\n")
         for problem in problems:
