@@ -45,5 +45,5 @@ classDiagram
 
 ### Aufgaben
 
-1. Implementiere deine Modellierung. Gehe zunächst davon aus, dass Kontakte nicht über die Eingabe hinzugefügt werden sollen. Es reicht zunächst, wenn Kontakte über das Erstellen von Objekte in BlueJ hinzugefügt werden.
+1. Implementiere deine Modellierung. Gehe zunächst davon aus, dass Kontakte nicht über die Eingabe hinzugefügt werden sollen. Es reicht zunächst, wenn du die Kontakte im Quelltext anlegst – zum Beispiel in `Main.java`.
 2. Implementiere die Kontaktverwaltung mittels der Eingabe.

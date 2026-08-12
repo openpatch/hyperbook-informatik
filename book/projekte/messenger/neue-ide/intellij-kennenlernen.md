@@ -3,7 +3,7 @@ name: Intellij kennenlernen
 lang: de
 ---
 
-Ab jetzt möchten wir Intellij benutzen, um unseren Messenger zu entwickeln. Dazu wurde der Messenger um eine TUI erweitert, da wir anders als in BlueJ nicht von Hand Objekte erzeugen und ihre Methoden aufrufen können.
+Ab jetzt möchten wir IntelliJ benutzen, um unseren Messenger zu entwickeln. Dazu wurde der Messenger um eine TUI erweitert: eine Textoberfläche, über die sich alle Funktionen aufrufen lassen, ohne dass wir die Objekte von Hand im Quelltext erzeugen müssen.
 
 Im Folgenden wirst du anhand kleiner Aufgaben dich mit Intellij vertraut machen können.
 

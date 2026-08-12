@@ -31,6 +31,6 @@ Um den Hintergrund nahtlos zu wiederholen, kann man genau so vorgehen wie bei de
 
 :::collapsible{title="Hilfe: Beispiel Implementierung" id="9672143"}
 
-::archive[BlueJ Projekt: Animierter Hintergrund]{name="bunny-hop-epic-animierter-hintergrund"}
+::archive[Projekt: Animierter Hintergrund]{name="bunny-hop-epic-animierter-hintergrund"}
 
 :::

@@ -165,9 +165,9 @@ classDiagram
 
 ```
 
-1. Erstelle ein neues EduGit-Repository mit dem Namen "frglib-dein-name" (z.B. frglib-mike) und nutze das folgende BlueJ-Projekt als Vorlage
+1. Erstelle ein neues EduGit-Repository mit dem Namen "frglib-dein-name" (z.B. frglib-mike) und nutze das folgende Projekt als Vorlage
 
-:archive[BlueJ-Projekt: frglib]{name="frglib"}
+:archive[Projekt: frglib]{name="frglib"}
 
 2. Überführe das Implementationsdiagramm in Java Quellcode
 3. Implementiere die Methode `setWord`
@@ -177,7 +177,7 @@ classDiagram
 
 5. Implementiere die Methode `reverse`
 6. Implementiere die Methode `isParlindrome`
-7. Teste deine Implementierung, indem du "Tests starten" in BlueJ ausführst. Füge gegenenfalls neue Tests in der Klasse StringUtilsTest hinzu.
+7. Teste deine Implementierung, indem du die Klasse StringUtilsTest ausführst. Füge gegebenenfalls neue Tests hinzu.
 
 ### Klassendokumentation StringUtils
 

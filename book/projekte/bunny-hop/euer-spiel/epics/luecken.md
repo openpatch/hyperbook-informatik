@@ -38,6 +38,6 @@ Versuche `anzahlPlattformen` zu implementieren.
 
 :::collapsible{title="Hilfe: Beispiel Implementierung" id="9672849234"}
 
-::archive[BlueJ Projekt: Epic Lücken]{name="bunny-hop-epic-luecken"}
+::archive[Projekt: Epic Lücken]{name="bunny-hop-epic-luecken"}
 
 :::

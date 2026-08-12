@@ -48,7 +48,6 @@ classDiagram
     +add(d: Drawable)
     +display(text: String)
     +setColor(r: int, g: int, b: int)
-    +addTimer(name: String)
     +getTimer(name: String)
   }
   
@@ -68,7 +67,7 @@ classDiagram
     +getHeight(): int
     +isTouchingSprite(d: Drawable)
     +isTouchingSprite(class: Class)
-    +addCostume(name: String, pfad: String)
+    +addCostume(name: String, bild: String)
     +setHitbox(x1: int, y1: int, x2: int, y2: int, ...)
   }
   
@@ -79,11 +78,10 @@ classDiagram
   }
   
   class Window {
-    +Window(breite: int, hoehe: int, ordner: String)
+    +Window(breite: int, hoehe: int)
     +setDebug(v: boolean)
-    +addStage(name: String, pStage: Stage)
-    +removeStage(name: String)
-    +switchStage(name: String)
+    +setStage(pStage: Stage)
+    +getStage(): Stage
   }
   
   Level --> Spieler: -bugs

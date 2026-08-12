@@ -18,7 +18,7 @@ index: 3
 ## Scratch for Java API
 
 - [Window](https://scratch4j.openpatch.org/de/reference/window)
-    - [addStage](https://scratch4j.openpatch.org/de/reference/window/addStage)
+    - [setStage](https://scratch4j.openpatch.org/de/reference/window/setStage)
 - [Sprite](https://scratch4j.openpatch.org/de/reference/sprite)
     - [setX](https://scratch4j.openpatch.org/de/reference/sprite/motion/getX)
     - [switchCostume](https://scratch4j.openpatch.org/de/reference/sprite/looks/switchCostume)

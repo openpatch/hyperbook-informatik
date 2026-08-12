@@ -43,6 +43,6 @@ Jetzt können wir die :t[Methode]{#methode} in anderen :t[Klassen]{#klasse} nutz
 
 :::collapsible{title="Hilfe: Beispiel Implementierung" id="967234"}
 
-::archive[BlueJ Projekt: Schneller mit der Zeit]{name="bunny-hop-epic-schneller-mit-der-zeit"}
+::archive[Projekt: Schneller mit der Zeit]{name="bunny-hop-epic-schneller-mit-der-zeit"}
 
 :::

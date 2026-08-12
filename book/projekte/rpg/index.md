@@ -12,9 +12,9 @@ keywords:
 
 ## Ziel
 
-Du lernst anhand der Entwicklung eines RPG die Programmiersprache Java, die Entwicklungsumgebung BlueJ und die Grundlagen der objektorientierten Programmierung kennen.
+Du lernst anhand der Entwicklung eines RPG die Programmiersprache Java und die Grundlagen der objektorientierten Programmierung kennen.
 
-Das Projekt wird begeleitet durch eine Serie von Videos. Deine Aufgabe wird es sein den Videos zufolgen und dein eigenes RPG in der Entwicklungsumgebung BlueJ zu programmieren.
+Das Projekt wird begleitet durch eine Serie von Videos. Deine Aufgabe wird es sein, den Videos zu folgen und dein eigenes RPG zu programmieren. Du brauchst dafür ein **JDK 25** und einen Texteditor, zum Beispiel [VS Code](https://code.visualstudio.com/).
 
 Solltest du festhängen oder dich näher mit den angesprochnen Begriffe und Konzepten in den Videos vertraut machen wollen, dann kannst du den Links folgen und dich stärker einarbeiten.
 
