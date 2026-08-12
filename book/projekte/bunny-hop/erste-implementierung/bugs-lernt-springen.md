@@ -29,7 +29,7 @@ public void run() {
         }
     }
 
-    if (!faellt && !springt && isKeyPressed(KeyCode.VK_SPACE)) {
+    if (!faellt && !springt && isKeyPressed(KeyCode.SPACE)) {
         springt = true;
     }
 }

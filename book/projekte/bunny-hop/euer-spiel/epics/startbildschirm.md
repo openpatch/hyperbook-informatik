@@ -13,6 +13,6 @@ Der Startbildschirm kann als eine weitere Stage gesehen werden. Schaut euch dazu
 
 :::collapsible{title="Hilfe: Beispiel Implementierung" id="967214923344"}
 
-::archive[BlueJ Projekt: Epic Startbildschirm]{name="bunny-hop-epic-startbildschirm"}
+::archive[Projekt: Epic Startbildschirm]{name="bunny-hop-epic-startbildschirm"}
 
 :::

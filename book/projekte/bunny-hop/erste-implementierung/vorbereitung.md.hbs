@@ -1,0 +1,119 @@
+---
+name: Vorbereitung
+index: 0
+lang: de
+---
+
+# Vorbereitung
+
+Nun beginnen wir mit der Implementierung des Spiels. Dafür brauchst du zwei Dinge auf deinem Rechner:
+
+1. ein **JDK 25** (oder neuer) – damit übersetzt und startet dein Rechner Java-Programme,
+2. einen **Texteditor**, in dem sich mehrere Dateien bequem bearbeiten lassen. [VS Code](https://code.visualstudio.com/) ist kostenlos und für dieses Projekt gut geeignet.
+
+Ob das JDK schon da ist, verrät ein Blick in die Kommandozeile:
+
+```bash
+java --version
+```
+
+Steht dort eine Zahl kleiner als 25 oder eine Fehlermeldung, installiere das JDK von [jdk.java.net](https://jdk.java.net/) oder über den Paketmanager deines Systems.
+
+## Das Startprojekt
+
+Alles Weitere steckt schon im Projekt: die Bibliothek [**Scratch for Java**](https://scratch4j.openpatch.org), die dir die Spieleentwicklung abnimmt, und die Grafiken.
+
+::archive[Projekt: Vorbereitung]{name="bunny-hop-vorbereitung"}
+
+Entpacke das Archiv. Darin findest du:
+
+```bash
+bunny-hop-vorbereitung
+├── +libs
+│   └── scratch-5.3.0-all.jar    ← die Bibliothek
+├── BunnyHop.java                ← die Bühne
+├── Main.java                    ← hier startet das Programm
+└── Spieler.java                 ← Bugs
+```
+
+:::snippet{#merken}
+Die Grafiken sind in der Bibliothek **eingebaut**. Du musst nichts herunterladen und keine Bilddateien einsortieren: Ein Kostüm bekommt einfach seinen Namen, zum Beispiel `bunny1_stand`.
+
+Alle 838 Namen findest du unter [scratch4j.openpatch.org/sprites](https://scratch4j.openpatch.org/sprites).
+:::
+
+## Das erste Programm
+
+Die drei Dateien enthalten schon ein kleines Programm. Sieh es dir an, bevor du es startest:
+
+::::tabs{id="845876"}
+
+:::tab{title="Main" id="605172"}
+
+```java
+{{{rfile "/archives/bunny-hop-vorbereitung/Main.java"}}}
+```
+
+`Main.java` ist der Startpunkt. Sie öffnet ein Fenster von 800 × 400 Pixeln und stellt die Bühne `BunnyHop` hinein.
+
+:::
+
+:::tab{title="BunnyHop" id="605171"}
+
+```java
+{{{rfile "/archives/bunny-hop-vorbereitung/BunnyHop.java"}}}
+```
+
+Die **Bühne** ist der Ort, an dem gespielt wird. Alles, was man sehen soll, muss ihr mit `add` hinzugefügt werden.
+
+:::
+
+:::tab{title="Spieler" id="605170"}
+
+```java
+{{{rfile "/archives/bunny-hop-vorbereitung/Spieler.java"}}}
+```
+
+Ein **Sprite** ist eine Figur auf der Bühne. Bugs bekommt hier ein Kostüm mit dem Namen `stehen`, das das eingebaute Bild `bunny1_stand` zeigt.
+
+:::
+
+::::
+
+Starte das Programm aus dem Projektordner heraus:
+
+```bash
+java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-5.3.0-all.jar" Main.java
+```
+
+Anschließend solltest du die folgende Ausgabe sehen:
+
+![](/images/bunny-hop/vorbereitung/bunny.png)
+
+::::collapsible{title="Das ist eine lange Zeile – geht das kürzer?"}
+
+In VS Code drückst du stattdessen einfach den Startknopf über `Main.java`; die Erweiterung *Extension Pack for Java* kümmert sich um den Rest.
+
+Auf der Kommandozeile hilft ein kurzer Blick auf die Teile:
+
+| Teil | Wozu |
+| --- | --- |
+| `--enable-native-access=ALL-UNNAMED` | unterdrückt eine Warnung von Java 25. Ohne den Schalter läuft alles genauso, es erscheinen nur vier Zeilen Text. |
+| `-classpath "+libs/scratch-5.3.0-all.jar"` | sagt Java, wo die Bibliothek liegt |
+| `Main.java` | die Datei, die gestartet wird. Die übrigen `.java`-Dateien im Ordner findet Java von selbst. |
+
+::::
+
+:::alert{warn}
+Es kann immer nur **ein** Fenster geöffnet sein. Schließe das Fenster also, bevor du das Programm erneut startest – sonst bricht es mit einer Fehlermeldung ab.
+:::
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Bring das Programm bei dir zum Laufen. Siehst du Bugs vor weißem Hintergrund?
+
+b) Gib Bugs ein anderes Kostüm. Auf [der Übersicht](https://scratch4j.openpatch.org/sprites) findest du unter anderem `bunny1_ready`, `bunny1_jump` und `bunny2_stand`.
+
+c) Verschiebe Bugs an eine andere Stelle. Ergänze dafür in `BunnyHop` nach `this.add(bugs);` die Zeile `bugs.setPosition(200, 300);` und probier verschiedene Zahlen aus.
+:::

@@ -14,7 +14,7 @@ Es liegt euch bereits eine erste Implementierung des Messengers vor, die für di
 
 1. Lade dir die erste Implementierung herunter.
 
-::archive[BlueJ Projekt: Messenger]{name="messenger"}
+::archive[Projekt: Messenger]{name="messenger"}
 
 2. Erstelle ein Klassendiagramm zu dem Projekt. Nutze dazu https://mermaid.live oder Stift und Papier.
 

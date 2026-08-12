@@ -46,9 +46,9 @@ public class Beispiel {
 
 ## Aufgabe 3
 
-Lade dir das BlueJ Projekt herunter und bearbeite die nachfolgenden Aufgaben. Wahlweise kannst du die Aufgaben auch in der online IDE bearbeiten
+Lade dir das Projekt herunter und bearbeite die nachfolgenden Aufgaben. Wahlweise kannst du die Aufgaben auch in der online IDE bearbeiten
 
-::archive[BlueJ Projekt]{name="list-aufgabe-3"}
+::archive[Projekt]{name="list-aufgabe-3"}
 
 1. Deklariere und erzeuge eine Referenz für ein Objekt der Klasse List, welche Strings enthalten soll. Das Objekt soll im Konstruktor erzeugt werden.
 2. Implementiere die Methode fuelle(). Sie fügt die Strings "Rot", "Blau", "Gelb" und "Grün" (in dieser Reihenfolge) in die Liste ein.

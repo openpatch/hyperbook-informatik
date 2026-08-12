@@ -117,16 +117,16 @@ Um eine Animation hinzuzufügen, kann die Methode `addAnimation(name, pattern, f
 | Parameter | Datentyp | Beschreibung |
 | -- | -- | -- |
 | name | String | Der Name der Animation, welche z.B. für `playAnimation` benutzt werden kann |
-| pattern | String | Ein Muster zum Finden von Dateien, die zur Animation gehören. |
+| pattern | String | Ein Muster für die Namen der Bilder. Das `%d` darin wird durch die Nummer des Einzelbildes ersetzt. |
 | frames | String | Die Anzahl der Frames die für die Animation geladen werden sollen |
 
-Zum Beispiel würde der Aufruf `addAnimation("gehen", "assets/Player/bunny1_walk%d.png", 2)`
+Zum Beispiel würde der Aufruf `addAnimation("gehen", "bunny1_walk%d", 2)`
 
-die Bilder
-- "assets/Player/bunny1_walk1.png"
-- "assets/Player/bunny1_walk2.png"
+die eingebauten Bilder
+- `bunny1_walk1`
+- `bunny1_walk2`
 
-der Animation "gehen" hinzufügen.
+der Animation "gehen" hinzufügen. Die Nummerierung beginnt bei 1.
 
 Animationen können dann durch den Aufruf der Methode `playAnimation(name)` ausgeführt werden.
 
