@@ -88,6 +88,18 @@ d) Ist `<strong>` ein Nachfahre von `<main>`? Ist es ein **Kind** von `<main>`?
 e) Die :t[CSS]{#css}-Regel im Übungsbereich zeichnet um **jedes** Element einen Rahmen. Zähle die Rahmen und vergleiche mit deinem Baum.
 :::
 
+::::collapsible{title="Tipp zu a): Wie fange ich an zu zeichnen?"}
+
+Geh den Quelltext von oben nach unten durch und führ dabei einen Stift mit:
+
+1. Das **äußerste** Element kommt ganz nach oben aufs Blatt.
+2. Bei jedem **Starttag** hängst du ein neues Kästchen unter das Element, das gerade offen ist.
+3. Bei jedem **Endtag** gehst du eine Ebene zurück nach oben.
+
+Die Einrückung im Quelltext hilft dir dabei – sie zeigt bereits, wie tief du gerade bist.
+
+::::
+
 :::protect{password="web-3-1-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 a)

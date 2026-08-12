@@ -98,6 +98,19 @@ b) `http://192.168.0.1/status`
 c) `https://www.openstreetmap.org/search?query=Essen#map=12/51.45/7.01`
 :::
 
+::::collapsible{title="Tipp: An welchen Zeichen trenne ich?"}
+
+Die Bestandteile sind an festen Trennzeichen zu erkennen. Geh sie in dieser Reihenfolge durch:
+
+1. `://` – davor steht das Protokoll.
+2. Der **erste** einzelne `/` danach – davor steht der Servername.
+3. `?` – ab hier beginnt die Abfrage.
+4. `#` – ab hier beginnt das Sprungziel.
+
+Alles zwischen 2. und 3. ist der Pfad. Fehlt ein Trennzeichen, fehlt eben dieser Teil.
+
+::::
+
 :::protect{password="web-1-1-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 a) Protokoll `https`, Servername `de.wikipedia.org`, Pfad `/wiki/Hypertext`. Keine Abfrage, kein Sprungziel.

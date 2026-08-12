@@ -218,6 +218,37 @@ c) Er soll höchstens 40rem breit und waagerecht zentriert sein.
 d) Zwischen den Kästen sollen 1.5rem Abstand entstehen.
 :::
 
+::::collapsible{title="Tipp 1: Wo schreibe ich was hin?"}
+
+Du brauchst genau zwei Regeln – eine für `*` und eine für die Klasse `kasten`:
+
+```css
+* {
+  /* hierhin gehört a) */
+}
+
+.kasten {
+  /* hierhin gehört alles von b) bis d) */
+}
+```
+
+Die Klasse steht schon im HTML, du musst sie nur ansprechen.
+
+::::
+
+::::collapsible{title="Tipp 2: Welche Eigenschaft wofür?"}
+
+| Verlangt | Eigenschaft |
+| --- | --- |
+| Rahmen | `border` |
+| abgerundete Ecken | `border-radius` |
+| Innenabstand | `padding` |
+| höchstens so breit | `max-width` |
+| waagerecht zentriert | `margin-inline: auto` |
+| Abstand nach oben und unten | `margin-block` |
+
+::::
+
 :::webide{id="web-4-4-uebung" height="460px"}
 
 ```html

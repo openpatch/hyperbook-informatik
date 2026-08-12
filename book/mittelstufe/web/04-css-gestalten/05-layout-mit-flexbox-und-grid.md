@@ -106,6 +106,14 @@ Probiere für `justify-content` nacheinander diese Werte aus und beschreibe jewe
 Probiere danach für `align-items`: `stretch`, `center`, `flex-start`, `flex-end`.
 :::
 
+::::collapsible{title="Tipp: Ich sehe keinen Unterschied"}
+
+Ändere immer nur **einen** Wert und sieh sofort in die Vorschau.
+
+Wenn sich bei `justify-content` gar nichts tut, ist meist kein Platz übrig: Die Eigenschaft verteilt den **freien** Raum in der Reihe. Zieh die Trennlinie zwischen Vorschau und Editor nach rechts, damit die Leiste breiter wird – dann werden die Unterschiede sichtbar.
+
+::::
+
 :::protect{password="web-4-5-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 `justify-content` verteilt **entlang** der Reihe, also hier waagerecht:
