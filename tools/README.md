@@ -56,6 +56,28 @@ Für die tägliche Arbeit genügt deshalb `--schnell`. Wer nur an einem Pfad
 gearbeitet hat, nimmt `--nur web` und ist in zwei Minuten durch. Der
 vollständige Lauf lohnt sich, bevor man einen größeren Stand abgibt.
 
+## Passwörter nachschlagen
+
+Die Lösungen in den Lernpfaden stecken in passwortgeschützten Blöcken. Wer
+unterrichtet, braucht eine Liste – und zwar eine, die sagt, **wozu** ein
+Passwort gehört:
+
+```bash
+python3 tools/passwoerter.py                    # Übersicht im Terminal
+python3 tools/passwoerter.py --nur web          # nur Seiten, deren Pfad "web" enthält
+python3 tools/passwoerter.py --markdown > /tmp/passwoerter.md
+```
+
+Ausgegeben wird nach Lernpfad und Seite gruppiert, zu jedem Passwort die
+Überschrift des Abschnitts, in dem der Block sitzt. Doppelt vergebene
+Passwörter meldet das Skript und gibt dann 1 zurück – das ist der einzige Fall,
+in dem es sich beschwert. Die Prüfskripte der Lernpfade achten nur *innerhalb*
+eines Pfades auf Eindeutigkeit; über alle Pfade hinweg schaut nur dieses Skript.
+
+Es heißt bewusst nicht `check_…` oder `pruefe_…`: `pruefe-alles.py` soll es
+nicht mitlaufen lassen, denn es ist ein Bericht und keine Prüfung. Die
+erzeugte Datei gehört **nicht** ins Buch und nicht ins Repository.
+
 ## Einmalige Einrichtung
 
 Die statischen Prüfungen brauchen nur Python. Für die **Browserprüfungen**

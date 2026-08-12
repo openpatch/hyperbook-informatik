@@ -99,7 +99,7 @@ Für die durchgehenden Lernpfade – etwa [Einführung mit Turtle-Grafiken](/mit
 - **Kapitel** sind Ordner `NN-slug/` mit einer `index.md`, die `name:` und `index: N` trägt.
 - **Lektionen** sind Dateien `NN-slug.md` mit `title:` und `index: N`. Der Zahlenprefix im Dateinamen stimmt mit `index:` überein.
 - **Tipps** sind gestuft und eingeklappt: `::::collapsible{title="Tipp 1: …"}`. Der erste Tipp gibt einen Denkanstoß, der letzte ein Codegerüst.
-- **Lösungen** stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`. Die Passwörter sind global eindeutig.
+- **Lösungen** stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`. Die Passwörter sind global eindeutig; `python3 tools/passwoerter.py` listet sie mit Seite und Abschnitt auf.
 - **Jede Lektion endet mit einem Selbsttest**: nach einem `---` folgt `## Selbsttest` und ein `::::multievent`-Block.
 - **Bezüge zum Kernlehrplan** stehen in HTML-Kommentaren, damit sie im Hyperbook nicht erscheinen.
 
