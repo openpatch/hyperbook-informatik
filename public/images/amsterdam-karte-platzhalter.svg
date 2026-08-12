@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img"
+     aria-label="Vereinfachte Karte mit Kanaelen, Gruenflaechen und Strassen">
+  <rect width="600" height="400" fill="#eef1e6"/>
+  <g fill="none" stroke="#9ac5db" stroke-width="14">
+    <path d="M60 340 Q300 250 560 320"/>
+    <path d="M80 280 Q300 190 540 260"/>
+    <path d="M110 220 Q300 130 520 200"/>
+  </g>
+  <g fill="#cfe0bd">
+    <rect x="70" y="60" width="150" height="90" rx="10"/>
+    <rect x="420" y="80" width="120" height="70" rx="10"/>
+  </g>
+  <g stroke="#d9d2c5" stroke-width="8">
+    <path d="M300 20 L300 380"/>
+    <path d="M20 200 L580 200"/>
+  </g>
+  <rect x="0" y="0" width="600" height="400" fill="none" stroke="#c9c9c9" stroke-width="4"/>
+</svg>
