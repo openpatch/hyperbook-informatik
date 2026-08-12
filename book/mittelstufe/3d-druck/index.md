@@ -20,7 +20,7 @@ Modelliert wird mit **OpenSCAD**. Das ist ungewöhnlich: Statt mit der Maus zu z
 - **Modellierbereiche** laufen direkt im Browser. Du musst nichts installieren, und du kannst nichts kaputt machen.
 - **Verändere die Beispiele!** Dreh an den Zahlen und sieh zu, was passiert – das ist der schnellste Weg zum Verständnis.
 - **Tipps** sind eingeklappt. Öffne sie erst, wenn du wirklich nicht weiterkommst, und immer nur den nächsten.
-- **Lösungen** sind mit einem Passwort geschützt. Frag danach bei deiner Lehrkraft, wenn du deine eigene Lösung vergleichen willst.
+- **Lösungen** sind mit einem Passwort geschützt. Alle Passwörter stehen auf der Seite [Lösungspasswörter](/loesungen) – sieh dort erst nach, wenn du die Aufgabe wirklich versucht und die Tipps geöffnet hast.
 - Am Ende jeder Lektion steht ein **Selbsttest**, am Ende jedes Kapitels ein **Rückblick** mit gemischten Aufgaben.
 :::
 

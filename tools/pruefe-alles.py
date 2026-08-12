@@ -9,7 +9,7 @@
 Die Pruefungen werden **gefunden, nicht aufgezaehlt**. Wer ein neues Werkzeug
 nach den Namenskonventionen ablegt, muss dieses Skript nicht anfassen:
 
-| Datei in tools/<irgendein-ordner>/ | Art |
+| Datei in tools/ oder tools/<irgendein-ordner>/ | Art |
 | --- | --- |
 | `check_*.py`   | statische Pruefung, braucht nichts weiter |
 | `pruefe_*.py`  | statische Pruefung, braucht nichts weiter |
@@ -77,7 +77,10 @@ class Pruefung:
 
 def finde_pruefungen(nur: str | None) -> list[Pruefung]:
     gefunden: list[Pruefung] = []
-    for ordner in sorted(p for p in TOOLS.iterdir() if p.is_dir()):
+    # tools/ selbst und jeder Unterordner. Pfadweite Werkzeuge liegen in einem
+    # Unterordner, buchweite (etwa die Passwortseite) direkt in tools/.
+    ordner_liste = [TOOLS] + sorted(p for p in TOOLS.iterdir() if p.is_dir())
+    for ordner in ordner_liste:
         for datei in sorted(ordner.iterdir()):
             if not datei.is_file():
                 continue
@@ -96,7 +99,8 @@ def finde_pruefungen(nur: str | None) -> list[Pruefung]:
 
 def finde_generatoren(nur: str | None) -> list[Pruefung]:
     gefunden: list[Pruefung] = []
-    for ordner in sorted(p for p in TOOLS.iterdir() if p.is_dir()):
+    ordner_liste = [TOOLS] + sorted(p for p in TOOLS.iterdir() if p.is_dir())
+    for ordner in ordner_liste:
         for datei in sorted(ordner.glob("*.py")):
             if datei.name.startswith(("erzeuge_", "render_")):
                 pfad = str(datei.relative_to(ROOT))

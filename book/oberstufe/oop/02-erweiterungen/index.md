@@ -25,7 +25,7 @@ und "Algorithmen". Die Zuordnung steht am Ende dieser Datei.
 - **Programmierbereiche** kannst du direkt im Browser ausführen. Du musst nichts installieren.
 - Für die dynamischen Datenstrukturen nutzen wir die **NRW-Klassenbibliothek**, wie sie auch im Zentralabitur vorausgesetzt wird.
 - **Tipps** sind eingeklappt. Öffne sie erst, wenn du wirklich nicht weiterkommst.
-- **Lösungen** sind mit einem Passwort geschützt. Frage danach bei deiner Lehrkraft.
+- **Lösungen** sind mit einem Passwort geschützt. Alle Passwörter stehen auf der Seite [Lösungspasswörter](/loesungen) – sieh dort erst nach, wenn du die Aufgabe wirklich versucht und die Tipps geöffnet hast.
 - Bei den meisten Aufgaben liegt eine Datei mit **Tests** dabei. Über den Reiter *Testrunner* prüfst du selbst, ob deine Lösung stimmt.
 - Am Ende jeder Lektion findest du einen **Selbsttest**.
 :::

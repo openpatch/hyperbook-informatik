@@ -32,7 +32,7 @@ Gearbeitet wird durchgehend an **einer** Datenbank: der eines erfundenen Musikfe
 - **Verändere die Beispiele!** Über *Datenbank Reset* kommst du jederzeit zum Ausgangszustand zurück.
 - Der Reiter **Fehler** zeigt dir schon beim Tippen, wenn ein Tabellen- oder Spaltenname nicht stimmt. Lies die Meldung, statt sie wegzuklicken.
 - **Tipps** sind eingeklappt. Öffne sie erst, wenn du wirklich nicht weiterkommst – und immer nur den nächsten.
-- **Lösungen** sind mit einem Passwort geschützt. Frage danach bei deiner Lehrkraft, wenn du deine eigene Lösung vergleichen möchtest.
+- **Lösungen** sind mit einem Passwort geschützt. Alle Passwörter stehen auf der Seite [Lösungspasswörter](/loesungen) – sieh dort erst nach, wenn du die Aufgabe wirklich versucht und die Tipps geöffnet hast.
 - Am Ende jeder Lektion findest du einen **Selbsttest**.
 :::
 

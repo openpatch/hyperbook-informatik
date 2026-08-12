@@ -24,7 +24,7 @@ Einführungsphase ab. Die Zuordnung steht am Ende dieser Datei.
 - **Programmierbereiche** kannst du direkt im Browser ausführen. Du musst nichts installieren.
 - **Verändere die Beispiele!** Du kannst nichts kaputt machen. Lade die Seite neu, wenn du von vorne anfangen möchtest.
 - **Tipps** sind eingeklappt. Öffne sie erst, wenn du wirklich nicht weiterkommst – und immer nur den nächsten.
-- **Lösungen** sind mit einem Passwort geschützt. Frage danach bei deiner Lehrkraft, wenn du deine eigene Lösung vergleichen möchtest.
+- **Lösungen** sind mit einem Passwort geschützt. Alle Passwörter stehen auf der Seite [Lösungspasswörter](/loesungen) – sieh dort erst nach, wenn du die Aufgabe wirklich versucht und die Tipps geöffnet hast.
 - Bei vielen Aufgaben liegt eine Datei mit **Tests** dabei. Über den Reiter *Testrunner* prüfst du damit selbst, ob deine Lösung stimmt.
 - Am Ende jeder Lektion findest du einen **Selbsttest**. Damit prüfst du, ob du das Wichtigste verstanden hast.
 :::
