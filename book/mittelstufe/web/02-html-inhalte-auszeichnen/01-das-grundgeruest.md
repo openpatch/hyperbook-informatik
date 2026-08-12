@@ -135,6 +135,18 @@ Dieser Quelltext ist richtig, aber unlesbar. Rücke ihn auf Papier ein.
 ```
 :::
 
+::::collapsible{title="Tipp: So gehst du vor"}
+
+Nimm einen Bleistift und arbeite die Zeilen von oben nach unten ab. Führ dabei einen Zähler mit:
+
+- Ein **Starttag** erhöht die Ebene um eins – die **nächste** Zeile wird zwei Leerzeichen weiter eingerückt.
+- Ein **Endtag** senkt die Ebene wieder – und wird selbst schon auf der niedrigeren Ebene geschrieben.
+- `<!DOCTYPE html>` und `<html>` stehen ganz links.
+
+Am Ende muss die letzte Zeile wieder ganz links stehen. Tut sie das nicht, hast du ein Tag übersehen.
+
+::::
+
 :::protect{password="web-2-1-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```html

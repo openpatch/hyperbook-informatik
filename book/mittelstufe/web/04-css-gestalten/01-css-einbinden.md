@@ -69,6 +69,14 @@ b) Später soll die Schriftart geändert werden. Wie viele Stellen jetzt?
 c) Welchen Weg wählst du – und warum?
 :::
 
+::::collapsible{title="Tipp: Wie zähle ich?"}
+
+Stell dir für jeden Weg die gleiche Frage: **Wie viele Dateien muss ich öffnen, und wie oft schreibe ich dieselbe Regel hin?**
+
+Nimm für b) an, dass auf jeder Seite zwanzig Elemente stehen, die die Schrift bekommen sollen. Dann wird der Unterschied deutlich.
+
+::::
+
 :::protect{password="web-4-1-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 a)
