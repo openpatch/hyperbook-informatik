@@ -30,6 +30,7 @@ jobs:
 
       - name: Setup and Build
         run: |
+          python3 tools/erzeuge_passwortseite.py
           npx hyperbook build
 
       - name: Upload artifact

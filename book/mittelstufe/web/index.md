@@ -30,7 +30,7 @@ Gearbeitet wird direkt im Browser – du musst nichts installieren und kannst ni
 - **Verändere die Beispiele!** Über den Zurücksetzen-Knopf kommst du zum Ausgangszustand zurück.
 - Der Browser zeigt bei fehlerhaftem :t[HTML]{#html} **keine Fehlermeldung**. Er versucht zu retten, was zu retten ist. Deine Rückmeldung ist deshalb immer die **Vorschau**: Sieht es aus wie gedacht?
 - **Tipps** sind eingeklappt. Öffne sie erst, wenn du wirklich nicht weiterkommst – und immer nur den nächsten.
-- **Lösungen** sind mit einem Passwort geschützt. Frage danach bei deiner Lehrkraft.
+- **Lösungen** sind mit einem Passwort geschützt. Alle Passwörter stehen auf der Seite [Lösungspasswörter](/loesungen) – sieh dort erst nach, wenn du die Aufgabe wirklich versucht und die Tipps geöffnet hast.
 - Am Ende jeder Lektion findest du einen **Selbsttest**.
 :::
 

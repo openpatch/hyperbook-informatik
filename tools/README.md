@@ -79,6 +79,30 @@ Es heißt bewusst nicht `check_…` oder `pruefe_…`: `pruefe-alles.py` soll es
 nicht mitlaufen lassen, denn es ist ein Bericht und keine Prüfung. Die
 erzeugte Datei gehört **nicht** ins Buch und nicht ins Repository.
 
+## Die Passwortseite im Buch
+
+Anders als die Übersicht oben richtet sich die Seite [Lösungspasswörter](../book/loesungen.md)
+an **Lernende**: Wer zu Hause eine Aufgabe bearbeitet hat, soll seine Lösung
+vergleichen können, ohne bis zur nächsten Stunde zu warten.
+
+```bash
+python3 tools/erzeuge_passwortseite.py            # book/loesungen.md neu schreiben
+python3 tools/erzeuge_passwortseite.py --pruefen  # nur melden, ob sie aktuell ist
+```
+
+Die Seite wird **erzeugt**. Wer einen `protect`-Block hinzufügt, ändert oder
+verschiebt, lässt das Skript neu laufen. Zwei Netze fangen das Vergessen ab:
+
+- `python3 tools/pruefe-alles.py --generatoren` meldet, wenn die eingecheckte
+  Seite nicht mehr zum Bestand passt.
+- Der GitHub-Workflow erzeugt sie **vor** `npx hyperbook build` neu, sodass die
+  veröffentlichte Fassung immer stimmt.
+
+Neben jedem Passwort steht, zu welchem Block es gehört – bevorzugt die
+Überschrift der Aufgabe (`**Aufgabe 2: …**`), sonst die Abschnittsüberschrift.
+Ohne diese Angabe wäre die Liste wertlos, weil eine Seite oft mehrere
+geschützte Blöcke hat.
+
 ## Einmalige Einrichtung
 
 Die statischen Prüfungen brauchen nur Python. Für die **Browserprüfungen**
@@ -179,6 +203,10 @@ zu halten:
 | `pruefe_seiten.js` | Browserprüfung | wenn Dev-Server und Playwright da sind |
 | `erzeuge_*.py`, `render_*.py` | Generator | nur mit `--generatoren` |
 | alles andere | Bibliothek, Notiz, Einmalskript | nie |
+
+Gesucht wird in `tools/` **und** in jedem Unterordner: pfadweite Werkzeuge
+liegen in einem Unterordner, buchweite (etwa die Passwortseite) direkt in
+`tools/`.
 
 Damit das zusammenpasst, sollte jedes neue Werkzeug:
 

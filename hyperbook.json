@@ -26,6 +26,11 @@
       "label": "Glossar"
     },
     {
+      "href": "/loesungen",
+      "icon": "🔑",
+      "label": "Lösungen"
+    },
+    {
       "label": "Über",
       "links": [
         {

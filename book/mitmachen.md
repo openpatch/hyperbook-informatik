@@ -94,15 +94,86 @@ Für Sachen zum Weiterdenken, zum Knoblen. Also für anspruchsvollere Probleme.
 
 ## Lernpfade
 
-Für die durchgehenden Lernpfade – etwa [Einführung mit Turtle-Grafiken](/mittelstufe/python/einfuehrung-mit-turtle) oder [Programmierung mit Java](/oberstufe/oop) – gilt ein festes Format. Wer daran weiterarbeitet, sollte es beibehalten:
+Ein **Lernpfad** ist mehr als eine Sammlung von Seiten: eine durchgehende Strecke, die man von vorne bis hinten durcharbeiten kann. Fünf gibt es zurzeit – [Turtle-Grafiken](/mittelstufe/python/einfuehrung-mit-turtle), [Webentwicklung](/mittelstufe/web), [3D-Druck](/mittelstufe/3d-druck), [Datenbanken](/oberstufe/datenbanken) und [Programmierung mit Java](/oberstufe/oop). Alle sind gleich gebaut. Wer einen neuen anlegt oder an einem bestehenden weiterarbeitet, hält sich an diesen Aufbau.
 
-- **Kapitel** sind Ordner `NN-slug/` mit einer `index.md`, die `name:` und `index: N` trägt.
-- **Lektionen** sind Dateien `NN-slug.md` mit `title:` und `index: N`. Der Zahlenprefix im Dateinamen stimmt mit `index:` überein.
-- **Tipps** sind gestuft und eingeklappt: `::::collapsible{title="Tipp 1: …"}`. Der erste Tipp gibt einen Denkanstoß, der letzte ein Codegerüst.
-- **Lösungen** stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`. Die Passwörter sind global eindeutig; `python3 tools/passwoerter.py` listet sie mit Seite und Abschnitt auf.
-- **Jede Lektion endet mit einem Selbsttest**: nach einem `---` folgt `## Selbsttest` und ein `::::multievent`-Block.
-- **Jedes Kapitel endet mit einem Rückblick**: einer Seite `NN-rueckblick.md` mit einer Checkliste „Das kann ich jetzt", zwei bis drei **gemischten Aufgaben** über mehrere Lektionen hinweg und einem Selbsttest über das ganze Kapitel. Der Selbsttest einer Lektion prüft nur, was zwei Bildschirmseiten vorher stand – der Rückblick ist die Stelle, an der die Lernenden merken, ob es auch zusammen trägt. Projekt- und Referenzkapitel brauchen keinen.
-- **Bezüge zum Kernlehrplan** stehen in HTML-Kommentaren, damit sie im Hyperbook nicht erscheinen.
+### Der Aufbau im Überblick
+
+```
+lernpfad/
+├── index.md                     Startseite: Worum geht es, wie arbeitet man damit
+├── 01-kapitel/
+│   ├── index.md                 Kapitelseite: Voraussetzungen und Lernziele
+│   ├── 01-lektion.md            Lektion
+│   ├── 02-lektion.md
+│   └── 03-rueckblick.md         Kapitelabschluss
+├── 02-kapitel/
+│   └── …
+├── 08-projekt/                  freies Arbeiten, kein Rückblick
+└── 09-referenz/                 Nachschlagewerk, kein Rückblick
+```
+
+Die **Zahlenpräfixe** im Dateinamen stimmen mit dem `index:` im Frontmatter überein. Kapitelseiten tragen `name:`, Lektionen `title:`.
+
+### Die Startseite
+
+Sie beantwortet drei Fragen und nicht mehr:
+
+1. **Worum geht es hier?** Zwei bis drei Sätze, die sagen, was am Ende herauskommt.
+2. **Wie du mit diesem Lernpfad arbeitest** – als `:::snippet{#merken}`: Programmierbereiche laufen im Browser, Beispiele soll man verändern, Tipps sind gestuft, Lösungen sind geschützt, jede Lektion endet mit einem Selbsttest.
+3. **Die Kapitel** als Tabelle mit einer Zeile je Kapitel.
+
+Dazu gehören ein `permaid:` für den QR-Code und `keywords:` für die Suche.
+
+### Die Kapitelseite
+
+Auch sie folgt einem festen Muster:
+
+- **Worum geht es hier?** – der Zweck des Kapitels in zwei Sätzen.
+- **Für dieses Kapitel musst du …** – die Voraussetzungen, mit Link auf das Kapitel, in dem sie stehen. Beim ersten Kapitel entfällt der Abschnitt.
+- **Hier lernst du …** – eine Liste der Lernziele, in der Sprache der Lernenden formuliert, nicht in der des Lehrplans.
+
+### Die Lektion
+
+Eine Lektion behandelt **einen** Gedanken und ist in einer Unterrichtsstunde zu schaffen. Ihr Aufbau:
+
+1. **Einstieg** – ein bis zwei Sätze, die das Problem aufwerfen. Keine Inhaltsangabe.
+2. **Erarbeitung** im Wechsel aus Erklärung, `:::snippet{#definition}` beziehungsweise `{#merken}` und einem **Übungsbereich** (`onlineide`, `sqlide`, `webide`, `pyide`, `openscad`), in dem etwas läuft, das man verändern kann.
+3. **Aufgaben** als `:::snippet{#aufgabe}` – möglichst mit einer **Vorhersage** vor dem Ausprobieren.
+4. **Gestufte Tipps** als `::::collapsible{title="Tipp 1: …"}`. Der erste gibt einen Denkanstoß, der letzte ein Gerüst. Sie ersetzen die Lehrkraft für den Moment, in dem sie gerade woanders steht.
+5. **Lösung** in einem `:::protect`-Block.
+6. **Selbsttest** – nach einem `---` die Überschrift `## Selbsttest` und ein `::::multievent`-Block mit fünf bis acht Fragen über die Lektion.
+
+Zusätzlich: `:::snippet{#brain}` für Vertiefungen, die niemand braucht, um weiterzukommen, und `:::alert{info}` für Hinweise zum Werkzeug.
+
+### Der Kapitelabschluss
+
+Jedes Inhaltskapitel endet mit `NN-rueckblick.md`. Der Selbsttest einer Lektion prüft nur, was zwei Bildschirmseiten vorher stand – der Rückblick ist die Stelle, an der sich zeigt, ob es auch **zusammen** trägt. Er besteht aus:
+
+- **Das kann ich jetzt** – eine Checkliste (`- [ ]`) mit einem Punkt je Lernziel und einem Link auf die zugehörige Lektion.
+- **Gemischte Aufgaben** – zwei bis drei Aufgaben, die **mehrere** Lektionen zugleich verlangen, mit Tipps und geschützter Lösung. Genau das wird in einer Klassenarbeit gefordert.
+- **Selbsttest** über das ganze Kapitel.
+
+Projekt- und Referenzkapitel brauchen keinen Rückblick; die Prüfskripte nehmen sie automatisch aus.
+
+### Lösungen und Passwörter
+
+Lösungen stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`.
+
+Das Passwort folgt dem Schema `<pfad>-<kapitel>-<lektion>-<nummer>`, etwa `db-4-3-2` oder `web-2-6-1`, und ist **im ganzen Buch eindeutig**. Zwei Werkzeuge helfen dabei:
+
+```bash
+python3 tools/passwoerter.py              # Übersicht für Lehrkräfte, mit Seite und Abschnitt
+python3 tools/erzeuge_passwortseite.py    # erzeugt die Seite /loesungen im Buch
+```
+
+Die Seite [Lösungspasswörter](/loesungen) gehört zum Buch und wird **erzeugt**, nicht von Hand gepflegt. Wer einen `protect`-Block hinzufügt, ändert oder verschiebt, lässt das Skript neu laufen; `python3 tools/pruefe-alles.py --generatoren` prüft, dass die eingecheckte Seite zum Bestand passt.
+
+### Weitere Absprachen
+
+- **Bezüge zum Kernlehrplan** stehen in HTML-Kommentaren, damit sie im Buch nicht erscheinen. Sie sind für Lehrkräfte gedacht, nicht für Lernende.
+- **Fachbegriffe** werden beim ersten Auftreten als `:t[Begriff]{#glossar-id}` verlinkt – aber nicht in Überschriften, nicht in Code und nicht in `multievent`-Blöcken.
+- **Bilder** liegen neben der Markdown-Datei und heißen `<lektionsnummer>-<motiv>.png`.
+- **Erzeugte Dateien** – Datenbanken, Referenzbilder, die Passwortseite – werden nie von Hand bearbeitet. Wer sie ändern will, ändert das Skript.
 
 :::alert{info}
 Im `multievent`-Block darf **kein Inline-Code** mit Backticks stehen – die Syntaxhervorhebung zerlegt sonst die Antwortoptionen. Auch `{a{…}}`-Dropdowns funktionieren nicht; nimm stattdessen `{S1{…}}` oder Radiobuttons.
