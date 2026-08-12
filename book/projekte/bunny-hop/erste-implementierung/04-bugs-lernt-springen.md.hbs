@@ -1,0 +1,195 @@
+---
+name: Bugs lernt springen
+index: 4
+lang: de
+---
+
+# Bugs lernt springen
+
+## Das Ziel
+
+Leertaste drücken, Bugs springt – und fällt wieder herunter. Dazu bewegt er beim
+Laufen die Beine.
+
+## So sieht das aus
+
+Klick in den Übungsbereich und drück die **Leertaste**.
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-04-springen/Spieler.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-04-springen/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Plattform.java
+{{{rfile "/archives/bunny-hop-04-springen/Plattform.java" "reg:^import "}}}
+```
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-04-springen/Main.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+### Die Animation
+
+`Spieler` ist jetzt ein `AnimatedSprite`. Eine Animation ist eine Reihe von Bildern,
+die abwechselnd gezeigt werden:
+
+```java
+this.addAnimation("gehen", "bunny1_walk%d", 2);
+```
+
+Das `%d` wird durch die Nummer des Einzelbildes ersetzt, **beginnend bei 1**. Geladen
+werden also `bunny1_walk1` und `bunny1_walk2`. `setAnimationInterval(120)` legt fest,
+dass alle 120 Millisekunden weitergeschaltet wird.
+
+### Der Sprung
+
+Ein Sprung ist keine feste Kurve, sondern das Ergebnis von zwei Regeln:
+
+```java
+this.changeY(steiggeschwindigkeit);
+steiggeschwindigkeit = steiggeschwindigkeit - 0.5;
+```
+
+Bugs bewegt sich um seine aktuelle Steiggeschwindigkeit nach oben – und die wird in
+jedem Bild ein bisschen kleiner. Erst steigt er schnell, dann langsamer, dann wird
+die Zahl negativ und er fällt. Das ist **Schwerkraft**, in zwei Zeilen.
+
+:::snippet{#merken}
+`amBoden` ist ein Attribut vom Typ `boolean`: Es merkt sich, ob Bugs gerade steht
+oder in der Luft ist. Ohne dieses Merkmal könnte man mitten im Sprung noch einmal
+springen – ein Fehler, den fast jedes selbstgebaute Jump-and-Run einmal hatte.
+:::
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Spring ein paar Mal. Kannst du in der Luft ein zweites Mal springen?
+
+b) Ändere die Sprungkraft von 9 auf 15 und auf 4. Was ändert sich?
+
+c) Ändere die Schwerkraft von 0.5 auf 0.2 und auf 1.5. Beschreib in einem Satz,
+   wie sich der Sprung anfühlt.
+
+d) Bau einen doppelten Sprung ein: In der Luft soll **einmal** nachgesprungen werden
+   dürfen.
+:::
+
+::::collapsible{title="Tipp 1: Doppelsprung, erster Schritt"}
+
+Du brauchst dir zu merken, wie viele Sprünge seit dem letzten Bodenkontakt schon
+verbraucht sind. Ein `int`-Attribut reicht:
+
+```java
+private int spruenge = 0;
+```
+
+::::
+
+::::collapsible{title="Tipp 2: Doppelsprung, zweiter Schritt"}
+
+Statt `amBoden` fragst du `spruenge < 2`. Beim Landen setzt du `spruenge = 0`, beim
+Abspringen erhöhst du um eins.
+
+Achtung: `isKeyPressed` ist wahr, **solange** die Taste unten ist. Für den zweiten
+Sprung muss die Spielerin die Taste also loslassen und neu drücken – sonst sind beide
+Sprünge im selben Moment verbraucht. Merk dir dazu, ob die Taste im letzten Bild
+schon gedrückt war.
+
+::::
+
+:::protect{password="bh-04-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+Zu b): 15 lässt Bugs weit über die Bühne hinausschießen, bei 4 kommt er kaum vom
+Boden hoch.
+
+Zu c): Bei 0.2 schwebt er wie auf dem Mond, bei 1.5 ist der Sprung kurz und hart.
+
+Zu d):
+
+```java
+private int spruenge = 0;
+private boolean tasteWarUnten = false;
+
+public void run() {
+    boolean tasteUnten = this.isKeyPressed(KeyCode.SPACE);
+
+    if (tasteUnten && !tasteWarUnten && spruenge < 2) {
+        steiggeschwindigkeit = 9;
+        amBoden = false;
+        spruenge = spruenge + 1;
+        this.playSound("sprung");
+    }
+    tasteWarUnten = tasteUnten;
+
+    if (amBoden) {
+        this.playAnimation("gehen");
+    } else {
+        this.switchCostume("springen");
+        this.changeY(steiggeschwindigkeit);
+        steiggeschwindigkeit = steiggeschwindigkeit - 0.5;
+
+        if (this.getY() <= BODEN) {
+            this.setY(BODEN);
+            steiggeschwindigkeit = 0;
+            amBoden = true;
+            spruenge = 0;
+        }
+    }
+}
+```
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Bugs lernt springen]{name="bunny-hop-04-springen"}
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Wodurch kommt Bugs wieder herunter?**
+
+{r1{Eine Zeile setzt ihn nach kurzer Zeit zurück auf den Boden.}}
+
+{r1{!Die Steiggeschwindigkeit wird in jedem Bild kleiner und schließlich negativ.}}
+
+{r1{Die Bühne zieht ihn an.}}
+
+{h{Sieh dir die zweite Zeile im Sprung an.}}
+{H{Richtig! Genau das ist Schwerkraft.}}
+
+**2. Welche Bilder lädt addAnimation mit dem Muster bunny1_walk%d und 2 Bildern?**
+
+{c1{!bunny1_walk1}}
+
+{c1{!bunny1_walk2}}
+
+{c1{bunny1_walk0}}
+
+{h{Die Nummerierung beginnt bei 1.}}
+{H{Richtig!}}
+
+**3. Wozu dient das Attribut amBoden?**
+
+{r2{Es speichert, wie hoch Bugs springt.}}
+
+{r2{!Es verhindert, dass mitten in der Luft noch einmal gesprungen wird.}}
+
+{r2{Es zählt die Plattformen.}}
+
+{h{Es ist ein boolean, kann also nur wahr oder falsch sein.}}
+{H{Richtig!}}
+
+::::

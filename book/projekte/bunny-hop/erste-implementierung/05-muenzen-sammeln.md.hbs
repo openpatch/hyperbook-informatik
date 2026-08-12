@@ -1,0 +1,170 @@
+---
+name: Münzen sammeln
+index: 5
+lang: de
+---
+
+# Münzen sammeln
+
+## Das Ziel
+
+Es gibt etwas zu holen: Münzen, einen Punktestand und einen Ton beim Einsammeln.
+
+## So sieht das aus
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Muenze.java
+{{{rfile "/archives/bunny-hop-05-muenzen/Muenze.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-05-muenzen/Spieler.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-05-muenzen/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Plattform.java
+{{{rfile "/archives/bunny-hop-05-muenzen/Plattform.java" "reg:^import "}}}
+```
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-05-muenzen/Main.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+### Berührungen
+
+```java
+Muenze m = this.getTouchingSprite(Muenze.class);
+if (m != null) {
+    m.einsammeln();
+    this.playSound("muenze");
+    spiel.punkten();
+}
+```
+
+`getTouchingSprite` liefert **das** berührte Objekt zurück – oder `null`, wenn gerade
+keines berührt wird. Deshalb die Abfrage: Ohne sie stürzt das Programm bei der ersten
+Bewegung ab, weil man `einsammeln` auf einem Nichts aufrufen würde.
+
+:::snippet{#merken}
+`null` heißt: hier ist kein Objekt. Jede Methode, die ein Objekt zurückgeben *kann*,
+kann auch `null` liefern – und jedes Mal muss man damit rechnen. Der Fehler, das zu
+vergessen, hat einen eigenen Namen: NullPointerException.
+:::
+
+### Wer macht was
+
+Die Münze weiß, wie sie verschwindet (`einsammeln`). Das Spiel weiß, wie gezählt wird
+(`punkten`). Bugs stellt nur fest, dass er etwas berührt, und sagt beiden Bescheid.
+Jede Klasse kümmert sich um ihre eigenen Daten – das ist der Kern der
+objektorientierten Programmierung.
+
+Die eingesammelte Münze wird nur versteckt. Wandert sie links aus dem Bild, taucht sie
+rechts auf zufälliger Höhe wieder auf und wird mit `show()` wieder sichtbar.
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Sammle ein paar Münzen ein. Steigt der Punktestand? Wird das Spiel schneller?
+
+b) Bau eine zweite Münzsorte ein, die mehr zählt – zum Beispiel `coin_silver` mit
+   drei Punkten. Tipp: `punkten` darf einen Parameter bekommen.
+
+c) Lass die Münzen sich drehen: Sie sollen zwischen zwei Kostümen wechseln.
+
+d) Zeig zusätzlich an, wie viele Münzen es insgesamt schon gab.
+:::
+
+::::collapsible{title="Tipp: Punkte mit Parameter"}
+
+```java
+public void punkten(int wert) {
+    punkte = punkte + wert;
+}
+```
+
+Der Aufruf heißt dann `spiel.punkten(3);`. Damit die Münze weiß, wie viel sie wert
+ist, bekommt sie ein Attribut `wert`, das im Konstruktor gesetzt wird.
+
+::::
+
+:::protect{password="bh-05-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+public class Muenze extends Sprite {
+
+    private BunnyHop spiel;
+    private int wert;
+
+    public Muenze(BunnyHop pSpiel, int pWert) {
+        spiel = pSpiel;
+        wert = pWert;
+        if (wert > 1) {
+            this.addCostume("silber", "coin_silver");
+        } else {
+            this.addCostume("gold", "coin_gold");
+        }
+        this.setSize(50);
+    }
+
+    public int getWert() {
+        return wert;
+    }
+}
+```
+
+In `Spieler` wird daraus `spiel.punkten(m.getWert());`.
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Münzen sammeln]{name="bunny-hop-05-muenzen"}
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Was liefert getTouchingSprite, wenn nichts berührt wird?**
+
+{r1{eine leere Münze}}
+
+{r1{!null}}
+
+{r1{eine Fehlermeldung}}
+
+{h{Es gibt einen eigenen Wert dafür, dass kein Objekt da ist.}}
+{H{Richtig! Deshalb muss man vorher fragen.}}
+
+**2. Wer erhöht den Punktestand?**
+
+{r2{die Münze}}
+
+{r2{!die Bühne, wenn Bugs ihr Bescheid sagt}}
+
+{r2{niemand, das passiert automatisch}}
+
+{h{Der Punktestand ist ein Attribut der Bühne.}}
+{H{Richtig! Jede Klasse verwaltet ihre eigenen Daten.}}
+
+**3. Was passiert mit einer eingesammelten Münze?**
+
+{r3{Sie wird gelöscht.}}
+
+{r3{!Sie wird versteckt und taucht rechts wieder auf.}}
+
+{r3{Sie bleibt für immer unsichtbar.}}
+
+{h{Sieh dir einsammeln und run zusammen an.}}
+{H{Richtig! Dieselben drei Münzen laufen im Kreis.}}
+
+::::

@@ -1,0 +1,143 @@
+---
+name: Der Boden
+index: 2
+lang: de
+---
+
+# Der Boden
+
+## Das Ziel
+
+Bugs schwebt noch. In dieser Lektion bekommt er einen Boden – aus neun einzelnen
+Plattformen, die nebeneinanderliegen.
+
+## So sieht das aus
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Plattform.java
+{{{rfile "/archives/bunny-hop-02-boden/Plattform.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-02-boden/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-02-boden/Spieler.java" "reg:^import "}}}
+```
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-02-boden/Main.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+Eine **Klasse** ist ein Bauplan, ein **Objekt** ein einzelnes Ding nach diesem Plan.
+`Plattform` ist der Bauplan; in der Schleife entstehen neun Objekte daraus:
+
+```java
+for (int i = 0; i < PLATTFORMEN; i++) {
+    Plattform p = new Plattform();
+    p.setPosition(-400 + i * BREITE, -120);
+    this.add(p);
+}
+```
+
+Für `i = 0` liegt die Plattform bei −400, für `i = 1` bei −300, für `i = 2` bei −200 …
+Neun Plattformen zu je 100 Pixeln ergeben genau die 900 Pixel, die wir gleich für
+den endlosen Boden brauchen.
+
+:::snippet{#merken}
+`PLATTFORMEN` und `BREITE` sind mit `static final` geschrieben: Es sind
+**Konstanten**. Sie stehen an einer Stelle, gelten für alle Objekte und lassen sich
+nicht versehentlich ändern. Das lohnt sich bei jeder Zahl, die an mehreren Stellen
+gebraucht wird.
+:::
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Starte das Programm. Zähl nach: Sind es wirklich neun Plattformen?
+
+b) Setz `PLATTFORMEN` auf 4. Was passiert am rechten Rand? Setz die Zahl wieder zurück.
+
+c) Bugs steht ein Stück in der Luft beziehungsweise im Boden? Ändere in `Spieler`
+   die zweite Zahl von `setPosition`, bis er sauber auf dem Gras steht.
+
+d) Tausch das Kostüm der Plattform gegen `ground_stone_small`, `ground_sand_small`
+   oder `ground_snow_small`.
+:::
+
+::::collapsible{title="Tipp 1: Wie hoch liegt die Oberkante?"}
+
+Die Plattform ist 201 Pixel hoch und wird mit `setSize(50)` auf 100 gebracht.
+Ihr Mittelpunkt liegt bei −120, ihre Oberkante also 50 Pixel höher: bei −70.
+
+Bugs ist nach dem Verkleinern 100 Pixel hoch. Damit seine Füße auf −70 stehen,
+muss sein Mittelpunkt 50 Pixel höher liegen.
+
+::::
+
+::::collapsible{title="Tipp 2: Ich will es nicht rechnen"}
+
+Musst du auch nicht – probier Zahlen aus. Starte mit `-45` und geh in Zehnerschritten
+nach oben und unten, bis es passt. Programmieren ist oft genau das: eine Zahl ändern,
+starten, gucken.
+
+::::
+
+:::protect{password="bh-02-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+Zu b): Bei vier Plattformen hört der Boden nach 400 Pixeln auf – rechts klafft ein
+Loch. Die Welt ist genau `PLATTFORMEN * BREITE` Pixel breit.
+
+Zu c): `this.setPosition(-250, -45);` – Bugs' Mittelpunkt liegt 50 Pixel über der
+Oberkante der Plattform.
+
+Zu d): `this.addCostume("gras", "ground_stone_small");`
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Der Boden]{name="bunny-hop-02-boden"}
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Was ist der Unterschied zwischen der Klasse Plattform und einem Plattform-Objekt?**
+
+{r1{Es gibt keinen, beides ist dasselbe.}}
+
+{r1{!Die Klasse ist der Bauplan, das Objekt ein einzelnes Stück Boden.}}
+
+{r1{Das Objekt ist der Bauplan, die Klasse ein einzelnes Stück Boden.}}
+
+{h{Denk an einen Bauplan und die Häuser, die danach gebaut werden.}}
+{H{Richtig! Aus einer Klasse entstehen beliebig viele Objekte.}}
+
+**2. Wie breit ist die Welt bei neun Plattformen à 100 Pixeln?**
+
+{z{900}}
+
+{h{Rechne Anzahl mal Breite.}}
+{H{Richtig!}}
+
+**3. Wofür ist static final gut?**
+
+{c1{!Eine Zahl steht nur an einer Stelle.}}
+
+{c1{!Sie kann nicht versehentlich geändert werden.}}
+
+{c1{Das Programm wird schneller.}}
+
+{h{Zwei Antworten sind richtig.}}
+{H{Richtig!}}
+
+::::

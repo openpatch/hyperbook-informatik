@@ -1,0 +1,189 @@
+---
+name: Der Hintergrund
+index: 7
+lang: de
+---
+
+# Der Hintergrund
+
+## Das Ziel
+
+Das Spiel bekommt Tiefe: Kakteen, Gras und Pilze ziehen im Hintergrund vorbei –
+**langsamer** als der Boden. Damit ist das Spiel fertig.
+
+## Das fertige Spiel
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Deko.java
+{{{rfile "/archives/bunny-hop-07-deko/Deko.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-07-deko/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-07-deko/Spieler.java" "reg:^import "}}}
+```
+
+```java Muenze.java
+{{{rfile "/archives/bunny-hop-07-deko/Muenze.java" "reg:^import "}}}
+```
+
+```java Stachel.java
+{{{rfile "/archives/bunny-hop-07-deko/Stachel.java" "reg:^import "}}}
+```
+
+```java Plattform.java
+{{{rfile "/archives/bunny-hop-07-deko/Plattform.java" "reg:^import "}}}
+```
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-07-deko/Main.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+Der ganze Trick steht in einer Zeile:
+
+```java
+this.changeX(-spiel.getGeschwindigkeit() / 2);
+```
+
+Die Deko bewegt sich mit der **halben** Geschwindigkeit. Wer aus dem Zugfenster
+schaut, kennt den Effekt: Der Schotter am Gleis rast vorbei, der Wald dahinter zieht
+gemächlich, die Berge stehen fast still. Dieses Verfahren heißt **Parallaxe** und ist
+in Spielen der einfachste Weg zu räumlicher Tiefe.
+
+Jedes Deko-Objekt sucht sich beim Erzeugen selbst ein Kostüm aus:
+
+```java
+for (int i = 0; i < this.pickRandom(0, 3); i++) {
+    this.nextCostume();
+}
+```
+
+`nextCostume` schaltet ein Kostüm weiter. Bei einer Zufallszahl zwischen 0 und 3
+landet jedes Objekt bei einem anderen Bild – aus einer Klasse werden sechs
+verschiedene Pflanzen.
+
+:::snippet{#merken}
+Reihenfolge zählt: Was zuerst mit `add` hinzugefügt wird, liegt **hinten**. Deshalb
+wird die Deko im Konstruktor der Bühne als Erstes erzeugt – sonst würden Kakteen vor
+Bugs stehen.
+:::
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Starte das Spiel und sieh genau hin: Wandert die Deko wirklich langsamer als der
+   Boden?
+
+b) Bau eine zweite, noch langsamere Ebene ein – zum Beispiel Wolken (`cloud`) weit
+   oben, mit einem Viertel der Geschwindigkeit.
+
+c) Lass die Deko-Objekte an zufälliger Stelle wieder auftauchen, damit das Muster
+   sich nicht wiederholt.
+
+d) Bau eine Sonne (`sun1`) ein, die sich gar nicht bewegt.
+:::
+
+::::collapsible{title="Tipp: Eine zweite Ebene"}
+
+Am schnellsten geht es mit einem Attribut für den Faktor:
+
+```java
+private double faktor;
+
+public Deko(BunnyHop pSpiel, double pFaktor) {
+    spiel = pSpiel;
+    faktor = pFaktor;
+    ...
+}
+
+public void run() {
+    this.changeX(-spiel.getGeschwindigkeit() * faktor);
+    ...
+}
+```
+
+Dann erzeugst du die einen mit `new Deko(this, 0.5)` und die anderen mit
+`new Deko(this, 0.25)`.
+
+::::
+
+:::protect{password="bh-07-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+Zu c): `this.setX(450 + this.pickRandom(0, 200));`
+
+Zu d): Eine Sonne braucht keine `run`-Methode – wer sich nicht bewegt, muss auch
+nichts tun:
+
+```java
+public class Sonne extends Sprite {
+
+    public Sonne() {
+        this.addCostume("sonne", "sun1");
+        this.setSize(50);
+        this.setPosition(300, 140);
+    }
+}
+```
+
+In der Bühne als Allererstes hinzufügen, damit sie hinter allem liegt.
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Das fertige Spiel]{name="bunny-hop-07-deko"}
+
+## Und jetzt?
+
+Das Grundgerüst steht. Wie es weitergeht, entscheidest **du** – im Kapitel
+[Euer Spiel](../euer-spiel) findest du Ideen: ein Startbildschirm, Tag und Nacht,
+Lücken im Boden, ein Höchststand, der gespeichert wird.
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Wodurch entsteht der Eindruck von Tiefe?**
+
+{r1{durch größere Bilder im Vordergrund}}
+
+{r1{!dadurch, dass der Hintergrund langsamer zieht}}
+
+{r1{durch Schatten}}
+
+{h{Denk an den Blick aus dem Zugfenster.}}
+{H{Richtig! Das nennt man Parallaxe.}}
+
+**2. Was liegt hinten, was vorn?**
+
+{r2{Was zuletzt hinzugefügt wird, liegt hinten.}}
+
+{r2{!Was zuerst hinzugefügt wird, liegt hinten.}}
+
+{r2{Das entscheidet die Größe des Sprites.}}
+
+{h{Probier es aus: Verschieb die Deko-Schleife ans Ende des Konstruktors.}}
+{H{Richtig!}}
+
+**3. Warum sehen die sechs Deko-Objekte verschieden aus, obwohl sie aus einer Klasse stammen?**
+
+{r3{Weil jedes eine eigene Klasse ist.}}
+
+{r3{!Weil jedes im Konstruktor zufällig oft weiterschaltet.}}
+
+{r3{Weil die Bühne ihnen verschiedene Bilder gibt.}}
+
+{h{Sieh dir die Schleife im Konstruktor an.}}
+{H{Richtig! Gleicher Bauplan, verschiedene Daten.}}
+
+::::

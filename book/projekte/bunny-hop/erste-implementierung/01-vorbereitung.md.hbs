@@ -1,0 +1,168 @@
+---
+name: Vorbereitung
+index: 1
+lang: de
+---
+
+# Vorbereitung
+
+## Das Ziel
+
+Am Ende dieser Seite steht Bugs auf dem Bildschirm – und du weißt, wo bei einem
+Scratch-for-Java-Programm was passiert.
+
+## Zwei Wege, ein Quelltext
+
+Du kannst dieses Projekt auf zwei Arten bearbeiten:
+
+1. **Hier auf der Seite.** Jede Lektion hat einen Übungsbereich mit allen Dateien.
+   Ein Klick auf ▶ startet das Spiel. Du brauchst nichts zu installieren.
+2. **Auf deinem Rechner.** Jede Lektion hat unten ein Archiv zum Herunterladen.
+   Dafür brauchst du ein **JDK 25** und einen Texteditor, zum Beispiel
+   [VS Code](https://code.visualstudio.com/).
+
+Beides ist Zeichen für Zeichen derselbe Quelltext. Auf dem Rechner steht in jeder
+Datei zusätzlich eine `import`-Zeile – die Online-IDE kennt die Klassen schon.
+
+## So sieht der Anfang aus
+
+:::onlineide{libraries="scratch" height="640px"}
+
+```java Main.java
+{{{rfile "/archives/bunny-hop-01-vorbereitung/Main.java" "reg:^import "}}}
+```
+
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-01-vorbereitung/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-01-vorbereitung/Spieler.java" "reg:^import "}}}
+```
+
+:::
+
+## Wie es gemacht ist
+
+| Datei | Wofür |
+| --- | --- |
+| `Main.java` | der Startpunkt. Hier entsteht das Fenster und die Bühne kommt hinein. |
+| `BunnyHop.java` | die **Bühne**. Alles, was zu sehen sein soll, muss ihr mit `add` hinzugefügt werden. |
+| `Spieler.java` | ein **Sprite**, also eine Figur. Bugs bekommt ein Kostüm und eine Position. |
+
+:::snippet{#merken}
+Die Bühne ist **800 × 400** Pixel groß, und der Nullpunkt liegt in der **Mitte**.
+Nach rechts wächst `x` bis 400, nach links bis −400; nach oben wächst `y` bis 200,
+nach unten bis −200.
+
+`setPosition(0, 0)` ist also die Mitte, nicht die linke obere Ecke.
+:::
+
+Die Grafiken sind in der Bibliothek **eingebaut**: `addCostume("stehen", "bunny1_stand")`
+lädt keine Datei, sondern holt ein Bild, das schon da ist. Alle 838 Namen stehen
+unter [scratch4j.openpatch.org/sprites](https://scratch4j.openpatch.org/sprites).
+
+Mit `setSize(50)` wird Bugs auf die Hälfte verkleinert – aus 120 × 201 Pixeln
+werden 60 × 100. Ohne das würde er ein Viertel der Bühne einnehmen.
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Starte das Programm oben mit ▶. Siehst du Bugs links unten?
+
+b) Gib Bugs ein anderes Kostüm. Probier `bunny1_ready`, `bunny1_jump` oder `bunny2_stand`.
+
+c) Verschieb ihn. Ändere die Zahlen in `setPosition(-250, -45)` und finde heraus,
+   welche Zahl nach rechts und welche nach oben schiebt.
+
+d) Mach ihn größer und kleiner. Was macht `setSize(100)`? Was `setSize(25)`?
+:::
+
+::::collapsible{title="Tipp: Ich sehe nichts mehr"}
+
+Wahrscheinlich steht Bugs außerhalb der Bühne. Sichtbar ist nur der Bereich
+x von −400 bis 400 und y von −200 bis 200. Setz ihn zum Ausprobieren erst einmal
+auf `setPosition(0, 0)` zurück – die Mitte trifft man immer.
+
+::::
+
+:::protect{password="bh-01-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+public Spieler() {
+    this.addCostume("stehen", "bunny1_ready");
+    this.setSize(75);
+    this.setPosition(0, -45);
+}
+```
+
+Zu c): Die **erste** Zahl ist `x` und schiebt nach rechts, die **zweite** ist `y`
+und schiebt nach oben. Negative Zahlen gehen nach links beziehungsweise nach unten.
+
+Zu d): `setSize` ist eine Angabe in Prozent. `100` ist die Originalgröße,
+`25` ein Viertel davon.
+
+:::
+
+## Zum Herunterladen
+
+::archive[Projekt: Vorbereitung]{name="bunny-hop-01-vorbereitung"}
+
+Entpacke das Archiv und starte es aus dem Projektordner heraus:
+
+```bash
+java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-5.3.0-all.jar" Main.java
+```
+
+::::collapsible{title="Was bedeutet diese lange Zeile?"}
+
+| Teil | Wozu |
+| --- | --- |
+| `--enable-native-access=ALL-UNNAMED` | unterdrückt eine Warnung von Java 25. Ohne den Schalter läuft alles genauso, es erscheinen nur vier Zeilen Text. |
+| `-classpath "+libs/scratch-5.3.0-all.jar"` | sagt Java, wo die Bibliothek liegt |
+| `Main.java` | die Datei, die gestartet wird. Die übrigen findet Java von selbst. |
+
+In VS Code drückst du stattdessen den Startknopf über `Main.java`.
+
+::::
+
+---
+
+## Selbsttest
+
+::::multievent
+
+**1. Wo liegt der Punkt (0, 0) auf der Bühne?**
+
+{r1{in der linken oberen Ecke}}
+
+{r1{!in der Mitte}}
+
+{r1{in der linken unteren Ecke}}
+
+{h{Sieh dir noch einmal den Merksatz an.}}
+{H{Richtig! Deshalb gibt es auch negative Koordinaten.}}
+
+**2. Was bewirkt setSize(50)?**
+
+{r2{Die Figur wird 50 Pixel groß.}}
+
+{r2{!Die Figur wird auf die Hälfte verkleinert.}}
+
+{r2{Die Figur bekommt 50 Kostüme.}}
+
+{h{Die Angabe ist eine Prozentzahl.}}
+{H{Richtig!}}
+
+**3. Woher kommt das Bild bunny1_stand?**
+
+{r3{aus einem Ordner assets neben dem Projekt}}
+
+{r3{aus dem Internet}}
+
+{r3{!aus der Bibliothek, es ist eingebaut}}
+
+{h{Im Projektordner gibt es keinen Bilderordner.}}
+{H{Richtig! Deshalb muss nichts heruntergeladen werden.}}
+
+::::
