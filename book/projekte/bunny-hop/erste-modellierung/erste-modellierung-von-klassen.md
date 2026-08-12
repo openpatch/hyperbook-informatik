@@ -24,7 +24,7 @@ classDiagram
       int y
       ...
     }
-    class StachelFeind{
+    class Stachel{
 
     }
     class FluegelFeind {

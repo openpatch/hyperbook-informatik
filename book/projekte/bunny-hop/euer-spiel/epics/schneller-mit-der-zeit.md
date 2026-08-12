@@ -1,48 +1,75 @@
 ---
-name: 🥉 Schneller mit der Zeit
+name: 🥉 Schwieriger mit der Zeit
+index: 5
 lang: de
 ---
 
-# Epic: Schneller mit der Zeit
+# Epic: Schwieriger mit der Zeit
 
-Das Spiel soll alle paar Sekunden schneller werden.
+> Als Spielerin möchte ich, dass es mit der Zeit schwerer wird, damit ein Lauf
+> nicht ewig gleich bleibt.
 
-:::collapsible{title="Hilfe: Globale Geschwindigkeit" id="570315"}
+## Die Idee
 
-Zunächst wollen wir ein :t[Attribut]{#attribut} "geschwindigkeit" in der Level haben, welches die Geschwindigkeit des Spiels repräsentiert. Dieses :t[Attribut]{#attribut} verändern wir alle 5000 Millisekunden (5 Sekunden).
+Im Grundspiel steigt das Tempo nur, wenn Münzen eingesammelt werden. Wer keine
+nimmt, läuft ewig gemütlich weiter. Besser: Das Spiel zieht **von selbst** an.
+
+## Deine Aufgabe
+
+:::snippet{#aufgabe}
+a) Alle fünf Sekunden wird das Spiel ein Stück schneller.
+
+b) Deckelt die Geschwindigkeit, damit es spielbar bleibt.
+
+c) Zeigt das aktuelle Tempo neben den Punkten an.
+:::
+
+## Tipps
+
+::::collapsible{title="Tipp 1: Regelmäßig etwas tun"}
 
 ```java
-public class Level extends Stage {
-    private float geschwindigkeit = 1;
+if (this.getTimer().everyMillis(5000)) {
+    geschwindigkeit = geschwindigkeit + 0.5;
+}
+```
 
-    // ...
+Das gehört in die `run`-Methode der Bühne – aber nur, solange das Spiel läuft.
 
-    public void run() {
-        if (this.getTimer().everyMillis(5000)) {
-            geschwindigkeit += 0.5;
+::::
+
+::::collapsible{title="Tipp 2: Nicht ins Unendliche"}
+
+Ab etwa 12 wird das Spiel unspielbar, weil die Plattformen pro Bild weiter
+springen, als Bugs breit ist. Deckelt den Wert:
+
+```java
+if (geschwindigkeit > 10) {
+    geschwindigkeit = 10;
+}
+```
+
+::::
+
+:::protect{password="bh-epic-tempo-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+public void run() {
+    if (!vorbei) {
+        anzeige.showText("Punkte: " + punkte + "   Tempo: " + Math.round(geschwindigkeit));
+
+        if (this.getTimer("tempo").everyMillis(5000) && geschwindigkeit < 10) {
+            geschwindigkeit = geschwindigkeit + 0.5;
         }
     }
 }
 ```
 
-:::
+Zwei Dinge fallen beim Ausprobieren auf:
 
-:::collapsible{title="Hilfe: Geschwindigkeit nutzen" id="330385"}
-
-Damit wir die Geschwindigkeit in anderen :t[Klassen]{#klasse} nutzen können, müssen zunächst einen :t[Methode]{#methode} in der Klasse Level hinzufügen.
-
-```java
-public float getGeschwindigkeit() {
-    return geschwindigkeit;
-}
-```
-
-Jetzt können wir die :t[Methode]{#methode} in anderen :t[Klassen]{#klasse} nutzen.
-
-:::
-
-:::collapsible{title="Hilfe: Beispiel Implementierung" id="967234"}
-
-::archive[Projekt: Schneller mit der Zeit]{name="bunny-hop-epic-schneller-mit-der-zeit"}
+1. Mit steigendem Tempo wird der Sprung **relativ** kürzer – Bugs kommt über
+   weniger Boden. Wer das ausgleichen will, erhöht die Sprungkraft mit.
+2. Die Uhr läuft auch während des Spielendes weiter. Weil `run` dann nichts mehr
+   tut, macht das hier nichts – bei anderen Epics muss man daran denken.
 
 :::
