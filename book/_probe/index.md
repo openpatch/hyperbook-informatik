@@ -8,7 +8,9 @@ hide: true
 
 ## Fenstergröße in der Online-IDE
 
-Frage: Akzeptiert die Online-IDE ein `Window(800, 400)`, oder bleibt die Bühne bei 480 × 360?
+Beantwortet am 12.08.2026 mit hyperbook 0.104.2: **Ja.** Die Ausgabe lautet
+`Breite: 800  Hoehe: 400`, und beide Hasen sind sichtbar. Mit 0.104.1 blieb die
+Bühne bei 480 × 360 und der rechte Hase fehlte.
 
 Der Hase sitzt bei (350, 150). Sichtbar ist er nur, wenn die Bühne wirklich 800 × 400 groß ist
 (x bis ±400, y bis ±200). Bei 480 × 360 (x bis ±240, y bis ±180) liegt er außerhalb.

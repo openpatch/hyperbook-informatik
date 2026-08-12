@@ -227,23 +227,31 @@ NODE_PATH=/tmp/pw/node_modules node tools/java-lernpfad/pruefe_seiten.js
 
 Eine Uebersicht ueber alle Werkzeuge steht in `tools/README.md`.
 
-### Buehnengroesse: 480 x 360, und zwar ueberall
+### Buehnengroesse: die Online-IDE nimmt die Groesse aus dem Quelltext
 
-Am 12.08.2026 im Browser geprueft (`book/_probe/index.md`, Startknopf gedrueckt):
-Ein `new Window(800, 400)` in der Online-IDE wird **ignoriert**. `getWidth()`
-liefert 480, `getHeight()` 360; ein Sprite bei (350, 150) liegt ausserhalb.
+Seit **hyperbook 0.104.2** wertet die Online-IDE `new Window(breite, hoehe)` aus.
+Am 12.08.2026 im Browser nachgemessen (`book/_probe/index.md`): `getWidth()`
+liefert 800, `getHeight()` 400, und ein Sprite bei (350, 150) ist sichtbar.
+Mit 0.104.1 blieb die Buehne noch bei 480 x 360.
 
-Auf dem Rechner ist `Window()` genauso 480 x 360 (siehe `Window.java:219`),
-und ein `new MeineBuehne()` ohne eigenes Fenster erzeugt genau dieses.
-**Damit ist derselbe Quelltext in beiden Welten pixelgleich** - Voraussetzung
+Ohne eigenes Fenster - also bei `new MeineBuehne();` - sind es weiterhin
+480 x 360, genau wie `Window()` auf dem Rechner (`Window.java:219`).
+**Derselbe Quelltext ergibt damit in beiden Welten dasselbe Bild** - Voraussetzung
 dafuer, eine Datei per `rfile` in einen `onlineide`-Block zu spiegeln.
 
 Der Nullpunkt liegt in der **Mitte**, y waechst nach **oben**
-(`Stage.java:1851`: `translate(width/2, height/2)`). Sichtbar ist also
-x von -240 bis 240 und y von -180 bis 180.
+(`Stage.java:1851`: `translate(width/2, height/2)`). Bei 800 x 400 ist also
+x von -400 bis 400 und y von -200 bis 200 sichtbar.
 
-Achtung bei alten Projekten: Die Bunny-Hop-Archive stammen aus einer Zeit mit
-Ursprung **links oben** und y nach **unten** (Positionen wie `setY(340)` bei
-800 x 400). Sie uebersetzen und laufen unter 5.3.0, zeigen aber die halbe Szene
-ausserhalb der Buehne. Umrechnung: `x_neu = x_alt - 400`, `y_neu = 200 - y_alt`
-- und jede Bewegungslogik nach unten (Schwerkraft, Fallen) kehrt ihr Vorzeichen um.
+Achtung bei alten Projekten: Die abgeloesten Bunny-Hop-Archive stammen aus einer
+Zeit mit Ursprung **links oben** und y nach **unten** (Positionen wie `setY(340)`).
+Sie uebersetzen und laufen unter 5.3.0, zeigen aber die halbe Szene ausserhalb der
+Buehne. Umrechnung: `x_neu = x_alt - 400`, `y_neu = 200 - y_alt` - und jede
+Bewegungslogik nach unten kehrt ihr Vorzeichen um.
+
+### Alle Dateien gehoeren in den onlineide-Block
+
+Die Online-IDE uebersetzt genau das, was im Block steht. Zeigt eine Lektion nur die
+zwei Dateien, um die es geht, meldet sie Fehler in allen anderen. Jeder Block
+enthaelt deshalb das **vollstaendige** Projekt der Stufe - die Datei, um die es
+geht, zuerst.
