@@ -14,9 +14,8 @@ public class Spieler extends AnimatedSprite
 
     public Spieler()
     {
-        this.addAnimation("gehen", "assets/grafiken/Players/bunny1_walk%d.png", 2);
-        this.addCostume("verletzt", "assets/grafiken/Players/bunny1_hurt.png");
-        this.addTimer("verloren");
+        this.addAnimation("gehen", "bunny1_walk%d", 2);
+        this.addCostume("verletzt", "bunny1_hurt");
     }
 
     public void verletzten() {
@@ -38,9 +37,9 @@ public class Spieler extends AnimatedSprite
 
     public void gravitation() {
         this.changeY(fallGeschwindigkeit);
-        List<Sprite> plattformen = this.getTouchingSprites(Plattform.class);
-        for (Sprite plattform : plattformen) {
-            ((Plattform) plattform).beruehren();
+        List<Plattform> plattformen = this.getTouchingSprites(Plattform.class);
+        for (Plattform plattform : plattformen) {
+            plattform.beruehren();
         }
         faellt = true;
         while(this.getY() < 320 && plattformen.size() > 0) {
@@ -65,7 +64,7 @@ public class Spieler extends AnimatedSprite
                 this.gravitation();
             }
 
-            if (!faellt && !springt && isKeyPressed(KeyCode.VK_SPACE)) {
+            if (!faellt && !springt && isKeyPressed(KeyCode.SPACE)) {
                 springt = true;
             }
             if (this.getY() - this.getHeight() > 400) {

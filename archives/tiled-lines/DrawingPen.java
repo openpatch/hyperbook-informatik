@@ -1,5 +1,4 @@
-import org.openpatch.scratch.extensions.pen.Pen;
-
+import org.openpatch.scratch.*;
 public class DrawingPen extends Pen {
      public void drawLine(double x1, double y1, double x2, double y2) {
          this.up();

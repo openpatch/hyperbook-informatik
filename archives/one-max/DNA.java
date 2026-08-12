@@ -1,4 +1,4 @@
-
+import org.openpatch.scratch.*;
 public class DNA {
     private char[] genes;
     private float fit;

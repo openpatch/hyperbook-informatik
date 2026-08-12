@@ -12,9 +12,8 @@ public class Plattform extends Sprite
         level = pLevel;
         spieler = pSpieler;
         istKaputt = pIstKaputt;
-        this.addCostume("ganz", "assets/grafiken/Environment/ground_grass_small.png");
-        this.addCostume("kaputt", "assets/grafiken/Environment/ground_grass_small_broken.png");
-        this.addTimer("verschwinden");
+        this.addCostume("ganz", "ground_grass_small");
+        this.addCostume("kaputt", "ground_grass_small_broken");
 
         if (istKaputt) {
             this.switchCostume("kaputt");

@@ -7,7 +7,7 @@ public class StachelFeind extends Sprite {
 
     public StachelFeind(Spieler pSpieler) {
         this.spieler = pSpieler;
-        this.addCostume("stehen", "assets/grafiken/Enemies/spikeMan_stand.png");
+        this.addCostume("stehen", "spikeMan_stand");
         this.setHitbox(0, 77, 0, 32, 22, 0, 45, 33, 45, 77);
 
     }

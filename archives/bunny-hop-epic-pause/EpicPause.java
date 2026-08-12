@@ -2,8 +2,8 @@ import org.openpatch.scratch.*;
 
 public class EpicPause extends Window {
     public EpicPause() {
-        super(800, 400, "assets");
+        super(800, 400);
         
-        this.addStage("level", new Level());
+        this.setStage(new Level());
     }
 }

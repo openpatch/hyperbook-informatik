@@ -18,10 +18,10 @@ public class Level extends Stage {
         }
     }
     
-    public void whenKeyPressed(int pKeyCode) {
-        if(pKeyCode == KeyCode.VK_M) {
+    public void whenKeyPressed(KeyCode pKeyCode) {
+        if(pKeyCode == KeyCode.M) {
             this.geschwindigkeit += 2;
-        } else if (pKeyCode == KeyCode.VK_N) {
+        } else if (pKeyCode == KeyCode.N) {
             this.geschwindigkeit -= 2;
         }
     }

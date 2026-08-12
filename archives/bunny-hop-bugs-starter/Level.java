@@ -27,8 +27,6 @@ public class Level extends Stage {
             letzte = p;
             this.add(p);
         }
-        
-        this.addTimer("ende");
     }
 
     public Plattform getLetzte() {
@@ -43,7 +41,7 @@ public class Level extends Stage {
         if (bugs.hatVerloren()) {
             this.setColor(120, 120, 120);
             if (this.getTimer("ende").afterMillis(1000)) {
-               spiel.switchStage("ende"); 
+               spiel.setStage(new Ende(spiel)); 
             }  
         } else {
             spiel.veraendereDistanz(1);

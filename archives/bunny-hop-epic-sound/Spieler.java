@@ -1,15 +1,14 @@
-import org.openpatch.scratch.extensions.animation.*;
-
+import org.openpatch.scratch.*;
 public class Spieler extends AnimatedSprite {
 
     boolean verletzt;
 
     public Spieler() {
-        this.addAnimation("schmerzen", "assets/grafiken/bunny1_hurt.png", 1);
-        this.addAnimation("gehen", "assets/grafiken/bunny1_walk%d.png", 2);
+        this.addAnimation("schmerzen", "bunny1_hurt", 1);
+        this.addAnimation("gehen", "bunny1_walk%d", 2);
 
-        this.addSound("gehen", "assets/sounds/gehen.wav");
-        this.addSound("verloren", "assets/sounds/verloren.wav");
+        this.addSound("gehen", "footstep_grass_000");
+        this.addSound("verloren", "jingles_NES09");
     }
 
     public void verletzen() {

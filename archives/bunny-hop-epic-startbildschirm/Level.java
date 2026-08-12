@@ -20,9 +20,9 @@ public class Level extends Stage {
         }
     }
     
-    public void whenKeyPressed(int pKeyCode) {
-        if(pKeyCode == KeyCode.VK_S) {
-            this.window.switchStage("startbildschirm");
+    public void whenKeyPressed(KeyCode pKeyCode) {
+        if(pKeyCode == KeyCode.S) {
+            this.window.setStage(new Startbildschirm(this.window));
         }
     }
     public void neuePlattform() {

@@ -1,7 +1,6 @@
  
 
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.math.*;
 
 public class Population {
   private double mutationsrate;

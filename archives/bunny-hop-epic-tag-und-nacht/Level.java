@@ -9,7 +9,6 @@ public class Level extends Stage {
         bugs.setPosition(100, 250);
         this.add(bugs);
         this.add(new NachtFilter(this));
-        this.addTimer("tag");
     }
     
     public void run() {

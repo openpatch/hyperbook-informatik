@@ -1,3 +1,4 @@
+import org.openpatch.scratch.*;
  
 
 public class Population {

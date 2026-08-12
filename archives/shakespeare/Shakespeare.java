@@ -1,7 +1,6 @@
  
 
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.text.*;
 
 public class Shakespeare extends Stage {
 
@@ -23,11 +22,9 @@ public class Shakespeare extends Stage {
     this.mutationrate = 0.01f;
 
     this.bestPhrase = new Text();
-    this.bestPhrase.addFont("comic", "assets/Singkong.ttf");
     this.bestPhrase.setPosition(-390, 250);
     this.bestPhrase.setAlign(TextAlign.LEFT);
     this.bestPhrase.setTextSize(20);
-    this.bestPhrase.switchFont("comic");
     this.bestPhrase.setTextColor(200, 50, 50);
     this.add(this.bestPhrase);
 

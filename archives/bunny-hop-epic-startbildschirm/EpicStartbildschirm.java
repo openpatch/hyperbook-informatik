@@ -2,9 +2,8 @@ import org.openpatch.scratch.*;
 
 public class EpicStartbildschirm extends Window {
     public EpicStartbildschirm() {
-        super(800, 400, "assets");
+        super(800, 400);
         
-        this.addStage("startbildschirm", new Startbildschirm(this));
-        this.addStage("level", new Level(this));
+        this.setStage(new Startbildschirm(this));
     }
 }

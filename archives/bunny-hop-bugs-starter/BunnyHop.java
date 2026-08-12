@@ -1,22 +1,17 @@
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.*;
-
 public class BunnyHop extends Window
 {
     private int distanz = 0;
 
     public BunnyHop() {
-        super(800, 400, "assets");
+        super(800, 400);
         this.setDebug(false);
-        this.addStage("level", new Level(this));
-        this.addStage("ende", new Ende(this));
+        this.setStage(new Level(this));
     }
 
     public void zuruecksetzen() {
-        this.removeStage("level");
         this.distanz = 0;
-        this.addStage("level", new Level(this));
-        this.switchStage("level");
+        this.setStage(new Level(this));
     }
 
     public int getDistanz() {

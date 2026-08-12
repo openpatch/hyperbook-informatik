@@ -1,7 +1,6 @@
  
 
 import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.text.*;
 
 public class OneMax extends Stage {
 
@@ -25,11 +24,9 @@ public class OneMax extends Stage {
     this.geneSet = "01".toCharArray();
 
     this.bestPhrase = new Text();
-    this.bestPhrase.addFont("comic", "assets/Singkong.ttf");
     this.bestPhrase.setPosition(-490, 250);
     this.bestPhrase.setAlign(TextAlign.LEFT);
     this.bestPhrase.setTextSize(20);
-    this.bestPhrase.switchFont("comic");
     this.bestPhrase.setTextColor(200, 50, 50);
     this.add(this.bestPhrase);
 

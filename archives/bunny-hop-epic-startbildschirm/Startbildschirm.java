@@ -8,9 +8,9 @@ public class Startbildschirm extends Stage {
         this.window = pWindow;        
     }
     
-    public void whenKeyPressed(int keyCode) {
-        if (keyCode == KeyCode.VK_ENTER) {
-            this.window.switchStage("level");
+    public void whenKeyPressed(KeyCode keyCode) {
+        if (keyCode == KeyCode.ENTER) {
+            this.window.setStage(new Level(this.window));
         }
     }
     

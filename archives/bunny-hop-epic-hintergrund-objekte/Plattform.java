@@ -10,7 +10,7 @@ public class Plattform extends Sprite {
     
     public Plattform(Level pLevel) {
         this.level = pLevel;
-        this.addCostume("ganz", "assets/grafiken/ground_grass.png");
+        this.addCostume("ganz", "ground_grass");
     }
     
     // Diese Methode wird aufgerufen, wenn ein Sprite-Objekt einer Stage hinzugefügt wird.

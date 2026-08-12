@@ -12,7 +12,7 @@ public class Spieler extends AnimatedSprite
 
     public Spieler()
     {
-        this.addAnimation("gehen", "bunny1_walk", 2);
+        this.addAnimation("gehen", "bunny1_walk%d", 2);
     }
 
     public void run() {

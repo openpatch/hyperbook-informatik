@@ -1,4 +1,3 @@
-import org.openpatch.scratch.extensions.animation.*;
 import org.openpatch.scratch.*;
 
 public class Spieler extends AnimatedSprite
@@ -14,8 +13,8 @@ public class Spieler extends AnimatedSprite
 
     public Spieler()
     {
-        this.addAnimation("gehen", "assets/Players/bunny1_walk%d.png", 2);
-        this.addCostume("verletzt", "assets/Players/bunny1_hurt.png");
+        this.addAnimation("gehen", "bunny1_walk%d", 2);
+        this.addCostume("verletzt", "bunny1_hurt");
     }
 
     public void verletzten() {
@@ -49,7 +48,7 @@ public class Spieler extends AnimatedSprite
                 this.gravitation();
             }
 
-            if (!faellt && !springt && isKeyPressed(KeyCode.VK_SPACE)) {
+            if (!faellt && !springt && isKeyPressed(KeyCode.SPACE)) {
                 springt = true;
             }
         } else {
