@@ -7,8 +7,8 @@ public class Plattform extends Sprite
     public Plattform(boolean pIstKaputt)
     {
         istKaputt = pIstKaputt;
-        this.addCostume("ganz", "assets/Environment/ground_grass_small.png");
-        this.addCostume("kaputt", "assets/Environment/ground_grass_small_broken.png");
+        this.addCostume("ganz", "ground_grass_small");
+        this.addCostume("kaputt", "ground_grass_small_broken");
         
         if (istKaputt) {
             this.switchCostume("kaputt");
