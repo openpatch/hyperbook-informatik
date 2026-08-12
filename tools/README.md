@@ -42,7 +42,8 @@ einer, benutzt es ihn und überspringt das separate Bauen.
 
 | Teil | Dauer |
 | --- | --- |
-| alle statischen Prüfungen | **unter 1 s** |
+| statische Prüfungen ohne 3D-Druck | **unter 1 s** |
+| 3D-Druck (übersetzt 88 OpenSCAD-Blöcke) | rund **15 s** |
 | `npx hyperbook build` | rund **20 s** |
 | Browserprüfung Web | rund **2 min** |
 | Browserprüfung Datenbanken | rund **5 min** |
@@ -101,6 +102,7 @@ werden die Browserprüfungen mit einer Erklärung übersprungen (Rückgabewert 2
 | `datenbank-lernpfad/` | [Datenbanken](../book/oberstufe/datenbanken), SQL-IDE |
 | `web-lernpfad/` | [Webentwicklung](../book/mittelstufe/web), WebIDE |
 | `turtle-render/` | [Einführung mit Turtle-Grafiken](../book/mittelstufe/python/einfuehrung-mit-turtle), pyide |
+| `3d-druck/` | [3D-Druck](../book/mittelstufe/3d-druck), openscad |
 
 In jedem Ordner mit einer eingebetteten Entwicklungsumgebung liegt eine
 **`NOTIZEN.md`**. Sie hält fest, was das jeweilige Werkzeug kann und – viel
@@ -143,6 +145,19 @@ Die Aufteilung hat hier einen besonderen Grund: Der Browser meldet **nichts**.
 Fehlerhaftes HTML repariert er still, ungültiges CSS verwirft er wortlos. Die
 Wohlgeformtheit muss deshalb statisch geprüft werden, die Gültigkeit des CSS
 dagegen nur im Browser – nur er weiß, welche Eigenschaften es gibt.
+
+### 3d-druck
+
+| Datei | Zweck |
+| --- | --- |
+| `NOTIZEN.md` | was das `openscad`-Element kann; die verifizierten Eigenheiten von OpenSCAD |
+| `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, Kapitelabschlüsse, Passwörter, `openscad`-Blöcke – **und die tatsächliche Übersetzung jedes Blocks** |
+
+Dieser Lernpfad braucht **keine** Browserprüfung: OpenSCAD gibt es als
+Kommandozeilenprogramm, deshalb übersetzt `check_lernpfad.py` jeden Block
+direkt. Das findet unbekannte Module (`Cube` statt `cube`), fehlende Semikola
+und falsch benutzte Bibliotheksfunktionen in Sekunden statt in Minuten. Für
+BOSL2-Blöcke muss `OPENSCADPATH` auf die Bibliotheken zeigen.
 
 ### turtle-render
 
