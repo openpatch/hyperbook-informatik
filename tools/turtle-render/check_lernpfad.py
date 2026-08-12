@@ -128,6 +128,40 @@ def check_passwords(files: list[pathlib.Path]) -> None:
     print(f"{len(seen)} eindeutige Loesungspasswoerter.")
 
 
+# Ordner, die keinen Kapitelabschluss brauchen: Projekt und Referenz sind
+# selbst schon Abschluss beziehungsweise Nachschlagewerk. Verglichen wird der
+# **ganze** Name ohne Nummernpraefix - eine Teilzeichenkette wuerde auch
+# Inhaltskapitel ausnehmen, in deren Namen das Wort vorkommt.
+OHNE_RUECKBLICK = {"referenz", "projekt", "projekte"}
+
+
+def check_rueckblick(kapitelwurzeln: list[pathlib.Path]) -> int:
+    """Jedes Inhaltskapitel endet mit einer Rueckblick-Seite.
+
+    Der Rueckblick buendelt, was in den Lektionen einzeln geuebt wurde:
+    Checkliste, gemischte Aufgaben ueber mehrere Lektionen, Selbsttest. Ohne
+    ihn testet jede Lektion nur, was zwei Bildschirmseiten vorher stand.
+    """
+    gefunden = 0
+    for wurzel in kapitelwurzeln:
+        if not wurzel.is_dir():
+            continue
+        for kapitel in sorted(p for p in wurzel.iterdir() if p.is_dir()):
+            if re.sub(r"^\d+-", "", kapitel.name) in OHNE_RUECKBLICK:
+                continue
+            lektionen = [p for p in kapitel.rglob("*.md") if p.name != "index.md"]
+            if not lektionen:
+                continue
+            if any("rueckblick" in p.name for p in kapitel.glob("*.md")):
+                gefunden += 1
+            else:
+                problems.append(
+                    f"{kapitel.relative_to(ROOT)}: kein Rueckblick "
+                    f"(erwartet eine Datei mit rueckblick im Namen)"
+                )
+    return gefunden
+
+
 def main() -> int:
     files = sorted(BOOK.rglob("*.md"))
     for path in files:
@@ -137,8 +171,9 @@ def main() -> int:
         check_unsupported_api(rel, text)
         check_images(path, text)
     check_passwords(files)
+    kapitel = check_rueckblick([BOOK])
 
-    print(f"{len(files)} Seiten geprueft.")
+    print(f"{kapitel} Kapitelabschluesse, {len(files)} Seiten geprueft.")
     if problems:
         print(f"\n{len(problems)} Problem(e):\n")
         for problem in problems:

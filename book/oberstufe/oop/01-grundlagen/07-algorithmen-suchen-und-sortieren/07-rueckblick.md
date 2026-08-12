@@ -112,7 +112,7 @@ Das `return -1` steht **nach** der Schleife – es wird nur erreicht, wenn die S
 
 ::::
 
-:::onlineide{height="520px" speed="1000000"}
+:::onlineide{height="600px" speed="1000000"}
 
 ```java Main.java
 void main() {
@@ -123,7 +123,16 @@ void main() {
     IO.println(zaehle(werte, 8));
 }
 
-// Deine Methoden:
+int suche(int[] pWerte, int pGesucht) {
+    // Deine Loesung. Der Rueckgabewert ist nur ein Platzhalter,
+    // damit das Programm von Anfang an laeuft.
+    return -1;
+}
+
+int zaehle(int[] pWerte, int pGesucht) {
+    // Deine Loesung.
+    return 0;
+}
 ```
 
 :::
