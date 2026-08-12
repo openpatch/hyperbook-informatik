@@ -6,32 +6,43 @@ hide: true
 
 # Probe
 
-## A: import java.time
+## Fenstergröße in der Online-IDE
 
-:::onlineide{height="300px"}
+Frage: Akzeptiert die Online-IDE ein `Window(800, 400)`, oder bleibt die Bühne bei 480 × 360?
+
+Der Hase sitzt bei (350, 150). Sichtbar ist er nur, wenn die Bühne wirklich 800 × 400 groß ist
+(x bis ±400, y bis ±200). Bei 480 × 360 (x bis ±240, y bis ±180) liegt er außerhalb.
+
+:::onlineide{libraries="scratch" height="560px"}
 
 ```java Main.java
-import java.time.LocalDateTime;
-
 void main() {
-    LocalDateTime t = LocalDateTime.of(2026, 3, 17, 8, 0, 0);
-    IO.println(t);
+    Window fenster = new Window(800, 400);
+    fenster.setStage(new Buehne());
+    IO.println("Breite: " + fenster.getWidth() + "  Hoehe: " + fenster.getHeight());
 }
 ```
 
-:::
-
-## B: import org.openpatch.scratch
-
-:::onlineide{libraries="scratch" height="300px"}
-
 ```java Buehne.java
-import org.openpatch.scratch.*;
-import org.openpatch.scratch.extensions.animation.*;
-
 public class Buehne extends Stage {
+
     public Buehne() {
-        super(400, 300);
+        Hase weit = new Hase();
+        weit.setPosition(350, 150);
+        this.add(weit);
+
+        Hase mitte = new Hase();
+        mitte.setPosition(0, 0);
+        this.add(mitte);
+    }
+}
+```
+
+```java Hase.java
+public class Hase extends Sprite {
+
+    public Hase() {
+        this.addCostume("bunny1_stand");
     }
 }
 ```

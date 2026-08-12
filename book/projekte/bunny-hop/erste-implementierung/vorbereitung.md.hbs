@@ -44,49 +44,47 @@ Alle 838 Namen findest du unter [scratch4j.openpatch.org/sprites](https://scratc
 
 ## Das erste Programm
 
-Die drei Dateien enthalten schon ein kleines Programm. Sieh es dir an, bevor du es startest:
+Die drei Dateien enthalten schon ein kleines Programm. Du kannst es **hier auf der Seite** ausprobieren – klick auf ▶. Es ist derselbe Quelltext, der auch im Archiv liegt.
 
-::::tabs{id="845876"}
+:::onlineide{libraries="scratch" height="560px"}
 
-:::tab{title="Main" id="605172"}
-
-```java
-{{{rfile "/archives/bunny-hop-vorbereitung/Main.java"}}}
+```java Main.java
+{{{rfile "/archives/bunny-hop-vorbereitung/Main.java" "reg:^import "}}}
 ```
 
-`Main.java` ist der Startpunkt. Sie öffnet ein Fenster von 800 × 400 Pixeln und stellt die Bühne `BunnyHop` hinein.
+```java BunnyHop.java
+{{{rfile "/archives/bunny-hop-vorbereitung/BunnyHop.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/bunny-hop-vorbereitung/Spieler.java" "reg:^import "}}}
+```
 
 :::
 
-:::tab{title="BunnyHop" id="605171"}
+Drei Dateien, drei Aufgaben:
 
-```java
-{{{rfile "/archives/bunny-hop-vorbereitung/BunnyHop.java"}}}
-```
+| Datei | Wofür |
+| --- | --- |
+| `Main.java` | der Startpunkt. Hier wird die Bühne erzeugt – und damit das Fenster. |
+| `BunnyHop.java` | die **Bühne**. Alles, was man sehen soll, muss ihr mit `add` hinzugefügt werden. |
+| `Spieler.java` | ein **Sprite**, also eine Figur auf der Bühne. Bugs bekommt ein Kostüm namens `stehen`, das das eingebaute Bild `bunny1_stand` zeigt. |
 
-Die **Bühne** ist der Ort, an dem gespielt wird. Alles, was man sehen soll, muss ihr mit `add` hinzugefügt werden.
+:::snippet{#merken}
+Die Bühne ist **480 × 360** Pixel groß, und der Nullpunkt liegt in der **Mitte**. Nach rechts wächst `x` bis 240, nach links bis −240; nach oben wächst `y` bis 180, nach unten bis −180.
 
+Das ist wichtig, sobald du Figuren platzierst: `setPosition(0, 0)` ist die Mitte, nicht die linke obere Ecke.
 :::
 
-:::tab{title="Spieler" id="605170"}
+Im heruntergeladenen Projekt steht in `Main.java` zusätzlich eine `import`-Zeile – die Online-IDE kennt die Klassen schon, dein Rechner muss sie erst suchen. Sonst ist es Zeichen für Zeichen derselbe Quelltext.
 
-```java
-{{{rfile "/archives/bunny-hop-vorbereitung/Spieler.java"}}}
-```
-
-Ein **Sprite** ist eine Figur auf der Bühne. Bugs bekommt hier ein Kostüm mit dem Namen `stehen`, das das eingebaute Bild `bunny1_stand` zeigt.
-
-:::
-
-::::
-
-Starte das Programm aus dem Projektordner heraus:
+Starte das Programm bei dir aus dem Projektordner heraus:
 
 ```bash
 java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-5.3.0-all.jar" Main.java
 ```
 
-Anschließend solltest du die folgende Ausgabe sehen:
+Es öffnet sich ein Fenster von 480 × 360 Pixeln – dieselbe Bühne wie oben auf der Seite:
 
 ![](/images/bunny-hop/vorbereitung/bunny.png)
 
@@ -115,5 +113,5 @@ a) Bring das Programm bei dir zum Laufen. Siehst du Bugs vor weißem Hintergrund
 
 b) Gib Bugs ein anderes Kostüm. Auf [der Übersicht](https://scratch4j.openpatch.org/sprites) findest du unter anderem `bunny1_ready`, `bunny1_jump` und `bunny2_stand`.
 
-c) Verschiebe Bugs an eine andere Stelle. Ergänze dafür in `BunnyHop` nach `this.add(bugs);` die Zeile `bugs.setPosition(200, 300);` und probier verschiedene Zahlen aus.
+c) Verschiebe Bugs an eine andere Stelle. Ergänze dafür in `BunnyHop` nach `this.add(bugs);` die Zeile `bugs.setPosition(150, 100);` und probier verschiedene Zahlen aus. Denk an die Grenzen: x von −240 bis 240, y von −180 bis 180.
 :::

@@ -226,3 +226,24 @@ NODE_PATH=/tmp/pw/node_modules node tools/java-lernpfad/pruefe_seiten.js
 ```
 
 Eine Uebersicht ueber alle Werkzeuge steht in `tools/README.md`.
+
+### Buehnengroesse: 480 x 360, und zwar ueberall
+
+Am 12.08.2026 im Browser geprueft (`book/_probe/index.md`, Startknopf gedrueckt):
+Ein `new Window(800, 400)` in der Online-IDE wird **ignoriert**. `getWidth()`
+liefert 480, `getHeight()` 360; ein Sprite bei (350, 150) liegt ausserhalb.
+
+Auf dem Rechner ist `Window()` genauso 480 x 360 (siehe `Window.java:219`),
+und ein `new MeineBuehne()` ohne eigenes Fenster erzeugt genau dieses.
+**Damit ist derselbe Quelltext in beiden Welten pixelgleich** - Voraussetzung
+dafuer, eine Datei per `rfile` in einen `onlineide`-Block zu spiegeln.
+
+Der Nullpunkt liegt in der **Mitte**, y waechst nach **oben**
+(`Stage.java:1851`: `translate(width/2, height/2)`). Sichtbar ist also
+x von -240 bis 240 und y von -180 bis 180.
+
+Achtung bei alten Projekten: Die Bunny-Hop-Archive stammen aus einer Zeit mit
+Ursprung **links oben** und y nach **unten** (Positionen wie `setY(340)` bei
+800 x 400). Sie uebersetzen und laufen unter 5.3.0, zeigen aber die halbe Szene
+ausserhalb der Buehne. Umrechnung: `x_neu = x_alt - 400`, `y_neu = 200 - y_alt`
+- und jede Bewegungslogik nach unten (Schwerkraft, Fallen) kehrt ihr Vorzeichen um.
