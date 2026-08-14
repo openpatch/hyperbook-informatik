@@ -20,6 +20,23 @@ linear_extrude(height=5)
 **Wichtig:** `text()` allein erstellt eine 2D-Form, die in OpenSCAD **nicht sichtbar** ist. Du **musst** immer `linear_extrude()` verwenden, um Text in 3D darzustellen.
 :::
 
+## Eigene Schriftarten
+
+Von OpenSCAD können TrueType Fonts (.ttf) und OpenType Fonts (.otf) verwendet
+werden. Du kannst eigene Schriftarten in dein Projekt einbinden, indem du sie
+in den Projektordner kopierst (online als Binärdatei hinzufügst) und mit dem `use`-Befehl einbindest.
+
+:::openscad{height="600px"}
+
+@file dest="/Super Bouncer.ttf" src="./Super Bouncer.ttf"
+
+```scad
+use </Super Bouncer.ttf>
+linear_extrude(height=5)
+    text("Hallo Welt!", size=10, font="Super Bouncer");
+```
+:::
+
 ---
 
 ## Selbsttest
