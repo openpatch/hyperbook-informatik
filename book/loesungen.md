@@ -569,7 +569,7 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="Programmierung mit Java (110 Lösungen)"}
+::::collapsible{title="Programmierung mit Java (116 Lösungen)"}
 
 
 **[Erste Schritte – Das erste Programm](/oberstufe/oop/01-grundlagen/01-erste-schritte/01-das-erste-programm)**
@@ -839,6 +839,17 @@ verlinkt.
 | Aufgabe | Passwort |
 | --- | --- |
 | Aufgabe 1 – `nimmAuf` | `java-ef-8-2-1` |
+
+**[Erweiterungen der Programmierung mit Java – Check-in](/oberstufe/oop/02-erweiterungen/00-check-in)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Ohne Rechner. | `java-q-0-1` |
+| Aufgabe 2: Vier Ausschnitte, vier Fehler | `java-q-0-2` |
+| Ohne Rechner. | `java-q-0-3` |
+| Aufgabe 4: Zahlenspiele | `java-q-0-4` |
+| Aufgabe 5: Statistik über einem Feld | `java-q-0-5` |
+| Aufgabe 6: Eine Klasse und eine Unterklasse | `java-q-0-6` |
 
 **[Vertiefte Objektorientierung – Implementationsdiagramme](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/01-implementationsdiagramme)**
 
@@ -1309,7 +1320,7 @@ verlinkt.
 ::::
 
 
-Insgesamt 369 geschützte Lösungen.
+Insgesamt 375 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.
