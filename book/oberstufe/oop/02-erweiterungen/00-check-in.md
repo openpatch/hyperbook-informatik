@@ -216,7 +216,7 @@ a) Was gibt das Programm aus? Schreib die drei Zeilen auf.
 
 b) Die Methode `stelleVor` steht **nur** in `Tier`. Warum erscheint bei Bello trotzdem „Wuff"?
 
-c) Warum kann `Hund` nicht einfach `this.name` schreiben?
+c) Warum kann `Katze` nicht einfach `this.name` schreiben?
 
 d) Was bewirkt `super(pName)` – und was passiert, wenn man die Zeile streicht?
 
