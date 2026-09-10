@@ -98,6 +98,71 @@ int verdopple(int pZahl) {
 | `Math.round` liefert `long` | liefert **`int`** (ebenso `floor`, `ceil`, `signum`) |
 | `import ...` | nicht noetig und nicht moeglich — es gibt keine Pakete |
 
+## Kommazahlen werden ohne `.0` ausgegeben
+
+Verifiziert am 10.09.2026 ueber den Testrunner (`book/_probe/zahlen.md`):
+
+| Ausdruck | Online-IDE | echtes Java |
+| --- | --- | --- |
+| `"" + 25.0` | `25` | `25.0` |
+| `"" + 2.5` | `2.5` | `2.5` |
+| `"" + (1.0/3.0)` | `0.3333333333333333` | `0.3333333333333333` |
+
+Eine `double`-Variable mit ganzzahligem Wert wird also wie ein `int` geschrieben.
+Zwei Folgen fuer die Lernpfade:
+
+1. **Kein `assertEquals` auf eine Zeichenkette, in der eine Kommazahl steckt.**
+   `assertEquals("Grace: 5000.0 Euro", m.infozeile())` ist in der Online-IDE
+   **rot**, obwohl die Loesung stimmt. Solche Zusammenhaenge stattdessen
+   numerisch pruefen (`assertEquals(60000.0, m.jahresgehalt(), ...)`).
+2. **Keine Vorhersageaufgabe, in der eine Kommazahl ausgegeben wird.** Wer auf
+   Papier richtig `100.0` notiert, sieht auf dem Schirm `100` und haelt sich
+   fuer widerlegt. Vorhersagen deshalb auf `int`, `boolean` und `String`
+   stuetzen - oder die Abweichung auf der Seite als `:::alert{info}` nennen.
+
+Der Zahlenvergleich selbst stimmt: `assertEquals(25.0, 5.0 * 5.0, ...)` ist gruen.
+
+## @Override und Schnittstellenkonstanten
+
+Verifiziert am 10.09.2026 (`book/_probe/statik.md`, `book/_probe/final.md`):
+
+- `@Override` uebersetzt, erzeugt aber bei der Umsetzung einer
+  **Schnittstellenmethode** eine Warnung ("ueberschreibt keine Methode mit
+  gleicher Signatur einer Oberklasse"). Im Lernpfad deshalb **nicht** verwenden.
+- Ein Attribut in einer Schnittstelle braucht ausdruecklich
+  `public static final`; ohne die Schluesselwoerter kommt "Interfaces koennen
+  nur statische konstante (final) Attribute besitzen".
+- Die Konstante muss in der implementierenden Klasse **qualifiziert** angesprochen
+  werden (`Speicherbar.TRENNER`). Der unqualifizierte Name ist dort nicht
+  definiert - anders als in echtem Java.
+
+## static innerhalb einer Klasse
+
+Verifiziert am 10.09.2026 (`book/_probe/statik.md`, `book/_probe/semantik.md`,
+`book/_probe/final.md`): Klassenattribute (auch veraenderliche), Klassenmethoden
+und der Aufruf ueber den Klassennamen (`Rechteck.getAnzahl()`) funktionieren.
+Nur **auf oberster Ebene**, also neben `void main()`, ist `static` ein Fehler.
+
+Zwei Fallstricke:
+
+- **`protected static` von aussen zu lesen bricht ab** - `Vorrat.erzeugt` mit
+  `protected static int erzeugt` liefert "Interner Fehler: TypeError: t.run is
+  not a function". Also `private static` plus eine `public static`-Zugriffsmethode.
+- **`protected` laesst sich aus einer Testklasse nicht aufrufen.** Die Online-IDE
+  kennt keine Pakete; eine Aufgabe mit einer `protected`-Methode braucht deshalb
+  eine oeffentliche Methode, die sie von innen benutzt.
+- `public static final int[] FELD = {1, 2, 3};` geht, und **der Inhalt bleibt
+  aenderbar** - `final` haelt nur den Verweis fest.
+
+Ebenfalls verifiziert und mit echtem Java uebereinstimmend:
+
+- Ruft ein Konstruktor der Oberklasse eine ueberschriebene Methode auf, sieht
+  diese die Attribute der Unterklasse noch **uninitialisiert** (`0`).
+- **Ueberladen** wird statisch gebunden: Welche der gleichnamigen Methoden
+  genommen wird, entscheidet der **deklarierte** Typ des Arguments.
+- `instanceof`, Typumwandlung nach unten und ein eigenes `toString()`
+  funktionieren; `toString()` wird bei der Verkettung mit `+` benutzt.
+
 ## Generik
 
 Verifiziert: `class Behaelter<T>` mit `private T[] inhalt;` und

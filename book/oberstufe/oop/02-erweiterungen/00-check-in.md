@@ -50,7 +50,7 @@ einen konkreten Arbeitsauftrag und keine diffuse Luecke.
 ### Aufgabe 1: Was gibt das Programm aus?
 
 :::snippet{#aufgabe}
-**Ohne Rechner.** Führ eine Tabelle mit den Spalten `zahl` und `summe` und trag für jeden Schleifendurchlauf ein, welche Werte darin stehen.
+*Ohne Rechner.* Führ eine Tabelle mit den Spalten `zahl` und `summe` und trag für jeden Schleifendurchlauf ein, welche Werte darin stehen.
 
 ```java
 void main() {
@@ -210,7 +210,7 @@ Das ist die eigentliche Lehre: Die Hälfte der Fehler bemerkt die IDE nicht. Ein
 ### Aufgabe 3: Objekte und Vererbung lesen
 
 :::snippet{#aufgabe}
-**Ohne Rechner.** Lies die vier Dateien und beantworte:
+*Ohne Rechner.* Lies die vier Dateien und beantworte:
 
 a) Was gibt das Programm aus? Schreib die drei Zeilen auf.
 
@@ -308,7 +308,7 @@ Minka sagt lieber nichts.
 
 b) `stelleVor` wird von `Hund` geerbt und ruft `this.laut()` auf. `this` ist das **Hund-Objekt** – und dort ist `laut` überschrieben. Java entscheidet erst zur Laufzeit, welche Methode genommen wird, und zwar anhand des Objekts, nicht anhand der Klasse, in der der Aufruf steht.
 
-Genau das heißt **Polymorphie**, und genau deshalb steht im Hauptprogramm ein `Tier[]`, in dem auch Hunde und Katzen liegen: Der Aufruf sieht überall gleich aus, das Verhalten ist verschieden. Du hast das in [Vererbung](../01-grundlagen/06-objektorientierung/04-vererbung) schon benutzt – der Begriff dafür kommt in [1.2 Polymorphie](./01-vertiefte-objektorientierung/02-polymorphie).
+Genau das heißt **Polymorphie**, und genau deshalb steht im Hauptprogramm ein `Tier[]`, in dem auch Hunde und Katzen liegen: Der Aufruf sieht überall gleich aus, das Verhalten ist verschieden. Du hast das in [Vererbung](../01-grundlagen/06-objektorientierung/04-vererbung) schon benutzt – der Begriff dafür kommt in [1.4 Polymorphie](./01-vertiefte-objektorientierung/04-polymorphie).
 
 c) `name` ist `private`. Das gilt auch gegenüber Unterklassen: `private` heißt „nur innerhalb **dieser** Klasse". `Hund` kommt an den Namen nur über die öffentliche Methode `getName()`. Das ist das **Geheimnisprinzip** – die Klasse `Tier` behält die Hoheit darüber, wie der Name gespeichert wird.
 
@@ -815,7 +815,7 @@ Vier Punkte:
 - **`super.punkteDazu(pAnzahl * 2)`** statt einer eigenen Rechnung. Die Regel „negative Werte werden ignoriert" gilt damit automatisch weiter – bei −5 wird `super.punkteDazu(-10)` aufgerufen und dort verworfen. Wer die Regel in `Profistand` noch einmal hinschreibt, hat sie an zwei Stellen zu pflegen.
 - **`punkteWeg` fehlt in `Profistand` mit Absicht.** Was nicht überschrieben wird, wird geerbt.
 
-Der letzte Test ist der interessante: Im `Spielstand[]` liegen beide Objekte, und beide werden über eine `Spielstand`-Variable angesprochen. Trotzdem bekommt Kim 20 Punkte. Der Typ der Variablen entscheidet, was man **aufrufen darf**; das Objekt entscheidet, **was passiert**. Damit stehst du mit einem Fuß schon in [1.2 Polymorphie](./01-vertiefte-objektorientierung/02-polymorphie).
+Der letzte Test ist der interessante: Im `Spielstand[]` liegen beide Objekte, und beide werden über eine `Spielstand`-Variable angesprochen. Trotzdem bekommt Kim 20 Punkte. Der Typ der Variablen entscheidet, was man **aufrufen darf**; das Objekt entscheidet, **was passiert**. Damit stehst du mit einem Fuß schon in [1.4 Polymorphie](./01-vertiefte-objektorientierung/04-polymorphie).
 
 :::
 
@@ -848,7 +848,7 @@ Geh die Tabelle Zeile für Zeile durch und kreuze ehrlich an. Für jede Zeile, d
 
 Die Hälfte der Fehler in Aufgabe 2 meldet die IDE **nicht**. Ein Programm, das startet, ist nicht dasselbe wie ein Programm, das stimmt – deshalb liegen in diesem Lernpfad bei fast jeder Aufgabe Tests dabei.
 
-Und in Aufgabe 3 und 6 hast du schon gesehen, worum es gleich in Kapitel 1 geht: Ein geerbtes Verfahren ruft die **überschriebene** Methode auf, und derselbe Aufruf tut bei verschiedenen Objekten Verschiedenes. Das hat einen Namen, und den lernst du in [1.2 Polymorphie](./01-vertiefte-objektorientierung/02-polymorphie).
+Und in Aufgabe 3 und 6 hast du schon gesehen, worum es gleich in Kapitel 1 geht: Ein geerbtes Verfahren ruft die **überschriebene** Methode auf, und derselbe Aufruf tut bei verschiedenen Objekten Verschiedenes. Das hat einen Namen, und den lernst du in [1.4 Polymorphie](./01-vertiefte-objektorientierung/04-polymorphie).
 :::
 
 Wenn du magst, kannst du direkt weitermachen: [1. Vertiefte Objektorientierung](./01-vertiefte-objektorientierung).

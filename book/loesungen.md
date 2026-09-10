@@ -569,7 +569,7 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="Programmierung mit Java (116 Lösungen)"}
+::::collapsible{title="Programmierung mit Java (147 Lösungen)"}
 
 
 **[Erste Schritte – Das erste Programm](/oberstufe/oop/01-grundlagen/01-erste-schritte/01-das-erste-programm)**
@@ -844,9 +844,9 @@ verlinkt.
 
 | Aufgabe | Passwort |
 | --- | --- |
-| Ohne Rechner. | `java-q-0-1` |
+| Aufgabe 1: Was gibt das Programm aus? | `java-q-0-1` |
 | Aufgabe 2: Vier Ausschnitte, vier Fehler | `java-q-0-2` |
-| Ohne Rechner. | `java-q-0-3` |
+| Aufgabe 3: Objekte und Vererbung lesen | `java-q-0-3` |
 | Aufgabe 4: Zahlenspiele | `java-q-0-4` |
 | Aufgabe 5: Statistik über einem Feld | `java-q-0-5` |
 | Aufgabe 6: Eine Klasse und eine Unterklasse | `java-q-0-6` |
@@ -855,33 +855,74 @@ verlinkt.
 
 | Aufgabe | Passwort |
 | --- | --- |
-| Aufgabe 1: Vom Diagramm zum Quelltext | `java-q-1-1-1` |
+| Aufgabe 1: Vom Quelltext zum Diagramm | `java-q-1-1-1` |
+| Aufgabe 2: Diagramm und Quelltext passen nicht zusammen | `java-q-1-1-2` |
+| Aufgabe 3: Vom Diagramm zum Quelltext | `java-q-1-1-3` |
+| Vertiefung 1: Was ein Diagramm verschweigt | `java-q-1-1-4` |
 
-**[Vertiefte Objektorientierung – Polymorphie](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/02-polymorphie)**
-
-| Aufgabe | Passwort |
-| --- | --- |
-| Aufgabe: Formen | `java-q-1-2-1` |
-
-**[Vertiefte Objektorientierung – Abstrakte Klassen](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/03-abstrakte-klassen)**
+**[Vertiefte Objektorientierung – Klassenattribute und Konstanten](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/02-klassenattribute-und-konstanten)**
 
 | Aufgabe | Passwort |
 | --- | --- |
-| Aufgabe 1: Die Firma | `java-q-1-3-1` |
+| Aufgabe 1: Wer zählt was? | `java-q-1-2-1` |
+| Aufgabe 2: Objekt, Klasse oder Konstante? | `java-q-1-2-2` |
+| Aufgabe 3: Ein Rechteck, das mitzählt | `java-q-1-2-3` |
+| Vertiefung 1: Was final wirklich schützt | `java-q-1-2-4` |
+| Vertiefung 2: Wann static schadet | `java-q-1-2-5` |
 
-**[Vertiefte Objektorientierung – Schnittstellen](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/04-schnittstellen)**
-
-| Aufgabe | Passwort |
-| --- | --- |
-| Aufgabe: Vergleichbar | `java-q-1-4-1` |
-
-**[Vertiefte Objektorientierung – Rückblick](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/05-rueckblick)**
+**[Vertiefte Objektorientierung – Generalisierung und Spezialisierung](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/03-generalisierung-und-spezialisierung)**
 
 | Aufgabe | Passwort |
 | --- | --- |
-| Aufgabe 1: Diagramm lesen und schreiben | `java-q-1-5-1` |
-| Aufgabe 2: Wer wird aufgerufen? | `java-q-1-5-2` |
-| Aufgabe 3: Abstrakte Klasse oder Schnittstelle? | `java-q-1-5-3` |
+| Aufgabe 1: Sechs Vorschläge beurteilen | `java-q-1-3-1` |
+| Aufgabe 2: Was gehört nach oben? | `java-q-1-3-2` |
+| Aufgabe 3: Drei Klassen zusammenziehen | `java-q-1-3-3` |
+| Vertiefung 1: Wenn „ist ein" nicht genügt | `java-q-1-3-4` |
+| Vertiefung 2: Wie tief darf eine Hierarchie sein? | `java-q-1-3-5` |
+
+**[Vertiefte Objektorientierung – Polymorphie](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/04-polymorphie)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe: Eine vierte Fahrzeugart | `java-q-1-4-1` |
+| Aufgabe 1: Welche Fassung läuft? | `java-q-1-4-2` |
+| Aufgabe 2: Was darf man aufrufen? | `java-q-1-4-3` |
+| Aufgabe 3: Formen | `java-q-1-4-4` |
+| Vertiefung 1: Überschreiben ist nicht Überladen | `java-q-1-4-5` |
+| Vertiefung 2: Ein Konstruktor, der zu früh fragt | `java-q-1-4-6` |
+
+**[Vertiefte Objektorientierung – Abstrakte Klassen](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/05-abstrakte-klassen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe: Zwei Fehlermeldungen lesen | `java-q-1-5-1` |
+| Aufgabe 1: Was meldet der Übersetzer? | `java-q-1-5-2` |
+| Aufgabe 2: Abstrakt oder konkret? | `java-q-1-5-3` |
+| Aufgabe 3: Die Firma | `java-q-1-5-4` |
+| Aufgabe 4: Die Eisdiele | `java-q-1-5-5` |
+| Vertiefung 1: Die Oberklasse gibt den Ablauf vor | `java-q-1-5-6` |
+| Vertiefung 2: Abstrakt heißt nicht leer | `java-q-1-5-7` |
+
+**[Vertiefte Objektorientierung – Schnittstellen](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/06-schnittstellen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe: Warum reicht eine abstrakte Klasse nicht? | `java-q-1-6-1` |
+| Aufgabe 1: Sechs Fälle entscheiden | `java-q-1-6-2` |
+| Aufgabe 2: Was steht so nicht in einer Schnittstelle? | `java-q-1-6-3` |
+| Aufgabe 3: Vergleichbar | `java-q-1-6-4` |
+| Vertiefung 1: Zwei Fähigkeiten auf einmal | `java-q-1-6-5` |
+| Vertiefung 2: Warum gibt es keine Mehrfachvererbung? | `java-q-1-6-6` |
+
+**[Vertiefte Objektorientierung – Rückblick](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/07-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Diagramm lesen und schreiben | `java-q-1-7-1` |
+| Aufgabe 2: Wer wird aufgerufen? | `java-q-1-7-2` |
+| Aufgabe 3: Der Versand | `java-q-1-7-3` |
+| Aufgabe 4: Abstrakte Klasse oder Schnittstelle? *(LK)* | `java-q-1-7-4` |
+| Vertiefung: Einen fremden Entwurf beurteilen | `java-q-1-7-5` |
 
 **[Felder, Referenzen und Generik – Zweidimensionale Felder](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/01-zweidimensionale-felder)**
 
@@ -1320,7 +1361,7 @@ verlinkt.
 ::::
 
 
-Insgesamt 375 geschützte Lösungen.
+Insgesamt 406 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.

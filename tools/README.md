@@ -164,6 +164,7 @@ Code, der nicht läuft.
 | `check_lernpfad.py` | Aufbau der Seiten, Selbsttests, **Kapitelabschlüsse**, Passwörter, `onlineide`-Blöcke, nicht unterstützte Java-Konstrukte |
 | `pruefe_seiten.js` | lädt jede Seite und liest den Fehlerreiter der IDE aus |
 | `pruefe_seite.js` | dieselbe Prüfung für **eine** offene Seite, zum Einfügen in die Browserkonsole |
+| `starte_tests.js` | startet den **Testrunner** einer Seite und zeigt, welche Tests grün werden – zum Prüfen von Musterlösungen und Vorhersagen |
 
 ### datenbank-lernpfad
 
@@ -221,6 +222,12 @@ zu halten:
 | `pruefe_seiten.js` | Browserprüfung | wenn Dev-Server und Playwright da sind |
 | `erzeuge_*.py`, `render_*.py` | Generator | nur mit `--generatoren` |
 | alles andere | Bibliothek, Notiz, Einmalskript | nie |
+
+`starte_tests.js` fällt bewusst in die letzte Zeile: Es startet den Testrunner
+einer Seite und ist beim **Schreiben** einer Lektion nützlich – die
+Aufgabengerüste im Buch sind ja absichtlich rot. Wer eine Musterlösung oder eine
+Vorhersage prüfen will, legt beides vorübergehend in eine Seite unter
+`book/_probe/` und lässt das Skript darauf los.
 
 Gesucht wird in `tools/` **und** in jedem Unterordner: pfadweite Werkzeuge
 liegen in einem Unterordner, buchweite (etwa die Passwortseite) direkt in
