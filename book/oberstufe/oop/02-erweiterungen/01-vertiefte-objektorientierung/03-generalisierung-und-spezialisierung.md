@@ -323,30 +323,30 @@ public class Hausmeister {
 ```mermaid
 classDiagram
     class Person {
-        -String name
-        -int geburtsjahr
-        +Person(String pName, int pGeburtsjahr)
-        +String getName()
-        +int alterImJahr(int pJahr)
-        +String ausweiszeile()
-        +boolean darfWaehlen(int pJahr)
+        -name: String
+        -geburtsjahr: int
+        +Person(pName: String, pGeburtsjahr: int)
+        +getName() String
+        +alterImJahr(pJahr: int) int
+        +ausweiszeile() String
+        +darfWaehlen(pJahr: int) boolean
     }
     class Schuelerin {
-        -int jahrgangsstufe
-        +Schuelerin(String pName, int pGeburtsjahr, int pStufe)
-        +String ausweiszeile()
-        +boolean darfWaehlen(int pJahr)
+        -jahrgangsstufe: int
+        +Schuelerin(pName: String, pGeburtsjahr: int, pStufe: int)
+        +ausweiszeile() String
+        +darfWaehlen(pJahr: int) boolean
     }
     class Lehrerin {
-        -String fach
-        -int stundenzahl
-        +Lehrerin(String pName, int pGeburtsjahr, String pFach, int pStunden)
-        +String ausweiszeile()
+        -fach: String
+        -stundenzahl: int
+        +Lehrerin(pName: String, pGeburtsjahr: int, pFach: String, pStunden: int)
+        +ausweiszeile() String
     }
     class Hausmeister {
-        -String schluesselbund
-        +Hausmeister(String pName, int pGeburtsjahr, String pBund)
-        +String ausweiszeile()
+        -schluesselbund: String
+        +Hausmeister(pName: String, pGeburtsjahr: int, pBund: String)
+        +ausweiszeile() String
     }
     Person <|-- Schuelerin
     Person <|-- Lehrerin

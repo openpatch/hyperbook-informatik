@@ -48,7 +48,7 @@ classDiagram
 
     class Kaese {
         -reifezeit: int
-        +Kaese(pName: String, pPreis double, pMhd int)
+        +Kaese(pName: String, pPreis: double, pMhd: int)
         +gibInformation() String
     }
 

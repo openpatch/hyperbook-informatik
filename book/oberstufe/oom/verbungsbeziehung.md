@@ -24,7 +24,7 @@ classDiagram
         beschleunigen()
         bremsen()
         umlackieren(neueFarbe: Farbe)
-        gibGeschwindigkeit(): Zahl
+        gibGeschwindigkeit() Zahl
     }
 
     class SUV {

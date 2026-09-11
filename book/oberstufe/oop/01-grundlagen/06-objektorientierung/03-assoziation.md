@@ -12,19 +12,19 @@ Bisher standen in deinen Objekten nur Zahlen und Zeichenketten. Jetzt darf ein O
 ```mermaid
 classDiagram
     class Fahrrad {
-        -String marke
-        -int gaenge
-        +Fahrrad(String pMarke, int pGaenge)
-        +void setzeVorderreifen(Reifen pReifen)
-        +Reifen getVorderreifen()
-        +void schreibeInfos()
+        -marke: String
+        -gaenge: int
+        +Fahrrad(pMarke: String, pGaenge: int)
+        +setzeVorderreifen(pReifen: Reifen)
+        +getVorderreifen() Reifen
+        +schreibeInfos()
     }
     class Reifen {
-        -String hersteller
-        -double breite
-        +Reifen(String pHersteller, double pBreite)
-        +String getHersteller()
-        +double getBreite()
+        -hersteller: String
+        -breite: double
+        +Reifen(pHersteller: String, pBreite: double)
+        +getHersteller() String
+        +getBreite() double
     }
     Fahrrad --> Reifen : vorderreifen
 ```
@@ -133,17 +133,17 @@ Ein Fahrrad hat zwei Reifen, ein Kurs viele Schüler. Für „mehrere“ nimmt m
 ```mermaid
 classDiagram
     class Kurs {
-        -String bezeichnung
-        -Schueler[] mitglieder
-        -int anzahl
-        +Kurs(String pBezeichnung, int pMaxGroesse)
-        +boolean nimmAuf(Schueler pSchueler)
-        +double durchschnitt()
-        +String besterName()
+        -bezeichnung: String
+        -mitglieder: Schueler[]
+        -anzahl: int
+        +Kurs(pBezeichnung: String, pMaxGroesse: int)
+        +nimmAuf(pSchueler: Schueler) boolean
+        +durchschnitt() double
+        +besterName() String
     }
     class Schueler {
-        -String name
-        -int punkte
+        -name: String
+        -punkte: int
         +getName()
         +getPunkte()
     }

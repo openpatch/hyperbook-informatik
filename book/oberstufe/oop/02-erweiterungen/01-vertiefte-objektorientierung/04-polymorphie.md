@@ -530,25 +530,25 @@ Achte darauf, welche Klassen `flaeche()` überschreiben müssen und welche nicht
 ```mermaid
 classDiagram
     class Form {
-        #String bezeichnung
-        +Form(String pBezeichnung)
-        +String getBezeichnung()
-        +double flaeche()
-        +boolean groesserAls(Form pAndere)
+        #bezeichnung: String
+        +Form(pBezeichnung: String)
+        +getBezeichnung() String
+        +flaeche() double
+        +groesserAls(pAndere: Form) boolean
     }
     class Rechteck {
-        -double breite
-        -double hoehe
-        +Rechteck(double pBreite, double pHoehe)
-        +double flaeche()
+        -breite: double
+        -hoehe: double
+        +Rechteck(pBreite: double, pHoehe: double)
+        +flaeche() double
     }
     class Quadrat {
-        +Quadrat(double pSeite)
+        +Quadrat(pSeite: double)
     }
     class Kreis {
-        -double radius
-        +Kreis(double pRadius)
-        +double flaeche()
+        -radius: double
+        +Kreis(pRadius: double)
+        +flaeche() double
     }
     Form <|-- Rechteck
     Rechteck <|-- Quadrat

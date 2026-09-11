@@ -43,23 +43,23 @@ c) Legt die Kardinalitäten fest: Wie viele Fragen kennt ein Quiz?
 ```mermaid
 classDiagram
     class Quiz {
-        -String titel
-        -Frage[] fragen
-        -int anzahl
-        -int richtige
-        +Quiz(String pTitel, int pMaxFragen)
-        +boolean nimmAuf(Frage pFrage)
-        +void starte()
-        +int getRichtige()
+        -titel: String
+        -fragen: Frage[]
+        -anzahl: int
+        -richtige: int
+        +Quiz(pTitel: String, pMaxFragen: int)
+        +nimmAuf(pFrage: Frage) boolean
+        +starte()
+        +getRichtige() int
     }
     class Frage {
-        -String text
-        -String[] antworten
-        -int richtigeNummer
-        +Frage(String pText, String[] pAntworten, int pRichtige)
-        +void zeigeAn()
-        +boolean pruefe(int pNummer)
-        +String getRichtigeAntwort()
+        -text: String
+        -antworten: String[]
+        -richtigeNummer: int
+        +Frage(pText: String, pAntworten: String[], pRichtige: int)
+        +zeigeAn()
+        +pruefe(pNummer: int) boolean
+        +getRichtigeAntwort() String
     }
     Quiz --> "0..*" Frage : fragen
 ```

@@ -155,13 +155,13 @@ Die Online-IDE schreibt eine Kommazahl ohne Nachkommastellen **ohne** das `.0`: 
 ```mermaid
 classDiagram
     class Kunde {
-        -int anzahl$
-        -String name
-        -int nummer
-        +Kunde(String pName)
-        +String getName()
-        +int getNummer()
-        +int getAnzahl()$
+        -anzahl: int$
+        -name: String
+        -nummer: int
+        +Kunde(pName: String)
+        +getName() String
+        +getNummer() int
+        +getAnzahl() int$
     }
 ```
 
@@ -381,16 +381,16 @@ Erweitere das `Rechteck` aus [1.1](./01-implementationsdiagramme) um alles, was 
 ```mermaid
 classDiagram
     class Rechteck {
-        -double MIN_SEITE$
-        -int erzeugt$
-        -double breite
-        -double hoehe
-        +Rechteck(double pBreite, double pHoehe)
-        +double getBreite()
-        +double getHoehe()
-        +double flaeche()
-        +int getErzeugt()$
-        +Rechteck groesseres(Rechteck pA, Rechteck pB)$
+        -MIN_SEITE: double$
+        -erzeugt: int$
+        -breite: double
+        -hoehe: double
+        +Rechteck(pBreite: double, pHoehe: double)
+        +getBreite() double
+        +getHoehe() double
+        +flaeche() double
+        +getErzeugt() int$
+        +groesseres(pA: Rechteck, pB: Rechteck) Rechteck$
     }
 ```
 

@@ -18,10 +18,10 @@ classDiagram
     }
 
     class Spieler{
-      String bildGehen1
-      String bildGehen2
-      int x
-      int y
+      bildGehen1: String
+      bildGehen2: String
+      x: int
+      y: int
       ...
     }
     class Stachel{

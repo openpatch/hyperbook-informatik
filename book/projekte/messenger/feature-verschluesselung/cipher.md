@@ -16,8 +16,8 @@ Die verschiedenen Verschlüsselungsalogrithmen sollen unter einer abstrakten Kla
 classDiagram
 
     class Cipher {
-        +verschluesseln(String pText, String pSchluessel)* String
-        +entschluesseln(String pText, String pSchluessel)* String
+        +verschluesseln(pText: String, pSchluessel: String) String*
+        +entschluesseln(pText: String, pSchluessel: String) String*
     }
 
     CaesarCipher --|> Cipher
@@ -25,19 +25,19 @@ classDiagram
     PolybiosCipher --|> Cipher
 
     class CaesarCipher {
-        +verschluesseln(String pText, String pSchluessel) String
-        +entschluesseln(String pText, String pSchluessel) String
+        +verschluesseln(pText: String, pSchluessel: String) String
+        +entschluesseln(pText: String, pSchluessel: String) String
     }
 
     class VigenereCipher {
-        +verschluesseln(String pText, String pSchluessel) String
-        +entschluesseln(String pText, String pSchluessel) String
+        +verschluesseln(pText: String, pSchluessel: String) String
+        +entschluesseln(pText: String, pSchluessel: String) String
     }
 
     class PolybiosCipher {
         -matrix: char[][]
-        +verschluesseln(String pText, String pSchluessel) String
-        +entschluesseln(String pText, String pSchluessel) String
-        -matrixomat(String pSchluessel)
+        +verschluesseln(pText: String, pSchluessel: String) String
+        +entschluesseln(pText: String, pSchluessel: String) String
+        -matrixomat(pSchluessel: String)
     }
 ```
