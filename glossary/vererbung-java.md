@@ -10,7 +10,7 @@ classDiagram
     class Person {
         -name: String
         +setzeName(pName: String)
-        +gibName(): String
+        +gibName() String
     }
     class Mitarbeiter {
 

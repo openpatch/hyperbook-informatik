@@ -28,13 +28,13 @@ Zuerst der Bauplan als Diagramm. So ein **Implementationsdiagramm** liest man vo
 ```mermaid
 classDiagram
     class Auto {
-        -String marke
-        -int kilometerstand
-        -double preis
-        +Auto(String pMarke, int pKm, double pPreis)
-        +void macheProbefahrt(int pKm)
-        +void aenderePreisUm(double pBetrag)
-        +void schreibeInfos()
+        -marke: String
+        -kilometerstand: int
+        -preis: double
+        +Auto(pMarke: String, pKm: int, pPreis: double)
+        +macheProbefahrt(pKm: int)
+        +aenderePreisUm(pBetrag: double)
+        +schreibeInfos()
     }
 ```
 

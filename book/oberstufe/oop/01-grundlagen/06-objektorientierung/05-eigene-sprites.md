@@ -145,16 +145,16 @@ Jetzt bauen wir eine echte Hierarchie: Gegenstände, die eingesammelt werden kö
 ```mermaid
 classDiagram
     class Sammelbar {
-        #int punktwert
-        +Sammelbar(int pX, int pY, int pPunktwert)
-        +int getPunktwert()
-        +void run()
+        #punktwert: int
+        +Sammelbar(pX: int, pY: int, pPunktwert: int)
+        +getPunktwert() int
+        +run()
     }
     class Muenze {
-        +Muenze(int pX, int pY)
+        +Muenze(pX: int, pY: int)
     }
     class Edelstein {
-        +Edelstein(int pX, int pY)
+        +Edelstein(pX: int, pY: int)
     }
     Sprite <|-- Sammelbar
     Sammelbar <|-- Muenze

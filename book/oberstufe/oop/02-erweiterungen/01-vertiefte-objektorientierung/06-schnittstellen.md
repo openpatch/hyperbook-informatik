@@ -158,24 +158,24 @@ Im Diagramm schreibt man `<<interface>>` über den Namen und verbindet die erfü
 classDiagram
     class Bezahlbar {
         <<interface>>
-        +int betragInEuro()
-        +String bezeichnung()
+        +betragInEuro() int
+        +bezeichnung() String
     }
     class Mitarbeiter {
         <<abstract>>
-        #String name
-        +int berechneGehalt()*
+        #name: String
+        +berechneGehalt() int*
     }
     class Angestellter {
-        -int stufe
-        +int berechneGehalt()
-        +int betragInEuro()
-        +String bezeichnung()
+        -stufe: int
+        +berechneGehalt() int
+        +betragInEuro() int
+        +bezeichnung() String
     }
     class Stromrechnung {
-        -int monatsbetrag
-        +int betragInEuro()
-        +String bezeichnung()
+        -monatsbetrag: int
+        +betragInEuro() int
+        +bezeichnung() String
     }
     Mitarbeiter <|-- Angestellter
     Bezahlbar <|.. Angestellter

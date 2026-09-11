@@ -27,14 +27,14 @@ Weitere Darstellungsformen findest du unter [Objektorientierte Modellierung](../
 ```mermaid
 classDiagram
     class Konto {
-        -String besitzer
-        -double kontostand
-        +Konto(String pBesitzer)
-        +String getBesitzer()
-        +double getKontostand()
-        +void zahleEin(double pBetrag)
-        +boolean hebeAb(double pBetrag)
-        #void korrigiere(double pNeuerStand)
+        -besitzer: String
+        -kontostand: double
+        +Konto(pBesitzer: String)
+        +getBesitzer() String
+        +getKontostand() double
+        +zahleEin(pBetrag: double)
+        +hebeAb(pBetrag: double) boolean
+        #korrigiere(pNeuerStand: double)
     }
 ```
 
@@ -49,14 +49,16 @@ Ein Klassenkasten hat **drei Felder**: Name, Attribute, Methoden.
 
 Geschrieben wird
 
-- ein Attribut als `sichtbarkeit typ name`,
-- eine Methode als `sichtbarkeit rückgabetyp name(typ parameter)`.
+- ein Attribut als `sichtbarkeit name: typ`,
+- eine Methode als `sichtbarkeit name(parameter: typ): rückgabetyp`.
 
-Ein **Konstruktor** heißt wie die Klasse und hat keinen Rückgabetyp. Eine Methode ohne Rückgabewert bekommt den Typ `void` – auch im Diagramm.
+Der Datentyp steht also immer **hinter** dem Doppelpunkt – beim Attribut, beim Parameter und beim Rückgabewert.
+
+Ein **Konstruktor** heißt wie die Klasse und hat keinen Rückgabetyp. Eine Methode ohne Rückgabewert bekommt auch keinen: Bei ihr endet die Zeile hinter der Klammer, das `void` aus dem Java-Quelltext taucht im Diagramm nicht auf.
 :::
 
 :::alert{info}
-Die Reihenfolge `sichtbarkeit typ name` ist die in Nordrhein-Westfalen übliche. In manchen Büchern steht stattdessen `name : typ` (die reine UML-Schreibweise). Beides meint dasselbe; halte dich an die Schreibweise, die deine Lehrkraft benutzt, und **mische sie nicht**.
+Die Reihenfolge `name: typ` ist die in Nordrhein-Westfalen übliche und zugleich die der UML. In manchen Büchern steht stattdessen `typ name` – so herum, wie es im Java-Quelltext aussieht. Beides meint dasselbe; halte dich an die Schreibweise, die deine Lehrkraft benutzt, und **mische sie nicht**.
 :::
 
 ## Beziehungen gehören dazu
@@ -66,22 +68,22 @@ Ein Diagramm mit einer einzigen Klasse ist selten. Sobald mehrere Klassen zusamm
 ```mermaid
 classDiagram
     class Bank {
-        -String name
-        -Konto[] konten
-        -int anzahl
-        +Bank(String pName, int pMaxKonten)
-        +boolean eroeffne(Konto pKonto)
-        +double gesamtvermoegen()
+        -name: String
+        -konten: Konto[]
+        -anzahl: int
+        +Bank(pName: String, pMaxKonten: int)
+        +eroeffne(pKonto: Konto) boolean
+        +gesamtvermoegen() double
     }
     class Konto {
-        -String besitzer
-        -double kontostand
-        +Konto(String pBesitzer)
-        +double getKontostand()
+        -besitzer: String
+        -kontostand: double
+        +Konto(pBesitzer: String)
+        +getKontostand() double
     }
     class Girokonto {
-        -double dispolimit
-        +Girokonto(String pBesitzer, double pDispolimit)
+        -dispolimit: double
+        +Girokonto(pBesitzer: String, pDispolimit: double)
     }
     Bank "1" --> "0..*" Konto : verwaltet
     Konto <|-- Girokonto
@@ -238,17 +240,17 @@ Vier Dinge werden regelmäßig vergessen: eine Methode, ein Sichtbarkeitszeichen
 ```mermaid
 classDiagram
     class Spielfigur {
-        -String name
-        -int leben
-        -double x
-        -double y
-        #boolean unverwundbar
-        +Spielfigur(String pName)
-        +String getName()
-        +int getLeben()
-        +void bewege(double pDx, double pDy)
-        +boolean erleideSchaden(int pMenge)
-        -void pruefeLeben()
+        -name: String
+        -leben: int
+        -x: double
+        -y: double
+        #unverwundbar: boolean
+        +Spielfigur(pName: String)
+        +getName() String
+        +getLeben() int
+        +bewege(pDx: double, pDy: double)
+        +erleideSchaden(pMenge: int) boolean
+        -pruefeLeben()
     }
 ```
 
@@ -276,16 +278,16 @@ Finde alle fünf. Notiere zu jeder: *Was steht im Diagramm, was im Quelltext?* E
 ```mermaid
 classDiagram
     class Buch {
-        -String titel
-        -int seiten
-        -boolean ausgeliehen
-        +Buch(String pTitel, int pSeiten)
-        +String getTitel()
-        +int getSeiten()
-        +boolean istAusgeliehen()
-        +boolean leiheAus()
-        +void gibZurueck()
-        -void protokolliere(String pAktion)
+        -titel: String
+        -seiten: int
+        -ausgeliehen: boolean
+        +Buch(pTitel: String, pSeiten: int)
+        +getTitel() String
+        +getSeiten() int
+        +istAusgeliehen() boolean
+        +leiheAus() boolean
+        +gibZurueck()
+        -protokolliere(pAktion: String)
     }
 ```
 
@@ -343,10 +345,10 @@ Vergleiche nicht alles auf einmal, sondern viermal die ganze Klasse:
 
 | # | Im Diagramm | Im Quelltext | Was ändern? |
 | --- | --- | --- | --- |
-| 1 | `-int seiten` | `public int seiten` | **Den Quelltext.** Ein öffentliches Attribut durchbricht das Geheimnisprinzip: Jeder könnte die Seitenzahl von außen verändern. |
-| 2 | `+int getSeiten()` | fehlt | **Den Quelltext.** Die Methode ist der vorgesehene Weg an die Seitenzahl – und ohne sie ist Nummer 1 auch nicht zu beheben. |
-| 3 | `+void gibZurueck()` | `gibZurueck(String pName)` | **Den Quelltext.** Der Parameter wird nirgends benutzt. Ein Parameter, der nichts tut, ist irreführend. |
-| 4 | `-void protokolliere(String)` | `public void protokolliere(...)` | **Den Quelltext.** Protokollieren ist eine interne Angelegenheit der Klasse. |
+| 1 | `-seiten: int` | `public int seiten` | **Den Quelltext.** Ein öffentliches Attribut durchbricht das Geheimnisprinzip: Jeder könnte die Seitenzahl von außen verändern. |
+| 2 | `+getSeiten(): int` | fehlt | **Den Quelltext.** Die Methode ist der vorgesehene Weg an die Seitenzahl – und ohne sie ist Nummer 1 auch nicht zu beheben. |
+| 3 | `+gibZurueck()` | `gibZurueck(String pName)` | **Den Quelltext.** Der Parameter wird nirgends benutzt. Ein Parameter, der nichts tut, ist irreführend. |
+| 4 | `-protokolliere(pAktion: String)` | `public void protokolliere(...)` | **Den Quelltext.** Protokollieren ist eine interne Angelegenheit der Klasse. |
 | 5 | `protokolliere` wird gebraucht | wird nirgends aufgerufen | **Beide.** Entweder rufst du sie in `leiheAus` und `gibZurueck` auf – oder du streichst sie aus beiden Darstellungen. Toter Code gehört in keinen Entwurf. |
 
 Die eigentliche Frage dieser Aufgabe steht in der letzten Spalte: **Bei einer Abweichung ist nicht automatisch das Diagramm veraltet.** Viermal war der Quelltext im Unrecht, und zwar jedes Mal aus demselben Grund – er hat mehr geöffnet, als nötig war. Ein Diagramm ist auch dazu da, solche Nachlässigkeiten sichtbar zu machen.
@@ -366,16 +368,16 @@ Setze das folgende Implementationsdiagramm um, bis alle Tests grün sind. Achte 
 ```mermaid
 classDiagram
     class Rechteck {
-        -double breite
-        -double hoehe
-        +Rechteck(double pBreite, double pHoehe)
-        +double getBreite()
-        +double getHoehe()
-        +double flaeche()
-        +double umfang()
-        +boolean istQuadrat()
-        +void verdoppleSeiten()
-        #void skaliere(double pFaktor)
+        -breite: double
+        -hoehe: double
+        +Rechteck(pBreite: double, pHoehe: double)
+        +getBreite() double
+        +getHoehe() double
+        +flaeche() double
+        +umfang() double
+        +istQuadrat() boolean
+        +verdoppleSeiten()
+        #skaliere(pFaktor: double)
     }
 ```
 

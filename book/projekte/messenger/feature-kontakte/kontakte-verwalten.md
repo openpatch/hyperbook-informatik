@@ -27,17 +27,17 @@ classDiagram
 
     class App{
         -contacts: List~Contact~
-        +addContact(Contact newContact)
-        +deleteContact(String id)
+        +addContact(newContact: Contact)
+        +deleteContact(id: String)
     }
     class Contact{
       -phone: String
       -id: String
       -name: String
       -profilePicturePath: String
-      +Contact(String id, String phone, String name, String profilePicturePath)
-      +setProfilePicturePath(String newProfilePicturePath)
-      +setName(String newName)
+      +Contact(id: String, phone: String, name: String, profilePicturePath: String)
+      +setProfilePicturePath(newProfilePicturePath: String)
+      +setName(newName: String)
     }
 ```
 

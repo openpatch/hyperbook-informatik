@@ -37,10 +37,10 @@ classDiagram
     +BunnyHop()
     +run()
     +whenKeyPressed(taste: KeyCode)
-    +getGeschwindigkeit(): double
+    +getGeschwindigkeit() double
     +punkten()
     +spielEnde()
-    +istVorbei(): boolean
+    +istVorbei() boolean
   }
 
   Spieler --> BunnyHop: -spiel

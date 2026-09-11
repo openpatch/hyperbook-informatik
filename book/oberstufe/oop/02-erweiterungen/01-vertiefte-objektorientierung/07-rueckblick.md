@@ -62,24 +62,24 @@ Aufgabe 4 gehört zum **Leistungskurs**, weil sie Schnittstellen voraussetzt.
 classDiagram
     class Form {
         <<abstract>>
-        #String name
-        -int erzeugt$
-        +Form(String pName)
-        +String gibName()
-        +double berechneFlaeche()*
-        +String beschreibe()
-        +int gibErzeugt()$
+        #name: String
+        -erzeugt: int$
+        +Form(pName: String)
+        +gibName() String
+        +berechneFlaeche() double*
+        +beschreibe() String
+        +gibErzeugt() int$
     }
     class Kreis {
-        -double radius
-        +Kreis(double pRadius)
-        +double berechneFlaeche()
+        -radius: double
+        +Kreis(pRadius: double)
+        +berechneFlaeche() double
     }
     class Rechteck {
-        -double breite
-        -double hoehe
-        +Rechteck(double pBreite, double pHoehe)
-        +double berechneFlaeche()
+        -breite: double
+        -hoehe: double
+        +Rechteck(pBreite: double, pHoehe: double)
+        +berechneFlaeche() double
     }
     Form <|-- Kreis
     Form <|-- Rechteck
@@ -229,39 +229,39 @@ Diese Aufgabe verlangt alles aus diesem Kapitel zugleich: eine Konstante, ein Kl
 classDiagram
     class Sendung {
         <<abstract>>
-        -int MAX_GEWICHT$
-        -int erzeugt$
-        -String empfaenger
-        -int gewichtInGramm
-        -int nummer
-        +Sendung(String pEmpfaenger, int pGewicht)
-        +String getEmpfaenger()
-        +int getGewichtInGramm()
-        +int getNummer()
-        +int portoInCent()*
-        +int versicherungInCent()
-        +int endpreisInCent()
-        +int getErzeugt()$
+        -MAX_GEWICHT: int$
+        -erzeugt: int$
+        -empfaenger: String
+        -gewichtInGramm: int
+        -nummer: int
+        +Sendung(pEmpfaenger: String, pGewicht: int)
+        +getEmpfaenger() String
+        +getGewichtInGramm() int
+        +getNummer() int
+        +portoInCent() int*
+        +versicherungInCent() int
+        +endpreisInCent() int
+        +getErzeugt() int$
     }
     class Brief {
-        +Brief(String pEmpfaenger, int pGewicht)
-        +int portoInCent()
+        +Brief(pEmpfaenger: String, pGewicht: int)
+        +portoInCent() int
     }
     class Paket {
-        +Paket(String pEmpfaenger, int pGewicht)
-        +int portoInCent()
+        +Paket(pEmpfaenger: String, pGewicht: int)
+        +portoInCent() int
     }
     class Wertpaket {
-        +Wertpaket(String pEmpfaenger, int pGewicht)
-        +int versicherungInCent()
+        +Wertpaket(pEmpfaenger: String, pGewicht: int)
+        +versicherungInCent() int
     }
     class Versandzentrum {
-        -Sendung[] sendungen
-        -int anzahl
-        +Versandzentrum(int pPlaetze)
-        +boolean nimmAn(Sendung pSendung)
-        +int gesamtpreisInCent()
-        +String schwerste()
+        -sendungen: Sendung[]
+        -anzahl: int
+        +Versandzentrum(pPlaetze: int)
+        +nimmAn(pSendung: Sendung) boolean
+        +gesamtpreisInCent() int
+        +schwerste() String
     }
     Sendung <|-- Brief
     Sendung <|-- Paket
@@ -783,33 +783,33 @@ c)
 classDiagram
     class Person {
         <<abstract>>
-        -String name
-        -int alter
-        +Person(String pName, int pAlter)
-        +String getName()
-        +int getAlter()
-        +String beschreibung()*
+        -name: String
+        -alter: int
+        +Person(pName: String, pAlter: int)
+        +getName() String
+        +getAlter() int
+        +beschreibung() String*
     }
     class Schueler {
-        -int[] noten
-        +Schueler(String pName, int pAlter)
-        +String beschreibung()
+        -noten: int[]
+        +Schueler(pName: String, pAlter: int)
+        +beschreibung() String
     }
     class Lehrerin {
-        -String fach
-        +Lehrerin(String pName, int pAlter, String pFach)
-        +String beschreibung()
+        -fach: String
+        +Lehrerin(pName: String, pAlter: int, pFach: String)
+        +beschreibung() String
     }
     class Schulklasse {
-        -String bezeichnung
-        -Schueler[] schueler
-        -int anzahl
-        +Schulklasse(String pBezeichnung, int pPlaetze)
-        +boolean nimmAuf(Schueler pSchueler)
-        +int groesse()
+        -bezeichnung: String
+        -schueler: Schueler[]
+        -anzahl: int
+        +Schulklasse(pBezeichnung: String, pPlaetze: int)
+        +nimmAuf(pSchueler: Schueler) boolean
+        +groesse() int
     }
     class Auswertung {
-        +String zeigeAn(Person pPerson)
+        +zeigeAn(pPerson: Person) String
     }
     Person <|-- Schueler
     Person <|-- Lehrerin

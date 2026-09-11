@@ -140,20 +140,20 @@ classDiagram
     class Kreis {
         -radius: double
         +Kreis(pRadius: double)
-        +gibRadius(): double
-        +gibFlaecheninhalt(): double
+        +gibRadius() double
+        +gibFlaecheninhalt() double
     }
 
     class Quadrat {
         -seitenlaenge: double
         +Quadrat(pSeitenlaenge: double)
-        +getSeitenlaenge(): double
-        +gibFlaecheninhalt(): double
+        +getSeitenlaenge() double
+        +gibFlaecheninhalt() double
     }
 
     class Flaecheninhalt {
     <<interface>>
-    +gibFlaecheninhalt(): double
+    +gibFlaecheninhalt() double
     }
 
     Flaecheninhalt <|.. Kreis

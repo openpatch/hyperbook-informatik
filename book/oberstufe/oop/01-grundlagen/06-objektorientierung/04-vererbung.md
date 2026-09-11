@@ -14,22 +14,22 @@ Man könnte beide Klassen unabhängig voneinander schreiben. Dann stünde der ge
 ```mermaid
 classDiagram
     class Person {
-        #String name
-        #int geburtsjahr
-        +Person(String pName, int pGeburtsjahr)
-        +String getName()
-        +int alterImJahr(int pJahr)
-        +String beschreibung()
+        #name: String
+        #geburtsjahr: int
+        +Person(pName: String, pGeburtsjahr: int)
+        +getName() String
+        +alterImJahr(pJahr: int) int
+        +beschreibung() String
     }
     class Lehrer {
-        -String fach
-        +Lehrer(String pName, int pGeburtsjahr, String pFach)
-        +String beschreibung()
+        -fach: String
+        +Lehrer(pName: String, pGeburtsjahr: int, pFach: String)
+        +beschreibung() String
     }
     class Schueler {
-        -int jahrgangsstufe
-        +Schueler(String pName, int pGeburtsjahr, int pStufe)
-        +String beschreibung()
+        -jahrgangsstufe: int
+        +Schueler(pName: String, pGeburtsjahr: int, pStufe: int)
+        +beschreibung() String
     }
     Person <|-- Lehrer
     Person <|-- Schueler

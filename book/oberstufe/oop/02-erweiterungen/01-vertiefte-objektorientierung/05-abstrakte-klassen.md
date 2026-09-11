@@ -165,16 +165,16 @@ Im Diagramm wird der Name einer abstrakten Klasse und einer abstrakten Methode *
 classDiagram
     class Form {
         <<abstract>>
-        #String bezeichnung
-        +Form(String pBezeichnung)
-        +String getBezeichnung()
-        +double flaeche()*
-        +boolean groesserAls(Form pAndere)
+        #bezeichnung: String
+        +Form(pBezeichnung: String)
+        +getBezeichnung() String
+        +flaeche() double*
+        +groesserAls(pAndere: Form) boolean
     }
     class Kreis {
-        -double radius
-        +Kreis(double pRadius)
-        +double flaeche()
+        -radius: double
+        +Kreis(pRadius: double)
+        +flaeche() double
     }
     Form <|-- Kreis
 ```
@@ -332,30 +332,30 @@ Setze die Hierarchie so um, dass alle Tests grün werden. Beachte, dass `Firma` 
 classDiagram
     class Mitarbeiter {
         <<abstract>>
-        #String name
-        +Mitarbeiter(String pName)
-        +String getName()
-        +double berechneGehalt()*
-        +double jahresgehalt()
+        #name: String
+        +Mitarbeiter(pName: String)
+        +getName() String
+        +berechneGehalt() double*
+        +jahresgehalt() double
     }
     class Angestellter {
-        -int stufe
-        +Angestellter(String pName, int pStufe)
-        +double berechneGehalt()
+        -stufe: int
+        +Angestellter(pName: String, pStufe: int)
+        +berechneGehalt() double
     }
     class Honorarkraft {
-        -double stunden
-        -double stundensatz
-        +Honorarkraft(String pName, double pStunden, double pSatz)
-        +double berechneGehalt()
+        -stunden: double
+        -stundensatz: double
+        +Honorarkraft(pName: String, pStunden: double, pSatz: double)
+        +berechneGehalt() double
     }
     class Firma {
-        -Mitarbeiter[] team
-        -int anzahl
-        +Firma(int pMaxGroesse)
-        +boolean stelleEin(Mitarbeiter pPerson)
-        +double gehaltssumme()
-        +String bestbezahlt()
+        -team: Mitarbeiter[]
+        -anzahl: int
+        +Firma(pMaxGroesse: int)
+        +stelleEin(pPerson: Mitarbeiter) boolean
+        +gehaltssumme() double
+        +bestbezahlt() String
     }
     Mitarbeiter <|-- Angestellter
     Mitarbeiter <|-- Honorarkraft
@@ -714,20 +714,20 @@ Eine mögliche Lösung – deine darf anders aussehen, solange die Begründung t
 classDiagram
     class Eisbecher {
         <<abstract>>
-        #String sorte
-        +Eisbecher(String pSorte)
-        +String getSorte()
-        +int preisInCent()*
+        #sorte: String
+        +Eisbecher(pSorte: String)
+        +getSorte() String
+        +preisInCent() int*
     }
     class Standardbecher {
-        -String groesse
-        +Standardbecher(String pSorte, String pGroesse)
-        +int preisInCent()
+        -groesse: String
+        +Standardbecher(pSorte: String, pGroesse: String)
+        +preisInCent() int
     }
     class Wunschbecher {
-        -int kugeln
-        +Wunschbecher(String pSorte, int pKugeln)
-        +int preisInCent()
+        -kugeln: int
+        +Wunschbecher(pSorte: String, pKugeln: int)
+        +preisInCent() int
     }
     Eisbecher <|-- Standardbecher
     Eisbecher <|-- Wunschbecher
