@@ -270,9 +270,9 @@ Beachte außerdem: `x` und `y` stehen im Diagramm, obwohl sie nirgends ausgelese
 ### Aufgabe 2: Diagramm und Quelltext passen nicht zusammen
 
 :::snippet{#aufgabe}
-*Ohne Rechner.* Jemand hat zuerst das Diagramm gezeichnet und dann den Quelltext geschrieben – dabei sind **fünf** Abweichungen entstanden.
+*Ohne Rechner.* Jemand hat zuerst das Diagramm gezeichnet und dann den Quelltext geschrieben – dabei sind **vier** Abweichungen entstanden.
 
-Finde alle fünf. Notiere zu jeder: *Was steht im Diagramm, was im Quelltext?* Entscheide danach für jede Abweichung, **welche der beiden Seiten** du ändern würdest, und begründe es in einem Satz.
+Finde alle vier. Notiere zu jeder: *Was steht im Diagramm, was im Quelltext?* Entscheide danach für jede Abweichung, **welche der beiden Seiten** du ändern würdest, und begründe es in einem Satz.
 :::
 
 ```mermaid
@@ -349,7 +349,6 @@ Vergleiche nicht alles auf einmal, sondern viermal die ganze Klasse:
 | 2 | `+getSeiten(): int` | fehlt | **Den Quelltext.** Die Methode ist der vorgesehene Weg an die Seitenzahl – und ohne sie ist Nummer 1 auch nicht zu beheben. |
 | 3 | `+gibZurueck()` | `gibZurueck(String pName)` | **Den Quelltext.** Der Parameter wird nirgends benutzt. Ein Parameter, der nichts tut, ist irreführend. |
 | 4 | `-protokolliere(pAktion: String)` | `public void protokolliere(...)` | **Den Quelltext.** Protokollieren ist eine interne Angelegenheit der Klasse. |
-| 5 | `protokolliere` wird gebraucht | wird nirgends aufgerufen | **Beide.** Entweder rufst du sie in `leiheAus` und `gibZurueck` auf – oder du streichst sie aus beiden Darstellungen. Toter Code gehört in keinen Entwurf. |
 
 Die eigentliche Frage dieser Aufgabe steht in der letzten Spalte: **Bei einer Abweichung ist nicht automatisch das Diagramm veraltet.** Viermal war der Quelltext im Unrecht, und zwar jedes Mal aus demselben Grund – er hat mehr geöffnet, als nötig war. Ein Diagramm ist auch dazu da, solche Nachlässigkeiten sichtbar zu machen.
 
