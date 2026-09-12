@@ -7,7 +7,7 @@ index: 2
 
 Am folgenden Beispiel erkennst du schnell, wie man die Grundrechenarten in Python verwendet:
 
-:::pyide
+:::pyide{id="pyide-1"}
 
 ```python
 print(21 + 2)   # Ergebnis: 23
@@ -40,7 +40,7 @@ b) Führe das Programm dann aus und vergleiche.
 c) Erkläre anschließend, welche Bedeutung die Operatoren `//` und `%` haben.
 :::
 
-:::pyide
+:::pyide{id="pyide-2"}
 
 ```python
 print(21 / 2)    # Ergebnis:
@@ -93,7 +93,7 @@ Andrea macht eine Schreinerlehre. Sie soll ein **734 cm** langes Brett in **13 c
 Berechne mit Python, wie viele Stücke sie erhält und wie viel Abfall übrig bleibt.
 :::
 
-:::pyide
+:::pyide{id="pyide-3"}
 
 ```python
 # Dein Code hier
@@ -126,7 +126,7 @@ a) Ermittle mithilfe von Python, wie spät es war, als die Rechnung beendet wurd
 b) Ermittle auch, wie viele **volle Tage** der Großrechner gerechnet hat.
 :::
 
-:::pyide
+:::pyide{id="pyide-4"}
 
 ```python
 # Dein Code hier
@@ -157,7 +157,7 @@ Angenommen, es ist jetzt genau **14 Uhr**.
 Berechne mithilfe von Python, wie spät es in **170 Stunden** sein wird.
 :::
 
-:::pyide
+:::pyide{id="pyide-5"}
 
 ```python
 # Dein Code hier
@@ -183,7 +183,7 @@ a) Notiere **ohne das Programm auszuführen**, welche Ergebnisse du erwartest.
 b) Führe es dann aus und vergleiche. Gibt es Abweichungen, versuche sie zu erklären.
 :::
 
-:::pyide
+:::pyide{id="pyide-6"}
 
 ```python
 print(10.5 / 2)     # Ergebnis:
@@ -222,7 +222,7 @@ Berechne mit Python, wie viele Stücke sie erhält und wie viel Abfall übrig bl
 **Achtung:** In Python schreibt man das Komma als Punkt, also `734.5`.
 :::
 
-:::pyide
+:::pyide{id="pyide-7"}
 
 ```python
 # Dein Code hier

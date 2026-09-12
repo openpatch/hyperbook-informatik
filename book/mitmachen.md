@@ -151,7 +151,7 @@ Eine Lektion behandelt **einen** Gedanken und ist in einer Unterrichtsstunde zu 
 1. **Einstieg** – ein bis zwei Sätze, die das Problem aufwerfen. Keine Inhaltsangabe.
 2. **Erarbeitung** im Wechsel aus Erklärung, `:::snippet{#definition}` beziehungsweise `{#merken}` und einem **Übungsbereich** (`onlineide`, `sqlide`, `webide`, `pyide`, `openscad`), in dem etwas läuft, das man verändern kann.
 3. **Aufgaben** als `:::snippet{#aufgabe}` – möglichst mit einer **Vorhersage** vor dem Ausprobieren.
-4. **Gestufte Tipps** als `::::collapsible{title="Tipp 1: …"}`. Der erste gibt einen Denkanstoß, der letzte ein Gerüst. Sie ersetzen die Lehrkraft für den Moment, in dem sie gerade woanders steht.
+4. **Gestufte Tipps** als `:::collapsible{title="Tipp 1: …"}`. Der erste gibt einen Denkanstoß, der letzte ein Gerüst. Sie ersetzen die Lehrkraft für den Moment, in dem sie gerade woanders steht.
 5. **Lösung** in einem `:::protect`-Block.
 6. **Selbsttest** – nach einem `---` die Überschrift `## Selbsttest` und ein `::::multievent`-Block mit fünf bis acht Fragen über die Lektion.
 

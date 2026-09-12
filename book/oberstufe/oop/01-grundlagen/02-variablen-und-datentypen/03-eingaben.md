@@ -9,7 +9,7 @@ Bisher standen alle Werte fest im Quelltext. Ein Programm wird erst dann richtig
 
 ## Text einlesen
 
-:::onlineide{height="360px"}
+:::onlineide{height="360px" id="onlineide-1"}
 
 ```java Main.java
 void main() {
@@ -26,7 +26,7 @@ void main() {
 
 Weil `IO.readln` immer eine Zeichenkette liefert, musst du sie in eine Zahl **umwandeln**, bevor du damit rechnen kannst.
 
-:::onlineide{height="400px"}
+:::onlineide{height="400px" id="onlineide-2"}
 
 ```java Main.java
 void main() {
@@ -88,7 +88,7 @@ Umfang:  22 cm
 ```
 :::
 
-:::onlineide{height="420px"}
+:::onlineide{height="420px" id="onlineide-3"}
 
 ```java Main.java
 void main() {
@@ -129,7 +129,7 @@ Baue die Sekundenumrechnung aus Kapitel 1 so um, dass die Anzahl der Sekunden **
 Teste dein Programm mit 7385, mit 60 und mit 0. Notiere, ob die Ausgabe in allen drei Fällen sinnvoll ist.
 :::
 
-:::onlineide{height="420px"}
+:::onlineide{height="420px" id="onlineide-4"}
 
 ```java Main.java
 void main() {

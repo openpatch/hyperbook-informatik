@@ -31,7 +31,7 @@ a) Analysiere das folgende Beispiel und erläutere die Neuerungen.
 b) Erweitere es schrittweise so, dass die Punkte in der oberen und in der unteren Bildschirmhälfte unterschiedliche **Größen** bekommen. Verwende dazu `ycor()`.
 :::
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-1"}
 
 ```python
 from turtle import *
@@ -86,7 +86,7 @@ Entwickle ein geeignetes Programm.
 
 ![Hundert rote und blaue Punkte, links rot und rechts blau](./03-zufallspunkte.png)
 
-:::pyide{canvas height="600px"}
+:::pyide{canvas height="600px" id="pyide-2"}
 
 ```python
 from turtle import *
@@ -154,7 +154,7 @@ Entwickle ein geeignetes Programm. Nutze dabei `xcor()` und `ycor()` in den Schl
 
 ![Ein Rahmen aus Punkten am Rand der Zeichenfläche](./03-rand-mit-punkten.png)
 
-:::pyide{canvas height="600px"}
+:::pyide{canvas height="600px" id="pyide-3"}
 
 ```python
 from turtle import *
@@ -233,7 +233,7 @@ Jetzt schreiben wir selbst eine Funktion, die ein Ergebnis zurückgibt.
 Analysiere das folgende Beispiel. Notiere Fragen, wenn etwas unklar bleibt.
 :::
 
-:::pyide
+:::pyide{id="pyide-4"}
 
 ```python
 def fakultaet(zahl):
@@ -270,7 +270,7 @@ Zur Kontrolle: `summe(10)` soll das Ergebnis 55 liefern.
 **Tipp:** Klicke auf den Testen-Knopf, um deine Lösung automatisch überprüfen zu lassen.
 :::
 
-:::pyide
+:::pyide{id="pyide-5"}
 
 ```python
 def summe(zahl):
@@ -343,7 +343,7 @@ Entwickle eine Funktion `ist_gerade(zahl)`, die `True` zurückgibt, falls `zahl`
 Lass deine Lösung wieder automatisch testen.
 :::
 
-:::pyide
+:::pyide{id="pyide-6"}
 
 ```python
 def ist_gerade(zahl):
@@ -424,7 +424,7 @@ Zum Beispiel:
 - ein Muster deiner Wahl.
 :::
 
-:::pyide{canvas height="600px"}
+:::pyide{canvas height="600px" id="pyide-7"}
 
 ```python
 from turtle import *

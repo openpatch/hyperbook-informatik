@@ -41,7 +41,7 @@ for (i = [0:4]) {  // i = 0, 1, 2, 3, 4
 :::snippet{#aufgabe}
 Erstelle eine Reihe von 8 Würfeln, jeder 15 Einheiten auseinander.
 
-::openscad
+::openscad{id="openscad-1"}
 :::
 
 ## 2. Rechteckiges Muster – 2D-Raster
@@ -67,7 +67,7 @@ for (x = [0:2]) {           // 3 Spalten (0,1,2)
 :::snippet{#aufgabe}
 Erstelle ein Schachbrett-Muster mit abwechselnd schwarzen und weißen Quadern (Hinweis: `color()` und `if`-Bedingung verwenden).
 
-::openscad
+::openscad{id="openscad-2"}
 :::
 
 ---
@@ -97,7 +97,7 @@ for (i = [0:11]) {
 :::snippet{#aufgabe}
 Erstelle eine Blumenform mit 6 Blütenblättern (jeder Blütenblatt ist ein halber Zylinder).
 
-::openscad
+::openscad{id="openscad-3"}
 :::
 
 ---
@@ -126,7 +126,7 @@ mirror([1, 0, 0])  // Spiegelung an der YZ-Ebene (X-Achse)
 :::snippet{#aufgabe}
 Erstelle einen symmetrischen Schmetterling mit zwei Flügeln (ein Flügel + Spiegelung).
 
-::openscad
+::openscad{id="openscad-4"}
 :::
 
 ---
@@ -134,7 +134,7 @@ Erstelle einen symmetrischen Schmetterling mit zwei Flügeln (ein Flügel + Spie
 ## 5. Kombination: Komplexe Muster
 
 **Beispiel: Zahnrad mit 8 Zähnen und Mittelbohrung**
-:::openscad{height="440px"}
+:::openscad{height="440px" id="openscad-5"}
 
 ```scad
 // Mittelbohrung

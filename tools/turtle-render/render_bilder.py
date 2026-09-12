@@ -467,6 +467,100 @@ def _():
     return s
 
 
+# -- Lektion 9: Challenge "Muster aus Wiederholung" -------------------------
+#
+# Diese Szenen sind Galeriebilder: Sie zeigen *eine* moegliche Einstellung der
+# Regler, nicht die eine richtige Loesung. Wer die Regler hier aendert, muss
+# auch die Reglerwerte im Markdown anpassen -- sonst zeigt die Galerie etwas
+# anderes, als der Text behauptet.
+
+
+def _rosette(anzahl, winkel, form):
+    """Dreht `form` `anzahl` mal um den Ursprung -- das Rosetten-Grundmuster."""
+    s, t = new_scene(900, 900)
+    t.pensize(2)
+    for _ in range(anzahl):
+        form(t)
+        t.left(winkel)
+    return s
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-rosette-quadrate.png")
+def _():
+    def quadrat(t):
+        for _ in range(4):
+            t.forward(140)
+            t.right(90)
+
+    return _rosette(36, 10, quadrat)
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-rosette-kreise.png")
+def _():
+    return _rosette(24, 15, lambda t: t.circle(90))
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-rosette-dreiecke.png")
+def _():
+    return _rosette(18, 20, lambda t: t.circle(110, 3))
+
+
+def _spirale(winkel):
+    """Die Quadratspirale aus Lektion 3 -- nur mit veraenderbarem Winkel."""
+    s, t = new_scene(1000, 1000)
+    t.pensize(2)
+    laenge = 5
+    for _ in range(90):
+        t.forward(laenge)
+        t.right(winkel)
+        laenge += 4
+    return s
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-spirale-90.png")
+def _():
+    return _spirale(90)
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-spirale-91.png")
+def _():
+    return _spirale(91)
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-spirale-121.png")
+def _():
+    return _spirale(121)
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-raster.png")
+def _():
+    s, t = new_scene(500, 500)
+    t.penup()
+    for zeile in range(12):
+        for spalte in range(12):
+            t.goto(-165 + spalte * 30, 165 - zeile * 30)
+            if spalte < zeile:
+                t.pencolor("#d1495b")
+            else:
+                t.pencolor("#30638e")
+            t.dot(4 + (zeile + spalte) * 1.2)
+    return s
+
+
+@scene("02-variablen-und-kontrollstrukturen/09-moire.png")
+def _():
+    s, t = new_scene(1200, 900)
+    t.pensize(1)
+    for mitte in (-110, 110):
+        for i in range(72):
+            t.penup()
+            t.goto(mitte, 0)
+            t.setheading(i * 5)
+            t.pendown()
+            t.forward(380)
+    return s
+
+
 # ---------------------------------------------------------------------------
 # Kapitel 3 -- Logik
 # ---------------------------------------------------------------------------
