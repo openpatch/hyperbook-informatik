@@ -311,6 +311,13 @@ Zum Abschluss: Such dir **eine** der Challenges aus und mach daraus eine **Serie
 4. Hängt die Serien in der Klasse auf. Könnt ihr bei den Bildern der anderen erraten, welche Regel dahintersteckt?
 :::
 
+:::pyide{canvas}
+```python
+from turtle import *
+
+```
+:::
+
 :::snippet{#brain}
 Das Erraten ist der eigentlich spannende Teil. Denn genau das ist Informatik: **vom Ergebnis auf die Regel schließen.**
 
