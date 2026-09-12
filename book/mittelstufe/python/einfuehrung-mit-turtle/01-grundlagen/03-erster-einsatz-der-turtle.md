@@ -7,7 +7,7 @@ index: 3
 
 Wir betrachten noch einmal unser erstes Beispiel zum Einsatz der Turtle – diesmal etwas ausführlicher:
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-1"}
 
 ```python
 from turtle import *
@@ -56,7 +56,7 @@ Stelle die nachfolgenden Zeichnungen mit der Turtle nach. Nutze für jede Zeichn
 
 ![Eine treppenförmige Zick-Zack-Linie](./03-zeichnung-zickzack.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-2"}
 
 ```python
 from turtle import *
@@ -132,7 +132,7 @@ forward(50)
 
 ![Eine Reihe von Punkten, die zur Mitte hin größer werden](./03-zeichnung-punktekette.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-3"}
 
 ```python
 from turtle import *
@@ -188,7 +188,7 @@ Jetzt versuche dich am Haus vom Nikolaus. Es soll – wie beim Zeichnen auf Papi
 
 ![Das Haus vom Nikolaus](./03-haus-vom-nikolaus.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-4"}
 
 ```python
 from turtle import *

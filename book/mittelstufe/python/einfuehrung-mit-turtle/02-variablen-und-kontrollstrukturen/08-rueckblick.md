@@ -16,6 +16,15 @@ Dieses Kapitel ist das längste des Lernpfads – und das wichtigste. Variablen,
 - [ ] Ich kann verschachtelte Schleifen lesen und schreiben. ([2.6](./06-verschachtelte-schleifen))
 - [ ] Ich kann mit `if`, `elif` und `else` verzweigen. ([2.7](./07-verzweigungen))
 
+:::snippet{#challenge}
+**Lust auf mehr?** Es gibt zwei Seiten, auf denen du genau diese Werkzeuge einmal ohne Zielvorgabe benutzt. Such dir eine aus – oder mach beide.
+
+- [Challenge: Muster aus Wiederholung](./09-challenges-muster) – Bilder, die du so nicht von Hand zeichnen könntest.
+- [Challenge: Spiele aus Wiederholung](./10-challenges-spiel) – ein Ball, ein Schläger, ein Punktestand.
+
+Dahinter steckt dasselbe Prinzip: ein kleiner Schritt, oft genug wiederholt. Beide Seiten sind freiwillig, für den Rest des Lernpfads brauchst du sie nicht.
+:::
+
 ## Gemischte Aufgaben
 
 :::snippet{#aufgabe}

@@ -33,7 +33,7 @@ Hier ist ein Beispiel, wie du eine Reihe von Zylindern erstellen kannst:
 ::::snippet{#aufgabe}
 Verändere die Werte in der `for`-Schleife, um mehr oder weniger Zylinder zu erstellen oder um die Abstände zwischen den Zylindern zu ändern.
 
-:::openscad{height="600px"}
+:::openscad{height="600px" id="openscad-1"}
 ```scad
 for (i = [0:1:10]) {
     translate([i*20, 0, 0]) cylinder(h=10, r=5);
@@ -47,7 +47,7 @@ for (i = [0:1:10]) {
 
 Du kannst auch Schleifen innerhalb von Schleifen verwenden, um komplexere Strukturen zu erstellen. Hier ist ein Beispiel, wie du eine Anordnung von Zylindern in einem Raster erstellen kannst:
 
-:::openscad{height="600px"}
+:::openscad{height="600px" id="openscad-2"}
 ```scad
 for (i = [0:1:5]) {
     for (j = [0:1:5]) {
@@ -63,7 +63,7 @@ Verändere das Beispiel so, dass jeder Zylinder eine andere Höhe bekommt. Nutze
 
 Tipp: `cylinder(h=i*5+5, r=5)`
 
-:::openscad{height="600px"}
+:::openscad{height="600px" id="openscad-3"}
 ```scad
 for (i = [0:1:5]) {
     for (j = [0:1:5]) {

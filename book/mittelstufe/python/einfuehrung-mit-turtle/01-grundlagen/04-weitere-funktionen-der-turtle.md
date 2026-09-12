@@ -30,7 +30,7 @@ a) Skizziere **zunächst ohne Rechner** auf Papier die Zeichnung, die sich ergib
 b) Führe das Programm danach aus und vergleiche. Erkläre gegebenenfalls Abweichungen.
 :::
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-1"}
 
 ```python
 from turtle import *
@@ -82,7 +82,7 @@ Entwickle für jede der folgenden vier Zeichnungen ein eigenes Programm.
 
 ![Ein Baum aus einem dicken braunen Stamm und einer grünen Krone](./04-baum.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-2"}
 
 ```python
 from turtle import *
@@ -139,7 +139,7 @@ dot(100)
 
 ![Eine gelbe Kerze mit Docht und oranger Flamme](./04-kerze.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-3"}
 
 ```python
 from turtle import *
@@ -189,7 +189,7 @@ dot(30)
 
 ![Fünf direkt nebeneinander stehende Säulen unterschiedlicher Höhe](./04-saeulendiagramm.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-4"}
 
 ```python
 from turtle import *
@@ -284,7 +284,7 @@ Das ist ganz schön viel Schreibarbeit. Im nächsten Kapitel lernst du **Schleif
 Verändere dein Programm aus Teil c) so, dass zwischen den Säulen ein Abstand entsteht.
 :::
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-5"}
 
 ```python
 from turtle import *
@@ -326,7 +326,7 @@ Analysiere das folgende Programm durch wiederholtes Testen. Erkläre dann, was d
 Verändere anschließend die Koordinaten und beobachte, wohin die Punkte wandern.
 :::
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-6"}
 
 ```python
 from turtle import *
@@ -360,7 +360,7 @@ dot(20)
 
 Bisher haben wir nur Linien gezeichnet. Die Turtle kann Flächen auch **ausfüllen**:
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-7"}
 
 ```python
 from turtle import *
@@ -398,7 +398,7 @@ Modifiziere deine Zeichnung vom Haus vom Nikolaus so, dass das **Dach rot ausgef
 
 ![Das Haus vom Nikolaus mit rot gefülltem Dach](./04-haus-vom-nikolaus-rotes-dach.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-8"}
 
 ```python
 from turtle import *
@@ -464,7 +464,7 @@ Ein **regelmäßiges Vieleck** hat gleich lange Seiten und gleich große Winkel.
 Zeichne die vier abgebildeten regelmäßigen Vielecke. Alle Seiten sind 70 Pixel lang.
 :::
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-9"}
 
 ```python
 from turtle import *

@@ -25,7 +25,7 @@ skin([
 
 Für kreisförmige Profile kannst du `circle()` aus BOSL2 verwenden:
 
-:::openscad{height="500px" library="BOSL2"}
+:::openscad{height="500px" library="BOSL2" id="openscad-1"}
 ```scad
 include <BOSL2/std.scad>
 skin([
@@ -40,7 +40,7 @@ skin([
 ::::snippet{#aufgabe}
 Verändere die Radien der Profile, um eine Vase oder einen Turm zu erzeugen. Füge auch mehr als vier Profile hinzu.
 
-:::openscad{height="500px" library="BOSL2"}
+:::openscad{height="500px" library="BOSL2" id="openscad-2"}
 ```scad
 include <BOSL2/std.scad>
 skin([
@@ -58,7 +58,7 @@ skin([
 
 Die Profile müssen nicht alle Kreise sein – du kannst verschiedene Formen mischen. Wichtig: Alle Profile müssen **dieselbe Anzahl an Punkten** haben (`$fn` muss gleich sein).
 
-:::openscad{height="500px" library="BOSL2"}
+:::openscad{height="500px" library="BOSL2" id="openscad-3"}
 ```scad
 include <BOSL2/std.scad>
 skin([
@@ -76,7 +76,7 @@ Damit der Übergang zwischen einem Rechteck und einem Kreis funktioniert, müsse
 ::::snippet{#aufgabe}
 Erstelle einen Raketenrumpf: unten breit und rund, in der Mitte zylindrisch, oben spitz zulaufend. Verwende mindestens 5 Profile.
 
-:::openscad{height="500px" library="BOSL2"}
+:::openscad{height="500px" library="BOSL2" id="openscad-4"}
 ```scad
 include <BOSL2/std.scad>
 // Beispiel-Raketenrumpf (zum Verändern)
@@ -92,7 +92,7 @@ skin([
 
 ## Beispiel: Einfache Vase
 
-:::openscad{height="600px" library="BOSL2"}
+:::openscad{height="600px" library="BOSL2" id="openscad-5"}
 ```scad
 include <BOSL2/std.scad>
 wandstaerke = 2;

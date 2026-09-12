@@ -20,7 +20,7 @@ Es gibt in OpenSCAD auch einen `polyhedron`-Befehl für beliebige Vielflächner.
 
 Eine Kugel kann entweder durch ihren Durchmesser oder durch ihren Radius definiert werden.
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-1"}
 
 ```scad
 translate([-50,0,0]) sphere(d=100); // Durchmesser
@@ -31,7 +31,7 @@ translate([50, 0, 0]) sphere(r=50);  // Radius
 ::::snippet{#aufgabe}
 Verändere den Quelltext, sodass die Kugeln unterschiedlich groß sind.
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-2"}
 
 ```scad
 translate([-50,0,0]) sphere(d=100); // Durchmesser
@@ -45,7 +45,7 @@ translate([50, 0, 0]) sphere(r=50);  // Radius
 
 Standardmäßig sieht eine Kugel in OpenSCAD kantig aus. Das liegt daran, dass sie aus vielen kleinen Dreiecken besteht, die zusammen die Oberfläche bilden. Je mehr Dreiecke, desto runder sieht die Kugel aus. Du kannst die Anzahl der Dreiecke mit dem globalen Parameter `$fn` erhöhen:
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-3"}
 
 ```scad
 $fn=8;
@@ -56,7 +56,7 @@ translate([0, 0, 0]) sphere(d=100);
 ::::snippet{#aufgabe}
 Experimentiere mit verschiedenen Werten für `$fn` und beobachte, wie sich die Kugel verändert.
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-4"}
 
 ```scad
 $fn=8;
@@ -80,7 +80,7 @@ Oder, wenn es wirklich ein Würfel sein soll, kannst du auch nur eine Zahl angeb
 cube(Seitenlänge);
 ```
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-5"}
 
 ```scad
 translate([-60,0,0]) cube([100, 50, 25]); // Länge, Breite, Höhe
@@ -91,7 +91,7 @@ translate([50, 0, 0]) cube(50);          // Seitenlänge
 ::::snippet{#aufgabe}
 Füge einen weiteren Würfel hinzu, der eine andere Größe und Position hat.
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-6"}
 
 ```scad
 translate([-60,0,0]) cube([100, 50, 25]); // Länge, Breite, Höhe
@@ -119,7 +119,7 @@ cylinder(h=Höhe, d=Durchmesser); // Zylinder mit konstantem Durchmesser
 cylinder(h=Höhe, d1=Durchmesser1, d2=Durchmesser2); // Kegel mit unterschiedlichem Durchmesser an den beiden Enden
 ```
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-7"}
 
 ```scad
 translate([-50, 0, 0]) cylinder(h=100, d=50);
@@ -130,7 +130,7 @@ translate([50, 0, 0]) cylinder(h=100, d1=50, d2=20);
 ::::snippet{#aufgabe}
 Verändere die Höhe und die Durchmesser der Zylinder, um verschiedene Formen zu erstellen.
 
-:::openscad{height="400px"}
+:::openscad{height="400px" id="openscad-8"}
 
 ```scad
 translate([-50, 0, 0]) cylinder(h=100, d=50);

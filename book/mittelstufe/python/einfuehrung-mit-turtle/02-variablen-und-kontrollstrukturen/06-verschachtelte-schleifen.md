@@ -31,7 +31,7 @@ flowchart TD
     P1 -- fertig --> E([Ende])
 ```
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-1"}
 
 ```python
 from turtle import *
@@ -90,7 +90,7 @@ Entwickle ein Programm, das eine Zeichnung wie unten abgebildet erzeugt: **10 ma
 
 ![Ein Feld aus 10 mal 10 gleich großen Punkten](./06-punktefeld.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-2"}
 
 ```python
 from turtle import *
@@ -153,7 +153,7 @@ Modifiziere dein Programm so, dass eine Zeichnung wie unten entsteht: Die Punkte
 
 ![Ein Feld aus 10 mal 10 Punkten, die nach rechts unten größer werden](./06-punktefeld-groesser.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-3"}
 
 ```python
 from turtle import *
@@ -189,7 +189,7 @@ Entwickle ein Programm, in dem eine Zeichnung wie unten erstellt wird.
 
 ![Ein Feld aus 5 mal 5 Quadraten](./06-quadratfeld.png)
 
-:::pyide{canvas}
+:::pyide{canvas id="pyide-4"}
 
 ```python
 from turtle import *
