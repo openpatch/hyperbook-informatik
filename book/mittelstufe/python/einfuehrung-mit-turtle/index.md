@@ -25,5 +25,6 @@ Ein ständiger Begleiter ist dabei die **Turtle** – eine kleine Schildkröte, 
 3. **Logik** – Bedingungen sinnvoll verknüpfen
 4. **Funktionen** – eigene Befehle bauen
 5. **Listen** – viele Werte auf einmal verwalten
-6. **Projekte** – größere Vorhaben in Gruppenarbeit
-7. **Turtle-Dokumentation** – Nachschlagewerk für alle Befehle
+6. **Next Level (Optional)** – Farben mischen, Zufall und seed, Random Noise
+7. **Projekte** – größere Vorhaben in Gruppenarbeit
+8. **Turtle-Dokumentation** – Nachschlagewerk für alle Befehle

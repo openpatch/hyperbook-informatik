@@ -1,6 +1,6 @@
 ---
 name: Projekte
-index: 6
+index: 7
 ---
 
 # Projekte
@@ -14,3 +14,4 @@ Die drei Projekte laufen jeweils in mehreren **Phasen** ab. Ihr arbeitet allein 
 | Zahlenraten | 2 | Variablen, Schleifen, Verzweigungen |
 | Unsere kleine Stadt | 4 | Funktionen, Zusammenarbeit |
 | Memory | 5 | Listen, bestehenden Code verstehen |
+| Generative Galerie | 2–5 | Alle Challenges, Serien entwickeln |

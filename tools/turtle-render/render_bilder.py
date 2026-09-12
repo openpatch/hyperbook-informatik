@@ -649,6 +649,147 @@ def _():
     return s
 
 
+# -- Lektion 5: Challenge "Bilder aus Bedingungen" -------------------------
+#
+# Diese Szenen sind Galeriebilder: Sie zeigen *eine* moegliche Einstellung der
+# Regler, nicht die eine richtige Loesung. Wer die Regler hier aendert, muss
+# auch die Reglerwerte im Markdown anpassen -- sonst zeigt die Galerie etwas
+# anderes, als der Text behauptet.
+
+_FARBE_A = "#d1495b"   # gedaempftes Rot
+_FARBE_B = "#30638e"   # gedaempftes Blau
+_FARBE_C = "#2a9d8f"   # gedaempftes Gruen
+_FARBE_D = "#f4a261"   # gedaempftes Orange
+_GRAU = "#e9ecef"      # hellgrau
+
+
+def _raster12(farbe_fuer, punkt_groesse=20):
+    """12x12-Punkteraster, Farbe pro Zelle durch farbe_fuer(zeile, spalte)."""
+    s, t = new_scene(500, 500)
+    t.penup()
+    for zeile in range(12):
+        for spalte in range(12):
+            t.goto(-165 + spalte * 30, 165 - zeile * 30)
+            t.pencolor(farbe_fuer(zeile, spalte))
+            t.dot(punkt_groesse)
+    return s
+
+
+# Challenge 1: Drei Farben statt zwei
+
+@scene("03-logik/05-dreifarben-quadranten.png")
+def _():
+    def farbe(zeile, spalte):
+        if zeile < 6 and spalte < 6:
+            return _FARBE_A
+        elif zeile >= 6 and spalte >= 6:
+            return _FARBE_B
+        else:
+            return _FARBE_C
+    return _raster12(farbe)
+
+
+@scene("03-logik/05-dreifarben-kreuz.png")
+def _():
+    def farbe(zeile, spalte):
+        if zeile < 4 or spalte < 4:
+            return _FARBE_A
+        elif not (zeile < 4 or spalte < 4) and (zeile > 7 and spalte > 7):
+            return _FARBE_B
+        else:
+            return _FARBE_C
+    return _raster12(farbe)
+
+
+@scene("03-logik/05-dreifarben-ring.png")
+def _():
+    def farbe(zeile, spalte):
+        if zeile < 3 or zeile > 8 or spalte < 3 or spalte > 8:
+            return _FARBE_A
+        elif not (zeile > 4 and zeile < 7 and spalte > 4 and spalte < 7):
+            return _FARBE_B
+        else:
+            return _FARBE_C
+    return _raster12(farbe)
+
+
+# Challenge 2: Der Schalter im Raster
+
+@scene("03-logik/05-schalter-zeilen.png")
+def _():
+    s, t = new_scene(500, 500)
+    t.penup()
+    schalter = True
+    for zeile in range(12):
+        for spalte in range(12):
+            t.goto(-165 + spalte * 30, 165 - zeile * 30)
+            t.pencolor(_FARBE_A if schalter else _FARBE_B)
+            t.dot(20)
+        schalter = not schalter
+    return s
+
+
+@scene("03-logik/05-schalter-schachbrett.png")
+def _():
+    s, t = new_scene(500, 500)
+    t.penup()
+    schalter_zeile = True
+    for zeile in range(12):
+        schalter_spalte = schalter_zeile
+        for spalte in range(12):
+            t.goto(-165 + spalte * 30, 165 - zeile * 30)
+            t.pencolor(_FARBE_A if schalter_spalte else _FARBE_B)
+            t.dot(20)
+            schalter_spalte = not schalter_spalte
+        schalter_zeile = not schalter_zeile
+    return s
+
+
+# Challenge 3: Die bedingte Form
+
+@scene("03-logik/05-formen.png")
+def _():
+    s, t = new_scene(500, 500)
+    t.penup()
+    for zeile in range(12):
+        for spalte in range(12):
+            t.goto(-165 + spalte * 30, 165 - zeile * 30)
+            bedingung_a = zeile < 6
+            bedingung_b = spalte < 6
+            if bedingung_a and bedingung_b:
+                t.pencolor(_FARBE_A)
+                t.dot(24)
+            elif bedingung_a or bedingung_b:
+                t.pencolor(_FARBE_B)
+                t.dot(14)
+            else:
+                t.pencolor(_FARBE_C)
+                t.dot(8)
+    return s
+
+
+# Die Kuer: Das boolesche Territorium
+
+@scene("03-logik/05-territorium.png")
+def _():
+    s, t = new_scene(500, 500)
+    t.penup()
+    for zeile in range(16):
+        for spalte in range(16):
+            t.goto(-225 + spalte * 30, 225 - zeile * 30)
+            rand = zeile < 2 or zeile > 13 or spalte < 2 or spalte > 13
+            ecke = (zeile < 5 or zeile > 10) and (spalte < 5 or spalte > 10)
+            diagonale = zeile == spalte or zeile + spalte == 15
+            if rand or ecke:
+                t.pencolor(_FARBE_A)
+            elif diagonale and not rand:
+                t.pencolor(_FARBE_D)
+            else:
+                t.pencolor(_FARBE_C)
+            t.dot(16)
+    return s
+
+
 # ---------------------------------------------------------------------------
 # Kapitel 4 -- Funktionen
 # ---------------------------------------------------------------------------
@@ -775,6 +916,151 @@ def _():
     return s
 
 
+# -- Lektion 5: Challenge "Kunst aus Funktionen" -------------------------
+#
+# Diese Szenen sind Galeriebilder: Sie zeigen *eine* moegliche Einstellung,
+# nicht die eine richtige Loesung.
+
+_BLAUEN = ["#2a9d8f", "#1b7461", "#43aa8b", "#588157", "#3a5a40", "#74a892"]
+
+
+def _blume(t, groesse, farbe):
+    """Zeichnet eine Blume: goldener Mittelpunkt + 6 Bluetenblaetter."""
+    x, y = t.xcor(), t.ycor()
+    t.penup()
+    t.pencolor(farbe)
+    for i in range(6):
+        t.setheading(i * 60)
+        t.forward(groesse)
+        t.dot(int(groesse * 0.5))
+        t.goto(x, y)
+    t.pencolor("#f4a261")
+    t.dot(int(groesse * 0.7))
+    t.goto(x, y)
+    t.setheading(0)
+
+
+def _stern(t, groesse, farbe):
+    """Zeichnet einen Stern: 5 Strahlen von der Mitte aus."""
+    x, y = t.xcor(), t.ycor()
+    t.pencolor(farbe)
+    t.pensize(2)
+    t.pendown()
+    for i in range(5):
+        t.setheading(i * 72)
+        t.forward(groesse)
+        t.backward(groesse)
+    t.penup()
+    t.dot(int(groesse * 0.3))
+    t.goto(x, y)
+    t.setheading(0)
+
+
+# Challenge 1: Der parametrisierte Stempel
+
+@scene("04-funktionen/05-blumenwiese.png")
+def _():
+    s, t = new_scene(700, 500)
+    t.penup()
+    farben = ["#d1495b", "#30638e", "#2a9d8f",
+              "#e76f51", "#9c89b8", "#f4a261",
+              "#7bb3a8", "#c1666b", "#4a7c8a"]
+    for zeile in range(3):
+        for spalte in range(3):
+            t.goto(-200 + spalte * 200, 120 - zeile * 180)
+            _blume(t, 25 + (zeile + spalte) * 5, farben[zeile * 3 + spalte])
+    return s
+
+
+@scene("04-funktionen/05-blumenreihe.png")
+def _():
+    s, t = new_scene(700, 250)
+    t.penup()
+    farben = ["#d1495b", "#30638e", "#2a9d8f", "#e76f51", "#9c89b8"]
+    for i in range(5):
+        t.goto(-240 + i * 120, 0)
+        _blume(t, 15 + i * 8, farben[i])
+    return s
+
+
+# Challenge 2: Der Zufallswald
+
+@scene("04-funktionen/05-zufallswald.png")
+def _():
+    random.seed(20240912)
+    s, t = new_scene(800, 500)
+    t.penup()
+    t.goto(-380, -220)
+    t.pensize(3)
+    t.pencolor("#5a3825")
+    t.pendown()
+    t.setheading(0)
+    t.forward(760)
+    t.penup()
+    for _ in range(22):
+        x = random.randint(-360, 360)
+        hoehe = random.randint(100, 240)
+        farbe = random.choice(_BLAUEN)
+        t.goto(x, -220)
+        t.setheading(90)
+        t.pensize(max(6, int(hoehe * 0.12)))
+        t.pencolor("#6b4226")
+        t.pendown()
+        t.forward(hoehe)
+        t.pencolor(farbe)
+        t.dot(int(hoehe * 0.7))
+        t.penup()
+    return s
+
+
+# Challenge 3: Sternenfeld
+
+@scene("04-funktionen/05-sternenfeld.png")
+def _():
+    random.seed(20240913)
+    s, t = new_scene(800, 500)
+    t.penup()
+    for _ in range(60):
+        x = random.randint(-380, 380)
+        y = random.randint(-100, 220)
+        groesse = random.randint(10, 35)
+        t.goto(x, y)
+        if y > 100:
+            farbe = "#f4a261"
+        elif y > 0:
+            farbe = "#e9c46a"
+        else:
+            farbe = "#e76f51"
+        _stern(t, groesse, farbe)
+    return s
+
+
+# Die Kuer: Komposition
+
+@scene("04-funktionen/05-komposition.png")
+def _():
+    random.seed(20240914)
+    s, t = new_scene(800, 600)
+    t.penup()
+    blumenfarben = ["#d1495b", "#e76f51", "#9c89b8", "#7bb3a8", "#c1666b"]
+    for _ in range(12):
+        x = random.randint(-360, 360)
+        y = random.randint(-250, -50)
+        groesse = random.randint(15, 30)
+        farbe = random.choice(blumenfarben)
+        t.goto(x, y)
+        _blume(t, groesse, farbe)
+    sternfarben = ["#f4a261", "#e9c46a", "#e76f51"]
+    for _ in range(25):
+        x = random.randint(-380, 380)
+        y = random.randint(0, 270)
+        groesse = random.randint(8, 25)
+        farbe = random.choice(sternfarben)
+        t.goto(x, y)
+        _stern(t, groesse, farbe)
+    return s
+
+
 # ---------------------------------------------------------------------------
 # Kapitel 5 -- Listen
 # ---------------------------------------------------------------------------
@@ -880,8 +1166,692 @@ def _():
     return s
 
 
+# -- Lektion 4: Challenge "Kunst aus Listen" ------------------------------
+#
+# Diese Szenen sind Galeriebilder: Sie zeigen *eine* moegliche Einstellung,
+# nicht die eine richtige Loesung.
+
+# Challenge 1: Die Stadtsilhouette
+
+@scene("05-listen/04-skyline.png")
+def _():
+    s, t = new_scene(800, 400)
+    t.pensize(2)
+    haeuser = [
+        (40, "#30638e"), (80, "#30638e"), (55, "#30638e"),
+        (120, "#1b4965"), (35, "#30638e"), (100, "#1b4965"),
+        (60, "#30638e"), (140, "#1b4965"), (45, "#30638e"),
+        (85, "#30638e"), (110, "#1b4965"), (50, "#30638e"),
+    ]
+    t.penup()
+    t.goto(-380, -130)
+    for i, (h, farbe) in enumerate(haeuser):
+        t.setheading(0)
+        t.pencolor(farbe)
+        t.fillcolor(farbe)
+        t.pendown()
+        t.begin_fill()
+        t.left(90)
+        t.forward(h)
+        t.right(90)
+        t.forward(55)
+        t.right(90)
+        t.forward(h)
+        t.end_fill()
+        t.penup()
+        t.setheading(0)
+        t.forward(15)
+    return s
+
+
+@scene("05-listen/04-skyline-mit-fenstern.png")
+def _():
+    s, t = new_scene(800, 400)
+    haeuser = [
+        (40, "#30638e"), (80, "#30638e"), (55, "#30638e"),
+        (120, "#1b4965"), (35, "#30638e"), (100, "#1b4965"),
+        (60, "#30638e"), (140, "#1b4965"), (45, "#30638e"),
+        (85, "#30638e"), (110, "#1b4965"), (50, "#30638e"),
+    ]
+    fenster_aktiv = [
+        (True, True, False), (False, True, False), (True, False, True),
+        (True, True, True), (False, True, False), (True, False, True),
+        (True, True, False), (True, True, True), (False, True, True),
+        (True, False, True), (True, True, True), (False, True, False),
+    ]
+    t.penup()
+    t.goto(-380, -130)
+    for i, (h, farbe) in enumerate(haeuser):
+        t.setheading(0)
+        t.pencolor(farbe)
+        t.fillcolor(farbe)
+        t.pendown()
+        t.begin_fill()
+        t.left(90)
+        t.forward(h)
+        t.right(90)
+        t.forward(55)
+        t.right(90)
+        t.forward(h)
+        t.end_fill()
+        t.penup()
+
+        if i < len(fenster_aktiv):
+            sx = -380 + i * 70 + 10
+            for zeile in range(3):
+                for spalte in range(2):
+                    if fenster_aktiv[i][zeile if zeile < len(fenster_aktiv[i]) else 0]:
+                        t.goto(sx + spalte * 25, -130 + h - 20 - zeile * 20)
+                        t.pencolor("#e9c46a" if fenster_aktiv[i][zeile] else "#2a2a2a")
+                        t.dot(6)
+
+        t.setheading(0)
+        t.goto(-380 + (i + 1) * 70, -130)
+    return s
+
+
+# Challenge 2: Die Bachpartitur
+
+@scene("05-listen/04-bachpartitur.png")
+def _():
+    s, t = new_scene(800, 400)
+    t.pensize(1)
+    noten = [
+        ("C", -220, "#e76f51"), ("E", -170, "#e76f51"), ("G", -120, "#e76f51"),
+        ("C", -70, "#e76f51"), ("E", -20, "#e76f51"), ("G", 30, "#e76f51"),
+        ("A", 80, "#f4a261"), ("G", 130, "#e76f51"), ("E", 180, "#e76f51"),
+        ("C", 230, "#e76f51"),
+    ]
+    tonhoehe = {"C": 20, "D": 40, "E": 60, "F": 80, "G": 100, "A": 120, "H": 140}
+    for name, x, farbe in noten:
+        y = tonhoehe.get(name, 20)
+        t.penup()
+        t.goto(x, y)
+        t.pencolor(farbe)
+        t.dot(22)
+        t.setheading(90)
+        t.forward(18)
+        t.pendown()
+        t.forward(30)
+        t.penup()
+    return s
+
+
+# Challenge 3: Das Kartenmuster
+
+@scene("05-listen/04-kartenmuster.png")
+def _():
+    s, t = new_scene(600, 600)
+    farben = ["#d1495b", "#30638e", "#2a9d8f", "#e9c46a",
+              "#e76f51", "#9c89b8", "#7bb3a8", "#f4a261"]
+    t.penup()
+    for zeile in range(8):
+        for spalte in range(8):
+            t.goto(-210 + spalte * 60, 210 - zeile * 60)
+            t.pencolor(farben[(zeile + spalte) % len(farben)])
+            t.dot(48)
+    return s
+
+
+# Die Kuer: Stadt bei Nacht
+
+@scene("05-listen/04-stadt-nacht.png")
+def _():
+    s, t = new_scene(800, 600)
+    # Himmel als Hintergrund
+    t.penup()
+    t.goto(-400, -300)
+    t.pencolor("#1a1a2e")
+    t.pensize(600)
+    t.pendown()
+    t.setheading(0)
+    t.forward(800)
+    t.penup()
+    t.pensize(1)
+
+    # Mond
+    t.goto(280, 200)
+    t.pencolor("#e9c46a")
+    t.dot(80)
+
+    # Sterne
+    random.seed(20240915)
+    for _ in range(40):
+        t.goto(random.randint(-380, 380), random.randint(50, 270))
+        t.pencolor("#e9c46a" if random.random() > 0.3 else "#f4a261")
+        t.dot(random.randint(3, 8))
+
+    # Haeuser
+    haeuser = [
+        (60, "#2d3561"), (120, "#1b2845"), (80, "#2d3561"),
+        (160, "#1b2845"), (50, "#2d3561"), (200, "#0f1c2e"),
+        (90, "#2d3561"), (140, "#1b2845"), (70, "#2d3561"),
+        (180, "#1b2845"), (100, "#2d3561"), (150, "#1b2845"),
+        (60, "#2d3561"), (130, "#1b2845"),
+    ]
+    fenster = [
+        [True, False, True], [True, True, False], [False, True, True],
+        [True, True, True], [True, False, True], [True, True, True],
+        [False, True, True], [True, True, True], [True, False, True],
+        [True, True, True], [False, True, False], [True, True, True],
+        [True, True, False], [True, False, True],
+    ]
+    t.goto(-380, -200)
+    for i, (h, farbe) in enumerate(haeuser):
+        t.setheading(0)
+        t.pencolor(farbe)
+        t.fillcolor(farbe)
+        t.pendown()
+        t.begin_fill()
+        t.left(90)
+        t.forward(h)
+        t.right(90)
+        t.forward(50)
+        t.right(90)
+        t.forward(h)
+        t.end_fill()
+        t.penup()
+
+        if i < len(fenster):
+            for zeile in range(3):
+                if fenster[i][zeile]:
+                    y = -200 + h - 20 - zeile * 18
+                    t.goto(-380 + i * 57 + 10, y)
+                    t.pencolor("#e9c46a")
+                    t.dot(7)
+                    t.goto(-380 + i * 57 + 30, y)
+                    t.dot(7)
+
+        t.setheading(0)
+        t.goto(-380 + (i + 1) * 57, -200)
+    return s
+
+
 # ---------------------------------------------------------------------------
-# Kapitel 6 -- Projekte
+# Kapitel 6 -- Farben
+# ---------------------------------------------------------------------------
+
+
+@scene("06-farben/01-farbnamen.png")
+def _():
+    """Vergleich: grelle Standardfarbnamen (oben) vs gedämpfte Hex (unten)."""
+    s, t = new_scene(800, 400)
+    t.penup()
+    # Obere Reihe: Standardfarbnamen
+    namen = ["red", "green", "blue", "yellow", "magenta", "cyan", "orange", "purple"]
+    for i, name in enumerate(namen):
+        t.goto(-350 + i * 90, 80)
+        t.pencolor(name)
+        t.dot(60)
+    # Untere Reihe: gedämpfte Hex-Werte
+    hexe = ["#d1495b", "#2a9d8f", "#30638e", "#e9c46a",
+            "#9c89b8", "#76b4bd", "#f4a261", "#7b5ea7"]
+    for i, code in enumerate(hexe):
+        t.goto(-350 + i * 90, -80)
+        t.pencolor(code)
+        t.dot(60)
+    return s
+
+
+@scene("06-farben/01-palette.png")
+def _():
+    """Eine Palette aus 12 abgestuften Farben."""
+    s, t = new_scene(800, 300)
+    t.penup()
+    farben = ["#264653", "#287271", "#2a9d8f", "#8ab17d",
+              "#babb74", "#e9c46a", "#efb366", "#f4a261",
+              "#e76f51", "#d1495b", "#9c89b8", "#43505f"]
+    for i, code in enumerate(farben):
+        t.goto(-360 + i * 65, 0)
+        t.pencolor(code)
+        t.dot(50)
+    return s
+
+
+@scene("06-farben/01-komplementaer.png")
+def _():
+    """Komplementärfarben-Paare."""
+    s, t = new_scene(800, 400)
+    t.penup()
+    paare = [
+        ("#d1495b", "#2a9d8f"),    # Rot--Gruen
+        ("#30638e", "#f4a261"),    # Blau--Orange
+        ("#7b5ea7", "#e9c46a"),    # Violett--Gelb
+        ("#e76f51", "#43aa8b"),    # Korall--Tuerkis
+    ]
+    for i, (a, b) in enumerate(paare):
+        x = -300 + i * 200
+        t.goto(x, 60)
+        t.pencolor(a)
+        t.dot(80)
+        t.goto(x, -60)
+        t.pencolor(b)
+        t.dot(80)
+    return s
+
+
+@scene("06-farben/01-farbverlauf.png")
+def _():
+    """Ein Farbverlauf von einer Farbe zur anderen."""
+    s, t = new_scene(800, 200)
+    t.penup()
+    start = (209, 73, 91)    # #d1495b
+    ende = (48, 157, 143)    # #2a9d8f
+    for i in range(20):
+        anteil = i / 19
+        r = round(start[0] + (ende[0] - start[0]) * anteil)
+        g = round(start[1] + (ende[1] - start[1]) * anteil)
+        b = round(start[2] + (ende[2] - start[2]) * anteil)
+        t.goto(-360 + i * 38, 0)
+        t.pencolor((r / 255, g / 255, b / 255))
+        t.dot(34)
+    return s
+
+
+@scene("06-farben/01-analog.png")
+def _():
+    """Analoge Farben: eine Farbfamilie von dunkel nach hell."""
+    s, t = new_scene(800, 200)
+    t.penup()
+    farben = ["#1b4965", "#287271", "#2a9d8f", "#76b4bd", "#a8dadc"]
+    for i, code in enumerate(farben):
+        t.goto(-160 + i * 80, 0)
+        t.pencolor(code)
+        t.dot(60)
+    return s
+
+
+@scene("06-farben/01-beispiel-bild.png")
+def _():
+    """Beispielbild: eine einfache Komposition mit einer Palette."""
+    s, t = new_scene(600, 600)
+    t.penup()
+    palette = ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"]
+    # Hintergrund
+    t.pencolor("#f5f0e8")
+    t.pensize(600)
+    t.goto(-300, 0)
+    t.pendown()
+    t.setheading(0)
+    t.forward(600)
+    t.penup()
+    t.pensize(1)
+    # Sonne
+    t.goto(0, 200)
+    t.pencolor(palette[3])
+    t.dot(120)
+    t.pencolor(palette[2])
+    t.dot(70)
+    # Hügel
+    t.goto(-250, -50)
+    t.pencolor(palette[1])
+    t.pensize(2)
+    t.pendown()
+    t.fillcolor(palette[1])
+    t.begin_fill()
+    t.setheading(0)
+    t.circle(150, 30)
+    t.setheading(0)
+    t.forward(200)
+    t.setheading(180)
+    t.circle(150, 30)
+    t.end_fill()
+    t.penup()
+    # Häuser
+    hoehen = [60, 90, 50, 100, 70]
+    for i, h in enumerate(hoehen):
+        x = -200 + i * 100
+        t.goto(x, -150)
+        t.pencolor(palette[0])
+        t.fillcolor(palette[0])
+        t.pendown()
+        t.begin_fill()
+        t.setheading(0)
+        t.left(90)
+        t.forward(h)
+        t.right(90)
+        t.forward(50)
+        t.right(90)
+        t.forward(h)
+        t.end_fill()
+        t.penup()
+        # Fenster
+        t.goto(x + 12, -150 + h - 20)
+        t.pencolor(palette[2])
+        t.dot(10)
+        t.goto(x + 35, -150 + h - 20)
+        t.dot(10)
+    return s
+
+
+@scene("06-farben/02-mit-seed.png")
+def _():
+    """Zufallspunkte mit seed – reproduzierbar."""
+    random.seed(42)
+    s, t = new_scene(400, 300)
+    t.penup()
+    for _ in range(30):
+        t.goto(random.randint(-180, 180), random.randint(-130, 130))
+        t.pencolor(random.choice(["#d1495b", "#30638e", "#2a9d8f", "#e9c46a", "#f4a261"]))
+        t.dot(random.randint(8, 24))
+    return s
+
+
+@scene("06-farben/02-ohne-seed.png")
+def _():
+    """Zufallspunkte ohne seed – sieht anders aus."""
+    random.seed(99)  # anderer seed = anderes Bild
+    s, t = new_scene(400, 300)
+    t.penup()
+    for _ in range(30):
+        t.goto(random.randint(-180, 180), random.randint(-130, 130))
+        t.pencolor(random.choice(["#d1495b", "#30638e", "#2a9d8f", "#e9c46a", "#f4a261"]))
+        t.dot(random.randint(8, 24))
+    return s
+
+
+@scene("06-farben/02-drei-seeds.png")
+def _():
+    """Drei Bilder mit drei seeds – alle gleiches Programm, alle verschieden."""
+    s, t = new_scene(900, 320)
+    t.penup()
+    seeds = [1, 2, 3]
+    farben = ["#d1495b", "#30638e", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"]
+    for k, sd in enumerate(seeds):
+        random.seed(sd)
+        cx = -300 + k * 300
+        for _ in range(20):
+            x = cx + random.randint(-120, 120)
+            y = random.randint(-120, 120)
+            t.goto(x, y)
+            t.pencolor(random.choice(farben))
+            t.dot(random.randint(6, 20))
+    return s
+
+
+# -- Lektion 3: Random Noise ------------------------------------------------
+#
+# Diese Szenen zeigen generative Kunst, die mit Zufallswerten arbeitet:
+# Rauschen, Verläufe und Texturen.
+
+@scene("06-farben/03-punkte-noise.png")
+def _():
+    """Pure Zufallspunkte – Random Noise im engeren Sinne."""
+    random.seed(20240920)
+    s, t = new_scene(600, 600)
+    t.penup()
+    for _ in range(400):
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
+        t.goto(x, y)
+        t.pencolor("#2a9d8f")
+        t.dot(random.randint(2, 8))
+    return s
+
+
+@scene("06-farben/03-dichte-noise.png")
+def _():
+    """Dichte-Variation: viele kleine Punkte, Dichte nach Region."""
+    random.seed(20240921)
+    s, t = new_scene(600, 600)
+    t.penup()
+    for _ in range(800):
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
+        # Dichte steigt zur Mitte hin
+        abstand = math.hypot(x, y)
+        if abstand < 80 or random.random() > 0.5:
+            t.goto(x, y)
+            t.pencolor("#30638e")
+            t.dot(random.randint(2, 5))
+    return s
+
+
+@scene("06-farben/03-farbnoise.png")
+def _():
+    """Farb-Rauschen: jede Zelle bekommt eine zufällige Farbe aus einer Palette."""
+    random.seed(20240922)
+    s, t = new_scene(600, 600)
+    t.penup()
+    palette = ["#264653", "#287271", "#2a9d8f", "#8ab17d",
+               "#e9c46a", "#f4a261", "#e76f51", "#d1495b"]
+    for zeile in range(20):
+        for spalte in range(20):
+            x = -280 + spalte * 28
+            y = 280 - zeile * 28
+            # Nachbar-basierte Farbe: verwende Nachbarwert als Tendenz
+            idx = random.randint(0, len(palette) - 1)
+            if random.random() > 0.7:
+                idx = (idx + random.randint(0, 2)) % len(palette)
+            t.goto(x, y)
+            t.pencolor(palette[idx])
+            t.dot(24)
+    return s
+
+
+@scene("06-farben/03-verlauf-noise.png")
+def _():
+    """Farbverlauf mit Rauschen: ein glatter Verlauf, gestört durch Zufall."""
+    random.seed(20240923)
+    s, t = new_scene(600, 600)
+    t.penup()
+    t.colormode(255) if hasattr(t, 'colormode') else None
+    start_farbe = (38, 70, 83)     # #264653
+    ende_farbe = (233, 196, 106)   # #e9c46a
+    for zeile in range(30):
+        for spalte in range(30):
+            x = -280 + spalte * 19
+            y = 280 - zeile * 19
+            anteil = (zeile + spalte) / 58
+            # Rauschen hinzufuegen
+            noise = random.uniform(-0.15, 0.15)
+            anteil = max(0, min(1, anteil + noise))
+            r = round(start_farbe[0] + (ende_farbe[0] - start_farbe[0]) * anteil)
+            g = round(start_farbe[1] + (ende_farbe[1] - start_farbe[1]) * anteil)
+            b = round(start_farbe[2] + (ende_farbe[2] - start_farbe[2]) * anteil)
+            t.goto(x, y)
+            t.pencolor((r / 255, g / 255, b / 255))
+            t.dot(18)
+    return s
+
+
+@scene("06-farben/03-kunstwerk-1.png")
+def _():
+    """Kunstwerk 1: 'Nebel' – weiche Punktewolken in einer Palette."""
+    random.seed(20240924)
+    s, t = new_scene(600, 600)
+    t.penup()
+    palette = ["#1b4965", "#287271", "#2a9d8f", "#76b4bd", "#a8dadc"]
+    # Mehrere Zentren
+    zentren = [(-150, 150), (100, -50), (-50, -150), (150, 100)]
+    for cx, cy in zentren:
+        farbe = random.choice(palette)
+        for _ in range(80):
+            winkel = random.uniform(0, 2 * math.pi)
+            radius = random.uniform(0, 120)
+            x = cx + radius * math.cos(winkel)
+            y = cy + radius * math.sin(winkel)
+            t.goto(x, y)
+            t.pencolor(farbe)
+            t.dot(random.randint(4, 14))
+    return s
+
+
+@scene("06-farben/03-kunstwerk-2.png")
+def _():
+    """Kunstwerk 2: 'Landschaft' – geschichtete Horizonte mit Noise."""
+    random.seed(20240925)
+    s, t = new_scene(800, 500)
+    t.penup()
+    schichten = [
+        (-200, "#76b4bd", 60),
+        (-100, "#2a9d8f", 80),
+        (0, "#287271", 100),
+        (120, "#264653", 120),
+    ]
+    for basis_y, farbe, breite in schichten:
+        for _ in range(breite * 3):
+            x = random.randint(-390, 390)
+            y = basis_y + random.randint(-15, 15) + random.uniform(-8, 8)
+            t.goto(x, y)
+            t.pencolor(farbe)
+            t.dot(random.randint(3, 10))
+    return s
+
+
+@scene("06-farben/03-kunstwerk-3.png")
+def _():
+    """Kunstwerk 3: 'Inselwelt' – Perlin Noise bestimmt Land und Wasser."""
+    s, t = new_scene(600, 600)
+    t.penup()
+    noise = _PerlinNoise(octaves=4, seed=5)
+    for zeile in range(30):
+        for spalte in range(30):
+            x = -280 + spalte * 19
+            y = 280 - zeile * 19
+            t.goto(x, y)
+            n = noise([zeile / 30, spalte / 30])
+            if n < -0.05:
+                t.pencolor("#1d3557")   # tiefes Wasser (dunkelblau)
+            elif n < 0.05:
+                t.pencolor("#457b9d")   # flaches Wasser (helleres blau)
+            elif n < 0.12:
+                t.pencolor("#e9c46a")   # Sand (gelb)
+            elif n < 0.22:
+                t.pencolor("#2a9d8f")   # Land/Gras (grün)
+            else:
+                t.pencolor("#6b4226")   # Berge (braun)
+            t.dot(18)
+    return s
+
+
+# -- Perlin Noise ----------------------------------------------------------
+#
+# Diese Szenen nutzen das Paket perlin-noise, um glattes, organises Rauschen
+# zu erzeugen. Im Gegensatz zu purem random()-Noise sind benachbarte Werte
+# korreliert – das Bild wirkt wie eine Landschaft, nicht wie Salat.
+
+from perlin_noise import PerlinNoise as _PerlinNoise
+
+
+@scene("06-farben/03-perlin-vergleich.png")
+def _():
+    """Vergleich: links reiner Zufall, rechts Perlin-Noise."""
+    random.seed(20240927)
+    s, t = new_scene(800, 400)
+    t.penup()
+    # Links: reiner Zufall
+    for _ in range(300):
+        t.goto(random.randint(-390, -20), random.randint(-180, 180))
+        t.pencolor("#30638e")
+        t.dot(random.randint(4, 12))
+    # Rechts: Perlin-gesteuerte Größe
+    noise = _PerlinNoise(octaves=3, seed=42)
+    for zeile in range(20):
+        for spalte in range(20):
+            x = 20 + spalte * 18
+            y = -180 + zeile * 18
+            n = noise([zeile / 20, spalte / 20])
+            groesse = 4 + (n + 0.5) * 14
+            t.goto(x, y)
+            t.pencolor("#e76f51")
+            t.dot(int(groesse))
+    return s
+
+
+@scene("06-farben/03-perlin-landschaft.png")
+def _():
+    """Perlin-Noise als Höhenkarte: eine Berglandschaft."""
+    s, t = new_scene(800, 500)
+    t.penup()
+    noise = _PerlinNoise(octaves=4, seed=7)
+    # Boden
+    t.goto(-400, -200)
+    t.pencolor("#1a1a2e")
+    t.pensize(4)
+    t.pendown()
+    t.setheading(0)
+    t.forward(800)
+    t.penup()
+    t.pensize(1)
+    # Berge als Punkte, Hoehe aus Perlin-Noise
+    for x_idx in range(80):
+        x = -390 + x_idx * 10
+        n = noise([x_idx / 40, 0.5])
+        hoehe = int((n + 0.4) * 250)
+        if hoehe > 0:
+            for schicht in range(hoehe // 4):
+                y = -200 + schicht * 4
+                anteil = schicht / max(1, hoehe // 4)
+                if anteil < 0.3:
+                    farbe = "#2a9d8f"
+                elif anteil < 0.6:
+                    farbe = "#43aa8b"
+                elif anteil < 0.85:
+                    farbe = "#76b4bd"
+                else:
+                    farbe = "#e9c46a"
+                t.goto(x, y)
+                t.pencolor(farbe)
+                t.dot(8)
+    return s
+
+
+@scene("06-farben/03-perlin-textur.png")
+def _():
+    """Perlin-Noise als Farbtextur: glatte Farbübergänge aus Noise."""
+    s, t = new_scene(600, 600)
+    t.penup()
+    noise = _PerlinNoise(octaves=2, seed=3)
+    palette = [
+        (38, 70, 83),     # #264653
+        (40, 114, 113),   # #287271
+        (42, 157, 143),   # #2a9d8f
+        (118, 180, 189),  # #76b4bd
+        (233, 196, 106),  # #e9c46a
+    ]
+    for zeile in range(30):
+        for spalte in range(30):
+            x = -280 + spalte * 19
+            y = 280 - zeile * 19
+            n = noise([zeile / 30, spalte / 30])
+            # Noise-Wert (-0.5..0.5) auf Palette abbilden
+            idx_f = (n + 0.5) * (len(palette) - 1)
+            idx1 = int(idx_f)
+            idx2 = min(idx1 + 1, len(palette) - 1)
+            anteil = idx_f - idx1
+            r = round(palette[idx1][0] + (palette[idx2][0] - palette[idx1][0]) * anteil)
+            g = round(palette[idx1][1] + (palette[idx2][1] - palette[idx1][1]) * anteil)
+            b = round(palette[idx1][2] + (palette[idx2][2] - palette[idx1][2]) * anteil)
+            t.goto(x, y)
+            t.pencolor((r / 255, g / 255, b / 255))
+            t.dot(18)
+    return s
+
+
+@scene("06-farben/03-perlin-wolken.png")
+def _():
+    """Perlin-Noise als Wolken: mehrere Oktaven ergeben eine realistische Textur."""
+    s, t = new_scene(600, 600)
+    t.penup()
+    noise = _PerlinNoise(octaves=6, seed=11)
+    for zeile in range(30):
+        for spalte in range(30):
+            x = -280 + spalte * 19
+            y = 280 - zeile * 19
+            n = noise([zeile / 30, spalte / 30])
+            # Helle und dunkle Wolkenschattierungen
+            helligkeit = (n + 0.5) * 255
+            helligkeit = max(180, min(255, int(helligkeit)))
+            grau = helligkeit
+            t.goto(x, y)
+            t.pencolor((grau / 255, grau / 255, grau / 255))
+            t.dot(18)
+    return s
+
+
+# ---------------------------------------------------------------------------
+# Kapitel 7 -- Projekte
 # ---------------------------------------------------------------------------
 
 
@@ -917,6 +1887,123 @@ def _():
             t.goto(x, y - 5)
             t.write(str(i), align="center")
             t.goto(x, y)
+    return s
+
+
+# -- Projekt: Generative Galerie -------------------------------------------
+
+def _rahmen(t, x, y, breite, hoehe):
+    """Zeichnet einen Bilderrahmen an Position (x, y) = Mitte."""
+    t.penup()
+    t.goto(x - breite / 2, y - hoehe / 2)
+    t.pencolor("#8b7355")
+    t.pensize(6)
+    t.pendown()
+    t.setheading(0)
+    for _ in range(2):
+        t.forward(breite)
+        t.left(90)
+        t.forward(hoehe)
+        t.left(90)
+    t.penup()
+    t.pensize(1)
+
+
+def _bild_rosette(t, cx, cy, scala):
+    """Rosette als eines der vier Bilder."""
+    t.penup()
+    t.goto(cx, cy)
+    for _ in range(36):
+        for _ in range(4):
+            t.forward(40 * scala)
+            t.right(90)
+        t.left(10)
+
+
+def _bild_regionen(t, cx, cy, scala):
+    """Logik-Raster als eines der vier Bilder."""
+    t.penup()
+    for zeile in range(10):
+        for spalte in range(10):
+            t.goto(cx - 90 * scala + spalte * 20 * scala,
+                   cy + 90 * scala - zeile * 20 * scala)
+            if zeile < 5 and spalte < 5:
+                t.pencolor("#d1495b")
+            elif zeile >= 5 and spalte >= 5:
+                t.pencolor("#30638e")
+            else:
+                t.pencolor("#2a9d8f")
+            t.dot(16)
+
+
+def _bild_blumen(t, cx, cy, scala):
+    """Blumen-Funktion als eines der vier Bilder."""
+    farben = ["#e76f51", "#9c89b8", "#2a9d8f", "#d1495b", "#30638e"]
+    t.penup()
+    for i in range(5):
+        x = cx + (i - 2) * 60 * scala
+        y = cy
+        t.goto(x, y)
+        t.pencolor(farben[i])
+        for j in range(6):
+            t.setheading(j * 60)
+            t.forward(15 * scala)
+            t.dot(8 * scala)
+            t.backward(15 * scala)
+        t.pencolor("#f4a261")
+        t.dot(12 * scala)
+    t.setheading(0)
+
+
+def _bild_skyline(t, cx, cy, scala):
+    """Skyline aus Listen als eines der vier Bilder."""
+    hoehen = [40, 70, 35, 90, 55, 75, 30, 60]
+    t.penup()
+    for i, h in enumerate(hoehen):
+        x = cx + (i - 3.5) * 25 * scala
+        y = cy - 40 * scala
+        t.goto(x, y)
+        t.pencolor("#30638e")
+        t.pendown()
+        t.fillcolor("#30638e")
+        t.begin_fill()
+        t.left(90)
+        t.forward(h * scala)
+        t.right(90)
+        t.forward(18 * scala)
+        t.right(90)
+        t.forward(h * scala)
+        t.end_fill()
+        t.penup()
+        t.setheading(0)
+
+
+@scene("06-projekte/04-galerie.png")
+def _():
+    s, t = new_scene(900, 900)
+    # Hintergrund
+    t.penup()
+    t.pencolor("#f5f0e8")
+    t.pensize(900)
+    t.goto(-450, 0)
+    t.pendown()
+    t.setheading(0)
+    t.forward(900)
+    t.penup()
+    t.pensize(1)
+
+    # Vier Bilder im 2x2-Raster
+    bilder = [
+        (-220, 220, _bild_rosette, 0.6),
+        (220, 220, _bild_regionen, 0.6),
+        (-220, -220, _bild_blumen, 0.7),
+        (220, -220, _bild_skyline, 0.7),
+    ]
+    for cx, cy, fn, scala in bilder:
+        _rahmen(t, cx, cy, 320, 320)
+        fn(t, cx, cy, scala)
+
+    t.setheading(0)
     return s
 
 
