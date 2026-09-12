@@ -276,6 +276,13 @@ Baue den Fächer nach. Du brauchst dafür nur `goto`, `setheading` und `forward`
 Dann experimentiere: Was passiert, wenn die Mittelpunkte weiter auseinanderrücken? Wenn du **drei** Fächer zeichnest? Wenn der zweite Fächer einen minimal anderen Winkelabstand hat als der erste?
 :::
 
+:::pyide{canvas}
+```python
+import turtle
+
+``` 
+:::
+
 ::::collapsible{title="Tipp: Ein einzelner Fächer"}
 
 Für jede Linie: Stift hoch, zurück zum Mittelpunkt, in die neue Richtung drehen, Stift runter, loslaufen.

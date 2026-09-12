@@ -1,6 +1,7 @@
 ---
 title: Challenge – Spiele aus Wiederholung
 index: 10
+navigation: hidden
 ---
 
 # Challenge: Spiele aus Wiederholung
