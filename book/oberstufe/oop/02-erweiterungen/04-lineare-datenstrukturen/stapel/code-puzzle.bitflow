@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "stapel-code-puzzle",
+    "title": "Stapel: Code-Puzzle und Schreibtischtest",
+    "description": "push und pop als Puzzle, dazu ein Durchlauf über den Stapel.",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": true
+  },
+  "nodes": [
+    {
+      "id": "push",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "instruction": "Die Methode `push` legt ein Objekt oben auf den Stapel. Setze den Rumpf von `public void push(T pContent) { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "StackNode neuerKnoten = new StackNode(pContent);",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "neuerKnoten.setNext(head);",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "head = neuerKnoten;",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "head.setNext(neuerKnoten);",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": false,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "pop",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 120
+      },
+      "data": {
+        "instruction": "Die Methode `pop` nimmt den obersten Knoten herunter. Setze den Rumpf von `public void pop() { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "if (head != null) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "head = head.getNext();",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "head = null;",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "stapellauf",
+      "type": "task-code-trace",
+      "position": {
+        "x": 0,
+        "y": 240
+      },
+      "data": {
+        "instruction": "Verfolge den Stapel. Schreibe für **top()** das oberste Element und für **Stapel** alle Elemente von oben nach unten, mit Komma getrennt.",
+        "language": "java",
+        "code": "NRWStack<String> s = new NRWStack<String>();\ns.push(\"A\");\ns.push(\"B\");\ns.pop();\ns.push(\"C\");",
+        "showLineNumbers": true,
+        "columns": [
+          {
+            "id": "top",
+            "name": "top()",
+            "kind": "value"
+          },
+          {
+            "id": "inhalt",
+            "name": "Stapel",
+            "kind": "value"
+          }
+        ],
+        "checkpoints": [
+          {
+            "id": "s1",
+            "label": "nach push(\"A\")",
+            "expected": {
+              "top": "A",
+              "inhalt": "A"
+            },
+            "line": 2
+          },
+          {
+            "id": "s2",
+            "label": "nach push(\"B\")",
+            "expected": {
+              "top": "B",
+              "inhalt": "B, A"
+            },
+            "line": 3
+          },
+          {
+            "id": "s3",
+            "label": "nach pop()",
+            "expected": {
+              "top": "A",
+              "inhalt": "A"
+            },
+            "line": 4
+          },
+          {
+            "id": "s4",
+            "label": "nach push(\"C\")",
+            "expected": {
+              "top": "C",
+              "inhalt": "C, A"
+            },
+            "line": 5
+          }
+        ],
+        "caseSensitive": false,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 360
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Wenn die Puzzles sitzen, schreibe die Methoden oben in der IDE selbst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-push-pop",
+      "source": "push",
+      "target": "pop"
+    },
+    {
+      "id": "e-pop-stapellauf",
+      "source": "pop",
+      "target": "stapellauf"
+    },
+    {
+      "id": "e-stapellauf-ende",
+      "source": "stapellauf",
+      "target": "ende"
+    }
+  ]
+}

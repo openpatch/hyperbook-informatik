@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "bst-suchen",
+    "title": "Suchen: Code-Puzzle und Schreibtischtest",
+    "description": "search als Puzzle und der Weg durch den Baum.",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": true
+  },
+  "nodes": [
+    {
+      "id": "suchen",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "instruction": "`search` gibt den Kontakt zurück, wenn er im Baum liegt, sonst null. `vergleich` ist kleiner als 0, wenn pContent **vor** dem Inhalt dieses Knotens einsortiert wird, und größer als 0, wenn er dahinter gehört. Setze den Rumpf von `public Contact search(Contact pContent) { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "int vergleich = pContent.getUsername().compareTo(content.getUsername());",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "if (vergleich == 0) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "return content;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l4",
+            "text": "} else if (vergleich < 0) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l5",
+            "text": "if (left == null) return null;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l6",
+            "text": "return left.search(pContent);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l7",
+            "text": "} else {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l8",
+            "text": "if (right == null) return null;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l9",
+            "text": "return right.search(pContent);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l10",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "if (vergleich < 0) return right.search(pContent);",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "weg",
+      "type": "task-code-trace",
+      "position": {
+        "x": 0,
+        "y": 120
+      },
+      "data": {
+        "instruction": "Gesucht wird **lantern90** im Baum aus dem Objektdiagramm oben. Verfolge, auf welchem Knoten `search` gerade steht und wie der Vergleich ausgeht.\n\nSchreibe für **Vergleich** eines von `kleiner`, `groesser` oder `gleich`.",
+        "language": "java",
+        "code": "public Contact search(Contact pContent) {\n    int vergleich = pContent.getUsername().compareTo(content.getUsername());\n    if (vergleich == 0) {\n        return content;\n    } else if (vergleich < 0) {\n        if (left == null) return null;\n        return left.search(pContent);\n    } else {\n        if (right == null) return null;\n        return right.search(pContent);\n    }\n}",
+        "showLineNumbers": true,
+        "columns": [
+          {
+            "id": "knoten",
+            "name": "content dieses Knotens",
+            "kind": "value"
+          },
+          {
+            "id": "vergleich",
+            "name": "Vergleich",
+            "kind": "value"
+          }
+        ],
+        "checkpoints": [
+          {
+            "id": "w1",
+            "label": "1. Aufruf",
+            "expected": {
+              "knoten": "krypto30",
+              "vergleich": "groesser"
+            },
+            "line": 2
+          },
+          {
+            "id": "w2",
+            "label": "2. Aufruf",
+            "expected": {
+              "knoten": "martian55",
+              "vergleich": "groesser"
+            },
+            "line": 2
+          },
+          {
+            "id": "w3",
+            "label": "3. Aufruf",
+            "expected": {
+              "knoten": "lantern90",
+              "vergleich": "gleich"
+            },
+            "line": 2
+          }
+        ],
+        "caseSensitive": false,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 240
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Der Weg im Schreibtischtest ist derselbe wie der Kellerstapel im Objektdiagramm.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-suchen-weg",
+      "source": "suchen",
+      "target": "weg"
+    },
+    {
+      "id": "e-weg-ende",
+      "source": "weg",
+      "target": "ende"
+    }
+  ]
+}

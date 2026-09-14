@@ -31,7 +31,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: search(pContent) ist auf der Wurzel aufgerufen, gesucht wird lantern90",
       "objects": {
         "@t1": {
           "klass": "BinarySearchTree",
@@ -444,7 +444,7 @@
       }
     },
     {
-      "label": "Aufgabe: Kellerstapel beim Treffer",
+      "label": "Der Kontakt ist gefunden: Baue den Kellerstapel für diesen Moment. Jeder neue Rahmen heißt BinarySearchTree.search und kennt this und pContent.",
       "objects": {
         "@t1": {
           "klass": "BinarySearchTree",

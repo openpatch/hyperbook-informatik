@@ -31,7 +31,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: preorder() ist auf der Wurzel aufgerufen",
       "objects": {
         "@t1": {
           "klass": "BinaryTree",
@@ -484,7 +484,7 @@
       }
     },
     {
-      "label": "Aufgabe: Kellerstapel bei k",
+      "label": "Der Durchlauf ist beim Kontakt k angekommen: Baue den Kellerstapel für diesen Moment. Jeder neue Rahmen heißt BinaryTree.preorder und kennt nur this.",
       "objects": {
         "@t1": {
           "klass": "BinaryTree",

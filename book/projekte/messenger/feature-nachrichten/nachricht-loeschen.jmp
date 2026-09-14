@@ -1,0 +1,345 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": true,
+    "hideDeclareGlobalVariable": false,
+    "hideNewArray": false,
+    "disableGarbageCollector": false,
+    "inlineStrings": true,
+    "hideSteps": true
+  },
+  "klasses": {
+    "App": {
+      "attributes": {
+        "messages": "Array"
+      }
+    },
+    "Message": {
+      "attributes": {
+        "username": "String",
+        "text": "String",
+        "date": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Die Nachricht von frida soll verschwinden",
+      "objects": {
+        "@app": {
+          "klass": "App",
+          "attributes": {
+            "messages": {
+              "dataType": "Array",
+              "value": "@arr"
+            }
+          },
+          "position": {
+            "x": -240,
+            "y": 240
+          }
+        },
+        "@arr": {
+          "klass": "Array",
+          "arrayElementType": "Message",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 8
+            },
+            "[0]": {
+              "dataType": "Message",
+              "value": "@m_mike"
+            },
+            "[1]": {
+              "dataType": "Message",
+              "value": "@m_karl"
+            },
+            "[2]": {
+              "dataType": "Message",
+              "value": "@m_frida"
+            },
+            "[3]": {
+              "dataType": "Message",
+              "value": "@m_jup"
+            },
+            "[4]": {
+              "dataType": "Message",
+              "value": "@m_emma"
+            },
+            "[5]": {
+              "dataType": "Message"
+            },
+            "[6]": {
+              "dataType": "Message"
+            },
+            "[7]": {
+              "dataType": "Message"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 120
+          }
+        },
+        "@m_mike": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_mike"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_mike"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@d_mike"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        "@m_karl": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_karl"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_karl"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@d_karl"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 170
+          }
+        },
+        "@m_frida": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_frida"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_frida"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@d_frida"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 340
+          }
+        },
+        "@m_jup": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_jup"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_jup"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@d_jup"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 510
+          }
+        },
+        "@m_emma": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_emma"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_emma"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@d_emma"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 680
+          }
+        },
+        "@s_mike": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 0
+          }
+        },
+        "@t_mike": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 60
+          }
+        },
+        "@d_mike": {
+          "klass": "String",
+          "literal": "2023/12/01 11:30",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 120
+          }
+        },
+        "@s_karl": {
+          "klass": "String",
+          "literal": "karl",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 170
+          }
+        },
+        "@t_karl": {
+          "klass": "String",
+          "literal": "Geheim Geheim",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 230
+          }
+        },
+        "@d_karl": {
+          "klass": "String",
+          "literal": "2023/12/01 11:30",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 290
+          }
+        },
+        "@s_frida": {
+          "klass": "String",
+          "literal": "frida",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 340
+          }
+        },
+        "@t_frida": {
+          "klass": "String",
+          "literal": "Frida Freude Eierkuchen",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 400
+          }
+        },
+        "@d_frida": {
+          "klass": "String",
+          "literal": "2023/12/01 11:32",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 460
+          }
+        },
+        "@s_jup": {
+          "klass": "String",
+          "literal": "jup",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 510
+          }
+        },
+        "@t_jup": {
+          "klass": "String",
+          "literal": "Ich bin auch hier",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 570
+          }
+        },
+        "@d_jup": {
+          "klass": "String",
+          "literal": "2023/12/01 11:33",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 630
+          }
+        },
+        "@s_emma": {
+          "klass": "String",
+          "literal": "emma",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 680
+          }
+        },
+        "@t_emma": {
+          "klass": "String",
+          "literal": "Moin",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 740
+          }
+        },
+        "@d_emma": {
+          "klass": "String",
+          "literal": "2023/12/01 11:34",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 800
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "myApp",
+          "dataType": "App",
+          "value": "@app",
+          "position": {
+            "x": -500,
+            "y": 240
+          }
+        }
+      },
+      "methodCalls": {}
+    }
+  ]
+}

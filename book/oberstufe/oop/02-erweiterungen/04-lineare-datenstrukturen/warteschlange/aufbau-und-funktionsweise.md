@@ -12,14 +12,9 @@ lang: de
 
 Die Methode enqueue soll eine neue Nachricht ans Ende der Warteschlange anhängen.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – drei Knoten in der Schlange, incomingMessage wartet daneben.
-2. **Aufgabe** – `notifications.enqueue(incomingMessage)`: Baue den Zustand nach dem Einreihen. Denk an tail.
-
 ::jmp{id="schlange-einreihen" src="einreihen.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zur Methode enqueue der Klasse Queue einen Algorithmus im :t[Pseudocode].
 3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
@@ -34,14 +29,9 @@ Die Schritte im Diagramm:
 
 Die Methode front soll die erste Nachricht in der Warteschlange zurückgeben. Die Methode dequeue soll die erste Nachricht aus der Warteschlange entfernen.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – drei Knoten in der Schlange.
-2. **Aufgabe** – `notifications.dequeue()`: Nimm den ersten Knoten heraus.
-
 ::jmp{id="schlange-entnehmen" src="entnehmen.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zu den Methoden dequeue und front einen Algorithmus im :t[Pseudocode].
 3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 

@@ -31,7 +31,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: searchPreOrder(pContent) ist auf der Wurzel aufgerufen, gesucht wird c",
       "objects": {
         "@t1": {
           "klass": "BinaryTree",
@@ -516,7 +516,7 @@
       }
     },
     {
-      "label": "Aufgabe: Kellerstapel beim Treffer",
+      "label": "Der Kontakt ist gefunden: Baue den Kellerstapel für diesen Moment. Jeder neue Rahmen heißt BinaryTree.searchPreOrder und kennt this und pContent. Überlege, welche Rahmen schon wieder abgeräumt sind.",
       "objects": {
         "@t1": {
           "klass": "BinaryTree",

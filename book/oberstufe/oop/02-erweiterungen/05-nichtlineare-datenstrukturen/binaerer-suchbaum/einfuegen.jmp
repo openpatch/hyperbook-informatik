@@ -31,7 +31,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: insert(pContent) ist auf der Wurzel aufgerufen, eingefügt wird wonder11",
       "objects": {
         "@c6": {
           "klass": "Contact",
@@ -444,7 +444,7 @@
       }
     },
     {
-      "label": "Aufgabe: wonder11 einfügen",
+      "label": "Füge pContent an der richtigen Stelle ein und baue den Zustand danach",
       "objects": {
         "@c6": {
           "klass": "Contact",

@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "warteschlange-code-puzzle",
+    "title": "Warteschlange: Code-Puzzle und Schreibtischtest",
+    "description": "enqueue und dequeue als Puzzle, dazu ein Durchlauf durch die Schlange.",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": true
+  },
+  "nodes": [
+    {
+      "id": "enqueue",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "instruction": "Die Methode `enqueue` hängt ein Objekt hinten an die Schlange. Setze den Rumpf von `public void enqueue(T pContent) { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "QueueNode neuerKnoten = new QueueNode(pContent);",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "if (head == null) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "head = neuerKnoten;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l4",
+            "text": "} else {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l5",
+            "text": "tail.setNextNode(neuerKnoten);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l6",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l7",
+            "text": "tail = neuerKnoten;",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "neuerKnoten.setNextNode(head);",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "dequeue",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 120
+      },
+      "data": {
+        "instruction": "Die Methode `dequeue` nimmt den ersten Knoten aus der Schlange. Setze den Rumpf von `public void dequeue() { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "if (head != null) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "head = head.getNextNode();",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "tail = tail.getNextNode();",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "leer",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 240
+      },
+      "data": {
+        "instruction": "Nach einem `dequeue` ist head null – die Schlange ist leer. Was muss dann zusätzlich geschehen?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "a",
+            "markdown": "Nichts, head genügt.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "tail zeigt dann noch auf den Knoten, den es nicht mehr gibt.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "b",
+            "markdown": "`tail` muss ebenfalls auf `null` gesetzt werden.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau. Sonst hängt das nächste enqueue am alten Knoten.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "c",
+            "markdown": "`tail` muss auf `head` gesetzt werden.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "head ist null – damit wäre tail zwar auch null, aber nur zufällig richtig.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "schlangenlauf",
+      "type": "task-code-trace",
+      "position": {
+        "x": 0,
+        "y": 360
+      },
+      "data": {
+        "instruction": "Dasselbe Spiel wie beim Stapel, nur andersherum. Schreibe für **front()** das vorderste Element und für **Schlange** alle Elemente von vorne nach hinten.",
+        "language": "java",
+        "code": "NRWQueue<String> q = new NRWQueue<String>();\nq.enqueue(\"A\");\nq.enqueue(\"B\");\nq.dequeue();\nq.enqueue(\"C\");",
+        "showLineNumbers": true,
+        "columns": [
+          {
+            "id": "front",
+            "name": "front()",
+            "kind": "value"
+          },
+          {
+            "id": "inhalt",
+            "name": "Schlange",
+            "kind": "value"
+          }
+        ],
+        "checkpoints": [
+          {
+            "id": "q1",
+            "label": "nach enqueue(\"A\")",
+            "expected": {
+              "front": "A",
+              "inhalt": "A"
+            },
+            "line": 2
+          },
+          {
+            "id": "q2",
+            "label": "nach enqueue(\"B\")",
+            "expected": {
+              "front": "A",
+              "inhalt": "A, B"
+            },
+            "line": 3
+          },
+          {
+            "id": "q3",
+            "label": "nach dequeue()",
+            "expected": {
+              "front": "B",
+              "inhalt": "B"
+            },
+            "line": 4
+          },
+          {
+            "id": "q4",
+            "label": "nach enqueue(\"C\")",
+            "expected": {
+              "front": "B",
+              "inhalt": "B, C"
+            },
+            "line": 5
+          }
+        ],
+        "caseSensitive": false,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 480
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Wenn die Puzzles sitzen, schreibe die Methoden oben in der IDE selbst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-enqueue-dequeue",
+      "source": "enqueue",
+      "target": "dequeue"
+    },
+    {
+      "id": "e-dequeue-leer",
+      "source": "dequeue",
+      "target": "leer"
+    },
+    {
+      "id": "e-leer-schlangenlauf",
+      "source": "leer",
+      "target": "schlangenlauf"
+    },
+    {
+      "id": "e-schlangenlauf-ende",
+      "source": "schlangenlauf",
+      "target": "ende"
+    }
+  ]
+}

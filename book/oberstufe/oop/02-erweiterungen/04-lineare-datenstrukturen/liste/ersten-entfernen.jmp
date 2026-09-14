@@ -37,7 +37,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: vier Knoten in der Liste",
       "objects": {
         "@liste": {
           "klass": "List",
@@ -333,7 +333,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: ersten Knoten entfernen",
+      "label": "Entferne den ersten Knoten (mike). current bleibt null.",
       "objects": {
         "@liste": {
           "klass": "List",

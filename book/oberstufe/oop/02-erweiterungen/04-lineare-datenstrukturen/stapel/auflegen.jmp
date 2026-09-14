@@ -35,7 +35,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: drei Knoten auf dem Stapel, incomingMessage wartet daneben",
       "objects": {
         "@stapel": {
           "klass": "Stack",
@@ -316,7 +316,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: push(incomingMessage)",
+      "label": "newMessages.push(incomingMessage): Baue den Zustand nach dem Auflegen.",
       "objects": {
         "@stapel": {
           "klass": "Stack",

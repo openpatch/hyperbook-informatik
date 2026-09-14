@@ -1,0 +1,412 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": true,
+    "hideDeclareGlobalVariable": false,
+    "hideNewArray": false,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {},
+  "steps": [
+    {
+      "label": "Ausgangslage: new int[3][4] legt vier Objekte an: das äußere Feld und drei Zeilen",
+      "objects": {
+        "@gitter": {
+          "klass": "Array",
+          "arrayElementType": "int[]",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "Array",
+              "value": "@z0"
+            },
+            "[1]": {
+              "dataType": "Array",
+              "value": "@z1"
+            },
+            "[2]": {
+              "dataType": "Array",
+              "value": "@z2"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 140
+          }
+        },
+        "@z0": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 0
+          }
+        },
+        "@z1": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 220
+          }
+        },
+        "@z2": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 440
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "gitter",
+          "dataType": "Array",
+          "value": "@gitter",
+          "position": {
+            "x": -160,
+            "y": 140
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "Trage gitter[0][0] = 5;, gitter[1][2] = 7; und gitter[2][3] = 9; ein",
+      "objects": {
+        "@gitter": {
+          "klass": "Array",
+          "arrayElementType": "int[]",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "Array",
+              "value": "@z0"
+            },
+            "[1]": {
+              "dataType": "Array",
+              "value": "@z1"
+            },
+            "[2]": {
+              "dataType": "Array",
+              "value": "@z2"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 140
+          }
+        },
+        "@z0": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 5
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 0
+          }
+        },
+        "@z1": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 7
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 220
+          }
+        },
+        "@z2": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 9
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 440
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "gitter",
+          "dataType": "Array",
+          "value": "@gitter",
+          "position": {
+            "x": -160,
+            "y": 140
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    },
+    {
+      "label": "gitter[1] = new int[2]; Eine Zeile darf durch ein kürzeres Feld ersetzt werden. Deshalb ist gitter[zeile].length nicht immer dasselbe wie gitter[0].length.",
+      "objects": {
+        "@gitter": {
+          "klass": "Array",
+          "arrayElementType": "int[]",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "Array",
+              "value": "@z0"
+            },
+            "[1]": {
+              "dataType": "Array",
+              "value": "@kurz"
+            },
+            "[2]": {
+              "dataType": "Array",
+              "value": "@z2"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 140
+          }
+        },
+        "@z0": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 5
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 0
+          }
+        },
+        "@z2": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[3]": {
+              "dataType": "int",
+              "value": 9
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 440
+          }
+        },
+        "@kurz": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 0
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 220
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "gitter",
+          "dataType": "Array",
+          "value": "@gitter",
+          "position": {
+            "x": -160,
+            "y": 140
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    }
+  ]
+}

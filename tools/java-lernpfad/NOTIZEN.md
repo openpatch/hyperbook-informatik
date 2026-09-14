@@ -254,6 +254,27 @@ Weiter: `stamp`, `eraseAll`, `setTransparency`, `goToBackground`.
 `new Text()` oder `new Text(text, x, y, breite)` — der Einzeiler
 `new Text("Hallo")` ist ein Fehler.
 
+**x ist die Mitte des Textes, nicht sein linker Rand.** Gemessen am 13.09.2026:
+Eine Statuszeile bei `x = -230` verliert ihre linke Haelfte ausserhalb der
+Buehne - sichtbar bleibt nur, was rechts davon liegt. Da der Programmierbereich
+im Buch immer 978 px breit ist und die Buehne darin auf rund 300 px skaliert
+wird, faellt das auf jedem Bildschirm gleich auf.
+
+**Regel: Statuszeilen mit `new Text("", 0, 155, 460)` anlegen**, also auf x = 0
+zentriert. Dann passen rund 50 Zeichen in die Zeile.
+
+### Nach `remove()` ist Schluss
+
+Verifiziert am 13.09.2026: Eine mit `remove()` entfernte Figur laesst sich mit
+`add(...)` **nicht** wieder auf die Buehne holen - `count` bleibt bei 0. Und
+`getStage()` liefert danach nichts Brauchbares mehr; ein Aufruf darauf bricht
+zur Laufzeit ab ("TypeError: ... is not a function"), ohne dass der Uebersetzer
+etwas gemeldet haette.
+
+**Regel: Was nach dem Entfernen noch gebraucht wird, holt man sich vorher in
+eine Variable.** Und ein Rueckgaengig-Mechanismus speichert Daten (Position,
+Sorte), nicht die Figur selbst.
+
 ### `Sprite`
 
 Die wichtigsten Gruppen (vollstaendig in `api-online-ide.txt`):
@@ -263,6 +284,70 @@ Bewegung `move`, `setPosition`, `changeX/Y`, `glide`, `turnRight/Left`,
 Fuehlen `isTouchingSprite`, `isTouchingEdge`, `isKeyPressed`, `getMouseX`,
 `distanceToSprite`; Ereignisse `run`, `whenKeyPressed`, `whenClicked`,
 `whenIReceive`, `broadcast`.
+
+### Kostuemgroessen und setSize
+
+Gemessen am 13.09.2026 ueber `getWidth()` / `getHeight()`. Die Buehne ist
+480 x 360 - manche Kostueme sind fast so hoch:
+
+| Kostuem | Originalgroesse |
+| --- | --- |
+| `bunny1_stand` | **120 x 201** |
+| `boxCrate` | 128 x 128 |
+| `gemRed` | 128 x 128 |
+| `flame` | 41 x 80 |
+| `coin_gold` | 61 x 61 |
+
+Drei Eigenschaften, die man kennen muss:
+
+1. **`setSize(p)` erwartet Prozent der Originalgroesse, nicht Pixel.** Dieselbe
+   Zahl ergibt also je nach Kostuem ganz verschiedene Pixelgroessen:
+   `setSize(40)` macht aus dem Hasen 48 x 80, aus der Muenze 24 x 24.
+2. **`setSize` ist absolut, nicht kumulativ.** Zweimal `setSize(40)`
+   hintereinander ergibt wieder 40 %, nicht 16 %.
+3. **`getWidth()` / `getHeight()` liefern die aktuelle, skalierte Groesse**,
+   nicht die des Originalkostuems.
+
+Daraus folgen zwei Regeln:
+
+**Wer mit einem Gitter rechnet, muss die Figuren auf Zellengroesse bringen.**
+Sonst behauptet das Gitter etwas anderes, als auf der Buehne zu sehen ist - ein
+Hase mit `setSize(40)` ist 80 px hoch und steht damit auf zwei Zellen von 40 px.
+Die noetige Prozentzahl rechnet man aus:
+
+```java
+public static void passeEin(Sprite pFigur) {
+    double laengsteSeite = Math.max(pFigur.getWidth(), pFigur.getHeight());
+    pFigur.setSize(pFigur.getSize() * GROESSE / laengsteSeite);
+}
+```
+
+Mit `getSize()` im Zaehler funktioniert das auch dann, wenn die Figur schon
+skaliert war. Verwendet in den Im-Spiel-Seiten der Kapitel 2 und 3 (Klasse
+`Zelle`).
+
+**Ohne Gitter genuegt `setSize(50)` fuer den Hasen** - entscheidend ist nur,
+dass er nicht ueber den Buehnenrand hinausragt. Steht er wie im EF-Geruest bei
+`setPosition(0, -140)` in Originalgroesse, ragt er unten heraus, und
+`ifOnEdgeBounce()` schiebt ihn bei jedem Bild weiter hinein, bis er ganz im
+Bild ist. Er wandert dadurch ohne Tastendruck ins Spielfeld und sammelt dort
+ein, was herumliegt. Wer das nicht merkt, sucht den Fehler in der
+Kollisionspruefung.
+
+Umgekehrt gilt: **ohne `ifOnEdgeBounce()` laeuft die Figur aus der Buehne
+heraus** und ist weg. Eine frei steuerbare Figur braucht es, sobald sie klein
+genug ist, dass es sie nicht mehr verschiebt.
+
+## Mehrere Bibliotheken gleichzeitig
+
+Verifiziert am 13.09.2026: `libraries="nrw,scratch"` laedt beide, in beliebiger
+Reihenfolge. `List<Gegner>`, `Stack<String>` und `Queue<String>` der
+NRW-Bibliothek laufen zusammen mit `Stage`, `Sprite` und `Text` - getestet bis
+zum Durchlaufen einer Liste von Sprites mit `toFirst`/`hasAccess`/`next`.
+
+Wichtig bei der Namenskollision: Unter `nrw` gewinnen die NRW-Klassen. `Stack`
+hat dann `top()` und ein `void pop()`, nicht `peek()` und `E pop()` wie in
+java.util. `Queue` hat `front()` und `void dequeue()`.
 
 ## NRW-Bibliothek (`libraries="nrw"`)
 

@@ -33,7 +33,7 @@ BinaryTree-Objekte als dessen Nachfolger erzeugt (die dann zunächst leere Knote
 
 ## Aufgabe 2
 
-1. Zeichne in der Vorlage unter dem Programm ein Objektdiagramm, das die Situation am Ende der Methode füllen() darstellt.
+1. Setze die Schritte in der Vorlage unter dem Programm um.
 2. Erläutere, wozu die Referenzen wurzel, aktuell und neu benutzt werden. Was würde am Ende der Methode füllen() passieren, wenn wurzel auch lokal deklariert wäre?
 
 ```java
@@ -63,11 +63,6 @@ public class Beispiel
     }
 }
 ```
-
-Die Schritte im Diagramm:
-
-1. **Anfang von füllen()** – wurzel zeigt auf einen leeren Knoten, aktuell und neu sind noch leer.
-2. **Aufgabe** – Ende von füllen(): Baue das Objektdiagramm. Denk an die leeren Knoten, die der Konstruktor und setContent anlegen, und daran, wohin aktuell und neu am Ende zeigen.
 
 ::jmp{id="baum-vorlage" src="vorlage.jmp" height="750px"}
 

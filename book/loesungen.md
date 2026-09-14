@@ -389,7 +389,7 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="Einführung mit Turtle-Grafiken (65 Lösungen)"}
+::::collapsible{title="Einführung mit Turtle-Grafiken (67 Lösungen)"}
 
 
 **[Grundlagen – Grundrechenarten](/mittelstufe/python/einfuehrung-mit-turtle/01-grundlagen/02-grundrechenarten)**
@@ -567,9 +567,16 @@ verlinkt.
 | Aufgabe 2: Welche Schleife passt? | `turtle-5-3-2` |
 | Aufgabe 3: Ein Säulendiagramm | `turtle-5-3-3` |
 
+**[Next Level (Optional) – Rückblick](/mittelstufe/python/einfuehrung-mit-turtle/06-farben/02-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Hexadezimalwerte lesen | `turtle-6-2-1` |
+| Aufgabe 3: Farbverlauf | `turtle-6-2-2` |
+
 ::::
 
-::::collapsible{title="Programmierung mit Java (147 Lösungen)"}
+::::collapsible{title="Programmierung mit Java (163 Lösungen)"}
 
 
 **[Erste Schritte – Das erste Programm](/oberstufe/oop/01-grundlagen/01-erste-schritte/01-das-erste-programm)**
@@ -924,6 +931,14 @@ verlinkt.
 | Aufgabe 4: Abstrakte Klasse oder Schnittstelle? *(LK)* | `java-q-1-7-4` |
 | Vertiefung: Einen fremden Entwurf beurteilen | `java-q-1-7-5` |
 
+**[Vertiefte Objektorientierung – Im Spiel: ein Typ für alle Objekte](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/08-im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Was kostet eine neue Sorte? | `java-q-1-s-1` |
+| Aufgabe 2: die Probe aufs Exempel | `java-q-1-s-2` |
+| Aufgabe 3: Schnittstelle beurteilen | `java-q-1-s-3` |
+
 **[Felder, Referenzen und Generik – Zweidimensionale Felder](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/01-zweidimensionale-felder)**
 
 | Aufgabe | Passwort |
@@ -950,6 +965,13 @@ verlinkt.
 | Aufgabe 1: Wer zeigt worauf? | `java-q-2-4-1` |
 | Aufgabe 2: Ein Spielfeld | `java-q-2-4-2` |
 | Aufgabe 3: Warum generisch? | `java-q-2-4-3` |
+
+**[Felder, Referenzen und Generik – Im Spiel: das Level als Gitter](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/05-im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: den Bug beheben | `java-q-2-s-1` |
+| Aufgabe 2: Nachbarn | `java-q-2-s-2` |
 
 **[Rekursion und Problemlösestrategien – Rekursion](/oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/01-rekursion)**
 
@@ -978,6 +1000,26 @@ verlinkt.
 | Aufgabe 2: Rekursiv formulieren | `java-q-3-4-2` |
 | Aufgabe 3: Zwei Strategien unterscheiden | `java-q-3-4-3` |
 
+**[Rekursion und Problemlösestrategien – Im Spiel: kommt man da überhaupt hin?](/oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/05-im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: den Algorithmus verstehen | `java-q-3-s-1` |
+| Aufgabe 2: den Algorithmus benutzen | `java-q-3-s-2` |
+
+**[Lineare Datenstrukturen – Im Spiel: Wellen, Weg zurück, Bestand](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: die Strukturen ausreizen | `java-q-4-s-1` |
+| Aufgabe 2: die Liste befragen | `java-q-4-s-2` |
+
+**[Liste – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste/implementierung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: die Liste implementieren | `java-q-4-l-1` |
+
 **[Lineare Datenstrukturen – Rückblick](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/rueckblick)**
 
 | Aufgabe | Passwort |
@@ -985,6 +1027,13 @@ verlinkt.
 | Aufgabe 1: Wer kommt als Nächstes dran? | `java-q-4-r-1` |
 | Aufgabe 2: Welche Struktur passt? | `java-q-4-r-2` |
 | Aufgabe 3: Klammern prüfen | `java-q-4-r-3` |
+
+**[Nichtlineare Datenstrukturen – Im Spiel: der Gegner entscheidet sich](/oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen/im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: den Baum lesen und ändern | `java-q-5-s-1` |
+| Aufgabe 2: mit dem Baum arbeiten | `java-q-5-s-2` |
 
 **[Nichtlineare Datenstrukturen – Rückblick](/oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen/rueckblick)**
 
@@ -1014,6 +1063,13 @@ verlinkt.
 | Aufgabe 2: Verschmelzen | `java-q-6-3-2` |
 | Aufgabe 3: Beurteilen | `java-q-6-3-3` |
 
+**[Suchen und Sortieren – Im Spiel: wer steht vorn?](/oberstufe/oop/02-erweiterungen/06-suchen-und-sortieren/04-im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: messen statt glauben | `java-q-6-s-1` |
+| Aufgabe 2: Bestenliste | `java-q-6-s-2` |
+
 **[Testen und Laufzeit – Systematisch testen](/oberstufe/oop/02-erweiterungen/07-testen-und-laufzeit/01-systematisch-testen)**
 
 | Aufgabe | Passwort |
@@ -1028,6 +1084,13 @@ verlinkt.
 | Aufgabe 1: Testfälle finden | `java-q-7-3-1` |
 | Aufgabe 2: Klassen zuordnen | `java-q-7-3-2` |
 | Aufgabe 3: Beurteilen und entscheiden | `java-q-7-3-3` |
+
+**[Testen und Laufzeit – Im Spiel: was man nicht testen kann](/oberstufe/oop/02-erweiterungen/07-testen-und-laufzeit/04-im-spiel)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Fehler einbauen und finden | `java-q-7-s-1` |
+| Aufgabe 2: den Aufwand abschätzen | `java-q-7-s-2` |
 
 ::::
 
@@ -1361,7 +1424,7 @@ verlinkt.
 ::::
 
 
-Insgesamt 406 geschützte Lösungen.
+Insgesamt 424 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.

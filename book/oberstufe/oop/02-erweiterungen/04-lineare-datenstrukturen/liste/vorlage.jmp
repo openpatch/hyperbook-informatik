@@ -30,7 +30,7 @@
   },
   "steps": [
     {
-      "label": "Anfang der Methode",
+      "label": "Anfang der Methode: farbenListe ist deklariert, aber noch nicht erzeugt",
       "objects": {},
       "variables": {},
       "methodCalls": {
@@ -50,7 +50,7 @@
       }
     },
     {
-      "label": "Aufgabe: 1. Diagramm",
+      "label": "1. Diagramm: nach new List<>().",
       "exercise": true,
       "objects": {
         "@liste": {
@@ -91,7 +91,7 @@
       }
     },
     {
-      "label": "Aufgabe: 2. Diagramm",
+      "label": "2. Diagramm: nach den drei append-Aufrufen.",
       "exercise": true,
       "objects": {
         "@liste": {
@@ -211,7 +211,7 @@
       }
     },
     {
-      "label": "Aufgabe: 3. Diagramm",
+      "label": "3. Diagramm: am Ende der Methode. Lies bei insert noch einmal in der Dokumentation nach, was hasAccess() damit zu tun hat.",
       "exercise": true,
       "objects": {
         "@liste": {

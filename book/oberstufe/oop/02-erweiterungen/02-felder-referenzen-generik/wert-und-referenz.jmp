@@ -1,0 +1,389 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {},
+  "steps": [
+    {
+      "label": "Ausgangslage: main() hat zahl und feld angelegt",
+      "objects": {
+        "@feld": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 10
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 30
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "zahl": {
+              "dataType": "int",
+              "value": 10
+            },
+            "feld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "veraendere(zahl) – der neue Kellerrahmen bekommt eine Kopie des Wertes",
+      "objects": {
+        "@feld": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 10
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 30
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "zahl": {
+              "dataType": "int",
+              "value": 10
+            },
+            "feld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.veraendere",
+          "index": 1,
+          "localVariables": {
+            "pZahl": {
+              "dataType": "int",
+              "value": 10
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 280
+          }
+        }
+      }
+    },
+    {
+      "label": "pZahl = 99; Was steht danach in pZahl, was in zahl?",
+      "objects": {
+        "@feld": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 10
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 30
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "zahl": {
+              "dataType": "int",
+              "value": 10
+            },
+            "feld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.veraendere",
+          "index": 1,
+          "localVariables": {
+            "pZahl": {
+              "dataType": "int",
+              "value": 99
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 280
+          }
+        }
+      },
+      "exercise": true
+    },
+    {
+      "label": "Nach dem return ist der Rahmen weg, zahl unverändert",
+      "objects": {
+        "@feld": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 10
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 30
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "zahl": {
+              "dataType": "int",
+              "value": 10
+            },
+            "feld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "veraendere(feld) – der Rahmen bekommt eine Kopie der Referenz. Zwei Pfeile, ein Feld.",
+      "objects": {
+        "@feld": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 10
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 30
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "zahl": {
+              "dataType": "int",
+              "value": 10
+            },
+            "feld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        },
+        "@f3": {
+          "name": "Main.veraendere",
+          "index": 1,
+          "localVariables": {
+            "pFeld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 280
+          }
+        }
+      }
+    },
+    {
+      "label": "pFeld[0] = 99; Diesmal sieht der Aufrufer die Änderung",
+      "objects": {
+        "@feld": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 99
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 30
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "zahl": {
+              "dataType": "int",
+              "value": 10
+            },
+            "feld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        },
+        "@f3": {
+          "name": "Main.veraendere",
+          "index": 1,
+          "localVariables": {
+            "pFeld": {
+              "dataType": "Array",
+              "value": "@feld"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 280
+          }
+        }
+      },
+      "exercise": true
+    }
+  ]
+}

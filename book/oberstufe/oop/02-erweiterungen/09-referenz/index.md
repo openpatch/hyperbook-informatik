@@ -285,6 +285,76 @@ public interface ComparableContent<ContentType> {
 | `Edge` | `getVertices()`, `getWeight(...)`, `setWeight(double)`, `isMarked()`, `setMark(boolean)` |
 | `Graph` | `addVertex`, `addEdge`, `removeVertex`, `removeEdge`, `getVertex(String)`, `getVertices()`, `getEdges()`, `getNeighbours(Vertex)`, `getEdge(Vertex, Vertex)`, `setAllVertexMarks(boolean)`, `allVerticesMarked()`, `isEmpty()` |
 
+## Scratch for Java
+
+Wird über `libraries="scratch"` geladen; `import`-Zeilen gibt es nicht. Einzelne Seiten dieses Lernpfads benutzen die Bibliothek, um einen Entwurf **sichtbar** zu machen – gebraucht wird sie für den Lernpfad nicht. Wer sie aus der Einführungsphase nicht kennt, findet hier das Nötigste; ausführlich steht es in der [Referenz der Grundlagen](../../01-grundlagen/09-referenz#scratch-for-java).
+
+Beide Bibliotheken zusammen lädt man kommasepariert: `libraries="nrw,scratch"`.
+
+### Aufbau
+
+```java
+// Main.java
+void main() {
+    new Spiel();
+}
+
+// Spiel.java
+public class Spiel extends Stage {
+    public Spiel() {
+        this.add(new Spieler());
+    }
+}
+
+// Spieler.java
+public class Spieler extends Sprite {
+    public Spieler() {
+        this.addCostume("bunny1_stand");
+        this.setPosition(0, -120);
+    }
+
+    public void run() {          // etwa 60-mal pro Sekunde
+        if (this.isKeyPressed(KeyCode.RIGHT)) {
+            this.changeX(4);
+        }
+    }
+}
+```
+
+Die Bühne ist **480 × 360** Pixel groß, (0, 0) liegt in der **Mitte**, die y-Achse zeigt **nach oben**. Sichtbar ist x von −240 bis 240 und y von −180 bis 180.
+
+### Die wichtigsten Methoden
+
+| Auf | Methode | Wirkung |
+| --- | --- | --- |
+| `Stage` | `add(sprite)` / `add(text)` | fügt etwas zur Bühne hinzu |
+| `Stage` | `count(Klasse.class)` | Anzahl der Objekte dieser Art |
+| `Stage` | `find(Klasse.class)` | alle Objekte dieser Art |
+| `Stage` | `pickRandom(von, bis)` | ganzzahlige Zufallszahl |
+| `Sprite` | `addCostume(name)`, `setSize(prozent)` | Bild und Größe |
+| `Sprite` | `setPosition(x, y)`, `changeX(d)`, `changeY(d)` | Position |
+| `Sprite` | `isKeyPressed(KeyCode.RIGHT)` | Tastaturabfrage |
+| `Sprite` | `getTouchingSprite(Klasse.class)` | das berührte Objekt – oder `null` |
+| `Sprite` | `getStage()`, `remove()` | Bühne holen, sich selbst entfernen |
+| `Sprite` / `Stage` | `run()` | wird in jedem Bild aufgerufen |
+| `Text` | `new Text(text, x, y, breite)`, `showText(...)` | Anzeige auf der Bühne |
+
+:::alert{info}
+Vier Stolpersteine:
+
+- `getTouchingSprite` liefert `null`, wenn nichts berührt wird – das muss man **immer** prüfen.
+- Die Kostüme sind groß und **verschieden** groß: `bunny1_stand` ist 120 × 201, `coin_gold` nur 61 × 61. `setSize` erwartet **Prozent der Originalgröße**, nicht Pixel – dieselbe Zahl ergibt also ganz verschiedene Pixelgrößen. Figuren, die sich frei bewegen, bekommen `setSize(50)`; wer mit einem **Gitter** rechnet, muss die nötige Prozentzahl ausrechnen:
+
+  ```java
+  double laengsteSeite = Math.max(this.getWidth(), this.getHeight());
+  this.setSize(this.getSize() * ZELLENGROESSE / laengsteSeite);
+  ```
+
+  `getWidth()` und `getHeight()` liefern dabei die **aktuelle**, schon skalierte Größe; `setSize` selbst ist absolut und nicht kumulativ.
+- Bei `new Text(text, x, y, breite)` ist **x die Mitte** des Textes. Eine Statuszeile gehört deshalb auf `x = 0`, sonst verliert sie ihre linke Hälfte.
+- Nach `remove()` gehört eine Figur zu keiner Bühne mehr: `getStage()` ist danach nicht mehr zu gebrauchen, und ein `add(...)` holt sie auch nicht zurück. Was nach dem Entfernen noch gebraucht wird, holt man sich **vorher**.
+:::
+
 ## Sortieren und Suchen im Überblick
 
 | Verfahren | mittlerer Fall | schlechtester Fall | Zusatzspeicher | erkennt sortierte Daten |

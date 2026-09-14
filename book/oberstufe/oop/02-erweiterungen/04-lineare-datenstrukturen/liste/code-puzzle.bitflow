@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "liste-code-puzzle",
+    "title": "Liste: Code-Puzzle und Schreibtischtest",
+    "description": "append und next als Puzzle, dazu ein Durchlauf durch die Liste.",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": true
+  },
+  "nodes": [
+    {
+      "id": "append",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "instruction": "Die Methode `append` hängt eine Nachricht ans Ende der Liste. Setze den Rumpf von `public void append(Message pMessage) { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "ListNode tmp = new ListNode();",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "tmp.setContentObject(pMessage);",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "if (first == null) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l4",
+            "text": "first = tmp;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l5",
+            "text": "} else {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l6",
+            "text": "last.setNextNode(tmp);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l7",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l8",
+            "text": "last = tmp;",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "first = last;",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "next",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 120
+      },
+      "data": {
+        "instruction": "Die Methode `next` rückt current einen Knoten weiter – aber nur, wenn es ein aktuelles Objekt gibt. Setze den Rumpf von `public void next() { ... }` zusammen. Zwei Zeilen gehören nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "if (hasAccess()) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "current = current.getNextNode();",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "current = first;",
+            "indent": 1,
+            "distractor": true
+          },
+          {
+            "id": "d2",
+            "text": "current = last;",
+            "indent": 1,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "lauf",
+      "type": "task-code-trace",
+      "position": {
+        "x": 0,
+        "y": 240
+      },
+      "data": {
+        "instruction": "Die Liste enthält zwei Nachrichten. Verfolge, worauf current zeigt und was ausgegeben wird.\n\nSchreibe für **current** den Benutzernamen der Nachricht, auf die current zeigt, oder `null`. Die **Ausgabe** sammelst du von oben nach unten auf und trennst sie mit Komma.",
+        "language": "java",
+        "code": "liste.append(new Message(\"mike\", \"hallo\", \"2024-03-18\"));\nliste.append(new Message(\"ada\", \"moin\", \"2024-03-19\"));\nliste.toFirst();\nwhile (liste.hasAccess()) {\n    IO.println(liste.getContent().getUsername());\n    liste.next();\n}",
+        "showLineNumbers": true,
+        "columns": [
+          {
+            "id": "current",
+            "name": "current",
+            "kind": "value"
+          },
+          {
+            "id": "out",
+            "name": "Ausgabe",
+            "kind": "output"
+          }
+        ],
+        "checkpoints": [
+          {
+            "id": "p1",
+            "label": "nach toFirst()",
+            "expected": {
+              "current": "mike",
+              "out": ""
+            },
+            "line": 3
+          },
+          {
+            "id": "p2",
+            "label": "nach dem ersten next()",
+            "expected": {
+              "current": "ada",
+              "out": "mike"
+            },
+            "line": 6
+          },
+          {
+            "id": "p3",
+            "label": "nach dem zweiten next()",
+            "expected": {
+              "current": "null",
+              "out": "mike, ada"
+            },
+            "line": 6
+          }
+        ],
+        "caseSensitive": false,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 360
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Wenn die Puzzles sitzen, schreibe die Methoden oben in der IDE selbst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-append-next",
+      "source": "append",
+      "target": "next"
+    },
+    {
+      "id": "e-next-lauf",
+      "source": "next",
+      "target": "lauf"
+    },
+    {
+      "id": "e-lauf-ende",
+      "source": "lauf",
+      "target": "ende"
+    }
+  ]
+}

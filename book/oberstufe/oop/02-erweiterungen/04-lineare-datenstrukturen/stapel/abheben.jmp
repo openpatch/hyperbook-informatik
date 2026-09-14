@@ -35,7 +35,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: drei Knoten auf dem Stapel",
       "objects": {
         "@stapel": {
           "klass": "Stack",
@@ -259,7 +259,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: pop()",
+      "label": "newMessages.pop(): Nimm den obersten Knoten herunter.",
       "objects": {
         "@stapel": {
           "klass": "Stack",

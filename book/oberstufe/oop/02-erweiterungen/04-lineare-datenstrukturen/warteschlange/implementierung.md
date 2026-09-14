@@ -102,6 +102,14 @@ public class Message {
 
 :::
 
+:::collapsible{title="Hilfe: Code-Puzzle und Schreibtischtest" id="warteschlange-code-puzzle"}
+
+Die Puzzles zeigen dieselben Methoden, die du oben schreiben sollst – in Einzelteilen. Der Schreibtischtest am Ende prüft, ob du den Ablauf im Kopf hast.
+
+::bitflow{id="puzzle-warteschlange" src="code-puzzle.bitflow" height="820px"}
+
+:::
+
 ---
 
 ## Selbsttest

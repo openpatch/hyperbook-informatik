@@ -8,10 +8,19 @@ lang: de
 
 ## Aufgaben
 
-1. Implementiere die Method next. Sie soll das Attribut current auf den nächsten Knoten setzen.
-2. Implementiere die Methode removeFirst. Sie soll den ersten Knoten der List entfernen.
-3. Implementiere die Methode append. Sie soll das Nachrichten-Objekt (pMessages) ans Ende der Liste anhängen.
-4. Implementiere die Methode remove. Sie soll den aktuellen (current) Knoten der List entfernen.
+:::snippet{#aufgabe}
+**Aufgabe 1: die Liste implementieren**
+
+a) Implementiere die Methode next. Sie soll das Attribut current auf den nächsten Knoten setzen.
+
+b) Implementiere die Methode removeFirst. Sie soll den ersten Knoten der Liste entfernen.
+
+c) Implementiere die Methode append. Sie soll das Nachrichten-Objekt (pMessage) ans Ende der Liste anhängen.
+
+d) Implementiere die Methode remove. Sie soll den aktuellen (current) Knoten der Liste entfernen.
+
+Halte dich an die [Dokumentation](./dokumentation): next rückt nur weiter, wenn es ein aktuelles Objekt gibt, und remove tut nichts, wenn current auf null zeigt. Sag vor jedem Testlauf voraus, was die Ausgabe zeigen wird.
+:::
 
 :::alert{info}
 Da in der Online-IDE bereits eine Klasse List existiert, benennen wir die Klasse in NRWList um.
@@ -22,6 +31,14 @@ Da in der Online-IDE bereits eine Klasse List existiert, benennen wir die Klasse
 void main() {
     NRWList meineListe = new NRWList();
     meineListe.append(new Message("mike", "hallo", "2024-03-18"));
+    meineListe.append(new Message("ada", "moin", "2024-03-19"));
+
+    // Die Ausgabe funktioniert erst, wenn append und next stimmen.
+    meineListe.toFirst();
+    while (meineListe.hasAccess()) {
+        IO.println(meineListe.getContent().getText());
+        meineListe.next();
+    }
 }
 ```
 
@@ -45,6 +62,27 @@ public class NRWList {
 
     public void remove() {
 
+    }
+
+    // Ab hier ist alles fertig - damit du deine Methoden ausprobieren kannst.
+
+    public boolean isEmpty() {
+        return first == null;
+    }
+
+    public boolean hasAccess() {
+        return current != null;
+    }
+
+    public void toFirst() {
+        current = first;
+    }
+
+    public Message getContent() {
+        if (hasAccess()) {
+            return current.getContentObject();
+        }
+        return null;
     }
 }
 
@@ -102,86 +140,150 @@ public class Message {
 
 :::
 
-::::collapsible{title="Lösung: List" id="jkasdjkafdjk"}
+:::collapsible{title="Hilfe: Code-Puzzle und Schreibtischtest" id="liste-code-puzzle"}
+
+Die Puzzles zeigen dieselben Methoden, die du oben schreiben sollst – in Einzelteilen. Der Schreibtischtest am Ende prüft, ob du den Ablauf im Kopf hast.
+
+::bitflow{id="puzzle-liste" src="code-puzzle.bitflow" height="820px"}
+
+:::
+
+:::collapsible{title="Tipp 1: Die Grenzfälle zuerst" id="tipp-grenzfaelle-implementierung"}
+
+Schreib dir für jede Methode auf, was in diesen drei Fällen passieren muss: leere Liste, Liste mit genau einem Knoten, letzter Knoten. Genau dort stehen die zusätzlichen if-Abfragen – der Normalfall ist meist eine Zeile.
+
+:::
+
+:::collapsible{title="Tipp 2: Den Vorgänger suchen" id="tipp-vorgaenger"}
+
+Für remove brauchst du den Knoten **vor** current. Eine einfach verkettete Liste kennt nur den Weg nach vorne, also läufst du von first aus los:
+
+```java
+ListNode vorgaenger = first;
+while (vorgaenger.getNextNode() != current) {
+    vorgaenger = vorgaenger.getNextNode();
+}
+```
+
+Danach hängst du den Verweis von vorgaenger um – und denkst daran, dass last neu gesetzt werden muss, wenn current der letzte Knoten war.
+
+:::
+
+::::protect{password="java-q-4-l-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 :::onlineide
 
 ```java Main.java
 void main() {
-    NRWList liste = new NRWList();
-    liste.append(new Message("mike", "hallo", "2024-03-18"));
-    liste.append(new Message("ada", "moin", "2024-03-19"));
+    NRWList meineListe = new NRWList();
+    meineListe.append(new Message("mike", "hallo", "2024-03-18"));
+    meineListe.append(new Message("ada", "moin", "2024-03-19"));
 
-    liste.toFirst();
-    while (liste.hasAccess()) {
-        IO.println(liste.getContent().getText());
-        liste.next();
+    meineListe.toFirst();
+    while (meineListe.hasAccess()) {
+        IO.println(meineListe.getContent().getText());
+        meineListe.next();
     }
 }
 ```
 
 ```java NRWList.java
 public class NRWList {
-    ListNode first;
-    ListNode last;
-    ListNode current;
+    private ListNode first;
+    private ListNode last;
+    private ListNode current;
 
     public void next() {
-        if (current == null) {
-            current = first;
-        } else {
+        // Ohne aktuelles Objekt passiert nichts.
+        if (hasAccess()) {
             current = current.getNextNode();
         }
     }
 
     public void removeFirst() {
-        if (current == first) {
-            current = null;
+        // Eine leere Liste bleibt unveraendert.
+        if (first == null) {
+            return;
         }
-        if (first != null) {
-            first = first.getNextNode();
-        } else if (first == last) {
-            first = null;
+
+        // Stand current auf dem ersten Knoten, wandert es zum Nachfolger.
+        if (current == first) {
+            current = first.getNextNode();
+        }
+
+        first = first.getNextNode();
+
+        // Der einzige Knoten wurde entfernt - die Liste ist jetzt leer.
+        if (first == null) {
             last = null;
         }
     }
 
     public void append(Message pMessage) {
-        ListNode tmp = new ListNode();
-        tmp.setContentObject(pMessage);
+        if (pMessage == null) {
+            return;
+        }
 
-        // Fall, dass die Liste leer ist
+        ListNode neuerKnoten = new ListNode();
+        neuerKnoten.setContentObject(pMessage);
+
+        // Fall, dass die Liste leer ist: Der neue Knoten ist erster und letzter.
         if (first == null) {
-            first = tmp;
-            last = tmp;
+            first = neuerKnoten;
+            last = neuerKnoten;
         } else {
-            last.setNextNode(tmp);
-            last = tmp;
+            last.setNextNode(neuerKnoten);
+            last = neuerKnoten;
         }
     }
 
     public void remove() {
-        ListNode removeObj = this.current;
-        ListNode previous = this.first;
-
-        if (removeObj == this.first) {
-            removeFirst();
-        } else {
-
-            while(previous.getNextNode() != removeObj) {
-                previous = previous.getNextNode();
-            }
-
-            previous.setNextNode(removeObj.getNextNode());
-
-            if (removeObj == this.last) {
-                previous.setNextNode(null);
-                last = previous;
-            }
+        // Ohne aktuelles Objekt passiert nichts.
+        if (!hasAccess()) {
+            return;
         }
+
+        // Der erste Knoten ist ein Sonderfall - dafuer gibt es removeFirst.
+        if (current == first) {
+            removeFirst();
+            return;
+        }
+
+        ListNode vorgaenger = first;
+        while (vorgaenger.getNextNode() != current) {
+            vorgaenger = vorgaenger.getNextNode();
+        }
+
+        ListNode nachfolger = current.getNextNode();
+        vorgaenger.setNextNode(nachfolger);
+
+        // War current der letzte Knoten, ist es jetzt sein Vorgaenger.
+        if (current == last) {
+            last = vorgaenger;
+        }
+
+        // Current wandert zum Nachfolger - gibt es keinen, wird hasAccess false.
+        current = nachfolger;
     }
 
+    public boolean isEmpty() {
+        return first == null;
+    }
 
+    public boolean hasAccess() {
+        return current != null;
+    }
+
+    public void toFirst() {
+        current = first;
+    }
+
+    public Message getContent() {
+        if (hasAccess()) {
+            return current.getContentObject();
+        }
+        return null;
+    }
 }
 ```
 

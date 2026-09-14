@@ -35,7 +35,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: drei Knoten in der Schlange, incomingMessage wartet daneben",
       "objects": {
         "@schlange": {
           "klass": "Queue",
@@ -268,7 +268,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: enqueue(incomingMessage)",
+      "label": "notifications.enqueue(incomingMessage): Baue den Zustand nach dem Einreihen. Denk an tail.",
       "objects": {
         "@schlange": {
           "klass": "Queue",

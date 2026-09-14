@@ -98,18 +98,9 @@ Bei `fakultaet(4)` liegen zwischenzeitlich **vier** Einträge übereinander – 
 Und genau deshalb ist es derselbe Datentyp, den du in der letzten Lektion gebaut hast: ein **Stapel**. Wer zuletzt kam, geht zuerst.
 :::
 
-```
-Aufruf fakultaet(4)
-    ┌──────────────┐
-    │ pN = 1       │  ← zuletzt aufgerufen, kehrt zuerst zurück
-    ├──────────────┤
-    │ pN = 2       │
-    ├──────────────┤
-    │ pN = 3       │
-    ├──────────────┤
-    │ pN = 4       │  ← zuerst aufgerufen, kehrt zuletzt zurück
-    └──────────────┘
-```
+Setze die Schritte im Diagramm um.
+
+::jmp{id="fakultaet" src="fakultaet.jmp" height="700px"}
 
 ## Rekursiv oder iterativ?
 

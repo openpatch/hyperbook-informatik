@@ -19,6 +19,8 @@ Wann zieht man Gemeinsames nach oben – und wann wäre das ein Fehler? Warum da
 - mit `extends`, `super(...)` und überschriebenen Methoden umgehen können ([6.4 Vererbung](../../01-grundlagen/06-objektorientierung/04-vererbung)),
 - ein Feld anlegen und durchlaufen können ([5.2 Felder durchlaufen](../../01-grundlagen/05-felder/02-felder-durchlaufen)).
 
+Die optionale Seite **Im Spiel** arbeitet zusätzlich mit der Grafikbibliothek **Scratch for Java** aus der Einführungsphase. Du musst sie **nicht** kennen: Auf der Seite steht ein ausklappbarer Kasten mit allem, was du dort brauchst, und nachschlagen kannst du in der [Referenz](../09-referenz#scratch-for-java).
+
 Ob das noch sitzt, findest du im [Check-in](../00-check-in) heraus. Er dauert eine Doppelstunde und sagt dir genau, welche Seite du gegebenenfalls noch einmal aufschlagen solltest.
 
 ## Hier lernst du …
@@ -55,6 +57,7 @@ Jede Lektion dieses Kapitels hat denselben Zuschnitt – so wie der [Check-in](.
 | 1.5 | [Abstrakte Klassen](./05-abstrakte-klassen) | Klassen, von denen es kein Objekt geben darf |
 | 1.6 | [Schnittstellen](./06-schnittstellen) *(LK)* | Eine Zusicherung ohne gemeinsame Oberklasse |
 | 1.7 | [Rückblick](./07-rueckblick) | Gemischte Aufgaben über das ganze Kapitel |
+| | [Im Spiel: ein Typ für alle Objekte](./08-im-spiel) *(optional)* | Alles aus 1.2 bis 1.6 an einem Spiel angewandt |
 
 <!--
 Fuer Lehrkraefte: Das Kapitel deckt aus dem KLP QPh das Inhaltsfeld "Daten und
@@ -63,10 +66,16 @@ Klassenmodellierungen und Implementationsdiagramme, Vererbungsbeziehungen im
 Zusammenhang von Generalisierung, Spezialisierung, Polymorphie und abstrakten
 Klassen; Schnittstellen nur LK.
 
-Zeitbedarf: rund 12 Unterrichtsstunden im GK, 15 im LK.
+Zeitbedarf: rund 14 Unterrichtsstunden im GK, 17 im LK.
 
-Die Aufteilung in sieben Lektionen ist bewusst feiner als der Lehrplantext:
+Die Aufteilung in acht Lektionen ist bewusst feiner als der Lehrplantext:
 Jede Lektion traegt genau einen Gedanken und ist in einer Stunde zu schaffen.
+
+Die Seite "Im Spiel" steht bewusst **hinter** dem Rueckblick: Sie fuehrt keine
+neue Kompetenz ein, sondern wendet 1.2 bis 1.6 am Abschlussprojekt der EF an
+und ist damit die Bruecke zwischen den beiden Lernpfaden. Sie ist optional -
+weder der Rueckblick noch spaetere Kapitel setzen sie voraus. Stufe 3 der
+Seite ist LK (Schnittstellen).
 1.3 ist die Lektion fuer die Anforderungsbereiche "begruenden" und
 "beurteilen" (A) - dort wird nicht implementiert, sondern entschieden.
 -->

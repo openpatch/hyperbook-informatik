@@ -1,0 +1,18 @@
+::::collapsible{title="Scratch for Java in fünf Minuten"}
+
+Diese Seite macht einen Entwurf mit der Grafikbibliothek **Scratch for Java** sichtbar. Du musst sie nicht kennen – hier steht alles, was du dafür brauchst. Geladen wird sie über `libraries="scratch"`; `import`-Zeilen gibt es nicht.
+
+| Begriff | Was er bedeutet |
+| --- | --- |
+| `Stage` | die **Bühne**, 480 × 360 Pixel. Der Punkt (0, 0) liegt in der **Mitte**, die y-Achse zeigt **nach oben**. Man schreibt eine eigene Klasse, die von `Stage` erbt. |
+| `Sprite` | eine **Figur** auf der Bühne. Auch dafür schreibt man eigene Klassen, die von `Sprite` erben. |
+| `addCostume("coin_gold")` | gibt einer Figur ihr Bild. Die Bibliothek bringt über 1700 fertige **Kostüme** mit. |
+| `this.add(objekt)` | fügt eine Figur oder einen Text der Bühne hinzu. Was nicht hinzugefügt wurde, sieht man nicht. |
+| `run()` | wird für jedes Objekt etwa **60-mal pro Sekunde** aufgerufen. Alles Fortlaufende steht hier drin. |
+| `getTouchingSprite(Muenze.class)` | liefert das berührte Objekt oder `null`, wenn gerade keins berührt wird. Das `null` muss man **immer** abfragen. |
+
+Dazu `isKeyPressed(KeyCode.RIGHT)` für die Tastatur, `changeX(4)` zum Bewegen, `remove()` zum Entfernen und `new Text(text, x, y, breite)` mit `showText(...)` für die Anzeige.
+
+**Zum Nachlesen:** [Die erste Grafik](/oberstufe/oop/01-grundlagen/01-erste-schritte/03-die-erste-grafik) erklärt Bühne und Koordinatensystem, [Eigene Sprites](/oberstufe/oop/01-grundlagen/06-objektorientierung/05-eigene-sprites) die eigenen Figurenklassen mit `run()`. Alle Methoden auf einen Blick: [Referenz](/oberstufe/oop/02-erweiterungen/09-referenz#scratch-for-java).
+
+::::

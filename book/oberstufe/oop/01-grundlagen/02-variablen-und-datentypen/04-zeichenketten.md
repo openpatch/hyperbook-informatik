@@ -99,6 +99,10 @@ Der Vergleich mit `==` prüft bei Objekttypen, ob beide Variablen auf **dasselbe
 
 ::::
 
+Geh die beiden Schritte im Diagramm durch und achte darauf, **wohin die Pfeile zeigen**.
+
+::jmp{id="gleich-ist-nicht-gleich" src="gleich-ist-nicht-gleich.jmp" height="480px"}
+
 :::snippet{#merken}
 Zeichenketten vergleicht man **immer** mit `equals`, niemals mit `==`.
 

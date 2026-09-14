@@ -1,0 +1,115 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": true,
+    "hideDeclareGlobalVariable": false,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": false,
+    "hideSteps": false
+  },
+  "klasses": {},
+  "steps": [
+    {
+      "label": "a und b - zwei Namen, ein Objekt. Deshalb ist a == b wahr.",
+      "objects": {
+        "@s1": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 380,
+            "y": 60
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "a",
+          "dataType": "String",
+          "value": "@s1",
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@v2": {
+          "name": "b",
+          "dataType": "String",
+          "value": "@s1",
+          "position": {
+            "x": 60,
+            "y": 140
+          }
+        },
+        "@v3": {
+          "name": "c",
+          "dataType": "String",
+          "position": {
+            "x": 60,
+            "y": 260
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "c kommt dazu - ein zweites Objekt mit demselben Inhalt. Deshalb ist a == c falsch und a.equals(c) wahr.",
+      "objects": {
+        "@s1": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 380,
+            "y": 60
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 380,
+            "y": 260
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "a",
+          "dataType": "String",
+          "value": "@s1",
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@v2": {
+          "name": "b",
+          "dataType": "String",
+          "value": "@s1",
+          "position": {
+            "x": 60,
+            "y": 140
+          }
+        },
+        "@v3": {
+          "name": "c",
+          "dataType": "String",
+          "position": {
+            "x": 60,
+            "y": 260
+          },
+          "value": "@s2"
+        }
+      },
+      "methodCalls": {}
+    }
+  ]
+}

@@ -37,7 +37,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: drei Knoten in der Liste, incomingMessage wartet daneben",
       "objects": {
         "@liste": {
           "klass": "List",
@@ -325,7 +325,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: append(incomingMessage)",
+      "label": "messages.append(incomingMessage): Baue den Zustand nach dem Anhängen. Die Nachricht wird nicht kopiert, der neue Knoten zeigt auf die vorhandene.",
       "objects": {
         "@liste": {
           "klass": "List",
