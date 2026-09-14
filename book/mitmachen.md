@@ -174,6 +174,14 @@ Die Marke steht auch im Permaid der Kapitelseite selbst. Sie ist so gewählt, da
 1. **Buchweit eindeutig.** Zwei Seiten mit demselben Permaid sind ein Fehler, kein Streitfall.
 2. **Einmal veröffentlicht, nie geändert.** Ein Permaid steht auf ausgedruckten Blättern, die niemand mehr einsammelt. Wird eine Seite verschoben oder umbenannt, **wandert der Permaid mit** – er wird nicht an den neuen Dateinamen angepasst. Passt er inhaltlich nicht mehr, ist das der Preis dafür, dass der alte QR-Code weiter funktioniert.
 
+Geprüft wird beides mit:
+
+```bash
+python3 tools/check_permaids.py
+```
+
+Das Skript meldet fehlende und doppelte Permaids, Stellenangaben darin, falsche Bereichskürzel und alles über 40 Zeichen. Was es **nicht** prüfen kann, ist Regel 2: Ob ein Permaid gegenüber früher geändert wurde, weiß es nicht – dafür müsste es wissen, was schon im Umlauf ist. Da bist du allein verantwortlich.
+
 Regel 2 gilt ab jetzt. Im September 2026 wurden alle Permaids einmalig nach diesem Schema neu vergeben – das ging, weil noch keiner von ihnen im Umlauf war. Ein zweites Mal geht es nicht.
 
 Einen Permaid bekommen alle Sektionen und alle Lektionen – 492 sind es zurzeit. Hilfsseiten ohne eigenen Zweck – `404`, `impressum`, `wc`, die Startseite des Buches, alles unter `_probe` – bekommen keinen, leere Platzhalterseiten erst, wenn sie Inhalt haben.

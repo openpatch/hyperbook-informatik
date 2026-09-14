@@ -57,6 +57,14 @@ Für die tägliche Arbeit genügt deshalb `--schnell`. Wer nur an einem Pfad
 gearbeitet hat, nimmt `--nur web` und ist in zwei Minuten durch. Der
 vollständige Lauf lohnt sich, bevor man einen größeren Stand abgibt.
 
+## Permaids prüfen
+
+```bash
+python3 tools/check_permaids.py
+```
+
+Prüft die kurzen Adressen hinter den QR-Codes: dass jede Sektion und jede Lektion eine hat, dass sie buchweit eindeutig sind, keine Stellenangabe enthalten und zum Bereich passen, in dem die Seite liegt. Das Schema steht in [Mitmachen](/mitmachen#permaids).
+
 ## Passwörter nachschlagen
 
 Die Lösungen in den Lernpfaden stecken in passwortgeschützten Blöcken. Wer
