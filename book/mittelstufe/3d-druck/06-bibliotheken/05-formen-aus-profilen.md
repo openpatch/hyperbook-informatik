@@ -1,7 +1,7 @@
 ---
 title: "BOSL2: skin() – Formen aus Profilen"
 index: 5
-permaid: openscad-bosl2-skin
+permaid: 3d-druck-formen-aus-profilen
 ---
 
 # BOSL2: skin() – Formen aus Profilen

@@ -2,6 +2,7 @@
 name: Projekt
 index: 9
 lang: de
+permaid: 3d-druck-projekt
 ---
 
 # Projekt

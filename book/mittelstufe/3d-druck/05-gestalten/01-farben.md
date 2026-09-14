@@ -1,7 +1,7 @@
 ---
 title: Farben
 index: 1
-permaid: openscad-farben
+permaid: 3d-druck-farben
 ---
 
 # Farben

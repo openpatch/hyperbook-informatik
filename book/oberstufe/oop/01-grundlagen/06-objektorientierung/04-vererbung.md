@@ -1,6 +1,7 @@
 ---
 title: Vererbung
 index: 4
+permaid: java-vererbung
 ---
 
 # Vererbung

@@ -1,6 +1,7 @@
 ---
 name: Nebenläufigkeit
 index: 8
+permaid: java-nebenlaeufigkeit
 keywords:
   - java
   - qphase

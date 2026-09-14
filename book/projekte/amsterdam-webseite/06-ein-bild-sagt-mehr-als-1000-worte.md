@@ -2,6 +2,7 @@
 name: Ein Bild sagt mehr als 1000 Worte
 lang: de
 index: 6
+permaid: amsterdam-bilder
 ---
 
 # Ein Bild sagt mehr als 1000 Worte

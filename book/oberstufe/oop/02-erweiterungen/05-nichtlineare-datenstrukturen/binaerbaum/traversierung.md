@@ -2,6 +2,7 @@
 name: Traversierung
 index: 3
 lang: de
+permaid: java-traversierung
 ---
 
 # Traversierung

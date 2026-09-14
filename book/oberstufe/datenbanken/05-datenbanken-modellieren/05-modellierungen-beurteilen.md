@@ -1,6 +1,7 @@
 ---
 title: Modellierungen beurteilen
 index: 5
+permaid: datenbanken-modellierungen-beurteilen
 ---
 
 # Modellierungen beurteilen

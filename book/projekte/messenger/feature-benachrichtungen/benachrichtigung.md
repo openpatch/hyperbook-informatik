@@ -2,6 +2,7 @@
 name: Benachrichtigung
 index: 0
 lang: de
+permaid: messenger-benachrichtigung
 ---
 
 # Benachrichtigung

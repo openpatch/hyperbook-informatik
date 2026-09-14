@@ -1,6 +1,7 @@
 ---
 name: Münzcode
 index: 3
+permaid: daten-muenzcode
 ---
 
 # Münzcode

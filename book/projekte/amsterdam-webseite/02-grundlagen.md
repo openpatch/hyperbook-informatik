@@ -2,6 +2,7 @@
 name: Grundlagen
 lang: de
 index: 2
+permaid: amsterdam-grundlagen
 ---
 
 # Grundlagen

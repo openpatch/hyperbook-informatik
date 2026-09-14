@@ -2,6 +2,7 @@
 name: 🖊 Zustandsdiagramm für Bugs
 index: 6
 lang: de
+permaid: bunny-hop-zustandsdiagramm-bugs
 ---
 
 # Zustandsdiagramm für Bugs

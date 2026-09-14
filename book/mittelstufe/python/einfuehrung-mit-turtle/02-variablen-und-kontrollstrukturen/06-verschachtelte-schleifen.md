@@ -1,6 +1,7 @@
 ---
 title: Verschachtelte Schleifen
 index: 6
+permaid: turtle-verschachtelte-schleifen
 ---
 
 # Verschachtelte Schleifen

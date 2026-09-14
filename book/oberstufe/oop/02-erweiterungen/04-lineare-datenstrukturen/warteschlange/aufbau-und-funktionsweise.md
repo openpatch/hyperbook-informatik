@@ -2,6 +2,7 @@
 name: Aufbau und Funktionsweise
 index: 1
 lang: de
+permaid: java-warteschlange-aufbau
 ---
 
 # Aufbau und Funktionsweise

@@ -2,6 +2,7 @@
 name: "🚀 Feature: GUI"
 index: 99
 lang: de
+permaid: messenger-gui
 ---
 
 # Feature: GUI

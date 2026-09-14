@@ -1,6 +1,7 @@
 ---
 title: Normalisierung beurteilen
 index: 5
+permaid: datenbanken-normalisierung-beurteilen
 ---
 
 # Normalisierung beurteilen

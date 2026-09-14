@@ -2,6 +2,7 @@
 name: Scratch for Java RPG
 index: 11
 lang: de
+permaid: rpg
 keywords: 
     - scratch4j
     - java

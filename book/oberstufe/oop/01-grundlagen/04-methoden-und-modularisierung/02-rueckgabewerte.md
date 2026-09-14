@@ -1,6 +1,7 @@
 ---
 title: Rückgabewerte
 index: 2
+permaid: java-rueckgabewerte
 ---
 
 # Rückgabewerte

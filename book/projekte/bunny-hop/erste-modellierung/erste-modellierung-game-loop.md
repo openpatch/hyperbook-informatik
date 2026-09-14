@@ -2,6 +2,7 @@
 name: 🖊 Erste Modellierung des Game-Loops
 index: 4
 lang: de
+permaid: bunny-hop-game-loop-modellieren
 ---
 
 # Erste Modellierung des Game-Loops

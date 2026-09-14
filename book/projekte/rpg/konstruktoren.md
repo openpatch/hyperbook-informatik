@@ -1,6 +1,7 @@
 ---
 name: Konstruktoren
 index: 3
+permaid: rpg-konstruktoren
 ---
 
 # Konstruktoren

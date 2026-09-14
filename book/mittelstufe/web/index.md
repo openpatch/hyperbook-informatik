@@ -1,7 +1,7 @@
 ---
 name: Webentwicklung
 lang: de
-permaid: webentwicklung
+permaid: web
 keywords:
   - html
   - css

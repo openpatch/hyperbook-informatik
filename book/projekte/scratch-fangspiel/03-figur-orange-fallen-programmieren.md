@@ -2,6 +2,7 @@
 name: Das Fallen der Figur (Orange) programmieren
 index: 3
 lang: de
+permaid: fangspiel-orange-fallen
 ---
 
 # Das Fallen der Figur (Orange) programmieren

@@ -1,5 +1,6 @@
 ---
 title: Elfmeterschießen
+permaid: scratch-elfmeterschiessen
 ---
 
 # Elfmeterschießen

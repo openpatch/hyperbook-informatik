@@ -1,6 +1,7 @@
 ---
 title: Gruppen filtern mit HAVING
 index: 3
+permaid: datenbanken-gruppen-filtern-having
 ---
 
 # Gruppen filtern mit HAVING

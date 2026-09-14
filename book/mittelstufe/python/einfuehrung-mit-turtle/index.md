@@ -1,5 +1,6 @@
 ---
 name: Einführung mit Turtle-Grafiken
+permaid: turtle
 ---
 
 # Einführung in die textbasierte Programmierung mit Python

@@ -1,7 +1,7 @@
 ---
 title: Formen kombinieren
 index: 5
-permaid: openscad-formen-kombinieren
+permaid: 3d-druck-formen-kombinieren
 ---
 
 # Formen kombinieren

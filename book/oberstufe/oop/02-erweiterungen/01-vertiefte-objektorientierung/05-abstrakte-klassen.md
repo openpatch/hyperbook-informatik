@@ -1,6 +1,7 @@
 ---
 title: Abstrakte Klassen
 index: 5
+permaid: java-abstrakte-klassen
 ---
 
 # Abstrakte Klassen

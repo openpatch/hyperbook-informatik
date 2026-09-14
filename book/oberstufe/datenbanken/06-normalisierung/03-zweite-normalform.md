@@ -1,6 +1,7 @@
 ---
 title: Zweite Normalform
 index: 3
+permaid: datenbanken-zweite-normalform
 ---
 
 # Zweite Normalform

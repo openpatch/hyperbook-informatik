@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 4
+permaid: web-recht-rueckblick
 ---
 
 # Rückblick

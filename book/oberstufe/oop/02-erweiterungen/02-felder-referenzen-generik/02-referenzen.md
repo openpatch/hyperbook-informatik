@@ -1,6 +1,7 @@
 ---
 title: Referenzen
 index: 2
+permaid: java-referenzen
 ---
 
 # Referenzen

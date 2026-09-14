@@ -1,6 +1,7 @@
 ---
 name: Variablen und Kontrollstrukturen
 index: 2
+permaid: turtle-variablen
 ---
 
 # Variablen und Kontrollstrukturen

@@ -1,6 +1,7 @@
 ---
 name: Hast du einen Plan?
 index: 4
+permaid: daten-hast-du-plan
 ---
 
 # Codierungen in der Schule

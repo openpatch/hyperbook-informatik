@@ -1,6 +1,7 @@
 ---
 title: Zahlenraten
 index: 1
+permaid: turtle-zahlenraten
 ---
 
 # Projekt: Zahlenraten

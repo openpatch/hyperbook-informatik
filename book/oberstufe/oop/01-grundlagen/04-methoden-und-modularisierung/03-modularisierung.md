@@ -1,6 +1,7 @@
 ---
 title: Modularisierung
 index: 3
+permaid: java-modularisierung
 ---
 
 # Modularisierung

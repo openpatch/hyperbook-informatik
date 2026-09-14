@@ -2,6 +2,7 @@
 name: "Im Spiel: Wellen, Weg zurück, Bestand"
 index: 5
 lang: de
+permaid: java-datenstrukturen-im-spiel
 keywords:
   - java
   - qphase

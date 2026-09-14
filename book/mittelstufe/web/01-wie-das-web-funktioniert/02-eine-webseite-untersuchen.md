@@ -1,6 +1,7 @@
 ---
 title: Eine Webseite untersuchen
 index: 2
+permaid: web-webseite-untersuchen
 ---
 
 # Eine Webseite untersuchen

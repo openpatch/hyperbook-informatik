@@ -2,6 +2,7 @@
 name: Dokumentation
 lang: de
 index: 2
+permaid: java-warteschlange-dokumentation
 ---
 
 # Dokumentation der Abiturklasse Queue

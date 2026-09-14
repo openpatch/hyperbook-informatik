@@ -1,6 +1,7 @@
 ---
 name: Schere, Stein, Papier
 index: 1
+permaid: daten-schere-stein-papier
 scripts:
     - /wc/rock-paper-scissors.js
 ---

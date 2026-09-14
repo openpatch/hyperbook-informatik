@@ -2,6 +2,7 @@
 name: Pro-Kontakt-Verschlüsselung
 index: 1
 lang: de
+permaid: messenger-kontakt-schluessel
 ---
 
 # 🚀 Pro-Kontakt-Verschlüsselung

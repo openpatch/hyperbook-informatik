@@ -2,6 +2,7 @@
 name: Generische Klassen
 index: 3
 lang: de
+permaid: java-liste-generische-klassen
 ---
 
 # Generische Klassen

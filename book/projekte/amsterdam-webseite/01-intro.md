@@ -2,6 +2,7 @@
 name: Intro
 lang: de
 index: 1
+permaid: amsterdam-intro
 ---
 
 # Intro

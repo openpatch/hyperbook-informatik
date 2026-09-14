@@ -1,7 +1,7 @@
 ---
 title: Eigene Module
 index: 4
-permaid: openscad-eigene-module
+permaid: 3d-druck-eigene-module
 ---
 
 # Eigene Module

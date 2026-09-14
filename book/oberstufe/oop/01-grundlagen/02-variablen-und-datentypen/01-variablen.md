@@ -1,6 +1,7 @@
 ---
 title: Variablen
 index: 1
+permaid: java-variablen
 ---
 
 # Variablen

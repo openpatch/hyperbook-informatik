@@ -2,6 +2,7 @@
 name: Deine Ideen
 index: 9
 lang: de
+permaid: scratch-ideen
 ---
 
 # Deine Ideen

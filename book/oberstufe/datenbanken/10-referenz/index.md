@@ -1,6 +1,7 @@
 ---
 name: Referenz
 index: 10
+permaid: datenbanken-referenz
 ---
 
 # Referenz

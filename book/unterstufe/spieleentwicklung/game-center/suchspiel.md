@@ -1,5 +1,6 @@
 ---
 title: Suchspiel
+permaid: scratch-suchspiel
 ---
 
 # Suchspiel

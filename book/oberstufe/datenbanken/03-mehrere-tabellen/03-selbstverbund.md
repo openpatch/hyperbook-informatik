@@ -1,6 +1,7 @@
 ---
 title: Selbstverbund
 index: 3
+permaid: datenbanken-selbstverbund
 ---
 
 # Selbstverbund

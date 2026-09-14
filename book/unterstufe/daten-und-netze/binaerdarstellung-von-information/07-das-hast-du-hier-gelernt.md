@@ -1,6 +1,7 @@
 ---
 name: Das hast du hier gelernt
 index: 7
+permaid: daten-bits-gelernt
 next:
 ---
 

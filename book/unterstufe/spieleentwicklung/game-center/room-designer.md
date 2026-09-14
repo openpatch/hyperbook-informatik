@@ -1,5 +1,6 @@
 ---
 title: Room Designer
+permaid: scratch-room-designer
 ---
 
 # Room Designer

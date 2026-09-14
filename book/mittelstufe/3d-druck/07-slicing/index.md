@@ -2,6 +2,7 @@
 name: Slicing
 index: 7
 lang: de
+permaid: 3d-druck-slicing
 ---
 
 # Slicing

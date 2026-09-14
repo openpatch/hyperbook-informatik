@@ -2,6 +2,7 @@
 name: Nachrichten in Listen verwalten
 index: 2
 lang: de
+permaid: messenger-nachrichtenliste
 ---
 
 # Nachrichten in Listen verwalten

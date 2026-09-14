@@ -1,5 +1,6 @@
 ---
 title: Donut-Klicker
+permaid: scratch-game-center-donut-klicker
 ---
 
 # Donut-Klicker

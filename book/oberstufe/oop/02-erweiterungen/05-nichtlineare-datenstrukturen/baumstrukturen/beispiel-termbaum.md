@@ -2,6 +2,7 @@
 name: "Beispiel: Termbaum"
 index: 1
 lang: de
+permaid: java-beispiel-termbaum
 ---
 
 # Beispiel: Termbaum

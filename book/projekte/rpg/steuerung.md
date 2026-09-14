@@ -2,6 +2,7 @@
 name: Steuerung
 index: 4
 lang: de
+permaid: rpg-steuerung
 ---
 
 # Steuerung

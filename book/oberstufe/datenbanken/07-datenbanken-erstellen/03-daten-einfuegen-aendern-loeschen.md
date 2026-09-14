@@ -1,6 +1,7 @@
 ---
 title: Daten einfügen, ändern und löschen
 index: 3
+permaid: datenbanken-daten-aendern
 ---
 
 # Daten einfügen, ändern und löschen

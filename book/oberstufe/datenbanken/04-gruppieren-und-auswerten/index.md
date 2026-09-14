@@ -1,6 +1,7 @@
 ---
 name: Gruppieren und auswerten
 index: 4
+permaid: datenbanken-gruppieren
 ---
 
 # Gruppieren und auswerten

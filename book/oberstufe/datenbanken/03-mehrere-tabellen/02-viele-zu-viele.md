@@ -1,6 +1,7 @@
 ---
 title: Viele-zu-viele-Beziehungen
 index: 2
+permaid: datenbanken-viele-zu-viele
 ---
 
 # Viele-zu-viele-Beziehungen

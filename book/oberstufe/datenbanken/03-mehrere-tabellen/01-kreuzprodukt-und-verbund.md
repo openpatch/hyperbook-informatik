@@ -1,6 +1,7 @@
 ---
 title: Kreuzprodukt und Verbund
 index: 1
+permaid: datenbanken-kreuzprodukt-verbund
 ---
 
 # Kreuzprodukt und Verbund

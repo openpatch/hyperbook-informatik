@@ -2,6 +2,7 @@
 name: 📃 Der Game-Loop
 index: 3
 lang: de
+permaid: bunny-hop-game-loop
 ---
 
 # Der Game-Loop

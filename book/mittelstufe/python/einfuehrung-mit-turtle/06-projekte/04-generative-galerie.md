@@ -1,6 +1,7 @@
 ---
 title: Generative Galerie
 index: 4
+permaid: turtle-generative-galerie
 ---
 
 # Projekt: Generative Galerie

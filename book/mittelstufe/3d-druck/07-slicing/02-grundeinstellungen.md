@@ -1,6 +1,7 @@
 ---
 title: Grundeinstellungen
 index: 2
+permaid: 3d-druck-grundeinstellungen
 ---
 
 # Grundeinstellungen

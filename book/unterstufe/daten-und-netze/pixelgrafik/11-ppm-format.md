@@ -1,6 +1,7 @@
 ---
 name: Das PPM-Format
 index: 11
+permaid: daten-ppm-format
 scripts:
   - /wc/pixel-editor.js
 ---

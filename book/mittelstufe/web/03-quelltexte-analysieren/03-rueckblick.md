@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 3
+permaid: web-quelltexte-rueckblick
 ---
 
 # Rückblick

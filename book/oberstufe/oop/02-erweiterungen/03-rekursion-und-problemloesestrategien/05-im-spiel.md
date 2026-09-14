@@ -1,6 +1,7 @@
 ---
 title: "Im Spiel: kommt man da überhaupt hin?"
 index: 5
+permaid: java-problemloesen-im-spiel
 keywords:
   - java
   - qphase

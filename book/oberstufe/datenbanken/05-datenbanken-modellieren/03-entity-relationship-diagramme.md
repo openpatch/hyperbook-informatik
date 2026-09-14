@@ -1,6 +1,7 @@
 ---
 title: Entity-Relationship-Diagramme
 index: 3
+permaid: datenbanken-er-diagramme
 ---
 
 # Entity-Relationship-Diagramme

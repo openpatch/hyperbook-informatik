@@ -2,6 +2,7 @@
 name: "Im Spiel: der Gegner entscheidet sich"
 index: 5
 lang: de
+permaid: java-baeume-im-spiel
 keywords:
   - java
   - qphase

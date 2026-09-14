@@ -1,7 +1,7 @@
 ---
 title: Häufige Fehler & Lösungen
 index: 2
-permaid: openscad-haeufige-fehler
+permaid: 3d-druck-haeufige-fehler
 ---
 
 # 🚨 Häufige Fehler & wie du sie fixst

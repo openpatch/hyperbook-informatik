@@ -2,6 +2,7 @@
 name: Datentyp char
 index: 4
 lang: de
+permaid: messenger-datentyp-char
 ---
 
 # Datentyp char

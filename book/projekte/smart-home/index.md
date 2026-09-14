@@ -2,6 +2,7 @@
 name: Smart Home
 index: 1
 lang: de
+permaid: smart-home
 ---
 
 # Smart Home

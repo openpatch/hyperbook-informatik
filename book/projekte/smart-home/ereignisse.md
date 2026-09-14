@@ -2,6 +2,7 @@
 name: Ereignisse
 index: 2
 lang: de
+permaid: smart-home-ereignisse
 ---
 
 # Ereignisse

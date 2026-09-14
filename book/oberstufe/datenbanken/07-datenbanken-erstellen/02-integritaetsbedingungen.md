@@ -1,6 +1,7 @@
 ---
 title: Integritätsbedingungen
 index: 2
+permaid: datenbanken-integritaetsbedingungen
 ---
 
 # Integritätsbedingungen

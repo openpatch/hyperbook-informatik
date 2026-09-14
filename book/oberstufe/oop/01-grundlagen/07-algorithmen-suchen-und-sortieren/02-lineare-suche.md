@@ -1,6 +1,7 @@
 ---
 title: Lineare Suche
 index: 2
+permaid: java-lineare-suche
 ---
 
 # Lineare Suche

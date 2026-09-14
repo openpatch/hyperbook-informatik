@@ -1,6 +1,7 @@
 ---
 title: Funktionale Abhängigkeiten
 index: 1
+permaid: datenbanken-funktionale-abhaengigkeiten
 ---
 
 # Funktionale Abhängigkeiten

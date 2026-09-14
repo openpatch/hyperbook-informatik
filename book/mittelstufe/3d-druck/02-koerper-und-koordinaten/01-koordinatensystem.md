@@ -1,7 +1,7 @@
 ---
 title: Das Koordinatensystem
 index: 1
-permaid: openscad-koordinatensystem
+permaid: 3d-druck-koordinatensystem
 ---
 
 # Das Koordinatensystem

@@ -1,5 +1,6 @@
 ---
 title: Plattformer
+permaid: scratch-plattformer
 ---
 
 # Plattformer

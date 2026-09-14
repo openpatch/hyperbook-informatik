@@ -2,6 +2,7 @@
 name: Figur (Korb) steuern
 index: 5
 lang: de
+permaid: scratch-figur-korb-steuern
 ---
 
 # Figur (Korb) steuern

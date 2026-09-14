@@ -1,6 +1,7 @@
 ---
 title: Vom Diagramm zum Schema
 index: 4
+permaid: datenbanken-diagramm-schema
 ---
 
 # Vom Diagramm zum Schema

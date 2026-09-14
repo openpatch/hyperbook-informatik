@@ -2,6 +2,7 @@
 name: Schnittstellen
 index: 3
 lang: de
+permaid: messenger-schnittstellen
 ---
 
 # Schnittstellen

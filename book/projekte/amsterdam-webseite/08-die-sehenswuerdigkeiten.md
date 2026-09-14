@@ -2,6 +2,7 @@
 name: Die Sehenswürdigkeiten von Amsterdam
 lang: de
 index: 8
+permaid: amsterdam-sehenswuerdigkeiten
 ---
 
 # Die Sehenswürdigkeiten von Amsterdam

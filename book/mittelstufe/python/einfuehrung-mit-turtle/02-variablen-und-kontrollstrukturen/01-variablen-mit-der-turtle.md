@@ -1,6 +1,7 @@
 ---
 title: Variablen mit der Turtle
 index: 1
+permaid: turtle-variablen-mit-turtle
 ---
 
 # Variablen mit der Turtle

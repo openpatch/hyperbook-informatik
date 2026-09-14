@@ -1,7 +1,7 @@
 ---
 title: Parameter – Vertiefung
 index: 2
-permaid: openscad-parameter-vertiefung
+permaid: 3d-druck-parameter-vertiefung
 ---
 
 # Parameter – Vertiefung

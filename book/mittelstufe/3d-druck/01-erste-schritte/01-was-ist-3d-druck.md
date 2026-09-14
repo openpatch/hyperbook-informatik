@@ -1,6 +1,7 @@
 ---
 title: Einführung in den 3D-Druck
 index: 1
+permaid: 3d-druck-grundidee
 ---
 
 # Einführung in den 3D-Druck

@@ -1,6 +1,7 @@
 ---
 name: Normalisierung
 index: 6
+permaid: datenbanken-normalisierung
 ---
 
 # Normalisierung

@@ -2,6 +2,7 @@
 name: Scratch for Java Donut IO
 index: 10
 lang: de
+permaid: donut-io
 keywords: 
     - scratch4j
     - java

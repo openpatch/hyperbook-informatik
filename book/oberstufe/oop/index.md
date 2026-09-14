@@ -1,6 +1,7 @@
 ---
 name: Programmierung mit Java
 lang: de
+permaid: java
 ---
 
 # Programmierung mit Java

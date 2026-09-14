@@ -1,7 +1,7 @@
 ---
 title: Bilder
 index: 3
-permaid: openscad-bilder
+permaid: 3d-druck-bilder
 ---
 
 # Bilder

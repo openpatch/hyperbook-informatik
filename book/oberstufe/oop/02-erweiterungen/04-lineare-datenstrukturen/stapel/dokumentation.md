@@ -2,6 +2,7 @@
 name: Dokumentation
 lang: de
 index: 2
+permaid: java-stapel-dokumentation
 ---
 
 # Dokumentation der Abiturklasse Stack

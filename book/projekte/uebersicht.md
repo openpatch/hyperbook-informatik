@@ -2,6 +2,7 @@
 name: Übersicht
 index: 0
 lang: de
+permaid: projekte-uebersicht
 ---
 
 # Übersicht

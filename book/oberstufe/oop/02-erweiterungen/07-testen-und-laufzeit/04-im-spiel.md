@@ -1,6 +1,7 @@
 ---
 title: "Im Spiel: was man nicht testen kann"
 index: 4
+permaid: java-testen-im-spiel
 keywords:
   - java
   - qphase

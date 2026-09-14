@@ -2,6 +2,7 @@
 name: Polybios
 index: 3
 lang: de
+permaid: messenger-polybios
 ---
 
 # Polybios-Verschlüsselung

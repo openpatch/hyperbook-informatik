@@ -1,6 +1,7 @@
 ---
 title: Struktur und Bedeutung
 index: 5
+permaid: web-semantische-struktur
 ---
 
 # Struktur und Bedeutung

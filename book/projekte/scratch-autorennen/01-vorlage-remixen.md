@@ -2,6 +2,7 @@
 name: Vorlage remixen
 index: 1
 lang: de
+permaid: autorennen-vorlage-remixen
 ---
 
 # Vorlage remixen

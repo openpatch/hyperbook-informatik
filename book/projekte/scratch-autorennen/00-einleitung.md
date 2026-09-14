@@ -1,6 +1,7 @@
 ---
 title: Einleitung
 index: 0
+permaid: autorennen-einleitung
 prev:
 ---
 

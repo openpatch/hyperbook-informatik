@@ -2,6 +2,7 @@
 name: Suchen und Sortieren
 index: 6
 lang: de
+permaid: java-sortierverfahren
 ---
 
 # Suchen und Sortieren

@@ -1,6 +1,7 @@
 ---
 title: G-Code
 index: 2
+permaid: 3d-druck-gcode
 ---
 
 # G-Code

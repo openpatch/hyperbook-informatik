@@ -1,5 +1,6 @@
 ---
 title: Autorennen
+permaid: scratch-autorennen
 ---
 
 # Autorennen

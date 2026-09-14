@@ -1,6 +1,7 @@
 ---
 title: Verzweigungen
 index: 1
+permaid: java-verzweigungen
 ---
 
 # Verzweigungen

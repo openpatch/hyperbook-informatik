@@ -2,6 +2,7 @@
 name: Abstrakte Klassen
 index: 2
 lang: de
+permaid: messenger-abstrakte-klassen
 ---
 
 # Abstrakte Klassen

@@ -2,6 +2,7 @@
 name: Eigene Strecken
 index: 6
 lang: de
+permaid: autorennen-eigene-strecken
 next:
 ---
 

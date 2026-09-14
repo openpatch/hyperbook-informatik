@@ -1,6 +1,7 @@
 ---
 title: Quiz
 index: 2
+permaid: java-quiz
 ---
 
 # Quiz

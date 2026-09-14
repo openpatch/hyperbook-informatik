@@ -2,6 +2,7 @@
 name: Lesezeichen
 lang: de
 index: 5
+permaid: lesezeichen
 ---
 
 # Lesezeichen

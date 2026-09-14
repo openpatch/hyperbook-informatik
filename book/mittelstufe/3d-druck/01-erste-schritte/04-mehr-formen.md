@@ -1,7 +1,7 @@
 ---
 title: Mehr Formen entdecken
 index: 4
-permaid: openscad-mehr-formen
+permaid: 3d-druck-mehr-formen
 ---
 
 # Mehr Formen entdecken

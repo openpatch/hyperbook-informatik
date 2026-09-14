@@ -2,6 +2,7 @@
 name: 🥉 Pause
 index: 2
 lang: de
+permaid: bunny-hop-pause
 ---
 
 # Epic: Pause

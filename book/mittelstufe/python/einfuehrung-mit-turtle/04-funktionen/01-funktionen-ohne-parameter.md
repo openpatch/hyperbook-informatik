@@ -1,6 +1,7 @@
 ---
 title: Funktionen ohne Parameter
 index: 1
+permaid: turtle-funktionen-ohne-parameter
 ---
 
 # Funktionen ohne Parameter

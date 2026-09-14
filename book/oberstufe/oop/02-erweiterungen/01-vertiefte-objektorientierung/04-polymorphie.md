@@ -1,6 +1,7 @@
 ---
 title: Polymorphie
 index: 4
+permaid: java-polymorphie
 ---
 
 # Polymorphie

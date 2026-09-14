@@ -1,6 +1,7 @@
 ---
 title: Zufall und seed
 index: 2
+permaid: turtle-zufall-seed
 ---
 
 # Zufall und seed

@@ -1,6 +1,7 @@
 ---
 name: Das hast du hier gelernt
 index: 6
+permaid: daten-text-gelernt
 next:
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Klassen und Objekte
 index: 1
+permaid: java-klassen-objekte
 ---
 
 # Klassen und Objekte

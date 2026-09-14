@@ -1,6 +1,7 @@
 ---
 title: Unterabfragen
 index: 4
+permaid: datenbanken-unterabfragen
 ---
 
 # Unterabfragen

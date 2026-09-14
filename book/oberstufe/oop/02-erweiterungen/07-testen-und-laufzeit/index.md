@@ -2,6 +2,7 @@
 name: Testen und Laufzeit
 index: 7
 lang: de
+permaid: java-testen
 ---
 
 # Testen und Laufzeit

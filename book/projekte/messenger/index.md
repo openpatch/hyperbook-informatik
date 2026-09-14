@@ -2,6 +2,7 @@
 name: Verschlüsselter Messenger
 index: 3
 lang: de
+permaid: messenger
 keywords: 
     - java
     - level-2

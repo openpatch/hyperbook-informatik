@@ -1,6 +1,7 @@
 ---
 name: Aus Daten werden Informationen
 index: 2
+permaid: daten-aus-daten-werden-informationen
 ---
 
 # Aus Daten werden Informationen

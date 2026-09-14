@@ -2,6 +2,7 @@
 name: Felder, Referenzen und Generik
 index: 2
 lang: de
+permaid: java-generik
 ---
 
 # Felder, Referenzen und Generik

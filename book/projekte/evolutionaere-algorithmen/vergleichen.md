@@ -2,6 +2,7 @@
 name: Vergleichen
 index: 4
 lang: de
+permaid: evolution-vergleichen
 ---
 
 # Vergleichen

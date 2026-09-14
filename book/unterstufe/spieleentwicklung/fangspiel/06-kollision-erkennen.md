@@ -2,6 +2,7 @@
 name: Kollision erkennen
 index: 6
 lang: de
+permaid: scratch-kollision-erkennen
 ---
 
 # Kollision erkennen

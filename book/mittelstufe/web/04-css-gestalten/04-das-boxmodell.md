@@ -1,6 +1,7 @@
 ---
 title: Das Boxmodell
 index: 4
+permaid: web-boxmodell
 ---
 
 # Das Boxmodell

@@ -1,6 +1,7 @@
 ---
 title: SELECT und FROM
 index: 1
+permaid: datenbanken-select-from
 ---
 
 # SELECT und FROM

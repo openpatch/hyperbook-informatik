@@ -1,6 +1,7 @@
 ---
 name: Deine Ideen
 index: 9
+permaid: fangspiel-ideen
 next:
 lang: de
 ---

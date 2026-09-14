@@ -1,6 +1,7 @@
 ---
 title: Wie eine Abfrage ausgewertet wird
 index: 5
+permaid: datenbanken-abfrage-auswerten
 ---
 
 # Wie eine Abfrage ausgewertet wird

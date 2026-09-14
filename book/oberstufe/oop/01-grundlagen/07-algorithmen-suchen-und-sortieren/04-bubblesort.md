@@ -1,6 +1,7 @@
 ---
 title: Bubblesort
 index: 4
+permaid: java-bubblesort
 ---
 
 # Bubblesort

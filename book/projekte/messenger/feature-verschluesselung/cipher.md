@@ -2,6 +2,7 @@
 name: Abstrakte Klasse Cipher
 index: 5
 lang: de
+permaid: messenger-cipher
 ---
 
 # Aufgabe

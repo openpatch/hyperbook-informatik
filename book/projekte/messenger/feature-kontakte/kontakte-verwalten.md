@@ -2,6 +2,7 @@
 name: Kontakte verwalten
 index: 0
 lang: de
+permaid: messenger-kontakte-verwalten
 ---
 
 ![](/banner/messenger-kontakte.png)

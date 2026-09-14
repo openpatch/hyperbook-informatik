@@ -2,6 +2,7 @@
 name: Sounds
 index: 14
 lang: de
+permaid: rpg-sounds
 ---
 
 # Sounds

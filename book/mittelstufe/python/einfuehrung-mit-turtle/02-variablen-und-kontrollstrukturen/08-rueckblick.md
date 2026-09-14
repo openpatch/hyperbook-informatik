@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 8
+permaid: turtle-variablen-rueckblick
 ---
 
 # Rückblick

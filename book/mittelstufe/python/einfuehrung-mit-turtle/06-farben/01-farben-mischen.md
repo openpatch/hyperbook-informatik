@@ -1,6 +1,7 @@
 ---
 title: Farben mischen und kombinieren
 index: 1
+permaid: turtle-farben-mischen
 ---
 
 # Farben mischen und kombinieren

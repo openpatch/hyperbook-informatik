@@ -1,7 +1,7 @@
 ---
 title: Übungen – Vertiefung
 index: 1
-permaid: openscad-uebungen-vertiefung
+permaid: 3d-druck-projekt-uebungen
 ---
 
 # Übungen

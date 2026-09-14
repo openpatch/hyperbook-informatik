@@ -1,6 +1,7 @@
 ---
 title: Rechnen
 index: 2
+permaid: java-rechnen
 ---
 
 # Rechnen

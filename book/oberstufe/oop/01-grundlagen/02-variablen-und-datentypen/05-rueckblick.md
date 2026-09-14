@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 5
+permaid: java-variablen-rueckblick
 ---
 
 # Rückblick

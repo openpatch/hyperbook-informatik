@@ -2,6 +2,7 @@
 name: Rekursion und Problemlösestrategien
 index: 3
 lang: de
+permaid: java-problemloesen
 ---
 
 # Rekursion und Problemlösestrategien

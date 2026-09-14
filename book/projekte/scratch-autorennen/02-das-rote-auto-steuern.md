@@ -2,6 +2,7 @@
 name: Das rote Auto steuern
 index: 2
 lang: de
+permaid: autorennen-rote-auto-steuern
 ---
 
 # Das rote Auto steuern

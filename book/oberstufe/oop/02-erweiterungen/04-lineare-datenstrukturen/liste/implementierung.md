@@ -2,6 +2,7 @@
 name: Implementierung
 index: 4
 lang: de
+permaid: java-liste-implementierung
 ---
 
 # Implementierung

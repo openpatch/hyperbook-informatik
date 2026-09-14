@@ -1,6 +1,7 @@
 ---
 title: Schnittstellen
 index: 6
+permaid: java-schnittstellen
 keywords:
   - java
   - qphase

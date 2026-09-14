@@ -2,6 +2,7 @@
 name: Tiere
 index: 13
 lang: de
+permaid: rpg-tiere
 ---
 
 # Tiere

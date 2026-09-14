@@ -2,6 +2,7 @@
 name: Erste Dokumentation
 index: 0
 lang: de
+permaid: messenger-erste-dokumentation
 ---
 
 # Dokumentation

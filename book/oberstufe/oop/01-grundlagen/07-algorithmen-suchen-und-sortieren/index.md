@@ -2,6 +2,7 @@
 name: Algorithmen, Suchen und Sortieren
 index: 7
 lang: de
+permaid: java-sortieren
 ---
 
 # Algorithmen, Suchen und Sortieren

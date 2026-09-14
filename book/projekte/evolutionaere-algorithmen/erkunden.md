@@ -2,6 +2,7 @@
 name: Erkunden
 index: 0
 lang: de
+permaid: evolution-erkunden
 ---
 
 # Erkunden

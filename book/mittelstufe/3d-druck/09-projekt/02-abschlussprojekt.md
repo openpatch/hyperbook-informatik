@@ -1,7 +1,7 @@
 ---
 title: Abschlussprojekt
 index: 2
-permaid: openscad-abschlussprojekt
+permaid: 3d-druck-abschlussprojekt
 ---
 
 # Abschlussprojekt

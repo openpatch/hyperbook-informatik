@@ -1,7 +1,7 @@
 ---
 title: Slicer-Software
 index: 1
-permaid: slicer
+permaid: 3d-druck-slicer-software
 ---
 
 # Slicer-Software

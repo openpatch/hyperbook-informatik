@@ -1,6 +1,7 @@
 ---
 name: Struktogramme
 lang: de
+permaid: oom-struktogramme
 ---
 
 # Struktogramme

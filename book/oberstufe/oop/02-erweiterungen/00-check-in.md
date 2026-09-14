@@ -1,6 +1,7 @@
 ---
 title: Check-in
 index: 0
+permaid: java-check-in
 ---
 
 # Check-in: Wo stehst du?

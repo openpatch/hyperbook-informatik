@@ -1,6 +1,7 @@
 ---
 title: Eigene Methoden
 index: 1
+permaid: java-eigene-methoden
 ---
 
 # Eigene Methoden

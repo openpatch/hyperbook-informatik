@@ -1,6 +1,7 @@
 ---
 title: Kopfgesteuerte Schleifen
 index: 3
+permaid: java-kopfgesteuerte-schleifen
 ---
 
 # Kopfgesteuerte Schleifen

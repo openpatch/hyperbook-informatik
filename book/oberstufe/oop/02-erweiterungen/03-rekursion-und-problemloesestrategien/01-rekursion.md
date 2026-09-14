@@ -1,6 +1,7 @@
 ---
 title: Rekursion
 index: 1
+permaid: java-rekursion
 ---
 
 # Rekursion

@@ -1,6 +1,7 @@
 ---
 title: Urheberrecht und Lizenzen
 index: 1
+permaid: web-urheberrecht-lizenzen
 ---
 
 # Urheberrecht und Lizenzen

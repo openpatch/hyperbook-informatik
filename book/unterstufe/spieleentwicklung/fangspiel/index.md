@@ -2,6 +2,7 @@
 name: "Spieleentwicklung: Fangspiel"
 lang: de
 index: 5
+permaid: scratch-fangspiel
 navigation: page
 ---
 

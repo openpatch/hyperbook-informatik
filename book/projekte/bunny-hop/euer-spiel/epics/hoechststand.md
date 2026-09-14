@@ -2,6 +2,7 @@
 name: 🥈 Höchststand
 index: 7
 lang: de
+permaid: bunny-hop-hoechststand
 ---
 
 # Epic: Höchststand

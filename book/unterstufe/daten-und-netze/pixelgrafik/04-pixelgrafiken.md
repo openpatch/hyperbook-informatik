@@ -1,6 +1,7 @@
 ---
 name: Pixelgrafiken
 index: 4
+permaid: daten-pixel-erkennen
 scripts:
   - /wc/pixel-minifier.js
 ---

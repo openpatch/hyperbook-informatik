@@ -1,6 +1,7 @@
 ---
 title: "Im Spiel: ein Typ für alle Objekte"
 index: 8
+permaid: java-vertiefung-im-spiel
 keywords:
   - java
   - qphase

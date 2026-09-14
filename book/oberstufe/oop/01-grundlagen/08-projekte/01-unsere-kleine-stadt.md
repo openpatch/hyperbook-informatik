@@ -1,6 +1,7 @@
 ---
 title: Unsere kleine Stadt
 index: 1
+permaid: java-kleine-stadt
 ---
 
 # Unsere kleine Stadt

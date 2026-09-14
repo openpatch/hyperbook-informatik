@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 4
+permaid: 3d-druck-transformationen-rueckblick
 ---
 
 # Rückblick

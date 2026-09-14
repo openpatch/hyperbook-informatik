@@ -2,6 +2,7 @@
 name: Erweiterte Steuerung
 index: 6
 lang: de
+permaid: rpg-erweiterte-steuerung
 ---
 
 # Erweiterte Steuerung

@@ -2,6 +2,7 @@
 name: Dokumentation
 index: 2
 lang: de
+permaid: java-binaerbaum-dokumentation
 ---
 
 # Dokumentation der Abiturklasse BinaryTree

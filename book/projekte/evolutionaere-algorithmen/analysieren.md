@@ -2,6 +2,7 @@
 name: Analysieren
 index: 1
 lang: de
+permaid: evolution-analysieren
 ---
 
 # Analysieren

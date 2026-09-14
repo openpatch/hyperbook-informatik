@@ -1,6 +1,7 @@
 ---
 title: Laufzeit und Komplexität
 index: 2
+permaid: java-laufzeit-komplexitaet
 ---
 
 # Laufzeit und Komplexität

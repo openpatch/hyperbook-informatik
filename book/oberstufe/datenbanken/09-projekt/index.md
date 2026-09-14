@@ -1,6 +1,7 @@
 ---
 name: Projekt
 index: 9
+permaid: datenbanken-projekt
 ---
 
 # Projekt: Eine eigene Datenbank

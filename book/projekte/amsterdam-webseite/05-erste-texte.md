@@ -2,6 +2,7 @@
 name: Erste Texte
 lang: de
 index: 5
+permaid: amsterdam-erste-texte
 ---
 
 # Erste Texte

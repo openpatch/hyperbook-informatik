@@ -1,6 +1,7 @@
 ---
 name: Projekt
 index: 6
+permaid: web-projekt
 ---
 
 # Projekt: Deine eigene Homepage

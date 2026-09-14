@@ -2,6 +2,7 @@
 name: "Beispiel: Entscheidungsbaum"
 index: 0
 lang: de
+permaid: java-beispiel-entscheidungsbaum
 ---
 
 # Beispiel: Entscheidungsbaum

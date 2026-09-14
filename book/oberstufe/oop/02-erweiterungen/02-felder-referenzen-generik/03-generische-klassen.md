@@ -1,6 +1,7 @@
 ---
 title: Generische Klassen
 index: 3
+permaid: java-generik-generische-klassen
 ---
 
 # Generische Klassen

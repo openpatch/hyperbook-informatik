@@ -2,6 +2,7 @@
 name: Hindernisse
 index: 4
 lang: de
+permaid: autorennen-hindernisse
 ---
 
 # Hindernisse

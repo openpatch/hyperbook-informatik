@@ -1,6 +1,7 @@
 ---
 title: Zählschleifen
 index: 4
+permaid: java-zaehlschleifen
 ---
 
 # Zählschleifen

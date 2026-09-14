@@ -1,6 +1,7 @@
 ---
 name: Funktionen
 index: 4
+permaid: turtle-funktionen
 ---
 
 # Funktionen

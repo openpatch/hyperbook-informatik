@@ -1,6 +1,7 @@
 ---
 title: Eingaben mit input
 index: 4
+permaid: turtle-eingaben
 ---
 
 # Eingaben mit `input`

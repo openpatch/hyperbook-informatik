@@ -2,6 +2,7 @@
 name: Objektorientierung
 index: 6
 lang: de
+permaid: java-objekte
 ---
 
 # Objektorientierung

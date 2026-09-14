@@ -2,6 +2,7 @@
 name: Evolutionäre Algortihmen
 index: 5
 lang: de
+permaid: evolution
 keywords: 
     - java
     - scratch4j

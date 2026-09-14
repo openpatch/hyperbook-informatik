@@ -1,6 +1,7 @@
 ---
 title: Variablen ohne Turtle
 index: 2
+permaid: turtle-variablen-ohne-turtle
 ---
 
 # Variablen ohne Turtle

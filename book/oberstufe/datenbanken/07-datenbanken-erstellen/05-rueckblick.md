@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 5
+permaid: datenbanken-erstellen-rueckblick
 keywords:
   - datenbanken
   - sql

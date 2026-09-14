@@ -2,6 +2,7 @@
 name: Methoden und Modularisierung
 index: 4
 lang: de
+permaid: java-methoden
 ---
 
 # Methoden und Modularisierung

@@ -2,6 +2,7 @@
 name: Nichtlineare Datenstrukturen
 index: 5
 lang: de
+permaid: java-baeume
 ---
 
 # Nichtlineare Datenstrukturen

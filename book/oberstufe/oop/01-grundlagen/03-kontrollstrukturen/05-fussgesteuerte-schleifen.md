@@ -1,6 +1,7 @@
 ---
 title: Fußgesteuerte Schleifen
 index: 5
+permaid: java-fussgesteuerte-schleifen
 ---
 
 # Fußgesteuerte Schleifen

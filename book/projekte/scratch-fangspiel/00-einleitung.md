@@ -1,6 +1,7 @@
 ---
 name: Einleitung
 index: 0
+permaid: fangspiel-einleitung
 keywords:
     - scratch
 lang: de

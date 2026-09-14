@@ -1,6 +1,7 @@
 ---
 title: "Im Spiel: das Level als Gitter"
 index: 5
+permaid: java-generik-im-spiel
 keywords:
   - java
   - qphase

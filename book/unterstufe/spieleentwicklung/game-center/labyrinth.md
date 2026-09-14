@@ -1,5 +1,6 @@
 ---
 title: Labyrinth
+permaid: scratch-game-center-labyrinth
 ---
 
 # Labyrinth

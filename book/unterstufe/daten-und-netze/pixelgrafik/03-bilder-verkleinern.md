@@ -1,6 +1,7 @@
 ---
 name: Bilder verkleinern
 index: 3
+permaid: daten-bilder-verkleinern
 scripts:
   - /wc/pixel-minifier.js
   - /wc/memory-game.js

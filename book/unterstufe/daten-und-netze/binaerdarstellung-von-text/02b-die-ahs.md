@@ -1,6 +1,7 @@
 ---
 name: Die AHs - Entdecker
 hide: true
+permaid: daten-text-ahs-entdecker
 scripts:
   - /wc/bit-rows.js
 prev: ./02-die-ahs

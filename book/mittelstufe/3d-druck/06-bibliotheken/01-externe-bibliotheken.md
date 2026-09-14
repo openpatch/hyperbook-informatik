@@ -1,7 +1,7 @@
 ---
 title: Externe Bibliotheken
 index: 1
-permaid: openscad-externe-bibliotheken
+permaid: 3d-druck-externe-bibliotheken
 ---
 
 # Externe Bibliotheken

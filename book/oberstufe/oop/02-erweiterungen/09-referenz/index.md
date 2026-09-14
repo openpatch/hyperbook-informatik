@@ -1,6 +1,7 @@
 ---
 name: Referenz
 index: 9
+permaid: java-erweiterungen-referenz
 ---
 
 # Referenz

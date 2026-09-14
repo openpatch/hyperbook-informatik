@@ -1,7 +1,7 @@
 ---
 title: Muster
 index: 5
-permaid: openscad-muster
+permaid: 3d-druck-muster
 ---
 
 # Muster in OpenSCAD erstellen

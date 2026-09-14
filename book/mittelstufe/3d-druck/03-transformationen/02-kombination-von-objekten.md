@@ -1,7 +1,7 @@
 ---
 title: Kombination von Objekten
 index: 2
-permaid: openscad-kombination-objekte
+permaid: 3d-druck-kombination-objekten
 ---
 
 # Kombination von Objekten

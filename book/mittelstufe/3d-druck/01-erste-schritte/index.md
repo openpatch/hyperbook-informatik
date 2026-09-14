@@ -2,6 +2,7 @@
 name: Erste Schritte
 index: 1
 lang: de
+permaid: 3d-druck-start
 ---
 
 # Erste Schritte

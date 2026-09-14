@@ -1,6 +1,7 @@
 ---
 title: Datensicherheit
 index: 2
+permaid: datenbanken-datensicherheit
 ---
 
 # Datensicherheit

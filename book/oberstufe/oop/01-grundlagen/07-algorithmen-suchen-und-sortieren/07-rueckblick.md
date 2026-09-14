@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 7
+permaid: java-sortieren-rueckblick
 ---
 
 # Rückblick

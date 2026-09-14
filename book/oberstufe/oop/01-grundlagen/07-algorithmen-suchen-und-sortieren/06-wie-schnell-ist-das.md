@@ -1,6 +1,7 @@
 ---
 title: Wie schnell ist das?
 index: 6
+permaid: java-wie-schnell
 ---
 
 # Wie schnell ist das?

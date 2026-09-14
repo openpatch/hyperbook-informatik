@@ -1,7 +1,7 @@
 ---
 title: Parameter
 index: 1
-permaid: openscad-parameter
+permaid: 3d-druck-parameter
 ---
 
 # Parameter

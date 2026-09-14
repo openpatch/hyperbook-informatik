@@ -1,6 +1,7 @@
 ---
 title: Random Noise
 index: 3
+permaid: turtle-random-noise
 ---
 
 # Random Noise

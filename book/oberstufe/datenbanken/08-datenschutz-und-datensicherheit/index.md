@@ -1,6 +1,7 @@
 ---
 name: Datenschutz und Datensicherheit
 index: 8
+permaid: datenbanken-datenschutz
 ---
 
 # Datenschutz und Datensicherheit

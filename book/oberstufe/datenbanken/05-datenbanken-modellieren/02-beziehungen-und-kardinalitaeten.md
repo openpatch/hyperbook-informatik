@@ -1,6 +1,7 @@
 ---
 title: Beziehungen und Kardinalitäten
 index: 2
+permaid: datenbanken-beziehungen-kardinalitaeten
 ---
 
 # Beziehungen und Kardinalitäten

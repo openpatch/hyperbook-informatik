@@ -1,6 +1,7 @@
 ---
 title: Generalisierung und Spezialisierung
 index: 3
+permaid: java-generalisierung-spezialisierung
 ---
 
 # Generalisierung und Spezialisierung

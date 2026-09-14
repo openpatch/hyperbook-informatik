@@ -2,6 +2,7 @@
 name: Vigenère
 index: 2
 lang: de
+permaid: messenger-vigenere
 ---
 
 # Vigenère-Verschlüsselung

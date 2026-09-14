@@ -1,7 +1,7 @@
 ---
 title: "BOSL2: diff() – Löcher und Aussparungen"
 index: 4
-permaid: openscad-bosl2-diff
+permaid: 3d-druck-loecher-diff
 ---
 
 # BOSL2: diff() – Löcher und Aussparungen

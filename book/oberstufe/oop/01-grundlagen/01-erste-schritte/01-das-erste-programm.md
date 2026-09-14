@@ -1,6 +1,7 @@
 ---
 title: Das erste Programm
 index: 1
+permaid: java-erste-programm
 ---
 
 # Das erste Programm

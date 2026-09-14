@@ -1,6 +1,7 @@
 ---
 name: Information und Code
 index: 5
+permaid: daten-information-code
 ---
 
 # Information und Code

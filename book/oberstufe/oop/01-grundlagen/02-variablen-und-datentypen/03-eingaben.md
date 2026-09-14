@@ -1,6 +1,7 @@
 ---
 title: Eingaben
 index: 3
+permaid: java-eingaben
 ---
 
 # Eingaben
@@ -88,7 +89,7 @@ Umfang:  22 cm
 ```
 :::
 
-:::onlineide{height="420px"}
+:::onlineide{height="420px" id="aufgabe-1"}
 
 ```java Main.java
 void main() {
@@ -129,7 +130,7 @@ Baue die Sekundenumrechnung aus Kapitel 1 so um, dass die Anzahl der Sekunden **
 Teste dein Programm mit 7385, mit 60 und mit 0. Notiere, ob die Ausgabe in allen drei Fällen sinnvoll ist.
 :::
 
-:::onlineide{height="420px"}
+:::onlineide{height="420px" id="aufgabe-2"}
 
 ```java Main.java
 void main() {

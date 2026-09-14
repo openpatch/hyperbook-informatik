@@ -1,6 +1,7 @@
 ---
 title: Aggregatfunktionen
 index: 1
+permaid: datenbanken-aggregatfunktionen
 ---
 
 # Aggregatfunktionen

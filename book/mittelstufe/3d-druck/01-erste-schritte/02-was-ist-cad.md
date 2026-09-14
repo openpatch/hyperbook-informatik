@@ -1,6 +1,7 @@
 ---
 title: Was ist CAD-Modellierung?
 index: 2
+permaid: 3d-druck-was-ist-cad
 ---
 
 # Was ist CAD-Modellierung?

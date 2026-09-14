@@ -1,6 +1,7 @@
 ---
 name: "Das hast du hier gelernt!"
 index: 5
+permaid: daten-alltag-gelernt
 next:
 ---
 

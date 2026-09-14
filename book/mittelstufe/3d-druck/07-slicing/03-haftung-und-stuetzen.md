@@ -1,6 +1,7 @@
 ---
 title: Haftung und Stützstrukturen
 index: 3
+permaid: 3d-druck-haftung-stuetzen
 ---
 
 # Haftung und Stützstrukturen

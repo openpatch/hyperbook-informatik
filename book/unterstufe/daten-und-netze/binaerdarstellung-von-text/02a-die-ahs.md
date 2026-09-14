@@ -1,6 +1,7 @@
 ---
 name: Die AHs - Einsteiger
 hide: true
+permaid: daten-text-ahs-einsteiger
 scripts:
   - /wc/bit-rows.js
 prev: ./02-die-ahs

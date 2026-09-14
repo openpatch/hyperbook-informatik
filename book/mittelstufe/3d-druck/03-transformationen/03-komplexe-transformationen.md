@@ -1,7 +1,7 @@
 ---
 title: Komplexe Transformationen
 index: 3
-permaid: openscad-komplexe-transformationen
+permaid: 3d-druck-komplexe-transformationen
 ---
 
 # Komplexe Transformationen

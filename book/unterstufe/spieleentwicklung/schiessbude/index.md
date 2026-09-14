@@ -1,5 +1,6 @@
 ---
 title: "Spieletest: Schießbude"
+permaid: scratch-schiessbude
 navigation: page
 index: 4
 ---
