@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "baum-postorder",
+    "title": "Post-Order",
+    "description": "Der Algorithmus als Puzzle und die Ausgabereihenfolge.",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": true
+  },
+  "nodes": [
+    {
+      "id": "postorder",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "instruction": "Die Methode `postorder` durchläuft den Baum. Erst die Teilbäume, der Knoten selbst zuletzt. Setze den Rumpf von `public void postorder() { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "if (this.isEmpty()) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "return;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l4",
+            "text": "this.getLeftTree().postorder();",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l5",
+            "text": "this.getRightTree().postorder();",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l6",
+            "text": "IO.println(this.getContent().getUsername());",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "this.postorder();",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "folge",
+      "type": "task-ordering",
+      "position": {
+        "x": 0,
+        "y": 120
+      },
+      "data": {
+        "instruction": "Der Baum aus dem Objektdiagramm:\n\n```\n        a\n      /   \\\n     b       c\n    / \\     / \\\n   h   f   e   d\n  / \\\n i   k\n```\n\nBringe die Kontakte in die Reihenfolge, in der `postorder` sie ausgibt.",
+        "items": [
+          {
+            "id": "i1",
+            "kind": "text",
+            "label": "i"
+          },
+          {
+            "id": "i2",
+            "kind": "text",
+            "label": "k"
+          },
+          {
+            "id": "i3",
+            "kind": "text",
+            "label": "h"
+          },
+          {
+            "id": "i4",
+            "kind": "text",
+            "label": "f"
+          },
+          {
+            "id": "i5",
+            "kind": "text",
+            "label": "b"
+          },
+          {
+            "id": "i6",
+            "kind": "text",
+            "label": "e"
+          },
+          {
+            "id": "i7",
+            "kind": "text",
+            "label": "d"
+          },
+          {
+            "id": "i8",
+            "kind": "text",
+            "label": "c"
+          },
+          {
+            "id": "i9",
+            "kind": "text",
+            "label": "a"
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 240
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Vergleiche deine Reihenfolge mit dem, was du am Objektdiagramm abgelesen hast.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-postorder-folge",
+      "source": "postorder",
+      "target": "folge"
+    },
+    {
+      "id": "e-folge-ende",
+      "source": "folge",
+      "target": "ende"
+    }
+  ]
+}

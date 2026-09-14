@@ -1,0 +1,330 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Punkt": {
+      "attributes": {
+        "x": "int",
+        "y": "int"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage: punkte[1] = punkte[0]; trägt zweimal denselben Verweis ein",
+      "objects": {
+        "@punkte": {
+          "klass": "Array",
+          "arrayElementType": "Punkt",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            },
+            "[1]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            }
+          },
+          "position": {
+            "x": 380,
+            "y": 40
+          }
+        },
+        "@p1": {
+          "klass": "Punkt",
+          "attributes": {
+            "x": {
+              "dataType": "int",
+              "value": 1
+            },
+            "y": {
+              "dataType": "int",
+              "value": 1
+            }
+          },
+          "position": {
+            "x": 700,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "punkte": {
+              "dataType": "Array",
+              "value": "@punkte"
+            },
+            "kopie": {
+              "dataType": "Array"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "punkte[1].verschiebe(5, 5); Ein Objekt, zwei Plätze, eine Änderung.",
+      "objects": {
+        "@punkte": {
+          "klass": "Array",
+          "arrayElementType": "Punkt",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            },
+            "[1]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            }
+          },
+          "position": {
+            "x": 380,
+            "y": 40
+          }
+        },
+        "@p1": {
+          "klass": "Punkt",
+          "attributes": {
+            "x": {
+              "dataType": "int",
+              "value": 6
+            },
+            "y": {
+              "dataType": "int",
+              "value": 6
+            }
+          },
+          "position": {
+            "x": 700,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "punkte": {
+              "dataType": "Array",
+              "value": "@punkte"
+            },
+            "kopie": {
+              "dataType": "Array"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      },
+      "exercise": true
+    },
+    {
+      "label": "flacheKopie legt ein neues Feld an – aber auf dieselben Punkt-Objekte",
+      "objects": {
+        "@punkte": {
+          "klass": "Array",
+          "arrayElementType": "Punkt",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            },
+            "[1]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            }
+          },
+          "position": {
+            "x": 380,
+            "y": 40
+          }
+        },
+        "@p1": {
+          "klass": "Punkt",
+          "attributes": {
+            "x": {
+              "dataType": "int",
+              "value": 6
+            },
+            "y": {
+              "dataType": "int",
+              "value": 6
+            }
+          },
+          "position": {
+            "x": 700,
+            "y": 60
+          }
+        },
+        "@kopie": {
+          "klass": "Array",
+          "arrayElementType": "Punkt",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            },
+            "[1]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            }
+          },
+          "position": {
+            "x": 380,
+            "y": 300
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "punkte": {
+              "dataType": "Array",
+              "value": "@punkte"
+            },
+            "kopie": {
+              "dataType": "Array",
+              "value": "@kopie"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "kopie[0].verschiebe(100, 100); Warum verschiebt sich das Original mit?",
+      "objects": {
+        "@punkte": {
+          "klass": "Array",
+          "arrayElementType": "Punkt",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            },
+            "[1]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            }
+          },
+          "position": {
+            "x": 380,
+            "y": 40
+          }
+        },
+        "@p1": {
+          "klass": "Punkt",
+          "attributes": {
+            "x": {
+              "dataType": "int",
+              "value": 106
+            },
+            "y": {
+              "dataType": "int",
+              "value": 106
+            }
+          },
+          "position": {
+            "x": 700,
+            "y": 60
+          }
+        },
+        "@kopie": {
+          "klass": "Array",
+          "arrayElementType": "Punkt",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            },
+            "[1]": {
+              "dataType": "Punkt",
+              "value": "@p1"
+            }
+          },
+          "position": {
+            "x": 380,
+            "y": 300
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "punkte": {
+              "dataType": "Array",
+              "value": "@punkte"
+            },
+            "kopie": {
+              "dataType": "Array",
+              "value": "@kopie"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      },
+      "exercise": true
+    }
+  ]
+}

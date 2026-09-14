@@ -37,7 +37,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: current zeigt auf den Knoten mit joe",
       "objects": {
         "@liste": {
           "klass": "List",
@@ -277,7 +277,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: aktuellen Knoten entfernen",
+      "label": "Entferne den aktuellen Knoten. previous zeigt danach auf den Vorgänger, current auf den Nachfolger.",
       "objects": {
         "@liste": {
           "klass": "List",

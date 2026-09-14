@@ -12,14 +12,9 @@ lang: de
 
 Die Methode append soll eine neue Nachricht ans Ende der Liste anhängen.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – drei Knoten in der Liste, incomingMessage wartet daneben.
-2. **Aufgabe** – `messages.append(incomingMessage)`: Baue den Zustand nach dem Anhängen. Die Nachricht wird nicht kopiert, der neue Knoten zeigt auf die vorhandene.
-
 ::jmp{id="liste-anhaengen" src="anhaengen.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zur Methode append der Klasse List einen Algorithmus im :t[Pseudocode].
 3. Tausche deinen Algortihmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
 4. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
@@ -35,14 +30,9 @@ Die Schritte im Diagramm:
 
 Die Methode remove soll den ersten Knoten der Liste entfernen.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – vier Knoten in der Liste.
-2. **Aufgabe** – Entferne den ersten Knoten (mike). current bleibt null.
-
 ::jmp{id="liste-ersten-entfernen" src="ersten-entfernen.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zur Methode remove der Klasse List einen Algorithmus im :t[Pseudocode].
 3. Tausche deinen Algortihmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
 4. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
@@ -57,14 +47,9 @@ Die Schritte im Diagramm:
 
 Die Methode remove soll erweitert werden, sodass der aktuelle Knoten (current) der Liste entfernt wird.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – current zeigt auf den Knoten mit joe.
-2. **Aufgabe** – Entferne den aktuellen Knoten. previous zeigt danach auf den Vorgänger, current auf den Nachfolger.
-
 ::jmp{id="liste-aktuellen-entfernen" src="aktuellen-entfernen.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Erweitere deinen Algorithmus zum Entfernen von Nachrichten, sodass der aktuelle Knoten (current) entfernt wird.
 
 3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.

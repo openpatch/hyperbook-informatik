@@ -1,0 +1,240 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {},
+  "steps": [
+    {
+      "label": "Ausgangslage: main() hat fakultaet(4) aufgerufen: zwei Rahmen",
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {},
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.fakultaet",
+          "index": 1,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 4
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 190
+          }
+        }
+      }
+    },
+    {
+      "label": "fakultaet(4) ruft fakultaet(3) auf – der neue Rahmen liegt oben",
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {},
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.fakultaet",
+          "index": 1,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 4
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 190
+          }
+        },
+        "@f3": {
+          "name": "Main.fakultaet",
+          "index": 2,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 340
+          }
+        }
+      }
+    },
+    {
+      "label": "Baue den Stapel im tiefsten Moment, kurz bevor der Basisfall greift. Jeder Rahmen heißt Main.fakultaet und hat sein eigenes pN.",
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {},
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.fakultaet",
+          "index": 1,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 4
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 190
+          }
+        },
+        "@f3": {
+          "name": "Main.fakultaet",
+          "index": 2,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 340
+          }
+        },
+        "@f4": {
+          "name": "Main.fakultaet",
+          "index": 3,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 2
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 490
+          }
+        },
+        "@f5": {
+          "name": "Main.fakultaet",
+          "index": 4,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 1
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 640
+          }
+        }
+      },
+      "exercise": true
+    },
+    {
+      "label": "fakultaet(1) gibt 1 zurück – nur der oberste Rahmen darf zurückkehren",
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {},
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.fakultaet",
+          "index": 1,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 4
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 190
+          }
+        },
+        "@f3": {
+          "name": "Main.fakultaet",
+          "index": 2,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 340
+          }
+        },
+        "@f4": {
+          "name": "Main.fakultaet",
+          "index": 3,
+          "localVariables": {
+            "pN": {
+              "dataType": "int",
+              "value": 2
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 490
+          }
+        }
+      }
+    },
+    {
+      "label": "Der Rest kehrt zurück, und zwar in umgekehrter Reihenfolge",
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {},
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        }
+      }
+    }
+  ]
+}

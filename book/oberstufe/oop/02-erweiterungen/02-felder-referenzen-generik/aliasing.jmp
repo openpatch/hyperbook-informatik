@@ -1,0 +1,212 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {},
+  "steps": [
+    {
+      "label": "Ausgangslage: int[] zweites = erstes; kopiert nur den Verweis: zwei Namen, ein Feld",
+      "objects": {
+        "@erstes": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 1
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "erstes": {
+              "dataType": "Array",
+              "value": "@erstes"
+            },
+            "zweites": {
+              "dataType": "Array",
+              "value": "@erstes"
+            },
+            "drittes": {
+              "dataType": "Array"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "zweites[0] = 99; Baue den Zustand danach",
+      "objects": {
+        "@erstes": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 99
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "erstes": {
+              "dataType": "Array",
+              "value": "@erstes"
+            },
+            "zweites": {
+              "dataType": "Array",
+              "value": "@erstes"
+            },
+            "drittes": {
+              "dataType": "Array"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      },
+      "exercise": true
+    },
+    {
+      "label": "drittes kommt dazu – gleicher Inhalt, aber ein zweites Objekt. Genau deshalb ist erstes == drittes falsch.",
+      "objects": {
+        "@erstes": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 99
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 60
+          }
+        },
+        "@drittes": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 99
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 3
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 340
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "erstes": {
+              "dataType": "Array",
+              "value": "@erstes"
+            },
+            "zweites": {
+              "dataType": "Array",
+              "value": "@erstes"
+            },
+            "drittes": {
+              "dataType": "Array",
+              "value": "@drittes"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    }
+  ]
+}

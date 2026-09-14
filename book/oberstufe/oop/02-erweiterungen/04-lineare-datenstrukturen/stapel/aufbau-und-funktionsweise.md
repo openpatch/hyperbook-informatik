@@ -12,14 +12,9 @@ lang: de
 
 Die Methode push soll eine neue Nachricht auf den Stapel legen.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – drei Knoten auf dem Stapel, incomingMessage wartet daneben.
-2. **Aufgabe** – `newMessages.push(incomingMessage)`: Baue den Zustand nach dem Auflegen.
-
 ::jmp{id="stapel-auflegen" src="auflegen.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zur Methode push der Klasse Stack einen Algorithmus im :t[Pseudocode].
 3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
@@ -34,14 +29,9 @@ Die Schritte im Diagramm:
 
 Die Methode top soll die erste Nachricht auf dem Stapel zurückgeben. Die Methode pop soll die erste Nachricht des Stapels entfernen.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – drei Knoten auf dem Stapel.
-2. **Aufgabe** – `newMessages.pop()`: Nimm den obersten Knoten herunter.
-
 ::jmp{id="stapel-abheben" src="abheben.jmp"}
 
-1. Bearbeite den Aufgabenschritt im Objektdiagramm.
+1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zu den Methoden pop und top einen Algorithmus im :t[Pseudocode].
 3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 

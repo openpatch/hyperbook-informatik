@@ -1,0 +1,532 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": true,
+    "hideDeclareGlobalVariable": false,
+    "hideNewArray": false,
+    "disableGarbageCollector": false,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Message": {
+      "attributes": {
+        "username": "String",
+        "text": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage: dieselbe volle Lage wie oben",
+      "objects": {
+        "@arr": {
+          "klass": "Array",
+          "arrayElementType": "Message",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "Message",
+              "value": "@m_mike"
+            },
+            "[1]": {
+              "dataType": "Message",
+              "value": "@m_karl"
+            },
+            "[2]": {
+              "dataType": "Message",
+              "value": "@m_frida"
+            },
+            "[3]": {
+              "dataType": "Message",
+              "value": "@m_emma"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 160
+          }
+        },
+        "@m_mike": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_mike"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_mike"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        "@m_karl": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_karl"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_karl"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 200
+          }
+        },
+        "@m_frida": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_frida"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_frida"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 400
+          }
+        },
+        "@m_emma": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_emma"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_emma"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 600
+          }
+        },
+        "@m_jup": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_jup"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_jup"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": -260
+          }
+        },
+        "@s_mike": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 0
+          }
+        },
+        "@t_mike": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 60
+          }
+        },
+        "@s_karl": {
+          "klass": "String",
+          "literal": "karl",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 200
+          }
+        },
+        "@t_karl": {
+          "klass": "String",
+          "literal": "Geheim Geheim",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 260
+          }
+        },
+        "@s_frida": {
+          "klass": "String",
+          "literal": "frida",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 400
+          }
+        },
+        "@t_frida": {
+          "klass": "String",
+          "literal": "Frida Freude Eierkuchen",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 460
+          }
+        },
+        "@s_emma": {
+          "klass": "String",
+          "literal": "emma",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 600
+          }
+        },
+        "@t_emma": {
+          "klass": "String",
+          "literal": "Moin",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 660
+          }
+        },
+        "@s_jup": {
+          "klass": "String",
+          "literal": "jup",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": -260
+          }
+        },
+        "@t_jup": {
+          "klass": "String",
+          "literal": "Ich bin auch hier",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": -200
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "messages",
+          "dataType": "Array",
+          "value": "@arr",
+          "position": {
+            "x": -240,
+            "y": 160
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m_jup",
+          "position": {
+            "x": -240,
+            "y": -260
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "Ein neues Array mit der doppelten Anzahl an Plätzen; die alten Nachrichten bleiben erhalten, jup kommt dazu, und messages zeigt am Ende auf das neue Array",
+      "objects": {
+        "@arr": {
+          "klass": "Array",
+          "arrayElementType": "Message",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 4
+            },
+            "[0]": {
+              "dataType": "Message",
+              "value": "@m_mike"
+            },
+            "[1]": {
+              "dataType": "Message",
+              "value": "@m_karl"
+            },
+            "[2]": {
+              "dataType": "Message",
+              "value": "@m_frida"
+            },
+            "[3]": {
+              "dataType": "Message",
+              "value": "@m_emma"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 160
+          }
+        },
+        "@m_mike": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_mike"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_mike"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        "@m_karl": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_karl"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_karl"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 200
+          }
+        },
+        "@m_frida": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_frida"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_frida"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 400
+          }
+        },
+        "@m_emma": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_emma"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_emma"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 600
+          }
+        },
+        "@m_jup": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s_jup"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@t_jup"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": -260
+          }
+        },
+        "@s_mike": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 0
+          }
+        },
+        "@t_mike": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 60
+          }
+        },
+        "@s_karl": {
+          "klass": "String",
+          "literal": "karl",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 200
+          }
+        },
+        "@t_karl": {
+          "klass": "String",
+          "literal": "Geheim Geheim",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 260
+          }
+        },
+        "@s_frida": {
+          "klass": "String",
+          "literal": "frida",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 400
+          }
+        },
+        "@t_frida": {
+          "klass": "String",
+          "literal": "Frida Freude Eierkuchen",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 460
+          }
+        },
+        "@s_emma": {
+          "klass": "String",
+          "literal": "emma",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 600
+          }
+        },
+        "@t_emma": {
+          "klass": "String",
+          "literal": "Moin",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": 660
+          }
+        },
+        "@s_jup": {
+          "klass": "String",
+          "literal": "jup",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": -260
+          }
+        },
+        "@t_jup": {
+          "klass": "String",
+          "literal": "Ich bin auch hier",
+          "attributes": {},
+          "position": {
+            "x": 760,
+            "y": -200
+          }
+        },
+        "@neu": {
+          "klass": "Array",
+          "arrayElementType": "Message",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 8
+            },
+            "[0]": {
+              "dataType": "Message",
+              "value": "@m_mike"
+            },
+            "[1]": {
+              "dataType": "Message",
+              "value": "@m_karl"
+            },
+            "[2]": {
+              "dataType": "Message",
+              "value": "@m_frida"
+            },
+            "[3]": {
+              "dataType": "Message",
+              "value": "@m_emma"
+            },
+            "[4]": {
+              "dataType": "Message",
+              "value": "@m_jup"
+            },
+            "[5]": {
+              "dataType": "Message"
+            },
+            "[6]": {
+              "dataType": "Message"
+            },
+            "[7]": {
+              "dataType": "Message"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 620
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "messages",
+          "dataType": "Array",
+          "value": "@neu",
+          "position": {
+            "x": -240,
+            "y": 160
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m_jup",
+          "position": {
+            "x": -240,
+            "y": -260
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    }
+  ]
+}

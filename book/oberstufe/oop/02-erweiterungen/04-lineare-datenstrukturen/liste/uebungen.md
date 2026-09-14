@@ -19,8 +19,8 @@ Beantworte die folgenden Verständnisfragen (ohne Programmierung).
 
 ## Aufgabe 2
 
-Das folgende Beispielprogramm erzeugt eine Liste und fügt einige Elemente ein. Zeichne die Situationen 1., 2. und 3.
-in den Aufgabenschritten des Diagramms unter dem Programm. **Herunterladen (PNG)** gibt dir zu jeder Situation ein Bild.
+Das folgende Beispielprogramm erzeugt eine Liste und fügt einige Elemente ein. Setze die Schritte im Diagramm
+unter dem Programm um. **Herunterladen (PNG)** gibt dir zu jeder Situation ein Bild.
 
 ```java
 public class Beispiel {
@@ -44,13 +44,6 @@ public class Beispiel {
 }
 
 ```
-
-Die Schritte im Diagramm:
-
-1. **Anfang der Methode** – farbenListe ist deklariert, aber noch nicht erzeugt.
-2. **Aufgabe** – 1. Diagramm: nach `new List<>()`.
-3. **Aufgabe** – 2. Diagramm: nach den drei `append`-Aufrufen.
-4. **Aufgabe** – 3. Diagramm: am Ende der Methode. Lies bei `insert` noch einmal in der Dokumentation nach, was `hasAccess()` damit zu tun hat.
 
 ::jmp{id="liste-uebung-2" src="vorlage.jmp"}
 

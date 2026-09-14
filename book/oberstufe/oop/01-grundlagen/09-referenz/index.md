@@ -325,9 +325,13 @@ t.showText("Punkte: 10");
 
 Die vier Parameter sind Text, x, y und Breite. `new Text("Hallo")` mit nur einem Parameter gibt es **nicht**.
 
+Achtung: **`x` ist die Mitte des Textes**, nicht sein linker Rand. Eine lange Statuszeile am linken Rand verliert deshalb ihre linke Hälfte. Für eine Zeile über die ganze Breite nimmst du `new Text("...", 0, 155, 460)`.
+
 ### Kostüme
 
-Die Bibliothek bringt über 1700 Kostüme mit. Häufig gebraucht:
+Die Bibliothek bringt über 1700 Kostüme mit. Sie sind **verschieden groß** – `bunny1_stand` ist 120 × 201 Pixel, `coin_gold` nur 61 × 61. Da `setSize(prozent)` sich auf die **Originalgröße** bezieht, ergibt dieselbe Prozentzahl je nach Kostüm eine andere Pixelgröße. Die aktuelle Größe liefern `getWidth()` und `getHeight()`.
+
+Häufig gebraucht:
 
 `bunny1_stand`, `bunny1_jump`, `bunny2_stand` · `coin_gold`, `coin_silver`, `coin_bronze` · `gemBlue`, `gemGreen`, `gemRed`, `gemYellow` · `keyBlue`, `keyGreen`, `keyRed` · `alienBeige_stand`, `alienBlue_stand`, `alienGreen_stand` · `boxCrate`, `boxCoin`, `boxItem` · `star`, `cloud`, `carrot`, `flame` · `planeBlue1`, `planeRed1` · `enemyBlack1` bis `enemyBlack5` · `fishBlue`, `frog`, `mouse`, `bee`, `slimeBlue`
 

@@ -11,41 +11,37 @@ Jetzt versuchen wir für die drei rekursive Alogrithmen zu entwicklen.
 
 ## Pre-Order
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – `preorder()` ist auf der Wurzel aufgerufen.
-2. **Aufgabe** – Der Durchlauf ist beim Kontakt k angekommen: Baue den Kellerstapel für diesen Moment. Jeder neue Rahmen heißt `BinaryTree.preorder` und kennt nur this.
-
 ::jmp{id="baum-preorder" src="preorder.jmp" height="700px"}
 
 1. Betrachte das Objektdiagramm und gib die Reihenfolge an in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
-2. Löse das [Code-Puzzle](https://parsons.problemsolving.io/puzzle/16fb1ec6065443c495c82f9b3014021e) zur Pre-Order-Methode.
+2. Löse das Code-Puzzle unten zur Pre-Order-Methode und ordne dort die Kontakte in die Reihenfolge, die du aufgeschrieben hast.
 3. Führe den Algorithmus am Objektdiagramm aus.
+
+::bitflow{id="puzzle-preorder" src="preorder.bitflow" height="820px"}
 
 ## Post-Order
 
 ::jmp{id="baum-postorder" src="postorder.jmp" height="700px"}
 
 1. Betrachte das Objektdiagramm und gib die Reihenfolge an in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
-2. Formuliere einen Algorithmus im Pseudocode in Anlehnung an das Code-Puzzle.
+2. Formuliere einen Algorithmus im Pseudocode in Anlehnung an das Pre-Order-Puzzle. Mit dem Code-Puzzle unten kannst du dich anschließend kontrollieren.
 3. Führe den Algorithmus am Objektdiagramm aus.
+
+::bitflow{id="puzzle-postorder" src="postorder.bitflow" height="820px"}
 
 ## In-Order
 
 ::jmp{id="baum-inorder" src="inorder.jmp" height="700px"}
 
 1. Betrachte das Objektdiagramm und gib die Reihenfolge an in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
-2. Formuliere einen Algorithmus im Pseudocode in Anlehnung an das Code-Puzzle.
+2. Formuliere einen Algorithmus im Pseudocode in Anlehnung an das Pre-Order-Puzzle. Mit dem Code-Puzzle unten kannst du dich anschließend kontrollieren.
 3. Führe den Algorithmus am Objektdiagramm aus.
+
+::bitflow{id="puzzle-inorder" src="inorder.bitflow" height="820px"}
 
 ## Suchen in Binärbäumen
 
 Im Binärbaum soll überprüft werden, ob ein bestimmtes Objekt enthalten ist.
-
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – `searchPreOrder(pContent)` ist auf der Wurzel aufgerufen, gesucht wird c.
-2. **Aufgabe** – Der Kontakt ist gefunden: Baue den Kellerstapel für diesen Moment. Jeder neue Rahmen heißt `BinaryTree.searchPreOrder` und kennt this und pContent. Überlege, welche Rahmen schon wieder abgeräumt sind.
 
 ::jmp{id="baum-suchen" src="suchen.jmp" height="700px"}
 

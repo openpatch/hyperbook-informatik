@@ -16,6 +16,8 @@ Geprueft wird:
    Klassenname muss zum Dateinamen passen, `package`/`import` gibt es nicht,
    Scratch-Klassen brauchen libraries="scratch", NRW-Klassen libraries="nrw".
    Die veralteten Attribute url= und id= sind nicht mehr erlaubt.
+   libraries= darf mehrere Bibliotheken kommasepariert laden, etwa
+   libraries="nrw,scratch" - geprueft wird die Liste, nicht die Zeichenkette.
 3. **Java-Konstrukte, die die Online-IDE nicht kennt** (Scanner, Arrays.sort,
    Integer.toBinaryString, static-Methoden auf oberster Ebene ...).
    Siehe NOTIZEN.md.
@@ -193,8 +195,13 @@ def check_onlineide(path: pathlib.Path, text: str) -> None:
                     f"schreiben"
                 )
 
+        geladen = set()
+        lib_attr = re.search(r'libraries="([^"]*)"', attrs)
+        if lib_attr:
+            geladen = {name.strip() for name in lib_attr.group(1).split(",")}
+
         for klasse in SCRATCH_CLASSES:
-            if re.search(rf"\b{klasse}\b", gesamter_code) and 'libraries="scratch"' not in attrs:
+            if re.search(rf"\b{klasse}\b", gesamter_code) and "scratch" not in geladen:
                 problems.append(
                     f"{path}:{offset}: benutzt {klasse}, aber der Block hat "
                     f'kein libraries="scratch"'
@@ -204,14 +211,14 @@ def check_onlineide(path: pathlib.Path, text: str) -> None:
         # Unter libraries="scratch" verdeckt die Scratch-eigene Random-Klasse
         # die der Standardbibliothek. Zufallszahlen kommen dort von
         # pickRandom(from, to) auf Sprite bzw. Stage.
-        if 'libraries="scratch"' in attrs and "Random.randint" in gesamter_code:
+        if "scratch" in geladen and "Random.randint" in gesamter_code:
             problems.append(
                 f"{path}:{offset}: Random.randint gibt es unter "
                 f'libraries="scratch" nicht - this.pickRandom(von, bis) nehmen'
             )
 
         for klasse in NRW_CLASSES:
-            if re.search(rf"\b{klasse}\b", gesamter_code) and 'libraries="nrw"' not in attrs:
+            if re.search(rf"\b{klasse}\b", gesamter_code) and "nrw" not in geladen:
                 problems.append(
                     f"{path}:{offset}: benutzt {klasse}, aber der Block hat "
                     f'kein libraries="nrw"'

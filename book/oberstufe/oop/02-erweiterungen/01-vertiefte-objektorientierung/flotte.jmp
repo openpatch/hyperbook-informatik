@@ -1,0 +1,321 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": false,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Pkw": {
+      "attributes": {
+        "kennzeichen": "String",
+        "kilometerstand": "int"
+      }
+    },
+    "Lkw": {
+      "attributes": {
+        "kennzeichen": "String",
+        "kilometerstand": "int"
+      }
+    },
+    "Motorrad": {
+      "attributes": {
+        "kennzeichen": "String",
+        "kilometerstand": "int"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage: flotte ist ein Fahrzeug[], aber in den Plätzen liegen ein :Pkw, ein :Lkw und ein :Motorrad. Das Feld kennt nur den Obertyp, die Objekte wissen, was sie sind.",
+      "objects": {
+        "@flotte": {
+          "klass": "Array",
+          "arrayElementType": "Fahrzeug",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "Pkw",
+              "value": "@pkw"
+            },
+            "[1]": {
+              "dataType": "Lkw",
+              "value": "@lkw"
+            },
+            "[2]": {
+              "dataType": "Motorrad",
+              "value": "@motorrad"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 120
+          }
+        },
+        "@pkw": {
+          "klass": "Pkw",
+          "attributes": {
+            "kennzeichen": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "kilometerstand": {
+              "dataType": "int",
+              "value": 100
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        "@lkw": {
+          "klass": "Lkw",
+          "attributes": {
+            "kennzeichen": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "kilometerstand": {
+              "dataType": "int",
+              "value": 100
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 170
+          }
+        },
+        "@motorrad": {
+          "klass": "Motorrad",
+          "attributes": {
+            "kennzeichen": {
+              "dataType": "String",
+              "value": "@s3"
+            },
+            "kilometerstand": {
+              "dataType": "int",
+              "value": 100
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 340
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "K-A 1",
+          "attributes": {},
+          "position": {
+            "x": 700,
+            "y": 0
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "K-B 2",
+          "attributes": {},
+          "position": {
+            "x": 700,
+            "y": 170
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "K-C 3",
+          "attributes": {},
+          "position": {
+            "x": 700,
+            "y": 340
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "flotte": {
+              "dataType": "Array",
+              "value": "@flotte"
+            },
+            "summe": {
+              "dataType": "int",
+              "value": 0
+            },
+            "i": {
+              "dataType": "int",
+              "value": 2
+            }
+          },
+          "position": {
+            "x": -280,
+            "y": 120
+          }
+        }
+      }
+    },
+    {
+      "label": "Die Schleife ruft flotte[2].mautSumme() auf: Baue den Kellerrahmen dazu. Er heißt Fahrzeug.mautSumme – die Methode steht in der Oberklasse –, aber this zeigt auf das Motorrad. Genau deshalb rechnet sie mit 5 Cent.",
+      "objects": {
+        "@flotte": {
+          "klass": "Array",
+          "arrayElementType": "Fahrzeug",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "Pkw",
+              "value": "@pkw"
+            },
+            "[1]": {
+              "dataType": "Lkw",
+              "value": "@lkw"
+            },
+            "[2]": {
+              "dataType": "Motorrad",
+              "value": "@motorrad"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 120
+          }
+        },
+        "@pkw": {
+          "klass": "Pkw",
+          "attributes": {
+            "kennzeichen": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "kilometerstand": {
+              "dataType": "int",
+              "value": 100
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        "@lkw": {
+          "klass": "Lkw",
+          "attributes": {
+            "kennzeichen": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "kilometerstand": {
+              "dataType": "int",
+              "value": 100
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 170
+          }
+        },
+        "@motorrad": {
+          "klass": "Motorrad",
+          "attributes": {
+            "kennzeichen": {
+              "dataType": "String",
+              "value": "@s3"
+            },
+            "kilometerstand": {
+              "dataType": "int",
+              "value": 100
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 340
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "K-A 1",
+          "attributes": {},
+          "position": {
+            "x": 700,
+            "y": 0
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "K-B 2",
+          "attributes": {},
+          "position": {
+            "x": 700,
+            "y": 170
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "K-C 3",
+          "attributes": {},
+          "position": {
+            "x": 700,
+            "y": 340
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "flotte": {
+              "dataType": "Array",
+              "value": "@flotte"
+            },
+            "summe": {
+              "dataType": "int",
+              "value": 0
+            },
+            "i": {
+              "dataType": "int",
+              "value": 2
+            }
+          },
+          "position": {
+            "x": -280,
+            "y": 120
+          }
+        },
+        "@f2": {
+          "name": "Fahrzeug.mautSumme",
+          "index": 1,
+          "localVariables": {
+            "this": {
+              "dataType": "Motorrad",
+              "value": "@motorrad"
+            }
+          },
+          "position": {
+            "x": -280,
+            "y": 340
+          }
+        }
+      },
+      "exercise": true
+    }
+  ]
+}

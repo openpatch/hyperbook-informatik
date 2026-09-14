@@ -35,7 +35,7 @@
   },
   "steps": [
     {
-      "label": "Ausgangslage",
+      "label": "Ausgangslage: drei Knoten in der Schlange",
       "objects": {
         "@schlange": {
           "klass": "Queue",
@@ -224,7 +224,7 @@
       "methodCalls": {}
     },
     {
-      "label": "Aufgabe: dequeue()",
+      "label": "notifications.dequeue(): Nimm den ersten Knoten heraus.",
       "objects": {
         "@schlange": {
           "klass": "Queue",

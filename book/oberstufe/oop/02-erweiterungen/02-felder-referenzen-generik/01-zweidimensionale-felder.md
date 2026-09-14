@@ -63,6 +63,13 @@ gitter
      0    1    2    3
 ```
 
+Im Speicher steht das Gitter aber nicht als Tabelle, sondern als **Feld aus drei Verweisen** –
+jeder zeigt auf ein eigenes `int[4]`. Das Diagramm zeigt den Unterschied.
+
+Setze die Schritte im Diagramm um.
+
+::jmp{id="gitter" src="gitter.jmp" height="700px"}
+
 ## Direkt mit Werten anlegen
 
 :::onlineide{height="520px" speed="1000000"}

@@ -31,6 +31,12 @@ classDiagram
 
 Der Pfeil bedeutet: **Ein Fahrrad kennt einen Reifen.** Die Beschriftung am Pfeil ist der Name des Attributs.
 
+Das Klassendiagramm zeigt den Bauplan. Wie es bei den fertigen Objekten aussieht, zeigt das Diagramm darunter:
+
+Setze die Schritte im Diagramm um.
+
+::jmp{id="fahrrad" src="fahrrad.jmp" height="520px"}
+
 :::onlineide{height="680px" speed="1000000"}
 
 ```java Main.java

@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "bst-einfuegen",
+    "title": "Einfügen: Code-Puzzle",
+    "description": "insert als Puzzle.",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": true
+  },
+  "nodes": [
+    {
+      "id": "einfuegen",
+      "type": "task-parsons",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "instruction": "`insert` hängt einen Kontakt an der richtigen Stelle ein. Ein Kontakt, der schon im Baum liegt, wird nicht noch einmal eingefügt. `new BinarySearchTree(pContent)` legt einen Knoten mit diesem Inhalt an, dessen Nachfolger null sind. `vergleich` ist kleiner als 0, wenn pContent **vor** dem Inhalt dieses Knotens einsortiert wird, und größer als 0, wenn er dahinter gehört. Setze den Rumpf von `public void insert(Contact pContent) { ... }` zusammen. Eine Zeile gehört nicht dazu.",
+        "language": "java",
+        "lines": [
+          {
+            "id": "l1",
+            "text": "int vergleich = pContent.getUsername().compareTo(content.getUsername());",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l2",
+            "text": "if (vergleich == 0) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l3",
+            "text": "return;",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l4",
+            "text": "} else if (vergleich < 0) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l5",
+            "text": "if (left == null) left = new BinarySearchTree(pContent);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l6",
+            "text": "else left.insert(pContent);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l7",
+            "text": "} else {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "l8",
+            "text": "if (right == null) right = new BinarySearchTree(pContent);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l9",
+            "text": "else right.insert(pContent);",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "l10",
+            "text": "}",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "d1",
+            "text": "content = pContent;",
+            "indent": 0,
+            "distractor": true
+          }
+        ],
+        "indentationMatters": true,
+        "penaliseDistractors": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 120
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Prüfe am Objektdiagramm oben, ob dein Algorithmus wonder11 an derselben Stelle einhängt.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-einfuegen-ende",
+      "source": "einfuegen",
+      "target": "ende"
+    }
+  ]
+}

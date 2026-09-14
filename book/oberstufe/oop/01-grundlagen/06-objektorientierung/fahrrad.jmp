@@ -1,0 +1,197 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": true,
+    "hideDeclareGlobalVariable": false,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Fahrrad": {
+      "attributes": {
+        "marke": "String",
+        "gaenge": "int",
+        "vorderreifen": "Reifen"
+      }
+    },
+    "Reifen": {
+      "attributes": {
+        "hersteller": "String",
+        "breite": "double"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage: beide Objekte gibt es, aber vorderreifen ist noch null: ein Anschluss, an dem nichts hängt",
+      "objects": {
+        "@rad": {
+          "klass": "Fahrrad",
+          "attributes": {
+            "marke": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "gaenge": {
+              "dataType": "int",
+              "value": 21
+            },
+            "vorderreifen": {
+              "dataType": "Reifen"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@reifen": {
+          "klass": "Reifen",
+          "attributes": {
+            "hersteller": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "breite": {
+              "dataType": "double",
+              "value": 3.7
+            }
+          },
+          "position": {
+            "x": 460,
+            "y": 260
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "Cube",
+          "attributes": {},
+          "position": {
+            "x": 60,
+            "y": 260
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Schwalbe",
+          "attributes": {},
+          "position": {
+            "x": 800,
+            "y": 260
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "rad",
+          "dataType": "Fahrrad",
+          "value": "@rad",
+          "position": {
+            "x": -160,
+            "y": 40
+          }
+        },
+        "@v2": {
+          "name": "guterReifen",
+          "dataType": "Reifen",
+          "value": "@reifen",
+          "position": {
+            "x": -160,
+            "y": 260
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "rad.setzeVorderreifen(guterReifen); Zieh den Pfeil. Danach führen zwei Wege zu demselben Reifen – über guterReifen und über das Fahrrad.",
+      "objects": {
+        "@rad": {
+          "klass": "Fahrrad",
+          "attributes": {
+            "marke": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "gaenge": {
+              "dataType": "int",
+              "value": 21
+            },
+            "vorderreifen": {
+              "dataType": "Reifen",
+              "value": "@reifen"
+            }
+          },
+          "position": {
+            "x": 60,
+            "y": 40
+          }
+        },
+        "@reifen": {
+          "klass": "Reifen",
+          "attributes": {
+            "hersteller": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "breite": {
+              "dataType": "double",
+              "value": 3.7
+            }
+          },
+          "position": {
+            "x": 460,
+            "y": 260
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "Cube",
+          "attributes": {},
+          "position": {
+            "x": 60,
+            "y": 260
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Schwalbe",
+          "attributes": {},
+          "position": {
+            "x": 800,
+            "y": 260
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "rad",
+          "dataType": "Fahrrad",
+          "value": "@rad",
+          "position": {
+            "x": -160,
+            "y": 40
+          }
+        },
+        "@v2": {
+          "name": "guterReifen",
+          "dataType": "Reifen",
+          "value": "@reifen",
+          "position": {
+            "x": -160,
+            "y": 260
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    }
+  ]
+}

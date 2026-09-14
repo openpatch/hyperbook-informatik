@@ -21,15 +21,12 @@ Beispiel: Wenn der Inhalt ein Kontakt mit dem Benutzernamen `fred` ist, dann wü
 
 Die Methode `Contact search(Contact pContent)` soll überprüfen, ob ein Kontakt mit einem bestimmten Benutzernamen im binären Suchbaum enthalten ist. Falls dies der Fall ist, dann liefert search das Kontakt-Objekt zurück, ansonsten wird null zurückgegeben.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – `search(pContent)` ist auf der Wurzel aufgerufen, gesucht wird lantern90.
-2. **Aufgabe** – Der Kontakt ist gefunden: Baue den Kellerstapel für diesen Moment. Jeder neue Rahmen heißt `BinarySearchTree.search` und kennt this und pContent.
-
 ::jmp{id="bst-suchen" src="suchen.jmp" height="700px"}
 
 1. Sucht, ob der Kontakt pContent im binären Suchbaum enthalten ist. Geht dabei schrittweise wie im Objektspiel vor. Nutzt dazu das Objektdiagramm oben.
-2. Löst das [Code-Puzzle](https://parsons.problemsolving.io/puzzle/23b2335255e94e47881ee07e22cb059a) zur Methode `search`.
+2. Löst das Code-Puzzle unten zur Methode `search` und verfolgt danach den Weg, den die Suche durch den Baum nimmt.
+
+::bitflow{id="puzzle-bst-suchen" src="suchen.bitflow" height="820px"}
 
 :::collapsible{id="sfjkjkdfa" title="Teilösung des Code-Puzzles"}
 
@@ -42,17 +39,14 @@ Die Schritte im Diagramm:
 
 Die Methode `void insert(Contact pContent)` soll einen neuen Kontakt (pContent) in den binären Suchbaum einfügen. Das Vergleichskriterium soll hierbei der Benutzername (username) sein.
 
-Die Schritte im Diagramm:
-
-1. **Ausgangslage** – `insert(pContent)` ist auf der Wurzel aufgerufen, eingefügt wird wonder11.
-2. **Aufgabe** – Füge pContent an der richtigen Stelle ein und baue den Zustand danach.
-
 ::jmp{id="bst-einfuegen" src="einfuegen.jmp" height="700px"}
 
 1. Fügt den pContent in den binären Suchbaum ein. Geht dabei schrittweise wie im Objektspiel vor. Benutzt dazu das Objektdiagramm oben.
 2. Entwerft zur Methode insert der Klasse BinarySearchTree einen Algorithmus im :t[Pseudocode].
 3. Überprüft euren Algorithmus anhand des Objektdiagramms.
 4. Bereitet euch darauf vor den Algorithmus anhand des Objektdiagramms zu präsentieren.
+
+::bitflow{id="puzzle-bst-einfuegen" src="einfuegen.bitflow" height="820px"}
 
 :::collapsible{id="sakjkjdsavjsavkjs" title="Hilfe"}
 

@@ -29,7 +29,7 @@
   },
   "steps": [
     {
-      "label": "Anfang von füllen()",
+      "label": "Anfang von füllen(): wurzel zeigt auf einen leeren Knoten, aktuell und neu sind noch leer",
       "objects": {
         "@b": {
           "klass": "Beispiel",
@@ -88,7 +88,7 @@
       }
     },
     {
-      "label": "Aufgabe: Ende von füllen()",
+      "label": "Ende von füllen(): Baue das Objektdiagramm. Denk an die leeren Knoten, die der Konstruktor und setContent anlegen, und daran, wohin aktuell und neu am Ende zeigen.",
       "exercise": true,
       "objects": {
         "@b": {

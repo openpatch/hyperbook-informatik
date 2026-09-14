@@ -63,19 +63,9 @@ Bei der Zahl bleibt alles beim Alten, beim Feld nicht. Und das, obwohl beide Met
 Java übergibt immer den **Wert** der Variablen. Bei Objekttypen ist dieser Wert eben eine Referenz.
 :::
 
-```
-elementarer Typ                 Objekttyp
-                                
-zahl                            feld ──────┐
-┌────┐                          ┌────┐     │
-│ 10 │                          │  ● │     ▼
-└────┘                          └────┘   ┌────┬────┬────┐
-                                         │ 10 │ 20 │ 30 │
-pZahl (Kopie)                   pFeld ───┘└────┴────┴────┘
-┌────┐                          ┌────┐
-│ 10 │                          │  ● │
-└────┘                          └────┘
-```
+Setze die Schritte im Diagramm um.
+
+::jmp{id="wert-und-referenz" src="wert-und-referenz.jmp" height="640px"}
 
 ## Zwei Namen, ein Objekt
 
@@ -112,6 +102,10 @@ boolean inhaltGleich(int[] pA, int[] pB) {
 ```
 
 :::
+
+Setze die Schritte im Diagramm um.
+
+::jmp{id="aliasing" src="aliasing.jmp" height="600px"}
 
 :::snippet{#aufgabe}
 a) Erkläre, warum `erstes[0]` sich mitverändert, obwohl nur `zweites` beschrieben wurde.
@@ -199,6 +193,10 @@ public class Punkt {
 ```
 
 :::
+
+Setze die Schritte im Diagramm um.
+
+::jmp{id="flache-kopie" src="flache-kopie.jmp" height="620px"}
 
 :::snippet{#merken}
 Man unterscheidet zwei Arten des Kopierens:
