@@ -1,0 +1,618 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Stack": {
+      "attributes": {
+        "head": "StackNode"
+      }
+    },
+    "StackNode": {
+      "attributes": {
+        "next": "StackNode",
+        "content": "Message"
+      }
+    },
+    "Message": {
+      "attributes": {
+        "username": "String",
+        "text": "String",
+        "date": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage",
+      "objects": {
+        "@stapel": {
+          "klass": "Stack",
+          "attributes": {
+            "head": {
+              "dataType": "StackNode",
+              "value": "@n1"
+            }
+          },
+          "position": {
+            "x": -32,
+            "y": 148
+          }
+        },
+        "@n1": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode",
+              "value": "@n2"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m1"
+            }
+          },
+          "position": {
+            "x": 111,
+            "y": 184
+          }
+        },
+        "@n2": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode",
+              "value": "@n3"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m2"
+            }
+          },
+          "position": {
+            "x": 303,
+            "y": 184
+          }
+        },
+        "@n3": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m3"
+            }
+          },
+          "position": {
+            "x": 563,
+            "y": 182
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s3"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 322
+          }
+        },
+        "@m2": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 309,
+            "y": 321
+          }
+        },
+        "@m3": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s7"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s8"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s9"
+            }
+          },
+          "position": {
+            "x": 581,
+            "y": 321
+          }
+        },
+        "@m4": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s10"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s11"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s12"
+            }
+          },
+          "position": {
+            "x": 87,
+            "y": -49
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 320,
+            "y": 322
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "hallo",
+          "attributes": {},
+          "position": {
+            "x": 320,
+            "y": 392
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "2024-01-20",
+          "attributes": {},
+          "position": {
+            "x": 320,
+            "y": 462
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "carla",
+          "attributes": {},
+          "position": {
+            "x": 589,
+            "y": 531
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "Hu",
+          "attributes": {},
+          "position": {
+            "x": 589,
+            "y": 601
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": "2024-01-19",
+          "attributes": {},
+          "position": {
+            "x": 589,
+            "y": 671
+          }
+        },
+        "@s7": {
+          "klass": "String",
+          "literal": "paula",
+          "attributes": {},
+          "position": {
+            "x": 861,
+            "y": 741
+          }
+        },
+        "@s8": {
+          "klass": "String",
+          "literal": "Wie geht es euch?",
+          "attributes": {},
+          "position": {
+            "x": 861,
+            "y": 811
+          }
+        },
+        "@s9": {
+          "klass": "String",
+          "literal": "2024-01-18",
+          "attributes": {},
+          "position": {
+            "x": 861,
+            "y": 881
+          }
+        },
+        "@s10": {
+          "klass": "String",
+          "literal": "fritz",
+          "attributes": {},
+          "position": {
+            "x": 367,
+            "y": 581
+          }
+        },
+        "@s11": {
+          "klass": "String",
+          "literal": "Ich bin auch da!",
+          "attributes": {},
+          "position": {
+            "x": 367,
+            "y": 651
+          }
+        },
+        "@s12": {
+          "klass": "String",
+          "literal": "2024-01-21",
+          "attributes": {},
+          "position": {
+            "x": 367,
+            "y": 721
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "newMessages",
+          "dataType": "Stack",
+          "value": "@stapel",
+          "position": {
+            "x": -211,
+            "y": 146
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m4",
+          "position": {
+            "x": -215,
+            "y": -52
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "Aufgabe: push(incomingMessage)",
+      "objects": {
+        "@stapel": {
+          "klass": "Stack",
+          "attributes": {
+            "head": {
+              "dataType": "StackNode",
+              "value": "@n4"
+            }
+          },
+          "position": {
+            "x": -32,
+            "y": 148
+          }
+        },
+        "@n1": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode",
+              "value": "@n2"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m1"
+            }
+          },
+          "position": {
+            "x": 111,
+            "y": 184
+          }
+        },
+        "@n2": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode",
+              "value": "@n3"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m2"
+            }
+          },
+          "position": {
+            "x": 303,
+            "y": 184
+          }
+        },
+        "@n3": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m3"
+            }
+          },
+          "position": {
+            "x": 563,
+            "y": 182
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s3"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 322
+          }
+        },
+        "@m2": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 309,
+            "y": 321
+          }
+        },
+        "@m3": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s7"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s8"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s9"
+            }
+          },
+          "position": {
+            "x": 581,
+            "y": 321
+          }
+        },
+        "@m4": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s10"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s11"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s12"
+            }
+          },
+          "position": {
+            "x": 87,
+            "y": -49
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 320,
+            "y": 322
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "hallo",
+          "attributes": {},
+          "position": {
+            "x": 320,
+            "y": 392
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "2024-01-20",
+          "attributes": {},
+          "position": {
+            "x": 320,
+            "y": 462
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "carla",
+          "attributes": {},
+          "position": {
+            "x": 589,
+            "y": 531
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "Hu",
+          "attributes": {},
+          "position": {
+            "x": 589,
+            "y": 601
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": "2024-01-19",
+          "attributes": {},
+          "position": {
+            "x": 589,
+            "y": 671
+          }
+        },
+        "@s7": {
+          "klass": "String",
+          "literal": "paula",
+          "attributes": {},
+          "position": {
+            "x": 861,
+            "y": 741
+          }
+        },
+        "@s8": {
+          "klass": "String",
+          "literal": "Wie geht es euch?",
+          "attributes": {},
+          "position": {
+            "x": 861,
+            "y": 811
+          }
+        },
+        "@s9": {
+          "klass": "String",
+          "literal": "2024-01-18",
+          "attributes": {},
+          "position": {
+            "x": 861,
+            "y": 881
+          }
+        },
+        "@s10": {
+          "klass": "String",
+          "literal": "fritz",
+          "attributes": {},
+          "position": {
+            "x": 367,
+            "y": 581
+          }
+        },
+        "@s11": {
+          "klass": "String",
+          "literal": "Ich bin auch da!",
+          "attributes": {},
+          "position": {
+            "x": 367,
+            "y": 651
+          }
+        },
+        "@s12": {
+          "klass": "String",
+          "literal": "2024-01-21",
+          "attributes": {},
+          "position": {
+            "x": 367,
+            "y": 721
+          }
+        },
+        "@n4": {
+          "klass": "StackNode",
+          "attributes": {
+            "next": {
+              "dataType": "StackNode",
+              "value": "@n1"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m4"
+            }
+          },
+          "position": {
+            "x": 111,
+            "y": 30
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "newMessages",
+          "dataType": "Stack",
+          "value": "@stapel",
+          "position": {
+            "x": -211,
+            "y": 146
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m4",
+          "position": {
+            "x": -215,
+            "y": -52
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    }
+  ]
+}
