@@ -1,5 +1,6 @@
 ---
 title: Trainingscamp
+permaid: scratch-trainingscamp
 navigation: page
 index: 1
 ---

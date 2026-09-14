@@ -2,6 +2,7 @@
 name: "HTML: Inhalte auszeichnen"
 lang: de
 index: 2
+permaid: web-html
 ---
 
 # HTML: Inhalte auszeichnen

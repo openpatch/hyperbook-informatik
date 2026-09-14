@@ -1,6 +1,7 @@
 ---
 name: Die ABABs
 index: 1
+permaid: daten-ababs
 scripts:
   - /wc/bit-rows.js
 ---

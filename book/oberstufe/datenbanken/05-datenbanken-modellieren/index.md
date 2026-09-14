@@ -1,6 +1,7 @@
 ---
 name: Datenbanken modellieren
 index: 5
+permaid: datenbanken-modellieren
 ---
 
 # Datenbanken modellieren

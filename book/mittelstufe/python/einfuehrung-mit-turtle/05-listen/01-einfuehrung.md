@@ -1,6 +1,7 @@
 ---
 title: Einführung in Listen
 index: 1
+permaid: turtle-listen-einfuehrung
 ---
 
 # Einführung in Listen

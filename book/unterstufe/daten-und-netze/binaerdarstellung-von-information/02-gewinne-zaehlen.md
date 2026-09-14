@@ -1,6 +1,7 @@
 ---
 name: Gewinne zählen
 index: 2
+permaid: daten-gewinne-zaehlen
 scripts:
   - /wc/coin-rows.js
   - /wc/rock-paper-scissors.js

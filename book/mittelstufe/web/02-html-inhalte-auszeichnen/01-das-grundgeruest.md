@@ -1,6 +1,7 @@
 ---
 title: Das Grundgerüst
 index: 1
+permaid: web-grundgeruest
 ---
 
 # Das Grundgerüst

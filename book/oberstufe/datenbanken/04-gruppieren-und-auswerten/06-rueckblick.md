@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 6
+permaid: datenbanken-gruppieren-rueckblick
 ---
 
 # Rückblick

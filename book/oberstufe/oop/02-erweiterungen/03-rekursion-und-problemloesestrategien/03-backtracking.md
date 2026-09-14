@@ -1,6 +1,7 @@
 ---
 title: Backtracking
 index: 3
+permaid: java-backtracking
 keywords:
   - java
   - qphase

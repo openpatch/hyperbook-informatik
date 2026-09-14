@@ -1,6 +1,7 @@
 ---
 name: Mehrere Tabellen
 index: 3
+permaid: datenbanken-joins
 ---
 
 # Mehrere Tabellen

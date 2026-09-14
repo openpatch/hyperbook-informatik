@@ -2,6 +2,7 @@
 name: Nachrichten durcheinander
 index: 1
 lang: de
+permaid: messenger-nachrichten-durcheinander
 ---
 
 # Nachrichten durcheinander

@@ -1,6 +1,7 @@
 ---
 title: Dritte Normalform
 index: 4
+permaid: datenbanken-dritte-normalform
 ---
 
 # Dritte Normalform

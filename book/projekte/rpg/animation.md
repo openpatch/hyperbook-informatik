@@ -1,6 +1,7 @@
 ---
 name: Animation
 index: 5
+permaid: rpg-animation
 ---
 
 # Animation

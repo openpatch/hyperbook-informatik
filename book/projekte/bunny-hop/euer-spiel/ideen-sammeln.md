@@ -2,6 +2,7 @@
 name: Ideen sammeln
 index: 1
 lang: de
+permaid: bunny-hop-ideen-sammeln
 ---
 
 # Ideen sammeln

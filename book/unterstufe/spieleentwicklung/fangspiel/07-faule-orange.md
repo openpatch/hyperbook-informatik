@@ -2,6 +2,7 @@
 name: Faule Orange
 index: 7
 lang: de
+permaid: scratch-faule-orange
 ---
 
 # Faule Orange

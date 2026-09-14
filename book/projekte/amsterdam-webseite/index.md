@@ -2,6 +2,7 @@
 name: Amsterdam Webseite
 index: 7
 lang: de
+permaid: amsterdam
 keywords:
     - web
     - level-0

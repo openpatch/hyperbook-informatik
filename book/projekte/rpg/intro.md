@@ -1,6 +1,7 @@
 ---
 name: Intro
 index: 1
+permaid: rpg-intro
 ---
 
 # Intro

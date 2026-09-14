@@ -1,6 +1,7 @@
 ---
 title: Eigene Sprites
 index: 5
+permaid: java-eigene-sprites
 ---
 
 # Eigene Sprites

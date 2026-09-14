@@ -2,6 +2,7 @@
 name: 🥉 Startbildschirm
 index: 1
 lang: de
+permaid: bunny-hop-startbildschirm
 ---
 
 # Epic: Startbildschirm

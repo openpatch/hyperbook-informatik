@@ -2,6 +2,7 @@
 name: Übungen
 index: 5
 lang: de
+permaid: java-liste-uebungen
 ---
 
 # Übungen

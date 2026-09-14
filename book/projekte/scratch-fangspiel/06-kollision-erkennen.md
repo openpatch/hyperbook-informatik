@@ -2,6 +2,7 @@
 name: Kollision erkennen
 index: 6
 lang: de
+permaid: fangspiel-kollision-erkennen
 ---
 
 # Kollision erkennen

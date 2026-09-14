@@ -1,6 +1,7 @@
 ---
 title: "Im Spiel: wer steht vorn?"
 index: 4
+permaid: java-sortierverfahren-im-spiel
 keywords:
   - java
   - qphase

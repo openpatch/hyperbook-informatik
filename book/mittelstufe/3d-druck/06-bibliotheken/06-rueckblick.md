@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 6
+permaid: 3d-druck-bibliotheken-rueckblick
 ---
 
 # Rückblick

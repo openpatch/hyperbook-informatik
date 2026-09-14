@@ -1,6 +1,7 @@
 ---
 name: Ein Bild mit Zahlen darstellen
 index: 6
+permaid: daten-bild-zahlen-darstellen
 scripts:
   - /wc/pixel-editor.js
 ---

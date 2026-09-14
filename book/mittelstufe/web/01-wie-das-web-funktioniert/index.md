@@ -1,6 +1,7 @@
 ---
 name: Wie das Web funktioniert
 index: 1
+permaid: web-grundlagen
 ---
 
 # Wie das Web funktioniert

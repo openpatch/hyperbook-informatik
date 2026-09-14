@@ -1,6 +1,7 @@
 ---
 title: Eindimensionale Felder
 index: 1
+permaid: java-eindimensionale-felder
 ---
 
 # Eindimensionale Felder

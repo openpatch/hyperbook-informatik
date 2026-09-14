@@ -2,6 +2,7 @@
 name: Virtuelle Kamera
 index: 7
 lang: de
+permaid: rpg-virtuelle-kamera
 ---
 
 # Virtuelle Kamera

@@ -2,6 +2,7 @@
 name: 🥈 Tag und Nacht
 index: 4
 lang: de
+permaid: bunny-hop-tag-nacht
 ---
 
 # Epic: Tag und Nacht

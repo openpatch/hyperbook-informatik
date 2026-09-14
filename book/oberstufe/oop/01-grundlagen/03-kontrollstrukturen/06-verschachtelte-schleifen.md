@@ -1,6 +1,7 @@
 ---
 title: Verschachtelte Schleifen
 index: 6
+permaid: java-verschachtelte-schleifen
 ---
 
 # Verschachtelte Schleifen

@@ -1,6 +1,7 @@
 ---
 title: Erste Normalform
 index: 2
+permaid: datenbanken-erste-normalform
 ---
 
 # Erste Normalform

@@ -1,6 +1,7 @@
 ---
 title: Entitätstypen und Attribute
 index: 1
+permaid: datenbanken-entitaetstypen-attribute
 ---
 
 # Entitätstypen und Attribute

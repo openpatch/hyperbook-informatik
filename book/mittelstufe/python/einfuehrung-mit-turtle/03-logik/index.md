@@ -1,6 +1,7 @@
 ---
 name: Logik
 index: 3
+permaid: turtle-logik
 ---
 
 # Logik

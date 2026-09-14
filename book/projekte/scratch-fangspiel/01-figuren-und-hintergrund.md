@@ -2,6 +2,7 @@
 name: Figuren und Hintergrund
 index: 1
 lang: de
+permaid: fangspiel-figuren-hintergrund
 ---
 
 # Figuren und Hintergrund

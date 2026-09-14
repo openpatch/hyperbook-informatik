@@ -1,7 +1,7 @@
 ---
 title: Übungen – 3D-Körper
 index: 3
-permaid: openscad-uebungen-3d-koerper
+permaid: 3d-druck-koerper-uebungen
 ---
 
 # Übungen – 3D-Körper

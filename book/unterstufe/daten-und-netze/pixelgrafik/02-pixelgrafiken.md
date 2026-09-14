@@ -1,6 +1,7 @@
 ---
 name: Pixelgrafiken
 index: 2
+permaid: daten-was-sind-pixel
 scripts:
   - /wc/pixel-magnifier.js
 ---

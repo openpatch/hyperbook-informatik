@@ -1,6 +1,7 @@
 ---
 title: Datentypen
 index: 2
+permaid: java-datentypen
 ---
 
 # Datentypen

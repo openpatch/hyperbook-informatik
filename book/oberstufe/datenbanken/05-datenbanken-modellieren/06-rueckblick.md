@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 6
+permaid: datenbanken-modellieren-rueckblick
 ---
 
 # Rückblick

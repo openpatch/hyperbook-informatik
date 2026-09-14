@@ -1,6 +1,7 @@
 ---
 title: Weitere Funktionen der Turtle
 index: 4
+permaid: turtle-weitere-funktionen-turtle
 ---
 
 # Weitere Funktionen der Turtle

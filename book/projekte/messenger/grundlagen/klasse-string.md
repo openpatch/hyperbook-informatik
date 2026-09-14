@@ -2,6 +2,7 @@
 name: Klasse String
 index: 1
 lang: de
+permaid: messenger-klasse-string
 ---
 
 # Die Klasse String

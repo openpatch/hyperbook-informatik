@@ -2,6 +2,7 @@
 name: Die Figur (Orange) zurücksetzen
 index: 4
 lang: de
+permaid: fangspiel-orange-reset
 ---
 
 # Die Figur (Orange) zurücksetzen

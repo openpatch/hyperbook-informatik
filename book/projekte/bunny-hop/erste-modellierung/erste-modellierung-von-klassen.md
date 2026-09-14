@@ -2,6 +2,7 @@
 name: 🖊 Erste Modellierung von Klassen
 index: 2
 lang: de
+permaid: bunny-hop-klassen-modellieren
 ---
 
 # Erste Modellierung Klassen

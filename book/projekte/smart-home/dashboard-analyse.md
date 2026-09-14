@@ -2,6 +2,7 @@
 name: Dashboardanalyse
 index: 1
 lang: de
+permaid: smart-home-dashboard-analyse
 ---
 
 # Dashboardanalyse

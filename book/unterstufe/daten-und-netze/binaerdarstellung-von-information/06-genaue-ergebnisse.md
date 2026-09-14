@@ -1,6 +1,7 @@
 ---
 name: Genaue Ergebnisse
 index: 6
+permaid: daten-genaue-ergebnisse
 scripts:
   - /wc/bit-rows.js
   - /wc/rock-paper-scissors.js

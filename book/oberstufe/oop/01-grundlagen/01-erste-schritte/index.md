@@ -2,6 +2,7 @@
 name: Erste Schritte
 index: 1
 lang: de
+permaid: java-start
 ---
 
 # Erste Schritte

@@ -1,6 +1,7 @@
 ---
 name: Glossar
 hide: true
+permaid: glossar
 ---
 
 # Glossar

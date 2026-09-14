@@ -1,6 +1,7 @@
 ---
 title: Boolesche Werte
 index: 2
+permaid: turtle-boolesche-werte
 ---
 
 # Boolesche Werte

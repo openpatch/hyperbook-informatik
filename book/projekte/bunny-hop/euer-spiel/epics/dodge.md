@@ -2,6 +2,7 @@
 name: 🥇 Ducken
 index: 6
 lang: de
+permaid: bunny-hop-dodge
 ---
 
 # Epic: Ducken

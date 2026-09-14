@@ -1,6 +1,7 @@
 ---
 title: Grundprinzipien des Datenschutzes
 index: 1
+permaid: datenbanken-grundprinzipien
 ---
 
 # Grundprinzipien des Datenschutzes

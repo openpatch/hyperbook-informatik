@@ -1,6 +1,7 @@
 ---
 title: Vorfahrtsregeln
 index: 3
+permaid: turtle-vorfahrtsregeln
 ---
 
 # Vorfahrtsregeln

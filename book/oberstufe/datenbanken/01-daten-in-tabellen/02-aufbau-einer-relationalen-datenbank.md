@@ -1,6 +1,7 @@
 ---
 title: Aufbau einer relationalen Datenbank
 index: 2
+permaid: datenbanken-aufbau
 ---
 
 # Aufbau einer relationalen Datenbank

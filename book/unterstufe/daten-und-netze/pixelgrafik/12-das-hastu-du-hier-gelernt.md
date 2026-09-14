@@ -1,6 +1,7 @@
 ---
 name: Das hast du hier gelernt
 index: 12
+permaid: daten-pixelgrafik-gelernt
 next:
 ---
 

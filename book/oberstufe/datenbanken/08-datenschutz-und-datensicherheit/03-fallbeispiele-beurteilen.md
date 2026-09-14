@@ -1,6 +1,7 @@
 ---
 title: Fallbeispiele beurteilen
 index: 3
+permaid: datenbanken-fallbeispiele-beurteilen
 ---
 
 # Fallbeispiele beurteilen

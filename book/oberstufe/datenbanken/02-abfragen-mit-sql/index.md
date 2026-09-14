@@ -1,6 +1,7 @@
 ---
 name: Abfragen mit SQL
 index: 2
+permaid: datenbanken-sql
 ---
 
 # Abfragen mit SQL

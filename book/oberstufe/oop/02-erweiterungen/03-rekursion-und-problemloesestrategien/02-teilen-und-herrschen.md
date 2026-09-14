@@ -1,6 +1,7 @@
 ---
 title: Teilen und Herrschen
 index: 2
+permaid: java-teilen-herrschen
 ---
 
 # Teilen und Herrschen

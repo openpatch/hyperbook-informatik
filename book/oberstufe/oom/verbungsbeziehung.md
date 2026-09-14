@@ -1,6 +1,7 @@
 ---
 name: Vererbungsbeziehung
 lang: de
+permaid: oom-vererbungsbeziehung
 ---
 
 # Vererbungsbeziehung

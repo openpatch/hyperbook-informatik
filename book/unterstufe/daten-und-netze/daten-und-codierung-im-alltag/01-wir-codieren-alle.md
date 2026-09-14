@@ -1,6 +1,7 @@
 ---
 name: Wir codieren alle!
 index: 1
+permaid: daten-wir-codieren-alle
 ---
 
 # Wir codieren alle!

@@ -2,6 +2,7 @@
 name: Wände
 index: 8
 lang: de
+permaid: rpg-waende
 ---
 
 # Wände

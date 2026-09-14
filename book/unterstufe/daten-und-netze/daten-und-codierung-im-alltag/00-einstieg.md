@@ -2,6 +2,7 @@
 name: Einstieg
 index: 0
 lang: de
+permaid: daten-alltag-einstieg
 prev:
 ---
 

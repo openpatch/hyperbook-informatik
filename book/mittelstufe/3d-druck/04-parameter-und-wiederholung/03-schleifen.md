@@ -1,7 +1,7 @@
 ---
 title: Schleifen
 index: 3
-permaid: openscad-schleifen
+permaid: 3d-druck-schleifen
 ---
 
 # Schleifen

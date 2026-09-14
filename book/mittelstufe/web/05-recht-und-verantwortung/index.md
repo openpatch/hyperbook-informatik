@@ -1,6 +1,7 @@
 ---
 name: Recht und Verantwortung
 index: 5
+permaid: web-recht
 ---
 
 # Recht und Verantwortung

@@ -1,6 +1,7 @@
 ---
 title: Bedingungen mit WHERE
 index: 2
+permaid: datenbanken-bedingungen-where
 ---
 
 # Bedingungen mit WHERE

@@ -1,7 +1,7 @@
 ---
 title: "BOSL2: Objekte positionieren mit Ankern"
 index: 3
-permaid: openscad-bosl2-positionierung
+permaid: 3d-druck-positionierung
 ---
 
 # BOSL2: Objekte positionieren mit Ankern

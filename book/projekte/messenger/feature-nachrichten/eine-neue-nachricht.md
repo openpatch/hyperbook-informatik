@@ -2,6 +2,7 @@
 name: Eine neue Nachricht
 index: 0
 lang: de
+permaid: messenger-neue-nachricht
 ---
 
 # Eine neue Nachricht

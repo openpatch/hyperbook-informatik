@@ -1,7 +1,7 @@
 ---
 title: Text
 index: 2
-permaid: openscad-text
+permaid: 3d-druck-text
 ---
 
 # Text

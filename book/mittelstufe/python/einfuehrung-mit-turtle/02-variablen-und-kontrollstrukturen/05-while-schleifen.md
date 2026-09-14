@@ -1,6 +1,7 @@
 ---
 title: Schleifen mit while
 index: 5
+permaid: turtle-while-schleifen
 ---
 
 # Schleifen mit `while`

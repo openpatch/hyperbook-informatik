@@ -1,6 +1,7 @@
 ---
 title: Logische Verknüpfungen
 index: 1
+permaid: turtle-logische-verknuepfungen
 ---
 
 # Logische Verknüpfungen

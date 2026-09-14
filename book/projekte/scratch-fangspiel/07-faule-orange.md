@@ -2,6 +2,7 @@
 name: Faule Orange
 index: 7
 lang: de
+permaid: fangspiel-faule-orange
 ---
 
 # Faule Orange

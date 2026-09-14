@@ -1,7 +1,7 @@
 ---
 title: Wie funktioniert das eigentlich?
 index: 6
-permaid: openscad-wie-funktioniert-das
+permaid: 3d-druck-wie-funktioniert
 ---
 
 # Wie funktioniert das eigentlich?

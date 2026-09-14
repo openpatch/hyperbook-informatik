@@ -2,6 +2,7 @@
 name: Die Figur (Orange) zurücksetzen
 index: 4
 lang: de
+permaid: scratch-orange-reset
 ---
 
 # Die Figur (Orange) zurücksetzen

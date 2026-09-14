@@ -2,6 +2,7 @@
 name: Komplett
 index: 1
 lang: de
+permaid: donut-io-komplett
 ---
 
 # Komplett

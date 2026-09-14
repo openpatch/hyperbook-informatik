@@ -1,6 +1,7 @@
 ---
 name: Einstieg
 index: 0
+permaid: daten-bits-einstieg
 prev: 
 ---
 

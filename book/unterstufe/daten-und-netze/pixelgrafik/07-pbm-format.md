@@ -1,5 +1,6 @@
 ---
 name: Das PBM-Format
+permaid: daten-pbm-format
 scripts:
   - /wc/pixel-editor.js
 index: 7

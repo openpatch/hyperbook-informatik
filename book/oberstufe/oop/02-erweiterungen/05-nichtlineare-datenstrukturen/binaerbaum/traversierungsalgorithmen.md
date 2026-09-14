@@ -2,6 +2,7 @@
 name: Traversierungsalgorithmen
 index: 4
 lang: de
+permaid: java-traversierungsalgorithmen
 ---
 
 # Traversierungsalgorithmen

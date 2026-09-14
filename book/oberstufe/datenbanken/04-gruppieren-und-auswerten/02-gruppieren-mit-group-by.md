@@ -1,6 +1,7 @@
 ---
 title: Gruppieren mit GROUP BY
 index: 2
+permaid: datenbanken-gruppieren-group-by
 ---
 
 # Gruppieren mit GROUP BY

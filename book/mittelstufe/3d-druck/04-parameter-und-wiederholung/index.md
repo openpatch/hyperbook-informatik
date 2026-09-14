@@ -2,6 +2,7 @@
 name: Parameter und Wiederholung
 index: 4
 lang: de
+permaid: 3d-druck-parameter-wiederholung
 ---
 
 # Parameter und Wiederholung

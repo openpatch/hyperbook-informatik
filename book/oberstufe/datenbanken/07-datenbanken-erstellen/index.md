@@ -1,6 +1,7 @@
 ---
 name: Datenbanken erstellen
 index: 7
+permaid: datenbanken-erstellen
 keywords:
   - datenbanken
   - sql

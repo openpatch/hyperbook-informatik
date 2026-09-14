@@ -2,6 +2,7 @@
 name: Wrap
 index: 12
 lang: de
+permaid: rpg-wrap
 ---
 
 # Wrap

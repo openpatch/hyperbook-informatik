@@ -1,6 +1,7 @@
 ---
 name: Daten in Tabellen
 index: 1
+permaid: datenbanken-tabellen
 ---
 
 # Daten in Tabellen

@@ -2,6 +2,7 @@
 name: Körper und Koordinaten
 index: 2
 lang: de
+permaid: 3d-druck-koerper
 ---
 
 # Körper und Koordinaten

@@ -2,6 +2,7 @@
 name: Figur (Orange) programmieren
 index: 2
 lang: de
+permaid: scratch-orange-bewegen
 ---
 
 # Figur (Orange) programmieren

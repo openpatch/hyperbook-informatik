@@ -1,7 +1,7 @@
 ---
 title: "BOSL2: Abgerundete Formen"
 index: 2
-permaid: openscad-bosl2-abgerundete-formen
+permaid: 3d-druck-abgerundete-formen
 ---
 
 # BOSL2: Abgerundete Formen

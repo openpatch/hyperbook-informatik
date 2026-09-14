@@ -2,6 +2,7 @@
 name: Dokumentation
 lang: de
 index: 2
+permaid: java-liste-dokumentation
 ---
 
 # Dokumentation der Abiturklasse List

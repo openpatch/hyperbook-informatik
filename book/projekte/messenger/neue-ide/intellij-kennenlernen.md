@@ -1,6 +1,7 @@
 ---
 name: Intellij kennenlernen
 lang: de
+permaid: messenger-intellij-kennenlernen
 ---
 
 Ab jetzt möchten wir IntelliJ benutzen, um unseren Messenger zu entwickeln. Dazu wurde der Messenger um eine TUI erweitert: eine Textoberfläche, über die sich alle Funktionen aufrufen lassen, ohne dass wir die Objekte von Hand im Quelltext erzeugen müssen.

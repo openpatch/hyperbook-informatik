@@ -2,6 +2,7 @@
 name: Implementierung
 index: 3
 lang: de
+permaid: java-warteschlange-implementierung
 ---
 
 # Implementierung

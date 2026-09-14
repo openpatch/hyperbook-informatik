@@ -2,6 +2,7 @@
 name: Statuseffekte
 index: 11
 lang: de
+permaid: rpg-statuseffekte
 ---
 
 # Statuseffekte

@@ -1,6 +1,7 @@
 ---
 name: Bilder vergrößern
 index: 1
+permaid: daten-bilder-vergroessern
 scripts:
   - /wc/pixel-magnifier.js
 ---

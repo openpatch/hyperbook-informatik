@@ -2,6 +2,7 @@
 name: Ereignisse erweitern
 index: 4
 lang: de
+permaid: smart-home-ereignisse-erweitern
 ---
 
 # Ereignisse erweitern

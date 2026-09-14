@@ -1,6 +1,7 @@
 ---
 name: Villa Kunterbund
 index: 10
+permaid: daten-villa-kunterbund
 scripts:
   - /wc/pixel-editor.js
   - /wc/card-matching.js

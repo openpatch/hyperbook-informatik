@@ -1,6 +1,7 @@
 ---
 title: Grundrechenarten
 index: 2
+permaid: turtle-grundrechenarten
 ---
 
 # Grundrechenarten

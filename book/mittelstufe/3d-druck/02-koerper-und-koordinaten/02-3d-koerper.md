@@ -1,7 +1,7 @@
 ---
 title: 3D-Körper – Vertiefung
 index: 2
-permaid: openscad-3d-koerper-vertiefung
+permaid: 3d-druck-3d-koerper
 ---
 
 # 3D-Körper – Vertiefung

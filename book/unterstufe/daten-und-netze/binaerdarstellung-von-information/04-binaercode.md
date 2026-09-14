@@ -1,6 +1,7 @@
 ---
 name: Binärcode
 index: 4
+permaid: daten-binaercode
 scripts:
   - /wc/bit-rows.js
 ---

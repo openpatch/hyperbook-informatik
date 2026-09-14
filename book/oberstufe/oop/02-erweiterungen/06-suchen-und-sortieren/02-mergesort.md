@@ -1,6 +1,7 @@
 ---
 title: Mergesort
 index: 2
+permaid: java-mergesort
 ---
 
 # Mergesort

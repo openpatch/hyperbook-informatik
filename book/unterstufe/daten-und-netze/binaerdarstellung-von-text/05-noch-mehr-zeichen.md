@@ -1,6 +1,7 @@
 ---
 name: Noch mehr Zeichen
 index: 5
+permaid: daten-noch-mehr-zeichen
 scripts:
   - /wc/binary-to-ascii.js
 ---

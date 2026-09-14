@@ -2,6 +2,7 @@
 name: Bunny Hop
 index: 6
 lang: de
+permaid: bunny-hop
 keywords: 
     - scratch4j
     - java

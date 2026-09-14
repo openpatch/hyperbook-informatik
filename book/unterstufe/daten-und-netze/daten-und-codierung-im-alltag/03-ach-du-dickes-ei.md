@@ -1,6 +1,7 @@
 ---
 name: Ach du dickes Ei
 index: 3
+permaid: daten-ach-du-dickes-ei
 ---
 
 # Ach du dickes Ei!

@@ -2,6 +2,7 @@
 name: Lineare Datenstrukturen
 index: 4
 lang: de
+permaid: java-datenstrukturen
 ---
 
 # Lineare Datenstrukturen

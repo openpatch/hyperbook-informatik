@@ -2,6 +2,7 @@
 name: Kontrollstrukturen
 index: 3
 lang: de
+permaid: java-kontrollstrukturen
 ---
 
 # Kontrollstrukturen

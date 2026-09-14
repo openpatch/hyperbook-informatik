@@ -1,6 +1,7 @@
 ---
 title: Felder verändern
 index: 3
+permaid: java-felder-veraendern
 ---
 
 # Felder verändern

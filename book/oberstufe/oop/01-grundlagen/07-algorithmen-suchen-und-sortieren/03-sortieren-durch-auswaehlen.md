@@ -1,6 +1,7 @@
 ---
 title: Sortieren durch Auswählen
 index: 3
+permaid: java-sortieren-durch-auswaehlen
 ---
 
 # Sortieren durch Auswählen

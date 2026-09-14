@@ -2,6 +2,7 @@
 name: 🥈 Lücken im Boden
 index: 3
 lang: de
+permaid: bunny-hop-luecken
 ---
 
 # Epic: Lücken im Boden

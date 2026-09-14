@@ -2,6 +2,7 @@
 name: Scrum
 index: 2
 lang: de
+permaid: bunny-hop-scrum
 ---
 
 # Scrum

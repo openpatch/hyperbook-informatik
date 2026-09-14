@@ -1,7 +1,7 @@
 ---
 name: Datenbanken
 lang: de
-permaid: datenbanken-oberstufe
+permaid: datenbanken
 keywords:
   - datenbanken
   - sql

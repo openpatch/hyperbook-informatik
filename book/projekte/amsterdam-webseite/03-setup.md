@@ -2,6 +2,7 @@
 name: Setup
 lang: de
 index: 3
+permaid: amsterdam-setup
 ---
 
 # Setup

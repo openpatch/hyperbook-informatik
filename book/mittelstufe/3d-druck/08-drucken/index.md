@@ -2,6 +2,7 @@
 name: Drucken
 index: 8
 lang: de
+permaid: 3d-druck-drucken
 ---
 
 # Drucken

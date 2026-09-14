@@ -2,6 +2,7 @@
 name: Punkte
 index: 8
 lang: de
+permaid: scratch-punkte
 ---
 
 # Punkte

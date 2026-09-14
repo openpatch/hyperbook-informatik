@@ -2,6 +2,7 @@
 name: Aufbau und Funktionsweise
 index: 0
 lang: de
+permaid: java-avl-aufbau
 ---
 
 

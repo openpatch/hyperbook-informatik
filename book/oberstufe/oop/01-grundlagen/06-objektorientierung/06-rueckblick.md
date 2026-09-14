@@ -1,6 +1,7 @@
 ---
 title: Rückblick
 index: 6
+permaid: java-objekte-rueckblick
 ---
 
 # Rückblick

@@ -1,6 +1,7 @@
 ---
 title: Challenge – Muster aus Wiederholung
 index: 9
+permaid: turtle-challenges-muster
 ---
 
 # Challenge: Muster aus Wiederholung

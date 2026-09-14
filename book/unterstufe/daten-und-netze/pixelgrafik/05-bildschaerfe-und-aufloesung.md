@@ -1,6 +1,7 @@
 ---
 name: Bildschärfe und Auflösung
 index: 5
+permaid: daten-bildschaerfe-aufloesung
 scripts:
   - /wc/category-drag.js
 ---

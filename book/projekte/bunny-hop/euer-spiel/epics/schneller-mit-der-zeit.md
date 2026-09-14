@@ -2,6 +2,7 @@
 name: 🥉 Schwieriger mit der Zeit
 index: 5
 lang: de
+permaid: bunny-hop-schneller-zeit
 ---
 
 # Epic: Schwieriger mit der Zeit

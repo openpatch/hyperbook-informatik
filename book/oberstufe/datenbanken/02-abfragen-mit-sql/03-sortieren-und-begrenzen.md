@@ -1,6 +1,7 @@
 ---
 title: Sortieren und begrenzen
 index: 3
+permaid: datenbanken-sortieren-begrenzen
 ---
 
 # Sortieren und begrenzen

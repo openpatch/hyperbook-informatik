@@ -1,6 +1,7 @@
 ---
 name: Einstieg
 index: 0
+permaid: scratch-einstieg
 prev: 
 ---
 

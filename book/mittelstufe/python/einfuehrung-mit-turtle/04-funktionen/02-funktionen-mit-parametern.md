@@ -1,6 +1,7 @@
 ---
 title: Funktionen mit Parametern
 index: 2
+permaid: turtle-funktionen-parametern
 ---
 
 # Funktionen mit Parametern

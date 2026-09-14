@@ -2,6 +2,7 @@
 name: Projekte
 index: 8
 lang: de
+permaid: java-projekte
 ---
 
 # Projekte

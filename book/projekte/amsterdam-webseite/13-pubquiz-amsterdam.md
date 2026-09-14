@@ -2,6 +2,7 @@
 name: Pubquiz Amsterdam
 lang: de
 index: 13
+permaid: amsterdam-pubquiz-amsterdam
 ---
 
 # Pubquiz Amsterdam

@@ -1,6 +1,7 @@
 ---
 name: ASCII
 index: 4
+permaid: daten-ascii
 scripts:
   - /wc/binary-to-ascii.js
 ---

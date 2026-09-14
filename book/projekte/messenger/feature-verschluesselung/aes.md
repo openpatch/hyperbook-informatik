@@ -3,6 +3,7 @@ name: AES
 index: 4
 lang: de
 hide: true
+permaid: messenger-aes
 ---
 
 # AES-Verschlüsselung

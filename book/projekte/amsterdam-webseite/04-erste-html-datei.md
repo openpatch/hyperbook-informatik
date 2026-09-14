@@ -2,6 +2,7 @@
 name: Erste HTML-Datei
 lang: de
 index: 4
+permaid: amsterdam-erste-html-datei
 ---
 
 # Die erste HTML-Datei

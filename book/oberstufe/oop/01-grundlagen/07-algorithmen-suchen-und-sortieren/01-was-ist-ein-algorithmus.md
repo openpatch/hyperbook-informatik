@@ -1,6 +1,7 @@
 ---
 title: Was ist ein Algorithmus?
 index: 1
+permaid: java-was-ist-algorithmus
 ---
 
 # Was ist ein Algorithmus?

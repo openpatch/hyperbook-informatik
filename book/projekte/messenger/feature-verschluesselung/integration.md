@@ -2,6 +2,7 @@
 name: Integration in den Messenger
 index: 6
 lang: de
+permaid: messenger-integration
 ---
 
 # Integration in den Messenger

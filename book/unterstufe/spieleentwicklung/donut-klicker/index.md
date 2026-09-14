@@ -1,5 +1,6 @@
 ---
 title: "Spieletest: Donut-Klicker"
+permaid: scratch-donut-klicker
 navigation: page
 index: 2
 ---

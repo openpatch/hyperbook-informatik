@@ -2,6 +2,7 @@
 name: Eine Karte von Amsterdam
 lang: de
 index: 10
+permaid: amsterdam-karte-amsterdam
 ---
 
 # Eine Karte von Amsterdam

@@ -1,6 +1,7 @@
 ---
 title: Struktogramme
 index: 7
+permaid: java-struktogramme
 ---
 
 # Struktogramme

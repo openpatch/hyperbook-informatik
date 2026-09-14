@@ -1,6 +1,7 @@
 ---
 title: Quicksort
 index: 1
+permaid: java-quicksort
 ---
 
 # Quicksort

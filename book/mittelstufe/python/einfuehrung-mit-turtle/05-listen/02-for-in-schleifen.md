@@ -1,6 +1,7 @@
 ---
 title: for-in-Schleifen
 index: 2
+permaid: turtle-for-schleifen
 ---
 
 # `for-in`-Schleifen

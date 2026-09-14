@@ -2,6 +2,7 @@
 name: Einführung
 index: 0
 lang: de
+permaid: messenger-einfuehrung
 ---
 
 # Projekt: Messenger

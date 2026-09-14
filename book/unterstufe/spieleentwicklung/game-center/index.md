@@ -1,7 +1,7 @@
 ---
 title: Game Center
 navigation: page
-permaid: game-center
+permaid: scratch-game-center
 index: 6
 ---
 

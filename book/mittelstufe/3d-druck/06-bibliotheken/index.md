@@ -2,6 +2,7 @@
 name: Bibliotheken
 index: 6
 lang: de
+permaid: 3d-druck-bibliotheken
 ---
 
 # Bibliotheken

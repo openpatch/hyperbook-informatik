@@ -2,6 +2,7 @@
 name: Setup
 index: 2
 lang: de
+permaid: rpg-setup
 ---
 
 # Setup

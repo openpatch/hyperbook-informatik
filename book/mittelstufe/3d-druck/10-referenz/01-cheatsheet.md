@@ -1,7 +1,7 @@
 ---
 title: OpenSCAD Cheat Sheet
 index: 1
-permaid: openscad-cheatsheet
+permaid: 3d-druck-referenz-cheatsheet
 ---
 
 # 📋 OpenSCAD Cheat Sheet

@@ -1,6 +1,7 @@
 ---
 title: Systematisch testen
 index: 1
+permaid: java-systematisch-testen
 ---
 
 # Systematisch testen

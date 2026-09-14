@@ -2,6 +2,7 @@
 name: 📃 Die Spielidee
 index: 1
 lang: de
+permaid: bunny-hop-spielidee
 ---
 
 # Die Spielidee

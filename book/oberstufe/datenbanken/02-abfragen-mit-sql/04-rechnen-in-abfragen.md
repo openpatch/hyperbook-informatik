@@ -1,6 +1,7 @@
 ---
 title: Rechnen in Abfragen
 index: 4
+permaid: datenbanken-rechnen-abfragen
 ---
 
 # Rechnen in Abfragen

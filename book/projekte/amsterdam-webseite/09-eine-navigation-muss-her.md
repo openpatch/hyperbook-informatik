@@ -2,6 +2,7 @@
 name: Eine Navigation muss her
 lang: de
 index: 9
+permaid: amsterdam-navigation-muss-her
 ---
 
 # Eine Navigation muss her

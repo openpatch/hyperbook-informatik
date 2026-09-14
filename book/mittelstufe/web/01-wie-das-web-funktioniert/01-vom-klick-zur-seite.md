@@ -1,6 +1,7 @@
 ---
 title: Vom Klick zur Seite
 index: 1
+permaid: web-klick-seite
 ---
 
 # Vom Klick zur Seite

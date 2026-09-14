@@ -1,6 +1,7 @@
 ---
 title: Funktionen mit Rückgabewert
 index: 3
+permaid: turtle-funktionen-rueckgabewert
 ---
 
 # Funktionen mit Rückgabewert

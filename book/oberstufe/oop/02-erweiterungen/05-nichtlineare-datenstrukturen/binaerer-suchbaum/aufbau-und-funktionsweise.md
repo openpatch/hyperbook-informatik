@@ -3,6 +3,7 @@ name: Aufbau und Funktionsweise
 index: 0
 lang: de
 hide: false
+permaid: java-suchbaum-aufbau
 ---
 
 # Aufbau und Funktionsweise

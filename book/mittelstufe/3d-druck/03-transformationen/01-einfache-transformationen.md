@@ -1,7 +1,7 @@
 ---
 title: Einfache Transformationen
 index: 1
-permaid: openscad-einfache-transformationen
+permaid: 3d-druck-einfache-transformationen
 ---
 
 # Einfache Transformationen

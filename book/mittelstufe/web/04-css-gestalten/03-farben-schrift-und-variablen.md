@@ -1,6 +1,7 @@
 ---
 title: Farben, Schrift und eigene Werte
 index: 3
+permaid: web-farben-schrift-variablen
 ---
 
 # Farben, Schrift und eigene Werte

@@ -1,6 +1,7 @@
 ---
 title: Logische Ausdrücke
 index: 2
+permaid: java-logische-ausdruecke
 ---
 
 # Logische Ausdrücke

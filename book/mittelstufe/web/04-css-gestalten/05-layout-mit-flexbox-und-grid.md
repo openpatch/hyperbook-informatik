@@ -1,6 +1,7 @@
 ---
 title: Layout mit Flexbox und Grid
 index: 5
+permaid: web-layout-flexbox-grid
 ---
 
 # Layout mit Flexbox und Grid

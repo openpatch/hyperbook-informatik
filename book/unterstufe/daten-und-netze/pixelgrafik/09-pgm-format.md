@@ -1,6 +1,7 @@
 ---
 name: Das PGM-Format
 index: 9
+permaid: daten-pgm-format
 scripts:
   - /wc/pixel-editor.js
 ---

@@ -1,6 +1,7 @@
 ---
 title: Die erste Grafik
 index: 3
+permaid: java-erste-grafik
 ---
 
 # Die erste Grafik

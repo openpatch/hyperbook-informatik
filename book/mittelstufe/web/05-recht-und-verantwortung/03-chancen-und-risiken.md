@@ -1,6 +1,7 @@
 ---
 title: Chancen und Risiken
 index: 3
+permaid: web-chancen-risiken
 ---
 
 # Chancen und Risiken

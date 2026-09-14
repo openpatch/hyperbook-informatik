@@ -15,7 +15,9 @@ Geprueft wird:
 2. **onlineide-Bloecke.** Jeder Code-Fence braucht einen Dateinamen, der
    Klassenname muss zum Dateinamen passen, `package`/`import` gibt es nicht,
    Scratch-Klassen brauchen libraries="scratch", NRW-Klassen libraries="nrw".
-   Die veralteten Attribute url= und id= sind nicht mehr erlaubt.
+   Das veraltete Attribut url= ist nicht mehr erlaubt. id= dagegen schon:
+   hyperbook verlangt es, wenn zwei gleiche Bloecke auf einer Seite stehen,
+   damit gespeicherte Eingaben nicht zwischen ihnen wandern.
    libraries= darf mehrere Bibliotheken kommasepariert laden, etwa
    libraries="nrw,scratch" - geprueft wird die Liste, nicht die Zeichenkette.
 3. **Java-Konstrukte, die die Online-IDE nicht kennt** (Scanner, Arrays.sort,
@@ -123,7 +125,7 @@ def check_onlineide(path: pathlib.Path, text: str) -> None:
         body = match.group(2)
         offset = line_of(text, match.start())
 
-        for veraltet in ("url=", "id="):
+        for veraltet in ("url=",):
             if veraltet in attrs:
                 problems.append(
                     f"{path}:{offset}: onlineide-Attribut {veraltet} ist "

@@ -2,6 +2,7 @@
 name: Die Geräusche der Stadt
 lang: de
 index: 11
+permaid: amsterdam-geraeusche-stadt
 ---
 
 # Die Geräusche der Stadt

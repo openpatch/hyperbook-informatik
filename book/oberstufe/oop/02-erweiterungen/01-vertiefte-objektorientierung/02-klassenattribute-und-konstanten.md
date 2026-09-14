@@ -1,6 +1,7 @@
 ---
 title: Klassenattribute und Konstanten
 index: 2
+permaid: java-klassenattribute-konstanten
 ---
 
 # Klassenattribute und Konstanten

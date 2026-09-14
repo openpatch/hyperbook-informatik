@@ -1,6 +1,7 @@
 ---
 title: Felder durchlaufen
 index: 2
+permaid: java-felder-durchlaufen
 ---
 
 # Felder durchlaufen

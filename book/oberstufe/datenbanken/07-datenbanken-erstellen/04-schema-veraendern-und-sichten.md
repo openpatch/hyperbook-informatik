@@ -1,6 +1,7 @@
 ---
 title: Schema verändern und Sichten
 index: 4
+permaid: datenbanken-schema-veraendern-sichten
 ---
 
 # Schema verändern und Sichten

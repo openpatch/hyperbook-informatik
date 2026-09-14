@@ -2,6 +2,7 @@
 name: Geschwindigkeit verändern
 index: 3
 lang: de
+permaid: autorennen-geschwindigkeit-veraendern
 ---
 
 # Geschwindigkeit verändern

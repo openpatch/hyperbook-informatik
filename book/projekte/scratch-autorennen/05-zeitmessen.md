@@ -2,6 +2,7 @@
 name: Zeitmessen
 index: 5
 lang: de
+permaid: autorennen-zeitmessen
 ---
 
 # Zeitmessen

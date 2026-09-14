@@ -1,6 +1,7 @@
 ---
 title: Zeichenketten
 index: 4
+permaid: java-zeichenketten
 ---
 
 # Zeichenketten

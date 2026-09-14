@@ -1,6 +1,7 @@
 ---
 title: Selektoren und Kaskade
 index: 2
+permaid: web-selektoren-kaskade
 ---
 
 # Selektoren und Kaskade

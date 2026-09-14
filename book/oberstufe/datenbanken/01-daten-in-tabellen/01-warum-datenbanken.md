@@ -1,6 +1,7 @@
 ---
 title: Warum Datenbanken?
 index: 1
+permaid: datenbanken-warum-datenbanken
 ---
 
 # Warum Datenbanken?

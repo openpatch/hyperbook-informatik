@@ -1,6 +1,7 @@
 ---
 name: Die AHs
 index: 2
+permaid: daten-text-ahs
 next: ./02a-die-ahs
 ---
 

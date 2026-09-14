@@ -1,6 +1,7 @@
 ---
 title: Links und Bilder
 index: 4
+permaid: web-links-bilder
 ---
 
 # Links und Bilder

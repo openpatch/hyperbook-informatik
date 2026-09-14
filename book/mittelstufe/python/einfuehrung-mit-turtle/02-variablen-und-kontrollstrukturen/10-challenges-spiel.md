@@ -1,6 +1,7 @@
 ---
 title: Challenge – Spiele aus Wiederholung
 index: 10
+permaid: turtle-challenges-spiel
 navigation: hidden
 ---
 

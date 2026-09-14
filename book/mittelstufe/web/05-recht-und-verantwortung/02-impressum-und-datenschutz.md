@@ -1,6 +1,7 @@
 ---
 title: Impressum und Datenschutz
 index: 2
+permaid: web-impressum-datenschutz
 ---
 
 # Impressum und Datenschutz

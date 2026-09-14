@@ -1,6 +1,7 @@
 ---
 title: Assoziation
 index: 3
+permaid: java-assoziation
 ---
 
 # Assoziation

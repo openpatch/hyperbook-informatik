@@ -1,6 +1,7 @@
 ---
 title: Fehler finden und beurteilen
 index: 2
+permaid: web-fehler-finden-beurteilen
 ---
 
 # Fehler finden und beurteilen

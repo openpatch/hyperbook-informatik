@@ -2,6 +2,7 @@
 name: 📃 Zustandsdiagramme zur Modellierung von Spielobjekten
 index: 5
 lang: de
+permaid: bunny-hop-zustandsdiagramme
 ---
 
 # Zustandsdiagramme zur Modellierung von Spielobjekten

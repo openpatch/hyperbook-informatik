@@ -1,6 +1,7 @@
 ---
 title: Die Festivaldatenbank
 index: 3
+permaid: datenbanken-festivaldatenbank
 ---
 
 # Die Festivaldatenbank

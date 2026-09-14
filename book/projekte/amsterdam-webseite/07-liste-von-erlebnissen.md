@@ -2,6 +2,7 @@
 name: Liste von Erlebnissen
 lang: de
 index: 7
+permaid: amsterdam-liste-erlebnissen
 ---
 
 # Liste von Erlebnissen

@@ -2,6 +2,7 @@
 name: Variablen und Datentypen
 index: 2
 lang: de
+permaid: java-grundlagen-variablen
 ---
 
 # Variablen und Datentypen

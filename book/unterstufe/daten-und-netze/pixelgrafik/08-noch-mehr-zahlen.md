@@ -1,6 +1,7 @@
 ---
 name: Noch mehr Zahlen...
 index: 8
+permaid: daten-noch-mehr-zahlen
 scripts:
   - /wc/pixel-editor.js
 ---

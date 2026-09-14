@@ -2,6 +2,7 @@
 name: Vertiefte Objektorientierung
 index: 1
 lang: de
+permaid: java-vertiefung
 ---
 
 # Vertiefte Objektorientierung

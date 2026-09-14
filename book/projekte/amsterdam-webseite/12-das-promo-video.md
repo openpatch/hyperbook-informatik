@@ -2,6 +2,7 @@
 name: Das Promo-Video
 lang: de
 index: 12
+permaid: amsterdam-promo-video
 ---
 
 # Das Promo-Video

@@ -1,5 +1,6 @@
 ---
 title: "Spieletest: Labyrinth"
+permaid: scratch-labyrinth
 navigation: page
 index: 3
 ---

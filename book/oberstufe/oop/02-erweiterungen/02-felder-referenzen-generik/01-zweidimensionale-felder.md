@@ -1,6 +1,7 @@
 ---
 title: Zweidimensionale Felder
 index: 1
+permaid: java-zweidimensionale-felder
 ---
 
 # Zweidimensionale Felder

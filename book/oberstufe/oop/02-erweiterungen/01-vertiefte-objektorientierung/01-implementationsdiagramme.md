@@ -1,6 +1,7 @@
 ---
 title: Implementationsdiagramme
 index: 1
+permaid: java-implementationsdiagramme
 ---
 
 # Implementationsdiagramme

@@ -1,6 +1,7 @@
 ---
 title: Geheimnisprinzip
 index: 2
+permaid: java-geheimnisprinzip
 ---
 
 # Geheimnisprinzip

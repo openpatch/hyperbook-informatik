@@ -1,6 +1,7 @@
 ---
 title: Sortieren durch Einfügen
 index: 5
+permaid: java-sortieren-durch-einfuegen
 ---
 
 # Sortieren durch Einfügen

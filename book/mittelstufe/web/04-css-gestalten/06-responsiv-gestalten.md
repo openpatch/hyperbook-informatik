@@ -1,6 +1,7 @@
 ---
 title: Für jeden Bildschirm gestalten
 index: 6
+permaid: web-responsiv-gestalten
 ---
 
 # Für jeden Bildschirm gestalten

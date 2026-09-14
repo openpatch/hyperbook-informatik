@@ -2,6 +2,7 @@
 name: Stapelbenachrichtigung
 index: 1
 lang: de
+permaid: messenger-stapel-benachrichtigung
 ---
 
 # Stapelbenachrichtigung

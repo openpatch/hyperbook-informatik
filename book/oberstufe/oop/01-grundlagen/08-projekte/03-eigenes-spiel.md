@@ -1,6 +1,7 @@
 ---
 title: Eigenes Spiel
 index: 3
+permaid: java-eigenes-spiel
 ---
 
 # Eigenes Spiel

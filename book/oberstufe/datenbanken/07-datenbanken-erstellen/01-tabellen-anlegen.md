@@ -1,6 +1,7 @@
 ---
 title: Tabellen anlegen
 index: 1
+permaid: datenbanken-tabellen-anlegen
 ---
 
 # Tabellen anlegen

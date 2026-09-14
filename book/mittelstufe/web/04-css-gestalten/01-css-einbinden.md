@@ -1,6 +1,7 @@
 ---
 title: CSS einbinden
 index: 1
+permaid: web-css-einbinden
 ---
 
 # CSS einbinden

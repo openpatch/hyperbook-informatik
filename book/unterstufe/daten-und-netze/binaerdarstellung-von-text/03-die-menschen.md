@@ -1,6 +1,7 @@
 ---
 name: Die Menschen
 index: 3
+permaid: daten-menschen
 scripts:
   - /wc/bit-rows.js
 prev: ./02-die-ahs

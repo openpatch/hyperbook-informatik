@@ -1,6 +1,7 @@
 ---
 title: Challenge – Bilder aus Bedingungen
 index: 5
+permaid: turtle-challenges-bedingungen
 ---
 
 # Challenge: Bilder aus Bedingungen
