@@ -1,0 +1,482 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": true
+  },
+  "klasses": {
+    "BinaryTree": {
+      "attributes": {
+        "content": "Contact",
+        "left": "BinaryTree",
+        "right": "BinaryTree"
+      }
+    },
+    "Contact": {
+      "attributes": {
+        "username": "String",
+        "phone": "String",
+        "profilePicPath": "String"
+      }
+    }
+  },
+  "objects": {
+    "@t1": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c1"
+        },
+        "left": {
+          "dataType": "BinaryTree",
+          "value": "@t2"
+        },
+        "right": {
+          "dataType": "BinaryTree",
+          "value": "@t3"
+        }
+      },
+      "position": {
+        "x": -205,
+        "y": -54
+      }
+    },
+    "@c1": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s1"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": -6,
+        "y": -61
+      }
+    },
+    "@t3": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c3"
+        },
+        "left": {
+          "dataType": "BinaryTree",
+          "value": "@t6"
+        },
+        "right": {
+          "dataType": "BinaryTree",
+          "value": "@t7"
+        }
+      },
+      "position": {
+        "x": -33,
+        "y": 290
+      }
+    },
+    "@t2": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c2"
+        },
+        "left": {
+          "dataType": "BinaryTree",
+          "value": "@t4"
+        },
+        "right": {
+          "dataType": "BinaryTree",
+          "value": "@t5"
+        }
+      },
+      "position": {
+        "x": -22,
+        "y": -382
+      }
+    },
+    "@c2": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s2"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 140,
+        "y": -387
+      }
+    },
+    "@c3": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s3"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 144,
+        "y": 290
+      }
+    },
+    "@t6": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c6"
+        },
+        "left": {
+          "dataType": "BinaryTree"
+        },
+        "right": {
+          "dataType": "BinaryTree"
+        }
+      },
+      "position": {
+        "x": 456,
+        "y": 94
+      }
+    },
+    "@t7": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c7"
+        },
+        "left": {
+          "dataType": "BinaryTree"
+        },
+        "right": {
+          "dataType": "BinaryTree"
+        }
+      },
+      "position": {
+        "x": 460,
+        "y": 486
+      }
+    },
+    "@t4": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c4"
+        },
+        "left": {
+          "dataType": "BinaryTree",
+          "value": "@t8"
+        },
+        "right": {
+          "dataType": "BinaryTree",
+          "value": "@t9"
+        }
+      },
+      "position": {
+        "x": 449,
+        "y": -603
+      }
+    },
+    "@t5": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c5"
+        },
+        "left": {
+          "dataType": "BinaryTree"
+        },
+        "right": {
+          "dataType": "BinaryTree"
+        }
+      },
+      "position": {
+        "x": 444,
+        "y": -177
+      }
+    },
+    "@c4": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s4"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 617,
+        "y": -611
+      }
+    },
+    "@c5": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s5"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 615,
+        "y": -186
+      }
+    },
+    "@c6": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s6"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 617,
+        "y": 87
+      }
+    },
+    "@c7": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s7"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 636,
+        "y": 470
+      }
+    },
+    "@t8": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c8"
+        },
+        "left": {
+          "dataType": "BinaryTree"
+        },
+        "right": {
+          "dataType": "BinaryTree"
+        }
+      },
+      "position": {
+        "x": 736,
+        "y": -820
+      }
+    },
+    "@t9": {
+      "klass": "BinaryTree",
+      "attributes": {
+        "content": {
+          "dataType": "Contact",
+          "value": "@c9"
+        },
+        "left": {
+          "dataType": "BinaryTree"
+        },
+        "right": {
+          "dataType": "BinaryTree"
+        }
+      },
+      "position": {
+        "x": 774,
+        "y": -386
+      }
+    },
+    "@c9": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s8"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 941,
+        "y": -379
+      }
+    },
+    "@c8": {
+      "klass": "Contact",
+      "attributes": {
+        "username": {
+          "dataType": "String",
+          "value": "@s9"
+        },
+        "phone": {
+          "dataType": "String"
+        },
+        "profilePicPath": {
+          "dataType": "String"
+        }
+      },
+      "position": {
+        "x": 923,
+        "y": -833
+      }
+    },
+    "@s1": {
+      "klass": "String",
+      "literal": "a",
+      "attributes": {},
+      "position": {
+        "x": 274,
+        "y": -61
+      }
+    },
+    "@s2": {
+      "klass": "String",
+      "literal": "b",
+      "attributes": {},
+      "position": {
+        "x": 420,
+        "y": -317
+      }
+    },
+    "@s3": {
+      "klass": "String",
+      "literal": "c",
+      "attributes": {},
+      "position": {
+        "x": 424,
+        "y": 430
+      }
+    },
+    "@s4": {
+      "klass": "String",
+      "literal": "h",
+      "attributes": {},
+      "position": {
+        "x": 897,
+        "y": -401
+      }
+    },
+    "@s5": {
+      "klass": "String",
+      "literal": "f",
+      "attributes": {},
+      "position": {
+        "x": 895,
+        "y": 94
+      }
+    },
+    "@s6": {
+      "klass": "String",
+      "literal": "e",
+      "attributes": {},
+      "position": {
+        "x": 897,
+        "y": 437
+      }
+    },
+    "@s7": {
+      "klass": "String",
+      "literal": "d",
+      "attributes": {},
+      "position": {
+        "x": 916,
+        "y": 890
+      }
+    },
+    "@s8": {
+      "klass": "String",
+      "literal": "k",
+      "attributes": {},
+      "position": {
+        "x": 1221,
+        "y": 111
+      }
+    },
+    "@s9": {
+      "klass": "String",
+      "literal": "i",
+      "attributes": {},
+      "position": {
+        "x": 1203,
+        "y": -273
+      }
+    }
+  },
+  "variables": {},
+  "methodCalls": {
+    "@f1": {
+      "name": "BinaryTree.inorder",
+      "index": 0,
+      "localVariables": {
+        "this": {
+          "dataType": "BinaryTree",
+          "value": "@t1"
+        }
+      },
+      "position": {
+        "x": -427,
+        "y": -52
+      }
+    }
+  }
+}

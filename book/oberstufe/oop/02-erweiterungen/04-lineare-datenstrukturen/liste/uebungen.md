@@ -19,7 +19,8 @@ Beantworte die folgenden Verständnisfragen (ohne Programmierung).
 
 ## Aufgabe 2
 
-Das folgende Beispielprogramm erzeugt eine Liste und fügt einige Elemente ein. Zeichne je ein Objektdiagramm der Situation 1., 2. und 3. Nutze dazu diese [Vorlage](https://jmp.openpatch.org/#pako:eNptUDsOwjAMvUtmBlg5A4Kha5ekuBBI48pxSwvK3XGSVkioQ2T7-X0iq0-tAmuGWh2l7aBDmkuPPVv0oQx3e4VKntEkQKtdgLir1Wjh1SNxIU1S9oLOS30jdtIeEvPpdAiwuJ1sWCSamawZeN00AxH4tCysM17la6JvLYUNWFz_0ZjifuNWiodpw6tBz2v2xTyg4cWsErW_bVuN2g2QJSsrZg1mg0zKh9JktXFFVRgjUJADp1tF9QWOZYeu). Speichere dir nach jeder Situation ein Bild (Download (PNG)).
+Das folgende Beispielprogramm erzeugt eine Liste und fügt einige Elemente ein. Zeichne die Situationen 1., 2. und 3.
+in den Aufgabenschritten des Diagramms unter dem Programm. **Herunterladen (PNG)** gibt dir zu jeder Situation ein Bild.
 
 ```java
 public class Beispiel {
@@ -43,6 +44,15 @@ public class Beispiel {
 }
 
 ```
+
+Die Schritte im Diagramm:
+
+1. **Anfang der Methode** – farbenListe ist deklariert, aber noch nicht erzeugt.
+2. **Aufgabe** – 1. Diagramm: nach `new List<>()`.
+3. **Aufgabe** – 2. Diagramm: nach den drei `append`-Aufrufen.
+4. **Aufgabe** – 3. Diagramm: am Ende der Methode. Lies bei `insert` noch einmal in der Dokumentation nach, was `hasAccess()` damit zu tun hat.
+
+::jmp{id="liste-uebung-2" src="vorlage.jmp"}
 
 ## Aufgabe 3
 

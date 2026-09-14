@@ -1,0 +1,393 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Beispiel": {
+      "attributes": {
+        "wurzel": "BinaryTree"
+      }
+    },
+    "BinaryTree": {
+      "attributes": {
+        "content": "String",
+        "left": "BinaryTree",
+        "right": "BinaryTree"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Anfang von füllen()",
+      "objects": {
+        "@b": {
+          "klass": "Beispiel",
+          "attributes": {
+            "wurzel": {
+              "dataType": "BinaryTree",
+              "value": "@t1"
+            }
+          },
+          "position": {
+            "x": -60,
+            "y": 40
+          }
+        },
+        "@t1": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 200,
+            "y": 40
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Beispiel.füllen",
+          "index": 0,
+          "localVariables": {
+            "this": {
+              "dataType": "Beispiel",
+              "value": "@b"
+            },
+            "aktuell": {
+              "dataType": "BinaryTree"
+            },
+            "neu": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": -320,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "Aufgabe: Ende von füllen()",
+      "exercise": true,
+      "objects": {
+        "@b": {
+          "klass": "Beispiel",
+          "attributes": {
+            "wurzel": {
+              "dataType": "BinaryTree",
+              "value": "@t1"
+            }
+          },
+          "position": {
+            "x": -60,
+            "y": 40
+          }
+        },
+        "@t1": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "left": {
+              "dataType": "BinaryTree",
+              "value": "@t2"
+            },
+            "right": {
+              "dataType": "BinaryTree",
+              "value": "@t3"
+            }
+          },
+          "position": {
+            "x": 200,
+            "y": 40
+          }
+        },
+        "@t2": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "left": {
+              "dataType": "BinaryTree",
+              "value": "@t4"
+            },
+            "right": {
+              "dataType": "BinaryTree",
+              "value": "@e1"
+            }
+          },
+          "position": {
+            "x": 500,
+            "y": -180
+          }
+        },
+        "@t3": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String",
+              "value": "@s3"
+            },
+            "left": {
+              "dataType": "BinaryTree",
+              "value": "@t5"
+            },
+            "right": {
+              "dataType": "BinaryTree",
+              "value": "@e2"
+            }
+          },
+          "position": {
+            "x": 500,
+            "y": 280
+          }
+        },
+        "@t4": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "left": {
+              "dataType": "BinaryTree",
+              "value": "@e3"
+            },
+            "right": {
+              "dataType": "BinaryTree",
+              "value": "@e4"
+            }
+          },
+          "position": {
+            "x": 800,
+            "y": -320
+          }
+        },
+        "@e1": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 800,
+            "y": -60
+          }
+        },
+        "@t5": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "left": {
+              "dataType": "BinaryTree",
+              "value": "@e5"
+            },
+            "right": {
+              "dataType": "BinaryTree",
+              "value": "@e6"
+            }
+          },
+          "position": {
+            "x": 800,
+            "y": 200
+          }
+        },
+        "@e2": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 800,
+            "y": 440
+          }
+        },
+        "@e3": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 1100,
+            "y": -400
+          }
+        },
+        "@e4": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 1100,
+            "y": -220
+          }
+        },
+        "@e5": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 1100,
+            "y": 140
+          }
+        },
+        "@e6": {
+          "klass": "BinaryTree",
+          "attributes": {
+            "content": {
+              "dataType": "String"
+            },
+            "left": {
+              "dataType": "BinaryTree"
+            },
+            "right": {
+              "dataType": "BinaryTree"
+            }
+          },
+          "position": {
+            "x": 1100,
+            "y": 320
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "Müller",
+          "attributes": {},
+          "position": {
+            "x": 200,
+            "y": 300
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Günther",
+          "attributes": {},
+          "position": {
+            "x": 500,
+            "y": 60
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "Peters",
+          "attributes": {},
+          "position": {
+            "x": 500,
+            "y": 520
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "Albrecht",
+          "attributes": {},
+          "position": {
+            "x": 800,
+            "y": -560
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "Neumann",
+          "attributes": {},
+          "position": {
+            "x": 800,
+            "y": 660
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Beispiel.füllen",
+          "index": 0,
+          "localVariables": {
+            "this": {
+              "dataType": "Beispiel",
+              "value": "@b"
+            },
+            "aktuell": {
+              "dataType": "BinaryTree",
+              "value": "@t3"
+            },
+            "neu": {
+              "dataType": "BinaryTree",
+              "value": "@t5"
+            }
+          },
+          "position": {
+            "x": -320,
+            "y": 40
+          }
+        }
+      }
+    }
+  ]
+}

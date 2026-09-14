@@ -1,0 +1,568 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "List": {
+      "attributes": {
+        "current": "ListNode",
+        "first": "ListNode",
+        "last": "ListNode"
+      }
+    },
+    "ListNode": {
+      "attributes": {
+        "next": "ListNode",
+        "contentObject": "Message"
+      }
+    },
+    "Message": {
+      "attributes": {
+        "username": "String",
+        "text": "String",
+        "date": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage",
+      "objects": {
+        "@liste": {
+          "klass": "List",
+          "attributes": {
+            "current": {
+              "dataType": "ListNode"
+            },
+            "first": {
+              "dataType": "ListNode",
+              "value": "@n1"
+            },
+            "last": {
+              "dataType": "ListNode",
+              "value": "@n4"
+            }
+          },
+          "position": {
+            "x": 18,
+            "y": -5
+          }
+        },
+        "@n1": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode",
+              "value": "@n2"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m1"
+            }
+          },
+          "position": {
+            "x": 246,
+            "y": 134
+          }
+        },
+        "@n2": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode",
+              "value": "@n3"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m2"
+            }
+          },
+          "position": {
+            "x": 486,
+            "y": 119
+          }
+        },
+        "@n3": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode",
+              "value": "@n4"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m3"
+            }
+          },
+          "position": {
+            "x": 754,
+            "y": 118
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s3"
+            }
+          },
+          "position": {
+            "x": 261,
+            "y": 329
+          }
+        },
+        "@m2": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 539,
+            "y": 331
+          }
+        },
+        "@m3": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s7"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s8"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s9"
+            }
+          },
+          "position": {
+            "x": 817,
+            "y": 320
+          }
+        },
+        "@m4": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s10"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s11"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s12"
+            }
+          },
+          "position": {
+            "x": 1243,
+            "y": 299
+          }
+        },
+        "@n4": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m4"
+            }
+          },
+          "position": {
+            "x": 986,
+            "y": 65
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 541,
+            "y": 329
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Hallo!",
+          "attributes": {},
+          "position": {
+            "x": 541,
+            "y": 399
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "2023/12/03 10:30",
+          "attributes": {},
+          "position": {
+            "x": 541,
+            "y": 469
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "joe",
+          "attributes": {},
+          "position": {
+            "x": 819,
+            "y": 541
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "Hu",
+          "attributes": {},
+          "position": {
+            "x": 819,
+            "y": 611
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": "2023/12/03 10:31",
+          "attributes": {},
+          "position": {
+            "x": 819,
+            "y": 681
+          }
+        },
+        "@s7": {
+          "klass": "String",
+          "literal": "frida",
+          "attributes": {},
+          "position": {
+            "x": 1097,
+            "y": 740
+          }
+        },
+        "@s8": {
+          "klass": "String",
+          "literal": "Wie gehts?",
+          "attributes": {},
+          "position": {
+            "x": 1097,
+            "y": 810
+          }
+        },
+        "@s9": {
+          "klass": "String",
+          "literal": "2023/12/03 10:34",
+          "attributes": {},
+          "position": {
+            "x": 1097,
+            "y": 880
+          }
+        },
+        "@s10": {
+          "klass": "String",
+          "literal": "emma",
+          "attributes": {},
+          "position": {
+            "x": 1523,
+            "y": 929
+          }
+        },
+        "@s11": {
+          "klass": "String",
+          "literal": "Gut :)",
+          "attributes": {},
+          "position": {
+            "x": 1523,
+            "y": 999
+          }
+        },
+        "@s12": {
+          "klass": "String",
+          "literal": "2023/12/03 10:37",
+          "attributes": {},
+          "position": {
+            "x": 1523,
+            "y": 1069
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "messages",
+          "dataType": "List",
+          "value": "@liste",
+          "position": {
+            "x": -125,
+            "y": -7
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "Aufgabe: ersten Knoten entfernen",
+      "objects": {
+        "@liste": {
+          "klass": "List",
+          "attributes": {
+            "current": {
+              "dataType": "ListNode"
+            },
+            "first": {
+              "dataType": "ListNode",
+              "value": "@n2"
+            },
+            "last": {
+              "dataType": "ListNode",
+              "value": "@n4"
+            }
+          },
+          "position": {
+            "x": 18,
+            "y": -5
+          }
+        },
+        "@n2": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode",
+              "value": "@n3"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m2"
+            }
+          },
+          "position": {
+            "x": 486,
+            "y": 119
+          }
+        },
+        "@n3": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode",
+              "value": "@n4"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m3"
+            }
+          },
+          "position": {
+            "x": 754,
+            "y": 118
+          }
+        },
+        "@m2": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 539,
+            "y": 331
+          }
+        },
+        "@m3": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s7"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s8"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s9"
+            }
+          },
+          "position": {
+            "x": 817,
+            "y": 320
+          }
+        },
+        "@m4": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s10"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s11"
+            },
+            "date": {
+              "dataType": "String",
+              "value": "@s12"
+            }
+          },
+          "position": {
+            "x": 1243,
+            "y": 299
+          }
+        },
+        "@n4": {
+          "klass": "ListNode",
+          "attributes": {
+            "next": {
+              "dataType": "ListNode"
+            },
+            "contentObject": {
+              "dataType": "Message",
+              "value": "@m4"
+            }
+          },
+          "position": {
+            "x": 986,
+            "y": 65
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "joe",
+          "attributes": {},
+          "position": {
+            "x": 819,
+            "y": 541
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "Hu",
+          "attributes": {},
+          "position": {
+            "x": 819,
+            "y": 611
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": "2023/12/03 10:31",
+          "attributes": {},
+          "position": {
+            "x": 819,
+            "y": 681
+          }
+        },
+        "@s7": {
+          "klass": "String",
+          "literal": "frida",
+          "attributes": {},
+          "position": {
+            "x": 1097,
+            "y": 740
+          }
+        },
+        "@s8": {
+          "klass": "String",
+          "literal": "Wie gehts?",
+          "attributes": {},
+          "position": {
+            "x": 1097,
+            "y": 810
+          }
+        },
+        "@s9": {
+          "klass": "String",
+          "literal": "2023/12/03 10:34",
+          "attributes": {},
+          "position": {
+            "x": 1097,
+            "y": 880
+          }
+        },
+        "@s10": {
+          "klass": "String",
+          "literal": "emma",
+          "attributes": {},
+          "position": {
+            "x": 1523,
+            "y": 929
+          }
+        },
+        "@s11": {
+          "klass": "String",
+          "literal": "Gut :)",
+          "attributes": {},
+          "position": {
+            "x": 1523,
+            "y": 999
+          }
+        },
+        "@s12": {
+          "klass": "String",
+          "literal": "2023/12/03 10:37",
+          "attributes": {},
+          "position": {
+            "x": 1523,
+            "y": 1069
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "messages",
+          "dataType": "List",
+          "value": "@liste",
+          "position": {
+            "x": -125,
+            "y": -7
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    }
+  ]
+}

@@ -1,0 +1,881 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "BinarySearchTree": {
+      "attributes": {
+        "content": "Contact",
+        "left": "BinarySearchTree",
+        "right": "BinarySearchTree"
+      }
+    },
+    "Contact": {
+      "attributes": {
+        "username": "String",
+        "phoneNumber": "String",
+        "profilePicPath": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage",
+      "objects": {
+        "@c6": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s3"
+            }
+          },
+          "position": {
+            "x": -18,
+            "y": -156
+          }
+        },
+        "@t1": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c1"
+            },
+            "left": {
+              "dataType": "BinarySearchTree",
+              "value": "@t2"
+            },
+            "right": {
+              "dataType": "BinarySearchTree",
+              "value": "@t3"
+            }
+          },
+          "position": {
+            "x": 90,
+            "y": 175
+          }
+        },
+        "@t3": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c3"
+            },
+            "left": {
+              "dataType": "BinarySearchTree",
+              "value": "@t4"
+            },
+            "right": {
+              "dataType": "BinarySearchTree",
+              "value": "@t5"
+            }
+          },
+          "position": {
+            "x": 403,
+            "y": 506
+          }
+        },
+        "@t4": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c4"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree"
+            }
+          },
+          "position": {
+            "x": 880,
+            "y": 260
+          }
+        },
+        "@t2": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c2"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree"
+            }
+          },
+          "position": {
+            "x": 393,
+            "y": -294
+          }
+        },
+        "@c1": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 343,
+            "y": 167
+          }
+        },
+        "@c2": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s7"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s8"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s9"
+            }
+          },
+          "position": {
+            "x": 612,
+            "y": -292
+          }
+        },
+        "@c5": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s10"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s11"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s12"
+            }
+          },
+          "position": {
+            "x": 1184,
+            "y": 796
+          }
+        },
+        "@c3": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s13"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s14"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s15"
+            }
+          },
+          "position": {
+            "x": 650,
+            "y": 505
+          }
+        },
+        "@t5": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c5"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree"
+            }
+          },
+          "position": {
+            "x": 868,
+            "y": 830
+          }
+        },
+        "@c4": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s16"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s17"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s18"
+            }
+          },
+          "position": {
+            "x": 1164,
+            "y": 258
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "wonder11",
+          "attributes": {},
+          "position": {
+            "x": 262,
+            "y": -156
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "12234",
+          "attributes": {},
+          "position": {
+            "x": 262,
+            "y": -86
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "m1.jpg",
+          "attributes": {},
+          "position": {
+            "x": 262,
+            "y": -16
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "krypto30",
+          "attributes": {},
+          "position": {
+            "x": 623,
+            "y": 377
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "3954125",
+          "attributes": {},
+          "position": {
+            "x": 623,
+            "y": 447
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": "cat.png",
+          "attributes": {},
+          "position": {
+            "x": 623,
+            "y": 517
+          }
+        },
+        "@s7": {
+          "klass": "String",
+          "literal": "aqua41",
+          "attributes": {},
+          "position": {
+            "x": 892,
+            "y": 128
+          }
+        },
+        "@s8": {
+          "klass": "String",
+          "literal": "302859215",
+          "attributes": {},
+          "position": {
+            "x": 892,
+            "y": 198
+          }
+        },
+        "@s9": {
+          "klass": "String",
+          "literal": "lion.jpg",
+          "attributes": {},
+          "position": {
+            "x": 892,
+            "y": 268
+          }
+        },
+        "@s10": {
+          "klass": "String",
+          "literal": "lantern90",
+          "attributes": {},
+          "position": {
+            "x": 1464,
+            "y": 1426
+          }
+        },
+        "@s11": {
+          "klass": "String",
+          "literal": "03940234",
+          "attributes": {},
+          "position": {
+            "x": 1464,
+            "y": 1496
+          }
+        },
+        "@s12": {
+          "klass": "String",
+          "literal": "lamp.png",
+          "attributes": {},
+          "position": {
+            "x": 1464,
+            "y": 1566
+          }
+        },
+        "@s13": {
+          "klass": "String",
+          "literal": "martian55",
+          "attributes": {},
+          "position": {
+            "x": 930,
+            "y": 1345
+          }
+        },
+        "@s14": {
+          "klass": "String",
+          "literal": "023413294",
+          "attributes": {},
+          "position": {
+            "x": 930,
+            "y": 1415
+          }
+        },
+        "@s15": {
+          "klass": "String",
+          "literal": "omar.png",
+          "attributes": {},
+          "position": {
+            "x": 930,
+            "y": 1485
+          }
+        },
+        "@s16": {
+          "klass": "String",
+          "literal": "thecat",
+          "attributes": {},
+          "position": {
+            "x": 1444,
+            "y": 1308
+          }
+        },
+        "@s17": {
+          "klass": "String",
+          "literal": "0990423",
+          "attributes": {},
+          "position": {
+            "x": 1444,
+            "y": 1378
+          }
+        },
+        "@s18": {
+          "klass": "String",
+          "literal": "kyle.png",
+          "attributes": {},
+          "position": {
+            "x": 1444,
+            "y": 1448
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "BinarySearchTree.insert",
+          "index": 0,
+          "localVariables": {
+            "pContent": {
+              "dataType": "Contact",
+              "value": "@c6"
+            },
+            "this": {
+              "dataType": "BinarySearchTree",
+              "value": "@t1"
+            }
+          },
+          "position": {
+            "x": -276,
+            "y": 20
+          }
+        }
+      }
+    },
+    {
+      "label": "Aufgabe: wonder11 einfügen",
+      "objects": {
+        "@c6": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s2"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s3"
+            }
+          },
+          "position": {
+            "x": -18,
+            "y": -156
+          }
+        },
+        "@t1": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c1"
+            },
+            "left": {
+              "dataType": "BinarySearchTree",
+              "value": "@t2"
+            },
+            "right": {
+              "dataType": "BinarySearchTree",
+              "value": "@t3"
+            }
+          },
+          "position": {
+            "x": 90,
+            "y": 175
+          }
+        },
+        "@t3": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c3"
+            },
+            "left": {
+              "dataType": "BinarySearchTree",
+              "value": "@t4"
+            },
+            "right": {
+              "dataType": "BinarySearchTree",
+              "value": "@t5"
+            }
+          },
+          "position": {
+            "x": 403,
+            "y": 506
+          }
+        },
+        "@t4": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c4"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree"
+            }
+          },
+          "position": {
+            "x": 880,
+            "y": 260
+          }
+        },
+        "@t2": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c2"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree"
+            }
+          },
+          "position": {
+            "x": 393,
+            "y": -294
+          }
+        },
+        "@c1": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s4"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 343,
+            "y": 167
+          }
+        },
+        "@c2": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s7"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s8"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s9"
+            }
+          },
+          "position": {
+            "x": 612,
+            "y": -292
+          }
+        },
+        "@c5": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s10"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s11"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s12"
+            }
+          },
+          "position": {
+            "x": 1184,
+            "y": 796
+          }
+        },
+        "@c3": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s13"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s14"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s15"
+            }
+          },
+          "position": {
+            "x": 650,
+            "y": 505
+          }
+        },
+        "@t5": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c5"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree",
+              "value": "@t6"
+            }
+          },
+          "position": {
+            "x": 868,
+            "y": 830
+          }
+        },
+        "@c4": {
+          "klass": "Contact",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s16"
+            },
+            "phoneNumber": {
+              "dataType": "String",
+              "value": "@s17"
+            },
+            "profilePicPath": {
+              "dataType": "String",
+              "value": "@s18"
+            }
+          },
+          "position": {
+            "x": 1164,
+            "y": 258
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "wonder11",
+          "attributes": {},
+          "position": {
+            "x": 262,
+            "y": -156
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "12234",
+          "attributes": {},
+          "position": {
+            "x": 262,
+            "y": -86
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "m1.jpg",
+          "attributes": {},
+          "position": {
+            "x": 262,
+            "y": -16
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "krypto30",
+          "attributes": {},
+          "position": {
+            "x": 623,
+            "y": 377
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "3954125",
+          "attributes": {},
+          "position": {
+            "x": 623,
+            "y": 447
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": "cat.png",
+          "attributes": {},
+          "position": {
+            "x": 623,
+            "y": 517
+          }
+        },
+        "@s7": {
+          "klass": "String",
+          "literal": "aqua41",
+          "attributes": {},
+          "position": {
+            "x": 892,
+            "y": 128
+          }
+        },
+        "@s8": {
+          "klass": "String",
+          "literal": "302859215",
+          "attributes": {},
+          "position": {
+            "x": 892,
+            "y": 198
+          }
+        },
+        "@s9": {
+          "klass": "String",
+          "literal": "lion.jpg",
+          "attributes": {},
+          "position": {
+            "x": 892,
+            "y": 268
+          }
+        },
+        "@s10": {
+          "klass": "String",
+          "literal": "lantern90",
+          "attributes": {},
+          "position": {
+            "x": 1464,
+            "y": 1426
+          }
+        },
+        "@s11": {
+          "klass": "String",
+          "literal": "03940234",
+          "attributes": {},
+          "position": {
+            "x": 1464,
+            "y": 1496
+          }
+        },
+        "@s12": {
+          "klass": "String",
+          "literal": "lamp.png",
+          "attributes": {},
+          "position": {
+            "x": 1464,
+            "y": 1566
+          }
+        },
+        "@s13": {
+          "klass": "String",
+          "literal": "martian55",
+          "attributes": {},
+          "position": {
+            "x": 930,
+            "y": 1345
+          }
+        },
+        "@s14": {
+          "klass": "String",
+          "literal": "023413294",
+          "attributes": {},
+          "position": {
+            "x": 930,
+            "y": 1415
+          }
+        },
+        "@s15": {
+          "klass": "String",
+          "literal": "omar.png",
+          "attributes": {},
+          "position": {
+            "x": 930,
+            "y": 1485
+          }
+        },
+        "@s16": {
+          "klass": "String",
+          "literal": "thecat",
+          "attributes": {},
+          "position": {
+            "x": 1444,
+            "y": 1308
+          }
+        },
+        "@s17": {
+          "klass": "String",
+          "literal": "0990423",
+          "attributes": {},
+          "position": {
+            "x": 1444,
+            "y": 1378
+          }
+        },
+        "@s18": {
+          "klass": "String",
+          "literal": "kyle.png",
+          "attributes": {},
+          "position": {
+            "x": 1444,
+            "y": 1448
+          }
+        },
+        "@t6": {
+          "klass": "BinarySearchTree",
+          "attributes": {
+            "content": {
+              "dataType": "Contact",
+              "value": "@c6"
+            },
+            "left": {
+              "dataType": "BinarySearchTree"
+            },
+            "right": {
+              "dataType": "BinarySearchTree"
+            }
+          },
+          "position": {
+            "x": 1150,
+            "y": 1010
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "BinarySearchTree.insert",
+          "index": 0,
+          "localVariables": {
+            "pContent": {
+              "dataType": "Contact",
+              "value": "@c6"
+            },
+            "this": {
+              "dataType": "BinarySearchTree",
+              "value": "@t1"
+            }
+          },
+          "position": {
+            "x": -276,
+            "y": 20
+          }
+        }
+      },
+      "exercise": true
+    }
+  ]
+}

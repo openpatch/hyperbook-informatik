@@ -1,0 +1,365 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Queue": {
+      "attributes": {
+        "head": "QueueNode",
+        "tail": "QueueNode"
+      }
+    },
+    "QueueNode": {
+      "attributes": {
+        "nextNode": "QueueNode",
+        "content": "Message"
+      }
+    },
+    "Message": {
+      "attributes": {
+        "username": "String",
+        "text": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage",
+      "objects": {
+        "@schlange": {
+          "klass": "Queue",
+          "attributes": {
+            "head": {
+              "dataType": "QueueNode",
+              "value": "@n1"
+            },
+            "tail": {
+              "dataType": "QueueNode",
+              "value": "@n3"
+            }
+          },
+          "position": {
+            "x": 195,
+            "y": 385
+          }
+        },
+        "@n1": {
+          "klass": "QueueNode",
+          "attributes": {
+            "nextNode": {
+              "dataType": "QueueNode",
+              "value": "@n2"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m1"
+            }
+          },
+          "position": {
+            "x": 342,
+            "y": 496
+          }
+        },
+        "@n2": {
+          "klass": "QueueNode",
+          "attributes": {
+            "nextNode": {
+              "dataType": "QueueNode",
+              "value": "@n3"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m2"
+            }
+          },
+          "position": {
+            "x": 598,
+            "y": 494
+          }
+        },
+        "@n3": {
+          "klass": "QueueNode",
+          "attributes": {
+            "nextNode": {
+              "dataType": "QueueNode"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m3"
+            }
+          },
+          "position": {
+            "x": 830,
+            "y": 443
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            }
+          },
+          "position": {
+            "x": 362,
+            "y": 677
+          }
+        },
+        "@m2": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s3"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s4"
+            }
+          },
+          "position": {
+            "x": 665,
+            "y": 672
+          }
+        },
+        "@m3": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 963,
+            "y": 675
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "mike",
+          "attributes": {},
+          "position": {
+            "x": 642,
+            "y": 677
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Hallo",
+          "attributes": {},
+          "position": {
+            "x": 642,
+            "y": 747
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "anna",
+          "attributes": {},
+          "position": {
+            "x": 945,
+            "y": 812
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "Weiter geht es",
+          "attributes": {},
+          "position": {
+            "x": 945,
+            "y": 882
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "luke",
+          "attributes": {},
+          "position": {
+            "x": 1243,
+            "y": 955
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": ":)",
+          "attributes": {},
+          "position": {
+            "x": 1243,
+            "y": 1025
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "notifications",
+          "dataType": "Queue",
+          "value": "@schlange",
+          "position": {
+            "x": 23,
+            "y": 383
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "Aufgabe: dequeue()",
+      "objects": {
+        "@schlange": {
+          "klass": "Queue",
+          "attributes": {
+            "head": {
+              "dataType": "QueueNode",
+              "value": "@n2"
+            },
+            "tail": {
+              "dataType": "QueueNode",
+              "value": "@n3"
+            }
+          },
+          "position": {
+            "x": 195,
+            "y": 385
+          }
+        },
+        "@n2": {
+          "klass": "QueueNode",
+          "attributes": {
+            "nextNode": {
+              "dataType": "QueueNode",
+              "value": "@n3"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m2"
+            }
+          },
+          "position": {
+            "x": 598,
+            "y": 494
+          }
+        },
+        "@n3": {
+          "klass": "QueueNode",
+          "attributes": {
+            "nextNode": {
+              "dataType": "QueueNode"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m3"
+            }
+          },
+          "position": {
+            "x": 830,
+            "y": 443
+          }
+        },
+        "@m2": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s3"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s4"
+            }
+          },
+          "position": {
+            "x": 665,
+            "y": 672
+          }
+        },
+        "@m3": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s5"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s6"
+            }
+          },
+          "position": {
+            "x": 963,
+            "y": 675
+          }
+        },
+        "@s3": {
+          "klass": "String",
+          "literal": "anna",
+          "attributes": {},
+          "position": {
+            "x": 945,
+            "y": 812
+          }
+        },
+        "@s4": {
+          "klass": "String",
+          "literal": "Weiter geht es",
+          "attributes": {},
+          "position": {
+            "x": 945,
+            "y": 882
+          }
+        },
+        "@s5": {
+          "klass": "String",
+          "literal": "luke",
+          "attributes": {},
+          "position": {
+            "x": 1243,
+            "y": 955
+          }
+        },
+        "@s6": {
+          "klass": "String",
+          "literal": ":)",
+          "attributes": {},
+          "position": {
+            "x": 1243,
+            "y": 1025
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "notifications",
+          "dataType": "Queue",
+          "value": "@schlange",
+          "position": {
+            "x": 23,
+            "y": 383
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true
+    }
+  ]
+}

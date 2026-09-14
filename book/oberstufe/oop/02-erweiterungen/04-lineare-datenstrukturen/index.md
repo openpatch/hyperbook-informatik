@@ -9,3 +9,12 @@ lang: de
 Stapel, Schlange und Liste sind die drei linearen dynamischen Datenstrukturen, die du in der Oberstufe brauchst. Du lernst ihren Aufbau kennen, arbeitest mit der dokumentierten Klassenbibliothek und implementierst sie anschließend selbst.
 
 <!-- KLP QPh, Daten und ihre Strukturierung: lineare dynamische Datenstrukturen in Form von Schlangen, Stapeln und Listen -->
+
+## Die Objektdiagramme
+
+Die Objektdiagramme auf den folgenden Seiten kannst du direkt auf der Seite verändern: Objekte
+anlegen, Referenzen umhängen, Werte eintippen. Unter dem Diagramm liegt eine Schrittleiste. Ein
+Schritt, der als **Aufgabe** markiert ist, gehört dir: Du baust ihn selbst, **Prüfen** vergleicht
+ihn mit der Lösung und sagt dir, welche Referenz noch nicht stimmt, **Lösung zeigen** verrät sie.
+Was du baust, bleibt beim nächsten Besuch stehen – der Knopf unten rechts im Diagramm stellt die
+Ausgangslage wieder her.
