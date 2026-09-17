@@ -952,21 +952,21 @@ verlinkt.
 | --- | --- |
 | Aufgabe: Kopieren und vergleichen | `java-q-2-2-1` |
 
-**[Felder, Referenzen und Generik – Generische Klassen](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/03-generische-klassen)**
+**[Felder, Referenzen und Generik – Generische Klassen](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/04-generische-klassen)**
 
 | Aufgabe | Passwort |
 | --- | --- |
-| Aufgabe: Ein generischer Stapel | `java-q-2-3-1` |
+| Aufgabe: Ein generischer Stapel | `java-q-2-4-1` |
 
-**[Felder, Referenzen und Generik – Rückblick](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/04-rueckblick)**
+**[Felder, Referenzen und Generik – Rückblick](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/05-rueckblick)**
 
 | Aufgabe | Passwort |
 | --- | --- |
-| Aufgabe 1: Wer zeigt worauf? | `java-q-2-4-1` |
-| Aufgabe 2: Ein Spielfeld | `java-q-2-4-2` |
-| Aufgabe 3: Warum generisch? | `java-q-2-4-3` |
+| Aufgabe 1: Wer zeigt worauf? | `java-q-2-5-1` |
+| Aufgabe 2: Ein Spielfeld | `java-q-2-5-2` |
+| Aufgabe 3: Warum generisch? | `java-q-2-5-3` |
 
-**[Felder, Referenzen und Generik – Im Spiel: das Level als Gitter](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/05-im-spiel)**
+**[Felder, Referenzen und Generik – Im Spiel: das Level als Gitter](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/06-im-spiel)**
 
 | Aufgabe | Passwort |
 | --- | --- |

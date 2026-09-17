@@ -50,7 +50,7 @@ Warum es sie gibt: Die Beispiele in den Lektionen sind bewusst abiturnah – Fah
 ## Die Kapitel
 
 1. **Vertiefte Objektorientierung** – Implementationsdiagramme, Polymorphie, abstrakte Klassen, Schnittstellen
-2. **Felder, Referenzen und Generik** – zwei- und mehrdimensionale Felder, Referenzen, generische Klassen
+2. **Felder, Referenzen und Generik** – zwei- und mehrdimensionale Felder, Referenzen, Kellerstapel und Halde, generische Klassen
 3. **Rekursion und Problemlösestrategien** – Rekursion, Teilen und Herrschen, Backtracking
 4. **Lineare Datenstrukturen** – Stapel, Schlange, Liste
 5. **Nichtlineare Datenstrukturen** – Bäume, binäre Suchbäume, Graphen

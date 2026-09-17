@@ -573,7 +573,7 @@ Drei Dinge, auf die es ankam:
 - **Die Schleife läuft bis `pWerte.length - 1`.** Beim leeren Feld ist das `-1`, die Schleife läuft also null-mal – der Sonderfall erledigt sich von selbst.
 - **`Sortierer` erwähnt weder `Buch` noch `Person`.** Genau das war verlangt, und genau das macht die Klasse für jeden künftigen vergleichbaren Typ brauchbar, ohne sie anzufassen.
 
-Die Umwandlung in `istGroesserAls` ist die Schwachstelle des Entwurfs: Vergleicht jemand ein Buch mit einer Person, bricht das Programm zur Laufzeit ab. Sauber lösen lässt sich das erst mit **Generik** – nachzulesen in [2.3 Generische Klassen](../02-felder-referenzen-generik/03-generische-klassen). Genau deshalb heißt die NRW-Schnittstelle `ComparableContent<ContentType>` und nicht einfach `Vergleichbar`.
+Die Umwandlung in `istGroesserAls` ist die Schwachstelle des Entwurfs: Vergleicht jemand ein Buch mit einer Person, bricht das Programm zur Laufzeit ab. Sauber lösen lässt sich das erst mit **Generik** – nachzulesen in [2.4 Generische Klassen](../02-felder-referenzen-generik/04-generische-klassen). Genau deshalb heißt die NRW-Schnittstelle `ComparableContent<ContentType>` und nicht einfach `Vergleichbar`.
 
 :::
 

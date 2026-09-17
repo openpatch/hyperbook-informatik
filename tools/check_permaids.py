@@ -60,6 +60,7 @@ BEREICHE = {
     "oberstufe/datenbanken": "datenbanken",
     "oberstufe/oop": "java",
     "oberstufe/oom": "oom",
+    "oberstufe/ai": "ai",
     "projekte/amsterdam-webseite": "amsterdam",
     "projekte/bunny-hop": "bunny-hop",
     "projekte/donut-io": "donut-io",

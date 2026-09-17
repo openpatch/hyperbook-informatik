@@ -36,7 +36,28 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-BOOK = ROOT / "book" / "oberstufe" / "oop"
+
+# Geprueft werden beide Java-Lernpfade und der KI-Lernpfad. Sie sind
+# unterschiedlich tief geschachtelt, deshalb steht zu jedem Pfad dabei, in
+# welchen Ordnern die *Kapitel* liegen - check_rueckblick braucht die
+# Ordner, deren Unterordner die Kapitel sind:
+#
+#   oop: book/oberstufe/oop/01-grundlagen/05-felder/     -> Wurzel ist 01-grundlagen
+#   ai:  book/oberstufe/ai/02-ueberwachtes-lernen/       -> Wurzel ist ai selbst
+#
+# Wird das verwechselt, prueft check_rueckblick den betroffenen Pfad
+# stillschweigend gar nicht - die Zahl der gemeldeten Kapitelabschluesse
+# bleibt dann einfach zu niedrig.
+BOOKS = [
+    ROOT / "book" / "oberstufe" / "oop",
+    ROOT / "book" / "oberstufe" / "ai",
+]
+KAPITELWURZELN = [
+    ROOT / "book" / "oberstufe" / "oop" / "01-grundlagen",
+    ROOT / "book" / "oberstufe" / "oop" / "02-erweiterungen",
+    ROOT / "book" / "oberstufe" / "ai",
+]
+BOOK = BOOKS[0]
 
 problems: list[str] = []
 
@@ -335,20 +356,23 @@ def check_passwords(files: list[pathlib.Path]) -> None:
 
 
 def main() -> int:
-    files = sorted(BOOK.rglob("*.md"))
-    for path in files:
-        text = path.read_text(encoding="utf-8")
-        rel = path.relative_to(ROOT)
-        check_multievent(rel, text)
-        check_onlineide(rel, text)
-        check_unsupported_api(rel, text)
-        check_lehrplanbezug(rel, text)
-        check_images(path, text)
-        check_selbsttest(path, rel, text)
-    check_passwords(files)
-    kapitel = check_rueckblick([BOOK / "01-grundlagen", BOOK / "02-erweiterungen"])
+    all_files: list[pathlib.Path] = []
+    for book_dir in BOOKS:
+        files = sorted(book_dir.rglob("*.md"))
+        all_files.extend(files)
+        for path in files:
+            text = path.read_text(encoding="utf-8")
+            rel = path.relative_to(ROOT)
+            check_multievent(rel, text)
+            check_onlineide(rel, text)
+            check_unsupported_api(rel, text)
+            check_lehrplanbezug(rel, text)
+            check_images(path, text)
+            check_selbsttest(path, rel, text)
+    check_passwords(all_files)
+    kapitel = check_rueckblick(KAPITELWURZELN)
 
-    print(f"{kapitel} Kapitelabschluesse, {len(files)} Seiten geprueft.")
+    print(f"{kapitel} Kapitelabschluesse, {len(all_files)} Seiten geprueft.")
     if problems:
         print(f"\n{len(problems)} Problem(e):\n")
         for problem in problems:

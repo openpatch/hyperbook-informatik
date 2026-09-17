@@ -169,7 +169,7 @@
       }
     },
     {
-      "label": "Die Schleife ruft flotte[2].mautSumme() auf: Baue den Kellerrahmen dazu. Er heißt Fahrzeug.mautSumme – die Methode steht in der Oberklasse –, aber this zeigt auf das Motorrad. Genau deshalb rechnet sie mit 5 Cent.",
+      "label": "Die Schleife ruft flotte[2].mautSumme() auf: Baue den Rahmen für den Aufruf dazu. Er heißt Fahrzeug.mautSumme – die Methode steht in der Oberklasse –, aber this zeigt auf das Motorrad. Genau deshalb rechnet sie mit 5 Cent.",
       "objects": {
         "@flotte": {
           "klass": "Array",

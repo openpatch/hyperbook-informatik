@@ -48,7 +48,7 @@ Der Stapel ist eine der wichtigsten Datenstrukturen in der Programmierung. Er bi
 
 ### Aufgaben
 
-1. Informiere dich über den Aufbau und die Funktionsweise des sogenannten Call-Stacks. Nutze dazu diese Seite [Call Stack](https://www.baeldung.com/cs/call-stack).
+1. Informiere dich über den Aufbau und die Funktionsweise des sogenannten Call-Stacks. Nutze dazu die Seite [2.3 Kellerstapel und Halde](../../02-felder-referenzen-generik/03-kellerstapel-und-halde).
 2. Bereite dich auf eine Präsentation vor.
 
 ---
