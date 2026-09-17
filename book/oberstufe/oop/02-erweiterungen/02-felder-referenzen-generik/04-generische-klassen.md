@@ -1,6 +1,6 @@
 ---
 title: Generische Klassen
-index: 3
+index: 4
 permaid: java-generik-generische-klassen
 ---
 
@@ -390,7 +390,7 @@ Schreib die Prüfung nicht jedes Mal neu hin – du hast `istLeer()` und `istVol
 
 ::::
 
-:::protect{password="java-q-2-3-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+:::protect{password="java-q-2-4-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```java Stapel.java
 public class Stapel<T> {

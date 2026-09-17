@@ -13,7 +13,7 @@ keywords:
 **Optional.** Diese Seite ist ein Zusatzangebot am Ende des Kapitels. Sie führt nichts Neues ein, und weder der [Rückblick](./04-rueckblick) noch die späteren Kapitel setzen sie voraus.
 :::
 
-Sie setzt [Im Spiel: das Level als Gitter](../02-felder-referenzen-generik/05-im-spiel) fort. Das Level steht dort als Plan aus Zeichen – jetzt kommen **Mauern** dazu, und damit ein Problem, das man von Hand nicht mehr lösen kann.
+Sie setzt [Im Spiel: das Level als Gitter](../02-felder-referenzen-generik/06-im-spiel) fort. Das Level steht dort als Plan aus Zeichen – jetzt kommen **Mauern** dazu, und damit ein Problem, das man von Hand nicht mehr lösen kann.
 
 :::snippet{#scratch-kurz}
 :::
@@ -55,7 +55,7 @@ Ohne ihn geht das Verfahren von A nach B, von B zurück nach A, von A wieder nac
 
 ## Das Verfahren im Level
 
-Die Klasse `Zelle` aus [der vorigen Seite](../02-felder-referenzen-generik/05-im-spiel) ist wieder dabei: Sie hält die Geometrie des Gitters an einer Stelle und sorgt vor allem dafür, dass **jede Figur genau in eine Zelle passt**. Ohne das rechnet `markiere` über ein Gitter, in dem die Figuren gar nicht liegen – der Hase wäre bei `setSize(40)` doppelt so hoch wie eine Zelle.
+Die Klasse `Zelle` aus [der vorigen Seite](../02-felder-referenzen-generik/06-im-spiel) ist wieder dabei: Sie hält die Geometrie des Gitters an einer Stelle und sorgt vor allem dafür, dass **jede Figur genau in eine Zelle passt**. Ohne das rechnet `markiere` über ein Gitter, in dem die Figuren gar nicht liegen – der Hase wäre bei `setSize(40)` doppelt so hoch wie eine Zelle.
 
 Unten läuft es. Die Mauern sind Kisten, und alles, was der Spieler **nicht** erreichen kann, ist rot eingefärbt. Lauf umher und überzeuge dich: Die roten Gegenstände bekommst du nicht.
 

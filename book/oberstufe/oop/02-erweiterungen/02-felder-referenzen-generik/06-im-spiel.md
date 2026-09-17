@@ -1,6 +1,6 @@
 ---
 title: "Im Spiel: das Level als Gitter"
-index: 5
+index: 6
 permaid: java-generik-im-spiel
 keywords:
   - java
@@ -10,7 +10,7 @@ keywords:
 # Im Spiel: das Level als Gitter
 
 :::alert{info}
-**Optional.** Diese Seite ist ein Zusatzangebot am Ende des Kapitels. Sie führt nichts Neues ein, und weder der [Rückblick](./04-rueckblick) noch die späteren Kapitel setzen sie voraus.
+**Optional.** Diese Seite ist ein Zusatzangebot am Ende des Kapitels. Sie führt nichts Neues ein, und weder der [Rückblick](./05-rueckblick) noch die späteren Kapitel setzen sie voraus.
 :::
 
 Sie baut auf [Im Spiel: ein Typ für alle Objekte](../01-vertiefte-objektorientierung/08-im-spiel) auf. Dort ist `Spielobjekt` als abstrakte Oberklasse entstanden; hier bekommt das Spiel ein **Level**.
@@ -455,7 +455,7 @@ d) Ohne die Grenzprüfung greift das Programm am Rand auf einen Index zu, den es
 :::snippet{#brain}
 **Zum Weiterdenken: generisch machen.** Das Gitter kann bisher nur Spielobjekte. Die Logik – anlegen, füllen, Grenzen prüfen, Nachbarn zählen – hat damit aber nichts zu tun.
 
-Schreibe eine [generische Klasse](./03-generische-klassen) `Gitter<T>` mit `setze(z, s, T inhalt)`, `hole(z, s)` und `istFrei(z, s)`. Dann speichert sie ebenso gut Wahrheitswerte für „hier war ich schon" oder Zahlen für eine Wärmekarte.
+Schreibe eine [generische Klasse](./04-generische-klassen) `Gitter<T>` mit `setze(z, s, T inhalt)`, `hole(z, s)` und `istFrei(z, s)`. Dann speichert sie ebenso gut Wahrheitswerte für „hier war ich schon" oder Zahlen für eine Wärmekarte.
 
 Eine Falle wartet dabei: `new T[zeilen][spalten]` ist in Java **nicht** erlaubt. Was nimmt man stattdessen – und was handelt man sich damit ein?
 :::

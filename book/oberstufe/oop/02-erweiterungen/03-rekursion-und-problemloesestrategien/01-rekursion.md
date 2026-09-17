@@ -92,7 +92,7 @@ Für die Fehlersuche ist die Rekursion damit sogar freundlicher: Sie meldet sich
 Woher weiß Java, wohin es nach `return` zurückkehren muss?
 
 :::snippet{#merken}
-Bei jedem Methodenaufruf legt Java einen Eintrag auf den **Aufrufstapel** (englisch *call stack*): die Rücksprungadresse und die lokalen Variablen des Aufrufs. Bei `return` wird der oberste Eintrag wieder heruntergenommen.
+Bei jedem Methodenaufruf legt Java einen **Kellerrahmen** auf den **Aufrufstapel** – genau das Modell aus [2.3 Kellerstapel und Halde](../02-felder-referenzen-generik/03-kellerstapel-und-halde). Der Rahmen enthält die Rücksprungadresse und die lokalen Variablen des Aufrufs. Bei `return` wird der oberste Rahmen wieder heruntergenommen.
 
 Bei `fakultaet(4)` liegen zwischenzeitlich **vier** Einträge übereinander – jeder mit einem eigenen Wert für `pN`. Genau deshalb wissen die Aufrufe nichts voneinander.
 

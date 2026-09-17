@@ -26,13 +26,13 @@ Farben und Zufall sind keine Programmierthemen – und doch zwei der wichtigsten
 
 Gib für jeden Wert an, welche Farbe am stärksten vertreten ist und ob die Farbe eher hell oder dunkel ist.
 
-a) `#ff0000`
-b) `#00ff00`
-c) `#0000ff`
-d) `#ffffff`
-e) `#000000`
-f) `#d1495b`
-g) `#30638e`
+- a) `#ff0000`
+- b) `#00ff00`
+- c) `#0000ff`
+- d) `#ffffff`
+- e) `#000000`
+- f) `#d1495b`
+- g) `#30638e`
 :::
 
 :::protect{password="turtle-6-2-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -56,8 +56,8 @@ Die Faustregel: Je mehr Anteile „voll" sind, desto heller. Je mehr Anteile gem
 
 Gehe auf [coolors.co](https://coolors.co/) und erstelle eine Palette mit fünf Farben. Zeichne damit:
 
-a) fünf Punkte nebeneinander,
-b) ein einfaches Bild (Haus, Baum, Sonne) mit nur diesen fünf Farben.
+- a) fünf Punkte nebeneinander,
+- b) ein einfaches Bild (Haus, Baum, Sonne) mit nur diesen fünf Farben.
 :::
 
 :::pyide{canvas}

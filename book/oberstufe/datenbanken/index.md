@@ -1,5 +1,6 @@
 ---
 name: Datenbanken
+index: 3
 lang: de
 permaid: datenbanken
 keywords:

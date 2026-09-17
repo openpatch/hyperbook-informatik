@@ -1,12 +1,12 @@
 ---
 title: Rückblick
-index: 4
+index: 5
 permaid: java-generik-rueckblick
 ---
 
 # Rückblick
 
-Dieses Kapitel erklärt, was in den vorigen immer schon passiert ist, ohne dass es jemand gesagt hätte: dass Objektvariablen **Verweise** enthalten. Wer das verstanden hat, versteht auch die verketteten Strukturen der nächsten Kapitel – dort besteht alles aus Verweisen.
+Dieses Kapitel erklärt, was in den vorigen immer schon passiert ist, ohne dass es jemand gesagt hätte: dass Objektvariablen **Verweise** enthalten – und wohin diese Verweise zeigen. Wer das verstanden hat, versteht auch die verketteten Strukturen der nächsten Kapitel – dort besteht alles aus Verweisen.
 
 ## Das kann ich jetzt
 
@@ -14,7 +14,9 @@ Dieses Kapitel erklärt, was in den vorigen immer schon passiert ist, ohne dass 
 - [ ] Ich kann erklären, was bei einem Methodenaufruf mit elementaren Typen und was mit Objekttypen geschieht. ([2.2](./02-referenzen))
 - [ ] Ich kann **Aliasing** erkennen und die Folgen benennen. ([2.2](./02-referenzen))
 - [ ] Ich kann eine **flache** von einer **tiefen** Kopie unterscheiden. ([2.2](./02-referenzen))
-- [ ] Ich kann eine **generische Klasse** schreiben und begründen, was sie gegenüber `Object` gewinnt. ([2.3](./03-generische-klassen))
+- [ ] Ich kann **Kellerstapel** und **Halde** unterscheiden und sagen, was auf welchem liegt. ([2.3](./03-kellerstapel-und-halde))
+- [ ] Ich kann erklären, warum ein Objekt die Methode überlebt, die es angelegt hat. ([2.3](./03-kellerstapel-und-halde))
+- [ ] Ich kann eine **generische Klasse** schreiben und begründen, was sie gegenüber `Object` gewinnt. ([2.4](./04-generische-klassen))
 
 ## Gemischte Aufgaben
 
@@ -84,7 +86,7 @@ void main() {
 
 :::
 
-:::protect{password="java-q-2-4-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+:::protect{password="java-q-2-5-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 a)
 
@@ -155,7 +157,7 @@ void main() {
 
 :::
 
-:::protect{password="java-q-2-4-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+:::protect{password="java-q-2-5-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```java
 void main() {
@@ -246,7 +248,7 @@ d) Formuliere in einem Satz, was Generik gewinnt.
 e) Nenne eine Stelle in den kommenden Kapiteln, an der Generik gebraucht wird.
 :::
 
-:::protect{password="java-q-2-4-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+:::protect{password="java-q-2-5-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 a) Man muss den Rückgabewert **casten**, also den Typ ausdrücklich angeben: `Punkt p = (Punkt) behaelter.gib();`. Ohne das kennt der Übersetzer nur `Object` und lässt keine Punkt-Methode zu.
 
