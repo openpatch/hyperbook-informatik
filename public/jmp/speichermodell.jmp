@@ -1,0 +1,189 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Punkt": {
+      "attributes": {
+        "x": "int",
+        "y": "int"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "main() läuft: Ein Kellerrahmen liegt auf dem Stapel. p ist angelegt, zeigt noch auf nichts. Die Halde ist leer.",
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "p": {
+              "dataType": "Punkt"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    },
+    {
+      "label": "erzeuge(3, 4) wird aufgerufen: Lege den zweiten Kellerrahmen an. Er bringt pX, pY und neuer mit.",
+      "exercise": true,
+      "objects": {},
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "p": {
+              "dataType": "Punkt"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.erzeuge",
+          "index": 1,
+          "localVariables": {
+            "pX": {
+              "dataType": "int",
+              "value": 3
+            },
+            "pY": {
+              "dataType": "int",
+              "value": 4
+            },
+            "neuer": {
+              "dataType": "Punkt"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 280
+          }
+        }
+      }
+    },
+    {
+      "label": "new Punkt(3, 4): Lege das Objekt an. Es entsteht auf der Halde – im Kellerrahmen steht nur die Referenz darauf.",
+      "exercise": true,
+      "objects": {
+        "@p": {
+          "klass": "Punkt",
+          "attributes": {
+            "x": {
+              "dataType": "int",
+              "value": 3
+            },
+            "y": {
+              "dataType": "int",
+              "value": 4
+            }
+          },
+          "position": {
+            "x": 440,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "p": {
+              "dataType": "Punkt"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        },
+        "@f2": {
+          "name": "Main.erzeuge",
+          "index": 1,
+          "localVariables": {
+            "pX": {
+              "dataType": "int",
+              "value": 3
+            },
+            "pY": {
+              "dataType": "int",
+              "value": 4
+            },
+            "neuer": {
+              "dataType": "Punkt",
+              "value": "@p"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 280
+          }
+        }
+      }
+    },
+    {
+      "label": "return neuer; Nimm den Rahmen von erzeuge wieder herunter und lass p auf das Objekt zeigen. Das Objekt bleibt – es hat seinen Erzeuger überlebt.",
+      "exercise": true,
+      "objects": {
+        "@p": {
+          "klass": "Punkt",
+          "attributes": {
+            "x": {
+              "dataType": "int",
+              "value": 3
+            },
+            "y": {
+              "dataType": "int",
+              "value": 4
+            }
+          },
+          "position": {
+            "x": 440,
+            "y": 60
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "p": {
+              "dataType": "Punkt",
+              "value": "@p"
+            }
+          },
+          "position": {
+            "x": 40,
+            "y": 40
+          }
+        }
+      }
+    }
+  ]
+}
