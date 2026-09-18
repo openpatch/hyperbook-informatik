@@ -2,6 +2,8 @@
 title: Neuronen und Schichten
 index: 1
 permaid: ai-neuronen-schichten
+scripts:
+  - /wc/ki-neuron.js
 ---
 
 # Neuronen und Schichten
@@ -48,6 +50,19 @@ flowchart LR
 ## Die Neuron-Klasse
 
 Ein Neuron hat **Gewichte** — eines für jedes Neuron der vorherigen Schicht — und einen **Bias-Wert** (nicht zu verwechseln mit Bias als Bewertungskriterium aus Kapitel 3).
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Berechne auf Papier. Die Gewichte sind 0.5 und -0.3, der Bias ist 0.1, die Eingaben sind 1.0 und 0.8. Was ist die Summe?
+:::
+
+::::collapsible{title="Tipp"}
+
+summe = bias + gewicht[0] * eingabe[0] + gewicht[1] * eingabe[1]
+summe = 0.1 + 0.5 * 1.0 + (-0.3) * 0.8
+summe = 0.1 + 0.5 - 0.24
+summe = 0.36
+
+::::
 
 :::onlineide{height="500px" speed="1000000"}
 
@@ -101,19 +116,6 @@ public class Neuron {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Berechne auf Papier. Die Gewichte sind 0.5 und -0.3, der Bias ist 0.1, die Eingaben sind 1.0 und 0.8. Was ist die Summe?
-:::
-
-::::collapsible{title="Tipp"}
-
-summe = bias + gewicht[0] * eingabe[0] + gewicht[1] * eingabe[1]
-summe = 0.1 + 0.5 * 1.0 + (-0.3) * 0.8
-summe = 0.1 + 0.5 - 0.24
-summe = 0.36
-
-::::
-
 :::alert{info}
 **Kommazahlen sehen auf dem Bildschirm manchmal anders aus als auf dem Papier.** Die Online-IDE gibt eine `double`-Variable ohne `.0` aus — aus 0.2 wird `0.2`, aus 2.0 aber `2`. Und weil Kommazahlen im Rechner nur näherungsweise gespeichert werden, kann statt `0.2` auch einmal `0.20000000000000012` erscheinen. Das ist kein Fehler in deiner Rechnung: Vergleiche solche Werte immer nur auf die ersten Nachkommastellen.
 :::
@@ -159,6 +161,29 @@ void main() {
 Auf dem Papier: summe = -1.0 + 0.2 · 2.0 + 0.2 · 3.0 + 0.2 · 1.0 = -1.0 + 0.4 + 0.6 + 0.2 = **0.2**.
 
 Auf dem Bildschirm steht `0.20000000000000012` — das ist derselbe Wert, nur mit dem Rundungsfehler, den Kommazahlen im Rechner mit sich bringen (siehe den Hinweis weiter oben).
+:::
+
+## Ein Neuron zum Anfassen
+
+Dasselbe Neuron wie im Programm: zwei Eingaben, zwei Gewichte, ein Bias. Die Dicke einer Verbindung zeigt, wie groß das Gewicht ist, die Farbe sein Vorzeichen. Der Bias hat eine eigene Verbindung, die von einer festen 1 ausgeht — genau so steht er auch im Code, als Summand ohne Eingabe.
+
+<ki-neuron aktivierung="keine" gewichte="0.5,-0.3" bias="0.1" eingabe="1,0.8"></ki-neuron>
+
+:::snippet{#aufgabe}
+a) Die Regler stehen auf den Werten aus dem Programm. Kommt dieselbe Ausgabe heraus, die du berechnet hast?
+
+b) Drücke auf **Schritt für Schritt**. Welche Zahl steht im Σ-Knoten, bevor du weiterdrückst?
+
+c) Stelle beide Eingaben auf 0. Welcher Wert bleibt übrig — und warum gerade dieser?
+
+d) Setze das Gewicht w₂ auf 0. Verändert x₂ die Ausgabe noch? Was bedeutet ein Gewicht von 0 also für eine Eingabe?
+:::
+
+:::protect{password="ai-4-1-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+c) Übrig bleibt der **Bias** (0,1). Alle Produkte `gewicht · eingabe` werden null, die Summe startet aber bei `bias`. Der Bias ist damit die Ausgabe eines Neurons, das gar nichts hört — er verschiebt den Arbeitspunkt unabhängig von den Eingaben.
+
+d) Nein, x₂ hat dann keine Wirkung mehr. Ein Gewicht von 0 bedeutet: Diese Eingabe wird ignoriert. Beim Lernen entscheidet ein Netz auf diese Weise selbst, welche Eingaben wichtig sind.
 :::
 
 <!-- KLP Q-Phase: erläutern die Grundlagen künstlicher neuronaler Netze (A) —

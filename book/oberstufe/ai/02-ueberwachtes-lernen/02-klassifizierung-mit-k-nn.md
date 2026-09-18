@@ -2,6 +2,8 @@
 title: Klassifizierung mit k-NN
 index: 2
 permaid: ai-knn
+scripts:
+  - /wc/ki-punktwolke.js
 ---
 
 # Klassifizierung mit k-NN
@@ -123,6 +125,15 @@ Jetzt bauen wir den :t[Klassifikator]{#klassifikator} als Klasse `KNNKlassifikat
 2. Die k nächsten finden
 3. Mehrheitsentscheidung über die Labels
 
+:::snippet{#brain}
+Bevor du das Programm ausführst: Der Testpunkt ist (170, 7). Welches Label erwartest du? Begründe mit den Trainingsdaten im Programm unten.
+:::
+
+::::collapsible{title="Tipp"}
+
+Es zählt nicht der eine nächste Nachbar, sondern die **Mehrheit unter den drei nächsten**. Rechne die Distanzen von (170, 7) zu allen sechs Trainingspunkten aus und ordne sie der Größe nach.
+::::
+
 :::onlineide{height="680px" speed="1000000"}
 
 ```java Main.java
@@ -237,15 +248,6 @@ public class Datenpunkt {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Der Testpunkt ist (170, 7). Welches Label erwartest du? Begründe mit den Trainingsdaten.
-:::
-
-::::collapsible{title="Tipp"}
-
-Es zählt nicht der eine nächste Nachbar, sondern die **Mehrheit unter den drei nächsten**. Rechne die Distanzen von (170, 7) zu allen sechs Trainingspunkten aus und ordne sie der Größe nach.
-::::
-
 :::snippet{#merken}
 k-NN ist ein **diskriminatives** Verfahren: Es ordnet Daten einer Kategorie zu. Es ist **überwacht**, weil es gelabelte Trainingsdaten benötigt. Und es ist **faul** (lazy learning), weil die meiste Arbeit erst bei der Klassifizierung passiert, nicht beim Training.
 :::
@@ -293,6 +295,37 @@ Ein einziger Nachbar kann also in die Irre führen. Genau deshalb ist k = 1 anf�
 
 Zu b): Der Ausreißer bei (300, 2) ist mit einer Distanz von rund 130 sehr weit vom Testpunkt (170, 7) entfernt. Bei k = 3 gehört er nicht zu den drei nächsten Nachbarn (10,05 / 20,00 / 30,02), also verändert er das Ergebnis nicht. Das zeigt eine Stärke von k-NN: weit entfernte Ausreißer haben keinen Einfluss, solange k klein genug ist.
 
+:::
+
+## Die Entscheidungsgrenze
+
+Dieselben sechs Trainingspunkte, aber gezeichnet. Die eingefärbte Fläche zeigt, wie der Klassifikator **jeden** Punkt der Ebene einordnen würde — nicht nur den einen Testpunkt. Die Linie zwischen den beiden Farben heißt **Entscheidungsgrenze**.
+
+<ki-punktwolke id="ai-knn-grenze" bearbeitbar testpunkt="140,6"
+  x-min="80" x-max="220" y-min="2" y-max="10"></ki-punktwolke>
+
+:::snippet{#aufgabe}
+a) Der Testpunkt steht schon auf (140 | 6) — dem Punkt aus der letzten Aufgabe. Schiebe k von 1 auf 3 auf 5 und beobachte die Tabelle unter der Zeichnung. Findest du dein Ergebnis von eben wieder?
+
+b) Klicke an verschiedene Stellen der Fläche. Wo liegt die Grenze so, dass du sie nicht erwartet hättest?
+
+c) Setze das Werkzeug auf **+ Apfel** und setze einen Apfel weit rechts unten bei etwa (300 | 2) — den Ausreißer aus Aufgabe b). Verändert sich die Grenze in der Nähe des Testpunkts?
+
+d) Setze den Haken bei **Merkmale normieren**. Die Grenze dreht sich. Erkläre mit dem Kasten oben, warum sie vorher fast senkrecht stand.
+:::
+
+::::collapsible{title="Tipp zu d)"}
+
+Eine senkrechte Grenze bedeutet: Nur die x-Achse entscheidet, die y-Achse spielt keine Rolle. Was war noch einmal der Zahlenbereich des Gewichts, und was der der Süßigkeit?
+::::
+
+:::protect{password="ai-2-2-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+b) Auffällig ist, dass die Grenze **fast senkrecht** verläuft. Egal wie süß eine Frucht ist — ab etwa 145 Gramm gilt sie als Apfel. Die Süßigkeit wird praktisch ignoriert.
+
+c) Nein. Der Apfel bei (300 | 2) ist so weit weg, dass er bei k = 3 nie unter die drei nächsten Nachbarn kommt. Die Grenze ändert sich nur in seiner eigenen Umgebung, ganz rechts.
+
+d) Ohne Normierung geht ein Unterschied von 50 Gramm mit 50 in die Distanz ein, ein Unterschied von 5 Süßigkeitsstufen nur mit 5. Das Gewicht ist damit rund zehnmal so wichtig wie die Süßigkeit, und die Grenze richtet sich fast nur nach ihm. Nach dem Normieren zählen beide Merkmale gleich viel, und die Grenze kippt in die Schräge.
 :::
 
 <!-- KLP Q-Phase: erläutern die Funktionsweise eines konkreten Verfahrens zur

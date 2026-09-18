@@ -2,6 +2,8 @@
 title: Wahrscheinlichkeiten für Wörter
 index: 2
 permaid: ai-wahrscheinlichkeiten
+scripts:
+  - /wc/ki-bigramm.js
 ---
 
 # Wahrscheinlichkeiten für Wörter
@@ -82,6 +84,30 @@ b) $P(\text{Katze} \mid \text{die}) = \frac{3}{5} = 0{,}6$. $P(\text{Maus} \mid 
 
 c) „Katze" ist am wahrscheinlichsten (60 %).
 :::
+
+## Die Bigramme nachzählen lassen
+
+Im Textfeld stehen die vier Sätze aus der Aufgabe hintereinander. Die Tabelle zählt jedes Bigramm: In der Zeile steht das erste Token, in der Spalte das zweite, in der Zelle die Häufigkeit. Ganz rechts steht, wie oft das Zeilen-Token überhaupt einen Nachfolger hat.
+
+<ki-bigramm id="ai-bigramm-tabelle" ansicht="tabelle"
+  korpus="die Katze schläft die Katze jagt die Maus schläft die Maus jagt die Katze"></ki-bigramm>
+
+:::snippet{#aufgabe}
+a) Klicke links in der Tabelle auf **die**. Darunter erscheinen die bedingten Wahrscheinlichkeiten. Stimmen sie mit deiner Rechnung aus b) überein?
+
+b) Welche Zeile der Tabelle ist leer? Was bedeutet das für dieses Token?
+
+c) Hänge den Satz „die Maus frisst" an den Korpus an. Wie verändert sich $P(\text{Maus} \mid \text{die})$? Rechne den neuen Wert erst auf Papier aus.
+:::
+
+:::snippet{#brain}
+Die Komponente hängt die vier Sätze zu **einem** Text zusammen. Dadurch entstehen Bigramme über die Satzgrenze hinweg, zum Beispiel „schläft → die". Warum stören sie die Aufgabe nicht — und wann würden sie stören?
+:::
+
+::::collapsible{title="Tipp"}
+
+Gefragt ist nur nach Bigrammen, die **mit „die" beginnen**. Ein Bigramm über die Satzgrenze endet auf „die", beginnt aber mit einem anderen Token.
+::::
 
 <!-- KLP Q-Phase: erläutern die Grundlagen generativer KI-Systeme (A) -->
 

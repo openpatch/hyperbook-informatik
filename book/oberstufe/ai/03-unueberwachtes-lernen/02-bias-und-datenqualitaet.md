@@ -2,6 +2,8 @@
 title: Bias und Datenqualität
 index: 2
 permaid: ai-bias
+scripts:
+  - /wc/ki-punktwolke.js
 ---
 
 # Bias und Datenqualität
@@ -26,6 +28,10 @@ Ein Beispiel: Ein Spam-Filter wird nur mit englischen E-Mails trainiert. Wenn er
 | **Bestätigungs-Bias** | Daten wurden so ausgewählt, dass sie eine Erwartung bestätigen | Nur positive Bewertungen werden gesammelt |
 
 ## Bias im k-Means-Beispiel
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Die Daten haben 7 Punkte nahe (10–16, 19–22) und 2 Punkte nahe (50–51, 60–61). Wie werden sich die 2 Cluster aufteilen?
+:::
 
 :::onlineide{height="520px" speed="1000000"}
 
@@ -125,10 +131,6 @@ public class Datenpunkt {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Die Daten haben 7 Punkte nahe (10–16, 19–22) und 2 Punkte nahe (50–51, 60–61). Wie werden sich die 2 Cluster aufteilen?
-:::
-
 :::snippet{#aufgabe}
 a) Führe das Programm aus. Wie groß sind die Cluster?
 
@@ -166,6 +168,28 @@ d) Zum Beispiel:
 
 :::snippet{#merken}
 Bias entsteht schon in den Daten, nicht erst im Algorithmus. Wenn die Trainingsdaten eine Gruppe über- oder unterrepräsentieren, wird auch das Modell diese Verzerrung reproduzieren. **Gegenmaßnahme:** Daten sorgfältig sammeln, auf Repräsentativität prüfen, und Bias bewusst dokumentieren.
+:::
+
+## Verzerrte Daten im Bild
+
+Sieben Punkte dicht beieinander, zwei Punkte weit weg — dieselben Daten wie im Programm.
+
+<ki-punktwolke id="ai-bias-kmeans" modus="kmeans" k="2" bearbeitbar
+  punkte="10,20;11,21;12,22;13,19;14,20;15,21;16,22;50,60;51,61"
+  x-min="0" x-max="60" y-min="0" y-max="80"
+  x-label="Merkmal 1" y-label="Merkmal 2"></ki-punktwolke>
+
+:::snippet{#aufgabe}
+a) Lasse k-Means mit k = 2 bis zum Ende laufen. Wie viele Punkte hat jedes Cluster?
+
+b) Stelle k auf 3. Die große Gruppe wird zerlegt, die kleine nicht. Schau dir die Spalte **Punkte** an: Wie viele Datenpunkte stützen jedes Cluster?
+
+c) Setze mit dem Werkzeug fünf weitere Punkte in die Nähe von (50 | 60), bis beide Gruppen ähnlich groß sind. Lasse k-Means mit k = 3 noch einmal laufen. Was ändert sich?
+:::
+
+:::protect{password="ai-3-2-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+c) Jetzt wird auch die zweite Gruppe aufgeteilt, statt als grobe Sammelkategorie stehen zu bleiben. Der Algorithmus ist derselbe geblieben — verändert hast du nur die Daten. Genau das ist gemeint, wenn es heißt, Bias entstehe in den Daten und nicht im Algorithmus.
 :::
 
 <!-- KLP Q-Phase: bewerten die Qualität eines KI-Modells auf Grundlage

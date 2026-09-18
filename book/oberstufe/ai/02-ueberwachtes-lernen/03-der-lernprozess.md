@@ -2,6 +2,8 @@
 title: Der Lernprozess
 index: 3
 permaid: ai-lernprozess
+scripts:
+  - /wc/ki-punktwolke.js
 ---
 
 # Der Lernprozess
@@ -22,6 +24,10 @@ Beides kann man variieren und dann die Trefferquote auf den Testdaten messen.
 Die Trefferquote ist der Anteil der korrekt klassifizierten Testdaten:
 
 $$\text{Trefferquote} = \frac{\text{richtige Klassifizierungen}}{\text{alle Testdaten}} \times 100\,\%$$
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: In den Trainingsdaten steht ein ungewöhnlich kleiner Apfel bei (115, 4) — direkt zwischen den Birnen. Der fünfte Testpunkt (116, 4) liegt dicht daneben und ist in Wirklichkeit eine Birne. Wird er richtig klassifiziert? Schreibe deine Vermutung auf.
+:::
 
 :::onlineide{height="720px" speed="1000000"}
 
@@ -159,10 +165,6 @@ public class Datenpunkt {
 **k darf nicht größer sein als die Anzahl der Trainingsdaten.** In diesem Programm gibt es 9 Trainingspunkte, also sind Werte von 1 bis 9 erlaubt. Bei einem größeren k greift `klassifiziere` über das Ende des Feldes hinaus und das Programm bricht ab.
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: In den Trainingsdaten steht ein ungewöhnlich kleiner Apfel bei (115, 4) — direkt zwischen den Birnen. Der fünfte Testpunkt (116, 4) liegt dicht daneben und ist in Wirklichkeit eine Birne. Wird er richtig klassifiziert? Schreibe deine Vermutung auf.
-:::
-
 :::snippet{#aufgabe}
 a) Führe das Programm aus. Wie hoch ist die Trefferquote bei k = 3?
 
@@ -206,6 +208,34 @@ Die Trefferquote hängt ab von:
 - **Qualität und Menge der Trainingsdaten** — schlecht verteilte Daten führen zu schlechten Vorhersagen
 - **Wahl von k** — zu klein: anfällig für Ausreißer; zu groß: Mehrheit dominiert immer
 - **Verteilung der Testdaten** — Testdaten, die weit von allen Trainingspunkten entfernt liegen, sind schwer zu klassifizieren
+:::
+
+## Trainings- und Testdaten im Bild
+
+Hier stehen dieselben neun Trainingspunkte und dieselben fünf Testpunkte wie im Programm. **Gefüllte Formen sind Trainingsdaten, hohle Formen sind Testdaten.** Die Testdaten stimmen nie mit ab — sie werden nur klassifiziert und gezählt.
+
+<ki-punktwolke id="ai-lernprozess-quoten"
+  punkte="150,7,Apfel;180,8,Apfel;200,6,Apfel;160,9,Apfel;115,4,Apfel;120,4,Birne;100,3,Birne;110,5,Birne;90,2,Birne"
+  testdaten="170,7,Apfel;105,4,Birne;140,8,Apfel;95,3,Birne;116,4,Birne"
+  x-min="80" x-max="220" y-min="0" y-max="10" k="3"></ki-punktwolke>
+
+:::snippet{#aufgabe}
+a) Stelle k nacheinander auf 1, 3 und 9 und lies die **Trefferquote auf den Testdaten** ab. Es müssen dieselben Werte herauskommen wie in der Tabelle der Lösung.
+
+b) Darüber steht die Trefferquote auf den Trainingsdaten. Bei k = 1 ist sie 100 %, ganz gleich, wie die Daten aussehen. Woran liegt das — und was folgt daraus für ihre Aussagekraft?
+
+c) Der kleine Apfel bei (115 | 4) liegt mitten in den Birnen. Suche bei k = 1 die Stelle, an der die Grenze eine kleine Insel um ihn herum bildet. Welcher Testpunkt liegt in dieser Insel?
+
+d) Stelle k auf 9. Die Fläche hat nur noch eine Farbe. Erkläre mit Aufgabe c) von oben, warum.
+:::
+
+:::protect{password="ai-2-3-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+b) Der nächste Nachbar eines Trainingspunkts ist bei k = 1 immer **er selbst**, mit der Distanz 0. Auf den Trainingsdaten kann das Modell deshalb gar nicht danebenliegen. Die 100 % sind garantiert und sagen nichts über die Güte des Modells aus — nur die Testquote tut das.
+
+c) Der Testpunkt (116 | 4) — eine Birne — liegt genau in der Apfel-Insel um den Ausreißer. Deshalb wird er bei k = 1 als Apfel klassifiziert. Die Insel ist die Überanpassung, die du im Programm nur als Wort „FALSCH" gesehen hast.
+
+d) Bei k = 9 stimmen immer alle neun Trainingspunkte ab, ganz gleich, wo der Punkt liegt. 5 Äpfel schlagen 4 Birnen — und zwar überall. Eine Grenze gibt es dann gar nicht mehr, weil die Entscheidung nicht mehr vom Ort abhängt.
 :::
 
 <!-- KLP EF: erläutern den Unterschied von Trainings- und Testdaten (A).
