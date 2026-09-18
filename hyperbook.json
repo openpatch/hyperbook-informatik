@@ -1,5 +1,6 @@
 {
   "name": "Informatik",
+  "llms": true,
   "version": "text",
   "breadcrumb": true,
   "importExport": true,
