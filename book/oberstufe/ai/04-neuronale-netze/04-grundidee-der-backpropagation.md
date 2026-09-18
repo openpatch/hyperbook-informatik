@@ -52,6 +52,10 @@ $$w_{neu} = w + \eta \cdot \text{Fehler} \cdot x = 0.5 + 0.1 \cdot 0.5 \cdot 2.0
 
 Nach der Anpassung ist die Ausgabe $y_{neu} = 0.6 \cdot 2.0 = 1.2$ — näher an 1.5. Ein weiterer Schritt bringt uns noch näher.
 
+:::snippet{#brain}
+Bevor du das Programm ausführst: Nach wie vielen Schritten ist die Ausgabe näher als 0.01 an 1.5? Schreibe deine Vermutung auf.
+:::
+
 :::onlineide{height="480px" speed="1000000"}
 
 ```java Main.java
@@ -73,10 +77,6 @@ void main() {
 }
 ```
 
-:::
-
-:::snippet{#brain}
-Bevor du das Programm ausführst: Nach wie vielen Schritten ist die Ausgabe näher als 0.01 an 1.5? Schreibe deine Vermutung auf.
 :::
 
 :::snippet{#aufgabe}

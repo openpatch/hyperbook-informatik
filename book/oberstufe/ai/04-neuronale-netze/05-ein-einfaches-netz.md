@@ -2,6 +2,8 @@
 title: Ein einfaches Netz
 index: 5
 permaid: ai-einfaches-netz
+scripts:
+  - /wc/ki-neuron.js
 ---
 
 # Ein einfaches Netz
@@ -41,6 +43,15 @@ flowchart LR
 ```
 
 ## Die Netz-Klasse
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Die Ausgabe ist ein Wert zwischen 0 und 1 (wegen Sigmoid). Nahe 0 bedeutet „Birne", nahe 1 bedeutet „Apfel". Welchen Wert erwartest du für die Eingabe {0.9, 0.7} — eher Apfel oder Birne?
+:::
+
+::::collapsible{title="Tipp"}
+
+Die Eingabe {0.9, 0.7} könnte für einen Apfel stehen (hohes Gewicht, hohe Süßigkeit). Man würde also eine Ausgabe nahe 1 erwarten. Aber Vorsicht: Die Gewichte wurden von Hand gesetzt, nicht gelernt. Schau genau hin, was wirklich herauskommt.
+::::
 
 :::onlineide{height="800px" speed="1000000"}
 
@@ -161,15 +172,6 @@ public class Sigmoid implements Aktivierung {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Die Ausgabe ist ein Wert zwischen 0 und 1 (wegen Sigmoid). Nahe 0 bedeutet „Birne", nahe 1 bedeutet „Apfel". Welchen Wert erwartest du für die Eingabe {0.9, 0.7} — eher Apfel oder Birne?
-:::
-
-::::collapsible{title="Tipp"}
-
-Die Eingabe {0.9, 0.7} könnte für einen Apfel stehen (hohes Gewicht, hohe Süßigkeit). Man würde also eine Ausgabe nahe 1 erwarten. Aber Vorsicht: Die Gewichte wurden von Hand gesetzt, nicht gelernt. Schau genau hin, was wirklich herauskommt.
-::::
-
 :::snippet{#merken}
 Dieses Netz ist die **komplette Architektur eines neuronalen Netzes** in Java:
 - `Neuron` hat Gewichte, Bias und eine Aktivierungsfunktion (Polymorphie).
@@ -200,6 +202,38 @@ b) Für {0.3, 0.2} kommt **≈ 0.513** heraus. Die beiden Ausgaben unterscheiden
 Das ist die wichtigste Erkenntnis dieser Lektion: Die Gewichte wurden von Hand gesetzt, nicht gelernt. Ein Netz mit ungelernten Gewichten rechnet einwandfrei und liefert eine Zahl zwischen 0 und 1 — diese Zahl bedeutet aber **nichts**. Erst das Training (Kapitel 4.4) macht aus der Architektur ein Modell.
 
 c) Mit allen drei Ausgabegewichten auf 0.5 steigt die Ausgabe für {0.9, 0.7} auf **≈ 0.670**. Der Grund: Die drei verdeckten Neuronen liefern alle Werte um 0.6, und statt sie gegeneinander zu verrechnen (0.6, -0.7, 0.4) addiert das Ausgabeneuron sie jetzt alle mit positivem Vorzeichen. Die Ausgabe sagt damit „eher Apfel" — aber aus demselben Grund wie vorher: weil wir die Gewichte so gewählt haben, nicht weil das Netz etwas über Äpfel weiß. Für {0.3, 0.2} ergäbe sich mit 0.644 fast derselbe Wert.
+:::
+
+## Warum es die verdeckte Schicht braucht
+
+In Lektion 4.2 bist du an XOR gescheitert — ein einzelnes Neuron kann es nicht. Dieses Netz hat dieselbe Architektur wie dein Programm: 2 Eingaben, 3 verdeckte Neuronen, 1 Ausgabe. Damit geht es.
+
+<ki-neuron modus="netz" ziel="xor" eingabe="0.9,0.7"></ki-neuron>
+
+:::snippet{#aufgabe}
+a) Die Gewichte stehen noch auf den Werten aus dem Programm. Schau in die Wahrheitstabelle: Wie viele der vier XOR-Zeilen stimmen?
+
+b) Öffne **Gewichte des Netzes** und drücke auf **XOR-Lösung**. Jetzt stimmen alle vier. Sieh dir die beiden ersten verdeckten Neuronen an: Eines rechnet ODER, das andere UND. Welches ist welches?
+
+c) Setze das Gewicht von h2 zur Ausgabe auf einen positiven Wert. Welche Zeile kippt zuerst, und warum gerade die?
+
+d) Drücke auf **Zufällig** und dann mehrmals erneut. Wie oft kommt XOR dabei heraus? Was sagt dir das darüber, warum Netze trainiert werden müssen?
+:::
+
+::::collapsible{title="Tipp zu b)"}
+
+Stelle die Eingabe nacheinander auf (1 | 0) und (1 | 1) und lies die Werte in h1 und h2 ab. Welches Neuron feuert schon bei einer einzelnen 1, welches erst bei zwei?
+::::
+
+:::protect{password="ai-4-5-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+b) **h1 rechnet ODER** (Gewichte 4 und 4, Bias −2): Es feuert schon, wenn eine der beiden Eingaben 1 ist. **h2 rechnet UND** (Gewichte 4 und 4, Bias −6): Es feuert erst, wenn beide 1 sind.
+
+Die Ausgabeschicht bildet daraus „ODER, aber nicht UND" — und genau das ist XOR. Das Netz hat das Problem also in zwei Fragen zerlegt, die ein einzelnes Neuron je beantworten kann. Das ist der ganze Sinn einer verdeckten Schicht.
+
+c) Zuerst kippt die Zeile (1 | 1). Dort ist h2 als Einziges aktiv; sein Gewicht zur Ausgabe war das Einzige, was diese Zeile nach unten gedrückt hat. Ohne das negative Gewicht wird aus XOR wieder ODER.
+
+d) So gut wie nie. Von Hand gesetzte oder zufällige Gewichte lösen die Aufgabe nur in den seltensten Fällen — und dieses Netz hat bloß 13 Zahlen. Ein echtes Netz hat Millionen. Deshalb werden Gewichte nicht geraten, sondern über die Backpropagation aus Lektion 4.4 schrittweise angepasst.
 :::
 
 <!-- KLP Q-Phase: erläutern die Grundlagen künstlicher neuronaler Netze (A) —

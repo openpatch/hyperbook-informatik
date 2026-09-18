@@ -2,6 +2,8 @@
 title: Ein Bigramm-Modell
 index: 3
 permaid: ai-bigramm-modell
+scripts:
+  - /wc/ki-bigramm.js
 ---
 
 # Ein Bigramm-Modell
@@ -13,6 +15,10 @@ Jetzt baust du ein Bigramm-Modell in Java. Es trainiert auf einem kleinen Korpus
 1. **Training:** Zähle alle Bigramme im Korpus.
 2. **Erzeugung:** Wähle das nächste Token zufällig nach Wahrscheinlichkeit.
 3. **Wiederholung:** Bis genügend Tokens erzeugt sind.
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Lies den Korpus im Programm unten. Welche Wörter kommen nach „die"? Welches ist am häufigsten? Schreibe deine Vermutung auf.
+:::
 
 :::onlineide{height="780px" speed="1000000"}
 
@@ -114,10 +120,6 @@ public class BigrammModell {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Lies den Korpus. Welche Wörter kommen nach „die"? Welches ist am häufigsten? Schreibe deine Vermutung auf.
-:::
-
 :::snippet{#aufgabe}
 a) Führe das Programm mehrmals aus. Kommt jedes Mal derselbe Text heraus? Warum?
 
@@ -153,6 +155,31 @@ Das Bigramm-Modell ist ein **generatives KI-System**: Es erzeugt neuen Text, den
 Beim Trainieren hat niemand Labels vergeben — der Korpus ist einfach roher Text. Das Modell erzeugt sich seine „richtigen Antworten" selbst, indem es jedes Token als Vorhersageziel für das vorhergehende benutzt. Man nennt das **selbstüberwachtes Lernen**: Es sieht von innen aus wie überwachtes Lernen (es gibt für jede Eingabe eine richtige Antwort), aber die Beschriftung kostet keine Handarbeit, sondern steckt schon im Text. Genau deshalb lassen sich Sprachmodelle auf so gewaltigen Textmengen trainieren.
 
 Der erzeugte Text ist nicht sinnvoll wie bei ChatGPT — aber das Prinzip ist dasselbe: das nächste Token nach Wahrscheinlichkeit wählen.
+:::
+
+## Token für Token erzeugen
+
+Derselbe Korpus wie im Programm. Mit **Nächstes Token** siehst du bei jedem einzelnen Schritt, aus welcher Verteilung gewürfelt wurde.
+
+<ki-bigramm id="ai-bigramm-erzeugen" ansicht="erzeugen"></ki-bigramm>
+
+:::snippet{#aufgabe}
+a) Drücke fünfmal auf **Neu** und dann jeweils auf **10 Tokens**. Kommt derselbe Text heraus? Vergleiche mit deiner Antwort zu a) von oben.
+
+b) Nimm den Haken bei **zufällig nach Wahrscheinlichkeit** heraus. Jetzt wird immer das häufigste Wort gewählt. Was passiert mit dem Text nach wenigen Schritten?
+
+c) Stelle das Startwort auf **schläft**. Warum endet der Text sofort?
+
+d) Ergänze im Korpus den Satz „die Katze frisst die Maus" und erzeuge erneut Text. Welches neue Wort taucht auf, und wie wahrscheinlich ist es nach „Katze"?
+:::
+
+:::protect{password="ai-5-3-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+b) Der Text läuft in eine **Schleife**. Ohne Zufall hängt das nächste Token nur vom aktuellen ab, und sobald ein Token zum zweiten Mal auftaucht, wiederholt sich alles ab dort endlos. Der Zufall ist also nicht nur Beiwerk — er ist der Grund, warum überhaupt verschiedene Texte entstehen.
+
+c) „schläft" steht am Ende des Korpus. Dieses letzte Vorkommen hat keinen Nachfolger, und an keiner anderen Stelle folgt etwas auf „schläft" — die Zeile in der Häufigkeitstabelle ist leer. Das Modell kennt also kein einziges Wort, das danach kommen könnte.
+
+d) Neu ist **frisst**. Nach „Katze" gibt es jetzt vier Fortsetzungen: zweimal „schläft", einmal „jagt" und einmal „frisst". $P(\text{frisst} \mid \text{Katze}) = 1/4 = 25\,\%$.
 :::
 
 <!-- KLP EF/Q-Phase: (erläutern) die Unterschiede zwischen diskriminativen

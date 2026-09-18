@@ -7,6 +7,10 @@ scripts:
   - /wc/card-matching.js
   - /wc/category-drag.js
   - /wc/coin-rows.js
+  - /wc/ki-bigramm.js
+  - /wc/ki-konfusionsmatrix.js
+  - /wc/ki-neuron.js
+  - /wc/ki-punktwolke.js
   - /wc/memory-game.js
   - /wc/pixel-editor.js
   - /wc/pixel-magnifier.js
@@ -220,3 +224,114 @@ Schere-Stein-Papier-Brunnen-Spiel gegen den Computer mit optionalem Spielverlauf
 ```
 
 <rock-paper-scissors id="wc-rps-demo"></rock-paper-scissors>
+
+---
+
+## KI Punktwolke
+
+Zweidimensionale Punktwolke für die Verfahren des maschinellen Lernens. Im Modus `knn` klassifiziert ein Klick einen Testpunkt und zeigt die k nächsten Nachbarn samt Entscheidungsgrenze; im Modus `kmeans` lässt sich die Clusterbildung Schritt für Schritt verfolgen.
+
+| Attribute     | Type   | Description                                                             |
+|---------------|--------|-------------------------------------------------------------------------|
+| `id`          | String | Eindeutiger Bezeichner zum Speichern des Zustands                       |
+| `modus`       | String | `"knn"` (Standard) oder `"kmeans"`                                      |
+| `punkte`      | String | Trainingsdaten: `"x,y,Label;x,y,Label;…"` (Standard: Äpfel und Birnen)   |
+| `k`           | Number | Startwert für k (Standard: 3 bzw. 2 bei k-Means)                        |
+| `testpunkt`   | String | Vorgesetzter Testpunkt: `"x,y"`                                         |
+| `x-label`     | String | Beschriftung der x-Achse (Standard: `"Gewicht (g)"`)                    |
+| `y-label`     | String | Beschriftung der y-Achse (Standard: `"Süßigkeit"`)                      |
+| `x-min`, `x-max`, `y-min`, `y-max` | Number | Achsenbereich (Standard: automatisch aus den Daten) |
+| `hoehe`       | Number | Höhe der Zeichenfläche in Pixeln (Standard: 340)                        |
+| `grenze`      | String | `"aus"` blendet die Entscheidungsgrenze anfangs aus                     |
+| `normiert`    | Flag   | Startet mit normierten Merkmalen                                        |
+| `bearbeitbar` | Flag   | Erlaubt Hinzufügen, Verschieben und Löschen von Trainingspunkten        |
+
+**Beispiel:**
+```html
+<ki-punktwolke id="knn-demo"></ki-punktwolke>
+
+<ki-punktwolke id="knn-bias" bearbeitbar k="1"></ki-punktwolke>
+
+<ki-punktwolke id="kmeans-demo" modus="kmeans" k="2"></ki-punktwolke>
+```
+
+<ki-punktwolke id="wc-knn-demo" bearbeitbar testpunkt="140,6"></ki-punktwolke>
+
+<ki-punktwolke id="wc-kmeans-demo" modus="kmeans" k="2"></ki-punktwolke>
+
+---
+
+## KI Neuron
+
+Zeigt ein einzelnes Neuron oder ein Netz aus drei Schichten. Gewichte, Bias und Eingaben sind einstellbar, die Rechnung lässt sich Schritt für Schritt nachvollziehen. Die Wahrheitstabelle prüft, ob die eingestellten Gewichte eine logische Funktion berechnen.
+
+| Attribute     | Type   | Description                                                        |
+|---------------|--------|--------------------------------------------------------------------|
+| `modus`       | String | `"neuron"` (Standard) oder `"netz"` (2-3-1 wie im Buch)            |
+| `aktivierung` | String | `"sigmoid"` (Standard), `"relu"`, `"stufe"` oder `"keine"` (nur die gewichtete Summe, wie in Lektion 4.1) |
+| `gewichte`    | String | Startgewichte des Neurons: `"w1,w2"`                               |
+| `bias`        | Number | Start-Bias des Neurons                                             |
+| `eingabe`     | String | Startwerte der Eingaben: `"x1,x2"`                                 |
+| `ziel`        | String | Zielfunktion für die Wahrheitstabelle: `"und"`, `"oder"`, `"xor"`. Ohne Angabe wird keine Wahrheitstabelle gezeigt. |
+
+**Beispiel:**
+```html
+<ki-neuron gewichte="4,4" bias="-6" ziel="und"></ki-neuron>
+
+<ki-neuron modus="netz"></ki-neuron>
+```
+
+<ki-neuron gewichte="4,4" bias="-6" ziel="und"></ki-neuron>
+
+<ki-neuron modus="netz"></ki-neuron>
+
+---
+
+## KI Bigramm
+
+Tokenisiert einen Korpus, zählt die Bigramme und erzeugt daraus neuen Text. Die Tokenisierung entspricht standardmäßig dem `split(" ")` aus dem Buch — leere Tokens werden sichtbar gemacht.
+
+| Attribute | Type   | Description                                                                    |
+|-----------|--------|--------------------------------------------------------------------------------|
+| `id`      | String | Eindeutiger Bezeichner zum Speichern des Zustands                              |
+| `korpus`  | String | Trainingstext (Standard: der Katzen-Korpus aus dem Buch)                        |
+| `ansicht` | String | Kommaliste aus `"tokens"`, `"tabelle"`, `"erzeugen"` oder `"alle"` (Standard)   |
+| `sauber`  | Flag   | Startet mit abgetrennten Satzzeichen und Kleinschreibung                        |
+
+**Beispiel:**
+```html
+<ki-bigramm id="tokens-demo" ansicht="tokens"></ki-bigramm>
+
+<ki-bigramm id="bigramm-demo" ansicht="tabelle,erzeugen"></ki-bigramm>
+```
+
+<ki-bigramm id="wc-bigramm-demo"></ki-bigramm>
+
+---
+
+## KI Konfusionsmatrix
+
+Zeigt den Zusammenhang zwischen Schwellwert, Konfusionsmatrix und den Kennzahlen Präzision, Spezifität, Sensitivität und Trefferquote. Im Modus `eingabe` dient die Komponente als Rechner für eigene Zahlen.
+
+| Attribute      | Type   | Description                                                             |
+|----------------|--------|-------------------------------------------------------------------------|
+| `modus`        | String | `"schwelle"` (Standard) oder `"eingabe"`                                |
+| `daten`        | String | Beispiele als `"bewertung,label;…"` mit Label `1` (positiv) oder `0`    |
+| `schwelle`     | Number | Startwert des Schwellwerts zwischen 0 und 1 (Standard: 0,5)             |
+| `werte`        | String | Nur im Modus `eingabe`: Startwerte als `"TP,FP,FN,TN"`                  |
+| `positiv-name` | String | Name der positiven Klasse (Standard: `"Spam"`)                          |
+| `negativ-name` | String | Name der negativen Klasse (Standard: `"kein Spam"`)                     |
+| `einheit`      | String | Bezeichnung der Datenpunkte in den Erklärungen (Standard: `"E-Mails"`)  |
+
+**Beispiel:**
+```html
+<ki-konfusionsmatrix></ki-konfusionsmatrix>
+
+<ki-konfusionsmatrix modus="eingabe" werte="90,10,10,990"
+  positiv-name="krank" negativ-name="gesund" einheit="Personen">
+</ki-konfusionsmatrix>
+```
+
+<ki-konfusionsmatrix></ki-konfusionsmatrix>
+
+<ki-konfusionsmatrix modus="eingabe" werte="90,10,10,990" positiv-name="krank" negativ-name="gesund" einheit="Personen"></ki-konfusionsmatrix>

@@ -2,6 +2,8 @@
 title: Forward Propagation
 index: 3
 permaid: ai-forward-propagation
+scripts:
+  - /wc/ki-neuron.js
 ---
 
 # Forward Propagation
@@ -152,6 +154,25 @@ Die Ausgaben sind trotz Null-Eingabe nicht 0.5 und auch nicht untereinander glei
 
 c) Mit ReLU wird aus jeder Summe entweder sie selbst (wenn positiv) oder 0. Für {1.0, 0.8} sind das 0.36, 0.46 und 0.62 — also die rohen Summen, weil alle positiv sind. Für {0.0, 0.0} ergibt sich 0.1, **0** und 0.3: Neuron 1 mit dem negativen Bias -0.5 wird komplett abgeschaltet, während Sigmoid dort noch 0.378 geliefert hatte. Das ist der wesentliche Unterschied: ReLU schaltet Neuronen ganz ab, Sigmoid drückt sie nur nahe an 0.
 :::
+
+## Der Weg durch das Netz
+
+Hier siehst du, was Forward Propagation bedeutet: Die Zahlen wandern von links nach rechts, und jede Ausgabe einer Schicht wird zur Eingabe der nächsten. Eingestellt sind die Gewichte aus dem Programm; über **Gewichte des Netzes** kannst du sie ändern.
+
+<ki-neuron modus="netz" eingabe="1,0.8"></ki-neuron>
+
+:::snippet{#aufgabe}
+a) Drücke auf **Schritt für Schritt** und dann zweimal auf den blauen Knopf. Welche Schicht wird zuerst berechnet, welche danach? Vergleiche die drei Werte der verdeckten Schicht mit den Ausgaben aus deinem Programmlauf.
+
+b) Stelle beide Eingaben auf 0. Unter der Zeichnung stehen die drei Rechnungen. Woraus besteht die Summe eines Neurons jetzt noch?
+
+c) Schalte die Aktivierung auf **ReLU**. Welches der drei verdeckten Neuronen wird bei Eingabe (0 | 0) vollständig abgeschaltet?
+:::
+
+::::collapsible{title="Tipp zu c)"}
+
+ReLU gibt für negative Summen genau 0 zurück. Schau in die drei Rechnungen: Welches Neuron hat einen negativen Bias?
+::::
 
 <!-- KLP Q-Phase: erläutern die Grundlagen künstlicher neuronaler Netze (A) —
      Grundidee der Forward Propagation -->

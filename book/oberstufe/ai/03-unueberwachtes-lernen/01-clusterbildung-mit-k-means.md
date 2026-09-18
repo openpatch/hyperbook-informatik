@@ -2,6 +2,8 @@
 title: Clusterbildung mit k-Means
 index: 1
 permaid: ai-kmeans
+scripts:
+  - /wc/ki-punktwolke.js
 ---
 
 # Clusterbildung mit k-Means
@@ -31,6 +33,21 @@ Der Algorithmus ist **iterativ**: er wiederholt zwei Schritte, bis sich nichts m
 ## Der Algorithmus in Java
 
 Wir benutzen dieselbe `Datenpunkt`-Klasse aus Kapitel 2, aber **ohne Labels** — die gibt es im unüberwachten Lernen ja nicht.
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Schau dir die 9 Punkte im Programm unten an. Sie bilden drei sichtbare Gruppen. Welche? Notiere deine Vermutung.
+:::
+
+::::collapsible{title="Tipp"}
+
+Schau dir die Koordinaten an:
+- Punkte nahe (10, 20) bilden eine Gruppe
+- Punkte nahe (50, 60) bilden eine Gruppe
+- Punkte nahe (80, 20) bilden eine Gruppe
+
+→ 3 Cluster mit je 3 Punkten.
+
+::::
 
 :::onlineide{height="780px" speed="1000000"}
 
@@ -179,21 +196,6 @@ public class Datenpunkt {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Schau dir die 9 Punkte an. Sie bilden drei sichtbare Gruppen. Welche? Notiere deine Vermutung.
-:::
-
-::::collapsible{title="Tipp"}
-
-Schau dir die Koordinaten an:
-- Punkte nahe (10, 20) bilden eine Gruppe
-- Punkte nahe (50, 60) bilden eine Gruppe
-- Punkte nahe (80, 20) bilden eine Gruppe
-
-→ 3 Cluster mit je 3 Punkten.
-
-::::
-
 :::snippet{#aufgabe}
 a) Führe das Programm aus. Entspricht die Cluster-Zuordnung deiner Vermutung? Nach wie vielen Iterationen ist der Algorithmus stabil?
 
@@ -244,6 +246,27 @@ Das ist ein wichtiger Unterschied zu k-NN: Dort liefert dieselbe Eingabe immer d
 
 :::snippet{#merken}
 k-Means ist **unüberwacht**: Es gibt keine Labels, und das System findet selbst Gruppen. Es ist **iterativ**: es wiederholt Zuordnen und Aktualisieren bis zur Stabilität. Und es ist **diskriminativ** im weiteren Sinn: Es teilt Daten in Gruppen ein, erzeugt aber keine neuen Daten.
+:::
+
+## Die Iterationen Schritt für Schritt
+
+Im Programm siehst du nur das Endergebnis. Hier kannst du dem Algorithmus bei den zwei Schritten zusehen: **Zuordnen** und **Verschieben**. Die Kreuze sind die Schwerpunkte.
+
+<ki-punktwolke id="ai-kmeans-schritte" modus="kmeans" k="3"
+  punkte="10,20;12,22;15,18;50,60;55,65;52,58;80,20;85,25;82,18"
+  x-min="0" x-max="100" y-min="0" y-max="80"
+  x-label="Merkmal 1" y-label="Merkmal 2"></ki-punktwolke>
+
+:::snippet{#aufgabe}
+a) Drücke mehrmals auf **Nächster Schritt**. Über der Tabelle steht jedes Mal, was als Nächstes passiert. Nach wie vielen Durchläufen meldet die Komponente, dass sich nichts mehr ändert?
+
+b) Drücke auf **Neu starten** und lasse den Algorithmus mit **Bis zum Ende** durchlaufen. Wiederhole das fünfmal. Kommt immer dasselbe heraus?
+
+c) Stelle k auf 2 und dann auf 4. Vergleiche mit deinen Antworten zu b) und c) von oben.
+:::
+
+:::snippet{#brain}
+Die Komponente setzt die Startschwerpunkte **zufällig** auf vorhandene Datenpunkte — das Java-Programm nimmt immer die ersten k. Warum ist der Zufall in der Praxis die bessere Wahl? Der Kasten unter dieser Aufgabe gibt die Antwort.
 :::
 
 <!-- KLP Q-Phase: erläutern die Funktionsweise eines konkreten Verfahrens zur

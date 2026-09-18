@@ -2,6 +2,8 @@
 title: "Text als Daten: Tokenisierung"
 index: 1
 permaid: ai-tokenisierung
+scripts:
+  - /wc/ki-bigramm.js
 ---
 
 # Text als Daten: Tokenisierung
@@ -17,6 +19,10 @@ Ein Token kann ein Wort, ein Zeichen oder ein Wortteil sein. Die einfachste Form
 :::
 
 ## Ein einfacher Tokenizer
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Wie viele Tokens hat der Text „Der Apfel ist süß und rot"? Zähle die Wörter.
+:::
 
 :::onlineide{height="500px" speed="1000000"}
 
@@ -43,10 +49,6 @@ public class Tokenizer {
 }
 ```
 
-:::
-
-:::snippet{#brain}
-Bevor du das Programm ausführst: Wie viele Tokens hat der Text „Der Apfel ist süß und rot"? Zähle die Wörter.
 :::
 
 :::snippet{#aufgabe}
@@ -81,6 +83,27 @@ Deshalb trennen echte Tokenizer Satzzeichen ab, vereinheitlichen Groß- und Klei
 :::snippet{#merken}
 Tokenisierung ist der erste Schritt jedes Sprachmodells. Die einfache Wort-Tokenisierung an Leerzeichen ist ein Anfang, aber sie hat Grenzen: Satzzeichen bleiben hängen, und zusammengesetzte Wörter werden nicht getrennt. Echte LLMs nutzen komplexere Tokenisierer, die Wörter weiter in Silben oder Zeichen zerlegen.
 :::
+
+## Tokenisieren und sehen, was herauskommt
+
+Diese Komponente zerlegt den Text genauso wie dein Programm, nämlich mit `split(" ")`. Ein **∅** steht für ein leeres Token.
+
+<ki-bigramm id="ai-tokens" ansicht="tokens" korpus="Der Apfel ist süß und rot"></ki-bigramm>
+
+:::snippet{#aufgabe}
+a) Wie viele Tokens zählt die Komponente? Klicke danach in das Textfeld und setze zwischen die Wörter jeweils ein **zweites Leerzeichen**. Was passiert mit der Anzahl — und woher kommen die ∅?
+
+b) Schreibe einen Punkt an das Ende. Sieh dir das letzte Token an: Wie heißt es jetzt?
+
+c) Schreibe zusätzlich „der Apfel ist süß" klein dahinter. Wie viele **verschiedene** Tokens zählt die Komponente nun? Wie viele wären es, wenn Groß- und Kleinschreibung egal wären?
+
+d) Setze den Haken bei **Satzzeichen abtrennen und klein schreiben**. Prüfe deine Antworten zu a) bis c) noch einmal.
+:::
+
+::::collapsible{title="Tipp zu c)"}
+
+Die Zeile unter den Tokens nennt beide Zahlen: wie viele Tokens es insgesamt sind und wie viele davon verschieden. Die zweite Zahl ist die Größe des **Vokabulars**.
+::::
 
 <!-- KLP Q-Phase: erläutern die Grundlagen generativer KI-Systeme (A) -->
 

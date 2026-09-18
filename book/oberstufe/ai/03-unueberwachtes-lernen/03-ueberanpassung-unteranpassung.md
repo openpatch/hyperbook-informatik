@@ -2,6 +2,8 @@
 title: Überanpassung und Unteranpassung
 index: 3
 permaid: ai-ueberunteranpassung
+scripts:
+  - /wc/ki-punktwolke.js
 ---
 
 # Überanpassung und Unteranpassung
@@ -25,6 +27,10 @@ Ein KI-Modell kann zu einfach oder zu komplex sein. Beides führt zu schlechten 
 ## Überanpassung beim k-NN
 
 Beim k-NN bedeutet **k = 1** Überanpassung: Jeder Testpunkt wird nach einem einzigen Nachbarn beurteilt — inklusive Ausreißern. **k zu groß** bedeutet Unteranpassung: Die Mehrheit der Trainingsdaten dominiert immer, feine Muster gehen verloren. Das Programm unten misst deshalb beide Quoten — auf den Trainingsdaten **und** auf den Testdaten. Erst der Vergleich der beiden verrät, welcher der zwei Fehler vorliegt.
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Bei k = 1 ist jeder Trainingspunkt sein eigener nächster Nachbar — seine Distanz zu sich selbst ist 0. Was bedeutet das für die Trefferquote **auf den Trainingsdaten**? Überlege, bevor du weiterliest.
+:::
 
 :::onlineide{height="600px" speed="1000000"}
 
@@ -123,10 +129,6 @@ public class Datenpunkt {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Bei k = 1 ist jeder Trainingspunkt sein eigener nächster Nachbar — seine Distanz zu sich selbst ist 0. Was bedeutet das für die Trefferquote **auf den Trainingsdaten**? Überlege, bevor du weiterliest.
-:::
-
 :::snippet{#aufgabe}
 a) Führe das Programm aus und trage die sechs Werte in eine Tabelle ein: Trainings- und Testquote für k = 1, k = 3 und k = 11.
 
@@ -171,6 +173,43 @@ d) Ohne den Ausreißer wird der Testpunkt (14, 5) auch bei k = 1 richtig als A e
 - **Überanpassung** (k zu klein): Das Modell merkt sich jedes Detail, auch Ausreißer. Gute Trainingsquote, schlechte Testquote.
 - **Unteranpassung** (k zu groß): Das Modell ist zu grob. Schlechte Trainings- und Testquote.
 - **Ziel:** Ein k finden, das weder zu klein noch zu groß ist — die „goldene Mitte".
+:::
+
+## Überanpassung sehen
+
+Dieselben elf Trainingspunkte und drei Testpunkte wie im Programm. **Gefüllt sind die Trainingsdaten, hohl die Testdaten.** Unter der Zeichnung stehen beide Quoten nebeneinander.
+
+<ki-punktwolke id="ai-ueberanpassung" bearbeitbar k="1"
+  punkte="10,5,A;11,6,A;12,5,A;13,6,A;11,4,A;50,5,B;51,6,B;52,5,B;53,6,B;51,4,B;15,5,B"
+  testdaten="10,6,A;51,5,B;14,5,A"
+  x-min="0" x-max="60" y-min="3" y-max="7"
+  x-label="Merkmal 1" y-label="Merkmal 2"></ki-punktwolke>
+
+:::snippet{#aufgabe}
+a) Stelle k auf 1, 3 und 11 und lies jeweils beide Quoten ab. Es müssen dieselben sechs Werte herauskommen wie in deiner Tabelle.
+
+b) Stelle k auf 1. Die B-Fläche reicht weit nach links, bis dicht an die A-Gruppe heran — obwohl dort nur **ein** einziger B-Punkt liegt, der Ausreißer bei (15 | 5). Klicke mit dem Werkzeug **Testpunkt** genau auf den hohlen Punkt bei (14 | 5). Welches Label sagt der Klassifikator, und welcher Nachbar steht dafür in der Tabelle?
+
+c) Stelle k auf 3. Die Grenze springt nach rechts, und der Ausreißer liegt jetzt selbst im A-Gebiet — du siehst ihn als andersfarbigen Punkt mitten in der A-Fläche. Was passiert dadurch mit den beiden Quoten? **Das ist der Kern von Überanpassung:** Bei k = 1 hat sich das Modell den einen Punkt gemerkt, bei k = 3 verallgemeinert es die Gruppe.
+
+d) Wähle das Werkzeug **Löschen** und klicke auf den Ausreißer (15 | 5). Stelle k wieder auf 1. Was passiert mit der Grenze und mit den beiden Quoten? Vergleiche mit Aufgabe d) von oben.
+
+e) Stelle k auf 11. Erkläre, warum die Fläche einfarbig wird und beide Quoten gleichzeitig sinken.
+:::
+
+:::protect{password="ai-3-3-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+b) Der Klassifikator sagt **B**, obwohl (14 | 5) in Wirklichkeit ein A ist. In der Tabelle steht als nächster Nachbar der Ausreißer (15 | 5) mit der Distanz 1,00 — die nächsten echten A-Punkte liegen mit 1,41 und 2,00 weiter weg. Ein einziger Punkt reicht, um die Grenze über 35 Einheiten weit nach links zu ziehen. Genau dieser Testpunkt ist der eine, der in der Testquote von 2 von 3 fehlt.
+
+c) Die Trainingsquote **sinkt** von 100 % auf 91 %, die Testquote **steigt** von 67 % auf 100 %. Das ist der entscheidende Punkt: Das schlechtere Ergebnis auf den Trainingsdaten ist hier das bessere Modell. Der eine Trainingspunkt, der jetzt falsch liegt, ist genau der Ausreißer — und den soll ein gutes Modell falsch klassifizieren.
+
+d) Die Grenze rückt in die Mitte zwischen die beiden Gruppen, wo sie hingehört. Beide Quoten stehen danach auf 100 %. Überanpassung ist also kein reines k-Problem: Sie entsteht dort, wo Rauschen in den Trainingsdaten steckt.
+
+e) Bei k = 11 stimmen immer alle elf Trainingspunkte ab — bei jedem Punkt dieselben elf. Das Ergebnis hängt gar nicht mehr davon ab, wo der Punkt liegt, deshalb gibt es keine Grenze mehr. 6 B schlagen 5 A, das Modell sagt überall „B". Richtig liegt es damit nur noch bei den B-Punkten: 6 von 11 und 1 von 3.
+:::
+
+:::snippet{#merken}
+Bei k = 1 ist der nächste Nachbar eines Trainingspunkts immer er selbst. Die Trainingsquote ist deshalb **immer** 100 % — sie sagt in diesem Fall gar nichts über das Modell aus. Nur die Testquote zählt.
 :::
 
 <!-- KLP Q-Phase: bewerten die Qualität eines KI-Modells auf Grundlage

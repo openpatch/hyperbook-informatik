@@ -1305,7 +1305,7 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="oberstufe/ai (35 Lösungen)"}
+::::collapsible{title="oberstufe/ai (44 Lösungen)"}
 
 
 **[Was ist KI? – Arten des maschinellen Lernens](/oberstufe/ai/01-was-ist-ki/02-arten-des-maschinellen-lernens)**
@@ -1339,12 +1339,14 @@ verlinkt.
 | --- | --- |
 | Schritt 1: Die Distanz | `ai-2-2-1` |
 | Schritt 3: Den Klassifikator bauen | `ai-2-2-2` |
+| Die Entscheidungsgrenze | `ai-2-2-3` |
 
 **[Überwachtes Lernen – Der Lernprozess](/oberstufe/ai/02-ueberwachtes-lernen/03-der-lernprozess)**
 
 | Aufgabe | Passwort |
 | --- | --- |
 | Trefferquote berechnen | `ai-2-3-1` |
+| Trainings- und Testdaten im Bild | `ai-2-3-2` |
 
 **[Überwachtes Lernen – Rückblick](/oberstufe/ai/02-ueberwachtes-lernen/04-rueckblick)**
 
@@ -1364,18 +1366,21 @@ verlinkt.
 | Aufgabe | Passwort |
 | --- | --- |
 | Bias im k-Means-Beispiel | `ai-3-2-1` |
+| Verzerrte Daten im Bild | `ai-3-2-2` |
 
 **[Unüberwachtes Lernen und Modellqualität – Überanpassung und Unteranpassung](/oberstufe/ai/03-unueberwachtes-lernen/03-ueberanpassung-unteranpassung)**
 
 | Aufgabe | Passwort |
 | --- | --- |
 | Überanpassung beim k-NN | `ai-3-3-1` |
+| Überanpassung sehen | `ai-3-3-2` |
 
 **[Unüberwachtes Lernen und Modellqualität – Präzision und Spezifität](/oberstufe/ai/03-unueberwachtes-lernen/04-praezision-und-spezifitaet)**
 
 | Aufgabe | Passwort |
 | --- | --- |
 | Ein Beispiel: Spam-Filter | `ai-3-4-1` |
+| Der Schwellwert entscheidet mit | `ai-3-4-2` |
 
 **[Unüberwachtes Lernen und Modellqualität – Rückblick](/oberstufe/ai/03-unueberwachtes-lernen/05-rueckblick)**
 
@@ -1389,12 +1394,14 @@ verlinkt.
 | Aufgabe | Passwort |
 | --- | --- |
 | Die Neuron-Klasse | `ai-4-1-1` |
+| Ein Neuron zum Anfassen | `ai-4-1-2` |
 
 **[Neuronale Netze – Gewichte und Aktivierung](/oberstufe/ai/04-neuronale-netze/02-gewichte-und-aktivierung)**
 
 | Aufgabe | Passwort |
 | --- | --- |
 | Aktivierungsfunktionen als Polymorphie | `ai-4-2-1` |
+| Ein Neuron, das UND rechnet | `ai-4-2-2` |
 
 **[Neuronale Netze – Forward Propagation](/oberstufe/ai/04-neuronale-netze/03-forward-propagation)**
 
@@ -1413,6 +1420,7 @@ verlinkt.
 | Aufgabe | Passwort |
 | --- | --- |
 | Die Netz-Klasse | `ai-4-5-1` |
+| Warum es die verdeckte Schicht braucht | `ai-4-5-2` |
 
 **[Neuronale Netze – Rückblick](/oberstufe/ai/04-neuronale-netze/06-rueckblick)**
 
@@ -1438,6 +1446,7 @@ verlinkt.
 | Aufgabe | Passwort |
 | --- | --- |
 | Die Idee | `ai-5-3-1` |
+| Token für Token erzeugen | `ai-5-3-2` |
 
 **[Sprachmodelle – Vom Bigramm zum LLM](/oberstufe/ai/05-sprachmodelle/04-vom-bigramm-zum-llm)**
 
@@ -1604,7 +1613,7 @@ verlinkt.
 ::::
 
 
-Insgesamt 459 geschützte Lösungen.
+Insgesamt 468 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.

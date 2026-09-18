@@ -2,6 +2,8 @@
 title: Gewichte und Aktivierung
 index: 2
 permaid: ai-gewichte-aktivierung
+scripts:
+  - /wc/ki-neuron.js
 ---
 
 # Gewichte und Aktivierung
@@ -29,6 +31,26 @@ Die **Aktivierungsfunktion** entscheidet, ob und wie stark ein Neuron „feuert"
 ## Aktivierungsfunktionen als Polymorphie
 
 Hier kommt ein Konzept aus dem OOP-Lernpfad ins Spiel: **Polymorphie**. Wir definieren eine Schnittstelle `Aktivierung` und zwei Implementierungen: `Sigmoid` und `ReLU`. Das Neuron bekommt seine Aktivierungsfunktion zur Laufzeit — es weiß nicht, welche, und muss es auch nicht wissen.
+
+:::snippet{#brain}
+Bevor du das Programm ausführst: Bei Bias 0.1 ist die gewichtete Summe 0.36 (aus der letzten Lektion). Sigmoid davon: etwa 0.59. ReLU davon: 0.36.
+
+Im Programm unten wird der Bias danach auf -2.0 gesetzt. **Achtung:** Der Bias wird nicht addiert, sondern **ersetzt** — rechne die Summe also neu aus, statt 2.0 von 0.36 abzuziehen. Was gibt dann Sigmoid, was gibt ReLU?
+:::
+
+::::collapsible{title="Tipp 1: die neue Summe"}
+
+summe = bias + gewicht[0] · eingabe[0] + gewicht[1] · eingabe[1]
+summe = -2.0 + 0.5 · 1.0 + (-0.3) · 0.8
+summe = -2.0 + 0.5 - 0.24 = **-1.74**
+::::
+
+::::collapsible{title="Tipp 2: die beiden Ausgaben"}
+
+Sigmoid(-1.74) = 1 / (1 + e^1.74) ≈ 1 / 6.70 ≈ **0.149**
+
+ReLU(-1.74) = max(0, -1.74) = **0**
+::::
 
 :::onlineide{height="620px" speed="1000000"}
 
@@ -117,26 +139,6 @@ public class ReLU implements Aktivierung {
 
 :::
 
-:::snippet{#brain}
-Bevor du das Programm ausführst: Bei Bias 0.1 ist die gewichtete Summe 0.36 (aus der letzten Lektion). Sigmoid davon: etwa 0.59. ReLU davon: 0.36.
-
-Jetzt wird der Bias auf -2.0 gesetzt. **Achtung:** Der Bias wird nicht addiert, sondern **ersetzt** — rechne die Summe also neu aus, statt 2.0 von 0.36 abzuziehen. Was gibt dann Sigmoid, was gibt ReLU?
-:::
-
-::::collapsible{title="Tipp 1: die neue Summe"}
-
-summe = bias + gewicht[0] · eingabe[0] + gewicht[1] · eingabe[1]
-summe = -2.0 + 0.5 · 1.0 + (-0.3) · 0.8
-summe = -2.0 + 0.5 - 0.24 = **-1.74**
-::::
-
-::::collapsible{title="Tipp 2: die beiden Ausgaben"}
-
-Sigmoid(-1.74) = 1 / (1 + e^1.74) ≈ 1 / 6.70 ≈ **0.149**
-
-ReLU(-1.74) = max(0, -1.74) = **0**
-::::
-
 :::snippet{#merken}
 Die Aktivierungsfunktion ist ein **klassisches Beispiel für Polymorphie**: das Neuron hat eine Referenz vom Typ `Aktivierung`, und zur Laufzeit entscheidet der tatsächliche Objekttyp (`Sigmoid` oder `ReLU`), welche Berechnung läuft. Genau das hast du im OOP-Lernpfad bei den Schnittstellen gelernt — hier ist es kein konstruiertes Beispiel, sondern die echte Architektur eines neuronalen Netzes.
 :::
@@ -163,6 +165,53 @@ b) Die Zahlen tauschen einfach die Plätze — welche Aktivierungsfunktion ein N
 c) Mit Bias 10.0 ist die Summe 10.26 und Sigmoid liefert ≈ 0.99996. Mit Bias -10.0 ist die Summe -9.74 und Sigmoid liefert ≈ 0.0000589.
 
 In beiden Fällen ist die Ausgabe praktisch 1 bzw. 0, und — das ist das Entscheidende — sie ändert sich kaum noch, wenn man die Eingaben verändert. Die Funktion ist **gesättigt**. Beim Lernen ist das ein Problem: Wenn die Ausgabe auf Änderungen nicht mehr reagiert, bekommt das Netz kein Signal darüber, in welche Richtung es die Gewichte anpassen soll. ReLU hat diese Sättigung im positiven Bereich nicht — dort bleibt die Ausgabe proportional zur Summe.
+:::
+
+## Aktivierung und Sättigung ausprobieren
+
+Jetzt hängt hinter dem Σ-Knoten die Aktivierungsfunktion. Rechts siehst du ihren Verlauf; der Punkt darauf ist die aktuelle Summe.
+
+<ki-neuron gewichte="0.5,-0.3" bias="0.1" eingabe="1,0.8"></ki-neuron>
+
+:::snippet{#aufgabe}
+a) Schalte zwischen **Sigmoid** und **ReLU** um. Die Summe bleibt gleich, die Ausgabe nicht. Vergleiche mit deiner Antwort zu b) von oben.
+
+b) Schiebe den Bias auf 10 und dann auf −10 und sieh dabei auf den Punkt in der Kurve. In welchem Bereich der Kurve landet er, und wie stark reagiert die Ausgabe noch, wenn du x₁ verschiebst? Das ist die **Sättigung** aus Aufgabe c).
+
+c) Schalte die Aktivierung auf **Stufe**. Was kann dieses Neuron jetzt noch ausgeben?
+:::
+
+## Ein Neuron, das UND rechnet
+
+Ein einzelnes Neuron kann logische Funktionen berechnen — wenn die Gewichte stimmen. Die Tabelle unter der Zeichnung prüft alle vier Eingabekombinationen auf einmal.
+
+<ki-neuron ziel="und" gewichte="1,1" bias="0" eingabe="1,1"></ki-neuron>
+
+:::snippet{#aufgabe}
+a) Stelle die beiden Gewichte und den Bias so ein, dass in allen vier Zeilen ein Haken steht. Es gibt viele Lösungen.
+
+b) Stelle das Ziel auf **ODER** um. Was musst du am Bias ändern, damit es wieder passt? Die Gewichte kannst du lassen.
+
+c) Stelle das Ziel auf **XOR**. Versuche es. Ab wann bist du sicher, dass es nicht geht?
+:::
+
+::::collapsible{title="Tipp zu a)"}
+
+Bei UND soll die Ausgabe nur bei (1 | 1) über 0,5 liegen. Die Summe ist dort $w_1 + w_2 + b$, bei (1 | 0) nur $w_1 + b$. Suche also Werte, bei denen $w_1 + w_2 + b$ positiv ist, $w_1 + b$ aber negativ.
+::::
+
+::::collapsible{title="Tipp zu c)"}
+
+Zeichne die vier Punkte (0|0), (0|1), (1|0) und (1|1) auf Papier und male die beiden mit Ausgabe 1 aus. Ein Neuron trennt sie immer mit einer **geraden Linie**. Bekommst du die zwei ausgemalten Punkte mit einer Geraden von den anderen beiden getrennt?
+::::
+
+:::protect{password="ai-4-2-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+a) Zum Beispiel $w_1 = w_2 = 4$ und $b = -6$. Dann ist die Summe bei (1 | 1) gleich 2 und bei (1 | 0) gleich −2 — die Sigmoid-Funktion macht daraus 0,88 und 0,12.
+
+b) Bei ODER soll schon eine einzelne 1 genügen. Der Bias muss also so weit hoch, dass $w_1 + b$ positiv wird: mit $w_1 = w_2 = 4$ passt $b = -2$.
+
+c) Es geht nicht, und zwar grundsätzlich. Ein Neuron berechnet $w_1 x_1 + w_2 x_2 + b$ und vergleicht das Ergebnis mit einer Schwelle — das ist die Gleichung einer **Geraden**. Bei XOR liegen die beiden Einsen (0|1) und (1|0) auf der einen Diagonale, die beiden Nullen (0|0) und (1|1) auf der anderen. Keine Gerade trennt die eine Diagonale von der anderen. Genau deshalb braucht ein Netz mehr als eine Schicht — in Lektion 4.5 siehst du, wie es mit einer verdeckten Schicht doch klappt.
 :::
 
 <!-- KLP Q-Phase: erläutern die Grundlagen künstlicher neuronaler Netze (A) —
