@@ -50,6 +50,9 @@ OHNE_SELBSTTEST = ("projekt", "referenz")
 OHNE_RUECKBLICK = {"projekt", "referenz"}
 
 OPENSCAD_RE = re.compile(r"^:::openscad(\{[^}]*\})?[ \t]*$(.*?)^:::[ \t]*$", re.S | re.M)
+# Binaerdateien, die das openscad-Element in sein virtuelles Projekt legt:
+# @file dest="/Super Bouncer.ttf" src="./Super Bouncer.ttf"
+FILE_RE = re.compile(r'^@file\s+dest="([^"]+)"\s+src="([^"]+)"[ \t]*$', re.M)
 FENCE_RE = re.compile(r"^```([^\n]*)\n(.*?)^```[ \t]*$", re.S | re.M)
 MULTIEVENT_RE = re.compile(r"^(:{3,})multievent$(.*?)^\1$", re.S | re.M)
 
@@ -97,9 +100,11 @@ def check_multievent(rel: pathlib.Path, text: str) -> None:
                 )
 
 
-def check_openscad_block(rel: pathlib.Path, text: str) -> list[tuple[int, str, str]]:
+def check_openscad_block(
+    rel: pathlib.Path, text: str
+) -> list[tuple[int, str, str, list[tuple[str, str]]]]:
     """Prueft Aufbau der openscad-Bloecke und liefert den Quelltext zurueck."""
-    bloecke: list[tuple[int, str, str]] = []
+    bloecke: list[tuple[int, str, str, list[tuple[str, str]]]] = []
     for match in OPENSCAD_RE.finditer(text):
         attrs = match.group(1) or ""
         offset = line_of(text, match.start())
@@ -116,6 +121,10 @@ def check_openscad_block(rel: pathlib.Path, text: str) -> list[tuple[int, str, s
                 f"{rel}:{offset}: unbekannte Bibliothek {bibliothek.group(1)}"
             )
 
+        # Ein Block darf Dateien mitbringen; im Browser landen sie unter dest
+        # im virtuellen Projekt, hier muessen sie neben den Quelltext.
+        dateien = FILE_RE.findall(match.group(2))
+
         fences = FENCE_RE.findall(match.group(2))
         if not fences:
             problems.append(f"{rel}:{offset}: openscad-Block ohne Code-Fence")
@@ -128,22 +137,58 @@ def check_openscad_block(rel: pathlib.Path, text: str) -> list[tuple[int, str, s
                     f"openscad-Block, erwartet scad"
                 )
                 continue
-            bloecke.append((offset, bibliothek.group(1) if bibliothek else "", code))
+            bloecke.append(
+                (offset, bibliothek.group(1) if bibliothek else "", code, dateien)
+            )
     return bloecke
 
 
-def uebersetze(bloecke: list[tuple[pathlib.Path, int, str, str]]) -> int:
+def lege_dateien_bereit(
+    rel: pathlib.Path,
+    zeile: int,
+    dateien: list[tuple[str, str]],
+    code: str,
+    tmp: pathlib.Path,
+) -> tuple[str, list[pathlib.Path]]:
+    """Kopiert die Dateien eines Blocks neben den Quelltext.
+
+    Im Browser liegen sie unter einem absoluten Pfad im virtuellen Projekt
+    (`/blume.png`); hier gibt es den nicht. Sie landen deshalb neben der
+    .scad-Datei, und der Pfad im Quelltext wird auf den blossen Dateinamen
+    gekuerzt - genau das, was OpenSCAD relativ zur Quelldatei aufloest.
+    """
+    kopiert: list[pathlib.Path] = []
+    for dest, src in dateien:
+        herkunft = (ROOT / rel).parent / src
+        if not herkunft.is_file():
+            problems.append(
+                f"{rel}:{zeile}: @file verweist auf {src}, das es nicht gibt"
+            )
+            continue
+        ablage = tmp / pathlib.PurePosixPath(dest).name
+        shutil.copyfile(herkunft, ablage)
+        kopiert.append(ablage)
+        code = code.replace(dest, ablage.name)
+    return code, kopiert
+
+
+def uebersetze(
+    bloecke: list[tuple[pathlib.Path, int, str, str, list[tuple[str, str]]]],
+) -> int:
     """Laesst jeden Block von OpenSCAD uebersetzen."""
     geprueft = 0
     with tempfile.TemporaryDirectory() as tmp:
         quelle = pathlib.Path(tmp) / "block.scad"
         ziel = pathlib.Path(tmp) / "block.stl"
-        for rel, zeile, bibliothek, code in bloecke:
+        for rel, zeile, bibliothek, code, dateien in bloecke:
             if re.search(r"//[^\n]*absichtlich", code, re.I):
                 continue  # der Fehler gehoert zur Aufgabe
             ohne_kommentare = re.sub(r"//.*", "", code).strip()
             if not ohne_kommentare:
                 continue  # leeres Geruest, in das Lernende erst etwas schreiben
+            code, kopiert = lege_dateien_bereit(
+                rel, zeile, dateien, code, pathlib.Path(tmp)
+            )
             kopf = "include <BOSL2/std.scad>\n" if bibliothek == "BOSL2" else ""
             quelle.write_text(kopf + code, encoding="utf-8")
             ergebnis = subprocess.run(
@@ -155,10 +200,16 @@ def uebersetze(bloecke: list[tuple[pathlib.Path, int, str, str]]) -> int:
                 z for z in ergebnis.stderr.splitlines()
                 if "ERROR" in z or "WARNING: Ignoring unknown" in z
                 or "WARNING: Unknown" in z
+                # Eine Datei, die es nicht gibt, meldet OpenSCAD nur als
+                # Warnung - und rendert stillschweigend ein leeres Modell.
+                or "couldn't be opened" in z or "Can't open library" in z
             ]
             for meldung in meldungen[:3]:
                 problems.append(f"{rel}:{zeile}: OpenSCAD meldet: {meldung.strip()}")
             ziel.unlink(missing_ok=True)
+            # Sonst faende der naechste Block eine Datei, die ihm nicht gehoert.
+            for ablage in kopiert:
+                ablage.unlink(missing_ok=True)
     return geprueft
 
 
@@ -223,15 +274,15 @@ def main() -> int:
     mit_openscad = "--ohne-openscad" not in sys.argv and shutil.which("openscad")
 
     dateien = sorted(BOOK.rglob("*.md"))
-    alle_bloecke: list[tuple[pathlib.Path, int, str, str]] = []
+    alle_bloecke: list[tuple[pathlib.Path, int, str, str, list[tuple[str, str]]]] = []
     for pfad in dateien:
         text = pfad.read_text(encoding="utf-8")
         rel = pfad.relative_to(ROOT)
         check_multievent(rel, text)
         check_images(pfad, rel, text)
         check_selbsttest(pfad, rel, text)
-        for zeile, bibliothek, code in check_openscad_block(rel, text):
-            alle_bloecke.append((rel, zeile, bibliothek, code))
+        for zeile, bibliothek, code, mitgebracht in check_openscad_block(rel, text):
+            alle_bloecke.append((rel, zeile, bibliothek, code, mitgebracht))
 
     check_passwords(dateien)
     kapitel = check_rueckblick()
