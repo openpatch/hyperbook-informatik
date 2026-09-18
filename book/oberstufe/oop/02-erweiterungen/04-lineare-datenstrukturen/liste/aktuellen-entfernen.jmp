@@ -451,7 +451,13 @@
         }
       },
       "methodCalls": {},
-      "exercise": true
+      "exercise": true,
+      "statements": [
+        "previous = messages.first",
+        "previous.next = messages.current.next",
+        "messages.current = messages.current.next",
+        "previous.next = null"
+      ]
     }
   ]
 }

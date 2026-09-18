@@ -2,6 +2,8 @@
 title: Bubblesort
 index: 4
 permaid: java-bubblesort
+scripts:
+  - /wc/oop-sortierung.js
 ---
 
 # Bubblesort
@@ -46,6 +48,20 @@ Nach dem dritten Durchlauf ist das Feld sortiert. Der vierte Durchlauf **stellt 
 Genau das ist der Hinweis: Wenn ein ganzer Durchlauf ohne Vertauschung vergeht, ist das Feld sortiert.
 
 ::::
+
+## Jetzt bist du der Prozessor
+
+Klicke das Paar an, das Bubblesort als Nächstes vergleicht, und entscheide über den Tausch. Wählst du das falsche Paar, bekommst du einen Hinweis.
+
+<oop-sortierung id="bubblesort-aktiv" verfahren="bubblesort" werte="5,2,4,1,8"></oop-sortierung>
+
+:::snippet{#aufgabe}
+a) Sortiere das Feld vollständig und notiere die Zahl der Vergleiche.
+
+b) Am Ende jedes Durchlaufs färbt sich ein Balken grün. Begründe, warum dieses Element danach nie wieder angefasst werden muss.
+
+c) Setze zurück und sortiere das bereits sortierte Feld noch einmal im Kopf: Wie viele Vergleiche braucht die einfache Fassung dafür? Wie viele Vertauschungen?
+:::
 
 ## Die einfache Fassung
 

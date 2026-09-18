@@ -2,6 +2,8 @@
 title: Quicksort
 index: 1
 permaid: java-quicksort
+scripts:
+  - /wc/oop-sortierung.js
 ---
 
 # Quicksort
@@ -45,6 +47,20 @@ Die 7 steht jetzt an Index 4 – und dort bleibt sie für immer. Alles links dav
 Jetzt macht man dasselbe noch einmal mit `5 2 1 3` und mit `8 9`.
 
 ::::
+
+## Schritt für Schritt
+
+Dasselbe Feld, diesmal vom Rechner vorgeführt. Das Pivot ist dunkel eingefärbt, der gerade bearbeitete Bereich hervorgehoben; alles außerhalb ist blass.
+
+<oop-sortierung id="quicksort-vorfuehrung" verfahren="quicksort" werte="5,2,8,1,9,3,7"></oop-sortierung>
+
+:::snippet{#aufgabe}
+a) Gehe die Vorführung Schritt für Schritt durch, bis das erste Pivot endgültig steht. Vergleiche mit deiner Kartenlösung.
+
+b) Ein Balken wird grün, sobald er nie wieder bewegt wird. Notiere die Reihenfolge, in der die Balken grün werden. Was fällt dir im Vergleich zu Bubblesort auf?
+
+c) Lies am Ende die Zahl der Vergleiche ab. Bubblesort bräuchte für sieben Elemente 21. Wie viele braucht Quicksort hier?
+:::
 
 ## Das Verfahren
 

@@ -2,6 +2,8 @@
 title: Assoziation
 index: 3
 permaid: java-assoziation
+scripts:
+  - /wc/oop-klassendiagramm.js
 ---
 
 # Assoziation
@@ -158,6 +160,26 @@ classDiagram
 ```
 
 Die Beschriftung `0..*` am Pfeil heißt **Kardinalität**: Ein Kurs kennt beliebig viele Schüler – auch keinen.
+
+## Aufgabe: Vom Quelltext zum Diagramm
+
+Die Assoziationen stehen immer schon im Quelltext – man muss sie nur sehen. Suche nach Attributen, deren **Typ eine andere Klasse** ist.
+
+<oop-klassendiagramm id="assoziation-diagramm" aufgabe="Im Quelltext stecken zwei Assoziationen. Trage sie mit der richtigen Kardinalität ein. Die Kästen kannst du verschieben." klassen="Fahrrad: marke:String, gaenge:int | Reifen: hersteller:String | Kurs: bezeichnung:String | Schueler: name:String" loesung="Fahrrad -> Reifen : vorderreifen : 1 : 1 ; Kurs -> Schueler : mitglieder : 1 : 0..*">
+public class Fahrrad {
+    private String marke;
+    private int gaenge;
+    private Reifen vorderreifen;
+}
+public class Kurs {
+    private String bezeichnung;
+    private Schueler[] mitglieder;
+    private int anzahl;
+}</oop-klassendiagramm>
+
+:::snippet{#brain}
+Woran erkennst du im Quelltext, ob die Kardinalität `1` oder `0..*` lautet?
+:::
 
 ## Aufgabe: Der Kurs
 

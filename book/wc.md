@@ -12,6 +12,19 @@ scripts:
   - /wc/ki-neuron.js
   - /wc/ki-punktwolke.js
   - /wc/memory-game.js
+  - /wc/oop-aufrufbaum.js
+  - /wc/oop-dispatch.js
+  - /wc/oop-kapselung.js
+  - /wc/oop-klassendiagramm.js
+  - /wc/oop-nebenlaeufig.js
+  - /wc/oop-objektkarten.js
+  - /wc/oop-sortierung.js
+  - /wc/oop-stapel-schlange.js
+  - /wc/oop-suchbaum.js
+  - /wc/oop-testfaelle.js
+  - /wc/oop-wachstum.js
+  - /wc/oop-wahrheitstabelle.js
+  - /wc/oop-wertetabelle.js
   - /wc/pixel-editor.js
   - /wc/pixel-magnifier.js
   - /wc/pixel-minifier.js
@@ -335,3 +348,315 @@ Zeigt den Zusammenhang zwischen Schwellwert, Konfusionsmatrix und den Kennzahlen
 <ki-konfusionsmatrix></ki-konfusionsmatrix>
 
 <ki-konfusionsmatrix modus="eingabe" werte="90,10,10,990" positiv-name="krank" negativ-name="gesund" einheit="Personen"></ki-konfusionsmatrix>
+
+---
+
+# OOP-Lernpfad
+
+Die folgenden Komponenten gehören zum Lernpfad Objektorientierte Programmierung. Alle Attributnamen sind deutsch, alle Komponenten funktionieren ohne `id` – mit `id` merken sich diejenigen ihren Zustand, bei denen das sinnvoll ist.
+
+---
+
+## OOP Dispatch
+
+Zeigt, wie Java einen Methodenaufruf auflöst: Der Compiler prüft am **statischen** Typ, die Laufzeit sucht ab dem **dynamischen** Typ die Klassenhierarchie nach oben. Jeder Schritt wird einzeln ausgelöst und erklärt.
+
+| Attribute  | Type   | Description                                                                                  |
+|------------|--------|----------------------------------------------------------------------------------------------|
+| `klassen`  | String | Hierarchie als `"Ober: m1, m2 \| Unter < Ober: m1"`. Ein `*` hinter dem Namen macht die Klasse abstrakt |
+| `methode`  | String | Vorausgewählte Methode                                                                        |
+| `statisch` | String | Vorausgewählter statischer Typ                                                                |
+| `objekt`   | String | Vorausgewählter dynamischer Typ (nur nicht-abstrakte Klassen)                                 |
+
+**Beispiel:**
+```html
+<oop-dispatch klassen="Fahrzeug: maut, mautSumme | Pkw < Fahrzeug | Lkw < Fahrzeug: maut"
+  statisch="Fahrzeug" objekt="Lkw" methode="maut"></oop-dispatch>
+```
+
+<oop-dispatch id="wc-dispatch" klassen="Fahrzeug*: mautSumme, fahre | Pkw < Fahrzeug: mautSumme | Lkw < Fahrzeug: mautSumme | Motorrad < Fahrzeug"></oop-dispatch>
+
+---
+
+## OOP Sortierung
+
+Sortierverfahren zum Mitmachen: Die Lernenden wählen das nächste zu vergleichende Paar selbst und entscheiden über den Tausch. Quicksort und Mergesort laufen als Vorführung Schritt für Schritt ab. Vergleiche und Bewegungen werden mitgezählt.
+
+| Attribute   | Type   | Description                                                                        |
+|-------------|--------|------------------------------------------------------------------------------------|
+| `verfahren` | String | `"bubblesort"` (Standard), `"auswahl"`, `"einfuegen"`, `"quicksort"`, `"mergesort"` |
+| `werte`     | String | Startfeld als Kommaliste (Standard: `"5,3,8,1,9,2"`)                               |
+| `modus`     | String | `"aktiv"` (Standard) oder `"vorfuehrung"`. Quicksort und Mergesort können nur vorführen |
+
+**Beispiel:**
+```html
+<oop-sortierung verfahren="bubblesort" werte="5,2,4,1,8"></oop-sortierung>
+
+<oop-sortierung verfahren="quicksort" werte="5,2,8,1,9,3,7"></oop-sortierung>
+```
+
+<oop-sortierung id="wc-sortierung" verfahren="bubblesort" werte="5,2,4,1,8"></oop-sortierung>
+
+---
+
+## OOP Suchbaum
+
+Binärer Suchbaum zum Anfassen: einfügen, suchen, löschen. Bei der Suche wird der Weg eingefärbt. Im Modus `avl` zeigt die Komponente Balancefaktoren an und protokolliert jede Rotation.
+
+| Attribute | Type   | Description                                             |
+|-----------|--------|---------------------------------------------------------|
+| `modus`   | String | `"bst"` (Standard) oder `"avl"`                         |
+| `werte`   | String | Startwerte als Kommaliste, in Einfügereihenfolge        |
+
+**Beispiel:**
+```html
+<oop-suchbaum modus="bst" werte="50,30,70,20,40"></oop-suchbaum>
+
+<oop-suchbaum modus="avl" werte="100,90,80"></oop-suchbaum>
+```
+
+<oop-suchbaum id="wc-suchbaum" modus="avl" werte="100,90,80"></oop-suchbaum>
+
+---
+
+## OOP Wachstum
+
+Vergleicht Wachstumsfunktionen als Kurven und als Wertetabelle. Der Regler für n zeigt, dass bei kleinen Eingaben die Vorfaktoren entscheiden und erst bei großen die Wachstumsklasse. Schnittpunkte werden automatisch bestimmt.
+
+| Attribute    | Type   | Description                                                                     |
+|--------------|--------|---------------------------------------------------------------------------------|
+| `funktionen` | String | Bis zu fünf Terme, getrennt durch `\|`. Erlaubt: `n`, `+ - * / ^`, Klammern, `log2()`, `log()`, `ln()`, `sqrt()` |
+| `nmax`       | Number | Obergrenze der x-Achse (Standard: 300)                                          |
+| `n`          | Number | Startwert des Reglers                                                           |
+| `skala`      | String | `"linear"` (Standard) oder `"log"` für eine logarithmische y-Achse              |
+
+**Beispiel:**
+```html
+<oop-wachstum funktionen="100*n | n^2/2 | 5*n*log2(n)" nmax="400" n="50"></oop-wachstum>
+```
+
+<oop-wachstum id="wc-wachstum" funktionen="100*n | n^2/2 | 5*n*log2(n)" nmax="400" n="50"></oop-wachstum>
+
+---
+
+## OOP Objektkarten
+
+Bauplan und Exemplare nebeneinander: Aus einer Klasse lassen sich mehrere Objekte erzeugen, die alle eigene Attributwerte haben. Methodenaufrufe wirken sichtbar nur auf ein Objekt.
+
+| Attribute   | Type   | Description                                                                        |
+|-------------|--------|------------------------------------------------------------------------------------|
+| `klasse`    | String | Name der Klasse (Standard: `"Auto"`)                                               |
+| `attribute` | String | `"name:Typ:Startwert, …"`. Alles außer `String` wird als Zahl behandelt            |
+| `methoden`  | String | Aufträge als `"name(p:int) -> attribut = ausdruck"`, Anfragen als `"name():int = ausdruck"`, getrennt durch `\|` |
+| `max`       | Number | Höchstzahl gleichzeitiger Objekte (Standard: 4)                                    |
+
+**Beispiel:**
+```html
+<oop-objektkarten klasse="Auto" attribute="marke:String:VW, tank:int:20"
+  methoden="tanken(menge:int) -> tank = tank + menge | gibTank():int = tank"></oop-objektkarten>
+```
+
+<oop-objektkarten id="wc-objektkarten" klasse="Auto" attribute="marke:String:VW, tank:int:20" methoden="tanken(menge:int) -> tank = tank + menge | fahren(km:int) -> tank = tank - km | gibTank():int = tank"></oop-objektkarten>
+
+---
+
+## OOP Kapselung
+
+Dieselben Zugriffe auf ein gekapseltes und auf ein offenes Objekt. Die Komponente unterscheidet drei Ausgänge: Compilerfehler, Abweisung durch die Methode und erlaubte Änderung – und zeigt an, ob die **Invariante** des Objekts noch gilt.
+
+| Attribute          | Type   | Description                                                                 |
+|--------------------|--------|-----------------------------------------------------------------------------|
+| `klasse`           | String | Name der Klasse (Standard: `"Konto"`)                                       |
+| `objekt`           | String | Name der Objektvariablen                                                    |
+| `attribut`         | String | `"name:Typ:Startwert"`                                                      |
+| `invariante`       | String | Bedingung, etwa `"stand >= 0"`. Erlaubt sind `+ - * /`, Vergleiche, `&&`/`und`, `\|\|`/`oder` |
+| `invariante-text`  | String | Erklärung der Invariante in Worten                                          |
+| `methoden`         | String | `"name(param): attribut = ausdruck : bedingung"`, Anfragen mit `return`, getrennt durch `\|` |
+| `versuche`         | String | Anklickbare Zugriffe, getrennt durch `\|`                                    |
+
+**Beispiel:**
+```html
+<oop-kapselung klasse="Konto" attribut="stand:int:100" invariante="stand >= 0"
+  invariante-text="Der Kontostand darf nie negativ werden."></oop-kapselung>
+```
+
+<oop-kapselung id="wc-kapselung" klasse="Konto" attribut="stand:int:100"></oop-kapselung>
+
+---
+
+## OOP Klassendiagramm
+
+Klassendiagramm selbst bauen: Die Klassen sind vorgegeben, die Beziehungen müssen aus dem Quelltext erschlossen werden. Die Kästen lassen sich verschieben. Der Quelltext steht **als Inhalt** im Element.
+
+| Attribute | Type   | Description                                                                              |
+|-----------|--------|------------------------------------------------------------------------------------------|
+| `id`      | String | Eindeutiger Bezeichner zum Speichern von Beziehungen und Positionen                      |
+| `klassen` | String | `"Name: attribut:Typ, … \| Name2: …"`                                                    |
+| `loesung` | String | Beziehungen, getrennt durch `;`. Assoziation: `"A -> B : bezeichnung : kardVon : kardNach"`, Vererbung: `"A --\|> B"` |
+| `aufgabe` | String | Aufgabentext über dem Diagramm                                                           |
+
+Leere Kardinalitäten in der Lösung werden beim Prüfen nicht verlangt.
+
+**Beispiel:**
+```html
+<oop-klassendiagramm klassen="Kunde: name:String | Konto: nummer:int"
+  loesung="Kunde -> Konto : besitzt : 1 : *">
+public class Kunde { private Konto[] konten; }
+</oop-klassendiagramm>
+```
+
+<oop-klassendiagramm id="wc-klassendiagramm" klassen="Kunde: name:String | Konto: nummer:int | Sparkonto: zins:double" loesung="Kunde -> Konto : besitzt : 1 : * ; Sparkonto --|> Konto">
+public class Kunde {
+    private String name;
+    private Konto[] konten;
+}
+public class Sparkonto extends Konto {
+    private double zins;
+}
+</oop-klassendiagramm>
+
+---
+
+## OOP Wertetabelle
+
+Ablaufverfolgung von Hand: Die Lernenden füllen die Wertetabelle zu einem Programmstück aus und bekommen zellengenaue Rückmeldung. Der Quelltext steht **als Inhalt** im Element.
+
+| Attribute        | Type   | Description                                                                |
+|------------------|--------|----------------------------------------------------------------------------|
+| `id`             | String | Eindeutiger Bezeichner zum Speichern der Eingaben                          |
+| `spalten`        | String | Spaltenköpfe, getrennt durch `\|`                                          |
+| `loesung`        | String | Zeilen getrennt durch `;`, Zellen durch `\|`. Leere Zelle heißt „bleibt leer“ |
+| `zeilen`         | String | `"fest"` (Standard) oder `"frei"` – dann bestimmen die Lernenden die Zeilenzahl selbst |
+| `aufgabe`        | String | Aufgabentext                                                               |
+| `loesung-zeigen` | String | `"ja"` blendet einen Knopf ein, der die Lösung einträgt                     |
+
+Beim Vergleich sind Leerzeichen, Groß-/Kleinschreibung und Komma statt Punkt egal.
+
+**Beispiel:**
+```html
+<oop-wertetabelle spalten="i | summe" loesung="1|1; 2|3; 3|6">
+int summe = 0;
+for (int i = 1; i &lt;= 3; i++) { summe = summe + i; }
+</oop-wertetabelle>
+```
+
+<oop-wertetabelle id="wc-wertetabelle" spalten="i | summe | Ausgabe" loesung="1|1|; 2|3|; 3|6|6">
+int summe = 0;
+for (int i = 1; i &lt;= 3; i++) {
+    summe = summe + i;
+}
+IO.println(summe);
+</oop-wertetabelle>
+
+---
+
+## OOP Wahrheitstabelle
+
+Wahrheitstabelle zum Ausfüllen. Die letzte Spalte zeigt, welche Variablen Java wegen der **verkürzten Auswertung** gar nicht erst ansieht.
+
+| Attribute     | Type   | Description                                                            |
+|---------------|--------|------------------------------------------------------------------------|
+| `id`          | String | Eindeutiger Bezeichner zum Speichern der Eingaben                      |
+| `ausdruck`    | String | Boolescher Ausdruck mit `&&`/`und`, `\|\|`/`oder`, `!`/`nicht`, Klammern |
+| `variablen`   | String | Reihenfolge der Spalten; ohne Angabe aus dem Ausdruck abgeleitet       |
+| `modus`       | String | `"ausfuellen"` (Standard) oder `"zeigen"`                              |
+| `kurzschluss` | String | `"ja"` (Standard) blendet die Spalte zur verkürzten Auswertung ein     |
+| `aufgabe`     | String | Aufgabentext                                                           |
+
+**Beispiel:**
+```html
+<oop-wahrheitstabelle ausdruck="a && (b || !c)"></oop-wahrheitstabelle>
+
+<oop-wahrheitstabelle ausdruck="kino oder joggen" modus="zeigen" kurzschluss="nein"></oop-wahrheitstabelle>
+```
+
+<oop-wahrheitstabelle id="wc-wahrheitstabelle" ausdruck="a && (b || !c)"></oop-wahrheitstabelle>
+
+---
+
+## OOP Aufrufbaum
+
+Der Aufrufbaum einer rekursiven Methode. Er zeigt, wie viele Aufrufe entstehen, wie tief der Kellerstapel wird und welche Teilaufrufe mehrfach berechnet werden.
+
+| Attribute   | Type   | Description                                                              |
+|-------------|--------|--------------------------------------------------------------------------|
+| `verfahren` | String | `"fib"` (Standard), `"fakultaet"`, `"summe"`, `"hanoi"`                  |
+| `argument`  | Number | Startwert für n; wird auf den sinnvollen Bereich des Verfahrens begrenzt |
+| `mehrfach`  | String | `"nein"` schaltet die Hervorhebung mehrfach berechneter Aufrufe ab       |
+
+**Beispiel:**
+```html
+<oop-aufrufbaum verfahren="fib" argument="5"></oop-aufrufbaum>
+```
+
+<oop-aufrufbaum id="wc-aufrufbaum" verfahren="fib" argument="5"></oop-aufrufbaum>
+
+---
+
+## OOP Stapel und Warteschlange
+
+Stapel und Warteschlange mit den Methodennamen der Abiturklassen (`push`/`pop`/`top` bzw. `enqueue`/`dequeue`/`front`). Ist `folge` gesetzt, entsteht eine Vorhersageaufgabe: erst die erwartete Ausgabe notieren, dann ablaufen lassen.
+
+| Attribute | Type   | Description                                                          |
+|-----------|--------|----------------------------------------------------------------------|
+| `modus`   | String | `"stapel"` (Standard) oder `"schlange"`                              |
+| `inhalt`  | String | Startinhalt als Kommaliste, vom ältesten zum jüngsten Element        |
+| `folge`   | String | Operationsfolge für den Vorhersagemodus, getrennt durch `;`          |
+
+**Beispiel:**
+```html
+<oop-stapel-schlange modus="stapel" folge="push(A); push(B); top(); pop(); isEmpty()"></oop-stapel-schlange>
+
+<oop-stapel-schlange modus="schlange" inhalt="A,B"></oop-stapel-schlange>
+```
+
+<oop-stapel-schlange id="wc-stapel" modus="stapel" folge="push(Anna); push(Ben); top(); pop(); push(Cem); top(); isEmpty()"></oop-stapel-schlange>
+
+---
+
+## OOP Testfälle
+
+Testfälle auswählen statt raten. Nach dem Ausführen zeigt die Komponente, welche Tests fehlschlagen, welche Äquivalenzklassen abgedeckt sind und ob Grenzwerte dabei waren. Der Quelltext steht **als Inhalt** im Element.
+
+| Attribute        | Type   | Description                                                                  |
+|------------------|--------|------------------------------------------------------------------------------|
+| `id`             | String | Eindeutiger Bezeichner zum Speichern der Auswahl                             |
+| `faelle`         | String | Fälle getrennt durch `;`, Felder durch `\|`: `eingabe \| erwartet \| tatsächlich \| klasse \| grenzwert` |
+| `spezifikation`  | String | Beschreibung der Methode                                                     |
+| `aufgabe`        | String | Aufgabentext                                                                 |
+
+Ein Fall deckt den Fehler auf, wenn `erwartet` und `tatsächlich` sich unterscheiden. `grenzwert` ist `ja` oder `nein`.
+
+**Beispiel:**
+```html
+<oop-testfaelle faelle="5 | true | true | positiv | nein; 0 | false | true | null | ja"
+  spezifikation="istPositiv(n) liefert true, wenn n größer als 0 ist."></oop-testfaelle>
+```
+
+<oop-testfaelle id="wc-testfaelle" spezifikation="istPositiv(n) liefert true, wenn n größer als 0 ist." faelle="5 | true | true | positiv | nein; 1 | true | true | positiv | ja; 0 | false | true | null | ja; -3 | false | false | negativ | nein"></oop-testfaelle>
+
+---
+
+## OOP Nebenläufigkeit
+
+Zwei Fäden, eine gemeinsame Variable. Die Lernenden verschränken die Schritte selbst und erzeugen die Wettlaufsituation, statt sie erklärt zu bekommen. Ein Schalter sichert den kritischen Abschnitt ab.
+
+| Attribute       | Type   | Description                                                                |
+|-----------------|--------|----------------------------------------------------------------------------|
+| `variable`      | String | Name der gemeinsamen Variablen (Standard: `"zaehler"`)                     |
+| `start`         | Number | Startwert                                                                  |
+| `faden-a`       | String | Schritte, getrennt durch `;`: `lies`, `+1`, `-1`, `schreib`, `sperre`, `entsperre` |
+| `faden-b`       | String | dito                                                                       |
+| `name-a`        | String | Beschriftung des ersten Fadens                                             |
+| `name-b`        | String | Beschriftung des zweiten Fadens                                            |
+| `ziel`          | Number | Gesuchtes Endergebnis; ohne Angabe wird nur das Ergebnis gemeldet          |
+| `schalter-text` | String | Beschriftung des Absicherungsschalters                                     |
+| `aufgabe`       | String | Aufgabentext                                                               |
+
+**Beispiel:**
+```html
+<oop-nebenlaeufig variable="stand" start="0" ziel="1"
+  faden-a="lies; +1; schreib" faden-b="lies; +1; schreib"></oop-nebenlaeufig>
+```
+
+<oop-nebenlaeufig id="wc-nebenlaeufig" variable="stand" start="0" ziel="1" faden-a="lies; +1; schreib" faden-b="lies; +1; schreib"></oop-nebenlaeufig>

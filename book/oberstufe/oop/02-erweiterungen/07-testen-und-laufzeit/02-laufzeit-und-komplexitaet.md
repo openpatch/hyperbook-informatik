@@ -2,6 +2,8 @@
 title: Laufzeit und Komplexität
 index: 2
 permaid: java-laufzeit-komplexitaet
+scripts:
+  - /wc/oop-wachstum.js
 ---
 
 # Laufzeit und Komplexität
@@ -44,6 +46,18 @@ Für **große** Eingaben spielen Vorfaktoren keine Rolle mehr – dort entscheid
 Deshalb betrachtet man Größenordnungen: Sie beantworten die Frage, die bei großen Datenmengen wirklich zählt. Für kleine Datenmengen muss man messen.
 
 ::::
+
+Dieselben drei Verfahren als Kurven. Schiebe n und beobachte, wann sich die Reihenfolge umdreht.
+
+<oop-wachstum id="wachstum-drei-verfahren" funktionen="100*n | n^2/2 | 5*n*log2(n)" nmax="400" n="50"></oop-wachstum>
+
+:::snippet{#aufgabe}
+a) Stelle n auf 10, dann auf 100, dann auf 400. Der jeweils beste Wert ist in der Tabelle grün. Wie oft wechselt der Sieger?
+
+b) Schalte die logarithmische y-Achse ein. Beschreibe, was mit den drei Kurven passiert – und warum man Wachstumsklassen oft so darstellt.
+
+c) Blende `n^2/2` aus und vergleiche nur `100*n` mit `5*n*log2(n)`. Ab welchem n gewinnt das linear-logarithmische Verfahren? Rechne nach, warum das trotz des kleineren Vorfaktors so lange dauert.
+:::
 
 ## Die Schreibweise
 

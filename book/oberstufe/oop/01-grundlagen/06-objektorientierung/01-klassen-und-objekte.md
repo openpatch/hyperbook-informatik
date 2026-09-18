@@ -2,6 +2,8 @@
 title: Klassen und Objekte
 index: 1
 permaid: java-klassen-objekte
+scripts:
+  - /wc/oop-objektkarten.js
 ---
 
 # Klassen und Objekte
@@ -135,6 +137,22 @@ b) Die **Klasse** legt fest, *dass* es ein Attribut `kilometerstand` gibt. Die *
 Genau das ist der Fortschritt gegenüber den parallelen Feldern: Marke, Kilometerstand und Preis eines Autos können gar nicht mehr auseinanderlaufen, weil sie in **einem** Objekt stecken.
 
 ::::
+
+## Bauplan und Exemplare nebeneinander
+
+Links steht der Bauplan, rechts entstehen die Exemplare. Der Bauplan kennt nur die Namen der Attribute – Werte hat er keine.
+
+<oop-objektkarten id="auto-objektkarten" klasse="Auto" attribute="marke:String:VW, kilometerstand:int:84000, preis:double:7500" methoden="macheProbefahrt(pKm:int) -> kilometerstand = kilometerstand + pKm | aenderePreisUm(pBetrag:int) -> preis = preis + pBetrag | getKilometerstand():int = kilometerstand"></oop-objektkarten>
+
+:::snippet{#aufgabe}
+a) Erzeuge zwei Autos mit **unterschiedlichen** Marken und Kilometerständen.
+
+b) Schicke nur das **erste** auf Probefahrt. Beschreibe, was mit dem zweiten passiert.
+
+c) Erkläre, warum im Bauplan bei jedem Attribut „kein Wert“ steht.
+
+d) Lösche die Referenz auf ein Objekt mit dem ×. Formuliere, was dabei verschwindet: der Bauplan, das Objekt oder nur der Verweis darauf?
+:::
 
 ## Objekte im Feld
 

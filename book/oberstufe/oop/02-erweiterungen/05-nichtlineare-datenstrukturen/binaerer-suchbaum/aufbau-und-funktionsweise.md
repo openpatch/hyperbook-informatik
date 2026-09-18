@@ -4,6 +4,8 @@ index: 0
 lang: de
 hide: false
 permaid: java-suchbaum-aufbau
+scripts:
+  - /wc/oop-suchbaum.js
 ---
 
 # Aufbau und Funktionsweise
@@ -55,6 +57,22 @@ Orientiert euch an der Lösung zum Methode `search`:
 
 ![](/images/bst-search-code-puzzle-loesung.png)
 
+:::
+
+## Den Baum selbst wachsen lassen
+
+Hier kannst du beliebig viele Werte einfügen und suchen. Bei der Suche wird der Weg durch den Baum eingefärbt.
+
+<oop-suchbaum id="bst-spielwiese" modus="bst" werte="50,30,70,20,40,60,80"></oop-suchbaum>
+
+:::snippet{#aufgabe}
+a) Suche die 20 und dann die 55. Wie viele Vergleiche braucht der Baum jeweils? Vergleiche mit der Zahl der Knoten.
+
+b) Leere den Baum und füge die Werte **10, 20, 30, 40, 50** in dieser Reihenfolge ein. Beschreibe die Form, die entsteht, und lies die Höhe ab.
+
+c) Leere ihn erneut und finde eine Reihenfolge derselben fünf Werte, bei der die Höhe so klein wie möglich wird. Die Anzeige „minimal möglich“ verrät dir das Ziel.
+
+d) Erkläre daran, warum die Suche im Suchbaum zwar meistens schnell ist, aber keine Garantie dafür gibt.
 :::
 
 ---
