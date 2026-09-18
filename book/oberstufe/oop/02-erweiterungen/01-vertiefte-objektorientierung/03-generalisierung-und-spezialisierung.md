@@ -837,20 +837,7 @@ d) Eine vertretbare Regel: **Mehr als drei Ebenen sind ein Warnzeichen.** Was da
 {h{Ein Auto hat einen Motor - es ist keiner.}}
 {H{Richtig!}}
 
-**4. Warum ist ein Stapel, der von einem Feld erbt, ein schlechter Entwurf?**
-
-{r4{weil Felder langsamer sind}}
-
-{r4{!weil der Stapel dann auch alle Zugriffe erbt, die er eigentlich verbieten will}}
-
-{r4{weil Java das nicht erlaubt}}
-
-{r4{weil ein Feld keine Methoden hat}}
-
-{h{Vererbung erbt alles, nicht nur das Nützliche.}}
-{H{Richtig!}}
-
-**5. Eine Unterklasse überschreibt eine geerbte Methode nicht. Was passiert beim Aufruf?**
+**4. Eine Unterklasse überschreibt eine geerbte Methode nicht. Was passiert beim Aufruf?**
 
 {r5{ein Fehler beim Übersetzen}}
 
@@ -861,7 +848,7 @@ d) Eine vertretbare Regel: **Mehr als drei Ebenen sind ein Warnzeichen.** Was da
 {h{Vererbt wird die nächstgelegene Fassung von unten nach oben.}}
 {H{Richtig!}}
 
-**6. Warum ist private im Zweifel besser als protected?** (Mehrfachauswahl)
+**5. Warum ist private im Zweifel besser als protected?** (Mehrfachauswahl)
 
 {c1{!Weil die Oberklasse ihre Regeln dann weiterhin durchsetzen kann.}}
 
@@ -874,7 +861,7 @@ d) Eine vertretbare Regel: **Mehr als drei Ebenen sind ein Warnzeichen.** Was da
 {h{Zwei Antworten behaupten etwas, das schlicht nicht stimmt.}}
 {H{Richtig - protected ist ein Versprechen an alle künftigen Unterklassen.}}
 
-**7. Was besagt das Ersetzbarkeitsprinzip?**
+**6. Was besagt das Ersetzbarkeitsprinzip?**
 
 {r6{Jede Klasse muss ersetzbar sein.}}
 

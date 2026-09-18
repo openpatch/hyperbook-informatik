@@ -103,10 +103,6 @@ public class Motorrad extends Fahrzeug {
 
 :::
 
-Setze die Schritte im Diagramm um.
-
-::jmp{id="flotte" src="flotte.jmp" height="680px"}
-
 :::snippet{#definition}
 **Polymorphie:** Eine Variable vom Typ der Oberklasse kann auf Objekte jeder Unterklasse verweisen. Beim Aufruf einer überschriebenen Methode entscheidet **nicht** der Typ der Variablen, sondern der **tatsächliche Typ des Objekts**, welche Fassung ausgeführt wird.
 

@@ -1305,6 +1305,186 @@ verlinkt.
 
 ::::
 
+::::collapsible{title="oberstufe/ai (35 Lösungen)"}
+
+
+**[Was ist KI? – Arten des maschinellen Lernens](/oberstufe/ai/01-was-ist-ki/02-arten-des-maschinellen-lernens)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Ordne die Beispiele zu. | `ai-1-2-1` |
+
+**[Was ist KI? – Anwendungsbeispiele](/oberstufe/ai/01-was-ist-ki/03-anwendungsbeispiele)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Klassifiziere selbst. | `ai-1-3-1` |
+
+**[Was ist KI? – Rückblick](/oberstufe/ai/01-was-ist-ki/04-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Eine App zerlegen | `ai-1-4-1` |
+| Aufgabe 2: Das passende Verfahren wählen | `ai-1-4-2` |
+
+**[Überwachtes Lernen – Trainings- und Testdaten](/oberstufe/ai/02-ueberwachtes-lernen/01-trainings-und-testdaten)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Eine Datenpunkt-Klasse | `ai-2-1-1` |
+
+**[Überwachtes Lernen – Klassifizierung mit k-NN](/oberstufe/ai/02-ueberwachtes-lernen/02-klassifizierung-mit-k-nn)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Schritt 1: Die Distanz | `ai-2-2-1` |
+| Schritt 3: Den Klassifikator bauen | `ai-2-2-2` |
+
+**[Überwachtes Lernen – Der Lernprozess](/oberstufe/ai/02-ueberwachtes-lernen/03-der-lernprozess)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Trefferquote berechnen | `ai-2-3-1` |
+
+**[Überwachtes Lernen – Rückblick](/oberstufe/ai/02-ueberwachtes-lernen/04-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: k-NN auf dem Papier | `ai-2-4-1` |
+| Aufgabe 2: Das beste k automatisch finden | `ai-2-4-2` |
+
+**[Unüberwachtes Lernen und Modellqualität – Clusterbildung mit k-Means](/oberstufe/ai/03-unueberwachtes-lernen/01-clusterbildung-mit-k-means)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Der Algorithmus in Java | `ai-3-1-1` |
+
+**[Unüberwachtes Lernen und Modellqualität – Bias und Datenqualität](/oberstufe/ai/03-unueberwachtes-lernen/02-bias-und-datenqualitaet)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Bias im k-Means-Beispiel | `ai-3-2-1` |
+
+**[Unüberwachtes Lernen und Modellqualität – Überanpassung und Unteranpassung](/oberstufe/ai/03-unueberwachtes-lernen/03-ueberanpassung-unteranpassung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Überanpassung beim k-NN | `ai-3-3-1` |
+
+**[Unüberwachtes Lernen und Modellqualität – Präzision und Spezifität](/oberstufe/ai/03-unueberwachtes-lernen/04-praezision-und-spezifitaet)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Ein Beispiel: Spam-Filter | `ai-3-4-1` |
+
+**[Unüberwachtes Lernen und Modellqualität – Rückblick](/oberstufe/ai/03-unueberwachtes-lernen/05-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: k-Means auf dem Papier | `ai-3-5-1` |
+| Aufgabe 2: Ein Modell beurteilen | `ai-3-5-2` |
+
+**[Neuronale Netze – Neuronen und Schichten](/oberstufe/ai/04-neuronale-netze/01-neuronen-und-schichten)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Die Neuron-Klasse | `ai-4-1-1` |
+
+**[Neuronale Netze – Gewichte und Aktivierung](/oberstufe/ai/04-neuronale-netze/02-gewichte-und-aktivierung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aktivierungsfunktionen als Polymorphie | `ai-4-2-1` |
+
+**[Neuronale Netze – Forward Propagation](/oberstufe/ai/04-neuronale-netze/03-forward-propagation)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Die Schicht-Klasse | `ai-4-3-1` |
+
+**[Neuronale Netze – Die Grundidee der Backpropagation](/oberstufe/ai/04-neuronale-netze/04-grundidee-der-backpropagation)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Ein einfaches Beispiel am einzelnen Neuron | `ai-4-4-1` |
+
+**[Neuronale Netze – Ein einfaches Netz](/oberstufe/ai/04-neuronale-netze/05-ein-einfaches-netz)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Die Netz-Klasse | `ai-4-5-1` |
+
+**[Neuronale Netze – Rückblick](/oberstufe/ai/04-neuronale-netze/06-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Forward Propagation auf dem Papier | `ai-4-6-1` |
+| Aufgabe 2: Das Netz erweitern | `ai-4-6-2` |
+
+**[Sprachmodelle – Text als Daten: Tokenisierung](/oberstufe/ai/05-sprachmodelle/01-text-als-daten-tokenisierung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Ein einfacher Tokenizer | `ai-5-1-1` |
+
+**[Sprachmodelle – Wahrscheinlichkeiten für Wörter](/oberstufe/ai/05-sprachmodelle/02-wahrscheinlichkeiten-fuer-woerter)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Wahrscheinlichkeit berechnen | `ai-5-2-1` |
+
+**[Sprachmodelle – Ein Bigramm-Modell](/oberstufe/ai/05-sprachmodelle/03-ein-bigramm-modell)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Die Idee | `ai-5-3-1` |
+
+**[Sprachmodelle – Vom Bigramm zum LLM](/oberstufe/ai/05-sprachmodelle/04-vom-bigramm-zum-llm)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Skalierung | `ai-5-4-1` |
+
+**[Sprachmodelle – Prompting](/oberstufe/ai/05-sprachmodelle/05-prompting)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Gute und schlechte Prompts | `ai-5-5-1` |
+
+**[Sprachmodelle – Rückblick](/oberstufe/ai/05-sprachmodelle/06-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Vom Text zum Modell | `ai-5-6-1` |
+| Aufgabe 2: Einen Prompt reparieren | `ai-5-6-2` |
+
+**[Chancen und Grenzen – Möglichkeiten und Grenzen](/oberstufe/ai/06-chancen-und-grenzen/01-moeglichkeiten-und-grenzen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Grenzen | `ai-6-1-1` |
+
+**[Chancen und Grenzen – Datenschutz und KI](/oberstufe/ai/06-chancen-und-grenzen/02-datenschutz-und-ki)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| KI und Datenschutz im Konflikt | `ai-6-2-1` |
+
+**[Chancen und Grenzen – Gesellschaft und Ethik](/oberstufe/ai/06-chancen-und-grenzen/03-gesellschaft-und-ethik)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Ethische Fragen | `ai-6-3-1` |
+
+**[Chancen und Grenzen – Rückblick](/oberstufe/ai/06-chancen-und-grenzen/05-rueckblick)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Ein System vollständig beurteilen | `ai-6-5-1` |
+| Aufgabe 2: Datenschutz am Fallbeispiel | `ai-6-5-2` |
+
+::::
+
 ::::collapsible{title="projekte/amsterdam-webseite (10 Lösungen)"}
 
 
@@ -1424,7 +1604,7 @@ verlinkt.
 ::::
 
 
-Insgesamt 424 geschützte Lösungen.
+Insgesamt 459 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.
