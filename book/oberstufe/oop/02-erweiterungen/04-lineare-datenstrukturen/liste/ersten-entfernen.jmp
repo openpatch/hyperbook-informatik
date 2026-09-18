@@ -562,7 +562,13 @@
         }
       },
       "methodCalls": {},
-      "exercise": true
+      "exercise": true,
+      "statements": [
+        "messages.first = messages.first.next",
+        "messages.first.next = null",
+        "messages.first = null",
+        "messages.last = messages.first"
+      ]
     }
   ]
 }

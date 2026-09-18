@@ -2,6 +2,8 @@
 title: Mergesort
 index: 2
 permaid: java-mergesort
+scripts:
+  - /wc/oop-sortierung.js
 ---
 
 # Mergesort
@@ -187,6 +189,20 @@ Für `5 2 8 1 9 3 7`:
 ```
 
 Auf dem Hinweg wird nur geteilt, auf dem Rückweg verschmolzen. Es gibt genau ⌈log₂ 7⌉ = 3 Ebenen.
+
+## Der Ablauf zum Durchklicken
+
+Das Bild oben zeigt alle Ebenen auf einmal. Hier siehst du dasselbe Feld, aber immer nur den Bereich, an dem gerade gearbeitet wird.
+
+<oop-sortierung id="mergesort-vorfuehrung" verfahren="mergesort" werte="5,2,8,1,9,3,7"></oop-sortierung>
+
+:::snippet{#aufgabe}
+a) Klicke dich durch, bis zum ersten Mal die Meldung „Mische …“ erscheint. Wie tief ist das Verfahren bis dahin geteilt worden?
+
+b) Verfolge, in welcher Reihenfolge die Teilbereiche verschmolzen werden, und ordne sie dem Bild oben zu.
+
+c) Quicksort brauchte für dasselbe Feld weniger Vergleiche. Begründe, warum Mergesort trotzdem das verlässlichere Verfahren ist.
+:::
 
 ## Aufgabe 1: Selbst implementieren
 

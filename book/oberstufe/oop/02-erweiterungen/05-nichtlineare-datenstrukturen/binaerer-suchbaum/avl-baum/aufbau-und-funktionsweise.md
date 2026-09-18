@@ -3,6 +3,8 @@ name: Aufbau und Funktionsweise
 index: 0
 lang: de
 permaid: java-avl-aufbau
+scripts:
+  - /wc/oop-suchbaum.js
 ---
 
 
@@ -52,6 +54,22 @@ flowchart TD
 
 ![A description](/images/avl-baum-2.jpg)
 
+:::
+
+## Zum Nachprüfen
+
+Der Baum unten balanciert sich nach jedem Einfügen selbst aus. Neben jedem Knoten steht sein **Balancefaktor** – die Höhe des linken minus die Höhe des rechten Teilbaums. Unter dem Baum wird protokolliert, welche Rotation gerade nötig war.
+
+<oop-suchbaum id="avl-spielwiese" modus="avl" werte="100,90,80"></oop-suchbaum>
+
+:::snippet{#aufgabe}
+a) Füge die Werte aus Aufgabe 2 ein: 100, 90, 80, 70, 60, 50, 40, 30, 20. Vergleiche das Ergebnis mit deiner Zeichnung aus Aufgabe 3.
+
+b) Lies mit, welche Rotationen dabei ausgelöst werden. Bei welchem Wert war zum ersten Mal eine **Doppelrotation** nötig?
+
+c) Prüfe deine Zahlenfolge aus Aufgabe 4: Deckt sie wirklich alle vier Rotationsfälle ab?
+
+d) Vergleiche die Höhe mit der des entarteten Suchbaums aus Aufgabe 2. Um wie viele Vergleiche unterscheidet sich eine erfolglose Suche im schlechtesten Fall?
 :::
 
 ---

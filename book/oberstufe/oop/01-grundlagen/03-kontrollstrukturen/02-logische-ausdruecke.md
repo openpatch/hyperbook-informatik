@@ -2,6 +2,8 @@
 title: Logische Ausdrücke
 index: 2
 permaid: java-logische-ausdruecke
+scripts:
+  - /wc/oop-wahrheitstabelle.js
 ---
 
 # Logische Ausdrücke
@@ -122,6 +124,25 @@ a) `(kino || joggen) && !krank`
 b) Ohne Klammern würde `kino || joggen && !krank` als `kino || (joggen && !krank)` gelesen. Dann ginge er auch krank ins Kino – die Bedingung „nicht krank“ würde sich nur auf das Joggen beziehen.
 
 ::::
+
+## Die Tafel zum ganzen Ausdruck
+
+Acht Zeilen für drei Variablen. Trage für jede Belegung ein, ob der Informatiker losgeht.
+
+<oop-wahrheitstabelle id="kino-tafel" ausdruck="(kino || joggen) && !krank" aufgabe="Fülle zuerst alle acht Zeilen aus, dann prüfe."></oop-wahrheitstabelle>
+
+:::snippet{#merken}
+Die letzte Spalte zeigt eine Eigenheit, die Java mit den meisten Sprachen teilt: Steht das Ergebnis nach der linken Seite schon fest, wird die rechte **gar nicht mehr ausgewertet**.
+
+- Bei `a && b` ist alles entschieden, sobald `a` falsch ist.
+- Bei `a || b` ist alles entschieden, sobald `a` wahr ist.
+
+Man nennt das **verkürzte Auswertung** (oder Kurzschlussauswertung). Sie ist nicht nur schneller – sie erlaubt es auch, mit `if (feld != null && feld.length > 0)` erst zu prüfen, ob es das Objekt überhaupt gibt.
+:::
+
+:::snippet{#brain}
+In welchen Zeilen der Tafel oben schaut Java sich `krank` gar nicht an? Begründe, warum das kein Zufall ist.
+:::
 
 ## Die Schaltjahrregel in einer Zeile
 

@@ -6,6 +6,8 @@ keywords:
   - java
   - qphase
   - lk
+scripts:
+  - /wc/oop-nebenlaeufig.js
 ---
 
 # Nebenläufigkeit
@@ -201,6 +203,22 @@ Passiert nun Folgendes:
 Zwei Einzahlungen, aber nur eine ist angekommen. Eine ist **verloren gegangen**.
 
 ::::
+
+### Die Verschränkung selbst erzeugen
+
+In der Tabelle oben ist die Verschränkung vorgegeben. Hier bestimmst du sie: Klicke abwechselnd, welcher Faden seinen nächsten Schritt ausführen darf.
+
+<oop-nebenlaeufig id="konto-wettlauf" variable="stand" start="0" ziel="1" name-a="Faden 1" name-b="Faden 2" faden-a="lies; +1; schreib" faden-b="lies; +1; schreib" schalter-text="Kritischen Abschnitt mit einem Schloss sichern" aufgabe="Beide Fäden führen einmal stand = stand + 1 aus. Finde eine Reihenfolge, bei der am Ende stand = 1 steht statt 2."></oop-nebenlaeufig>
+
+:::snippet{#aufgabe}
+a) Lass zuerst Faden 1 komplett durchlaufen, dann Faden 2. Welches Ergebnis kommt heraus?
+
+b) Finde nun eine Reihenfolge, bei der eine Einzahlung verloren geht. Notiere sie so wie die Tabelle oben.
+
+c) Wie viele verschiedene Verschränkungen von zwei mal drei Schritten gibt es überhaupt? Wie viele davon liefern das falsche Ergebnis?
+
+d) Schalte die Absicherung ein und versuche es erneut. Erkläre, warum der zweite Faden jetzt „blockiert“ ist – und warum das Ergebnis dadurch garantiert stimmt.
+:::
 
 :::snippet{#definition}
 Eine solche Situation heißt **Wettlaufsituation** (englisch *race condition*): Das Ergebnis hängt davon ab, welcher Thread zufällig zuerst fertig wird.

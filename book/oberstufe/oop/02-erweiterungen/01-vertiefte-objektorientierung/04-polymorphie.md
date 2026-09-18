@@ -2,6 +2,8 @@
 title: Polymorphie
 index: 4
 permaid: java-polymorphie
+scripts:
+  - /wc/oop-dispatch.js
 ---
 
 # Polymorphie
@@ -206,6 +208,22 @@ Die Variable `f` hat zwei Typen:
 Deshalb ist `f.getLadegewicht()` ein Übersetzungsfehler: `Fahrzeug` kennt diese Methode nicht. Und deshalb greift beim Rechnen trotzdem die 30-Cent-Fassung.
 
 Kurz: **Der statische Typ bestimmt das *Was darf ich?*, der dynamische das *Was passiert?***
+:::
+
+## Die Suche nachvollziehen
+
+Der Compiler prüft am statischen Typ, die Laufzeit sucht ab dem dynamischen Typ nach oben. Hier kannst du beide Schritte einzeln auslösen.
+
+<oop-dispatch id="fahrzeug-dispatch" klassen="Fahrzeug: maut, mautSumme, fahre | Pkw < Fahrzeug | Lkw < Fahrzeug: maut | Motorrad < Fahrzeug: maut" statisch="Fahrzeug" objekt="Motorrad" methode="maut"></oop-dispatch>
+
+:::snippet{#aufgabe}
+a) Statischer Typ `Fahrzeug`, Objekt `Motorrad`, Aufruf `maut()`. Führe den Aufruf Schritt für Schritt aus und notiere, in welcher Klasse die Suche endet.
+
+b) Wiederhole es mit dem Objekt `Pkw`. Warum endet die Suche jetzt woanders, obwohl sich am Aufruf nichts geändert hat?
+
+c) Stelle den statischen Typ auf `Lkw` und das Objekt auf `Motorrad`. Erkläre die Meldung des Compilers.
+
+d) `Pkw` hat keine eigene `maut()`-Fassung. Erkläre mit Hilfe der Suche, warum der Aufruf trotzdem funktioniert.
 :::
 
 :::alert{warn}

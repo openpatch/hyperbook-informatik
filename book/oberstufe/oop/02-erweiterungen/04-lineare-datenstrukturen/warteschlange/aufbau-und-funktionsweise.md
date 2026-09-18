@@ -3,11 +3,27 @@ name: Aufbau und Funktionsweise
 index: 1
 lang: de
 permaid: java-warteschlange-aufbau
+scripts:
+  - /wc/oop-stapel-schlange.js
 ---
 
 # Aufbau und Funktionsweise
 
 ![](/images/queue-crc-karten.png)
+
+## Erst einmal ausprobieren
+
+Dieselbe Operationsfolge wie beim Stapel – nur heißen die Methoden anders und die Reihenfolge dreht sich um. Sage voraus, was herauskommt.
+
+<oop-stapel-schlange id="schlange-spielwiese" modus="schlange" folge="enqueue(Anna); enqueue(Ben); front(); dequeue(); enqueue(Cem); front(); dequeue(); dequeue(); isEmpty()"></oop-stapel-schlange>
+
+:::snippet{#aufgabe}
+a) Notiere die erwarteten Ausgaben, trage sie ein und lass die Folge ablaufen.
+
+b) Vergleiche mit dem [Stapel](../stapel/aufbau-und-funktionsweise): Dieselbe Folge, andere Ausgaben. Erkläre den Unterschied in einem Satz.
+
+c) `front()` liefert immer das Element, das am längsten wartet. An welchem Ende der Schlange wird also angehängt und an welchem entnommen?
+:::
 
 ## Nachrichten einreihen
 

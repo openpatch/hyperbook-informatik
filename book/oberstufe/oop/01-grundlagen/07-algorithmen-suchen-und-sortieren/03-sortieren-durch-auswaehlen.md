@@ -2,6 +2,8 @@
 title: Sortieren durch Auswählen
 index: 3
 permaid: java-sortieren-durch-auswaehlen
+scripts:
+  - /wc/oop-sortierung.js
 ---
 
 # Sortieren durch Auswählen
@@ -62,6 +64,20 @@ Wie viele Durchläufe brauchst du? Wie viele Vertauschungen?
 Vier Durchläufe – bei fünf Elementen immer `n - 1`. Hier vier echte Vertauschungen.
 
 ::::
+
+## Jetzt bist du der Prozessor
+
+Bevor der Rechner das Verfahren ausführt, führst du es aus. Klicke die beiden Elemente an, die das Verfahren als Nächstes vergleicht, und entscheide dann.
+
+<oop-sortierung id="auswahl-aktiv" verfahren="auswahl" werte="3,7,1,9,4"></oop-sortierung>
+
+:::snippet{#aufgabe}
+a) Sortiere das Feld vollständig. Notiere am Ende, wie viele **Vergleiche** und wie viele **Bewegungen** du gebraucht hast.
+
+b) Vergleiche die Zahl der Bewegungen mit deiner Papierlösung von oben.
+
+c) Das vorläufige Minimum ist gestrichelt umrandet. Erkläre, warum es in einem Durchlauf mehrfach wechseln kann, aber getauscht wird erst ganz am Ende.
+:::
 
 ## Als Struktogramm
 

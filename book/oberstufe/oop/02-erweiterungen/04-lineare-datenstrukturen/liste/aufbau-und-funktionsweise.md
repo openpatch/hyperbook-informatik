@@ -33,10 +33,13 @@ Die Methode remove soll den ersten Knoten der Liste entfernen.
 
 ::jmp{id="liste-ersten-entfernen" src="ersten-entfernen.jmp"}
 
-1. Setze die Schritte im Objektdiagramm um.
-2. Entwerfe zur Methode remove der Klasse List einen Algorithmus im :t[Pseudocode].
-3. Tausche deinen Algortihmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
-4. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+Unter dem Diagramm stehen vier Zuweisungen. Nur eine davon entfernt den ersten Knoten – die anderen drei zerstören die Liste auf je eigene Weise.
+
+1. Sage für **jede** der vier Zuweisungen voraus, was sie am Diagramm ändern würde.
+2. Führe sie aus und prüfe deine Vorhersage. Mit **Von vorn** setzt du das Diagramm zurück.
+3. Entwerfe zur Methode remove der Klasse List einen Algorithmus im :t[Pseudocode].
+4. Tausche deinen Algortihmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
+5. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-ersten-entfernen"}
 
@@ -50,10 +53,13 @@ Die Methode remove soll erweitert werden, sodass der aktuelle Knoten (current) d
 
 ::jmp{id="liste-aktuellen-entfernen" src="aktuellen-entfernen.jmp"}
 
-1. Setze die Schritte im Objektdiagramm um.
-2. Erweitere deinen Algorithmus zum Entfernen von Nachrichten, sodass der aktuelle Knoten (current) entfernt wird.
+Hier kommt es nicht nur darauf an, **welche** Zuweisungen du ausführst, sondern in **welcher Reihenfolge**. Die Zuweisungen werden in dem Moment ausgewertet, in dem du sie anklickst – ein Ausdruck wie `messages.current.next` liefert also das, worauf `current` gerade jetzt zeigt.
 
-3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+1. Führe die Zuweisungen so aus, dass der aktuelle Knoten aus der Liste verschwindet, und prüfe.
+2. Setze zurück und führe **dieselben** Zuweisungen in einer anderen Reihenfolge aus. Beschreibe, was schiefgeht und warum.
+3. Formuliere daraus eine Regel: Welche Referenz muss man zuerst lesen, bevor man sie überschreibt?
+4. Erweitere deinen Algorithmus zum Entfernen von Nachrichten, sodass der aktuelle Knoten (current) entfernt wird.
+5. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-aktuellen-entfernen"}
 

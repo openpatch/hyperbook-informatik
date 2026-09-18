@@ -3,11 +3,27 @@ name: Aufbau und Funktionsweise
 index: 1
 lang: de
 permaid: java-stapel-aufbau
+scripts:
+  - /wc/oop-stapel-schlange.js
 ---
 
 # Aufbau und Funktionsweise
 
 ![](/images/stack-crc-karten.png)
+
+## Erst einmal ausprobieren
+
+Bevor du den Stapel selbst baust, benutze ihn. Unten liegt eine Operationsfolge bereit: Sage **zuerst** voraus, welche Ausgaben sie erzeugt, und lass sie dann ablaufen.
+
+<oop-stapel-schlange id="stapel-spielwiese" modus="stapel" folge="push(Anna); push(Ben); top(); pop(); push(Cem); top(); pop(); pop(); isEmpty()"></oop-stapel-schlange>
+
+:::snippet{#aufgabe}
+a) Notiere die erwarteten Ausgaben, trage sie ein und lass die Folge ablaufen.
+
+b) Nur `top()` und `isEmpty()` liefern überhaupt etwas. Erkläre, warum `pop()` in der Dokumentation keinen Rückgabewert hat.
+
+c) Lege danach von Hand drei Nachrichten auf und hebe sie wieder ab. In welcher Reihenfolge kommen sie heraus? Wie heißt dieses Prinzip?
+:::
 
 ## Nachrichten auflegen
 

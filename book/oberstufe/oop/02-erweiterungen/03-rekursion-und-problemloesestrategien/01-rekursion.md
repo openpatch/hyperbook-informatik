@@ -2,6 +2,8 @@
 title: Rekursion
 index: 1
 permaid: java-rekursion
+scripts:
+  - /wc/oop-aufrufbaum.js
 ---
 
 # Rekursion
@@ -449,6 +451,16 @@ b) Miss, wie lange `fibonacci(30)` und `fibonacci(35)` brauchen.
 c) Erkläre, woher der Aufwand kommt.
 
 d) Schreibe eine **iterative** Fassung und miss sie ebenfalls.
+:::
+
+Zeichne den Baum aus Teilaufgabe a) erst selbst. Danach kannst du hier vergleichen: Jeder Kreis ist ein Aufruf, gestrichelte Kreise werden mehrfach berechnet. Rechts siehst du, wie hoch der Kellerstapel dabei wird.
+
+<oop-aufrufbaum id="fibonacci-aufrufbaum" verfahren="fib" argument="5"></oop-aufrufbaum>
+
+:::snippet{#brain}
+Der Baum für `fib(5)` hat 15 Knoten, der Kellerstapel wird aber nur 5 Rahmen hoch.
+
+Erkläre diesen Unterschied – und was daraus für den Speicherbedarf der Rekursion folgt.
 :::
 
 :::onlineide{height="600px" speed="1000000"}

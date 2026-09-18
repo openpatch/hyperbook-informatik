@@ -2,6 +2,8 @@
 title: Sortieren durch Einfügen
 index: 5
 permaid: java-sortieren-durch-einfuegen
+scripts:
+  - /wc/oop-sortierung.js
 ---
 
 # Sortieren durch Einfügen
@@ -43,6 +45,20 @@ Führe das Verfahren **auf Papier** an dem Feld `3 7 1 9 4` durch. Notiere nach 
 | 4 | `1 3 4 7 9 \|` | 4 zwischen 3 und 7 |
 
 ::::
+
+## Jetzt bist du der Prozessor
+
+Der herausgenommene Wert steht als `merker` über dem Feld, seine alte Stelle ist eine gestrichelte Lücke. Klicke das Element links der Lücke an und entscheide, ob es Platz machen muss.
+
+<oop-sortierung id="einfuegen-aktiv" verfahren="einfuegen" werte="3,7,1,9,4"></oop-sortierung>
+
+:::snippet{#aufgabe}
+a) Sortiere das Feld vollständig.
+
+b) Beim Einfügen der 1 schiebst du mehrfach hintereinander. Erkläre, warum der merker dabei nicht verloren geht, obwohl seine alte Position längst überschrieben ist.
+
+c) Vergleiche die Zahl der Bewegungen mit der von Bubblesort beim selben Feld.
+:::
 
 ## Zwei Teilaufgaben
 

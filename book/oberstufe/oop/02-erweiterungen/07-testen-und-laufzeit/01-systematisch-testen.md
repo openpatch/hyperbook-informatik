@@ -2,6 +2,8 @@
 title: Systematisch testen
 index: 1
 permaid: java-systematisch-testen
+scripts:
+  - /wc/oop-testfaelle.js
 ---
 
 # Systematisch testen
@@ -89,6 +91,36 @@ Beachte die Randfälle 15 und 16: Sie liegen **direkt nebeneinander**, aber auf 
 Man nennt das **Grenzwertanalyse**: An jeder Bereichsgrenze testet man den letzten gültigen und den ersten ungültigen Wert.
 
 ::::
+
+## Ein Testsatz, der nichts findet
+
+Unten steht eine Umsetzung von `notenschnitt`, die einen Fehler enthält. Stelle einen Testsatz zusammen und lass ihn laufen – erst danach verrät dir die Rückmeldung, welche Äquivalenzklassen du getroffen hast.
+
+<oop-testfaelle id="notenschnitt-testfaelle" aufgabe="Kreuze die Testfälle an, mit denen du die Methode prüfen würdest. Probiere absichtlich auch einmal einen Satz aus lauter Normalfällen." spezifikation="int notenschnitt(int[] pPunkte) liefert den gerundeten Durchschnitt. Punktzahlen außerhalb von 0 bis 15 werden ignoriert. Ohne gültige Punktzahl wird −1 geliefert." faelle="{9, 10, 11} | 10 | 10 | gültige Mitte | nein; {7} | 7 | 7 | gültige Mitte | nein; {1} | 1 | 1 | untere Grenze | ja; {0} | 0 | -1 | untere Grenze | ja; {14} | 14 | 14 | obere Grenze | ja; {15} | 15 | -1 | obere Grenze | ja; {16} | -1 | -1 | ungültiger Wert | ja; {99, 8, -5} | 8 | 8 | ungültiger Wert | nein; {} | -1 | -1 | leeres Feld | ja">
+public int notenschnitt(int[] pPunkte) {
+    int summe = 0;
+    int anzahl = 0;
+    for (int i = 0; i &lt; pPunkte.length; i++) {
+        if (pPunkte[i] &gt; 0 &amp;&amp; pPunkte[i] &lt; 15) {
+            summe = summe + pPunkte[i];
+            anzahl++;
+        }
+    }
+    if (anzahl == 0) {
+        return -1;
+    }
+    return Math.round((float) summe / anzahl);
+}</oop-testfaelle>
+
+:::snippet{#aufgabe}
+a) Wähle zuerst **nur** die beiden Fälle aus der gültigen Mitte und führe die Tests aus. Was meldet das Werkzeug?
+
+b) Ergänze so lange Testfälle, bis mindestens ein Test fehlschlägt. Welcher war es?
+
+c) Vergleiche den fehlgeschlagenen Fall mit der Bedingung in Zeile 5. Formuliere den Fehler in einem Satz.
+
+d) Begründe, warum ein Testsatz ohne Grenzwerte diesen Fehler prinzipiell nicht finden kann.
+:::
 
 ## Aufgabe 1: Fehler durch Tests finden
 

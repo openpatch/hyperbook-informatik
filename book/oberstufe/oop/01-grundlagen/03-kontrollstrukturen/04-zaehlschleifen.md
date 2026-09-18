@@ -2,6 +2,8 @@
 title: Zählschleifen
 index: 4
 permaid: java-zaehlschleifen
+scripts:
+  - /wc/oop-wertetabelle.js
 ---
 
 # Zählschleifen
@@ -132,6 +134,23 @@ void main() {
 Die Schleife läuft zehnmal, aber die Verzweigung im Rumpf lässt nur die durch 3 teilbaren Zahlen durch.
 
 ::::
+
+## Den Ablauf verfolgen
+
+Wer eine Schleife verstehen will, schreibt auf, welche Werte die Variablen nach **jedem** Durchlauf haben. Das nennt man eine **Wertetabelle** oder Ablaufverfolgung – und es ist die wichtigste Technik, um einen Fehler in einer Schleife zu finden.
+
+<oop-wertetabelle id="zaehlschleife-tabelle" aufgabe="Trage für jeden Durchlauf ein, welchen Wert i hat, ob die Bedingung erfüllt ist und wie groß summe danach ist. Die Spalte Ausgabe bleibt leer, solange nichts ausgegeben wird." spalten="i | i % 2 == 1 | summe | Ausgabe" loesung="1|wahr|1|; 2|falsch|1|; 3|wahr|4|; 4|falsch|4|; 5|wahr|9|9">
+int summe = 0;
+for (int i = 1; i <= 5; i++) {
+    if (i % 2 == 1) {
+        summe = summe + i;
+    }
+}
+IO.println(summe);</oop-wertetabelle>
+
+:::snippet{#brain}
+Die Tabelle hat genau fünf Zeilen. Woran im Schleifenkopf kannst du diese Zahl ablesen, ohne das Programm auszuführen?
+:::
 
 ## Über eine Zeichenkette laufen
 

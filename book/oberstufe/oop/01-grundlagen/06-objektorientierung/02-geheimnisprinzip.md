@@ -2,6 +2,8 @@
 title: Geheimnisprinzip
 index: 2
 permaid: java-geheimnisprinzip
+scripts:
+  - /wc/oop-kapselung.js
 ---
 
 # Geheimnisprinzip
@@ -162,6 +164,20 @@ Ein klarer Vorteil. Ein Übersetzungsfehler wird **immer** gefunden – ein Lauf
 Je mehr Fehler die Sprache schon beim Übersetzen abfängt, desto weniger können sich im laufenden System verstecken.
 
 ::::
+
+## Beide Fälle im direkten Vergleich
+
+Hier kannst du dieselben Zugriffe einmal auf das gekapselte und einmal auf das offene Auto loslassen. Unten steht die Regel, die nie verletzt werden darf – die **Invariante** des Objekts.
+
+<oop-kapselung id="auto-kapselung" klasse="Auto" objekt="wagen" attribut="kilometerstand:int:84000" invariante="kilometerstand >= 84000" invariante-text="Der Kilometerstand darf nie unter den Anfangsstand von 84000 fallen – zurückdrehen ist Betrug." methoden="macheProbefahrt(pKm): kilometerstand = kilometerstand + pKm : pKm > 0 | getKilometerstand(): return kilometerstand :" versuche="wagen.kilometerstand = 12000 | wagen.kilometerstand = 90000 | wagen.macheProbefahrt(-20000) | wagen.macheProbefahrt(35) | wagen.getKilometerstand()"></oop-kapselung>
+
+:::snippet{#aufgabe}
+a) Führe bei **gekapseltem** Attribut alle fünf Zugriffe der Reihe nach aus. Notiere, welche der Compiler ablehnt und welche die Methode selbst abweist – das sind zwei verschiedene Dinge.
+
+b) Stelle das Attribut auf `public` und wiederhole die Zugriffe. Gib an, ab welchem Zugriff die Invariante kaputtgeht.
+
+c) `macheProbefahrt(-20000)` wird in beiden Fällen abgewiesen. Erkläre trotzdem, warum die Prüfung in der Methode bei einem `public`-Attribut wertlos ist.
+:::
 
 ## Getter und Setter
 
