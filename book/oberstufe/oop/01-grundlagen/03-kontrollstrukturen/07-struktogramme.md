@@ -13,69 +13,67 @@ Flussdiagramme haben einen Nachteil: Mit ihren Pfeilen kann man Sprünge kreuz u
 ## Die Bausteine
 
 :::snippet{#merken}
-| Baustein | Aussehen | Bedeutung |
+| Baustein | Aussehen | in Java |
 | --- | --- | --- |
-| **Anweisung** | ein Kasten mit Text | eine Anweisung oder Anweisungsfolge |
-| **Sequenz** | Kästen untereinander | Anweisungen nacheinander |
-| **Verzweigung** | Kasten mit Dreieck oben, darunter zwei Spalten | `if` / `else` |
-| **Kopfgesteuerte Schleife** | Kasten, der oben und links um den Rumpf greift | `while` / `for` |
+| **Anweisung** | ein Kasten mit Text | eine Anweisung |
+| **Eingabe** | Kasten mit `▶` davor | einlesen |
+| **Ausgabe** | Kasten mit `◀` davor | ausgeben |
+| **Sequenz** | Kästen untereinander | nacheinander |
+| **Verzweigung** | Kasten mit Schrägen, darunter zwei Spalten | `if` / `else` |
+| **Zählergesteuerte Schleife** | Kasten, der oben und links um den Rumpf greift | `for` |
+| **Kopfgesteuerte Schleife** | genauso – nur steht oben eine Bedingung statt eines Zählers | `while` |
 | **Fußgesteuerte Schleife** | Kasten, der unten und links um den Rumpf greift | `do-while` |
 
-Ein leerer Zweig einer Verzweigung wird mit einem Strich oder dem Zeichen ∅ markiert – so ist klar, dass er nicht vergessen wurde.
+Die beiden Spalten einer Verzweigung sind mit **Wahr** und **Falsch** beschriftet. Bleibt eine von beiden leer, wird sie trotzdem gezeichnet – sie bleibt einfach leer. So ist zu sehen, dass der Fall bedacht und nicht vergessen wurde.
+
+Die Zuweisung schreibt man mit `=`, so wie in Java.
+:::
+
+:::alert{info}
+Die Struktogramme auf dieser Seite sind mit [StruktoLab](https://struktolab.openpatch.org) gezeichnet. Dort kannst du deine eigenen bauen – und sie am Ende in Java übersetzen lassen.
 :::
 
 ## Eine Sequenz
 
 Das einfachste Struktogramm ist eine Folge von Kästen:
 
+:::struktolab{fontSize=15}
 ```
-┌────────────────────────────────┐
-│ radius einlesen                │
-├────────────────────────────────┤
-│ flaeche ← PI · radius · radius │
-├────────────────────────────────┤
-│ flaeche ausgeben               │
-└────────────────────────────────┘
+eingabe("radius")
+flaeche = PI * radius * radius
+ausgabe(flaeche)
 ```
+:::
 
-Der Pfeil `←` steht für die Wertzuweisung. In Struktogrammen schreibt man ihn so, damit klar wird, dass es keine Gleichung ist.
+Ein- und Ausgabe erkennst du an den kleinen Dreiecken am Kastenrand.
 
 ## Eine Verzweigung
 
+:::struktolab{fontSize=15}
 ```
-┌────────────────────────────────────────┐
-│ alter einlesen                         │
-├────────────────────────────────────────┤
-│              alter >= 18               │
-│         ja    ╱────────╲    nein       │
-├───────────────────────┬────────────────┤
-│ Ausgabe: volljährig   │ Ausgabe:       │
-│                       │ minderjährig   │
-├───────────────────────┴────────────────┤
-│ Ausgabe: fertig                        │
-└────────────────────────────────────────┘
+eingabe("alter")
+falls alter >= 18:
+    ausgabe("volljährig")
+sonst:
+    ausgabe("minderjährig")
+ausgabe("fertig")
 ```
+:::
 
 Die beiden Spalten stehen **nebeneinander**, weil immer nur eine von beiden ausgeführt wird. Darunter läuft es wieder in einem Kasten zusammen – genau wie im Programm.
 
 ## Eine Schleife
 
+:::struktolab{fontSize=15}
 ```
-┌──────────────────────────────────────────┐
-│ summe ← 0                                │
-├──────────────────────────────────────────┤
-│ i ← 1                                    │
-├──────────────────────────────────────────┤
-│ solange i <= n                           │
-│ ┌────────────────────────────────────┐   │
-│ │ summe ← summe + i                  │   │
-│ ├────────────────────────────────────┤   │
-│ │ i ← i + 1                          │   │
-│ └────────────────────────────────────┘   │
-├──────────────────────────────────────────┤
-│ summe ausgeben                           │
-└──────────────────────────────────────────┘
+summe = 0
+i = 1
+wiederhole solange i <= n:
+    summe = summe + i
+    i = i + 1
+ausgabe(summe)
 ```
+:::
 
 Der Schleifenkasten **umschließt** seinen Rumpf. Dadurch sieht man sofort, was wiederholt wird und was nicht – bei einem Flussdiagramm muss man dafür den Pfeilen folgen.
 
@@ -91,24 +89,17 @@ b) Verfolge ihn **auf Papier** für die Eingabe `n = 4`. Notiere nach jedem Durc
 c) Setze ihn danach in Java um und prüfe deine Handrechnung.
 :::
 
+:::struktolab{fontSize=15}
 ```
-┌──────────────────────────────────────────┐
-│ n einlesen                               │
-├──────────────────────────────────────────┤
-│ erg ← 1                                  │
-├──────────────────────────────────────────┤
-│ i ← 1                                    │
-├──────────────────────────────────────────┤
-│ solange i <= n                           │
-│ ┌────────────────────────────────────┐   │
-│ │ erg ← erg · 2                      │   │
-│ ├────────────────────────────────────┤   │
-│ │ i ← i + 1                          │   │
-│ └────────────────────────────────────┘   │
-├──────────────────────────────────────────┤
-│ erg ausgeben                             │
-└──────────────────────────────────────────┘
+eingabe("Zahl n")
+erg = 1
+i = 1
+wiederhole solange i <= n:
+    erg = erg * 2
+    i = i + 1
+ausgabe(erg)
 ```
+:::
 
 :::onlineide{height="400px" speed="1000000"}
 
@@ -187,7 +178,7 @@ void main() {
 
 Die Verzweigung liegt **innerhalb** der Schleife. Im Struktogramm heißt das: Der Verzweigungskasten steht im Rumpf des Schleifenkastens.
 
-Und: Der Nein-Zweig ist leer. Markiere ihn mit ∅ – nicht weglassen.
+Und: Die Falsch-Spalte bleibt leer. Zeichne sie trotzdem – weglassen darfst du sie nicht.
 
 ::::
 
@@ -209,23 +200,17 @@ void main() {
 
 Das zugehörige Struktogramm:
 
+:::struktolab{fontSize=15}
 ```
-┌────────────────────────────────────────────┐
-│ n einlesen                                 │
-├────────────────────────────────────────────┤
-│ für i von 1 bis n                          │
-│ ┌──────────────────────────────────────┐   │
-│ │ i ausgeben                           │   │
-│ ├──────────────────────────────────────┤   │
-│ │            i mod 3 = 0               │   │
-│ │       ja    ╱────────╲    nein       │   │
-│ ├───────────────────────┬──────────────┤   │
-│ │ Ausgabe: Fizz         │      ∅       │   │
-│ ├───────────────────────┴──────────────┤   │
-│ │ Zeilenumbruch                        │   │
-│ └──────────────────────────────────────┘   │
-└────────────────────────────────────────────┘
+eingabe("Zahl n")
+wiederhole für i = 1 bis n:
+    ausgabe(i)
+    falls i mod 3 = 0:
+        ausgabe("Fizz")
+    sonst:
+    Zeilenumbruch
 ```
+:::
 
 :::
 
@@ -300,23 +285,18 @@ void main() {
 
 Als Struktogramm:
 
+:::struktolab{fontSize=15}
 ```
-┌────────────────────────────────────────────┐
-│ a einlesen                                 │
-├────────────────────────────────────────────┤
-│ b einlesen                                 │
-├────────────────────────────────────────────┤
-│ solange a ≠ b                              │
-│ ┌──────────────────────────────────────┐   │
-│ │               a > b                  │   │
-│ │       ja    ╱────────╲    nein       │   │
-│ ├───────────────────────┬──────────────┤   │
-│ │ a ← a - b             │ b ← b - a    │   │
-│ └───────────────────────┴──────────────┘   │
-├────────────────────────────────────────────┤
-│ a ausgeben                                 │
-└────────────────────────────────────────────┘
+eingabe("Zahl a")
+eingabe("Zahl b")
+wiederhole solange a != b:
+    falls a > b:
+        a = a - b
+    sonst:
+        b = b - a
+ausgabe(a)
 ```
+:::
 
 Der Algorithmus berechnet den **größten gemeinsamen Teiler** von `a` und `b`. Er heißt **euklidischer Algorithmus** und ist über 2000 Jahre alt. Teste ihn mit 48 und 18 – heraus kommt 6.
 
@@ -364,20 +344,20 @@ c) Was passiert bei deiner Fassung, wenn eine der beiden Zahlen 0 ist?
 {h{Der Rumpf steckt sichtbar im Schleifenkasten.}}
 {H{Richtig! Deshalb kann man dort nichts durcheinanderbringen.}}
 
-**3. Wofür steht der Pfeil nach links in einem Struktogramm?**
+**3. Ein Zweig einer Verzweigung bleibt leer. Was zeichnest du?**
 
-{r3{für einen Vergleich}}
+{r3{gar nichts, die Spalte fällt weg}}
 
-{r3{!für eine Wertzuweisung}}
+{r3{!die Spalte, aber ohne Inhalt}}
 
-{r3{für eine Ausgabe}}
+{r3{einen Pfeil, der die Verzweigung überspringt}}
 
-{h{Er soll deutlich machen, dass es keine Gleichung ist.}}
-{H{Richtig!}}
+{h{Man muss sehen können, dass der Fall bedacht wurde.}}
+{H{Richtig! Die leere Spalte zeigt, dass der Fall nicht vergessen wurde.}}
 
 **4. Welche Aussagen stimmen?** (Mehrfachauswahl)
 
-{c1{!Ein leerer Zweig wird mit einem Strich oder dem Zeichen für die leere Menge markiert.}}
+{c1{!Eine Eingabe ist im Kasten durch ein besonderes Zeichen kenntlich gemacht.}}
 
 {c1{!Die beiden Zweige einer Verzweigung stehen nebeneinander.}}
 

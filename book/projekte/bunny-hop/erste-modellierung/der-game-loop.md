@@ -17,7 +17,14 @@ Damit die Entwicklung des Game-Loops funktionieren kann, schauen wir uns zunäch
 
 Ähnlich zum EVA-Prinzip (Eingabe-Verarbeitung-Ausgabe) gibt es in der Spieleprogrammierung das ESA-Prinzip (Eingabe-Simulation-Ausgabe) anhand dieses Prinzips kann der Game-Loop strukturiert werden.
 
-::struktog{data="https://struktog.openpatch.org/#pako:eNqVkk1qHDEQha_SaD0Fav1rdjYYEgjZOGSRXUkqTTfpUQ_dapzE-Da5SS4WDUlsshjj0U6F9NV7r-qRHedEE9s_sjGxPbPoMUrrwfZSQfTBAXG0kMlEg16xHavfT9Revi8rLfVj-91qeZ6m-eFuoiOV-gzDlKPTWoDokUN2ToHqcwahlNGG0gvsHWH6MM-nv7hK3xqF3Z9GmroyxqF2gagkqhd7Ka0Vj1FClp7AKa_BeReB82hSDPg24WWbpqcdi8M4pWe00D5bgxq09Qi9lRF0nxXYRs45uasyodCj5ijBpCAgohHQFBJ41RK2Qr7APuH69f88PtOCS6CxbuXQJVq6u7EcMFBpl7W7pbLVH7SsF3vL5J0xSkHipMHY3MasyYPRIiqb03XDlTxHEQwItBmkEh4y9wFkUpY0718zcksLxaH8sbF25dfPOKy1-fiyrRXLuXa2dz8etwnrOJeLKgJx2eeAbaeiB0y2B5O5ApFin3XUV1lSxjYvIZ2jCaC5DeCictBj4JYH9Zqlm209j-Kturl0XovcWsWUIKE0gMYY4M5LTTFesa7_zo4NNB6GVu6l27GHMdWB7Z23T78BAB83iA"}
+:::struktolab{fontSize=15}
+```
+wiederhole solange Spiel nicht beendet:
+    Verarbeitung der Eingaben des Benutzers
+    Berechnung des nächsten Zustandes der Simulation
+    Ausgabe der Simulation
+```
+:::
 
 Wir werden uns im folgenden jede Phase im Detail anschauen.
 
@@ -39,7 +46,18 @@ Beim Spiel Mario löst das Drücken der linken Pfeiltaste aus, dass Mario sich n
 
 Der Pseudocode des Algorithmus "nach links bewegen" könnte so aussehen:
 
-::struktog{data="https://struktog.openpatch.org/#pako:eNqVVVtuHDcQvMpgvtUA32zqM4FhB4kTf_gCJLupJTQ7Y8zORnYM3SY38cXcaxtSrGBt7XwSZFV3VXXPx3G_EE_j9cex03g9xlIZky9gDFVIITZI3mSowSakiuPVuH14x3Lzt_nA6_anvJaztkzTcvdi4j3P2wNYKaZYtBYa6gauOEF0iBCqqpq4PoK9zYfbb1AbvxeE8cDbPzz8tXYB7Lwe55shH9sw9fn2cJYwRqtUMgSNLYKS8kGVloGjtbrYcFH1SRUMkT2o5hO06E9SsAaXbKDC6kfV_83rp39n4pWHl3you7s-U7-55b4Nx_1gz3K6plqNPoDOrYKlksDHEMD7Enwt6qIGDKZGtQSIaBkUswXlsoLYsNSQyiPYL2ue6-77Fvb5fd_n6f8N8Lpyr7vtLC9ha5y1g0bCFkLyUFQlQI3VKX9Zhoz1JaG8zpEymKAKaOUMWENJkc2PYK840x_L8u5JjpYpzzc8_C7o_dCXedhLD6_6vPE69x9EKafgKBpwbMV44z0IY4FgsmZKz4zSfJym-6ux7vpED9Dsc0TJP7hTnLQVf4sShxIFUzDFi_SJreQSYwT2oYK3BUX2qgGDYoks_XzGvvg7_8fg05yp84QqZa2EC73xoI0SY3OWsVBUhVJfVL1UapBcAeW1hyBAgCw-a-eQMpqfzJgU3rnw8DqvfRnmXHfDyhLN87YikiftK7DODsilAIajA2U9knwX2Pr1k_vrkX_9zmA0WFuR7DSnrDRkGEwRY9BrjBjbRRK16DwhJyiUZHVS9GDTSayaq0umPtPgJ_6em-7zZRgXuFgHSUVppzZZJqGdMmw0BbxMODnP0-GJahZ1VacfhazbBj5TAaYWIFWrQyD3XNW-XXoz5cq7ZZIlPN4_mLXjfiOr69okezXeddp247WM3P1n-coz0w"}
+:::struktolab{fontSize=15}
+```
+setze Orientierung auf links
+verändere Geschwindigkeit um 3
+falls maximale Geschwindigkeit erreicht:
+    setze Geschwindigkeit auf maximale Geschwindigkeit
+sonst:
+wiederhole solange Kollision mit Hindernis:
+    setze Geschwindigkeit auf 0
+    verschiebe Mario nach rechts
+```
+:::
 
 ### Ausgabe
 

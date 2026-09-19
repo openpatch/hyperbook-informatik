@@ -22,7 +22,13 @@ Zum Vergleich gehen wir zunächst von der nachfolgenden Situation aus.
 
 Die Fitnessproportionale Selektion funktioniert so wie du sie bereits kennengelernt hast. Im Struktogramm ist eine programmiersprachenunabhängige Darstellung des Algorithmus.
 
-::struktog{data="https://struktog.openpatch.org/#pako:eNqVks1qGzEUhV9FaNWCL-hnNJK8a6ChhVJM6Qvo58qjRJ4xMzJuHfI2fYzu8mIVjWnSRUKs5eHq6J5P547upoiFru9ojnRNmUYjXOSgRM9AqT6CZkGC584zZRNd0fpzj23y87jgXL-2201LUynT8WPBHY71ycz32nCP4KRhoBVn0FupoVcekxf2yewTuvhlmvZnu4o_mgu9fvg9kxuMSL65W6xIIs5kM-0PxdU8jS--q7XgxvIAxmgHknENnnkB3PU8CKvfFmI8lHK_omHIJf6z7ryMRhoOgXEDMigLIloBqD0a3l_Gp0NtkzESpGYKRMIEzEoFIfQpMfuMz3e33P7P5gqXmne7xiQj-TCe3FD-4jkdtnjMuOCII9mUh1_1hOSd1eQ61xGXhbQFlv2cw1BJU88T4_sXlxQiCSs9A2O70BqhOuBdi-1QeO95uChxQuV84gjY0IE1snXMY_sjxCBk8q8lbm3YPsY9t2GZyJQqaWnfBCHijmzc3CjM-2kqZMjj6fBKdzH0Klpg0glgSTGQklkwUSlp4yUdejwrOmDeDk3krFvRY451oGur-P0fVModPw"}
+:::struktolab{fontSize=15}
+```
+wiederhole für jede Rakete der Population:
+    Bestimme die Anzahl der zugewiesenen Plätze (97 Fitness entspricht 97 Plätzen)
+    Füge die Rakete so oft wie die Anzahl der zugewiesenen Plätze dem Partnerpool hinzu
+```
+:::
 
 
 ### Aufgabe 1
@@ -43,7 +49,17 @@ Beschreibe wie sich die Formel auf die zugewiesenen Plätze auswirkt. Vergleiche
 
 Die Turnierselektion funktioniert wie im Struktogramm dargestellt.
 
-::struktog{data="https://struktog.openpatch.org/#pako:eNqVlN1q3DAQhV_F-KqFHdCMrL9c9KKlpYUSylLotX5GWROvHXa9pG3I2-RN8mKdQtJtAtvGvhBYls54vnOkm3Y7FR7as5u2L-1Zqxx7igXBkFVgjC3gVNaQMCZlQm1X7fzjimXlp3HPu_lcdstcnYZhun4_8JbH-SiWrPOYGKL2CpxBBTZoB9YkronCUewjx_J5mq4e5Gb-Lirtt54L7zbTwA2qZhuHk5WcI_QBM3jvImiFDpJKBBgtZgruZb89HobhdtXmTT-UP9Jd0sVrj5AVetDZBKASCNgl9miXERG6XitfgVQIYLV34DFmcMypE1RHsa9xf_mMxv3dRkhwP3Kzjpc8c_Nqja-bn4d6fzcM_UUTD_uTlaPNKjAXYO00kGMHDr0FskUZdrSoDUOCBE0S3DJkTR3U7DWEwtFQsIvboJe2wWS1KdqAsylCLpqhUEeQO6NjSGmZGxq1ItOBtkJCOwk75kwQYuBc-K98vt3FMW-eNrLG5kM_j7zfN2-aNT2-nKxWtWSenJwqJg3OcQaVOpQAGDRy7hZldN4d-N2TnKKuxJJIsEzisu0yVJmDLlm02S8jo4Iv3lUG6hyDC0SgxFywtjhUFf9l8Hm_3TYCpx-bwmPzJe6Ey-5qmgZxtp7Gk4wy3geI3mUQMBUq_Q5oqbmjjAvw3AqgGof9M0LGlZRC6CD4JOImI9RQPHAx1qaXVngQI4PM1hNolKGSq5CisRBIrhxB_n9CtJRQyt5KWKw4nCsYX6WJZAxoo0qsJS4i9Pis2g33Fxv5QKpbtdd9mTftWTB4-wtFet_T"}
+:::struktolab{fontSize=15}
+```
+wiederhole für 10 mal:
+    Wähle eine Rakete (R1) zufällig aus
+    Wähle eine Rakete (R2) zufällig aus
+    falls R1 Fitness > R2 Fitness:
+        Nimm R1 in den Partnerpool auf
+    sonst:
+        Nimm R2 in den Partnerpool auf
+```
+:::
 
 ### Aufgabe 1
 
@@ -57,7 +73,12 @@ Führe den Algorithmus mehrmals aus (mindestens 5 mal) und vergleiche die entsta
 
 Die Bestenselektion funktioniert wie im Struktogramm dargestellt.
 
-::struktog{data="https://struktog.openpatch.org/#pako:eNqVkM1KAzEQx18l5NyBbLL52N4VvEhRoed8zLpL06TsplQpfRsfw1tfzBRFTxWd0zDM_Pj_5ki3OWCkyyMdA11SptFwGxqQXDGQUgXQzAtwjXVMdj1d0PK6w7p5l2acyn29rrM-x5gPNxG3mMo3TFpuuZISLBMBmpY7ELrC0HjPsFM_sCc7b75QBV8qgT7mqYw4IQkjklXe7aMtY07EpsGmQALO5HYsCecZ1jUHzldToFLWoeYgg--Adb0GvHhxZkTLO_0vJSMEtt5o8FwoCJ0SELx2YAMzzkjzm9L6_DbETyGHc8FEFHmwG7x0_fl9qlKJrOxUraZdzvFqiJYzJoVTNQTvwfGA4OpjAb1pWtaIvxmlfYynSy3ogOPzUEeaLehhDGWgy042pw91han-"}
+:::struktolab{fontSize=15}
+```
+Sortiere die Population anhand des Fitness-Wertes
+Wähle die besten 6 Raketen für den Partnerpool
+```
+:::
 
 ### Aufgabe 1
 
