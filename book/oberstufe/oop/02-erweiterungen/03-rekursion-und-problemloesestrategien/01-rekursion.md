@@ -98,7 +98,7 @@ Bei jedem Methodenaufruf legt Java einen **Kellerrahmen** auf den **Aufrufstapel
 
 Bei `fakultaet(4)` liegen zwischenzeitlich **vier** Einträge übereinander – jeder mit einem eigenen Wert für `pN`. Genau deshalb wissen die Aufrufe nichts voneinander.
 
-Und genau deshalb ist es derselbe Datentyp, den du in der letzten Lektion gebaut hast: ein **Stapel**. Wer zuletzt kam, geht zuerst.
+Und der Aufrufstapel ist genau das, was sein Name sagt: ein **Stapel**. Wer zuletzt kam, geht zuerst. In [Kapitel 4](../04-lineare-datenstrukturen/stapel) lernst du ihn als eigene Datenstruktur kennen.
 :::
 
 Setze die Schritte im Diagramm um.

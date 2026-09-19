@@ -7,7 +7,9 @@ permaid: java-generik
 
 # Felder, Referenzen und Generik
 
-Zwei- und mehrdimensionale Felder, der Unterschied zwischen Wert und Referenz, die beiden Speicherbereiche dahinter und generische Klassen.
+Zweidimensionale Felder, der Unterschied zwischen Wert und Referenz, die beiden Speicherbereiche dahinter und generische Klassen.
+
+<!-- Fuer Lehrkraefte: Zweidimensionale Felder sind GK ("ein- und zweidimensionale Felder"). Felder mit drei und mehr Dimensionen sind im KLP-Entwurf ein LK-Schwerpunkt ("mehrdimensionale Felder") und kommen hier bewusst nicht vor. -->
 
 ## Zum Schluss, wenn du magst
 

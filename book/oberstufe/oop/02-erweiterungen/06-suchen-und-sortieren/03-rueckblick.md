@@ -204,8 +204,14 @@ e) Bei **kleinen** Feldern und bei **fast sortierten** Daten. Sortieren durch Ei
 
 <!--
 Rückblick zum Inhaltsfeld Algorithmen: iterative und rekursive Sortierverfahren
-implementieren (I) und nach Speicherbedarf sowie Zahl der Operationen
-beurteilen (A).
+erläutern (A), iterative Verfahren implementieren (I) und nach Speicherbedarf
+sowie Zahl der Operationen beurteilen (A).
+
+Die Checkliste ist bewusst GK-konform formuliert ("erklären", nicht
+"implementieren"): Nach dem KLP-Entwurf muss der GK rekursive Sortierverfahren
+nur noch erläutern. Aufgabe 2 (Verschmelzen) bleibt GK, weil das Verschmelzen
+iterativ ist. Das Implementieren von Quicksort und Mergesort steht als
+LK-markierte Aufgabe 1 in 6.1 und 6.2.
 -->
 
 ---

@@ -14,7 +14,7 @@ Genau danach wird in der Qualifikationsphase gefragt – und zwar selten mit „
 
 - [ ] Ich kann ein **Implementationsdiagramm** lesen und in ein Klassengerüst übersetzen – und umgekehrt. ([1.1](./01-implementationsdiagramme))
 - [ ] Ich kenne die Zeichen für die Sichtbarkeiten, die Notation für Beziehungen und weiß, was unterstrichen bedeutet. ([1.1](./01-implementationsdiagramme), [1.2](./02-klassenattribute-und-konstanten))
-- [ ] Ich unterscheide **Objektattribut**, **Klassenattribut** und **Konstante** und kann jede Wahl begründen. ([1.2](./02-klassenattribute-und-konstanten))
+- [ ] Ich unterscheide **Objektattribut** und **Klassenattribut** *(LK: dazu die **Konstante**)* und kann jede Wahl begründen. ([1.2](./02-klassenattribute-und-konstanten))
 - [ ] Ich entscheide mit dem **„ist ein"-Test**, ob eine Vererbung oder eine Assoziation richtig ist. ([1.3](./03-generalisierung-und-spezialisierung))
 - [ ] Ich kann sagen, **was** beim Generalisieren nach oben gehört und was unten bleibt. ([1.3](./03-generalisierung-und-spezialisierung))
 - [ ] Ich kann **Polymorphie** an einem Beispiel erklären und sagen, wann entschieden wird, welche Methode läuft. ([1.4](./04-polymorphie))
@@ -32,7 +32,7 @@ Geh die Tabelle Zeile für Zeile durch und kreuze ehrlich an. Für jede Zeile, d
 | ☐ | Ich zeichne aus einer Klasse ein Diagramm – **mit** den privaten Methoden. | [1.1 Aufgabe 1](./01-implementationsdiagramme) |
 | ☐ | Ich weiß, was ein Diagramm grundsätzlich nicht ausdrücken kann. | [1.1 Vertiefung 1](./01-implementationsdiagramme) |
 | ☐ | Ich erkenne, ob eine Angabe zum Objekt oder zur Klasse gehört. | [1.2 Ein Wert für die ganze Klasse](./02-klassenattribute-und-konstanten) |
-| ☐ | Ich schreibe eine Konstante richtig hin und weiß, was `final` schützt. | [1.2 Konstanten](./02-klassenattribute-und-konstanten) |
+| ☐ | *(LK)* Ich schreibe eine Konstante richtig hin und weiß, was `final` schützt. | [1.2 Konstanten](./02-klassenattribute-und-konstanten) |
 | ☐ | Ich entscheide zwischen Vererbung und Assoziation. | [1.3 Der „ist ein"-Test](./03-generalisierung-und-spezialisierung) |
 | ☐ | Ich weiß, was beim Zusammenziehen nach oben gehört und was nicht. | [1.3 Was gehört nach oben?](./03-generalisierung-und-spezialisierung) |
 | ☐ | Ich kann begründen, warum `private` meist besser ist als `protected`. | [1.3 Wie weit macht man auf?](./03-generalisierung-und-spezialisierung) |
@@ -224,6 +224,8 @@ f) Ohne Polymorphie bräuchte die Schleife eine Fallunterscheidung für jede For
 Ein Versandzentrum verschickt **Briefe**, **Pakete** und **Wertpakete**. Setze die Hierarchie so um, dass alle Tests grün werden.
 
 Diese Aufgabe verlangt alles aus diesem Kapitel zugleich: eine Konstante, ein Klassenattribut mit Klassenmethode, eine abstrakte Klasse mit abstrakter Methode, drei Vererbungsebenen und eine Verwaltungsklasse, die keine der Unterklassen kennt.
+
+*(Im Grundkurs ersetzt du die Konstante `MAX_GEWICHT` durch eine feste Zahl im Quelltext – Konstanten gehören zum Leistungskurs. Alles andere an der Aufgabe bleibt unverändert.)*
 :::
 
 ```mermaid

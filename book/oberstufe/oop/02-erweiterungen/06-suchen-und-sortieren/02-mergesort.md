@@ -12,7 +12,11 @@ Quicksort hat eine unangenehme Eigenschaft: Bei ungünstigen Daten fällt es auf
 
 Der Preis dafür ist zusätzlicher Speicher.
 
-<!-- KLP QPh, Algorithmen: erläutern bzw. vergleichen iterative und rekursive Such- und Sortierverfahren (A) -->
+<!-- KLP QPh, Algorithmen: erläutern bzw. vergleichen iterative und rekursive Such- und Sortierverfahren (A).
+     Wie bei Quicksort: Das Implementieren des rekursiven Verfahrens (Aufgabe 1) ist im KLP-Entwurf nur im LK ausgewiesen.
+     Aufgabe 2 (drei Verfahren vergleichen) bleibt GK - sie ist von "beurteilen Algorithmen unter Beruecksichtigung des
+     Speicherbedarfs und der Zahl der Operationen (A)" gedeckt. Erst das Vergleichen "unterschiedlicher Komplexitaets-
+     klassen" als eigener Anspruch waere LK. -->
 
 ## Die Idee
 
@@ -205,6 +209,12 @@ c) Quicksort brauchte für dasselbe Feld weniger Vergleiche. Begründe, warum Me
 :::
 
 ## Aufgabe 1: Selbst implementieren
+
+:::alert{info}
+**Nur Leistungskurs.** Wie bei [Quicksort](./01-quicksort#aufgabe-1-selbst-implementieren): Ein rekursives Sortierverfahren selbst zu implementieren, ist eine zusätzliche Anforderung des Leistungskurses. Im Grundkurs genügt es, Mergesort zu erläutern und den Ablauf nachzuvollziehen.
+
+Das **Verschmelzen** zweier sortierter Folgen ist davon ausgenommen – das ist iterativ, gehört zum Grundkurs und steht als Aufgabe 2 im [Rückblick](./03-rueckblick).
+:::
 
 :::snippet{#aufgabe}
 Ergänze die Methoden so, dass alle Tests grün werden.

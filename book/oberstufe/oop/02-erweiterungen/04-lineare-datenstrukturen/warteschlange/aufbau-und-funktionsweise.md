@@ -9,6 +9,25 @@ scripts:
 
 # Aufbau und Funktionsweise
 
+An der Supermarktkasse gilt eine Regel, die niemand aufschreiben muss: **Wer zuerst da war, ist zuerst dran.** Wer dazukommt, stellt sich hinten an. Bedient wird vorne. Dazwischen passiert nichts – man kann sich nicht in die Mitte stellen und auch niemanden aus der Mitte herausziehen.
+
+Genau diese Regel – und genau diese Beschränkung – ist die **Warteschlange**.
+
+:::snippet{#definition}
+Eine **Warteschlange** (englisch *queue*) ist eine lineare Datenstruktur mit zwei Zugriffsstellen:
+
+- **hinten** wird eingefügt (`enqueue`),
+- **vorne** wird gelesen (`front`) und entfernt (`dequeue`).
+
+Das Prinzip heißt **FIFO** – *First In, First Out*: Was zuerst hineinkommt, kommt zuerst wieder heraus.
+:::
+
+:::snippet{#merken}
+Dass man **nicht** in die Mitte greifen kann, ist kein Mangel, sondern der Zweck. Eine Struktur, die nur zwei Operationen zulässt, kann man nicht falsch bedienen – und sie lässt sich so bauen, dass beide Operationen **gleich schnell** sind, egal wie lang die Schlange ist.
+
+Wo dir das im Rechner begegnet: Druckaufträge, eingehende Netzwerkpakete, Tastatureingaben, Aufgaben in einer Warteliste.
+:::
+
 ![](/images/queue-crc-karten.png)
 
 ## Erst einmal ausprobieren
@@ -42,7 +61,7 @@ Die Methode enqueue soll eine neue Nachricht ans Ende der Warteschlange anhänge
 
 :::
 
-## Benachrichtungen lesen
+## Benachrichtigungen lesen
 
 Die Methode front soll die erste Nachricht in der Warteschlange zurückgeben. Die Methode dequeue soll die erste Nachricht aus der Warteschlange entfernen.
 
@@ -60,12 +79,26 @@ Die Methode front soll die erste Nachricht in der Warteschlange zurückgeben. Di
 
 ## Abgrenzung zur Liste
 
-Bis jetzt haben wir die lineare Datenstruktur Liste verwendet. Die lineare Datenstruktur wirkt zunächst als ein Rückschritt.
+Eine Liste kann alles, was eine Warteschlange kann – und mehr. Auf den ersten Blick wirkt die Warteschlange deshalb wie ein Rückschritt.
 
-### Aufgaben
+:::snippet{#aufgabe}
+a) Beschreibe die Unterschiede zwischen Warteschlange und Liste. Nimm dazu beide Dokumentationen nebeneinander: Welche Operationen hat die eine, die die andere nicht hat?
 
-1. Beschreibe die Unterschiede zwischen den linearen Datenstrukturen Warteschlange und Liste.
-2. Überlege, warum es spezialisierte lineare Datenstrukturen wie die Warteschlang gibt.
+b) Begründe, warum es trotzdem spezialisierte Strukturen wie die Warteschlange gibt. Denk dabei an zwei verschiedene Arten von Vorteil – einen für den, der die Struktur **benutzt**, und einen für den, der sie **baut**.
+:::
+
+::::collapsible{title="Auflösung" id="schlange-abgrenzung-aufloesung"}
+
+a) Die Liste hat einen beweglichen Zeiger (`toFirst`, `next`, `hasAccess`, `getContent`) und erlaubt Einfügen und Entfernen an jeder Stelle. Die Warteschlange hat nur `enqueue`, `front`, `dequeue` und `isEmpty` – kein Durchlaufen, kein Zugriff auf die Mitte.
+
+b) Zwei Vorteile:
+
+- **Für den, der sie benutzt:** Der Typ sagt die Absicht. Steht im Quelltext `Queue<Auftrag>`, dann weiß jede Leserin sofort, dass hier der Reihe nach abgearbeitet wird – und niemand *kann* versehentlich vordrängeln. Eine Liste ließe beides offen.
+- **Für den, der sie baut:** Wer weniger verspricht, kann es besser halten. Weil nur an den beiden Enden gearbeitet wird, kommt die Warteschlange mit einem Verweis auf den Anfang **und** einem auf das Ende aus und schafft beide Operationen in konstanter Zeit.
+
+Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft die bessere.**
+
+::::
 
 ---
 

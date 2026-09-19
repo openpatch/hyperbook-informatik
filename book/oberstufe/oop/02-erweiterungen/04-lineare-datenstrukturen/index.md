@@ -7,9 +7,16 @@ permaid: java-datenstrukturen
 
 # Lineare Datenstrukturen
 
-Stapel, Schlange und Liste sind die drei linearen dynamischen Datenstrukturen, die du in der Oberstufe brauchst. Du lernst ihren Aufbau kennen, arbeitest mit der dokumentierten Klassenbibliothek und implementierst sie anschließend selbst.
+Stapel, Schlange und Liste sind die drei linearen dynamischen Datenstrukturen, die du in der Oberstufe brauchst. Du lernst ihren Aufbau kennen und arbeitest mit der dokumentierten Klassenbibliothek.
 
-<!-- KLP QPh, Daten und ihre Strukturierung: lineare dynamische Datenstrukturen in Form von Schlangen, Stapeln und Listen -->
+:::alert{info}
+Die Seiten **Implementierung** – bei denen du die Struktur selbst baust, statt sie zu benutzen – gehören zum **Leistungskurs**. Im Grundkurs reicht es, den Aufbau zu erläutern und die Struktur über ihre Dokumentation zu verwenden.
+:::
+
+<!-- KLP QPh, Daten und ihre Strukturierung: lineare dynamische Datenstrukturen in Form von Schlangen, Stapeln und Listen.
+     GK: "erläutern Operationen dynamischer Datenstrukturen (A)" + "implementieren Algorithmen ... unter Verwendung von
+     Datenstrukturen (I)". LK zusätzlich: "implementieren Operationen dynamischer Datenstrukturen (I)" - das sind die
+     drei Seiten "Implementierung". -->
 
 ## Die Objektdiagramme
 

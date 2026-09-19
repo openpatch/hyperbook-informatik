@@ -13,6 +13,7 @@ permaid: java-binaerbaum-dokumentation
 classDiagram
     class BinaryTree~ContentType~ {
         +BinaryTree()
+        +BinaryTree(pContent: ContentType)
         +BinaryTree(pContent: ContentType, pLeftTree: BinaryTree~ContentType~, pRightTree: BinaryTree~ContentType~)
         +isEmpty() boolean
         +setContent(pContent: ContentType)
@@ -25,9 +26,12 @@ classDiagram
 
     class BTNode~ContentType~ {
         +BTNode(pContent: ContentType)
-        +getNext() StackNode
-        +setNext(pNext: StackNode)
         +getContent() ContentType
+        +setContent(pContent: ContentType)
+        +getLeftTree() BinaryTree~ContentType~
+        +setLeftTree(pTree: BinaryTree~ContentType~)
+        +getRightTree() BinaryTree~ContentType~
+        +setRightTree(pTree: BinaryTree~ContentType~)
     }
 
     BinaryTree~ContentType~ --> BTNode~ContentType~:node
@@ -104,7 +108,7 @@ Gibt eine Referenz auf den rechten Nachfolger dieses Knotens (d.h. den rechten T
 {r1{setLeftTree}}
 
 {h{Sie liefert selbst wieder einen BinaryTree.}}
-{H{Richtig! Genau das macht die Rekursion moeglich.}}
+{H{Richtig! Genau das macht die Rekursion möglich.}}
 
 **2. Was liefert getContent bei einem leeren Knoten?**
 
@@ -114,10 +118,10 @@ Gibt eine Referenz auf den rechten Nachfolger dieses Knotens (d.h. den rechten T
 
 {r2{den Inhalt des Vorgängers}}
 
-{h{Die Dokumentation legt das ausdruecklich fest.}}
+{h{Die Dokumentation legt das ausdrücklich fest.}}
 {H{Richtig!}}
 
-**3. Womit prueft man, ob man am Ende eines Astes angekommen ist?**
+**3. Womit prüft man, ob man am Ende eines Astes angekommen ist?**
 
 {r3{mit getContent}}
 

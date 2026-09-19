@@ -9,6 +9,33 @@ scripts:
 
 # Aufbau und Funktionsweise
 
+Drück in einem beliebigen Programm zehnmal Strg+Z. Die Änderungen werden **rückwärts** zurückgenommen – die letzte zuerst, die erste zuletzt. Das Programm hat sie sich gemerkt wie einen Stapel Teller: Neues kommt oben drauf, und heruntergenommen wird auch von oben.
+
+Das ist die zweite Zugriffsregel, die in der Informatik überall auftaucht – und sie ist genau die **Umkehrung** der Warteschlange.
+
+:::snippet{#definition}
+Ein **Stapel** (englisch *stack*, auch *Kellerstapel*) ist eine lineare Datenstruktur mit nur **einer** Zugriffsstelle, dem oberen Ende:
+
+- `push` legt oben auf,
+- `top` liest das oberste Element,
+- `pop` entfernt es.
+
+Das Prinzip heißt **LIFO** – *Last In, First Out*: Was zuletzt hineinkommt, kommt zuerst wieder heraus.
+:::
+
+:::snippet{#merken}
+Der Stapel ist die Struktur für alles, was **verschachtelt** ist und in umgekehrter Reihenfolge wieder aufgelöst werden muss:
+
+| Wo | Was liegt auf dem Stapel |
+| --- | --- |
+| Rückgängig-Funktion | die letzten Änderungen |
+| Methodenaufrufe | wohin zurückgesprungen werden muss – der **Aufrufstapel** |
+| Klammerprüfung | die noch offenen Klammern |
+| Zurück-Knopf im Browser | die zuletzt besuchten Seiten |
+
+Alle vier haben dieselbe Form: Das zuletzt Begonnene muss als Erstes abgeschlossen werden.
+:::
+
 ![](/images/stack-crc-karten.png)
 
 ## Erst einmal ausprobieren
@@ -42,7 +69,7 @@ Die Methode push soll eine neue Nachricht auf den Stapel legen.
 
 :::
 
-## Benachrichtungen lesen
+## Benachrichtigungen lesen
 
 Die Methode top soll die erste Nachricht auf dem Stapel zurückgeben. Die Methode pop soll die erste Nachricht des Stapels entfernen.
 
@@ -58,14 +85,27 @@ Die Methode top soll die erste Nachricht auf dem Stapel zurückgeben. Die Method
 
 :::
 
-## Der Call-Stack
+## Der Aufrufstapel
 
-Der Stapel ist eine der wichtigsten Datenstrukturen in der Programmierung. Er bildet die Grundstruktur für die Ausführung von Methoden.
+Der wichtigste Stapel ist einer, den du nie selbst anlegst: Java führt für jedes Programm einen mit, um Methodenaufrufe zu verwalten. Ihn kennst du schon aus [2.3 Kellerstapel und Halde](../../02-felder-referenzen-generik/03-kellerstapel-und-halde) – und aus [3.1 Rekursion](../../03-rekursion-und-problemloesestrategien/01-rekursion), wo du ihn beim Aufrufbaum in Aktion gesehen hast.
 
-### Aufgaben
+:::snippet{#aufgabe}
+a) Erkläre mit den Begriffen dieser Seite, was beim Aufruf einer Methode auf den Aufrufstapel gelegt und was beim `return` wieder abgehoben wird.
 
-1. Informiere dich über den Aufbau und die Funktionsweise des sogenannten Call-Stacks. Nutze dazu die Seite [2.3 Kellerstapel und Halde](../../02-felder-referenzen-generik/03-kellerstapel-und-halde).
-2. Bereite dich auf eine Präsentation vor.
+b) Begründe, warum dafür ein **Stapel** die richtige Struktur ist und keine Warteschlange.
+
+c) Eine Endlosrekursion bricht mit einem `StackOverflowError` ab. Erkläre den Namen dieses Fehlers.
+:::
+
+::::collapsible{title="Auflösung" id="stapel-aufrufstapel-aufloesung"}
+
+a) Bei jedem Aufruf wird ein **Kellerrahmen** aufgelegt: die Parameter, die lokalen Variablen und die Stelle, an die zurückgesprungen werden muss. Beim `return` wird genau dieser Rahmen wieder abgehoben, und das Programm läuft an der gemerkten Stelle weiter.
+
+b) Weil Methodenaufrufe **verschachtelt** sind: Ruft `a()` die Methode `b()` auf und `b()` die Methode `c()`, dann muss `c()` als Erstes fertig werden. Das zuletzt Begonnene wird zuerst abgeschlossen – genau LIFO. Eine Warteschlange würde `a()` zuerst beenden wollen, obwohl `a()` noch mitten im Aufruf steckt.
+
+c) Der Stapel hat eine feste Größe. Eine Rekursion ohne Abbruchbedingung legt Rahmen auf Rahmen, ohne je einen abzuheben – irgendwann läuft der Stapel über: *stack overflow*.
+
+::::
 
 ---
 
@@ -88,7 +128,7 @@ Der Stapel ist eine der wichtigsten Datenstrukturen in der Programmierung. Er bi
 
 {r2{vorne eingefügt, hinten entfernt}}
 
-{r2{!an derselben Stelle, naemlich oben}}
+{r2{!an derselben Stelle, nämlich oben}}
 
 {r2{an einer beliebigen Stelle}}
 

@@ -47,7 +47,7 @@ Stelle dieses Regelwerk graphisch als Entscheidungsbaum dar.
                 - Falls ja, dann lade es hoch
                 - Falls nein, dann lade es nicht hoch
         - Falls nein, dann lade es nicht hoch
-    - Falls nein, ist das Bild mehr als 100 Jahr alt?
+    - Falls nein, ist das Bild mehr als 100 Jahre alt?
         - Falls ja, dann lade es hoch
         - Falls nein, ist der Urheber des Bildes bekannt?
             - Falls ja, ist der Urheber vor mehr als 70 Jahren verstorben?
@@ -56,6 +56,37 @@ Stelle dieses Regelwerk graphisch als Entscheidungsbaum dar.
                     - Falls ja, dann lade es hoch
                     - Falls nein, dann lade es nicht hoch
             - Falls nein, dann lade es nicht hoch
+
+::::collapsible{title="Auflösung" id="entscheidungsbaum-aufloesung"}
+
+Jede Frage ist eine Ja/Nein-Frage – der Entscheidungsbaum ist also ein **Binärbaum**. An den inneren Knoten stehen die Fragen, an den Blättern die beiden möglichen Ergebnisse.
+
+```mermaid
+flowchart TD
+    A{"selbst erstellt?"} -->|ja| B{"unter freier Lizenz veröffentlichen?"}
+    A -->|nein| C{"älter als 100 Jahre?"}
+    B -->|ja| D{"Bildrechte Dritter ausgeschlossen?"}
+    B -->|nein| N1["nicht hochladen"]
+    D -->|ja| J1["hochladen"]
+    D -->|nein| E{"Einverständnis aller Betroffenen?"}
+    E -->|ja| J2["hochladen"]
+    E -->|nein| N2["nicht hochladen"]
+    C -->|ja| J3["hochladen"]
+    C -->|nein| F{"Urheber bekannt?"}
+    F -->|ja| G{"vor mehr als 70 Jahren verstorben?"}
+    F -->|nein| N3["nicht hochladen"]
+    G -->|ja| D
+    G -->|nein| H{"Urheber hat freier Lizenz zugestimmt?"}
+    H -->|ja| J4["hochladen"]
+    H -->|nein| N4["nicht hochladen"]
+```
+
+Zwei Beobachtungen, die über das Beispiel hinausgehen:
+
+- **Der Weg von der Wurzel zu einem Blatt ist die Begründung.** Wer erklären soll, warum ein Bild nicht hochgeladen werden darf, liest einfach die Fragen auf seinem Weg vor. Genau deshalb sind Entscheidungsbäume in der Medizin und im maschinellen Lernen so beliebt: Das Ergebnis lässt sich **nachvollziehen**, anders als bei einem neuronalen Netz.
+- **Der Pfeil von „vor mehr als 70 Jahren verstorben?" zurück auf „Bildrechte Dritter ausgeschlossen?"** ist im Aufgabentext das „(siehe oben)". Streng genommen ist die Zeichnung damit **kein Baum mehr**, denn dieser Knoten hat zwei Vorgänger. Als Baum müsste man den Teilbaum ein zweites Mal hinzeichnen. In der Praxis spart man sich das – man muss nur wissen, dass man damit die Baumeigenschaft aufgibt.
+
+::::
 
 **Zur Präsentation:**
 - Erläutere das Anwendungsbeispiel (Entscheidungsbaum allgemein).
@@ -86,7 +117,7 @@ In Anlehnung an Christian Pothmann unter CC BY-NC-SA 4.0
 {z{4}}
 
 {h{Bei jeder Frage halbiert sich die Menge der möglichen Ergebnisse.}}
-{H{Richtig! Das ist dasselbe Argument wie bei den Goldmuenzen.}}
+{H{Richtig! Das ist dasselbe Argument wie bei den Goldmünzen.}}
 
 **3. Welche Aussagen über Bäume stimmen?** (Mehrfachauswahl)
 

@@ -27,7 +27,7 @@ Ob das noch sitzt, findest du im [Check-in](../00-check-in) heraus. Er dauert ei
 ## Hier lernst du …
 
 - ein **Implementationsdiagramm** zu lesen und zu schreiben – vollständig, mit Datentypen und Sichtbarkeiten,
-- was **Klassenattribute** und **Konstanten** sind und wozu man sie braucht,
+- was **Klassenattribute** sind und wozu man sie braucht – *(nur Leistungskurs)* dazu **Konstanten**,
 - eine Vererbungshierarchie zu **entwerfen** und eine fremde zu **beurteilen**,
 - was **Polymorphie** ist und warum sie Fallunterscheidungen überflüssig macht,
 - wann eine Klasse **abstrakt** sein muss,

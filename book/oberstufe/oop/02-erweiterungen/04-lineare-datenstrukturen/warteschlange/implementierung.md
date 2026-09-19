@@ -3,9 +3,22 @@ name: Implementierung
 index: 3
 lang: de
 permaid: java-warteschlange-implementierung
+keywords:
+  - java
+  - qphase
+  - lk
 ---
 
 # Implementierung
+
+:::alert{info}
+**Nur Leistungskurs.** Die Operationen einer dynamischen Datenstruktur **selbst zu implementieren**, gehört zu den zusätzlichen Anforderungen des Leistungskurses. Im Grundkurs genügt es, den Aufbau der Warteschlange zu erläutern ([Aufbau und Funktionsweise](./aufbau-und-funktionsweise)) und sie über ihre [Dokumentation](./dokumentation) zu **benutzen** – so, wie es auch im Zentralabitur vorausgesetzt wird.
+:::
+
+<!-- KLP QPh LK, Algorithmen: "implementieren Operationen dynamischer Datenstrukturen (I)" ist nur im LK ausgewiesen.
+     GK: "erläutern Operationen dynamischer Datenstrukturen (Stapel, Schlange, Liste, Baum) (A)" und
+     "implementieren Algorithmen ... auch unter Verwendung von Datenstrukturen (... Stapel, Schlange, Liste, Baum) (I)"
+     - also die Struktur benutzen, nicht bauen. -->
 
 ## Aufgaben
 
@@ -29,8 +42,8 @@ void main() {
 
 ```java NRWQueue.java
 public class NRWQueue<T> {
-    private QueueNode front;
-    private QueueNode tail;
+    private QueueNode<T> front;
+    private QueueNode<T> tail;
 
     public void enqueue(T pContent) {
 
@@ -52,7 +65,7 @@ public class NRWQueue<T> {
 
 ```java QueueNode.java
 public class QueueNode<T> {
-    private QueueNode nextNode;
+    private QueueNode<T> nextNode;
     private T content;
 
     public QueueNode(T pContent) {
@@ -60,11 +73,11 @@ public class QueueNode<T> {
         nextNode = null;
     }
 
-    public void setNext(QueueNode pNext) {
+    public void setNext(QueueNode<T> pNext) {
         nextNode = pNext;
     }
 
-    public QueueNode getNext() {
+    public QueueNode<T> getNext() {
         return nextNode;
     }
 
@@ -103,11 +116,64 @@ public class Message {
 
 :::
 
-:::collapsible{title="Hilfe: Code-Puzzle und Schreibtischtest" id="warteschlange-code-puzzle"}
+::::collapsible{title="Hilfe: Code-Puzzle und Schreibtischtest" id="warteschlange-code-puzzle"}
 
 Die Puzzles zeigen dieselben Methoden, die du oben schreiben sollst – in Einzelteilen. Der Schreibtischtest am Ende prüft, ob du den Ablauf im Kopf hast.
 
 ::bitflow{id="puzzle-warteschlange" src="code-puzzle.bitflow" height="820px"}
+
+::::
+
+::::collapsible{title="Tipp: Zwei Enden, zwei Verweise" id="schlange-tipp"}
+
+Anders als der Stapel arbeitet die Warteschlange an **beiden** Enden: `enqueue` hinten, `front` und `dequeue` vorne. Deshalb gibt es zwei Verweise.
+
+Zwei Sonderfälle entscheiden über richtig und falsch: Was ist, wenn die Schlange **leer** ist und der erste Knoten dazukommt? Und was, wenn der **letzte** Knoten entnommen wird?
+
+::::
+
+:::protect{password="java-q-4-ws-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+```java
+public void enqueue(T pContent) {
+    QueueNode<T> neuerKnoten = new QueueNode<T>(pContent);
+    if (isEmpty()) {
+        front = neuerKnoten;     // erster Knoten: beide Verweise
+        tail = neuerKnoten;
+    } else {
+        tail.setNext(neuerKnoten);
+        tail = neuerKnoten;
+    }
+}
+
+public void dequeue() {
+    if (!isEmpty()) {
+        front = front.getNext();
+        if (front == null) {     // war der letzte Knoten
+            tail = null;
+        }
+    }
+}
+
+public T front() {
+    if (isEmpty()) {
+        return null;
+    }
+    return front.getContent();
+}
+
+public boolean isEmpty() {
+    return front == null;
+}
+```
+
+Worauf es ankam:
+
+- **Der erste Knoten ist der Sonderfall beim Einfügen.** Er ist gleichzeitig der erste und der letzte, also müssen `front` **und** `tail` auf ihn zeigen. Ohne diese Fallunterscheidung liefe `tail.setNext(...)` auf `null`.
+- **Der letzte Knoten ist der Sonderfall beim Entnehmen.** Bleibt `tail` auf dem entfernten Knoten stehen, hängt das nächste `enqueue` den neuen Knoten an einen Knoten an, der gar nicht mehr in der Schlange ist.
+- **Der Verweis `tail` ist der Grund, warum `enqueue` O(1) ist.** Ohne ihn müsste jedes Einfügen die ganze Schlange durchlaufen, um das Ende zu finden – das wäre O(n).
+
+Eine Stolperstelle beim Lesen: Das Attribut heißt `front` und die Methode ebenfalls `front()`. Java kann beides auseinanderhalten – `front` ist der Knoten, `front()` der Aufruf –, für Menschen ist es trotzdem verwirrend. In eigenem Quelltext lohnt es sich, dem Attribut einen anderen Namen zu geben.
 
 :::
 

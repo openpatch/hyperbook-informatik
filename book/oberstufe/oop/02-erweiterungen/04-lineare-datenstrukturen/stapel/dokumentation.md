@@ -102,10 +102,10 @@ leer ist, wird null zurückgegeben.
 
 {r3{das zuletzt entfernte Element}}
 
-{h{Die Dokumentation legt das ausdruecklich fest.}}
+{h{Die Dokumentation legt das ausdrücklich fest.}}
 {H{Richtig!}}
 
-**4. Warum sollte man vor jedem pop mit isEmpty pruefen?**
+**4. Warum sollte man vor jedem pop mit isEmpty prüfen?**
 
 {r4{weil pop sonst langsam ist}}
 
@@ -113,7 +113,7 @@ leer ist, wird null zurückgegeben.
 
 {r4{weil isEmpty den Stapel zurücksetzt}}
 
-{h{Sonderfälle gehören immer geprueft.}}
+{h{Sonderfälle gehören immer geprüft.}}
 {H{Richtig!}}
 
 ::::

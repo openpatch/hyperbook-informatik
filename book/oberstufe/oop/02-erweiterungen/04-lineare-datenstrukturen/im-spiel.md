@@ -19,7 +19,7 @@ Stapel, Schlange und Liste unterscheiden sich nicht darin, **was** sie speichern
 :::snippet{#scratch-kurz}
 :::
 
-<!-- KLP QPh: erlaeutern Operationen dynamischer Datenstrukturen (A); implementieren Algorithmen unter Verwendung von Datenstrukturen (I). Wendet Kapitel 4 an, fuehrt nichts Neues ein. Optional. Der Block laedt beide Bibliotheken: libraries="nrw,scratch". -->
+<!-- KLP QPh: erläutern Operationen dynamischer Datenstrukturen (A); implementieren Algorithmen unter Verwendung von Datenstrukturen (I). Wendet Kapitel 4 an, führt nichts Neues ein. Optional. Der Block lädt beide Bibliotheken: libraries="nrw,scratch". -->
 
 :::snippet{#merken}
 Die Programmierbereiche dieser Seite laden **beide** Bibliotheken – im Attribut `libraries` stehen sie kommasepariert: `nrw,scratch`.

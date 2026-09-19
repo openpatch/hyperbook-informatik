@@ -3,9 +3,22 @@ name: Implementierung
 index: 4
 lang: de
 permaid: java-liste-implementierung
+keywords:
+  - java
+  - qphase
+  - lk
 ---
 
 # Implementierung
+
+:::alert{info}
+**Nur Leistungskurs.** Die Operationen einer dynamischen Datenstruktur **selbst zu implementieren**, gehört zu den zusätzlichen Anforderungen des Leistungskurses. Im Grundkurs genügt es, den Aufbau der Liste zu erläutern ([Aufbau und Funktionsweise](./aufbau-und-funktionsweise)) und sie über ihre [Dokumentation](./dokumentation) zu **benutzen** – so, wie es auch im Zentralabitur vorausgesetzt wird.
+:::
+
+<!-- KLP QPh LK, Algorithmen: "implementieren Operationen dynamischer Datenstrukturen (I)" ist nur im LK ausgewiesen.
+     GK: "erläutern Operationen dynamischer Datenstrukturen (Stapel, Schlange, Liste, Baum) (A)" und
+     "implementieren Algorithmen ... auch unter Verwendung von Datenstrukturen (... Stapel, Schlange, Liste, Baum) (I)"
+     - also die Struktur benutzen, nicht bauen. -->
 
 ## Aufgaben
 

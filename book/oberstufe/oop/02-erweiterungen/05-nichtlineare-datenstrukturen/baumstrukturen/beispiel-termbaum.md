@@ -50,8 +50,13 @@ dann für die Addition bzw. Subtraktion.
 
 ## Aufgabe
 
-- Stelle den Term $ 5 \cdot (6 + 2) - 7 / 4 + 2 \cdot 2 $ als Termbaum dar.
-- Stelle den Term zu folgenden Termbaum auf:
+:::snippet{#aufgabe}
+*Ohne Rechner.*
+
+a) Stelle den Term $ 5 \cdot (6 + 2) - 7 / 4 + 2 \cdot 2 $ als Termbaum dar. Denk an Punkt vor Strich und daran, dass bei gleichrangigen Operatoren von links nach rechts ausgewertet wird.
+
+b) Stelle den Term zum folgenden Termbaum auf und berechne seinen Wert.
+:::
 
 ```mermaid
 flowchart TD
@@ -66,6 +71,34 @@ flowchart TD
     C --> H((2))
     C --> I((1))
 ```
+
+::::collapsible{title="Auflösung" id="termbaum-aufloesung"}
+
+**a)** Zuerst die Klammerung ergänzen: Punkt vor Strich macht daraus $((5 \cdot (6+2)) - (7/4)) + (2 \cdot 2)$. Der **zuletzt** ausgeführte Operator steht an der Wurzel – das ist hier das letzte `+`.
+
+```mermaid
+flowchart TD
+    P(("+")) --> M(("-"))
+    P --> M2(("*"))
+    M --> T1(("*"))
+    M --> T2(("/"))
+    T1 --> A((5))
+    T1 --> B(("+"))
+    B --> B1((6))
+    B --> B2((2))
+    T2 --> C((7))
+    T2 --> D((4))
+    M2 --> E((2))
+    M2 --> F((2))
+```
+
+Die zweite Regel – von links nach rechts – entscheidet darüber, dass das `-` **unter** dem `+` hängt und nicht umgekehrt.
+
+**b)** Der Term lautet $(5 \cdot 4 - (3 + 2)) / (2 + 1)$.
+
+Ausgerechnet wird er von unten nach oben: $5 \cdot 4 = 20$, $3 + 2 = 5$, $20 - 5 = 15$, $2 + 1 = 3$ und schließlich $15 / 3 = \mathbf{5}$.
+
+::::
 
 **Zur Präsentation**:
 - Erläutere das Anwendungsbeispiel (Terme).
@@ -103,7 +136,7 @@ In Anlehnung an Christian Pothmann unter CC BY-NC-SA 4.0
 {h{Was tiefer im Baum steht, wird zuerst ausgewertet.}}
 {H{Richtig!}}
 
-**3. Welche Traversierung liefert die uebliche Schreibweise eines Terms?**
+**3. Welche Traversierung liefert die übliche Schreibweise eines Terms?**
 
 {r3{Pre-Order}}
 
