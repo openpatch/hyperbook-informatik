@@ -3,7 +3,7 @@ name: Vererbung
 lang: de
 ---
 
-Vererbung ist ein Konzept in der objektorientierten Programmierung (OOP), das dazu dient, die Beziehungen zwischen Klassen zu beschreiben und den Code in einer hierarchischen Struktur zu organisieren.
+**Vererbung** (englisch *inheritance*) ist ein Konzept in der objektorientierten Programmierung (OOP), das dazu dient, die Beziehungen zwischen Klassen zu beschreiben und den Code in einer hierarchischen Struktur zu organisieren.
 
 Hier sind die grundlegenden Konzepte und Merkmale der Vererbung:
 

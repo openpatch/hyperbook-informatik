@@ -5,7 +5,7 @@ lang: de
 
 # Fußgesteuerte Schleife
 
-Eine fußgesteuerte Schleife, auch als "do-while-Schleife" bekannt, ist eine Schleifenstruktur in der Programmierung, die dazu verwendet wird, einen Rumpf mindestens einmal auszuführen und dann fortzufahren, solange eine bestimmte Bedingung erfüllt ist. Anders als bei kopfgesteuerten Schleifen (wie der "while-Schleife") wird die Bedingung erst am Ende der Schleife überprüft, nachdem der Rumpf mindestens einmal ausgeführt wurde.
+Eine **fußgesteuerte Schleife** (englisch *post-test loop*), auch als "do-while-Schleife" bekannt, ist eine Schleifenstruktur in der Programmierung, die dazu verwendet wird, einen Rumpf mindestens einmal auszuführen und dann fortzufahren, solange eine bestimmte Bedingung erfüllt ist. Anders als bei kopfgesteuerten Schleifen (wie der "while-Schleife") wird die Bedingung erst am Ende der Schleife überprüft, nachdem der Rumpf mindestens einmal ausgeführt wurde.
 
 Hier ist eine vereinfachte Erklärung:
 

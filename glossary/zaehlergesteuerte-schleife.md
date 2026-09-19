@@ -5,7 +5,7 @@ lang: de
 
 # Zählergesteuerte Schleife
 
-Eine zählergesteuerte Schleife, auch als "for-Schleife" bekannt, ist eine Schleifenstruktur in der Programmierung, die dazu verwendet wird, einen Codeblock eine bestimmte Anzahl von Malen zu wiederholen. Anders als bei einer kopfgesteuerten Schleife (wie der "while-Schleife") wird die Anzahl der Wiederholungen im Voraus festgelegt und in der Schleife spezifiziert.
+Eine **zählergesteuerte Schleife** (englisch *counting loop*), auch als "for-Schleife" bekannt, ist eine Schleifenstruktur in der Programmierung, die dazu verwendet wird, einen Codeblock eine bestimmte Anzahl von Malen zu wiederholen. Anders als bei einer kopfgesteuerten Schleife (wie der "while-Schleife") wird die Anzahl der Wiederholungen im Voraus festgelegt und in der Schleife spezifiziert.
 
 Hier ist eine vereinfachte Erklärung:
 

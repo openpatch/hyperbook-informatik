@@ -1,5 +1,5 @@
 ---
-name: Verebung Java
+name: Vererbung Java
 ---
 
 Die Vererbungsbeziehung wird in Java mit dem Schlüsselwort extends beschrieben. Beispiel:

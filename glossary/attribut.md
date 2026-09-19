@@ -5,7 +5,11 @@ lang: de
 
 # Attribut
 
-In der objektorientierten Programmierung sind Attribute spezielle :t[Variablen]{#variable}, die die Eigenschaften eines :t[Objekts]{#objekt} darstellen. Attribute werden innerhalb einer Klasse deklariert und meistens im :t[Konstruktor]{#konstruktor} initialisiert.
+In der objektorientierten Programmierung sind **Attribute** (englisch *fields*, seltener *attributes*) spezielle :t[Variablen]{#variable}, die die Eigenschaften eines :t[Objekts]{#objekt} darstellen. Attribute werden innerhalb einer Klasse deklariert und meistens im :t[Konstruktor]{#konstruktor} initialisiert.
+
+:::alert{warning}
+Vorsicht bei der Rückübersetzung: Das englische *field* meint ein Attribut – **nicht** das deutsche :t[Feld]{#feld}, das für *array* steht.
+:::
 
 Attribute können mit einem :t[Zugriffsmodifikator]{#zugriffsmodifikator} deklariert werden. Damit kann eingeschränkt werden, welche anderen Objekte Zugriff auf die Eigenschaften der Objekte dieser Klasse haben sollen.
 
