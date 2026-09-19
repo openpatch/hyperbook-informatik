@@ -174,7 +174,20 @@ classDiagram
 3. Implementiere die Methode `setWord`
 4. Implementiere die Methode `distanceTo` nutze dazu das nachfolgende Struktogramm.
 
-::struktog{data="https://struktog.openpatch.org/#pako:eNqlldtuGzcQhl9F2CsH9gQcnunWBZKgFwXaIhcBcj1DDrNCN5IhreEWgd69o8Cx4yQqtOjNHrjcOfz_R_LT8HHbZBquPw3rNlwPRRwbZzOgtwUqtg7imoHSKxXMPFwN8z-3ojN_2-xlN_-pf-tY307T9v7XST7KZn4MVgMnRuv0bxPA-xIh9t4gxIQxSX4K9o72fz2EmuVvjTC09X6mTZXVzcqcTBC6d61GC647A6FWC76gg1ZTZg5mUbXsbGImCzlJBeddANOqByfGZ0b_X9Xux-1ulv38frtrWvG93k7mQQmpSUpQLDIEmwJ0GzPkxtRbWVa06SlF8hFaaBnI1ahhK0FvwRkn8hTs9U7lHJ-Xfazz5SSbD_N48WL1y-r2_dcDJ5NGklaNbcDZOSCmoopbgkwWMWBY1AHVWprzWrzXDrBFxcXnpsGQQunxKdib7d1m_n27vX3exHozr9ZHTH7S28-rr614bEU_XV6e5lTTJ-oOsFgDXiUF013VJ0tUkluGUbJIMTIU9RK0NwucUoEcHGVM8SzoL29Wf9A8viTeXzw3Cb4x6bRLuvJ6CSWDxeahZXaQRMk2VctxsZ7X1eZumg6Hw9VQx_XUniDGJN7ZCES6RBL5CuxZJatF153LyyB22FVnDz0XAcZkwfjqwBgsuoPEMyCuI-1ezRfrF6ubmweFHodOc2x9d6F26EFTZk5Hy3sGNt1n48wChXTm7k7ePNPIirBNPkGuQkBFEKw1GSRzJ_b-XI0eJr2dqMq4nZrshqMhnab9NxkR0VmjewB6EkgYAlSjILssSElwGcilGsFQINqCwCV4MNi0Bx_QRG_PBRlPZkjJqhS6_5UQBHo6Sk9FXzPXniUtIvTwmdLvXTDEPUZTIaMixUkNSEXPtlgJi3K7SJOmOmbHKnDNHoK0AKGz6CV0w9YsOCM-Q3paGvY9R0aoZC3UpgCxRE2pJ3Jv1ixcvD9iRQXOxXilkxtU2_W46z4oNSk4se1_0fnFjlHWH0ad5ly-Gu7XbR6H61zS4V_yfJig"}
+:::struktolab{fontSize=15}
+```
+distance = 0
+shortestWord = word
+falls word.length() > pWord.length():
+    shortestWord = pWord
+sonst:
+wiederhole für int i = 0; i < shortestWord.length(); i++:
+    falls word.charAt(i) == pWord.charAt(i):
+    sonst:
+        distance += 1
+distance += Math.abs(word.length() - pWord.length())
+```
+:::
 
 5. Implementiere die Methode `reverse`
 6. Implementiere die Methode `isParlindrome`
