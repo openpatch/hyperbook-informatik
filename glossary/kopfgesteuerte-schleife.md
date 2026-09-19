@@ -5,7 +5,7 @@ lang: de
 
 # Kopfegesteuerte Schleife
 
-Eine kopfgesteuerte Schleife, auch als "while-Schleife" bekannt, ist eine Art von Schleifenstruktur in der Programmierung, die dazu verwendet wird, einen Codeblock solange auszuführen, wie eine bestimmte Bedingung erfüllt ist. Im Gegensatz zur zählergesteuerten Schleife (wie der "for-Schleife"), bei der die Anzahl der Wiederholungen im Voraus festgelegt ist, wird die Ausführung einer kopfgesteuerten Schleife durch eine Bedingung am Anfang der Schleife gesteuert.
+Eine **kopfgesteuerte Schleife** (englisch *pre-test loop*), auch als "while-Schleife" bekannt, ist eine Art von Schleifenstruktur in der Programmierung, die dazu verwendet wird, einen Codeblock solange auszuführen, wie eine bestimmte Bedingung erfüllt ist. Im Gegensatz zur zählergesteuerten Schleife (wie der "for-Schleife"), bei der die Anzahl der Wiederholungen im Voraus festgelegt ist, wird die Ausführung einer kopfgesteuerten Schleife durch eine Bedingung am Anfang der Schleife gesteuert.
 
 Hier ist eine vereinfachte Erklärung:
 

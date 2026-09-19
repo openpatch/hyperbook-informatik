@@ -5,7 +5,7 @@ lang: de
 
 # Programmablaufplan
 
-Ein Programmablaufplan (PAP) ist ein Ablaufdiagramm für ein Computerprogramm, das auch als Flussdiagramm (engl. flowchart) oder Programmstrukturplan bezeichnet wird. Es ist eine grafische Darstellung zur Umsetzung eines Algorithmus in einem Programm und beschreibt die Folge von Operationen zur Lösung einer Aufgabe. (vgl. [Wikipedia](https://de.wikipedia.org/wiki/Programmablaufplan))
+Ein **Programmablaufplan** (PAP, englisch *flowchart*) ist ein Ablaufdiagramm für ein Computerprogramm, das auch als Flussdiagramm (engl. flowchart) oder Programmstrukturplan bezeichnet wird. Es ist eine grafische Darstellung zur Umsetzung eines Algorithmus in einem Programm und beschreibt die Folge von Operationen zur Lösung einer Aufgabe. (vgl. [Wikipedia](https://de.wikipedia.org/wiki/Programmablaufplan))
 
 Ein PAP besteht aus folgenden Komponenten: 
 

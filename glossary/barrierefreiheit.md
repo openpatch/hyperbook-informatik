@@ -5,7 +5,7 @@ lang: de
 
 # Barrierefreiheit
 
-**Barrierefreiheit** heißt, dass eine Webseite auch für Menschen benutzbar ist, die nicht sehen, keine Maus bedienen oder Farben nicht unterscheiden können.
+**Barrierefreiheit** (englisch *accessibility*, oft zu *a11y* abgekürzt) heißt, dass eine Webseite auch für Menschen benutzbar ist, die nicht sehen, keine Maus bedienen oder Farben nicht unterscheiden können.
 
 Das meiste ergibt sich aus sauberem :t[HTML]{#html}:
 

@@ -5,7 +5,7 @@ lang: de
 
 # Normalform
 
-Die **Normalisierung** zerlegt ein :t[Relationenschema]{#relationenschema} systematisch, bis keine Redundanz mehr übrig ist. Redundanz ist die Ursache der Änderungs-, Einfüge- und Löschanomalie.
+Die **Normalisierung** (englisch *normalization*) zerlegt ein :t[Relationenschema]{#relationenschema} systematisch, bis keine Redundanz mehr übrig ist. Redundanz ist die Ursache der Änderungs-, Einfüge- und Löschanomalie.
 
 - **1. Normalform** – alle Attributwerte sind atomar
 - **2. Normalform** – zusätzlich hängt kein Nichtschlüsselattribut von einem *Teil* des Schlüssels ab (keine partielle Abhängigkeit)

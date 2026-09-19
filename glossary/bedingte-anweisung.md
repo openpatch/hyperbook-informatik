@@ -5,7 +5,7 @@ lang: de
 
 # Bedingte Anweisung
 
-Eine bedingte Anweisung, oft als "if-Anweisung" bezeichnet, ist ein grundlegendes Konzept in der Programmierung, das es ermöglicht, Entscheidungen in einem Computerprogramm zu treffen. 
+Eine **bedingte Anweisung** (englisch *conditional statement*), oft als "if-Anweisung" bezeichnet, ist ein grundlegendes Konzept in der Programmierung, das es ermöglicht, Entscheidungen in einem Computerprogramm zu treffen. 
 
 Eine bedingte Anweisung (if-Anweisung) erlaubt dem Programm, zwischen verschiedenen Aktionen zu wählen, abhängig von bestimmten Bedingungen oder Kriterien. Die grundlegende Idee ist, dass der Computer eine Frage stellt und basierend auf der Antwort entweder eine Aktion ausführt oder sie überspringt.
 

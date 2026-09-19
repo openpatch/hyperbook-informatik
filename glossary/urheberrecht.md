@@ -5,7 +5,7 @@ lang: de
 
 # Urheberrecht
 
-Das **Urheberrecht** entsteht automatisch, sobald jemand etwas Eigenes schafft – ein Foto, einen Text, eine Zeichnung. Man muss es nicht anmelden.
+Das **Urheberrecht** (englisch *copyright*) entsteht automatisch, sobald jemand etwas Eigenes schafft – ein Foto, einen Text, eine Zeichnung. Man muss es nicht anmelden.
 
 Wer ein fremdes Werk nutzen will, braucht eine **Lizenz**. **Ein fehlender Hinweis bedeutet nicht „frei", sondern das Gegenteil.**
 

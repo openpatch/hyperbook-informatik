@@ -5,7 +5,7 @@ lang: de
 
 # Kontrollstruktur
 
-Eine Kontrollstruktur ist ein grundlegendes Konzept in der Programmierung, das dazu dient, den Ablauf eines Computerprogramms zu steuern. Sie ermöglicht es, Entscheidungen zu treffen, Schleifen zu wiederholen und den Programmfluss zu organisieren. Hier ist eine Erklärung für einen Schüler der 11. Klasse:
+Eine **Kontrollstruktur** (englisch *control structure*) ist ein grundlegendes Konzept in der Programmierung, das dazu dient, den Ablauf eines Computerprogramms zu steuern. Sie ermöglicht es, Entscheidungen zu treffen, Schleifen zu wiederholen und den Programmfluss zu organisieren. Hier ist eine Erklärung für einen Schüler der 11. Klasse:
 
 Kontrollstrukturen in der Programmierung sind wie die "Regeln" oder "Anweisungen", nach denen ein Computerprogramm arbeitet. Sie helfen dabei, den Code zu organisieren und bestimmte Aufgaben auszuführen, je nach den Bedingungen und Anforderungen des Programms. Es gibt drei grundlegende Arten von Kontrollstrukturen:
 
