@@ -12,7 +12,10 @@ Alle drei Sortierverfahren der Einführungsphase brauchen im schlechtesten Fall 
 
 Mit *Teilen und Herrschen* geht es sehr viel besser.
 
-<!-- KLP QPh, Algorithmen: Problemlösestrategien - Teilen und Herrschen; erläutern iterative und rekursive Such- und Sortierverfahren (A) -->
+<!-- KLP QPh, Algorithmen: Problemlösestrategien - Teilen und Herrschen; erläutern iterative und rekursive Such- und Sortierverfahren (A).
+     Achtung Entlastung im KLP-Entwurf: Der GK muss rekursive Sortierverfahren nur noch ERLAEUTERN; "implementieren iterative
+     Such- und Sortierverfahren (I)" nennt ausdruecklich nur die iterativen. Aufgabe 1 (selbst implementieren) ist deshalb
+     LK-markiert. Alles davor - Kartenuebung, Durchklicken, Verfahren lesen, Aufwand abschaetzen - ist GK-Pflicht. -->
 
 ## Die Idee
 
@@ -27,11 +30,11 @@ Das Umordnen heißt **Partitionieren** und ist der Kern des Verfahrens.
 ## Mit Karten
 
 :::snippet{#aufgabe}
-Legt euch die Karten `5 2 8 1 9 3 7` hin.
+*Ohne Rechner, am besten zu zweit.* Leg dir die Karten `5 2 8 1 9 3 7` hin.
 
-1. Nehmt die **letzte** Karte als Pivot – hier die 7.
-2. Geht die übrigen von links nach rechts durch. Alles, was kleiner als 7 ist, legt ihr nach links; alles Größere bleibt rechts.
-3. Legt das Pivot zwischen die beiden Gruppen.
+1. Nimm die **letzte** Karte als Pivot – hier die 7.
+2. Geh die übrigen von links nach rechts durch. Alles, was kleiner als 7 ist, legst du nach links; alles Größere bleibt rechts.
+3. Leg das Pivot zwischen die beiden Gruppen.
 
 Wie sieht das Feld danach aus? An welcher Stelle steht die 7?
 :::
@@ -182,6 +185,12 @@ In der Praxis ist Quicksort trotzdem eines der schnellsten Verfahren. Der schlec
 :::
 
 ## Aufgabe 1: Selbst implementieren
+
+:::alert{info}
+**Nur Leistungskurs.** Ein **rekursives** Sortierverfahren selbst zu implementieren, gehört zu den zusätzlichen Anforderungen des Leistungskurses. Im Grundkurs musst du Quicksort erläutern und seinen Ablauf nachvollziehen können – beides hast du in den Abschnitten oben getan. Selbst implementieren musst du nur **iterative** Verfahren; die kennst du aus der Einführungsphase.
+
+Die Aufgabe lohnt sich trotzdem, wenn du Zeit hast: Nirgends merkt man deutlicher, wo der Basisfall sitzt.
+:::
 
 :::snippet{#aufgabe}
 Ergänze die Methoden so, dass alle Tests grün werden.

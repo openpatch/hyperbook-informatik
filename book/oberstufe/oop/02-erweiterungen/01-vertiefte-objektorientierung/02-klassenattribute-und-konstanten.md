@@ -10,7 +10,8 @@ permaid: java-klassenattribute-konstanten
 
 Diese Frage kann kein einzelnes Konto beantworten. Jedes Konto kennt nur sich selbst – seinen Besitzer und seinen Kontostand. Die Zahl aller Konten gehört zu keinem von ihnen. Sie gehört zur **Klasse**.
 
-<!-- KLP QPh, Daten und ihre Strukturierung: Klassenmodellierungen ... Implementationsdiagramme; ordnen Attributen ... Datentypen zu (M). Klassenattribute und Konstanten sind Voraussetzung fuer die Notation im Implementationsdiagramm (unterstrichen) und fuer Kapitel 4 und 5. -->
+<!-- KLP QPh, Daten und ihre Strukturierung: Klassenmodellierungen ... Implementationsdiagramme; ordnen Attributen ... Datentypen zu (M). Klassenattribute sind Voraussetzung fuer die Notation im Implementationsdiagramm (unterstrichen) und fuer Kapitel 4 und 5.
+     Konstanten sind im KLP-Entwurf ein zusaetzlicher inhaltlicher Schwerpunkt des LK ("Klassenbeziehungen ... Konstanten"; LK: "ordnen Attribute, Konstanten, Parameter und Rueckgaben ... zu (M)"). Im GK sind sie nicht ausgewiesen - der Abschnitt "Konstanten" ist deshalb LK-markiert. Er wird im Pflichtteil des Lernpfads nirgends vorausgesetzt; benutzt wird "static final" nur in 1.6 (LK) und auf den optionalen Im-Spiel-Seiten. -->
 
 ## Ein Wert für die ganze Klasse
 
@@ -83,6 +84,10 @@ Umgekehrt geht es sehr wohl: Eine Objektmethode darf Klassenattribute lesen und 
 :::
 
 ## Konstanten
+
+:::alert{info}
+**Nur Leistungskurs.** Konstanten sind ein zusätzlicher Schwerpunkt des Leistungskurses. Im Grundkurs kannst du diesen Abschnitt überspringen – im Pflichtteil dieses Lernpfads wird er nirgends vorausgesetzt. Du begegnest Konstanten erst wieder in [1.6 Schnittstellen](./06-schnittstellen) und auf den optionalen *Im-Spiel*-Seiten.
+:::
 
 Manche Werte ändern sich nie: die Zahl π, die Höchstpunktzahl einer Arbeit, der größte erlaubte Radius. Für sie gibt es `final`.
 
@@ -173,7 +178,7 @@ Damit ist die Notation aus [1.1](./01-implementationsdiagramme) vollständig:
 | --- | --- |
 | `-`, `#`, `+` | `private`, `protected`, `public` |
 | **unterstrichen** | Klassenattribut oder Klassenmethode (`static`) |
-| `GROSS_MIT_UNTERSTRICH` | eine Konstante (`final`) |
+| `GROSS_MIT_UNTERSTRICH` | *(LK)* eine Konstante (`final`) |
 
 Ein Wert, der beides ist – unterstrichen **und** in Großbuchstaben –, ist eine Konstante der Klasse. Genau das ist der Normalfall: Fast jede Konstante ist `static final`.
 :::
@@ -228,6 +233,7 @@ public class Kunde {
 }
 ```
 
+:::snippet{#aufgabe}
 a) Welche vier Zeilen gibt das Programm aus?
 
 b) In Zeile D steht `ada.getNummer()` – und liefert nicht dasselbe wie `Kunde.getAnzahl()`, obwohl der Konstruktor die beiden gleichgesetzt hat. Erkläre, warum.
@@ -333,6 +339,8 @@ d) Die Nummer ist brauchbar als **eindeutige Kennung**: Zwei Kunden bekommen nie
 :::snippet{#aufgabe}
 *Ohne Rechner.* Ordne jede Angabe einer der drei Spalten zu: **Objektattribut**, **Klassenattribut** oder **Konstante**. Begründe die Zuordnung jeweils mit der Frage *„Wovon gibt es das wie oft, und ändert es sich?"*
 
+*(Die Spalte **Konstante** gehört zum Leistungskurs. Im Grundkurs ordnest du nur den ersten beiden Spalten zu und lässt c) und g) aus.)*
+
 a) der Name einer Kundin
 
 b) die Anzahl der bisher eröffneten Konten einer Bank
@@ -378,6 +386,8 @@ Zwei Fälle sind lehrreich:
 
 :::snippet{#aufgabe}
 Erweitere das `Rechteck` aus [1.1](./01-implementationsdiagramme) um alles, was im Diagramm **unterstrichen** oder **groß geschrieben** ist, bis alle Tests grün sind.
+
+*(`MIN_SEITE` ist eine Konstante und gehört damit zum Leistungskurs. Im Grundkurs baust du nur `erzeugt` ein und lässt die Deckelung der Seitenlängen weg – die zugehörigen Tests bleiben dann rot.)*
 
 ```mermaid
 classDiagram
@@ -596,6 +606,10 @@ Worauf es ankam:
 
 ### Vertiefung 1: Was final wirklich schützt
 
+:::alert{info}
+**Nur Leistungskurs.** Diese Vertiefung setzt den Abschnitt [Konstanten](#konstanten) voraus.
+:::
+
 :::snippet{#brain}
 `final` heißt „unveränderlich". Der folgende Programmbereich zeigt, dass das nicht ganz stimmt.
 
@@ -698,6 +712,8 @@ d) Eine vertretbare Regel: **`static` ist richtig, wenn die Angabe zur Klasse ge
 ---
 
 ## Selbsttest
+
+Die Fragen 2 und 6 betreffen Konstanten und gehören damit zum **Leistungskurs**.
 
 ::::multievent
 

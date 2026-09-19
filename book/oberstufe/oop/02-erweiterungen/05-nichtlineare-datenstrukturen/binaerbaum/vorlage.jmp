@@ -29,7 +29,7 @@
   },
   "steps": [
     {
-      "label": "Anfang von füllen(): wurzel zeigt auf einen leeren Knoten, aktuell und neu sind noch leer",
+      "label": "Anfang von fuellen(): wurzel zeigt auf einen leeren Knoten, aktuell und neu sind noch leer",
       "objects": {
         "@b": {
           "klass": "Beispiel",
@@ -66,7 +66,7 @@
       "variables": {},
       "methodCalls": {
         "@f1": {
-          "name": "Beispiel.füllen",
+          "name": "Beispiel.fuellen",
           "index": 0,
           "localVariables": {
             "this": {
@@ -88,7 +88,7 @@
       }
     },
     {
-      "label": "Ende von füllen(): Baue das Objektdiagramm. Denk an die leeren Knoten, die der Konstruktor und setContent anlegen, und daran, wohin aktuell und neu am Ende zeigen.",
+      "label": "Ende von fuellen(): Baue das Objektdiagramm. Denk an die leeren Knoten, die der Konstruktor und setContent anlegen, und daran, wohin aktuell und neu am Ende zeigen.",
       "exercise": true,
       "objects": {
         "@b": {
@@ -366,7 +366,7 @@
       "variables": {},
       "methodCalls": {
         "@f1": {
-          "name": "Beispiel.füllen",
+          "name": "Beispiel.fuellen",
           "index": 0,
           "localVariables": {
             "this": {

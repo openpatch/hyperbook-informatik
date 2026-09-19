@@ -1014,7 +1014,19 @@ verlinkt.
 | Aufgabe 1: die Strukturen ausreizen | `java-q-4-s-1` |
 | Aufgabe 2: die Liste befragen | `java-q-4-s-2` |
 
-**[Liste – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste/implementierung)**
+**[Stapel – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel/implementierung)** *(LK)*
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Die vier Methoden implementieren | `java-q-4-st-1` |
+
+**[Warteschlange – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange/implementierung)** *(LK)*
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Die vier Methoden implementieren | `java-q-4-ws-1` |
+
+**[Liste – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste/implementierung)** *(LK)*
 
 | Aufgabe | Passwort |
 | --- | --- |

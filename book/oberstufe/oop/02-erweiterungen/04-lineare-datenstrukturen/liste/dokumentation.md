@@ -147,10 +147,10 @@ Das bedeutet dass man mit pList anschließend keinen Zugriff mehr auf die Elemen
 
 {r3{das erste Element}}
 
-{h{Die Dokumentation legt das ausdruecklich fest.}}
-{H{Richtig! Deshalb muss man das Ergebnis pruefen.}}
+{h{Die Dokumentation legt das ausdrücklich fest.}}
+{H{Richtig! Deshalb muss man das Ergebnis prüfen.}}
 
-**4. Wo fuegt insert ein neues Element ein?**
+**4. Wo fügt insert ein neues Element ein?**
 
 {r4{am Ende der Liste}}
 
@@ -158,8 +158,8 @@ Das bedeutet dass man mit pList anschließend keinen Zugriff mehr auf die Elemen
 
 {r4{am Anfang der Liste}}
 
-{h{Zum Anhaengen am Ende gibt es eine eigene Methode.}}
-{H{Richtig! Am Ende haengt man mit append an.}}
+{h{Zum Anhängen am Ende gibt es eine eigene Methode.}}
+{H{Richtig! Am Ende hängt man mit append an.}}
 
 **5. Wozu dient eine Dokumentation der Klasse?**
 

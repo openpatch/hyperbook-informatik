@@ -50,13 +50,13 @@ public class Beispiel {
 
 ## Aufgabe 3
 
-Lade dir das Projekt herunter und bearbeite die nachfolgenden Aufgaben. Wahlweise kannst du die Aufgaben auch in der online IDE bearbeiten
+Lade dir das Projekt herunter und bearbeite die nachfolgenden Aufgaben. Wahlweise kannst du die Aufgaben auch in der Online-IDE bearbeiten
 
 ::archive[Projekt]{name="list-aufgabe-3"}
 
 1. Deklariere und erzeuge eine Referenz für ein Objekt der Klasse List, welche Strings enthalten soll. Das Objekt soll im Konstruktor erzeugt werden.
-2. Implementiere die Methode fuelle(). Sie fügt die Strings "Rot", "Blau", "Gelb" und "Grün" (in dieser Reihenfolge) in die Liste ein.
-3. Implementiere die Methode vertauschen1(). Die Methode soll das zweite und das vierte Element der Liste vertauschen, ohne die Methode setContent zu benutzten - getContent() ist jedoch erlaubt und erfolderlich. Falls die Liste nicht genügend Elemente hat, soll die Methode nichts tun.
+2. Implementiere die Methode `fuellen()`. Sie fügt die Strings "Rot", "Blau", "Gelb" und "Grün" (in dieser Reihenfolge) in die Liste ein.
+3. Implementiere die Methode vertauschen1(). Die Methode soll das zweite und das vierte Element der Liste vertauschen, ohne die Methode setContent zu benutzen – getContent() ist jedoch erlaubt und erforderlich. Falls die Liste nicht genügend Elemente hat, soll die Methode nichts tun.
 4. Implementiere die Methode vertauschen2(int pos1, int pos2). Die Methode vertauscht die Elemente der Liste an den Stellen pos1 und pos2. Beispiel: pos1 = 0 und pos2 = 2 vertauscht das erste und das dritte Element der Liste. Falls die Liste nicht genügend Elemente hat, geschieht nichts. Für diese Aufgabe darfst du die Methode setContent() benutzen, aber vielleicht schaffst du es auch ohne ;).
 
 
@@ -424,7 +424,7 @@ public class Aufgabe3
 
 ::::multievent
 
-**1. Wie loescht man das zweite Element einer Liste?**
+**1. Wie löscht man das zweite Element einer Liste?**
 
 {r1{mit remove allein}}
 
@@ -432,14 +432,14 @@ public class Aufgabe3
 
 {r1{mit insert}}
 
-{h{Zuerst muss das zu loeschende Element aktuelles Objekt werden.}}
+{h{Zuerst muss das zu löschende Element aktuelles Objekt werden.}}
 {H{Richtig!}}
 
-**2. Warum kann man mit insert kein Element am Ende anhaengen?**
+**2. Warum kann man mit insert kein Element am Ende anhängen?**
 
 {r2{weil insert nur einmal aufgerufen werden darf}}
 
-{r2{!weil insert immer vor dem aktuellen Objekt einfuegt und es hinter dem letzten kein aktuelles Objekt gibt}}
+{r2{!weil insert immer vor dem aktuellen Objekt einfügt und es hinter dem letzten kein aktuelles Objekt gibt}}
 
 {r2{weil insert nur bei leeren Listen funktioniert}}
 

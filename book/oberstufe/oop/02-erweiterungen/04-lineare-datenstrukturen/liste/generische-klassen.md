@@ -7,11 +7,11 @@ permaid: java-liste-generische-klassen
 
 # Generische Klassen
 
-Wenn eine Klasse für verschiedene Datentypen funktionieren soll, dann kännen sogenannte Typparameter verwendet werden. Diese Klasse bezeichnet man als generische Klassen. Im folgengenden lernst du an einem Beispiel wie sie funktionieren.
+Wenn eine Klasse für verschiedene Datentypen funktionieren soll, dann können sogenannte Typparameter verwendet werden. Diese Klasse bezeichnet man als generische Klassen. Im Folgenden lernst du an einem Beispiel, wie sie funktionieren.
 
 ## Rechner als normale Klasse
 
-Klassen in java können Instanz- und/oder Klassenvariablen besitzen. Die Datentypen dieser Attribute werden in der Definition der Klasse festgelegt. Beispielweise könnte eine Klasse Rechner mit dem Datentyp double funktionieren.
+Klassen in Java können Instanz- und/oder Klassenvariablen besitzen. Die Datentypen dieser Attribute werden in der Definition der Klasse festgelegt. Beispielsweise könnte eine Klasse Rechner mit dem Datentyp double funktionieren.
 
 :::onlineide
 
@@ -211,18 +211,18 @@ public abstract class Zahlartig {
 
 {r2{der Typparameter ist optional}}
 
-{h{Es ist eine Einschraenkung, keine Vererbung der generischen Klasse.}}
+{h{Es ist eine Einschränkung, keine Vererbung der generischen Klasse.}}
 {H{Richtig!}}
 
 **3. Welche Vorteile hat eine generische Klasse?** (Mehrfachauswahl)
 
-{c1{!keine Typumwandlung beim Herausnehmen noetig}}
+{c1{!keine Typumwandlung beim Herausnehmen nötig}}
 
 {c1{!falsche Typen fallen schon beim Übersetzen auf}}
 
 {c1{sie braucht weniger Speicher}}
 
-{c1{sie laeuft schneller}}
+{c1{sie läuft schneller}}
 
 {h{Der Gewinn liegt bei der Sicherheit, nicht bei der Leistung.}}
 {H{Richtig!}}

@@ -19,7 +19,7 @@ Auf der Seite [Beispiel: Entscheidungsbaum](./baumstrukturen/beispiel-entscheidu
 :::snippet{#scratch-kurz}
 :::
 
-<!-- KLP QPh: stellen Datenstrukturen grafisch dar und erlaeutern ihren Aufbau (A); implementieren Algorithmen unter Verwendung von Datenstrukturen (I). Wendet den Binaerbaum an, fuehrt nichts Neues ein. Optional. -->
+<!-- KLP QPh: stellen Datenstrukturen grafisch dar und erläutern ihren Aufbau (A); implementieren Algorithmen unter Verwendung von Datenstrukturen (I). Wendet den Binärbaum an, führt nichts Neues ein. Optional. -->
 
 ## Woran es hakt
 

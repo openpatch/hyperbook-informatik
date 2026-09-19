@@ -10,7 +10,13 @@ scripts:
 
 Bisher hast du Tests **benutzt** – jetzt schreibst du sie selbst und lernst, sie systematisch auszuwählen. „Ich habe es ausprobiert und es lief“ ist kein Test.
 
-<!-- KLP QPh, Algorithmen: testen Programme anhand von Beispielen auch unter Berücksichtigung von Sonderfällen und Fehlermeldungen (I); LK: entwickeln Testanwendungen zum systematischen Prüfen der Funktionalität von Programmen (I) -->
+<!-- KLP QPh, Algorithmen: testen Programme anhand von Beispielen auch unter Berücksichtigung von Sonderfällen und
+     Fehlermeldungen (I). Das ist die GK-Erwartung und deckt ab: Testfaelle auswaehlen, vorgegebene Tests laufen lassen,
+     Fehlermeldungen lesen (Abschnitte oben und Aufgabe 1).
+     LK: "entwickeln Testanwendungen zum systematischen Pruefen der Funktionalitaet von Programmen (I)" - das Entwerfen
+     einer eigenen Testklasse. In Aufgabe 2 ist das Geruest mit vier Testmethoden deshalb vorgegeben (GK: Faelle
+     auswaehlen und eintragen); der LK-Zusatz verlangt, die Testklasse selbst zu schneiden. Die Zusatzaufgabe ist
+     ganz LK-markiert. -->
 
 ## Was ein Test leisten muss
 
@@ -300,9 +306,11 @@ Zu dieser Beschreibung ist die Implementierung bereits fertig. **Die Tests fehle
 
 a) Entwerfe **auf Papier** mindestens zwölf Testfälle nach den vier Sorten. Notiere zu jedem, was er prüfen soll.
 
-b) Schreibe sie als Testmethoden.
+b) Trag sie als `assert`-Zeilen in die vier Testmethoden ein, die im Programmbereich schon angelegt sind.
 
 c) Die Implementierung enthält genau einen Fehler. Finde ihn mit deinen Tests.
+
+*(Nur Leistungskurs: Lösch das Gerüst und entwirf die Testklasse selbst – welche Testmethoden es gibt und wie du sie schneidest, entscheidest dann du.)*
 :::
 
 :::onlineide{height="760px" speed="1000000"}
@@ -445,6 +453,10 @@ Beachte, wie in `testRandfaelle` jeweils der **letzte gültige** und der **erste
 :::
 
 ## Zusatzaufgabe
+
+:::alert{info}
+**Nur Leistungskurs.** Eine Testklasse selbst zu entwerfen, ist eine zusätzliche Anforderung des Leistungskurses – ebenso wie das Implementieren der Datenstruktur in Teil b).
+:::
 
 :::snippet{#brain}
 Nimm dir eine der Datenstrukturen aus dem nächsten Kapitel vor – Stapel, Schlange oder Liste.

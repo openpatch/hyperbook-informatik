@@ -31,7 +31,17 @@ und "Algorithmen". Die Zuordnung steht am Ende dieser Datei.
 :::
 
 :::alert{info}
-Abschnitte, die mit dem Hinweis **„Nur Leistungskurs“** gekennzeichnet sind, gehören zu den zusätzlichen Anforderungen des Leistungskurses. Im Grundkurs kannst du sie überspringen.
+**Grundkurs oder Leistungskurs?** Alles, was mit dem Hinweis **„Nur Leistungskurs“** gekennzeichnet ist, gehört zu den zusätzlichen Anforderungen des Leistungskurses. Im Grundkurs kannst du es überspringen – der Pflichtteil des Lernpfads setzt es nirgends voraus.
+
+Die Kennzeichnung steht auf drei Ebenen:
+
+| Ebene | Wie es aussieht |
+| --- | --- |
+| ganze Lektion oder ganzes Kapitel | ein Kasten **„Nur Leistungskurs“** gleich unter der Überschrift |
+| einzelner Abschnitt | derselbe Kasten unter der Zwischenüberschrift |
+| einzelne Aufgabe oder Teilaufgabe | ein kursiver Einschub *(Nur Leistungskurs.)*, in Checklisten ein vorangestelltes *(LK)* |
+
+Betroffen sind: 1.2 (der Abschnitt *Konstanten*), 1.6 Schnittstellen, 3.3 Backtracking, die Seiten *Implementierung* in Kapitel 4, die Aufgabe *Selbst implementieren* in 6.1 und 6.2, Teile von 7.1 und das ganze Kapitel 8.
 :::
 
 ## Die Seiten „Im Spiel“
@@ -53,8 +63,8 @@ Warum es sie gibt: Die Beispiele in den Lektionen sind bewusst abiturnah – Fah
 2. **Felder, Referenzen und Generik** – zwei- und mehrdimensionale Felder, Referenzen, Kellerstapel und Halde, generische Klassen
 3. **Rekursion und Problemlösestrategien** – Rekursion, Teilen und Herrschen, Backtracking
 4. **Lineare Datenstrukturen** – Stapel, Schlange, Liste
-5. **Nichtlineare Datenstrukturen** – Bäume, binäre Suchbäume, Graphen
-6. **Suchen und Sortieren** – binäre Suche, Quicksort, Mergesort
+5. **Nichtlineare Datenstrukturen** – Bäume, binäre Suchbäume, AVL-Bäume
+6. **Suchen und Sortieren** – Quicksort, Mergesort (die binäre Suche steht in 3.2)
 7. **Testen und Laufzeit** – systematisch testen, Speicherbedarf und Zahl der Operationen beurteilen
 8. **Nebenläufigkeit** – nur Leistungskurs
 9. **Referenz** – NRW-Klassenbibliothek zum Nachschlagen
@@ -72,14 +82,28 @@ Bezug zum Kernlehrplan (nur für Lehrkräfte, erscheint nicht im Hyperbook)
 | implementieren Klassen auch unter Nutzung dokumentierter Klassenbibliotheken (I) | 1, 4, 5 | |
 | implementieren Klassen und Schnittstellen (I) | 1 | ✓ |
 | ordnen Attributen, Parametern und Rückgaben Datentypen und Datenstrukturen zu (M) | 2 | |
+| ordnen **Konstanten** Datentypen zu (M) – LK-Schwerpunkt „Konstanten" | 1.2 | ✓ |
 | entwickeln Algorithmen auch unter Nutzung informatischer Problemlösestrategien (M) | 3, 6 | |
 | implementieren Algorithmen unter Verwendung von Datenstrukturen (I) | 2, 4, 5, 6 | |
 | erläutern Operationen dynamischer Datenstrukturen (A) | 4, 5 | |
 | implementieren Operationen dynamischer Datenstrukturen (I) | 4, 5 | ✓ |
 | erläutern bzw. vergleichen iterative und rekursive Such- und Sortierverfahren (A) | 6 | |
 | implementieren iterative Such- und Sortierverfahren (I) | 6 | |
+| implementieren **rekursive** Such- und Sortierverfahren (I) – im GK entfallen | 6.1, 6.2 Aufgabe 1 | ✓ |
 | testen Programme auch unter Berücksichtigung von Sonderfällen und Fehlermeldungen (I) | 7 | |
 | entwickeln Testanwendungen zum systematischen Prüfen der Funktionalität (I) | 7 | ✓ |
 | beurteilen Algorithmen unter Berücksichtigung des Speicherbedarfs und der Zahl der Operationen (A) | 7 | |
 | erläutern das Prinzip der Nebenläufigkeit (A) | 8 | ✓ |
+
+Noch nicht geschrieben: Graphen (LK-Schwerpunkt „Graphen"; „implementieren
+Algorithmen ... unter Verwendung von Datenstrukturen (... Graph) (I)" und
+„erläutern Operationen dynamischer Datenstrukturen (... Graph) (A)"). Das
+Verzeichnis 05-nichtlineare-datenstrukturen/graphen/ ist angelegt und leer.
+
+Wo die LK-Markierung im Text steht:
+- ganze Lektion/Kapitel: Alert "Nur Leistungskurs." direkt unter der H1,
+  dazu keywords: lk im Frontmatter
+- einzelner Abschnitt: derselbe Alert unter der Zwischenüberschrift
+- einzelne Aufgabe oder Teilaufgabe: kursiver Einschub "(Nur Leistungskurs.)"
+- Zeile einer Checkliste: vorangestelltes "*(LK)*"
 -->

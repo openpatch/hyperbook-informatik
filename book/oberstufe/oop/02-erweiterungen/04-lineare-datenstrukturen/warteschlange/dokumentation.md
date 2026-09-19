@@ -67,7 +67,7 @@ Die Anfrage liefert das erste Objekt der Schlange. Die Schlange bleibt unveränd
 
 ::::multievent
 
-**1. Welche Methode haengt ein Element hinten an?**
+**1. Welche Methode hängt ein Element hinten an?**
 
 {r1{!enqueue}}
 
@@ -98,7 +98,7 @@ Die Anfrage liefert das erste Objekt der Schlange. Die Schlange bleibt unveränd
 {r3{die neue Länge}}
 
 {h{Um an das Element zu kommen, muss man vorher front aufrufen.}}
-{H{Richtig! Das ist bei der Abiturklasse ausdruecklich so festgelegt.}}
+{H{Richtig! Das ist bei der Abiturklasse ausdrücklich so festgelegt.}}
 
 **4. In welcher Reihenfolge ruft man die Methoden auf, um das vorderste Element zu verarbeiten?**
 

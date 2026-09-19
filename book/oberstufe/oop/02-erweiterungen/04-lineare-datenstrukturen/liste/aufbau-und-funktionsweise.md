@@ -7,6 +7,32 @@ permaid: java-liste-aufbau
 
 # Aufbau und Funktionsweise
 
+Stapel und Warteschlange können jeweils genau eine Sache. Für einen Nachrichtenverlauf reicht das nicht: Dort will man **durchblättern**, eine bestimmte Nachricht löschen und eine neue an einer beliebigen Stelle einfügen.
+
+Ein Feld könnte das – aber schlecht. Seine Größe steht beim Anlegen fest, und wer vorne etwas entfernt, muss alles Übrige aufrücken lassen.
+
+:::snippet{#definition}
+Eine **verkettete Liste** besteht aus **Knoten**. Jeder Knoten enthält
+
+- ein **Inhaltsobjekt** und
+- eine **Referenz auf den nächsten Knoten**.
+
+Der letzte Knoten verweist auf `null`; daran erkennt man das Ende. Die Liste selbst merkt sich den **ersten** Knoten – und in der Abiturklasse zusätzlich den **letzten** sowie einen beweglichen Verweis `current` auf den gerade betrachteten Knoten.
+:::
+
+:::snippet{#merken}
+Der Unterschied zum Feld in einem Satz: **Ein Feld liegt am Stück, eine Liste hängt aneinander.**
+
+| | Feld | verkettete Liste |
+| --- | --- | --- |
+| Größe | beim Anlegen festgelegt | wächst beliebig mit |
+| Zugriff auf das n-te Element | sofort über den Index | n Schritte vom Anfang aus |
+| Einfügen in der Mitte | alles Dahinterliegende aufrücken | zwei Verweise umhängen |
+| Speicher pro Element | nur der Inhalt | Inhalt **und** ein Verweis |
+
+Keine der beiden Strukturen ist besser. Sie sind an verschiedenen Stellen gut – und genau das ist die Frage, die du in [Kapitel 7](../../07-testen-und-laufzeit) beurteilen lernst.
+:::
+
 ![](/images/liste-crc-karten.png)
 
 ## Nachrichten anhängen
@@ -17,7 +43,7 @@ Die Methode append soll eine neue Nachricht ans Ende der Liste anhängen.
 
 1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zur Methode append der Klasse List einen Algorithmus im :t[Pseudocode].
-3. Tausche deinen Algortihmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
+3. Tausche deinen Algorithmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
 4. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-anhaengen"}
@@ -38,7 +64,7 @@ Unter dem Diagramm stehen vier Zuweisungen. Nur eine davon entfernt den ersten K
 1. Sage für **jede** der vier Zuweisungen voraus, was sie am Diagramm ändern würde.
 2. Führe sie aus und prüfe deine Vorhersage. Mit **Von vorn** setzt du das Diagramm zurück.
 3. Entwerfe zur Methode remove der Klasse List einen Algorithmus im :t[Pseudocode].
-4. Tausche deinen Algortihmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
+4. Tausche deinen Algorithmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
 5. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-ersten-entfernen"}
@@ -76,17 +102,20 @@ Um den aktuellen (current) Knoten zu löschen, muss man den vorherigen Knoten ke
 
 ## Grenzfälle erkunden
 
-Bis jetzt haben wir Knoten aus der Mitte entfernt und eine neue Nachricht ans Ende einer bereits gefüllte Liste angehängt. Doch man muss auch immer an Grenzfälle denken, wenn man einen Algorithmus formuliert.
+Bis hierher hast du Knoten aus der Mitte entfernt und eine Nachricht ans Ende einer bereits gefüllten Liste angehängt – beides der bequeme Fall. Ein Algorithmus ist aber erst fertig, wenn er auch an den Rändern stimmt.
 
-### Aufgaben
+:::snippet{#aufgabe}
+a) Ermittle, welche Grenzfälle es bei der Liste gibt. Geh dafür systematisch vor: Welche **Größen** kann eine Liste haben, und an welchen **Stellen** kann man arbeiten?
 
-1. Ermittle, welche Grenzfälle es in Bezug auf die Datenstruktur Liste gibt.
-2. Modifiziere deine Algorithmen so, dass die Grenzfälle beachtet werden.
+b) Prüfe jeden deiner Algorithmen an jedem Grenzfall und notiere, wo er fehlschlägt.
+
+c) Modifiziere die Algorithmen so, dass die Grenzfälle beachtet werden.
+:::
 
 :::collapsible{title="Tipp: Grenzfälle finden" id="tipp-grenzfaelle"}
 
-- Funktionieren deine Algortihmen z.B. für eine leere Liste?
-- Funktioniert dein Algorithmus z.B. beim Entfernen des letzen Knotens?
+- Funktionieren deine Algorithmen z.B. für eine leere Liste?
+- Funktioniert dein Algorithmus z.B. beim Entfernen des letzten Knotens?
 
 :::
 
@@ -98,6 +127,31 @@ Bis jetzt haben wir Knoten aus der Mitte entfernt und eine neue Nachricht ans En
 - Gehe so lange ... bis ...
 
 :::
+
+::::collapsible{title="Auflösung zu a)" id="liste-grenzfaelle-aufloesung"}
+
+Die Grenzfälle ergeben sich aus zwei Fragen.
+
+**Wie groß ist die Liste?**
+
+| Fall | Was ist heikel |
+| --- | --- |
+| leer | `first` ist `null`. Jeder Zugriff auf `first.getContent()` bricht ab. |
+| genau ein Knoten | Er ist **gleichzeitig** erster und letzter. Wer ihn entfernt, muss `first` **und** `last` auf `null` setzen. |
+| mehrere Knoten | der bequeme Fall |
+
+**An welcher Stelle wird gearbeitet?**
+
+| Fall | Was ist heikel |
+| --- | --- |
+| am Anfang | Es gibt keinen Vorgänger, dessen Verweis man umhängen könnte – `first` muss direkt geändert werden. |
+| in der Mitte | der bequeme Fall |
+| am Ende | `last` muss auf den neuen letzten Knoten nachgezogen werden. |
+| `current` zeigt auf `null` | Es gibt kein aktuelles Objekt; `remove` und `getContent` dürfen dann **nichts** tun bzw. `null` liefern. |
+
+Das Muster dahinter ist allgemein und kommt in [7.1 Systematisch testen](../../07-testen-und-laufzeit/01-systematisch-testen) wieder: Grenzfälle sind die **kleinstmögliche Eingabe** und die **Ränder** des Bereichs, auf dem man arbeitet.
+
+::::
 
 ---
 
@@ -131,13 +185,13 @@ Bis jetzt haben wir Knoten aus der Mitte entfernt und eine neue Nachricht ans En
 
 {c1{!Sie wächst beliebig mit.}}
 
-{c1{!Einfügen in der Mitte kostet nur das Umhaengen von Verweisen.}}
+{c1{!Einfügen in der Mitte kostet nur das Umhängen von Verweisen.}}
 
 {c1{Der Zugriff auf das n-te Element ist schneller.}}
 
 {c1{Sie braucht weniger Speicher pro Element.}}
 
-{h{Fuer jeden Knoten kommt ein zusaetzlicher Verweis dazu.}}
+{h{Für jeden Knoten kommt ein zusätzlicher Verweis dazu.}}
 {H{Richtig! Der wahlfreie Zugriff ist beim Feld sogar deutlich schneller.}}
 
 **4. Wie kommt man an das dritte Element einer verketteten Liste?**

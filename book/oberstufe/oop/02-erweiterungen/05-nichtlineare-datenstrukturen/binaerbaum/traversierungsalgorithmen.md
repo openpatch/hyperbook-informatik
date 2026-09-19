@@ -7,14 +7,29 @@ permaid: java-traversierungsalgorithmen
 
 # Traversierungsalgorithmen
 
-Wir haben schon drei Traversierungsmöglichkeiten kennengelernt.
-Jetzt versuchen wir für die drei rekursive Alogrithmen zu entwicklen.
+Auf der Seite [Traversierung](./traversierung) hast du die drei Reihenfolgen von Hand durchgespielt. Jetzt schreibst du sie als **rekursive Algorithmen** auf.
+
+:::snippet{#merken}
+Alle drei haben denselben Bau – sie unterscheiden sich in **einer einzigen Zeile**:
+
+```text
+preOrder(baum):
+    wenn baum leer ist: fertig
+    gib den Inhalt aus          <-- Wurzel zuerst
+    preOrder(linker Teilbaum)
+    preOrder(rechter Teilbaum)
+```
+
+Für **In-Order** rutscht die Ausgabezeile zwischen die beiden Aufrufe, für **Post-Order** hinter sie. Sonst ändert sich nichts.
+
+Der **Basisfall** ist immer derselbe: ein leerer Knoten. Das ist der Grund, warum man nie auf `null` prüfen muss – die Abiturklasse legt unter jedem gefüllten Knoten zwei leere an, und auf denen bricht die Rekursion ab.
+:::
 
 ## Pre-Order
 
 ::jmp{id="baum-preorder" src="preorder.jmp" height="700px"}
 
-1. Betrachte das Objektdiagramm und gib die Reihenfolge an in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
+1. Betrachte das Objektdiagramm und gib die Reihenfolge an, in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
 2. Löse das Code-Puzzle unten zur Pre-Order-Methode und ordne dort die Kontakte in die Reihenfolge, die du aufgeschrieben hast.
 3. Führe den Algorithmus am Objektdiagramm aus.
 
@@ -24,7 +39,7 @@ Jetzt versuchen wir für die drei rekursive Alogrithmen zu entwicklen.
 
 ::jmp{id="baum-postorder" src="postorder.jmp" height="700px"}
 
-1. Betrachte das Objektdiagramm und gib die Reihenfolge an in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
+1. Betrachte das Objektdiagramm und gib die Reihenfolge an, in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
 2. Formuliere einen Algorithmus im Pseudocode in Anlehnung an das Pre-Order-Puzzle. Mit dem Code-Puzzle unten kannst du dich anschließend kontrollieren.
 3. Führe den Algorithmus am Objektdiagramm aus.
 
@@ -34,7 +49,7 @@ Jetzt versuchen wir für die drei rekursive Alogrithmen zu entwicklen.
 
 ::jmp{id="baum-inorder" src="inorder.jmp" height="700px"}
 
-1. Betrachte das Objektdiagramm und gib die Reihenfolge an in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
+1. Betrachte das Objektdiagramm und gib die Reihenfolge an, in der die Kontakte durchlaufen werden. Schreibe dazu die Reihenfolge der Benutzernamen auf.
 2. Formuliere einen Algorithmus im Pseudocode in Anlehnung an das Pre-Order-Puzzle. Mit dem Code-Puzzle unten kannst du dich anschließend kontrollieren.
 3. Führe den Algorithmus am Objektdiagramm aus.
 
@@ -46,10 +61,35 @@ Im Binärbaum soll überprüft werden, ob ein bestimmtes Objekt enthalten ist.
 
 ::jmp{id="baum-suchen" src="suchen.jmp" height="700px"}
 
-1. Modifiziere den Pre-Order-Algorithus so, dass überprüft wird, ob ein Objekt im Binärbaum enthalten ist. Die Methode soll `searchPreOrder` heißen und `true` zurückgeben, wenn das Objekt pContent enthalten ist und `false`, wenn dies nicht der Fall ist.
-2. Teste deine Modifizierung am Objektdiagramm. Teste beide Fälle. Beginne damit, dass das Objekt enthalten ist.
-3. Analysiere wie viele Schritte im schlechtesten Fall nötig sind, um herauszufinden, ob ein Objekt enthalten ist.
-4. Überlege wie man den Binärbaum modifizieren könnte, sodass man schneller suchen kann.
+:::snippet{#aufgabe}
+a) Modifiziere den Pre-Order-Algorithmus so, dass er prüft, ob ein Objekt im Binärbaum enthalten ist. Die Methode soll `searchPreOrder` heißen und `true` zurückgeben, wenn `pContent` enthalten ist, sonst `false`.
+
+b) Teste deine Fassung am Objektdiagramm, und zwar **beide** Fälle. Fang mit dem Fall an, dass das Objekt enthalten ist.
+
+c) Analysiere, wie viele Schritte im schlechtesten Fall nötig sind.
+
+d) Überlege, wie man den Binärbaum ändern könnte, damit die Suche schneller wird.
+:::
+
+::::collapsible{title="Auflösung" id="traversierung-suchen-aufloesung"}
+
+a) Aus dem Ausgeben wird ein Vergleichen, und die beiden rekursiven Aufrufe werden mit **oder** verknüpft:
+
+```text
+searchPreOrder(baum, pContent):
+    wenn baum leer ist: gib false zurück
+    wenn Inhalt = pContent: gib true zurück
+    gib searchPreOrder(linker Teilbaum, pContent)
+        ODER searchPreOrder(rechter Teilbaum, pContent) zurück
+```
+
+b) Ist das Objekt enthalten, meldet einer der beiden Aufrufe `true`, und das `true` wird nach oben durchgereicht. Ist es nicht enthalten, laufen **alle** Äste bis zu den leeren Knoten und liefern `false`.
+
+c) **Alle Knoten**, also `n` Schritte. Der Pre-Order-Durchlauf weiß nicht, wo er suchen soll – er kann nur jeden Knoten anschauen. Das ist genauso viel wie bei einer linearen Liste; der Baum bringt hier also **gar nichts**.
+
+d) Man müsste die Inhalte so **anordnen**, dass sich an jedem Knoten entscheiden lässt, in welchem der beiden Teilbäume weitergesucht werden muss – dann fiele die Hälfte bei jedem Schritt weg. Genau das ist der [binäre Suchbaum](../binaerer-suchbaum).
+
+::::
 
 ---
 
@@ -65,7 +105,7 @@ Im Binärbaum soll überprüft werden, ob ein bestimmtes Objekt enthalten ist.
 
 {r1{die Wurzel}}
 
-{h{Dort hoert die Rekursion auf.}}
+{h{Dort hört die Rekursion auf.}}
 {H{Richtig!}}
 
 **2. Was unterscheidet die drei rekursiven Traversierungen voneinander?**

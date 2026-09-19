@@ -16,6 +16,7 @@ Stapel, Warteschlange und Liste unterscheiden sich nicht darin, **was** sie spei
 - [ ] Ich kann beschreiben, wie eine **verkettete Liste** aus Knoten aufgebaut ist. ([Liste](./liste))
 - [ ] Ich kann zu einem Anwendungsfall die passende Struktur begründet auswählen.
 - [ ] Ich kann die Operationen einer Struktur aus ihrer **Dokumentation** heraus benutzen, ohne ihre Implementierung zu kennen.
+- [ ] *(LK)* Ich kann die Operationen einer Struktur selbst implementieren. ([Stapel](./stapel/implementierung), [Warteschlange](./warteschlange/implementierung), [Liste](./liste/implementierung))
 
 ## Gemischte Aufgaben
 
