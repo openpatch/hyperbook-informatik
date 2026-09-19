@@ -1,0 +1,393 @@
+---
+title: Kanten finden
+index: 6
+lang: de
+permaid: fotofilter-kanten-finden
+---
+
+# Kanten finden
+
+Wo endet die LED und wo beginnt der Hintergrund? Ein Mensch sieht das sofort.
+Ein Programm sieht nur Zahlen – und muss die Frage übersetzen in: **Wo ändert
+sich die Helligkeit auf kurzer Strecke stark?**
+
+Genau das ist eine Kante. Und weil dieselbe Frage auch dahintersteckt, wenn ein
+Auto eine Fahrbahnmarkierung sucht oder eine Kamera ein Gesicht findet, ist die
+Kantensuche einer der meistbenutzten Filter überhaupt.
+
+## Der Unterschied zum Nachbarn
+
+Fang klein an: Ziehe von jedem Bildpunkt seinen linken Nachbarn ab. Wo beide
+gleich sind, kommt 0 heraus – schwarz. Wo ein Sprung ist, kommt eine große Zahl
+heraus – hell.
+
+:::onlineide{height="700px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(grau);
+    leinwand.zeige(unterschiedWaagerecht(grau));
+    leinwand.zeige(unterschiedSenkrecht(grau));
+}
+
+/** Der Betrag des Unterschieds zum linken Nachbarn. */
+int[][] unterschiedWaagerecht(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 1; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = Math.abs(pGrau[zeile][spalte] - pGrau[zeile][spalte - 1]);
+        }
+    }
+    return neu;
+}
+
+/** Der Betrag des Unterschieds zum oberen Nachbarn. */
+int[][] unterschiedSenkrecht(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 1; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = Math.abs(pGrau[zeile][spalte] - pGrau[zeile - 1][spalte]);
+        }
+    }
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::snippet{#aufgabe}
+Vergleiche die beiden rechten Bilder.
+
+a) Im mittleren Bild sind die **senkrechten** Umrisse der Kabel deutlich zu
+   sehen, die waagerechte Oberkante der Steckplatine dagegen kaum. Im rechten
+   Bild ist es umgekehrt. Erkläre, warum.
+
+b) Warum steht dort `Math.abs`? Sage vorher, wie das Bild ohne diesen Aufruf
+   aussähe, und probiere es dann.
+:::
+
+::::collapsible{title="Auflösung"}
+
+a) `unterschiedWaagerecht` vergleicht **nach links**. Damit misst es, wie stark
+sich die Helligkeit von links nach rechts ändert – und das tut sie an einer
+senkrechten Kante. Eine waagerechte Kante sieht dieser Filter nicht, weil sich
+entlang einer Zeile dort nichts ändert.
+
+Ein Filter allein findet also immer nur Kanten **einer** Richtung. Deshalb
+braucht man beide.
+
+b) Ohne `Math.abs` wird die eine Hälfte jeder Kante negativ. Die Leinwand
+schneidet negative Werte auf 0 ab, das Bild zeigt also nur noch die Übergänge
+von dunkel nach hell und nicht mehr die von hell nach dunkel. Man sieht: Jede
+Kante hat nur noch eine Seite.
+
+Für die Kantenstärke ist die Richtung des Sprungs egal – deshalb der Betrag.
+
+::::
+
+## Aufgabe 1: Beide Richtungen zusammenführen
+
+:::snippet{#aufgabe}
+Schreibe `kanten(int[][] pGrau)`. Der Filter soll beide Unterschiede berechnen
+und sie zu **einer** Kantenstärke zusammenfassen.
+
+Sauber wäre `Math.sqrt(w * w + s * s)`. Es geht aber auch mit
+`w + s`, und für ein Bild sieht man den Unterschied kaum. Nimm die einfache
+Variante, wenn dir die Wurzel zu umständlich ist – aber begründe im Kommentar,
+warum du sie nimmst.
+
+Setze anschließend einen **Schwellenwert** dahinter (den Filter hast du auf der
+Seite [Punktfilter](./02-punktfilter) geschrieben). Probiere verschiedene
+Grenzen und suche die, bei der die Umrisse zu sehen sind, das Rauschen im
+dunklen Hintergrund aber nicht.
+:::
+
+:::onlineide{height="780px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(grau);
+    leinwand.zeige(kanten(grau));
+    leinwand.zeige(schwelle(kanten(grau), 20));
+    leinwand.zeige(schwelle(kanten(grau), 40));
+}
+
+/** Fasst beide Richtungen zu einer Kantenstaerke zusammen. */
+int[][] kanten(int[][] pGrau) {
+    return pGrau; // ersetze diese Zeile
+}
+
+/** Der Betrag des Unterschieds zum linken Nachbarn. */
+int[][] unterschiedWaagerecht(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 1; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = Math.abs(pGrau[zeile][spalte] - pGrau[zeile][spalte - 1]);
+        }
+    }
+    return neu;
+}
+
+/** Der Betrag des Unterschieds zum oberen Nachbarn. */
+int[][] unterschiedSenkrecht(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 1; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = Math.abs(pGrau[zeile][spalte] - pGrau[zeile - 1][spalte]);
+        }
+    }
+    return neu;
+}
+
+/** Macht jeden Bildpunkt schwarz oder weiss. */
+int[][] schwelle(int[][] pGrau, int pGrenze) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            if (pGrau[zeile][spalte] >= pGrenze) {
+                neu[zeile][spalte] = 255;
+            } else {
+                neu[zeile][spalte] = 0;
+            }
+        }
+    }
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Zwei Gitter, ein Ergebnis"}
+
+Du musst nichts neu programmieren. Lass dir beide Unterschiedsgitter von den
+vorhandenen Methoden geben und verrechne sie anschließend – wie bei
+`grauEinfach` auf der Seite [Farbe und Kanäle](./03-farbe-und-kanaele).
+
+::::
+
+::::collapsible{title="Tipp 2: Wurzel in der Online-IDE"}
+
+`Math.sqrt` erwartet eine Kommazahl und liefert eine. Für den Rückweg ins
+Gitter brauchst du eine Umwandlung:
+
+```java
+neu[zeile][spalte] = (int) Math.sqrt(w * w + s * s);
+```
+
+::::
+
+:::protect{password="foto-6-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] kanten(int[][] pGrau) {
+    int[][] w = unterschiedWaagerecht(pGrau);
+    int[][] s = unterschiedSenkrecht(pGrau);
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            // Der Satz des Pythagoras: zwei Richtungen, eine Staerke.
+            neu[zeile][spalte] = (int) Math.sqrt(
+                w[zeile][spalte] * w[zeile][spalte] + s[zeile][spalte] * s[zeile][spalte]);
+        }
+    }
+    return neu;
+}
+```
+
+Im Hauptprogramm dann:
+
+```java
+leinwand.zeige(schwelle(kanten(grau), 40));
+```
+
+Eine Grenze um 40 trifft es meistens. Darunter wird der dunkle Hintergrund
+körnig – dort schwankt die Helligkeit um ein paar Stufen, und der Filter hält
+das für Kanten. Darüber verliert man die schwächeren Umrisse.
+
+:::
+
+## Aufgabe 2: Erst weichzeichnen, dann Kanten suchen
+
+:::snippet{#aufgabe}
+Das körnige Rauschen aus der letzten Aufgabe lässt sich loswerden, bevor es
+entsteht.
+
+a) **Sage vorher:** Was passiert, wenn du das Bild erst weichzeichnest und dann
+   die Kanten suchst? Werden die Kanten schwächer oder stärker? Und was wird aus
+   dem Rauschen?
+
+b) Probiere es: `schwelle(kanten(weich(grau)), 40)`.
+
+c) Vergleiche mit der umgekehrten Reihenfolge: `weich(schwelle(kanten(grau), 40))`.
+   Warum ist das etwas völlig anderes?
+:::
+
+:::onlineide{height="800px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(grau);
+    leinwand.zeige(schwelle(kanten(grau), 40));
+    leinwand.zeige(schwelle(kanten(weich(grau)), 40));
+    leinwand.zeige(weich(schwelle(kanten(grau), 40)));
+}
+
+/** Fasst beide Richtungen zu einer Kantenstaerke zusammen. */
+int[][] kanten(int[][] pGrau) {
+    int[][] w = unterschiedWaagerecht(pGrau);
+    int[][] s = unterschiedSenkrecht(pGrau);
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = (int) Math.sqrt(
+                w[zeile][spalte] * w[zeile][spalte] + s[zeile][spalte] * s[zeile][spalte]);
+        }
+    }
+    return neu;
+}
+
+/** Ersetzt jeden Bildpunkt durch den Durchschnitt seiner 3x3-Umgebung. */
+int[][] weich(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+
+    for (int zeile = 1; zeile < hoehe - 1; zeile++) {
+        for (int spalte = 1; spalte < breite - 1; spalte++) {
+            int summe = 0;
+            for (int dz = -1; dz <= 1; dz++) {
+                for (int ds = -1; ds <= 1; ds++) {
+                    summe = summe + pGrau[zeile + dz][spalte + ds];
+                }
+            }
+            neu[zeile][spalte] = summe / 9;
+        }
+    }
+    return neu;
+}
+
+/** Der Betrag des Unterschieds zum linken Nachbarn. */
+int[][] unterschiedWaagerecht(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 1; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = Math.abs(pGrau[zeile][spalte] - pGrau[zeile][spalte - 1]);
+        }
+    }
+    return neu;
+}
+
+/** Der Betrag des Unterschieds zum oberen Nachbarn. */
+int[][] unterschiedSenkrecht(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 1; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = Math.abs(pGrau[zeile][spalte] - pGrau[zeile - 1][spalte]);
+        }
+    }
+    return neu;
+}
+
+/** Macht jeden Bildpunkt schwarz oder weiss. */
+int[][] schwelle(int[][] pGrau, int pGrenze) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            if (pGrau[zeile][spalte] >= pGrenze) {
+                neu[zeile][spalte] = 255;
+            } else {
+                neu[zeile][spalte] = 0;
+            }
+        }
+    }
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::protect{password="foto-6-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+a) und b) Beides wird schwächer – aber nicht gleich stark. Das Rauschen sind
+einzelne Ausreißer, und die zieht das Weichzeichnen fast vollständig ein. Eine
+echte Kante ist dagegen ein Sprung über viele Bildpunkte hinweg; sie überlebt,
+wird nur etwas breiter und flacher. Nach dem Schwellenwert bleiben deshalb
+**mehr Umriss und weniger Körnung** übrig als ohne das Weichzeichnen.
+
+Genau deshalb beginnt praktisch jedes ernsthafte Kantenverfahren – etwa der
+Canny-Algorithmus – mit einem Weichzeichner.
+
+c) In der umgekehrten Reihenfolge wird das Rauschen zuerst zu harten weißen
+Punkten gemacht und **danach** verwischt. Aus Körnung werden graue Flecken, die
+nicht mehr wegzubekommen sind: Der Schwellenwert hat die Information, die man
+zum Unterscheiden gebraucht hätte, schon weggeworfen.
+
+:::snippet{#merken}
+**Die Reihenfolge von Filtern ist Teil des Filters.** Schwellenwerte werfen
+Information weg; was danach kommt, kann sie nicht zurückholen. Alles, was
+glätten oder korrigieren soll, gehört davor.
+:::
+
+::::
+
+## Zum Weiterdenken
+
+:::snippet{#brain}
+Der Unterschied zum linken Nachbarn ist der einfachste Kantenfilter. In der
+Praxis nimmt man den **Sobel-Operator**, der die ganze 3 × 3-Umgebung
+gewichtet:
+
+```
+waagerecht        senkrecht
+ -1  0  +1        -1  -2  -1
+ -2  0  +2         0   0   0
+ -1  0  +1        +1  +2  +1
+```
+
+Der neue Wert ist die Summe aus „Nachbarwert mal Zahl im Kästchen".
+
+a) Warum steht in der Mitte jeder Zeile die 0? Was sagt das darüber, welcher
+   Bildpunkt für seine eigene Kantenstärke zählt?
+
+b) Warum steht in der mittleren Zeile ±2 statt ±1?
+
+c) Setze den Operator um und vergleiche das Ergebnis mit deinem `kanten`. Die
+   Schleifenstruktur kennst du schon vom [Weichzeichnen](./05-weichzeichnen) –
+   nur wird jetzt nicht durch 9 geteilt, sondern gewichtet summiert.
+:::

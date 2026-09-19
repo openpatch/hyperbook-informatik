@@ -338,6 +338,75 @@ Umgekehrt gilt: **ohne `ifOnEdgeBounce()` laeuft die Figur aus der Buehne
 heraus** und ist weg. Eine frei steuerbare Figur braucht es, sobald sie klein
 genug ist, dass es sie nicht mehr verschiebt.
 
+## Bilder: `World` und `Bitmap` ohne `libraries`
+
+Verifiziert am 19.09.2026 fuer das Projekt *Fotofilter*. Die Grafikklassen der
+Online-IDE stehen **ohne** `libraries`-Attribut zur Verfuegung - `Stage` und
+`Sprite` aus Scratch for Java braucht man dafuer nicht.
+
+```java
+World welt = new World(600, 240);
+welt.setBackgroundColor(0xEEEEEE);
+Bitmap bild = new Bitmap(96, 72, 10, 10, 280, 210);  // Aufloesung, dann Lage und Anzeigegroesse
+bild.setColor(spalte, zeile, Color.fromRGB(r, g, b));
+```
+
+Gemessen mit `speed="1000000"` an einem Bild von 96 x 72: ein Punktfilter
+ueber alle 6912 Bildpunkte rund **250 ms**, ein 3x3-Nachbarschaftsfilter rund
+**550 ms**, dreimal hintereinander **1,7 s**. Das ist die Obergrenze des
+Ertraeglichen - ein groesseres Bild als 96 x 72 sollte man nicht nehmen.
+
+Vier Fallstricke, alle im Browser nachgestellt:
+
+1. **Die Farbe 0 ist durchsichtig, nicht schwarz.** `Color.fromRGB(0, 0, 0)`
+   ergibt die Zahl 0, und ein damit gesetzter Bildpunkt behaelt Alpha 0 - auch
+   dann, wenn man die Ueberladung mit `, 1` am Ende benutzt. Man sieht den
+   Hintergrund der Buehne durch. Bei dunklem Hintergrund faellt das nicht auf,
+   bei hellem sofort. Abhilfe: `0x010101` statt 0 zeichnen.
+2. **Drei Bilder nebeneinander passen, vier nicht.** Der Ausgabebereich
+   schneidet eine Buehne ab, die deutlich breiter als hoch ist. Ab vier Bildern
+   in zwei Reihen anordnen.
+3. **`Bitmap` streckt.** Anzeigebreite und -hoehe stehen im Konstruktor; ein
+   hochkantes Bild in einer querformatigen Zelle wird gezerrt. Wer das
+   Seitenverhaeltnis halten will, rechnet es selbst aus.
+4. **`Sprite.getPixelColor(x, y)`** liest die Bildpunkte eines Bibliotheksbilds.
+   Als Bildquelle taugt das trotzdem kaum: Die `SpriteLibrary` enthaelt
+   Spielgrafiken (`pixelmon`, `Boulders`, `Background`, …), meist 32 bis 128
+   Pixel gross und kontrastarm. Fuer Bildverarbeitung bringt man das Bild
+   besser selbst mit.
+
+### Ein eigenes Bild mitbringen
+
+Die Online-IDE kann keine Bilddatei laden. Das Foto im Projekt *Fotofilter*
+steckt deshalb als Zeichenkette in `Foto.java` - drei Zeichen je Bildpunkt, ein
+Zeichen fuer 6 Bit. Erzeugt wird die Datei von
+`tools/fotofilter/erzeuge_foto.py`, eingebunden per `rfile` (siehe unten).
+
+## Seiten als `.md.hbs`: `rfile` braucht drei Klammern
+
+Eine Seite mit der Endung `.md.hbs` wird vor dem Uebersetzen durch Handlebars
+geschickt. Damit laesst sich eine Quelldatei einbinden, statt sie in jeden
+Block zu kopieren:
+
+````
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+````
+
+**Drei** geschweifte Klammern, nicht zwei. Mit zweien maskiert Handlebars die
+Anfuehrungszeichen zu `&quot;`, und weil der Inhalt in einem `<script>`-Element
+landet, entschluesselt der Browser sie nicht wieder - die Online-IDE meldet dann
+"Mit dem Token & kann der Compiler nichts anfangen". Verifiziert am 19.09.2026.
+
+Der Pfad ist **absolut ab der Wurzel des Repositorys**. Die Bunny-Hop-Seiten
+holen sich ihre Dateien auf demselben Weg aus `archives/`.
+
+Wer eine Seite als `.md.hbs` anlegt, muss wissen: Die Pruefskripte haben
+solche Seiten frueher uebersehen, weil sie nach `*.md` gesucht haben.
+`check_permaids.py`, `check_reihenfolge.py` und `passwoerter.py` kennen jetzt
+beide Endungen.
+
 ## Mehrere Bibliotheken gleichzeitig
 
 Verifiziert am 13.09.2026: `libraries="nrw,scratch"` laedt beide, in beliebiger

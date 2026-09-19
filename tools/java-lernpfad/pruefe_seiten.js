@@ -58,6 +58,14 @@ const ABSICHTLICH_FEHLERHAFT = {
   "oberstufe/oop/01-grundlagen/03-kontrollstrukturen/02-logische-ausdruecke.html": [3],
 };
 
+/* Geprueft werden beide Java-Lernpfade und die Projekte, deren Seiten
+   onlineide-Bloecke mit Java enthalten. Ein Projekt ohne solche Bloecke
+   kostet hier nur Zeit; eines mit ihnen faellt sonst durch das Raster. */
+const ORDNER = [
+  ["oberstufe", "oop"],
+  ["projekte", "fotofilter"],
+];
+
 function alleSeiten() {
   const seiten = [];
   const lauf = (dir) => {
@@ -67,7 +75,10 @@ function alleSeiten() {
       else if (e.name.endsWith(".html")) seiten.push(path.relative(OUT, p));
     }
   };
-  lauf(path.join(OUT, "oberstufe", "oop"));
+  for (const teile of ORDNER) {
+    const dir = path.join(OUT, ...teile);
+    if (fs.existsSync(dir)) lauf(dir);
+  }
   return seiten;
 }
 

@@ -576,7 +576,7 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="Programmierung mit Java (163 Lösungen)"}
+::::collapsible{title="Programmierung mit Java (165 Lösungen)"}
 
 
 **[Erste Schritte – Das erste Programm](/oberstufe/oop/01-grundlagen/01-erste-schritte/01-das-erste-programm)**
@@ -1014,19 +1014,7 @@ verlinkt.
 | Aufgabe 1: die Strukturen ausreizen | `java-q-4-s-1` |
 | Aufgabe 2: die Liste befragen | `java-q-4-s-2` |
 
-**[Stapel – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel/implementierung)** *(LK)*
-
-| Aufgabe | Passwort |
-| --- | --- |
-| Die vier Methoden implementieren | `java-q-4-st-1` |
-
-**[Warteschlange – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange/implementierung)** *(LK)*
-
-| Aufgabe | Passwort |
-| --- | --- |
-| Die vier Methoden implementieren | `java-q-4-ws-1` |
-
-**[Liste – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste/implementierung)** *(LK)*
+**[Liste – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste/implementierung)**
 
 | Aufgabe | Passwort |
 | --- | --- |
@@ -1039,6 +1027,18 @@ verlinkt.
 | Aufgabe 1: Wer kommt als Nächstes dran? | `java-q-4-r-1` |
 | Aufgabe 2: Welche Struktur passt? | `java-q-4-r-2` |
 | Aufgabe 3: Klammern prüfen | `java-q-4-r-3` |
+
+**[Stapel – Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel/implementierung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgaben | `java-q-4-st-1` |
+
+**[Implementierung](/oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange/implementierung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgaben | `java-q-4-ws-1` |
 
 **[Nichtlineare Datenstrukturen – Im Spiel: der Gegner entscheidet sich](/oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen/im-spiel)**
 
@@ -1571,8 +1571,50 @@ verlinkt.
 
 ::::
 
-::::collapsible{title="projekte/bunny-hop (8 Lösungen)"}
+::::collapsible{title="projekte/bunny-hop (15 Lösungen)"}
 
+
+**[Vorbereitung](/projekte/bunny-hop/erste-implementierung/01-vorbereitung)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-01-1` |
+
+**[Der Boden](/projekte/bunny-hop/erste-implementierung/02-der-boden)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-02-1` |
+
+**[Alles bewegt sich](/projekte/bunny-hop/erste-implementierung/03-alles-bewegt-sich)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-03-1` |
+
+**[Bugs lernt springen](/projekte/bunny-hop/erste-implementierung/04-bugs-lernt-springen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-04-1` |
+
+**[Münzen sammeln](/projekte/bunny-hop/erste-implementierung/05-muenzen-sammeln)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-05-1` |
+
+**[Ingo, der Stachelmann](/projekte/bunny-hop/erste-implementierung/06-ingo-der-stachelmann)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-06-1` |
+
+**[Der Hintergrund](/projekte/bunny-hop/erste-implementierung/07-der-hintergrund)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Deine Aufgabe | `bh-07-1` |
 
 **[🥇 Ducken](/projekte/bunny-hop/euer-spiel/epics/dodge)**
 
@@ -1624,8 +1666,77 @@ verlinkt.
 
 ::::
 
+::::collapsible{title="projekte/fotofilter (14 Lösungen)"}
 
-Insgesamt 468 geschützte Lösungen.
+
+**[Fotofilter – Das Bild als Gitter](/projekte/fotofilter/01-das-bild-als-gitter)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Wie hell ist das Bild? | `foto-1-1` |
+| Aufgabe 2: Wo ist der hellste Punkt? | `foto-1-2` |
+
+**[Fotofilter – Punktfilter](/projekte/fotofilter/02-punktfilter)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Invertieren und Schwellenwert | `foto-2-1` |
+| Aufgabe 2: Kontrast | `foto-2-2` |
+
+**[Fotofilter – Farbe und Kanäle](/projekte/fotofilter/03-farbe-und-kanaele)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Graustufen selbst rechnen | `foto-3-1` |
+| Aufgabe 2: Kanäle vertauschen und Sepia | `foto-3-2` |
+
+**[Fotofilter – Spiegeln und Drehen](/projekte/fotofilter/04-spiegeln-und-drehen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Senkrecht spiegeln und auf den Kopf stellen | `foto-4-1` |
+| Aufgabe 2: Um 90 Grad drehen | `foto-4-2` |
+
+**[Fotofilter – Weichzeichnen](/projekte/fotofilter/05-weichzeichnen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Den Rand behandeln | `foto-5-1` |
+| Aufgabe 2: Schärfen | `foto-5-2` |
+
+**[Fotofilter – Kanten finden](/projekte/fotofilter/06-kanten-finden)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Beide Richtungen zusammenführen | `foto-6-1` |
+| Aufgabe 2: Erst weichzeichnen, dann Kanten suchen | `foto-6-2` |
+
+**[Fotofilter – Filter als Klassen](/projekte/fotofilter/07-filter-als-klassen)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Die Filterkette | `foto-7-1` |
+| Aufgabe 2: Ein Filter, der Filter enthält | `foto-7-2` |
+
+::::
+
+::::collapsible{title="projekte/smart-home (5 Lösungen)"}
+
+
+**[Smart Home – Ereignisse analysieren](/projekte/smart-home/ereignisse-analysieren)**
+
+| Aufgabe | Passwort |
+| --- | --- |
+| Aufgabe 1: Den Verlauf ausgeben | `sh-3-1` |
+| Aufgabe 2: Nur die Lampen | `sh-3-2` |
+| Aufgabe 3: Die höchste Temperatur | `sh-3-3` |
+| Aufgabe 4: Automationen zählen | `sh-3-4` |
+| Aufgabe 5: Neue Ereignisse annehmen | `sh-3-5` |
+
+::::
+
+
+Insgesamt 496 geschützte Lösungen.
 
 <!--
 Diese Seite wird von tools/erzeuge_passwortseite.py erzeugt.

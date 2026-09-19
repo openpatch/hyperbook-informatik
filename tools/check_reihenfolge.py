@@ -32,6 +32,10 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
 
+# Eine Seite liegt als Markdown oder als Handlebars-Vorlage vor. Im Buch wird
+# aus beidem dieselbe Seite, beide stehen also in derselben Reihenfolge.
+ENDUNGEN = (".md", ".md.hbs")
+
 problems: list[str] = []
 
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---(\n|\Z)", re.S)
@@ -56,17 +60,26 @@ def index_von(daten: dict[str, str]) -> int | None:
     return int(wert) if wert and re.fullmatch(r"-?\d+", wert) else None
 
 
+def indexdatei(ordner: pathlib.Path) -> pathlib.Path | None:
+    """Die Startseite eines Ordners, als .md oder als .md.hbs."""
+    for endung in ENDUNGEN:
+        datei = ordner / ("index" + endung)
+        if datei.exists():
+            return datei
+    return None
+
+
 def kinder(ordner: pathlib.Path) -> list[tuple[str, str, int | None]]:
     """(Art, Name, index) aller Eintraege, die in der Navigation erscheinen."""
     ergebnis: list[tuple[str, str, int | None]] = []
     for pfad in sorted(ordner.iterdir()):
         if pfad.is_dir():
-            datei = pfad / "index.md"
-            if not datei.exists():
-                continue  # ohne index.md ist es keine Sektion
+            datei = indexdatei(pfad)
+            if datei is None:
+                continue  # ohne Startseite ist es keine Sektion
             daten = frontmatter(datei)
             art = "Sektion"
-        elif pfad.suffix == ".md" and pfad.name != "index.md":
+        elif pfad.name.endswith(ENDUNGEN) and not pfad.name.startswith("index."):
             if pfad.stat().st_size == 0:
                 continue  # leerer Platzhalter, noch keine Seite
             daten = frontmatter(pfad)
