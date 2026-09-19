@@ -37,6 +37,17 @@ PROTECT_RE = re.compile(r'^:{3,}protect\{password="([^"]+)"', re.M)
 UEBERSCHRIFT_RE = re.compile(r"^(#{1,6})\s+(.*?)\s*$", re.M)
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 
+# Eine Buchseite liegt als Markdown oder als Handlebars-Vorlage vor. In beiden
+# koennen geschuetzte Bloecke stehen.
+ENDUNGEN = (".md", ".md.hbs")
+
+
+def buchseiten() -> list[pathlib.Path]:
+    """Alle Seitenquellen unter book/, gleich welcher Endung."""
+    return sorted(
+        p for p in BOOK.rglob("*") if p.is_file() and p.name.endswith(ENDUNGEN)
+    )
+
 
 class Fund:
     def __init__(self, passwort: str, seite: str, titel: str, abschnitt: str, zeile: int):
@@ -74,7 +85,7 @@ def abschnitt_vor(text: str, pos: int) -> str:
 
 def sammle(nur: str | None) -> list[Fund]:
     funde: list[Fund] = []
-    for pfad in sorted(BOOK.rglob("*.md")):
+    for pfad in buchseiten():
         rel = str(pfad.relative_to(BOOK))
         if nur and nur not in rel:
             continue

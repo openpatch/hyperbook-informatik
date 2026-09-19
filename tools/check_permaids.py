@@ -65,6 +65,7 @@ BEREICHE = {
     "projekte/bunny-hop": "bunny-hop",
     "projekte/donut-io": "donut-io",
     "projekte/evolutionaere-algorithmen": "evolution",
+    "projekte/fotofilter": "fotofilter",
     "projekte/generative-kunst": "genkunst",
     "projekte/messenger": "messenger",
     "projekte/rpg": "rpg",
@@ -78,7 +79,11 @@ BEREICHE = {
 }
 
 # Seiten ohne eigenen Zweck - sie brauchen keinen Permaid.
-OHNE = {"404.md", "impressum.md", "wc.md", "index.md"}
+OHNE = {"404", "impressum", "wc", "index"}
+
+# Eine Seite kann als Markdown oder als Handlebars-Vorlage vorliegen. Beide
+# werden zu einer Seite im Buch, beide brauchen also einen Permaid.
+ENDUNGEN = (".md", ".md.hbs")
 
 ERLAUBT_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
@@ -115,13 +120,23 @@ def bereich_von(rel: pathlib.PurePath) -> tuple[str, tuple[str, ...]]:
     return "", rel.parts
 
 
+def stamm(name: str) -> str:
+    """Der Dateiname ohne Seitenendung: 'index.md.hbs' wird zu 'index'."""
+    for endung in ENDUNGEN:
+        if name.endswith(endung):
+            return name[: -len(endung)]
+    return name
+
+
 def seiten() -> list[pathlib.Path]:
     aus = []
-    for pfad in sorted(BOOK.rglob("*.md")):
+    for pfad in sorted(BOOK.rglob("*")):
+        if not pfad.is_file() or not pfad.name.endswith(ENDUNGEN):
+            continue
         rel = pfad.relative_to(BOOK)
         if rel.parts[0] == "_probe":
             continue
-        if len(rel.parts) == 1 and rel.name in OHNE:
+        if len(rel.parts) == 1 and stamm(rel.name) in OHNE:
             continue
         aus.append(pfad)
     return aus
@@ -154,7 +169,7 @@ def pruefe(rel: pathlib.PurePath, pid: str) -> None:
     bereich, rest = bereich_von(rel)
     if not bereich:
         return                              # Buchseite daneben, kein Praefix
-    startseite = not rest or (len(rest) == 1 and rest[0] == "index.md")
+    startseite = not rest or (len(rest) == 1 and stamm(rest[0]) == "index")
     if startseite:
         if pid != bereich:
             problems.append(

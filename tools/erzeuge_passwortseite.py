@@ -26,7 +26,15 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from passwoerter import BOOK, ROOT, titel_von, PROTECT_RE, UEBERSCHRIFT_RE  # noqa: E402
+from passwoerter import (  # noqa: E402
+    BOOK,
+    ENDUNGEN,
+    PROTECT_RE,
+    ROOT,
+    UEBERSCHRIFT_RE,
+    buchseiten,
+    titel_von,
+)
 
 ZIEL = BOOK / "loesungen.md"
 
@@ -88,8 +96,13 @@ def kapitelname(pfad: pathlib.Path) -> str:
     Ohne ihn heissen alle Kapitelabschluesse gleich ("Rueckblick") und die
     Liste waere nicht zu benutzen.
     """
-    index = pfad.parent / "index.md"
-    if not index.exists():
+    index = None
+    for endung in ENDUNGEN:
+        kandidat = pfad.parent / ("index" + endung)
+        if kandidat.exists():
+            index = kandidat
+            break
+    if index is None:
         return ""
     kopf = re.match(r"\A---\n(.*?)\n---\n", index.read_text(encoding="utf-8"), re.S)
     if not kopf:
@@ -129,7 +142,11 @@ def marke_vor(text: str, pos: int) -> str:
 
 
 def url_von(rel: str) -> str:
-    return "/" + rel.removesuffix(".md").removesuffix("/index")
+    for endung in sorted(ENDUNGEN, key=len, reverse=True):
+        if rel.endswith(endung):
+            rel = rel[: -len(endung)]
+            break
+    return "/" + rel.removesuffix("/index")
 
 
 def lernpfad_von(rel: str) -> str:
@@ -139,7 +156,7 @@ def lernpfad_von(rel: str) -> str:
 
 def sammle() -> list[Eintrag]:
     eintraege: list[Eintrag] = []
-    for pfad in sorted(BOOK.rglob("*.md")):
+    for pfad in buchseiten():
         rel = str(pfad.relative_to(BOOK))
         if rel == "loesungen.md":
             continue

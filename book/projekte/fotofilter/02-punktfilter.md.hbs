@@ -1,0 +1,330 @@
+---
+title: Punktfilter
+index: 2
+lang: de
+permaid: fotofilter-punktfilter
+---
+
+# Punktfilter
+
+Der einfachste Filter, den es gibt, schaut sich jeden Bildpunkt einzeln an,
+rechnet eine neue Zahl aus und schreibt sie ins Ergebnis. Was rundherum liegt,
+interessiert ihn nicht. Solche Filter heißen **Punktoperatoren** – und
+überraschend viel von dem, was eine Kamera-App anbietet, gehört dazu.
+
+## Heller und dunkler
+
+Heller heißt: zu jedem Wert etwas dazuzählen. Eines musst du dabei bedenken –
+es gibt keine Helligkeit über 255.
+
+:::onlineide{height="660px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(dunkler(grau, 60));
+    leinwand.zeige(grau);
+    leinwand.zeige(heller(grau, 60));
+}
+
+/** Liefert ein neues Gitter, in dem jeder Wert um pStufen groesser ist. */
+int[][] heller(int[][] pGrau, int pStufen) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            int wert = pGrau[zeile][spalte] + pStufen;
+            if (wert > 255) {
+                wert = 255;
+            }
+            neu[zeile][spalte] = wert;
+        }
+    }
+    return neu;
+}
+
+/** Liefert ein neues Gitter, in dem jeder Wert um pStufen kleiner ist. */
+int[][] dunkler(int[][] pGrau, int pStufen) {
+    return heller(pGrau, -pStufen);
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::snippet{#merken}
+**Ein Filter liefert ein neues Gitter, er ändert das alte nicht.**
+
+```java
+int[][] neu = new int[pGrau.length][pGrau[0].length];
+```
+
+Diese Zeile steht am Anfang fast jedes Filters. Sie legt ein Gitter derselben
+Größe an – gefüllt mit Nullen, die gleich überschrieben werden. Nur so kannst
+du das Original hinterher noch danebenstellen.
+:::
+
+:::snippet{#aufgabe}
+In `heller` wird nach oben abgeschnitten, nach unten aber nicht. Trotzdem sieht
+das linke Bild richtig aus.
+
+a) Warum stürzt `dunkler(grau, 60)` nicht ab, obwohl dabei negative Werte
+   entstehen?
+
+b) Wo genau werden diese negativen Werte abgefangen? Sieh in `Leinwand.java` nach.
+
+c) Warum ist es trotzdem besser, im Filter selbst zu begrenzen?
+:::
+
+::::collapsible{title="Auflösung"}
+
+a) und b) Die Klasse `Leinwand` hat eine private Methode `begrenzt`, die jeden
+Wert vor dem Zeichnen auf 0 bis 255 zurechtstutzt. Ein Wert von −40 wird dort
+zu 0.
+
+c) Weil das nur beim **Zeichnen** hilft. Sobald du zwei Filter hintereinander
+anwendest, rechnet der zweite mit den unbegrenzten Werten weiter – und −40 ist
+etwas anderes als 0. Auf der Seite [Filter als Klassen](./07-filter-als-klassen)
+steckst du Filter zu Ketten zusammen; spätestens dort fällt das auf.
+
+::::
+
+## Aufgabe 1: Invertieren und Schwellenwert
+
+:::snippet{#aufgabe}
+Schreibe zwei weitere Punktfilter.
+
+a) **`invertiert`** – aus hell wird dunkel und umgekehrt. Ein Wert von 0 wird
+   zu 255, ein Wert von 200 wird zu 55.
+
+b) **`schwelle`** – jeder Bildpunkt wird entweder ganz schwarz oder ganz weiß,
+   je nachdem, ob er über oder unter einer Grenze liegt. Das Ergebnis hat nur
+   noch zwei Farben.
+
+**Sage vorher:** Welche Grenze braucht `schwelle`, damit von dem Foto ungefähr
+die Umrisse der LED übrig bleiben? Du hast auf der vorigen Seite ausgerechnet,
+dass die mittlere Helligkeit bei 115 liegt.
+:::
+
+:::onlineide{height="720px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(grau);
+    leinwand.zeige(invertiert(grau));
+    leinwand.zeige(schwelle(grau, 128));
+}
+
+/** Kehrt jeden Wert um: aus 0 wird 255, aus 255 wird 0. */
+int[][] invertiert(int[][] pGrau) {
+    return pGrau; // ersetze diese Zeile
+}
+
+/**
+ * Macht jeden Bildpunkt schwarz oder weiss.
+ * Werte ab pGrenze werden zu 255, alle anderen zu 0.
+ */
+int[][] schwelle(int[][] pGrau, int pGrenze) {
+    return pGrau; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Der Bauplan"}
+
+Beide Filter haben denselben Rumpf wie `heller`. Es ändert sich nur die eine
+Zeile, in der gerechnet wird:
+
+```java
+int[][] neu = new int[pGrau.length][pGrau[0].length];
+for (int zeile = 0; zeile < pGrau.length; zeile++) {
+    for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+        neu[zeile][spalte] = /* hier */;
+    }
+}
+return neu;
+```
+
+::::
+
+::::collapsible{title="Tipp 2: Die beiden Vorschriften"}
+
+Invertieren: Du suchst eine Rechnung, die 0 auf 255 schickt und 255 auf 0.
+Probiere sie mit beiden Werten durch, bevor du sie hinschreibst.
+
+Schwellenwert: Hier wird nicht gerechnet, sondern entschieden. Ein `if` mit
+einem `else` genügt.
+
+::::
+
+:::protect{password="foto-2-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] invertiert(int[][] pGrau) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            neu[zeile][spalte] = 255 - pGrau[zeile][spalte];
+        }
+    }
+    return neu;
+}
+
+int[][] schwelle(int[][] pGrau, int pGrenze) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            if (pGrau[zeile][spalte] >= pGrenze) {
+                neu[zeile][spalte] = 255;
+            } else {
+                neu[zeile][spalte] = 0;
+            }
+        }
+    }
+    return neu;
+}
+```
+
+Bei der Grenze 128 bleibt fast nur die LED weiß – gut ein Viertel des Bildes.
+Wer den Steckplatinenhintergrund noch sehen will, muss auf etwa 90 heruntergehen;
+dann ist über die Hälfte weiß.
+
+Probiere auch 150 und 200. Du wirst kaum einen Unterschied zu 128 sehen, und das
+ist die eigentliche Beobachtung: Zwischen der LED und allem anderen liegt eine
+**Lücke**, in der es fast keine Helligkeiten gibt. Solange die Grenze in dieser
+Lücke liegt, ist das Ergebnis dasselbe. Unterhalb von 110 dagegen ändert schon
+eine Verschiebung um zehn Stufen das Bild sichtbar.
+
+Genau dieses Ausprobieren ist der Grund, warum `schwelle` die Grenze als
+**Parameter** bekommt und sie nicht fest im Rumpf steht.
+
+:::
+
+## Aufgabe 2: Kontrast
+
+:::snippet{#aufgabe}
+Heller machen verschiebt alle Werte. **Kontrast** dagegen zieht sie
+auseinander: Was über der Mitte liegt, wird heller, was darunter liegt, wird
+dunkler.
+
+Die Vorschrift lautet
+
+```
+neu = 128 + (alt - 128) * faktor
+```
+
+a) Rechne von Hand nach, was aus den Werten 40, 128 und 220 bei `faktor = 2`
+   wird. Welche davon musst du begrenzen?
+
+b) Schreibe die Methode `kontrast(int[][] pGrau, int pFaktor)` und probiere die
+   Faktoren 2, 3 und 4 aus.
+
+c) Was passiert bei `faktor = 0`? Sage es vorher, dann probiere es.
+:::
+
+:::onlineide{height="700px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(grau);
+    leinwand.zeige(kontrast(grau, 2));
+    leinwand.zeige(kontrast(grau, 3));
+    leinwand.zeige(kontrast(grau, 4));
+}
+
+/** Zieht die Werte um die Mitte 128 herum auseinander. */
+int[][] kontrast(int[][] pGrau, int pFaktor) {
+    return pGrau; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp: Begrenzen an zwei Enden"}
+
+Anders als bei `heller` läuft der Wert hier nach **beiden** Seiten aus dem
+Bereich heraus. Zwei `if`-Abfragen nacheinander sind völlig in Ordnung:
+
+```java
+if (wert < 0) { wert = 0; }
+if (wert > 255) { wert = 255; }
+```
+
+::::
+
+:::protect{password="foto-2-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] kontrast(int[][] pGrau, int pFaktor) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            int wert = 128 + (pGrau[zeile][spalte] - 128) * pFaktor;
+            if (wert < 0) {
+                wert = 0;
+            }
+            if (wert > 255) {
+                wert = 255;
+            }
+            neu[zeile][spalte] = wert;
+        }
+    }
+    return neu;
+}
+```
+
+a) Aus 40 wird −48, also 0. Aus 128 wird 128. Aus 220 wird 312, also 255.
+Begrenzt werden müssen der erste und der dritte Wert.
+
+c) Bei `faktor = 0` wird jeder Wert zu 128: ein gleichmäßig graues Rechteck.
+Kein Kontrast, kein Bild. Der Faktor 1 lässt alles, wie es war – er ist der
+Nullpunkt dieses Filters.
+
+:::
+
+## Zum Weiterdenken
+
+:::snippet{#brain}
+`schwelle` ist der Filter, mit dem Scanner-Apps arbeiten, bevor sie Text
+erkennen. Eine feste Grenze funktioniert dabei schlecht: Auf einem Foto mit
+Schatten ist dieselbe Grenze in der einen Bildhälfte zu hoch und in der anderen
+zu niedrig.
+
+Wie könnte ein Schwellenwert aussehen, der sich **an die Umgebung anpasst**?
+Skizziere die Idee in Worten – programmieren kannst du sie, sobald du die Seite
+[Weichzeichnen](./05-weichzeichnen) durchhast.
+:::

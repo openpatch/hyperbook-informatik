@@ -1,0 +1,186 @@
+---
+title: Dein eigener Filter
+index: 8
+lang: de
+permaid: fotofilter-eigener-filter
+---
+
+# Dein eigener Filter
+
+Auf dieser Seite gibt es keine Musterlösung und kein Zielbild. Du hast alles
+beisammen, was man braucht, um mit einem Bild zu machen, was man will: das
+Gitter, die Schleifen, die Nachbarn, die Filterklassen.
+
+Such dir eine Idee aus – oder nimm eine eigene.
+
+## Die Regeln
+
+:::snippet{#merken}
+1. Dein Filter ist eine Klasse, die von `Filter` erbt. Er lässt sich damit in
+   jede Kette stecken.
+2. Alles, was man einstellen kann, kommt als Parameter in den **Konstruktor** –
+   nicht als feste Zahl in den Rumpf.
+3. Zeige am Ende **mindestens drei** Varianten nebeneinander: dasselbe Bild mit
+   verschiedenen Einstellungen. Ein Filter, von dem man nur eine Einstellung
+   sieht, ist kein Filter, sondern ein Effekt.
+:::
+
+## Ideen
+
+:::snippet{#challenge}
+**Posterisieren.** Erlaube nur noch wenige Helligkeitsstufen – etwa 4, 8 oder
+16 statt 256. Alles dazwischen wird auf die nächstgelegene erlaubte Stufe
+gerundet. Das Bild bekommt dadurch flächige, plakatartige Bereiche.
+
+*Der Kern ist eine einzige Rechnung. Finde sie, indem du dir aufschreibst,
+welche Eingabewerte auf welchen Ausgabewert fallen sollen.*
+:::
+
+:::snippet{#challenge}
+**Pixeln.** Fasse Blöcke von n × n Bildpunkten zusammen und gib allen den
+Durchschnitt des Blocks. Das ist die Verpixelung, mit der Gesichter unkenntlich
+gemacht werden.
+
+*Du brauchst vier geschachtelte Schleifen: zwei über die Blöcke, zwei innerhalb
+eines Blocks. Überlege dir vorher, was passiert, wenn 96 nicht durch n teilbar
+ist.*
+:::
+
+:::snippet{#challenge}
+**Vignette.** Dunkle das Bild zum Rand hin ab – in der Mitte bleibt es hell,
+außen wird es fast schwarz. Der Faktor hängt vom **Abstand zur Bildmitte** ab.
+
+*`Math.sqrt` liefert den Abstand, aber du kannst ihn auch ohne Wurzel abschätzen.
+Der größte vorkommende Abstand ist der zur Ecke – den brauchst du, um zu
+normieren.*
+:::
+
+:::snippet{#challenge}
+**Rauschen.** Addiere zu jedem Bildpunkt eine kleine Zufallszahl. Bei welcher
+Stärke sieht es nach altem Film aus, ab wann nach kaputtem Sensor?
+
+*Setze danach deinen Weichzeichner dahinter und sieh nach, wie viel er davon
+wieder wegbekommt. Das ist der ehrlichste Test für einen Glättungsfilter.*
+:::
+
+:::snippet{#challenge}
+**Medianfilter.** Nimm nicht den Durchschnitt der neun Nachbarn, sondern den
+**mittleren** – sortiere sie und nimm den fünften.
+
+*Vergleiche ihn mit dem Weichzeichner an einem verrauschten Bild. Er entfernt
+einzelne Ausreißer vollständig, ohne Kanten zu verwischen. Warum kann der
+Durchschnitt das nicht?*
+:::
+
+:::snippet{#challenge}
+**Zwei Bilder mischen.** Erzeuge dir ein zweites Bild – etwa ein
+Schachbrettmuster oder einen Farbverlauf – und mische es mit dem Foto:
+`neu = (foto * p + muster * (100 - p)) / 100`.
+
+*Mit einem Farbverlauf als zweitem Bild bekommst du einen Verlaufsfilter, wie
+ihn Fotoapps anbieten. Mit dem Ergebnis deines Kantenfilters als zweitem Bild
+bekommst du etwas ganz anderes – probiere es.*
+:::
+
+## Die Werkbank
+
+Hier ist alles beisammen: die Oberklasse `Filter`, vier fertige Filter zum
+Abgucken und eine leere Klasse `MeinFilter`, in der dein Filter entsteht.
+
+:::onlineide{height="820px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Filter schwach = new MeinFilter(2);
+    Filter mittel = new MeinFilter(8);
+    Filter stark = new MeinFilter(32);
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(grau);
+    leinwand.zeige(schwach.anwenden(grau));
+    leinwand.zeige(mittel.anwenden(grau));
+    leinwand.zeige(stark.anwenden(grau));
+}
+```
+
+```java MeinFilter.java
+public class MeinFilter extends Filter {
+
+    private int staerke;
+
+    public MeinFilter(int pStaerke) {
+        staerke = pStaerke;
+    }
+
+    public int[][] anwenden(int[][] pBild) {
+        int[][] neu = leeresWie(pBild);
+        for (int zeile = 0; zeile < pBild.length; zeile++) {
+            for (int spalte = 0; spalte < pBild[zeile].length; spalte++) {
+                // Hier entsteht dein Filter. Bisher kopiert er nur.
+                neu[zeile][spalte] = begrenzt(pBild[zeile][spalte]);
+            }
+        }
+        return neu;
+    }
+}
+```
+
+```java Filter.java
+{{{rfile "/book/projekte/fotofilter/quelle/Filter.java"}}}
+```
+
+```java Heller.java
+{{{rfile "/book/projekte/fotofilter/quelle/Heller.java"}}}
+```
+
+```java Invertieren.java
+{{{rfile "/book/projekte/fotofilter/quelle/Invertieren.java"}}}
+```
+
+```java Schwelle.java
+{{{rfile "/book/projekte/fotofilter/quelle/Schwelle.java"}}}
+```
+
+```java Weichzeichnen.java
+{{{rfile "/book/projekte/fotofilter/quelle/Weichzeichnen.java"}}}
+```
+
+```java Kanten.java
+{{{rfile "/book/projekte/fotofilter/quelle/Kanten.java"}}}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::alert{info}
+`staerke` ist nur ein Vorschlag für den Namen und `int` nur ein Vorschlag für
+den Typ. Braucht dein Filter zwei Einstellungen, bekommt der Konstruktor eben
+zwei Parameter – dann musst du im Hauptprogramm auch die drei Zeilen mit
+`new MeinFilter(...)` anpassen.
+
+Für einen **Farbfilter** rufst du `anwenden` dreimal auf, einmal je Kanal, und
+gibst der Leinwand alle drei Ergebnisse: `leinwand.zeige(r2, g2, b2)`.
+:::
+
+## Zeigen
+
+:::snippet{#aufgabe}
+Stellt eure Filter nebeneinander. Für jeden gilt:
+
+- Wie heißt er, und was macht er in einem Satz?
+- Welche Einstellung gibt es, und was passiert an ihren beiden Enden?
+- An welchem Bild sieht man ihn gut – und an welchem sieht man nichts?
+
+Die letzte Frage ist die interessanteste. Ein Filter, der auf jedem Bild
+gleich aussieht, hat meistens die Information weggeworfen, auf die es ankam.
+:::

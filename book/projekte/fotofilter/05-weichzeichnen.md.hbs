@@ -1,0 +1,426 @@
+---
+title: Weichzeichnen
+index: 5
+lang: de
+permaid: fotofilter-weichzeichnen
+---
+
+# Weichzeichnen
+
+Alle bisherigen Filter haben einen Bildpunkt angesehen und daraus einen neuen
+gemacht. Weichzeichnen geht anders: Der neue Wert entsteht aus dem Bildpunkt
+**und seinen acht Nachbarn**. Solche Filter heißen **Nachbarschaftsoperatoren**,
+und mit ihnen fängt die eigentliche Bildverarbeitung an – Weichzeichnen,
+Schärfen, Rauschunterdrückung, Kantensuche funktionieren alle nach diesem
+Muster.
+
+## Neun Werte, ein Durchschnitt
+
+```
+ ┌────┬────┬────┐
+ │ 90 │ 95 │ 98 │     Der neue Wert in der Mitte ist
+ ├────┼────┼────┤     der Durchschnitt aller neun:
+ │ 88 │ 40 │ 97 │
+ ├────┼────┼────┤     (90+95+98+88+40+97+91+94+99) / 9 = 88
+ │ 91 │ 94 │ 99 │
+ └────┴────┴────┘
+```
+
+Aus der 40 – einem einzelnen dunklen Ausreißer – wird eine 88. Genau das macht
+Weichzeichnen: Es zieht jeden Wert zu seiner Umgebung hin.
+
+:::onlineide{height="700px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(grau);
+    leinwand.zeige(weich(grau));
+    leinwand.zeige(weich(weich(weich(grau))));
+}
+
+/** Ersetzt jeden Bildpunkt durch den Durchschnitt seiner 3x3-Umgebung. */
+int[][] weich(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+
+    for (int zeile = 1; zeile < hoehe - 1; zeile++) {
+        for (int spalte = 1; spalte < breite - 1; spalte++) {
+            int summe = 0;
+            for (int dz = -1; dz <= 1; dz++) {
+                for (int ds = -1; ds <= 1; ds++) {
+                    summe = summe + pGrau[zeile + dz][spalte + ds];
+                }
+            }
+            neu[zeile][spalte] = summe / 9;
+        }
+    }
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::alert{info}
+Dieser Filter braucht spürbar länger als die bisherigen – für jeden der 6912
+Bildpunkte werden neun Werte geholt. Dreimal hintereinander angewandt, wie im
+rechten Bild, sind das über 180 000 Zugriffe. Ein paar Zehntelsekunden sind
+also normal.
+:::
+
+## Der Rand
+
+Sieh dir das mittlere Bild genau an: Es hat einen **schwarzen Rahmen**. Die
+Schleifen beginnen bei 1 und enden bei `hoehe - 1`, der äußerste Ring bleibt
+also auf 0.
+
+:::snippet{#merken}
+**Jeder Nachbarschaftsfilter hat ein Randproblem.** Der Bildpunkt oben links
+hat keinen Nachbarn über sich und keinen links von sich. Es gibt drei übliche
+Antworten darauf:
+
+1. **Den Rand auslassen** – wie hier. Ehrlich, aber man sieht es.
+2. **Den Rand kopieren** – die ursprünglichen Werte unverändert übernehmen.
+3. **Nach außen fortsetzen** – für fehlende Nachbarn den nächstgelegenen
+   gültigen Wert nehmen.
+
+Keine davon ist die richtige. Man muss sich entscheiden und wissen, wofür.
+:::
+
+## Aufgabe 1: Den Rand behandeln
+
+:::snippet{#aufgabe}
+a) Ändere `weich` so, dass der Rand **unverändert** übernommen wird (Antwort 2).
+   Der schwarze Rahmen verschwindet damit.
+
+b) Was ist am Ergebnis von a) unschön, wenn du den Filter dreimal hintereinander
+   anwendest? Sieh genau hin und erkläre es.
+
+c) Setze Antwort 3 um: Schreibe eine Methode `wertBei(int[][] pGrau, int pZeile,
+   int pSpalte)`, die einen Index außerhalb des Bildes auf den nächsten gültigen
+   zurechtstutzt, und benutze sie in den Schleifen. Die Schleifen dürfen dann
+   wieder über das ganze Bild laufen.
+:::
+
+:::onlineide{height="760px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(weich(weich(weich(grau))));
+}
+
+/** Ersetzt jeden Bildpunkt durch den Durchschnitt seiner 3x3-Umgebung. */
+int[][] weich(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+
+    for (int zeile = 1; zeile < hoehe - 1; zeile++) {
+        for (int spalte = 1; spalte < breite - 1; spalte++) {
+            int summe = 0;
+            for (int dz = -1; dz <= 1; dz++) {
+                for (int ds = -1; ds <= 1; ds++) {
+                    summe = summe + pGrau[zeile + dz][spalte + ds];
+                }
+            }
+            neu[zeile][spalte] = summe / 9;
+        }
+    }
+    return neu;
+}
+
+/**
+ * Liefert den Wert an dieser Stelle. Liegt sie ausserhalb des Bildes,
+ * soll der naechstgelegene Wert im Bild herauskommen.
+ */
+int wertBei(int[][] pGrau, int pZeile, int pSpalte) {
+    return pGrau[pZeile][pSpalte]; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp zu a)"}
+
+Bevor die eigentlichen Schleifen beginnen, kopierst du das Original einmal
+vollständig nach `neu`. Danach überschreibst du nur noch die Mitte.
+
+::::
+
+::::collapsible{title="Tipp zu c)"}
+
+`wertBei` ist kurz und macht die Schleifen einfacher:
+
+```java
+int wertBei(int[][] pGrau, int pZeile, int pSpalte) {
+    if (pZeile < 0) { pZeile = 0; }
+    // … drei weitere Fälle
+    return pGrau[pZeile][pSpalte];
+}
+```
+
+In der Schleife steht dann `summe = summe + wertBei(pGrau, zeile + dz, spalte + ds);`.
+
+::::
+
+:::protect{password="foto-5-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] weich(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+
+    for (int zeile = 0; zeile < hoehe; zeile++) {
+        for (int spalte = 0; spalte < breite; spalte++) {
+            int summe = 0;
+            for (int dz = -1; dz <= 1; dz++) {
+                for (int ds = -1; ds <= 1; ds++) {
+                    summe = summe + wertBei(pGrau, zeile + dz, spalte + ds);
+                }
+            }
+            neu[zeile][spalte] = summe / 9;
+        }
+    }
+    return neu;
+}
+
+/** Liefert den Wert an dieser Stelle; ausserhalb den naechstgelegenen im Bild. */
+int wertBei(int[][] pGrau, int pZeile, int pSpalte) {
+    if (pZeile < 0) {
+        pZeile = 0;
+    }
+    if (pZeile > pGrau.length - 1) {
+        pZeile = pGrau.length - 1;
+    }
+    if (pSpalte < 0) {
+        pSpalte = 0;
+    }
+    if (pSpalte > pGrau[0].length - 1) {
+        pSpalte = pGrau[0].length - 1;
+    }
+    return pGrau[pZeile][pSpalte];
+}
+```
+
+b) Wer den Rand einfach kopiert, bekommt bei mehrfacher Anwendung eine immer
+breiter werdende **scharfe Kante am Bildrand**: Innen wird das Bild von Durchgang
+zu Durchgang weicher, der äußerste Ring bleibt dagegen für immer im Urzustand.
+Beim dritten Durchgang ist der Sprung deutlich zu sehen.
+
+Mit `wertBei` gibt es diesen Sprung nicht, weil auch der Rand mitgerechnet wird –
+er bekommt eben manche Nachbarn doppelt.
+
+:::
+
+## Warum es ohne Kopie schiefgeht
+
+Ein naheliegender Gedanke: Wozu ein zweites Gitter? Man könnte den neuen Wert
+doch direkt ins alte schreiben und Speicher sparen.
+
+:::snippet{#aufgabe}
+Im folgenden Bereich steht genau das: `weichOhneKopie` schreibt jeden neuen Wert
+sofort ins übergebene Gitter zurück, ein zweites gibt es nicht.
+
+**Sage vorher, was dabei herauskommt.** Dann starte das Programm.
+:::
+
+:::onlineide{height="720px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(weichOhneKopie(grau));
+}
+
+/** Schreibt die neuen Werte ins selbe Gitter - was geht dabei schief? */
+int[][] weichOhneKopie(int[][] pGrau) {
+    for (int zeile = 1; zeile < pGrau.length - 1; zeile++) {
+        for (int spalte = 1; spalte < pGrau[zeile].length - 1; spalte++) {
+            int summe = 0;
+            for (int dz = -1; dz <= 1; dz++) {
+                for (int ds = -1; ds <= 1; ds++) {
+                    summe = summe + pGrau[zeile + dz][spalte + ds];
+                }
+            }
+            pGrau[zeile][spalte] = summe / 9;
+        }
+    }
+    return pGrau;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Auflösung"}
+
+Das Bild wird **viel stärker** weichgezeichnet, als ein einziger Durchgang es
+könnte – und zwar ungleichmäßig: Die linke und die obere Kante der LED bleiben
+schärfer als die rechte und die untere, an der alles verschmiert.
+
+Der Grund: Wenn die Schleife bei Zeile 5, Spalte 5 ankommt, sind die Nachbarn
+oben und links **schon überschrieben**. Der Filter rechnet also teils mit
+Originalwerten, teils mit eigenen Zwischenergebnissen. Und die Zwischenergebnisse
+enthalten wieder Zwischenergebnisse – der Effekt schaukelt sich über das Bild
+hinweg auf, in der Richtung, in der die Schleife läuft.
+
+:::snippet{#merken}
+**Ein Nachbarschaftsfilter braucht das unveränderte Original.** Lesen und
+Schreiben müssen in verschiedenen Gittern stattfinden.
+
+Das ist kein Sonderfall des Weichzeichnens, sondern die Regel bei jedem
+Verfahren, das seine Nachbarn ansieht – auch beim Spiel des Lebens oder bei
+einer Wärmeausbreitungssimulation.
+:::
+
+Und noch eine Falle steckt darin: `pGrau` ist eine **Referenz**. Die Methode
+bekommt nicht eine Kopie des Bildes, sondern den Verweis darauf. Wer hineinschreibt,
+verändert das Gitter, mit dem `main` weiterarbeitet – auch dann, wenn dort noch
+das Original erwartet wird. Warum das so ist, steht auf der Seite
+[Wert und Referenz](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/02-referenzen).
+
+::::
+
+## Aufgabe 2: Schärfen
+
+:::snippet{#aufgabe}
+Schärfen ist das Gegenteil von Weichzeichnen – und lässt sich aus ihm bauen.
+Die Idee: Ziehe vom Original ab, was das Weichzeichnen ihm weggenommen hätte,
+und lege es noch einmal obendrauf.
+
+```
+scharf = original + (original - weich)
+```
+
+a) Rechne von Hand nach: Was passiert an einer Stelle, an der das Bild ohnehin
+   gleichmäßig ist, an der also `original` und `weich` denselben Wert haben?
+
+b) Schreibe `scharf(int[][] pGrau)` und probiere es aus.
+
+c) Probiere `original + (original - weich) * 2`. Ab wann sieht es nicht mehr
+   schärfer aus, sondern kaputt? Beschreibe, was du siehst.
+:::
+
+:::onlineide{height="760px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(grau);
+    leinwand.zeige(weich(grau));
+    leinwand.zeige(scharf(grau));
+}
+
+/** Ersetzt jeden Bildpunkt durch den Durchschnitt seiner 3x3-Umgebung. */
+int[][] weich(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+
+    for (int zeile = 1; zeile < hoehe - 1; zeile++) {
+        for (int spalte = 1; spalte < breite - 1; spalte++) {
+            int summe = 0;
+            for (int dz = -1; dz <= 1; dz++) {
+                for (int ds = -1; ds <= 1; ds++) {
+                    summe = summe + pGrau[zeile + dz][spalte + ds];
+                }
+            }
+            neu[zeile][spalte] = summe / 9;
+        }
+    }
+    return neu;
+}
+
+/** Legt auf das Bild, was das Weichzeichnen ihm wegnehmen wuerde. */
+int[][] scharf(int[][] pGrau) {
+    return pGrau; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::protect{password="foto-5-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] scharf(int[][] pGrau) {
+    int[][] unscharf = weich(pGrau);
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            int wert = pGrau[zeile][spalte]
+                + (pGrau[zeile][spalte] - unscharf[zeile][spalte]);
+            if (wert < 0) {
+                wert = 0;
+            }
+            if (wert > 255) {
+                wert = 255;
+            }
+            neu[zeile][spalte] = wert;
+        }
+    }
+    return neu;
+}
+```
+
+a) Sind beide Werte gleich, ist die Differenz 0 und es ändert sich nichts.
+Genau das will man: In gleichmäßigen Flächen soll Schärfen nichts tun. Nur dort,
+wo das Weichzeichnen etwas verändert hat – an Kanten –, greift der Filter ein.
+
+c) Mit Faktor 2 und mehr bekommen die Kanten **helle und dunkle Säume**: Neben
+der leuchtenden LED erscheint ein schwarzer Ring, der im Original nicht da ist.
+Der Filter erfindet Kontrast, den das Foto nie hatte. Genau daran erkennt man
+übernachgeschärfte Bilder.
+
+Dieser Filter heißt in Bildbearbeitungsprogrammen **Unscharfmaskierung** – ein
+Name, der erst Sinn ergibt, wenn man weiß, dass eine unscharfe Kopie darin
+steckt.
+
+:::

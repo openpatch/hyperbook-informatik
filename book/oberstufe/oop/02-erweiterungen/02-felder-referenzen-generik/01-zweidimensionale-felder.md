@@ -10,6 +10,13 @@ Ein Spielbrett, eine Tabelle, ein Bild aus Bildpunkten – all das hat Zeilen **
 
 <!-- KLP QPh, Daten und ihre Strukturierung: Datenstrukturen - statische Datenstrukturen in Form von ein- und zweidimensionalen Feldern -->
 
+:::alert{info}
+Wer lieber an einem Bild lernt als an einem Spielbrett: Das Projekt
+[Fotofilter](/projekte/fotofilter) führt dieselben Inhalte an einem echten Foto
+ein – heller machen, invertieren, spiegeln, weichzeichnen, Kanten finden. Es
+lässt sich statt dieses Kapitels oder danach bearbeiten.
+:::
+
 ## Anlegen und zugreifen
 
 :::onlineide{height="560px" speed="1000000"}

@@ -1,0 +1,269 @@
+---
+title: Spiegeln und Drehen
+index: 4
+lang: de
+permaid: fotofilter-spiegeln-drehen
+---
+
+# Spiegeln und Drehen
+
+Alle Filter der letzten beiden Seiten haben die **Werte** verändert und jeden
+Bildpunkt an seinem Platz gelassen. Jetzt drehst du es um: Die Werte bleiben,
+was sie sind, nur ihr Platz ändert sich. Dafür musst du mit den Indizes
+rechnen – und das ist die eigentliche Kunst beim zweidimensionalen Feld.
+
+## Waagerecht spiegeln
+
+Das Bild an einer senkrechten Achse zu spiegeln heißt: Die erste Spalte wird
+zur letzten, die zweite zur vorletzten, und so weiter.
+
+:::onlineide{height="660px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(gespiegelt(grau));
+}
+
+/** Spiegelt das Bild an einer senkrechten Achse. */
+int[][] gespiegelt(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+    for (int zeile = 0; zeile < hoehe; zeile++) {
+        for (int spalte = 0; spalte < breite; spalte++) {
+            neu[zeile][spalte] = pGrau[zeile][breite - 1 - spalte];
+        }
+    }
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::snippet{#merken}
+`breite - 1 - spalte` ist der **Spiegelindex**. Er zählt rückwärts, während
+`spalte` vorwärts zählt:
+
+| `spalte` | 0 | 1 | 2 | … | 93 | 94 | 95 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `breite - 1 - spalte` | 95 | 94 | 93 | … | 2 | 1 | 0 |
+
+Das `- 1` ist kein Schönheitsfehler: Der größte gültige Index ist `breite - 1`,
+nicht `breite`. Wer es vergisst, bekommt beim ersten Bildpunkt einen
+Laufzeitfehler.
+:::
+
+## Aufgabe 1: Senkrecht spiegeln und auf den Kopf stellen
+
+:::snippet{#aufgabe}
+a) Schreibe `gekippt` – das Bild wird an einer **waagerechten** Achse
+   gespiegelt, oben und unten tauschen also die Plätze.
+
+b) Schreibe `umgedreht` – das Bild steht auf dem Kopf, als hätte man es um 180
+   Grad gedreht.
+
+c) **Sage vorher:** Was kommt heraus, wenn du `gespiegelt(gekippt(grau))`
+   rechnest? Probiere es danach aus.
+:::
+
+:::onlineide{height="700px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(grau);
+    leinwand.zeige(gekippt(grau));
+    leinwand.zeige(umgedreht(grau));
+}
+
+/** Spiegelt das Bild an einer waagerechten Achse. */
+int[][] gekippt(int[][] pGrau) {
+    return pGrau; // ersetze diese Zeile
+}
+
+/** Dreht das Bild um 180 Grad. */
+int[][] umgedreht(int[][] pGrau) {
+    return pGrau; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Welcher Index?"}
+
+Beim waagerechten Spiegeln ändert sich die **Spalte**. Überlege dir, was sich
+beim senkrechten Spiegeln ändern muss – und lass das andere in Ruhe.
+
+::::
+
+::::collapsible{title="Tipp 2: Zwei Wege zu umgedreht"}
+
+Entweder du rechnest beide Indizes auf einmal rückwärts, oder du wendest die
+beiden Spiegelungen nacheinander an. Beides ist richtig; das zweite ist
+kürzer und zeigt, dass Filter sich hintereinanderschalten lassen.
+
+::::
+
+:::protect{password="foto-4-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] gekippt(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[hoehe][breite];
+    for (int zeile = 0; zeile < hoehe; zeile++) {
+        for (int spalte = 0; spalte < breite; spalte++) {
+            neu[zeile][spalte] = pGrau[hoehe - 1 - zeile][spalte];
+        }
+    }
+    return neu;
+}
+
+int[][] umgedreht(int[][] pGrau) {
+    return gespiegelt(gekippt(pGrau));
+}
+```
+
+c) `gespiegelt(gekippt(grau))` ist dasselbe wie `umgedreht(grau)`. Die
+Reihenfolge ist dabei egal – erst spiegeln und dann kippen ergibt dasselbe
+Bild. Das gilt längst nicht für alle Filterpaare: Erst schärfen und dann
+weichzeichnen ist etwas anderes als umgekehrt.
+
+:::
+
+## Aufgabe 2: Um 90 Grad drehen
+
+Hier wird es interessant, denn aus einem Bild von 96 × 72 wird eines von
+72 × 96. Das Ergebnisgitter hat also eine **andere Form** als das Original.
+
+:::snippet{#aufgabe}
+Schreibe `gedrehtRechts` – das Bild wird um 90 Grad im Uhrzeigersinn gedreht.
+
+a) Wie viele Zeilen und wie viele Spalten hat das Ergebnis? Schreibe die
+   `new`-Zeile auf, bevor du an die Schleifen gehst.
+
+b) Wohin wandert der Bildpunkt oben links? Und der oben rechts? Zeichne dazu
+   ein kleines Gitter von 3 × 2 auf Papier und drehe es.
+
+c) Setze es um.
+:::
+
+:::onlineide{height="660px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(gedrehtRechts(grau));
+}
+
+/** Dreht das Bild um 90 Grad im Uhrzeigersinn. */
+int[][] gedrehtRechts(int[][] pGrau) {
+    return pGrau; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Die Form des Ergebnisses"}
+
+```java
+int[][] neu = new int[pGrau[0].length][pGrau.length];
+```
+
+Die Zeilenzahl des Neuen ist die Spaltenzahl des Alten – und umgekehrt.
+
+::::
+
+::::collapsible{title="Tipp 2: Das 3 × 2 auf Papier"}
+
+```
+  alt              gedreht
+  A B C            D A
+  D E F            E B
+                   F C
+```
+
+`A` steht bei `alt[0][0]` und landet bei `neu[0][1]`. `D` steht bei `alt[1][0]`
+und landet bei `neu[0][0]`. Schreibe für beide die Indizes untereinander, dann
+siehst du die Vorschrift.
+
+::::
+
+:::protect{password="foto-4-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] gedrehtRechts(int[][] pGrau) {
+    int hoehe = pGrau.length;
+    int breite = pGrau[0].length;
+    int[][] neu = new int[breite][hoehe];
+    for (int zeile = 0; zeile < hoehe; zeile++) {
+        for (int spalte = 0; spalte < breite; spalte++) {
+            neu[spalte][hoehe - 1 - zeile] = pGrau[zeile][spalte];
+        }
+    }
+    return neu;
+}
+```
+
+Zwei Dinge geschehen hier gleichzeitig: Die beiden Indizes **tauschen die
+Plätze** – das allein wäre das Transponieren aus dem Kapitel
+[Zweidimensionale Felder](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/01-zweidimensionale-felder) –,
+und einer von beiden zählt zusätzlich **rückwärts**. Ohne das Rückwärtszählen
+bekämst du das Bild an der Diagonalen gespiegelt, was von einer Drehung nur
+schwer zu unterscheiden ist, wenn man nicht genau hinsieht.
+
+Das gedrehte Bild ist hochkant und wird auf der Leinwand deshalb schmal
+gezeigt – die Zelle bleibt gleich groß, das Bild passt sich ihr an.
+
+:::
+
+## Zum Weiterdenken
+
+:::snippet{#brain}
+`gespiegelt` legt ein neues Gitter an. Das kostet Speicher – bei einem echten
+Foto mit 12 Megapixeln immerhin einige Dutzend Megabyte.
+
+a) Wie ließe sich waagerecht spiegeln, **ohne** ein zweites Gitter anzulegen?
+
+b) Bis wohin darf die Schleife dann laufen? Was geht schief, wenn sie bis zum
+   Ende läuft?
+
+c) Warum funktioniert derselbe Trick beim Drehen um 90 Grad **nicht**, solange
+   das Bild nicht quadratisch ist?
+:::

@@ -1,0 +1,314 @@
+---
+title: Das Bild als Gitter
+index: 1
+lang: de
+permaid: fotofilter-bild-als-gitter
+---
+
+# Das Bild als Gitter
+
+Halte dein Handy nah genug an ein Foto, und irgendwann siehst du keine Kabel
+und keine LED mehr, sondern Kästchen. Genau so liegt ein Bild im Speicher:
+als Tabelle aus Zahlen, Zeile für Zeile.
+
+## Das Foto zum ersten Mal
+
+Das Objekt `foto` liefert dir das Bild als **Graustufen** – eine Zahl je
+Bildpunkt, 0 ist schwarz, 255 ist weiß.
+
+:::onlineide{height="640px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    IO.println("Zeilen:  " + grau.length);
+    IO.println("Spalten: " + grau[0].length);
+    IO.println("Oben links:   " + grau[0][0]);
+    IO.println("Unten rechts: " + grau[71][95]);
+
+    Leinwand leinwand = new Leinwand(1);
+    leinwand.zeige(grau);
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::snippet{#merken}
+| Schreibweise | Bedeutung |
+| --- | --- |
+| `int[][] grau` | ein zweidimensionales Feld – ein **Feld von Feldern** |
+| `grau[3][10]` | der Bildpunkt in **Zeile 3**, **Spalte 10** |
+| `grau.length` | die Anzahl der **Zeilen**, hier 72 |
+| `grau[0].length` | die Anzahl der **Spalten** in Zeile 0, hier 96 |
+
+**Zuerst die Zeile, dann die Spalte.** Wer das vertauscht, greift bei einem
+96 × 72 großen Bild irgendwann außerhalb zu und bekommt einen Laufzeitfehler.
+
+Und: **Zeile 0 ist oben.** Die Zeilennummern wachsen nach unten, anders als
+die y-Achse auf der Bühne.
+:::
+
+```
+grau
+       Spalte 0    1    2   …   95
+Zeile 0  ┌────┬────┬────┬───┬────┐
+         │ 64 │ 66 │ 71 │ … │ 76 │   ← grau[0] ist ein int[] der Länge 96
+Zeile 1  ├────┼────┼────┼───┼────┤
+         │ 64 │ 69 │ 70 │ … │ 76 │
+   …     ├────┼────┼────┼───┼────┤
+Zeile 71 │101 │100 │100 │ … │ 25 │
+         └────┴────┴────┴───┴────┘
+```
+
+## Jeden Bildpunkt einmal anfassen
+
+Fast jeder Filter in diesem Projekt sieht innen gleich aus: zwei
+ineinandergeschachtelte Schleifen, außen die Zeilen, innen die Spalten.
+
+:::snippet{#merken}
+```java
+for (int zeile = 0; zeile < grau.length; zeile++) {
+    for (int spalte = 0; spalte < grau[zeile].length; spalte++) {
+        // hier steht grau[zeile][spalte] zur Verfügung
+    }
+}
+```
+
+Schreibe innen `grau[zeile].length` und nicht `grau[0].length`. Bei einem
+Foto sind alle Zeilen gleich lang, aber die Gewohnheit trägt später, wenn sie
+es nicht mehr sind.
+:::
+
+## Aufgabe 1: Wie hell ist das Bild?
+
+:::snippet{#aufgabe}
+Ergänze die Methode `durchschnitt`. Sie soll die **mittlere Helligkeit** aller
+Bildpunkte liefern.
+
+**Sage vorher:** Das Foto zeigt eine überstrahlte LED vor einem dunklen
+Hintergrund. Liegt der Durchschnitt eher bei 60, bei 128 oder bei 200?
+:::
+
+:::onlineide{height="640px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    IO.println("Mittlere Helligkeit: " + durchschnitt(grau));
+
+    Leinwand leinwand = new Leinwand(1);
+    leinwand.zeige(grau);
+}
+
+/** Liefert die mittlere Helligkeit aller Bildpunkte. */
+int durchschnitt(int[][] pGrau) {
+    return 0; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Was brauchst du?"}
+
+Zwei Dinge: die **Summe** aller Werte und die **Anzahl** der Bildpunkte. Die
+Summe sammelst du in einer Variablen, die vor den Schleifen angelegt wird. Die
+Anzahl musst du nicht mitzählen – sie ist `pGrau.length * pGrau[0].length`.
+
+::::
+
+::::collapsible{title="Tipp 2: Das Gerüst"}
+
+```java
+int summe = 0;
+for (int zeile = 0; zeile < pGrau.length; zeile++) {
+    for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+        summe = summe + pGrau[zeile][spalte];
+    }
+}
+return summe / ???;
+```
+
+::::
+
+:::protect{password="foto-1-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int durchschnitt(int[][] pGrau) {
+    int summe = 0;
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            summe = summe + pGrau[zeile][spalte];
+        }
+    }
+    return summe / (pGrau.length * pGrau[0].length);
+}
+```
+
+Heraus kommen **115** – also fast genau die Mitte zwischen 0 und 255. Das ist
+kein Zufall, sondern das Ergebnis zweier Extreme, die sich ausgleichen: eine
+überstrahlte LED und eine helle Steckplatine auf der einen Seite, tiefschwarze
+Steckverbinder auf der anderen. Der Durchschnitt allein sagt über ein Bild also
+erstaunlich wenig – er wäre derselbe, wenn das ganze Bild gleichmäßig grau wäre.
+
+Übrigens: `int` reicht für die Summe. 96 · 72 · 255 sind knapp 1,8 Millionen,
+und ein `int` trägt gut zwei Milliarden. Bei einem echten Foto mit 12
+Megapixeln wäre das anders.
+
+:::
+
+## Aufgabe 2: Wo ist der hellste Punkt?
+
+:::snippet{#aufgabe}
+Suche den Bildpunkt mit dem **größten** Wert und gib seine Zeile und seine
+Spalte aus. Markiere ihn anschließend: Setze im Gitter ein Kreuz aus schwarzen
+Punkten (Wert 0) um ihn herum und zeige das Bild noch einmal.
+
+Anders als bei Aufgabe 1 genügt eine Zahl als Ergebnis nicht – du brauchst
+**zwei**. Überlege dir, wie du beide aus einer Methode herausbekommst.
+:::
+
+:::onlineide{height="700px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    // Suche hier den hellsten Bildpunkt.
+    // Merke dir seinen Wert, seine Zeile und seine Spalte.
+
+    IO.println("Hellster Punkt: Zeile ?, Spalte ?");
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+
+    // Setze hier ein Kreuz aus schwarzen Punkten um die gefundene Stelle.
+
+    leinwand.zeige(grau);
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Zwei Ergebnisse"}
+
+Drei Wege gibt es:
+
+1. Zwei Attribute der Klasse, die die Methode setzt.
+2. Ein `int[]` mit zwei Feldern als Rückgabewert.
+3. Gar keine Methode – die Suche steht direkt in `main`.
+
+Für eine erste Lösung ist der dritte Weg völlig in Ordnung.
+
+::::
+
+::::collapsible{title="Tipp 2: Die Suche"}
+
+Es ist dieselbe Suche wie beim Maximum eines eindimensionalen Feldes, nur mit
+einer Schleife mehr. Merke dir nicht nur den Wert, sondern auch, **wo** er stand:
+
+```java
+int besterWert = pGrau[0][0];
+int besteZeile = 0;
+int besteSpalte = 0;
+// … in den Schleifen: ist pGrau[zeile][spalte] größer, alle drei aktualisieren
+```
+
+::::
+
+:::protect{password="foto-1-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    int besterWert = grau[0][0];
+    int besteZeile = 0;
+    int besteSpalte = 0;
+    for (int zeile = 0; zeile < grau.length; zeile++) {
+        for (int spalte = 0; spalte < grau[zeile].length; spalte++) {
+            if (grau[zeile][spalte] > besterWert) {
+                besterWert = grau[zeile][spalte];
+                besteZeile = zeile;
+                besteSpalte = spalte;
+            }
+        }
+    }
+    IO.println("Hellster Punkt: Zeile " + besteZeile + ", Spalte " + besteSpalte
+        + " mit " + besterWert);
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+
+    for (int i = -6; i <= 6; i++) {
+        setze(grau, besteZeile + i, besteSpalte, 0);
+        setze(grau, besteZeile, besteSpalte + i, 0);
+    }
+    leinwand.zeige(grau);
+}
+
+/** Setzt einen Wert, falls Zeile und Spalte im Bild liegen. */
+void setze(int[][] pGrau, int pZeile, int pSpalte, int pWert) {
+    if (pZeile >= 0 && pZeile < pGrau.length
+            && pSpalte >= 0 && pSpalte < pGrau[0].length) {
+        pGrau[pZeile][pSpalte] = pWert;
+    }
+}
+```
+
+Zwei Dinge sind hier wichtig:
+
+**Die Prüfung in `setze`.** Liegt der hellste Punkt am Rand, ragt das Kreuz aus
+dem Bild heraus. Ohne die Prüfung bricht das Programm dort ab. Solche
+Randfälle begegnen dir auf jeder weiteren Seite dieses Projekts.
+
+**Das Bild verändert sich.** `setze` schreibt in dasselbe Gitter, das die
+Leinwand schon gezeigt hat. Dass das linke Bild trotzdem unverändert bleibt,
+liegt nur daran, dass die Leinwand die Farben beim Zeigen sofort kopiert.
+Verlass dich nicht darauf – auf der Seite [Weichzeichnen](./05-weichzeichnen)
+wird genau das noch zum Problem.
+
+:::
+
+## Zum Weiterdenken
+
+:::snippet{#brain}
+Das Foto ist 96 × 72 Bildpunkte groß und liegt als `int[][]` im Speicher.
+
+a) Wie viele Zahlen sind das? Wie viel Speicher braucht das Gitter, wenn ein
+   `int` vier Byte belegt?
+
+b) Ein Foto aus einer Handykamera hat 4032 × 3024 Bildpunkte, und zwar in drei
+   Farbkanälen. Wie viel wären es dann?
+
+c) Eine JPEG-Datei dieses Fotos ist keine 5 Megabyte groß. Wie kann das sein?
+:::

@@ -1,0 +1,294 @@
+---
+title: Farbe und Kanäle
+index: 3
+lang: de
+permaid: fotofilter-farbkanaele
+---
+
+# Farbe und Kanäle
+
+Bis jetzt war das Foto grau. Ein Farbbild braucht drei Zahlen je Bildpunkt –
+für Rot, Grün und Blau. Statt eines Gitters hast du also **drei**, alle gleich
+groß, und dieselbe Stelle steht in allen dreien für denselben Bildpunkt.
+
+## Die drei Kanäle einzeln
+
+:::onlineide{height="660px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] r = foto.rot();
+    int[][] g = foto.gruen();
+    int[][] b = foto.blau();
+
+    int[][] nichts = new int[foto.hoehe()][foto.breite()];
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(r, g, b);
+    leinwand.zeige(r, nichts, nichts);
+    leinwand.zeige(nichts, g, nichts);
+    leinwand.zeige(nichts, nichts, b);
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::snippet{#merken}
+Drei Gitter derselben Größe beschreiben ein Farbbild:
+
+| | |
+| --- | --- |
+| `r[zeile][spalte]` | der Rotanteil dieses Bildpunkts, 0 bis 255 |
+| `g[zeile][spalte]` | der Grünanteil |
+| `b[zeile][spalte]` | der Blauanteil |
+
+Alle drei auf 0 ergibt Schwarz, alle drei auf 255 ergibt Weiß. Sind alle drei
+**gleich**, ist der Bildpunkt grau – genau das war das Bild der letzten beiden
+Seiten.
+:::
+
+Das leere Gitter `nichts` zeigt nebenbei etwas Nützliches: `new int[72][96]` ist
+nicht leer, sondern **mit Nullen gefüllt**. Java legt jedes frische Zahlenfeld
+so an.
+
+## Aufgabe 1: Graustufen selbst rechnen
+
+Bisher hat `foto.graustufen()` die Umrechnung für dich erledigt. Jetzt machst
+du sie selbst.
+
+:::snippet{#aufgabe}
+a) Die naheliegende Vorschrift ist der **Durchschnitt** der drei Kanäle.
+   Schreibe `grauEinfach` und vergleiche das Ergebnis mit `foto.graustufen()`.
+
+b) Das Auge sieht Grün heller als Blau. Deshalb rechnet man üblicherweise
+
+```
+grau = (rot * 30 + grün * 59 + blau * 11) / 100
+```
+
+   Schreibe `grauGewichtet` und stelle beide nebeneinander. Wo siehst du einen
+   Unterschied – und warum gerade dort?
+:::
+
+:::onlineide{height="720px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] r = foto.rot();
+    int[][] g = foto.gruen();
+    int[][] b = foto.blau();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(r, g, b);
+    leinwand.zeige(grauEinfach(r, g, b));
+    leinwand.zeige(grauGewichtet(r, g, b));
+}
+
+/** Graustufen als Durchschnitt der drei Kanaele. */
+int[][] grauEinfach(int[][] pRot, int[][] pGruen, int[][] pBlau) {
+    return pRot; // ersetze diese Zeile
+}
+
+/** Graustufen mit 30 Prozent Rot, 59 Prozent Gruen und 11 Prozent Blau. */
+int[][] grauGewichtet(int[][] pRot, int[][] pGruen, int[][] pBlau) {
+    return pRot; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp: Drei Gitter, eine Schleife"}
+
+Du brauchst keine drei Schleifenpaare. Zeile und Spalte gelten für alle drei
+Gitter gleichzeitig:
+
+```java
+neu[zeile][spalte] = (pRot[zeile][spalte] + pGruen[zeile][spalte]
+                      + pBlau[zeile][spalte]) / 3;
+```
+
+::::
+
+:::protect{password="foto-3-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java
+int[][] grauEinfach(int[][] pRot, int[][] pGruen, int[][] pBlau) {
+    int[][] neu = new int[pRot.length][pRot[0].length];
+    for (int zeile = 0; zeile < pRot.length; zeile++) {
+        for (int spalte = 0; spalte < pRot[zeile].length; spalte++) {
+            neu[zeile][spalte] = (pRot[zeile][spalte] + pGruen[zeile][spalte]
+                + pBlau[zeile][spalte]) / 3;
+        }
+    }
+    return neu;
+}
+
+int[][] grauGewichtet(int[][] pRot, int[][] pGruen, int[][] pBlau) {
+    int[][] neu = new int[pRot.length][pRot[0].length];
+    for (int zeile = 0; zeile < pRot.length; zeile++) {
+        for (int spalte = 0; spalte < pRot[zeile].length; spalte++) {
+            neu[zeile][spalte] = (pRot[zeile][spalte] * 30 + pGruen[zeile][spalte] * 59
+                + pBlau[zeile][spalte] * 11) / 100;
+        }
+    }
+    return neu;
+}
+```
+
+Der Unterschied ist am deutlichsten dort, wo eine Farbe kräftig und eine andere
+schwach ist: beim violetten Hintergrund und bei den bunten Kabeln. Violett ist
+viel Rot und viel Blau, aber kaum Grün – der gewichtete Grauwert fällt dort
+also **dunkler** aus als der Durchschnitt. Die weiße LED sieht in beiden
+Bildern gleich aus, weil dort alle drei Kanäle ohnehin dasselbe sagen.
+
+Ein Hinweis zur Rechnung: `* 30 + … / 100` statt `* 0.3 + …` ist Absicht. In
+`int` gerechnet gibt es keine Rundungsfragen, und das Ergebnis passt ohne
+Umwandlung zurück ins Gitter.
+
+:::
+
+## Aufgabe 2: Kanäle vertauschen und Sepia
+
+:::snippet{#aufgabe}
+a) Zeige das Foto einmal mit **vertauschten Kanälen**: Rot an die Stelle von
+   Blau, Blau an die Stelle von Rot. Wie viele Zeilen Code brauchst du dafür?
+   (Die Antwort ist überraschend kurz.)
+
+b) **Sepia** ist der Braunton alter Fotografien. Man erhält ihn, indem man
+   zuerst Graustufen berechnet und die drei Kanäle dann unterschiedlich stark
+   wieder anhebt – Rot am stärksten, Blau am schwächsten. Probiere
+
+```
+rot   = grau * 110 / 100
+grün  = grau *  95 / 100
+blau  = grau *  75 / 100
+```
+
+   Vergiss das Begrenzen nach oben nicht.
+
+c) Baue dir daraus einen Regler: Schreibe `farbstich(int[][] pGrau, int pRot,
+   int pGruen, int pBlau)`, dem du die drei Prozentzahlen übergibst. Welche
+   Zahlen ergeben einen kalten, blaustichigen Look?
+:::
+
+:::onlineide{height="720px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] r = foto.rot();
+    int[][] g = foto.gruen();
+    int[][] b = foto.blau();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(r, g, b);
+
+    // a) dasselbe Bild mit vertauschten Kanaelen
+
+    // b) Sepia: drei Kanaele aus demselben Graubild
+
+    // c) ein kalter, blaustichiger Look
+}
+
+/** Liefert ein Gitter, in dem jeder Wert auf pProzent seiner selbst steht. */
+int[][] farbstich(int[][] pGrau, int pProzent) {
+    return pGrau; // ersetze diese Zeile
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp zu a)"}
+
+Du musst kein einziges Gitter umrechnen. Sieh dir an, in welcher Reihenfolge
+`leinwand.zeige` seine drei Parameter erwartet.
+
+::::
+
+:::protect{password="foto-3-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+a) Eine Zeile:
+
+```java
+leinwand.zeige(b, g, r);
+```
+
+Die Gitter bleiben, wie sie sind – nur die Rolle, in der sie gezeigt werden,
+ändert sich. Genau das ist der Unterschied zwischen den **Daten** und ihrer
+**Deutung**.
+
+b) und c) Sepia ist ein Sonderfall von `farbstich`:
+
+```java
+void sepia(Leinwand pLeinwand, int[][] pGrau) {
+    pLeinwand.zeige(farbstich(pGrau, 110), farbstich(pGrau, 95), farbstich(pGrau, 75));
+}
+
+/** Liefert ein Gitter, in dem jeder Wert auf pProzent seiner selbst steht. */
+int[][] farbstich(int[][] pGrau, int pProzent) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            int wert = pGrau[zeile][spalte] * pProzent / 100;
+            if (wert > 255) {
+                wert = 255;
+            }
+            neu[zeile][spalte] = wert;
+        }
+    }
+    return neu;
+}
+```
+
+Ein kalter Look entsteht umgekehrt: Blau über 100, Rot darunter, etwa
+`farbstich(grau, 80)`, `farbstich(grau, 95)`, `farbstich(grau, 120)`.
+
+Beachte, dass **alle drei Kanäle aus demselben Graugitter** entstehen. Deshalb
+ist Sepia kein Farbfilter im eigentlichen Sinn: Die ursprünglichen Farben sind
+längst weg, sie werden nur durch eine neue ersetzt.
+
+:::
+
+## Zum Weiterdenken
+
+:::snippet{#brain}
+Ein Grünfilter für Videokonferenzen soll alle Bildpunkte finden, die „grün
+genug" sind, um durch einen Hintergrund ersetzt zu werden.
+
+a) Eine erste Idee wäre `g[zeile][spalte] > 150`. Warum reicht das nicht?
+   Denk an eine hell beleuchtete weiße Wand.
+
+b) Formuliere eine bessere Bedingung, die Grün nicht absolut, sondern **im
+   Verhältnis** zu Rot und Blau prüft.
+
+c) Setze sie um: Zeige das Foto und färbe jeden Bildpunkt, der die Bedingung
+   erfüllt, kräftig magenta ein. Am Foto mit der LED wirst du kaum etwas
+   finden – genau das ist ein brauchbares Ergebnis.
+:::

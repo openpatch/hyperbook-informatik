@@ -1,0 +1,420 @@
+---
+title: Filter als Klassen
+index: 7
+lang: de
+permaid: fotofilter-filter-als-klassen
+---
+
+# Filter als Klassen
+
+Du hast jetzt ein Dutzend Filter geschrieben, und alle stehen als Methoden
+nebeneinander in `Main.java`. Das funktioniert, hat aber zwei Schwächen.
+
+Zum einen bekommt jeder Filter seine Einstellungen als Parameter mitgereicht –
+`schwelle(grau, 128)`, `heller(grau, 60)`. Eine Liste von Filtern lässt sich so
+nicht bilden, weil jeder anders aufgerufen wird.
+
+Zum anderen wird das Hintereinanderschalten unübersichtlich, sobald es mehr als
+zwei sind:
+
+```java
+leinwand.zeige(schwelle(kanten(weich(heller(grau, 30))), 40));
+```
+
+Das liest sich von innen nach außen, also gegen die Reihenfolge, in der es
+passiert. Beides lösen wir jetzt mit dem, was du über
+[Vererbung und abstrakte Klassen](/oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung)
+gelernt hast.
+
+## Ein Filter wird ein Objekt
+
+Alle Filter haben eines gemeinsam: Sie machen aus einem Gitter ein neues. Das
+ist die **gemeinsame Schnittstelle**, und mehr braucht die Oberklasse nicht.
+
+```java
+public abstract class Filter {
+    public abstract int[][] anwenden(int[][] pBild);
+}
+```
+
+Was ein Filter darüber hinaus braucht – eine Grenze, eine Anzahl Stufen –,
+speichert er in eigenen Attributen und bekommt es im **Konstruktor**.
+
+:::onlineide{height="760px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Filter aufhellen = new Heller(60);
+    Filter umkehren = new Invertieren();
+    Filter schwarzweiss = new Schwelle(128);
+
+    Leinwand leinwand = new Leinwand(4);
+    leinwand.zeige(grau);
+    leinwand.zeige(aufhellen.anwenden(grau));
+    leinwand.zeige(umkehren.anwenden(grau));
+    leinwand.zeige(schwarzweiss.anwenden(grau));
+}
+```
+
+```java Filter.java
+{{{rfile "/book/projekte/fotofilter/quelle/Filter.java"}}}
+```
+
+```java Heller.java
+{{{rfile "/book/projekte/fotofilter/quelle/Heller.java"}}}
+```
+
+```java Invertieren.java
+{{{rfile "/book/projekte/fotofilter/quelle/Invertieren.java"}}}
+```
+
+```java Schwelle.java
+{{{rfile "/book/projekte/fotofilter/quelle/Schwelle.java"}}}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+Öffne im Programmierbereich nacheinander `Filter.java`, `Heller.java`,
+`Invertieren.java` und `Schwelle.java`. Der Rechenteil in jedem `anwenden` ist
+derselbe, den du schon geschrieben hast – nur steht er jetzt in einer eigenen
+Klasse, und die Einstellung kommt aus einem Attribut statt aus einem Parameter.
+
+:::snippet{#merken}
+Drei Dinge sind hier passiert:
+
+1. **Die Einstellung wandert ins Objekt.** `new Schwelle(128)` merkt sich die
+   Grenze. Danach sieht der Aufruf bei jedem Filter gleich aus:
+   `f.anwenden(bild)`.
+2. **Gemeinsames wandert in die Oberklasse.** `leeresWie` und `begrenzt` stehen
+   einmal in `Filter` statt fünfmal in den Unterklassen. Sie sind `protected`,
+   gehören also den Unterklassen, aber nicht der Außenwelt.
+3. **Der Typ ist `Filter`, das Objekt ist eine Unterklasse.** In der Zeile
+   `Filter aufhellen = new Heller(60);` stehen beide. Welches `anwenden`
+   ausgeführt wird, entscheidet sich erst zur Laufzeit – das ist
+   **Polymorphie**.
+:::
+
+:::alert{info}
+In der Online-IDE wird `@Override` vor der überschreibenden Methode nicht
+verwendet. In echtem Java gehört es dorthin; es ändert nichts am Ablauf, lässt
+den Übersetzer aber prüfen, ob wirklich etwas überschrieben wird.
+:::
+
+## Aufgabe 1: Die Filterkette
+
+Jetzt zahlt sich die gemeinsame Oberklasse aus: Filter lassen sich in ein Feld
+legen und der Reihe nach anwenden.
+
+:::snippet{#aufgabe}
+Ergänze im Hauptprogramm die Methode
+
+```java
+int[][] kette(Filter[] pFilter, int[][] pBild)
+```
+
+Sie wendet die Filter **in der Reihenfolge des Feldes** an und liefert das
+Ergebnis. Erprobt wird sie mit
+
+```java
+Filter[] scherenschnitt = { new Weichzeichnen(), new Kanten(), new Schwelle(40) };
+```
+
+Die Klassen `Weichzeichnen` und `Kanten` liegen im Programmierbereich als
+leere Hüllen bereit. Ihr Rechenteil steht schon fertig auf den Seiten
+[Weichzeichnen](./05-weichzeichnen) und [Kanten finden](./06-kanten-finden) –
+du musst ihn nur noch in die Form einer Klasse bringen.
+:::
+
+:::onlineide{height="800px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Filter[] scherenschnitt = { new Weichzeichnen(), new Kanten(), new Schwelle(40) };
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(kette(scherenschnitt, grau));
+}
+
+/** Wendet alle Filter der Reihe nach an. */
+int[][] kette(Filter[] pFilter, int[][] pBild) {
+    return pBild; // ersetze diese Zeile
+}
+```
+
+```java Weichzeichnen.java
+public class Weichzeichnen extends Filter {
+
+    public int[][] anwenden(int[][] pBild) {
+        return pBild; // ersetze diese Zeile
+    }
+}
+```
+
+```java Kanten.java
+public class Kanten extends Filter {
+
+    public int[][] anwenden(int[][] pBild) {
+        return pBild; // ersetze diese Zeile
+    }
+}
+```
+
+```java Filter.java
+{{{rfile "/book/projekte/fotofilter/quelle/Filter.java"}}}
+```
+
+```java Heller.java
+{{{rfile "/book/projekte/fotofilter/quelle/Heller.java"}}}
+```
+
+```java Invertieren.java
+{{{rfile "/book/projekte/fotofilter/quelle/Invertieren.java"}}}
+```
+
+```java Schwelle.java
+{{{rfile "/book/projekte/fotofilter/quelle/Schwelle.java"}}}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Die Schleife"}
+
+Die Kette braucht eine Variable, die das **Zwischenergebnis** hält. Am Anfang
+ist das das Ausgangsbild, danach jedes Mal das Ergebnis des letzten Filters.
+
+::::
+
+::::collapsible{title="Tipp 2: Woher kommt der Typ?"}
+
+`pFilter[i]` hat den Typ `Filter`, und `Filter` kennt `anwenden`. Mehr musst du
+nicht wissen – ob dort ein `Schwelle`- oder ein `Kanten`-Objekt steckt, geht die
+Kette nichts an. Genau das ist der Gewinn.
+
+::::
+
+::::protect{password="foto-7-1" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Filter[] scherenschnitt = { new Weichzeichnen(), new Kanten(), new Schwelle(40) };
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(kette(scherenschnitt, grau));
+}
+
+/** Wendet alle Filter der Reihe nach an. */
+int[][] kette(Filter[] pFilter, int[][] pBild) {
+    int[][] zwischen = pBild;
+    for (int i = 0; i < pFilter.length; i++) {
+        zwischen = pFilter[i].anwenden(zwischen);
+    }
+    return zwischen;
+}
+```
+
+```java Weichzeichnen.java
+public class Weichzeichnen extends Filter {
+
+    public int[][] anwenden(int[][] pBild) {
+        int[][] neu = leeresWie(pBild);
+        for (int zeile = 1; zeile < pBild.length - 1; zeile++) {
+            for (int spalte = 1; spalte < pBild[zeile].length - 1; spalte++) {
+                int summe = 0;
+                for (int dz = -1; dz <= 1; dz++) {
+                    for (int ds = -1; ds <= 1; ds++) {
+                        summe = summe + pBild[zeile + dz][spalte + ds];
+                    }
+                }
+                neu[zeile][spalte] = summe / 9;
+            }
+        }
+        return neu;
+    }
+}
+```
+
+```java Kanten.java
+public class Kanten extends Filter {
+
+    public int[][] anwenden(int[][] pBild) {
+        int[][] neu = leeresWie(pBild);
+        for (int zeile = 1; zeile < pBild.length; zeile++) {
+            for (int spalte = 1; spalte < pBild[zeile].length; spalte++) {
+                int w = pBild[zeile][spalte] - pBild[zeile][spalte - 1];
+                int s = pBild[zeile][spalte] - pBild[zeile - 1][spalte];
+                neu[zeile][spalte] = begrenzt((int) Math.sqrt(w * w + s * s));
+            }
+        }
+        return neu;
+    }
+}
+```
+
+Die Zeile, auf die es ankommt, ist diese:
+
+```java
+zwischen = pFilter[i].anwenden(zwischen);
+```
+
+Sie ruft drei verschiedene Methoden auf, ohne dass im Quelltext steht, welche.
+Und sie funktioniert unverändert weiter, wenn du morgen einen vierten Filter
+dazuschreibst – **solange er von `Filter` erbt**.
+
+::::
+
+## Aufgabe 2: Ein Filter, der Filter enthält
+
+:::snippet{#aufgabe}
+Die Unscharfmaskierung von der Seite [Weichzeichnen](./05-weichzeichnen)
+braucht selbst einen Weichzeichner. Als Klasse geschrieben, enthält sie also
+einen **anderen Filter** als Attribut.
+
+a) Fülle die Klasse `Schaerfen` im Programmierbereich aus. Sie legt sich im
+   Konstruktor ein `Weichzeichnen`-Objekt an und benutzt es in `anwenden`.
+
+b) Gib ihr einen zweiten Konstruktor, dem man den inneren Filter übergeben
+   kann. Was gewinnst du damit?
+
+c) Warum ist das keine Vererbung? Beschreibe in einem Satz den Unterschied
+   zwischen „`Schaerfen` **ist ein** Filter" und „`Schaerfen` **hat einen**
+   Filter". Beides trifft hier zu.
+:::
+
+:::onlineide{height="800px" speed="1000000"}
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Filter schaerfen = new Schaerfen();
+
+    Leinwand leinwand = new Leinwand(3);
+    leinwand.zeige(grau);
+    leinwand.zeige(new Weichzeichnen().anwenden(grau));
+    leinwand.zeige(schaerfen.anwenden(grau));
+}
+```
+
+```java Schaerfen.java
+public class Schaerfen extends Filter {
+
+    private Filter weichzeichner;
+
+    public Schaerfen() {
+        // Lege hier den inneren Filter an.
+    }
+
+    public int[][] anwenden(int[][] pBild) {
+        return pBild; // ersetze diese Zeile
+    }
+}
+```
+
+```java Filter.java
+{{{rfile "/book/projekte/fotofilter/quelle/Filter.java"}}}
+```
+
+```java Weichzeichnen.java
+{{{rfile "/book/projekte/fotofilter/quelle/Weichzeichnen.java"}}}
+```
+
+```java Schwelle.java
+{{{rfile "/book/projekte/fotofilter/quelle/Schwelle.java"}}}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+::::protect{password="foto-7-2" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+```java Schaerfen.java
+public class Schaerfen extends Filter {
+
+    private Filter weichzeichner;
+
+    public Schaerfen() {
+        weichzeichner = new Weichzeichnen();
+    }
+
+    public Schaerfen(Filter pWeichzeichner) {
+        weichzeichner = pWeichzeichner;
+    }
+
+    public int[][] anwenden(int[][] pBild) {
+        int[][] unscharf = weichzeichner.anwenden(pBild);
+        int[][] neu = leeresWie(pBild);
+        for (int zeile = 0; zeile < pBild.length; zeile++) {
+            for (int spalte = 0; spalte < pBild[zeile].length; spalte++) {
+                neu[zeile][spalte] = begrenzt(pBild[zeile][spalte]
+                    + (pBild[zeile][spalte] - unscharf[zeile][spalte]));
+            }
+        }
+        return neu;
+    }
+}
+```
+
+b) Das Attribut hat den Typ `Filter`, nicht `Weichzeichnen`. Du kannst der
+Klasse deshalb **jeden** Filter als inneren Filter geben – auch einen stärkeren
+Weichzeichner oder eine ganze Kette, wenn du `Kette` selbst als Filter
+schreibst. `Schaerfen` muss dafür nicht geändert werden.
+
+c) `Schaerfen` **ist ein** Filter, weil es von `Filter` erbt und überall
+eingesetzt werden kann, wo ein `Filter` erwartet wird. `Schaerfen` **hat einen**
+Filter, weil eines seiner Attribute ein Filterobjekt ist. Das erste ist
+Vererbung, das zweite eine Beziehung zwischen zwei Objekten. Im Klassendiagramm
+ist das erste ein Dreieckspfeil, das zweite eine Linie mit Kardinalität.
+
+::::
+
+## Zum Weiterdenken
+
+:::snippet{#brain}
+In Aufgabe 1 steht die Kette als Methode im Hauptprogramm. Schreibe sie als
+**Klasse** `Kette`, die selbst von `Filter` erbt und im Konstruktor ein
+`Filter[]` bekommt.
+
+a) Was kannst du danach, was vorher nicht ging? Denk an Aufgabe 2.
+
+b) Kann eine `Kette` eine andere `Kette` enthalten? Was bedeutet das für die
+   Tiefe, in der Filter geschachtelt werden können?
+
+c) Dieses Muster – eine Klasse, die dieselbe Schnittstelle erfüllt wie die
+   Dinge, die sie enthält – hat einen Namen. Such ihn und schau dir an, wo es
+   sonst noch vorkommt. Dateiordner und Dateien sind ein bekanntes Beispiel.
+:::
