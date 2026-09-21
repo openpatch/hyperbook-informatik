@@ -111,23 +111,21 @@ Anders als die Übersicht oben richtet sich die Seite [Lösungspasswörter](../b
 an **Lernende**: Wer zu Hause eine Aufgabe bearbeitet hat, soll seine Lösung
 vergleichen können, ohne bis zur nächsten Stunde zu warten.
 
-```bash
-python3 tools/erzeuge_passwortseite.py            # book/loesungen.md neu schreiben
-python3 tools/erzeuge_passwortseite.py --pruefen  # nur melden, ob sie aktuell ist
+Die Seite verwendet die eingebaute [Passwordlist-Direktive](https://hyperbook.openpatch.org/elements/passwordlist)
+von Hyperbook ab Version 0.108.0:
+
+```md
+::passwordlist{type="block" orderBy="navigation" groupBy="top-section,page" collapsible showCount columns="context,password"}
 ```
 
-Die Seite wird **erzeugt**. Wer einen `protect`-Block hinzufügt, ändert oder
-verschiebt, lässt das Skript neu laufen. Zwei Netze fangen das Vergessen ab:
+Hyperbook erzeugt die Liste bei jedem Build aus den aktuellen `protect`-Blöcken.
+Sie folgt der Navigation und gruppiert die Einträge nach oberstem Abschnitt und Seite.
+Ein separates Generatorskript ist nicht nötig.
 
-- `python3 tools/pruefe-alles.py --generatoren` meldet, wenn die eingecheckte
-  Seite nicht mehr zum Bestand passt.
-- Der GitHub-Workflow erzeugt sie **vor** `npx hyperbook build` neu, sodass die
-  veröffentlichte Fassung immer stimmt.
-
-Neben jedem Passwort steht, zu welchem Block es gehört – bevorzugt die
-Überschrift der Aufgabe (`**Aufgabe 2: …**`), sonst die Abschnittsüberschrift.
-Ohne diese Angabe wäre die Liste wertlos, weil eine Seite oft mehrere
-geschützte Blöcke hat.
+Neben jedem Passwort steht, zu welchem Block es gehört: das `name`-Attribut
+des Blocks, die vorausgehende Aufgabenüberschrift oder die Abschnittsüberschrift.
+Bei ungewöhnlichen Seitenstrukturen kann der `protect`-Block mit `name="…"`
+eine ausdrückliche Bezeichnung erhalten.
 
 ## Einmalige Einrichtung
 
@@ -238,7 +236,7 @@ Vorhersage prüfen will, legt beides vorübergehend in eine Seite unter
 `book/_probe/` und lässt das Skript darauf los.
 
 Gesucht wird in `tools/` **und** in jedem Unterordner: pfadweite Werkzeuge
-liegen in einem Unterordner, buchweite (etwa die Passwortseite) direkt in
+liegen in einem Unterordner, buchweite (etwa die Passwortübersicht) direkt in
 `tools/`.
 
 Damit das zusammenpasst, sollte jedes neue Werkzeug:

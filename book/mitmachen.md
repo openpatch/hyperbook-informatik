@@ -265,21 +265,20 @@ Projekt- und Referenzkapitel brauchen keinen Rückblick; die Prüfskripte nehmen
 
 Lösungen stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`.
 
-Das Passwort folgt dem Schema `<pfad>-<kapitel>-<lektion>-<nummer>`, etwa `db-4-3-2` oder `web-2-6-1`, und ist **im ganzen Buch eindeutig**. Zwei Werkzeuge helfen dabei:
+Das Passwort folgt dem Schema `<pfad>-<kapitel>-<lektion>-<nummer>`, etwa `db-4-3-2` oder `web-2-6-1`, und ist **im ganzen Buch eindeutig**. Die Passwortübersicht hilft dabei:
 
 ```bash
 python3 tools/passwoerter.py              # Übersicht für Lehrkräfte, mit Seite und Abschnitt
-python3 tools/erzeuge_passwortseite.py    # erzeugt die Seite /loesungen im Buch
 ```
 
-Die Seite [Lösungspasswörter](/loesungen) gehört zum Buch und wird **erzeugt**, nicht von Hand gepflegt. Wer einen `protect`-Block hinzufügt, ändert oder verschiebt, lässt das Skript neu laufen; `python3 tools/pruefe-alles.py --generatoren` prüft, dass die eingecheckte Seite zum Bestand passt.
+Die Seite [Lösungspasswörter](/loesungen) verwendet die eingebaute `passwordlist`-Direktive von Hyperbook ab Version 0.108.0. Sie wird bei jedem Build automatisch aus den aktuellen `protect`-Blöcken zusammengestellt. Bei ungewöhnlichen Seitenstrukturen kannst du mit `name="…"` am `protect`-Block die Aufgabenbezeichnung für die Liste festlegen.
 
 ### Weitere Absprachen
 
 - **Bezüge zum Kernlehrplan** stehen in HTML-Kommentaren, damit sie im Buch nicht erscheinen. Sie sind für Lehrkräfte gedacht, nicht für Lernende.
 - **Fachbegriffe** werden beim ersten Auftreten als `:t[Begriff]{#glossar-id}` verlinkt – aber nicht in Überschriften, nicht in Code und nicht in `multievent`-Blöcken.
 - **Bilder** liegen neben der Markdown-Datei und heißen `<lektionsnummer>-<motiv>.png`.
-- **Erzeugte Dateien** – Datenbanken, Referenzbilder, die Passwortseite – werden nie von Hand bearbeitet. Wer sie ändern will, ändert das Skript.
+- **Erzeugte Dateien** – Datenbanken, Referenzbilder – werden nie von Hand bearbeitet. Wer sie ändern will, ändert das Skript.
 
 :::alert{info}
 Im `multievent`-Block darf **kein Inline-Code** mit Backticks stehen – die Syntaxhervorhebung zerlegt sonst die Antwortoptionen. Auch `{a{…}}`-Dropdowns funktionieren nicht; nimm stattdessen `{S1{…}}` oder Radiobuttons.
