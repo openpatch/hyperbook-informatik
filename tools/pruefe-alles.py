@@ -78,7 +78,7 @@ class Pruefung:
 def finde_pruefungen(nur: str | None) -> list[Pruefung]:
     gefunden: list[Pruefung] = []
     # tools/ selbst und jeder Unterordner. Pfadweite Werkzeuge liegen in einem
-    # Unterordner, buchweite (etwa die Passwortseite) direkt in tools/.
+    # Unterordner, buchweite (etwa die Passwortübersicht) direkt in tools/.
     ordner_liste = [TOOLS] + sorted(p for p in TOOLS.iterdir() if p.is_dir())
     for ordner in ordner_liste:
         for datei in sorted(ordner.iterdir()):
