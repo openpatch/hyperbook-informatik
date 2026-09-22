@@ -79,7 +79,7 @@ Eine gut aufgebaute Tabelle hat **eine Überschriftenzeile**, **eine Bedeutung p
 
 **1. Welche Adresse hat die Zelle in Spalte D und Zeile 7?**
 
-{r1{D7}}
+{r1{!D7}}
 {r1{7D}}
 {r1{D:7}}
 
