@@ -26,7 +26,7 @@ Am Ende hast du ein gutes Dutzend Filter geschrieben, sie zu einer Kette
 zusammengesteckt und dabei gesehen, warum man dafür Klassen und Vererbung
 gebrauchen kann.
 
-![Das Foto, mit dem du arbeitest](/images/willkommen-banner.jpg "Der Ausschnitt in der Mitte wird dein Versuchsobjekt")
+![Das Foto, mit dem du arbeitest](/images/fotofilter.png)
 
 ## Vorwissen
 
@@ -69,9 +69,8 @@ schon kennst. Nötig ist es nicht – die Seiten führen das ein, was sie brauch
 | [Dein eigener Filter](./08-dein-eigener-filter) | Freies Arbeiten, ohne Musterlösung |
 
 :::alert{info}
-**Woher kommt das Foto?** Die Entwicklungsumgebung im Browser kann keine
-Bilddatei laden. Das Foto bringt sich deshalb selbst mit: Es steckt als
-Zeichenkette in der Datei `Foto.java`, drei Zeichen je Bildpunkt. Die Datei
-findest du in jedem Programmierbereich – du musst sie nie anfassen, nur
-benutzen.
+**Woher kommt das Foto?** Die Online-IDE legt die Bilddatei als
+`fotofilter.png` im Programm ab. Die Klasse `Foto` lädt sie in ein `Bitmap`
+und liest daraus die Farbwerte der 96 × 72 Bildpunkte. Du findest die Klasse
+in jedem Programmierbereich – du musst sie nie anfassen, nur benutzen.
 :::

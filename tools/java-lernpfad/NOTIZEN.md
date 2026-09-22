@@ -377,10 +377,11 @@ Vier Fallstricke, alle im Browser nachgestellt:
 
 ### Ein eigenes Bild mitbringen
 
-Die Online-IDE kann keine Bilddatei laden. Das Foto im Projekt *Fotofilter*
-steckt deshalb als Zeichenkette in `Foto.java` - drei Zeichen je Bildpunkt, ein
-Zeichen fuer 6 Bit. Erzeugt wird die Datei von
-`tools/fotofilter/erzeuge_foto.py`, eingebunden per `rfile` (siehe unten).
+Die Projektseiten stellen das Foto der Online-IDE mit einer `@file`-Direktive
+als `fotofilter.png` bereit. `Foto.java` lädt diese Datei in ein `Bitmap` und
+liest daraus mit `getColorAsInt` die Bildpunkte. Die 96 x 72 Pixel grosse
+PNG-Datei wird von `tools/fotofilter/erzeuge_foto.py` erzeugt; die
+Java-Hilfsklasse wird per `rfile` eingebunden (siehe unten).
 
 ## Seiten als `.md.hbs`: `rfile` braucht drei Klammern
 

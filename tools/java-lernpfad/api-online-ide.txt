@@ -626,6 +626,9 @@
 
 ### class Bitmap extends Shape
   Bitmap(int resolutionX, int resolutionY, double left, double top, double displayWidth, double displayHeight)
+  Bitmap(string imageUrl)
+  Bitmap(string imageUrl, double left, double top)
+  Bitmap(string imageUrl, double left, double top, double displayWidth, double displayHeight)
   final int getResolutionX()
   final int getResolutionY()
   final void setColor(int x, int y, int color, double alpha)
