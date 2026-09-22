@@ -90,7 +90,7 @@ Prüfe Ergebnisse mit drei Fragen: **Passt die Größenordnung? Liegt der richti
 {h{Das Multiplikationszeichen ist der Stern.}}
 {H{Richtig.}}
 
-**3. Welche Funktion addiert den Bereich D2 bis D8? {t{SUMME}}**
+**3. Welche Funktion addiert den Bereich D2 bis D8? {t{SUMME(D2:D8)}}**
 
 {h{Gesucht ist der deutsche Funktionsname.}}
 {H{Genau.}}
