@@ -10,6 +10,10 @@ permaid: mittelstufe-calc-bezuege
 
 Eine einzige Formel kann Hunderte Zeilen berechnen – wenn ihre Bezüge beim Kopieren richtig wandern oder feststehen. Genau darin liegt die wichtigste Technik dieses Lernpfads.
 
+:::alert{info}
+**Du arbeitest weiter:** Öffne deine vorhandene Datei `Klassenfahrt.ods` und füge darin das Tabellenblatt `Angebote` hinzu. Übernimm passende Reisedaten aus `Reiseetat` durch Zellbezüge. Lege keine neue Projektdatei an.
+:::
+
 ## Für dieses Kapitel musst du …
 
 - Formeln mit Zellbezügen erstellen und Ergebnisse prüfen können ([Kapitel 1](../01-daten-und-formeln))

@@ -8,6 +8,8 @@ permaid: mittelstufe-calc-projekt-glaskugel
 
 Untersuche eine Entwicklung, bei der eine Prognose für Menschen oder Umwelt relevant ist: Bevölkerung, Energieverbrauch, Müllmenge, Verkehr, Tourismus oder eine eigene begründete Idee.
 
+Arbeite in `Klassenfahrt.ods` auf dem Blatt `Prognose` weiter. Wähle eine Entwicklung mit Bezug zu mindestens einem bisher untersuchten Reiseziel, damit die Prognose deine vorhandene Entscheidungsgrundlage erweitert.
+
 :::snippet{#aufgabe}
 Baue eine Calc-Simulation mit mindestens **drei Modellen oder Szenarien**.
 
@@ -24,6 +26,8 @@ Deine Datei muss enthalten:
 - einen Abschnitt **Grenzen und mögliche Folgen**.
 
 Präsentiere in drei Minuten: Fragestellung, Modellregeln, wichtigste Beobachtung und Grenze.
+
+Die bisherigen Blätter bleiben erhalten. Verweise in deiner Interpretation darauf, was die Prognose für die geplante Klassenfahrt bedeuten könnte.
 :::
 
 ::::collapsible{title="Tipp 1: Erst die Modellregel"}

@@ -8,8 +8,10 @@ permaid: mittelstufe-calc-projekt-reiseampel
 
 Eine Klasse vergleicht europäische Reiseziele. Deine Tabelle bewertet jedes Angebot nach offengelegten Regeln und gibt eine Ampelfarbe aus.
 
+Arbeite in `Klassenfahrt.ods` auf dem Blatt `Reiseampel` weiter. Führe dort die Ergebnisse deiner bisherigen Blätter zusammen. Übernimm Werte nach Möglichkeit mit blattübergreifenden Zellbezügen, damit Änderungen am Reiseetat oder an den Angeboten automatisch in der Ampel ankommen.
+
 :::snippet{#aufgabe}
-Erfasse mindestens sechs Reiseangebote mit Preis pro Person, Fahrtdauer, CO₂-Wert und mindestens einem weiteren sinnvollen Merkmal.
+Bewerte mindestens sechs bereits untersuchte Reiseangebote oder Kombinationen aus Reiseziel, Anreise und Unterkunft. Verwende Preis pro Person, Fahrtdauer, CO₂-Wert und mindestens ein weiteres sinnvolles Merkmal aus deiner Arbeitsmappe. Falls ein Wert noch fehlt, recherchiere und dokumentiere ihn auf dem fachlich passenden Blatt.
 
 Lege die Grenzwerte in beschrifteten Parameterzellen ab. Die Ampel soll ausgeben:
 
@@ -25,6 +27,8 @@ Anforderungen:
 - Teste jeden Grenzwert darunter, darauf und darüber.
 - Begründe abschließend, welches Angebot du empfiehlst.
 - Nenne eine Schwäche automatischer Ampelentscheidungen.
+
+Abgabe ist die vollständige Datei `Klassenfahrt.ods` mit allen fünf Projektblättern. Die Reiseampel ist der Abschluss dieser Arbeitsmappe, keine neue Datei.
 :::
 
 ::::collapsible{title="Tipp 1: Erst Hilfsspalten"}

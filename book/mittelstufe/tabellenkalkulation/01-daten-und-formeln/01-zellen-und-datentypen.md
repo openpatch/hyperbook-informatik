@@ -8,6 +8,8 @@ permaid: mittelstufe-calc-zellen-datentypen
 
 In einer Tabelle sieht zunächst alles wie Text in Kästchen aus. Für Calc macht es aber einen großen Unterschied, ob `12,5` eine Zahl, Text oder ein Datum ist.
 
+Öffne für die folgenden Aufgaben deine Datei `Klassenfahrt.ods` und arbeite auf dem Tabellenblatt `Reiseetat`. Falls die Datei noch nicht existiert, lege sie jetzt an und speichere sie sofort. Diese Arbeitsmappe wirst du in allen folgenden Kapiteln weiterentwickeln.
+
 ## Die Oberfläche erkunden
 
 Ordne in der LearningApp die Bezeichnungen den Bereichen der Tabellenkalkulation zu. Lass LibreOffice Calc gleichzeitig geöffnet und zeige jedes gefundene Element auch im echten Programm.
