@@ -8,6 +8,8 @@ permaid: mittelstufe-calc-projekt-klimavergleich
 
 Vergleiche zwei europäische Städte so, dass eine Reisegruppe eine begründete Entscheidung treffen kann.
 
+Arbeite in `Klassenfahrt.ods` auf dem Blatt `Klima` weiter. Mindestens eine der beiden Städte muss bereits auf `Reiseetat` oder `Angebote` vorkommen. So ergänzt die Klimaanalyse deinen bisherigen Preisvergleich.
+
 :::snippet{#aufgabe}
 Nutze für beide Städte zwölf Monatswerte zu Temperatur und Niederschlag aus einer dokumentierten Quelle.
 
@@ -19,6 +21,8 @@ Nutze für beide Städte zwölf Monatswerte zu Temperatur und Niederschlag aus e
 6. Nenne mindestens zwei Grenzen deiner Aussage, etwa Monatsmittel statt Tageswetter.
 
 Die Städte sollen aus unterschiedlichen Regionen Europas stammen, zum Beispiel Lissabon und Helsinki oder Dublin und Athen.
+
+Speichere Tabellen, Diagramme und Quellen im vorhandenen Dokument; die bisherigen Blätter bleiben unverändert erhalten.
 :::
 
 ::::collapsible{title="Tipp: Datenanordnung"}

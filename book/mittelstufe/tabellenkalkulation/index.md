@@ -19,7 +19,8 @@ Eine Tabelle kann mehr als Zahlen aufbewahren: Sie rechnet, zeigt Zusammenhänge
 ## Wie du mit diesem Lernpfad arbeitest
 
 :::snippet{#merken}
-- Lege für jede Lektion eine neue Calc-Datei an und speichere sie sofort unter einem sinnvollen Namen.
+- Lege zu Beginn **eine einzige Calc-Datei** mit dem Namen `Klassenfahrt.ods` an. Öffne in jedem weiteren Kapitel genau diese Datei und erweitere sie um das dort genannte Tabellenblatt.
+- Übungen und Mini-Projekte bleiben in dieser Arbeitsmappe. Neue Dateien legst du nur an, wenn eine Aufgabe das ausdrücklich verlangt; heruntergeladene Lösungen dienen nur zum Vergleichen und ersetzen deine Arbeitsmappe nicht.
 - Formeln beginnen immer mit `=`. **Sage erst voraus**, was passieren wird, und probiere es dann aus.
 - Übertrage Beispiele nicht nur: Verändere mindestens einen Wert und prüfe, ob das Ergebnis plausibel bleibt.
 - **Tipps** sind eingeklappt. Öffne immer nur den nächsten.
@@ -33,13 +34,15 @@ Die Bilder wurden mit LibreOffice Calc 26 erstellt. Bei einer anderen Version k�
 
 ## Die Kapitel
 
-| Kapitel | Ergebnis des Mini-Projekts |
-| --- | --- |
-| 1. Daten, Zellen und Formeln | ein belastbarer Reiseetat für eine europäische Klassenfahrt |
-| 2. Formeln kopieren und Bezüge steuern | ein Preisvergleich mit veränderlichem Wechselkurs und Rabatt |
-| 3. Daten mit Diagrammen erzählen | ein Klimavergleich europäischer Städte |
-| 4. Wachstum modellieren und simulieren | eine begründete Prognose mit mehreren Szenarien |
-| 5. Entscheidungen mit WENN | eine Reiseampel, die Angebote nach transparenten Regeln bewertet |
+| Kapitel | Tabellenblatt in `Klassenfahrt.ods` | Ergebnis des Mini-Projekts |
+| --- | --- | --- |
+| 1. Daten, Zellen und Formeln | `Reiseetat` | ein belastbarer Reiseetat mit selbst recherchierten echten Preisen |
+| 2. Formeln kopieren und Bezüge steuern | `Angebote` | ein Preisvergleich mit veränderlichem Wechselkurs und Rabatt |
+| 3. Daten mit Diagrammen erzählen | `Klima` | ein Klimavergleich europäischer Städte |
+| 4. Wachstum modellieren und simulieren | `Prognose` | eine begründete Prognose mit mehreren Szenarien |
+| 5. Entscheidungen mit WENN | `Reiseampel` | eine Reiseampel, die die Ergebnisse nach transparenten Regeln bewertet |
+
+Am Ende besteht deine Abgabe also nicht aus fünf voneinander unabhängigen Dateien, sondern aus **einer gewachsenen Arbeitsmappe mit fünf nachvollziehbar benannten Tabellenblättern**.
 
 <!--
 Lehrplanbezug:

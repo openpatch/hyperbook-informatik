@@ -10,6 +10,10 @@ permaid: mittelstufe-calc-wenn
 
 Bislang hat Calc Zahlen berechnet. Nun lässt du die Tabelle abhängig von einer Bedingung unterschiedliche Ergebnisse ausgeben – etwa „im Budget“ oder „zu teuer“.
 
+:::alert{info}
+**Du führst deine Ergebnisse zusammen:** Öffne `Klassenfahrt.ods` und füge das Tabellenblatt `Reiseampel` hinzu. Die Reiseampel greift auf Ergebnisse der bisherigen Blätter zurück, statt dieselben Werte erneut einzutippen. Lege keine neue Projektdatei an.
+:::
+
 ## Für dieses Kapitel musst du …
 
 - Formeln mit Zellbezügen erstellen und kopieren können ([Kapitel 2](../02-bezuege))

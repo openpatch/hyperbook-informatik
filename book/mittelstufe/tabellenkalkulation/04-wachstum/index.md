@@ -10,6 +10,10 @@ permaid: mittelstufe-calc-wachstum
 
 Jetzt wird die Tabelle zur Glaskugel: Du beschreibst Veränderungen mit Regeln, lässt Calc viele Zeitschritte berechnen und vergleichst mögliche Zukünfte. Eine Prognose bleibt dabei immer an Annahmen gebunden.
 
+:::alert{info}
+**Du arbeitest weiter:** Öffne `Klassenfahrt.ods` und füge das Tabellenblatt `Prognose` hinzu. Untersuche dort eine Entwicklung, die zu mindestens einem deiner bisherigen Reiseziele passt. Lege keine neue Projektdatei an.
+:::
+
 ## Für dieses Kapitel musst du …
 
 - relative und absolute Bezüge sicher einsetzen können ([Kapitel 2](../02-bezuege))

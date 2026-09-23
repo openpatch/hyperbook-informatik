@@ -10,6 +10,10 @@ permaid: mittelstufe-calc-diagramme
 
 Ein Diagramm kann Muster sichtbar machen – oder durch eine schlechte Wahl täuschen. Du gestaltest Diagramme für europäische Klimadaten und beurteilst ihre Aussagekraft.
 
+:::alert{info}
+**Du arbeitest weiter:** Öffne `Klassenfahrt.ods` und füge das Tabellenblatt `Klima` hinzu. Nutze dafür Reiseziele, die bereits auf `Reiseetat` oder `Angebote` vorkommen. Lege keine neue Projektdatei an.
+:::
+
 ## Für dieses Kapitel musst du …
 
 - Daten sauber erfassen, formatieren und mit Funktionen auswerten können ([Kapitel 1](../01-daten-und-formeln))
