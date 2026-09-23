@@ -12,7 +12,7 @@ Du kannst aus einer geprüften Formel viele korrekte Berechnungen erzeugen und e
 
 - [ ] Ich kann Formeln kopieren und ihre Bezüge vorhersagen. ([2.1](./01-relative-und-absolute-bezuege))
 - [ ] Ich kann relative, absolute und gemischte Bezüge funktional einsetzen. ([2.1](./01-relative-und-absolute-bezuege))
-- [ ] Ich kann komplexe Formeln schrittweise aufbauen. ([2.2](./02-komplexe-formeln-testen))
+- [ ] Ich kann längere Formeln schrittweise aufbauen und mit einfachen Testwerten prüfen. ([2.2](./02-komplexe-formeln-testen))
 - [ ] Ich kann Formeln mit Sonderfällen testen. ([2.2](./02-komplexe-formeln-testen))
 - [ ] Ich kann veränderliche Annahmen als Parameter sichtbar machen. ([Mini-Projekt](./03-mini-projekt-preisvergleich))
 

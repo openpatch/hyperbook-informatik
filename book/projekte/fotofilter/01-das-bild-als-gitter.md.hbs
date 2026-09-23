@@ -3,6 +3,8 @@ title: Das Bild als Gitter
 index: 1
 lang: de
 permaid: fotofilter-bild-als-gitter
+scripts:
+  - /wc/foto-gitter.js
 ---
 
 # Das Bild als Gitter
@@ -11,7 +13,108 @@ Halte dein Handy nah genug an ein Foto, und irgendwann siehst du keine Kabel
 und keine LED mehr, sondern Kästchen. Genau so liegt ein Bild im Speicher:
 als Tabelle aus Zahlen, Zeile für Zeile.
 
-## Das Foto zum ersten Mal
+## Das Gitter anfassen
+
+Der Ausschnitt unten zeigt zehn Spalten und acht Zeilen aus dem echten Foto –
+jede Kachel ein Bildpunkt, jede Zahl eine Helligkeit zwischen 0 und 255.
+Fahre mit der Maus über das Gitter: Zeile und Spalte des Bildpunkts werden
+markiert, und die Zeile darunter zeigt die Java-Schreibweise `bild[zeile][spalte]`.
+Ein Klick hält den Bildpunkt fest, ein zweiter Klick gibt ihn wieder frei.
+
+Probiere danach die Filter aus. Jeder wendet seine Regel – angezeigt als
+Java-Code – auf jeden einzelnen Bildpunkt an.
+
+<foto-gitter id="foto-gitter-einstieg" aufgabe="Finde den hellsten und den dunkelsten Bildpunkt des Gitters. Was macht der Filter +40 mit dem hellsten Punkt – und warum hat er danach genau den Wert 255?">
+ 64  82 240 240  94 189  73  69 100  76
+ 72 244 236 236 148 174  78  75  99  74
+101 174 236 232 237  81  71  67  82  80
+ 77  97 240 236 240  95  83 107  25  96
+ 89  92 244 236 236 106  73 101  25  24
+ 91  93 252 244 134  95  39  38  22  17
+ 90  92  96  95 155 102  32  34  30  14
+101  95  91  76  91  97  22  20  85  25
+</foto-gitter>
+
+## Startmission: Wie arbeitet ein Fotofilter?
+
+Wenn du im Gitter herumprobiert hast, bearbeite die fünf kurzen Stationen. Du
+brauchst noch keinen neuen Code
+zu schreiben: Untersuche das Bildgitter, rechne einen Filter von Hand durch und
+setze seinen Bauplan zusammen. Wenn etwas noch nicht stimmt, erhältst du direkt
+eine Erklärung und einen neuen Versuch.
+
+<style>
+/* Solange die eingebundene Bitflow-Version die Inhaltsbreite noch auf 720px
+   kapppt: volle Breite plus Padding, wie im neuen Bibliotheks-Standard. */
+#bitflow-fotofilter-einstieg bitflow-flow {
+  --bitflow-max-width-content: none;
+}
+</style>
+
+::bitflow{id="fotofilter-einstieg" src="einstieg.bitflow" height="890px"}
+
+## Dein erster Filter
+
+Jetzt wendest du den Bauplan auf das echte Foto an. Starte das Programm zuerst
+unverändert: Beide Bilder sehen gleich aus. Ergänze dann in der markierten Zeile
+`+ pStufen` und starte es erneut.
+
+:::onlineide{height="700px" speed="1000000"}
+@file dest="fotofilter.png" src="/images/fotofilter.png"
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(heller(grau, 60));
+}
+
+/** Liefert ein neues Bild, in dem jeder Wert um pStufen groesser ist. */
+int[][] heller(int[][] pGrau, int pStufen) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            int wert = pGrau[zeile][spalte]; // ergaenze hier: + pStufen
+            if (wert > 255) {
+                wert = 255;
+            }
+            neu[zeile][spalte] = wert;
+        }
+    }
+
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::collapsible{title="Selbstkontrolle"}
+
+Die markierte Zeile lautet danach:
+
+```java
+int wert = pGrau[zeile][spalte] + pStufen;
+```
+
+Das zweite Bild muss nun deutlich heller aussehen. Falls beide Bilder weiterhin
+gleich aussehen, prüfe, ob du das Programm nach der Änderung erneut gestartet
+hast.
+
+:::
+
+## Das Foto untersuchen
 
 Das Objekt `foto` liefert dir das Bild als **Graustufen** – eine Zahl je
 Bildpunkt, 0 ist schwarz, 255 ist weiß.
