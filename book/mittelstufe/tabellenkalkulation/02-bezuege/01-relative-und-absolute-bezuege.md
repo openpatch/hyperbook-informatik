@@ -6,58 +6,96 @@ permaid: mittelstufe-calc-zellbezuege
 
 # Relative und absolute Bezüge
 
-Sechs Preise sollen mit demselben Wechselkurs umgerechnet werden. Muss dafür wirklich sechsmal fast dieselbe Formel entstehen?
+Eine Formel kann für viele Zeilen kopiert werden. Dabei muss Calc wissen: **Welche Zelladresse soll mitwandern und welche soll gleich bleiben?**
 
-## Kopieren mit Plan
+## Was ist ein Zellbezug?
 
-Trage Preise in `B2:B7` und den Wechselkurs in `F1` ein. Die Formel in `C2` lautet zunächst `=B2*F1`. Ziehst du sie am kleinen Quadrat des Zellrahmens nach unten, wird daraus in `C3` die Formel `=B3*F2` – beides ist gewandert.
+Ein :t[Zellbezug]{#zellbezug} ist die Adresse einer Zelle. `B2` bedeutet: Spalte B, Zeile 2.
 
-![Beim Kopieren wandert B2 relativ mit, während der Wechselkurs in F1 feststehen soll.](./calc-bezuege.png)
+Angenommen, in Spalte B stehen Preise und in `F1` steht ein Wechselkurs. In `C2` soll der erste Preis umgerechnet werden:
+
+```text
+=B2*$F$1
+```
+
+Kopierst du die Formel eine Zeile nach unten, passiert Folgendes:
+
+| Formel in C2 | Formel in C3 | Warum? |
+| --- | --- | --- |
+| `=B2*$F$1` | `=B3*$F$1` | Der Preis wandert von B2 zu B3. Der Wechselkurs bleibt in F1. |
+
 
 :::snippet{#definition}
-- Ein **relativer Bezug** wie `B2` passt sich beim Kopieren an.
-- Ein **absoluter Bezug** wie `$F$1` bleibt beim Kopieren vollständig fest.
-- In einem **gemischten Bezug** wie `$F1` oder `F$1` ist nur Spalte oder Zeile fest.
+- Ein **relativer Bezug** wie `B2` wandert beim Kopieren mit.
+- Ein **absoluter Bezug** wie `$F$1` bleibt immer bei derselben Zelle.
 :::
 
-Die richtige Formel lautet hier `=B2*$F$1`: Der Preis soll zeilenweise wandern, der Wechselkurs nicht.
+:::alert{info}
+Das Dollarzeichen hat hier **nichts mit einer Währung** zu tun. Es ist ein Feststeller: `$F` hält die Spalte F fest, `$1` hält die Zeile 1 fest.
+:::
+
+## Warum reicht `=B2*F1` nicht?
+
+Calc verschiebt beim Kopieren jeden relativen Bezug um denselben Weg wie die Formel. Aus `=B2*F1` in C2 wird deshalb eine Zeile tiefer `=B3*F2`.
+
+Der Bezug auf den nächsten Preis ist richtig. Der Wechselkurs steht aber weiterhin in F1 und darf nicht zu F2 wandern. Deshalb lautet die Formel `=B2*$F$1`.
+
+:::snippet{#merken}
+Frage dich vor dem Kopieren bei jedem Zellbezug:
+
+- Soll die Formel in der nächsten Zeile den **nächsten Wert** verwenden? Dann ohne $.
+- Soll sie immer **dieselbe Zelle** verwenden? Dann Spalte und Zeile mit $ festhalten.
+:::
+
+## Zwei Feststeller – vier Möglichkeiten
+
+Kopierst du eine Formel von C2 nach D4, liegt die Kopie eine Spalte weiter rechts und zwei Zeilen tiefer.
+
+| Bezug in C2 | Bezug in D4 | Was ist fest? |
+| --- | --- | --- |
+| `B2` | `C4` | nichts |
+| `$B$2` | `$B$2` | Spalte und Zeile |
+| `$B2` | `$B4` | nur Spalte B |
+| `B$2` | `C$2` | nur Zeile 2 |
+
+Die letzten beiden heißen **gemischte Bezüge**. Du brauchst sie vor allem, wenn du Formeln nicht nur nach unten, sondern auch nach rechts kopierst.
 
 :::snippet{#aufgabe}
-Sage für jede Formel voraus, wie sie nach dem Kopieren von `C2` nach `D4` aussieht. Prüfe erst danach in Calc.
-
-1. `=B2`
-2. `=$B$2`
-3. `=$B2`
-4. `=B$2`
+Schreibe die vier Bezüge aus der Tabelle in Calc. Sage jeweils zuerst voraus, was beim Kopieren von C2 nach D4 entsteht. Kopiere dann und vergleiche.
 :::
 
 :::protect{password="calc-2-1-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 [Calc-Lösung herunterladen](./loesung-calc-2-1-1.ods)
 
-Die Kopie liegt eine Spalte weiter rechts und zwei Zeilen tiefer: 1. `=C4`, 2. `=$B$2`, 3. `=$B4`, 4. `=C$2`.
+Die Ergebnisse sind `C4`, `$B$2`, `$B4` und `C$2`. Die Dollarzeichen bleiben immer direkt vor dem Teil, den sie festhalten.
 
 :::
 
-## Parameter gehören nach oben
+## Ein Beispiel mit zwei festen Werten
 
-Ein Wechselkurs, Rabatt oder Wachstumsfaktor ist ein **Parameter**: Du möchtest ihn an genau einer Stelle ändern und sofort alle Folgen sehen.
+In `F1` steht der Wechselkurs und in `F2` ein Rabatt. Beide Werte gelten für alle Angebote. Nur der Preis in Spalte B soll beim Kopieren wandern.
+
+```text
+=B2*(1-$F$2)*$F$1
+```
+
+Lies die Formel von links nach rechts: **Preis aus dieser Zeile · Anteil nach Rabatt · fester Wechselkurs**.
+
+![In C2 ist die kopierbare Formel ausgewählt. B2 ist relativ; Rabatt in F2 und Wechselkurs in F1 sind absolut.](./calc-bezuege.png)
 
 :::snippet{#aufgabe}
-Berechne die sechs Preise zusätzlich mit 8 % Rabatt. Lege Rabatt und Wechselkurs jeweils in einer beschrifteten Parameterzelle ab. Verwende in der Ergebnisspalte eine einzige kopierbare Formel.
+1. Trage sechs Preise in `B2:B7`, den Wechselkurs in `F1` und den Rabatt in `F2` ein.
+2. Schreibe die Formel nur in `C2` und sage voraus, welche Bezüge beim Kopieren wandern.
+3. Ziehe die Formel nach unten. Klicke anschließend `C7` an und kontrolliere die Formel in der Eingabezeile.
+4. Ändere den Rabatt. Alle Endpreise müssen sich ändern.
 :::
-
-::::collapsible{title="Tipp: Reihenfolge"}
-
-Erst Rabatt abziehen, dann umrechnen: `Preis * (1 - Rabatt) * Wechselkurs`. Welche Bezüge müssen fest bleiben?
-
-::::
 
 :::protect{password="calc-2-1-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 [Calc-Lösung herunterladen](./loesung-calc-2-1-2.ods)
 
-Wenn Wechselkurs in `F1` und Rabatt in `F2` stehen, lautet die Formel etwa `=B2*(1-$F$2)*$F$1`. Beim Kopieren wandert nur `B2`.
+In Zeile 2 lautet die Formel etwa `=B2*(1-$F$2)*$F$1`. In Zeile 7 muss daraus `=B7*(1-$F$2)*$F$1` geworden sein. Nur der Preisbezug wandert.
 
 :::
 
@@ -87,9 +125,10 @@ Wenn Wechselkurs in `F1` und Rabatt in `F2` stehen, lautet die Formel etwa `=B2*
 {r4{Dollar B Dollar 2}}
 {H{Richtig.}}
 
-**5. Warum steht ein Wechselkurs sinnvoll in einer eigenen Zelle?**
-{r5{!Er lässt sich zentral ändern und prüfen.}}
-{r5{Dann braucht man keine Formel.}}
-{H{Richtig.}}
+**5. Die Formel `=B2*$F$1` wird eine Zeile nach unten kopiert. Welche Formel entsteht?**
+{r5{!gleich B3 * $F$1}}
+{r5{gleich B2 * $F$1}}
+{r5{gleich B3 * $F$2}}
+{H{Richtig. B2 wandert zu B3; F1 bleibt fest.}}
 
 ::::

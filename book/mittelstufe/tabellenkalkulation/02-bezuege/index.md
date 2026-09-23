@@ -12,6 +12,8 @@ Eine einzige Formel kann Hunderte Zeilen berechnen – wenn ihre Bezüge beim Ko
 
 :::alert{info}
 **Du arbeitest weiter:** Öffne deine vorhandene Datei `Klassenfahrt.ods` und füge darin das Tabellenblatt `Angebote` hinzu. Übernimm passende Reisedaten aus `Reiseetat` durch Zellbezüge. Lege keine neue Projektdatei an.
+
+Falls du in Kapitel 1 keine eigene `Klassenfahrt.ods` erstellt hast, lade die Beispieldatei herunter und speichere sie unter dem Namen `Klassenfahrt.ods`: [Beispiel-Klassenfahrt herunterladen](./beispiel-klassenfahrt.ods)
 :::
 
 ## Für dieses Kapitel musst du …

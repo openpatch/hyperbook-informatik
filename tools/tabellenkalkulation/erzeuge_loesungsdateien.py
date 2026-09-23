@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Erzeugt die Calc-Loesungsdateien des Lernpfads Tabellenkalkulation."""
+"""Erzeugt die Calc-Loesungsdateien und die Beispieldatei des Lernpfads Tabellenkalkulation."""
 
 from __future__ import annotations
 
@@ -169,6 +169,39 @@ def ziel(ordner: str, passwort: str) -> Path:
     return BOOK / ordner / f"loesung-{passwort}.ods"
 
 
+def erzeuge_beispieldatei_klassenfahrt() -> None:
+    """Erzeugt eine Beispiel-Arbeitsmappe fuer Kapitel 2.
+
+    Die Datei zeigt den Stand nach Kapitel 1 (Reiseetat als Rechengeruest)
+    und ersetzt die eigene Klassenfahrt.ods, falls in Kapitel 1 keine
+    eigene Datei entstanden ist.
+    """
+    erzeuge(
+        BOOK / "02-bezuege" / "beispiel-klassenfahrt.ods",
+        "Beispiel-Arbeitsmappe Klassenfahrt",
+        [
+            ["Position", "Abrechnung", "Anzahl", "Einzelpreis", "Gesamt"],
+            ["Busmiete", "fix", 1, 1800, Formel("[.C2]*[.D2]", 1800)],
+            ["Unterkunft", "pro Person", 25, 96, Formel("[.C3]*[.D3]", 2400)],
+            ["Nahverkehr", "pro Person", 25, 18, Formel("[.C4]*[.D4]", 450)],
+            ["Museum", "pro Person", 25, 14, Formel("[.C5]*[.D5]", 350)],
+            ["Stadtführung", "fix", 1, 220, Formel("[.C6]*[.D6]", 220)],
+            ["Verpflegung", "pro Person", 25, 42, Formel("[.C7]*[.D7]", 1050)],
+            ["Gesamtkosten", "", "", "", Formel("SUM([.E2:.E7])", 6270)],
+            ["Kosten pro Person", "", 25, "", Formel("[.E8]/[.C9]", 250.8)],
+            [],
+            ["Ziel", "Prag"],
+            ["Zeitraum", Datum(date(2027, 5, 12)), "bis", Datum(date(2027, 5, 16))],
+        ],
+        [
+            "Diese Datei ersetzt deine eigene Klassenfahrt.ods, falls du in Kapitel 1 keine erstellt hast.",
+            "Speichere sie unter dem Namen Klassenfahrt.ods und füge in Kapitel 2 das Tabellenblatt Angebote hinzu.",
+            "Die Preise sind Beispielwerte; ersetze sie bei Bedarf durch selbst recherchierte Preise inklusive Quelle.",
+        ],
+        tabellenname="Reiseetat",
+    )
+
+
 def erzeuge_rueckblick_1() -> None:
     ordner = BOOK / "01-daten-und-formeln"
     erzeuge(
@@ -245,6 +278,7 @@ def main() -> None:
     ], ["Ändere die Teilnehmerzahl bei allen personenbezogenen Positionen und prüfe die Neuberechnung."])
 
     erzeuge_rueckblick_1()
+    erzeuge_beispieldatei_klassenfahrt()
 
     erzeuge(ziel("02-bezuege", "calc-2-1-1"), "Relative, absolute und gemischte Bezüge", [
         ["Ausgang in C2", "Kopie nach D4", "Was bleibt fest?"],
@@ -389,7 +423,7 @@ def main() -> None:
         [17, "", Formel('IF(AND([.A6]<=17;[.B6]="ja");"Rabatt";"Normalpreis")', "Normalpreis")],
     ], ["Das Modell kann nicht prüfen, ob die Karte echt und gültig ist."])
 
-    print("22 Calc-Lösungsdateien erzeugt.")
+    print("22 Calc-Lösungsdateien und eine Beispieldatei erzeugt.")
 
 
 if __name__ == "__main__":

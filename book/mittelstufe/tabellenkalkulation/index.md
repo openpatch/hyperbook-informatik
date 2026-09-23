@@ -48,7 +48,7 @@ Am Ende besteht deine Abgabe also nicht aus fünf voneinander unabhängigen Date
 Lehrplanbezug:
 - geeignete Datentypen wählen: 1.1
 - Daten als Ergebnis eines Verarbeitungsprozesses interpretieren: alle Kapitel, besonders 1.2 und 4
-- komplexe Formeln mit relativer und absoluter Adressierung: Kapitel 2 und 4
+- längere Formeln mit relativen und absoluten Bezügen: Kapitel 2 und 4
 - Daten mit Diagrammen visualisieren: Kapitel 3
 - Wachstumsmodelle vergleichen: Kapitel 4
 - Chancen und Risiken, Verbraucherbildung: 3.2 und 4.2
