@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "fotofilter-drehen",
+    "title": "Erst auf dem Gitter drehen",
+    "description": "Wohin wandert ein Bildpunkt, wenn das Bild um 90 Grad gedreht wird?",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Erst auf dem Gitter drehen",
+        "markdown": "Bevor du `gedrehtRechts` programmierst, drehst du ein kleines Bild von Hand. Danach liest du daraus ab, wohin jeder Bildpunkt wandert.",
+        "showOutline": true
+      }
+    },
+    {
+      "id": "drehen",
+      "type": "task-pixel-grid",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "Das Bild `alt` hat 3 Zeilen und 4 Spalten:\n\n```java\nint[][] alt = {\n    {1, 1, 1, 1},\n    {1, 0, 0, 0},\n    {1, 1, 0, 0}\n};\n```\n\nDrehe es um 90 Grad **im Uhrzeigersinn** und male das Ergebnis. Es hat danach 4 Zeilen und 3 Spalten. Weiß steht für 0, Schwarz für 1.",
+        "rows": 4,
+        "columns": 3,
+        "palette": [
+          {
+            "id": "weiss",
+            "color": "#ffffff",
+            "label": "0"
+          },
+          {
+            "id": "schwarz",
+            "color": "#000000",
+            "label": "1"
+          }
+        ],
+        "target": [
+          [
+            "schwarz",
+            "schwarz",
+            "schwarz"
+          ],
+          [
+            "schwarz",
+            "weiss",
+            "schwarz"
+          ],
+          [
+            "weiss",
+            "weiss",
+            "schwarz"
+          ],
+          [
+            "weiss",
+            "weiss",
+            "schwarz"
+          ]
+        ],
+        "given": [],
+        "startColor": "weiss",
+        "showCoordinates": false,
+        "firstIndex": 0,
+        "showLabels": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "indizes",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Lies an deinem gedrehten Bild ab, wohin die Bildpunkte gewandert sind. Trage für jeden Bildpunkt aus `alt` ein, in welcher Zeile und Spalte von `neu` er landet.\n\nVergleiche danach die Spalten der Tabelle: Welche alte Zahl wird zur neuen Zeile? Und wie hängt die neue Spalte mit der alten Zeile zusammen?",
+        "caption": "",
+        "columns": [
+          {
+            "id": "alt",
+            "header": "Bildpunkt in alt",
+            "kind": "text"
+          },
+          {
+            "id": "zeile",
+            "header": "Zeile in neu",
+            "kind": "number"
+          },
+          {
+            "id": "spalte",
+            "header": "Spalte in neu",
+            "kind": "number"
+          }
+        ],
+        "rows": [
+          {
+            "id": "r1",
+            "cells": {
+              "alt": {
+                "given": "alt[0][0]"
+              },
+              "zeile": {
+                "accepted": [
+                  "0"
+                ]
+              },
+              "spalte": {
+                "accepted": [
+                  "2"
+                ]
+              }
+            }
+          },
+          {
+            "id": "r2",
+            "cells": {
+              "alt": {
+                "given": "alt[0][3]"
+              },
+              "zeile": {
+                "accepted": [
+                  "3"
+                ]
+              },
+              "spalte": {
+                "accepted": [
+                  "2"
+                ]
+              }
+            }
+          },
+          {
+            "id": "r3",
+            "cells": {
+              "alt": {
+                "given": "alt[2][0]"
+              },
+              "zeile": {
+                "accepted": [
+                  "0"
+                ]
+              },
+              "spalte": {
+                "accepted": [
+                  "0"
+                ]
+              }
+            }
+          },
+          {
+            "id": "r4",
+            "cells": {
+              "alt": {
+                "given": "alt[2][1]"
+              },
+              "zeile": {
+                "accepted": [
+                  "1"
+                ]
+              },
+              "spalte": {
+                "accepted": [
+                  "0"
+                ]
+              }
+            }
+          },
+          {
+            "id": "r5",
+            "cells": {
+              "alt": {
+                "given": "alt[1][2]"
+              },
+              "zeile": {
+                "accepted": [
+                  "2"
+                ]
+              },
+              "spalte": {
+                "accepted": [
+                  "1"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": false,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "title": "Jetzt ins Programm",
+        "markdown": "Die **neue Zeile** ist immer die **alte Spalte**. Die **neue Spalte** zählt rückwärts: Aus der alten Zeile 0 wird die Spalte 2, aus der Zeile 2 die Spalte 0. Das kennst du schon vom Spiegelindex, nur dass hier die Höhe des Bildes gebraucht wird. Setze das jetzt in `gedrehtRechts` um.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-drehen",
+      "source": "start",
+      "target": "drehen"
+    },
+    {
+      "id": "e-drehen-indizes",
+      "source": "drehen",
+      "target": "indizes"
+    },
+    {
+      "id": "e-indizes-ende",
+      "source": "indizes",
+      "target": "ende"
+    }
+  ]
+}

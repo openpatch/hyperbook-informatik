@@ -316,7 +316,9 @@ einer Wärmeausbreitungssimulation.
 Und noch eine Falle steckt darin: `pGrau` ist eine **Referenz**. Die Methode
 bekommt nicht eine Kopie des Bildes, sondern den Verweis darauf. Wer hineinschreibt,
 verändert das Gitter, mit dem `main` weiterarbeitet – auch dann, wenn dort noch
-das Original erwartet wird. Warum das so ist, steht auf der Seite
+das Original erwartet wird. Das ist derselbe Effekt wie bei `int[] zeile = bild[1];`
+im Speicherdiagramm auf der Seite [Das Bild als Gitter](./01-das-bild-als-gitter):
+zwei Namen, ein Feldobjekt. Ausführlicher steht das auf der Seite
 [Wert und Referenz](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/02-referenzen).
 
 ::::

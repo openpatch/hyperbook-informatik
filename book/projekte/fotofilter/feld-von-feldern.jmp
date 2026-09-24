@@ -1,0 +1,322 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": true,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {},
+  "steps": [
+    {
+      "label": "Ausgangslage: int[][] bild = { {20, 80, 240}, {50, 120, 200} }; Das äußere Feld hat zwei Einträge. Jeder verweist auf eine eigene Zeile.",
+      "objects": {
+        "@bild": {
+          "klass": "Array",
+          "arrayElementType": "int[]",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Array",
+              "value": "@z0"
+            },
+            "[1]": {
+              "dataType": "Array",
+              "value": "@z1"
+            }
+          },
+          "position": {
+            "x": 300,
+            "y": 120
+          }
+        },
+        "@z0": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 80
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 240
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 0
+          }
+        },
+        "@z1": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 50
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 120
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 200
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 240
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "bild": {
+              "dataType": "Array",
+              "value": "@bild"
+            },
+            "zeile": {
+              "dataType": "Array"
+            }
+          },
+          "position": {
+            "x": 20,
+            "y": 120
+          }
+        }
+      }
+    },
+    {
+      "label": "int[] zeile = bild[1]; Trage ein, worauf zeile jetzt verweist.",
+      "note": "bild[1] ist kein Zahlenwert, sondern der Verweis, der im Eintrag [1] des äußeren Feldes steht. Genau dieser Verweis wird in zeile kopiert. Ein neues Feld entsteht dabei nicht.",
+      "objects": {
+        "@bild": {
+          "klass": "Array",
+          "arrayElementType": "int[]",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Array",
+              "value": "@z0"
+            },
+            "[1]": {
+              "dataType": "Array",
+              "value": "@z1"
+            }
+          },
+          "position": {
+            "x": 300,
+            "y": 120
+          }
+        },
+        "@z0": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 80
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 240
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 0
+          }
+        },
+        "@z1": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 50
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 120
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 200
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 240
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "bild": {
+              "dataType": "Array",
+              "value": "@bild"
+            },
+            "zeile": {
+              "dataType": "Array",
+              "value": "@z1"
+            }
+          },
+          "position": {
+            "x": 20,
+            "y": 120
+          }
+        }
+      },
+      "exercise": true
+    },
+    {
+      "label": "zeile[2] = 0; Ändere den Wert, den diese Anweisung überschreibt.",
+      "note": "Folge dem Pfeil von zeile. In dem Feld, bei dem er ankommt, ist der Eintrag [2] gemeint.",
+      "objects": {
+        "@bild": {
+          "klass": "Array",
+          "arrayElementType": "int[]",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 2
+            },
+            "[0]": {
+              "dataType": "Array",
+              "value": "@z0"
+            },
+            "[1]": {
+              "dataType": "Array",
+              "value": "@z1"
+            }
+          },
+          "position": {
+            "x": 300,
+            "y": 120
+          }
+        },
+        "@z0": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 20
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 80
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 240
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 0
+          }
+        },
+        "@z1": {
+          "klass": "Array",
+          "arrayElementType": "int",
+          "attributes": {
+            "length": {
+              "dataType": "int",
+              "value": 3
+            },
+            "[0]": {
+              "dataType": "int",
+              "value": 50
+            },
+            "[1]": {
+              "dataType": "int",
+              "value": 120
+            },
+            "[2]": {
+              "dataType": "int",
+              "value": 0
+            }
+          },
+          "position": {
+            "x": 620,
+            "y": 240
+          }
+        }
+      },
+      "variables": {},
+      "methodCalls": {
+        "@f1": {
+          "name": "Main.main",
+          "index": 0,
+          "localVariables": {
+            "bild": {
+              "dataType": "Array",
+              "value": "@bild"
+            },
+            "zeile": {
+              "dataType": "Array",
+              "value": "@z1"
+            }
+          },
+          "position": {
+            "x": 20,
+            "y": 120
+          }
+        }
+      },
+      "exercise": true
+    }
+  ]
+}
