@@ -2,8 +2,8 @@
   "version": 1,
   "meta": {
     "id": "fotofilter-einstieg",
-    "title": "Startmission: Wie arbeitet ein Fotofilter?",
-    "description": "Vom Bildpunkt zur geschachtelten Schleife.",
+    "title": "Startmission: Im Gitter zurechtfinden",
+    "description": "Vom eindimensionalen Feld zum Gitter und zur geschachtelten Schleife.",
     "locale": "de",
     "askConfidence": false,
     "askReasoning": false,
@@ -14,17 +14,23 @@
     {
       "id": "start",
       "type": "start-simple",
-      "position": { "x": 0, "y": 0 },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
       "data": {
-        "title": "Startmission: Wie arbeitet ein Fotofilter?",
-        "markdown": "Ein Fotofilter verändert viele einzelne Bildpunkte nach derselben Regel. In fünf kurzen Schritten findest du heraus, wie das funktioniert.",
+        "title": "Startmission: Im Gitter zurechtfinden",
+        "markdown": "Ein Foto ist ein Gitter aus Zahlen, und in Java ist dieses Gitter ein **Feld von Feldern**. In acht kurzen Stationen übst du, dich darin zurechtzufinden.",
         "showOutline": true
       }
     },
     {
       "id": "bildspeicher",
       "type": "task-choice",
-      "position": { "x": 0, "y": 140 },
+      "position": {
+        "x": 0,
+        "y": 140
+      },
       "data": {
         "instruction": "Ein Graustufenfoto liegt im Speicher. Welche Beschreibung passt?",
         "variant": "single",
@@ -33,31 +39,48 @@
             "id": "tabelle",
             "markdown": "Eine Tabelle enthält für jeden Bildpunkt eine Zahl von 0 bis 255.",
             "correct": true,
-            "feedbackWhenChecked": { "message": "Genau: 0 steht für Schwarz, 255 für Weiß.", "severity": "success" }
+            "feedbackWhenChecked": {
+              "message": "Genau: 0 steht für Schwarz, 255 für Weiß.",
+              "severity": "success"
+            }
           },
           {
             "id": "befehl",
             "markdown": "Das Foto besteht aus einem einzigen langen Java-Befehl.",
             "correct": false,
-            "feedbackWhenChecked": { "message": "Java kann das Bild verarbeiten, aber die Bilddaten selbst sind Zahlen.", "severity": "warning" }
+            "feedbackWhenChecked": {
+              "message": "Java kann das Bild verarbeiten, aber die Bilddaten selbst sind Zahlen.",
+              "severity": "warning"
+            }
           },
           {
             "id": "zahl",
             "markdown": "Das ganze Foto wird durch eine einzige Helligkeitszahl gespeichert.",
             "correct": false,
-            "feedbackWhenChecked": { "message": "Dann könnten verschiedene Stellen des Bildes nicht unterschiedlich hell sein.", "severity": "warning" }
+            "feedbackWhenChecked": {
+              "message": "Dann könnten verschiedene Stellen des Bildes nicht unterschiedlich hell sein.",
+              "severity": "warning"
+            }
           }
         ],
         "shuffle": false,
         "partialCredit": false,
         "patternFeedback": [],
-        "evaluation": { "mode": "auto", "enableRetry": false, "showFeedback": true, "allowSkip": false }
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
       }
     },
     {
       "id": "hilfe-bildspeicher",
       "type": "title-simple",
-      "position": { "x": 320, "y": 280 },
+      "position": {
+        "x": 320,
+        "y": 280
+      },
       "data": {
         "title": "Ein Bild ist eine Zahlentabelle",
         "markdown": "Jeder Bildpunkt besitzt eine eigene Helligkeit. **0** bedeutet Schwarz, **255** bedeutet Weiß. Die Zeilen und Spalten des Bildes bilden deshalb eine Tabelle aus Zahlen. Klicke auf **Weiter**, um es noch einmal zu versuchen."
@@ -66,102 +89,475 @@
     {
       "id": "koordinate",
       "type": "task-find-hotspots",
-      "position": { "x": 0, "y": 420 },
+      "position": {
+        "x": 0,
+        "y": 420
+      },
       "data": {
-        "instruction": "Java schreibt zuerst die Zeile und dann die Spalte. Klicke auf den Bildpunkt `bild[1][2]`.",
+        "instruction": "Das Gitter zeigt das kleine Bild `bild` von oben. Klicke auf den Bildpunkt `bild[1][2]`.",
         "background": {
           "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNjAwIDMwMCI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IndoaXRlIi8+PGcgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9ImJsYWNrIj48dGV4dCB4PSIxOTAiIHk9IjQ1Ij5TcGFsdGUgMDwvdGV4dD48dGV4dCB4PSIzMzAiIHk9IjQ1Ij5TcGFsdGUgMTwvdGV4dD48dGV4dCB4PSI0NzAiIHk9IjQ1Ij5TcGFsdGUgMjwvdGV4dD48dGV4dCB4PSI2MiIgeT0iMTIwIj5aZWlsZSAwPC90ZXh0Pjx0ZXh0IHg9IjYyIiB5PSIyNDAiPlplaWxlIDE8L3RleHQ+PC9nPjxnIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMyI+PHJlY3QgeD0iMTIwIiB5PSI3MCIgd2lkdGg9IjE0MCIgaGVpZ2h0PSI5MCIgZmlsbD0iIzE2MTYxNiIvPjxyZWN0IHg9IjI2MCIgeT0iNzAiIHdpZHRoPSIxNDAiIGhlaWdodD0iOTAiIGZpbGw9IiM1MDUwNTAiLz48cmVjdCB4PSI0MDAiIHk9IjcwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjkwIiBmaWxsPSIjZjBmMGYwIi8+PHJlY3QgeD0iMTIwIiB5PSIxOTAiIHdpZHRoPSIxNDAiIGhlaWdodD0iOTAiIGZpbGw9IiMzMzMyMzIiLz48cmVjdCB4PSIyNjAiIHk9IjE5MCIgd2lkdGg9IjE0MCIgaGVpZ2h0PSI5MCIgZmlsbD0iIzc4Nzg3OCIvPjxyZWN0IHg9IjQwMCIgeT0iMTkwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjkwIiBmaWxsPSIjYzhjOGM4Ii8+PC9nPjxnIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjI2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj48dGV4dCB4PSIxOTAiIHk9IjEyNCIgZmlsbD0id2hpdGUiPjIwPC90ZXh0Pjx0ZXh0IHg9IjMzMCIgeT0iMTI0IiBmaWxsPSJ3aGl0ZSI+ODA8L3RleHQ+PHRleHQgeD0iNDcwIiB5PSIxMjQiIGZpbGw9ImJsYWNrIj4yNDA8L3RleHQ+PHRleHQgeD0iMTkwIiB5PSIyNDQiIGZpbGw9IndoaXRlIj41MDwvdGV4dD48dGV4dCB4PSIzMzAiIHk9IjI0NCIgZmlsbD0id2hpdGUiPjEyMDwvdGV4dD48dGV4dCB4PSI0NzAiIHk9IjI0NCIgZmlsbD0iYmxhY2siPjIwMDwvdGV4dD48L2c+PC9zdmc+",
           "alt": "Ein Gitter aus zwei Zeilen und drei Spalten mit den Helligkeitswerten 20, 80, 240 sowie 50, 120, 200."
         },
-        "size": { "width": 600, "height": 300 },
+        "size": {
+          "width": 600,
+          "height": 300
+        },
         "hotspots": [
-          { "id": "z0s0", "shape": "rect", "x": 0.2, "y": 0.2333, "width": 0.2333, "height": 0.3, "correct": false, "label": "Zeile 0, Spalte 0", "feedback": "Hier liegen Zeile und Spalte beide bei 0." },
-          { "id": "z0s1", "shape": "rect", "x": 0.4333, "y": 0.2333, "width": 0.2333, "height": 0.3, "correct": false, "label": "Zeile 0, Spalte 1", "feedback": "Das ist Zeile 0, Spalte 1." },
-          { "id": "z0s2", "shape": "rect", "x": 0.6667, "y": 0.2333, "width": 0.2333, "height": 0.3, "correct": false, "label": "Zeile 0, Spalte 2", "feedback": "Die Spalte stimmt, aber gesucht ist Zeile 1." },
-          { "id": "z1s0", "shape": "rect", "x": 0.2, "y": 0.6333, "width": 0.2333, "height": 0.3, "correct": false, "label": "Zeile 1, Spalte 0", "feedback": "Die Zeile stimmt, aber gesucht ist Spalte 2." },
-          { "id": "z1s1", "shape": "rect", "x": 0.4333, "y": 0.6333, "width": 0.2333, "height": 0.3, "correct": false, "label": "Zeile 1, Spalte 1", "feedback": "Die Zeile stimmt, aber gesucht ist Spalte 2." },
-          { "id": "z1s2", "shape": "rect", "x": 0.6667, "y": 0.6333, "width": 0.2333, "height": 0.3, "correct": true, "label": "Zeile 1, Spalte 2", "feedback": "Richtig: zuerst Zeile 1, dann Spalte 2." }
+          {
+            "id": "z0s0",
+            "shape": "rect",
+            "x": 0.2,
+            "y": 0.2333,
+            "width": 0.2333,
+            "height": 0.3,
+            "correct": false,
+            "label": "Zeile 0, Spalte 0",
+            "feedback": "Hier liegen Zeile und Spalte beide bei 0."
+          },
+          {
+            "id": "z0s1",
+            "shape": "rect",
+            "x": 0.4333,
+            "y": 0.2333,
+            "width": 0.2333,
+            "height": 0.3,
+            "correct": false,
+            "label": "Zeile 0, Spalte 1",
+            "feedback": "Das ist Zeile 0, Spalte 1."
+          },
+          {
+            "id": "z0s2",
+            "shape": "rect",
+            "x": 0.6667,
+            "y": 0.2333,
+            "width": 0.2333,
+            "height": 0.3,
+            "correct": false,
+            "label": "Zeile 0, Spalte 2",
+            "feedback": "Die Spalte stimmt, aber gesucht ist Zeile 1."
+          },
+          {
+            "id": "z1s0",
+            "shape": "rect",
+            "x": 0.2,
+            "y": 0.6333,
+            "width": 0.2333,
+            "height": 0.3,
+            "correct": false,
+            "label": "Zeile 1, Spalte 0",
+            "feedback": "Die Zeile stimmt, aber gesucht ist Spalte 2."
+          },
+          {
+            "id": "z1s1",
+            "shape": "rect",
+            "x": 0.4333,
+            "y": 0.6333,
+            "width": 0.2333,
+            "height": 0.3,
+            "correct": false,
+            "label": "Zeile 1, Spalte 1",
+            "feedback": "Die Zeile stimmt, aber gesucht ist Spalte 2."
+          },
+          {
+            "id": "z1s2",
+            "shape": "rect",
+            "x": 0.6667,
+            "y": 0.6333,
+            "width": 0.2333,
+            "height": 0.3,
+            "correct": true,
+            "label": "Zeile 1, Spalte 2",
+            "feedback": "Richtig: zuerst Zeile 1, dann Spalte 2."
+          }
         ],
         "missFeedback": "Klicke in eines der sechs Felder.",
-        "evaluation": { "mode": "auto", "enableRetry": false, "showFeedback": true, "allowSkip": false }
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
       }
     },
     {
       "id": "hilfe-koordinate",
       "type": "title-simple",
-      "position": { "x": 320, "y": 560 },
+      "position": {
+        "x": 320,
+        "y": 560
+      },
       "data": {
         "title": "Zuerst die Zeile, dann die Spalte",
-        "markdown": "`bild[1][2]` bedeutet: Gehe zuerst in **Zeile 1** und dort zu **Spalte 2**. Weil bei 0 gezählt wird, ist das die zweite Zeile und die dritte Spalte. Klicke auf **Weiter**, um es noch einmal zu versuchen."
+        "markdown": "`bild[1][2]` wird in zwei Schritten gelesen: `bild[1]` ist die **Zeile 1**, und darin ist `[2]` der Eintrag mit dem Index 2. Weil bei 0 gezählt wird, ist das die zweite Zeile und die dritte Spalte. Klicke auf **Weiter**, um es noch einmal zu versuchen."
+      }
+    },
+    {
+      "id": "zeile",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "Im selben Gitter: Was liefert der Ausdruck `bild[1]`, also mit nur **einem** Index?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "ganze-zeile",
+            "markdown": "Die ganze Zeile 1, ein `int[]` mit den Werten 50, 120 und 200",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau. Das äußere Feld enthält die Zeilen, und jede Zeile ist ein eindimensionales Feld.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "ein-wert",
+            "markdown": "Den Wert 80, also den Eintrag in Zeile 0, Spalte 1",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Für einen einzelnen Wert braucht man zwei Indizes. Mit einem Index kommst du nur bis zur Zeile.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "spalte",
+            "markdown": "Die ganze Spalte 1 mit den Werten 80 und 120",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Der erste Index wählt immer eine Zeile aus. Eine Spalte gibt es in Java nicht als eigenes Feld.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "hilfe-zeile",
+      "type": "title-simple",
+      "position": {
+        "x": 320,
+        "y": 700
+      },
+      "data": {
+        "title": "Ein Feld von Feldern",
+        "markdown": "`int[][] bild` ist ein Feld, dessen Einträge wieder Felder sind. Jeder Eintrag des äußeren Feldes ist **eine Zeile**. `bild[1]` holt diese Zeile heraus, ein `int[]` mit drei Werten. Erst ein zweiter Index wie in `bild[1][2]` wählt darin einen einzelnen Wert. Klicke auf **Weiter**, um es noch einmal zu versuchen."
+      }
+    },
+    {
+      "id": "laengen",
+      "type": "task-code-trace",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Ein anderes Gitter mit drei Zeilen und vier Spalten. Welche Werte haben die vier Variablen am Ende?",
+        "language": "java",
+        "code": "int[][] bild = {\n    {10,  20,  30,  40},\n    {50,  60,  70,  80},\n    {90, 100, 110, 120}\n};\nint z = bild.length;\nint s = bild[0].length;\nint w = bild[z - 1][s - 1];\nint v = bild[1][0];",
+        "showLineNumbers": true,
+        "columns": [
+          {
+            "id": "z",
+            "name": "z",
+            "kind": "value"
+          },
+          {
+            "id": "s",
+            "name": "s",
+            "kind": "value"
+          },
+          {
+            "id": "w",
+            "name": "w",
+            "kind": "value"
+          },
+          {
+            "id": "v",
+            "name": "v",
+            "kind": "value"
+          }
+        ],
+        "checkpoints": [
+          {
+            "id": "ende",
+            "label": "am Ende",
+            "line": 9,
+            "expected": {
+              "z": "3",
+              "s": "4",
+              "w": "120",
+              "v": "50"
+            }
+          }
+        ],
+        "caseSensitive": false,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "malen",
+      "type": "task-pixel-grid",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "`new int[5][5]` legt ein Gitter mit 5 Zeilen und 5 Spalten an, in dem überall 0 steht. Danach läuft dieses Programm:\n\n```java\nint[][] bild = new int[5][5];\nfor (int i = 0; i < 5; i++) {\n    bild[0][i] = 1;\n    bild[i][2] = 1;\n}\n```\n\nMale das Gitter so, wie es danach aussieht. Weiß steht für 0, Schwarz für 1.",
+        "rows": 5,
+        "columns": 5,
+        "palette": [
+          {
+            "id": "weiss",
+            "color": "#ffffff",
+            "label": "0"
+          },
+          {
+            "id": "schwarz",
+            "color": "#000000",
+            "label": "1"
+          }
+        ],
+        "target": [
+          [
+            "schwarz",
+            "schwarz",
+            "schwarz",
+            "schwarz",
+            "schwarz"
+          ],
+          [
+            "weiss",
+            "weiss",
+            "schwarz",
+            "weiss",
+            "weiss"
+          ],
+          [
+            "weiss",
+            "weiss",
+            "schwarz",
+            "weiss",
+            "weiss"
+          ],
+          [
+            "weiss",
+            "weiss",
+            "schwarz",
+            "weiss",
+            "weiss"
+          ],
+          [
+            "weiss",
+            "weiss",
+            "schwarz",
+            "weiss",
+            "weiss"
+          ]
+        ],
+        "given": [],
+        "startColor": "weiss",
+        "showCoordinates": false,
+        "firstIndex": 0,
+        "showLabels": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
       }
     },
     {
       "id": "helligkeit",
       "type": "task-choice",
-      "position": { "x": 0, "y": 700 },
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
       "data": {
         "instruction": "Ein Filter addiert zu jedem Helligkeitswert 40. Werte über 255 werden auf 255 begrenzt. Was wird aus dem Wert 240?",
         "variant": "single",
         "choices": [
-          { "id": "wert-240", "markdown": "240", "correct": false, "feedbackWhenChecked": { "message": "Dann hätte der Filter diesen Bildpunkt gar nicht verändert.", "severity": "warning" } },
-          { "id": "wert-255", "markdown": "255", "correct": true, "feedbackWhenChecked": { "message": "Richtig: 240 + 40 ergibt zunächst 280 und wird dann auf 255 begrenzt.", "severity": "success" } },
-          { "id": "wert-280", "markdown": "280", "correct": false, "feedbackWhenChecked": { "message": "Das ist das Zwischenergebnis. Ein Helligkeitswert darf aber nicht größer als 255 werden.", "severity": "warning" } }
+          {
+            "id": "wert-240",
+            "markdown": "240",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Dann hätte der Filter diesen Bildpunkt gar nicht verändert.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "wert-255",
+            "markdown": "255",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig: 240 + 40 ergibt zunächst 280 und wird dann auf 255 begrenzt.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "wert-280",
+            "markdown": "280",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das ist das Zwischenergebnis. Ein Helligkeitswert darf aber nicht größer als 255 werden.",
+              "severity": "warning"
+            }
+          }
         ],
         "shuffle": false,
         "partialCredit": false,
         "patternFeedback": [],
-        "evaluation": { "mode": "auto", "enableRetry": true, "showFeedback": true, "allowSkip": false }
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
       }
     },
     {
       "id": "trace",
       "type": "task-code-trace",
-      "position": { "x": 0, "y": 840 },
+      "position": {
+        "x": 0,
+        "y": 1260
+      },
       "data": {
         "instruction": "Verfolge, wie der Bildpunkt mit dem Wert 240 aufgehellt wird. Trage jeweils den aktuellen Wert von `wert` ein.",
         "language": "java",
         "code": "int wert = bild[0][2];\nwert = wert + 40;\nif (wert > 255) {\n    wert = 255;\n}",
         "showLineNumbers": true,
         "columns": [
-          { "id": "wert", "name": "wert", "kind": "value" }
+          {
+            "id": "wert",
+            "name": "wert",
+            "kind": "value"
+          }
         ],
         "checkpoints": [
-          { "id": "gelesen", "label": "nach Zeile 1", "line": 1, "expected": { "wert": "240" } },
-          { "id": "addiert", "label": "nach Zeile 2", "line": 2, "expected": { "wert": "280" } },
-          { "id": "begrenzt", "label": "am Ende", "line": 5, "expected": { "wert": "255" } }
+          {
+            "id": "gelesen",
+            "label": "nach Zeile 1",
+            "line": 1,
+            "expected": {
+              "wert": "240"
+            }
+          },
+          {
+            "id": "addiert",
+            "label": "nach Zeile 2",
+            "line": 2,
+            "expected": {
+              "wert": "280"
+            }
+          },
+          {
+            "id": "begrenzt",
+            "label": "am Ende",
+            "line": 5,
+            "expected": {
+              "wert": "255"
+            }
+          }
         ],
         "caseSensitive": false,
         "partialCredit": true,
-        "evaluation": { "mode": "auto", "enableRetry": true, "showFeedback": true, "allowSkip": false }
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
       }
     },
     {
       "id": "schleifen",
       "type": "task-parsons",
-      "position": { "x": 0, "y": 980 },
+      "position": {
+        "x": 0,
+        "y": 1400
+      },
       "data": {
-        "instruction": "Ein Filter soll jeden Bildpunkt besuchen. Setze die geschachtelten Schleifen zusammen.",
+        "instruction": "Ein Filter soll jeden Bildpunkt besuchen. Setze die geschachtelten Schleifen zusammen: außen die Zeilen, innen die Spalten.",
         "language": "java",
         "lines": [
-          { "id": "aussen", "text": "for (int zeile = 0; zeile < bild.length; zeile++) {", "indent": 0, "distractor": false },
-          { "id": "innen", "text": "for (int spalte = 0; spalte < bild[zeile].length; spalte++) {", "indent": 1, "distractor": false },
-          { "id": "wert", "text": "bild[zeile][spalte] = bild[zeile][spalte] + 40;", "indent": 2, "distractor": false },
-          { "id": "innen-zu", "text": "} // Ende der Spalten-Schleife", "indent": 1, "distractor": false },
-          { "id": "aussen-zu", "text": "} // Ende der Zeilen-Schleife", "indent": 0, "distractor": false },
-          { "id": "ablenkung", "text": "bild = bild + 40;", "indent": 1, "distractor": true }
+          {
+            "id": "aussen",
+            "text": "for (int zeile = 0; zeile < bild.length; zeile++) {",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "innen",
+            "text": "for (int spalte = 0; spalte < bild[zeile].length; spalte++) {",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "wert",
+            "text": "bild[zeile][spalte] = bild[zeile][spalte] + 40;",
+            "indent": 2,
+            "distractor": false
+          },
+          {
+            "id": "innen-zu",
+            "text": "} // Ende der Spalten-Schleife",
+            "indent": 1,
+            "distractor": false
+          },
+          {
+            "id": "aussen-zu",
+            "text": "} // Ende der Zeilen-Schleife",
+            "indent": 0,
+            "distractor": false
+          },
+          {
+            "id": "ablenkung",
+            "text": "bild = bild + 40;",
+            "indent": 1,
+            "distractor": true
+          }
         ],
         "indentationMatters": true,
         "penaliseDistractors": false,
-        "evaluation": { "mode": "auto", "enableRetry": true, "showFeedback": true, "allowSkip": false }
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": true,
+          "showFeedback": true,
+          "allowSkip": false
+        }
       }
     },
     {
       "id": "ende",
       "type": "end-tries",
-      "position": { "x": 0, "y": 1120 },
+      "position": {
+        "x": 0,
+        "y": 1540
+      },
       "data": {
         "title": "Bereit für das echte Foto",
-        "markdown": "Du weißt jetzt: Ein Bild ist ein Gitter aus Zahlen. Ein Filter wendet auf jeden Bildpunkt dieselbe Regel an. Probiere diesen Bauplan nun direkt unter der Startmission aus.",
+        "markdown": "Du weißt jetzt: Ein Bild ist ein Feld von Zeilen, und jede Zeile ist ein Feld von Zahlen. Mit zwei geschachtelten Schleifen erreichst du jeden Bildpunkt. Unter der Startmission wendest du das auf das echte Foto an.",
         "showBreakdown": true,
         "showScore": true,
         "allowReview": true
@@ -169,43 +565,167 @@
     }
   ],
   "edges": [
-    { "id": "e-start-bildspeicher", "source": "start", "target": "bildspeicher" },
+    {
+      "id": "e-start-bildspeicher",
+      "source": "start",
+      "target": "bildspeicher"
+    },
     {
       "id": "e-bildspeicher-falsch",
       "source": "bildspeicher",
       "target": "hilfe-bildspeicher",
       "label": "noch nicht",
-      "condition": { "type": "compare", "left": { "kind": "result", "nodeId": "bildspeicher", "path": "state" }, "op": "eq", "right": "wrong" }
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "bildspeicher",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
     },
-    { "id": "e-bildspeicher-koordinate", "source": "bildspeicher", "target": "koordinate", "label": "richtig" },
+    {
+      "id": "e-bildspeicher-koordinate",
+      "source": "bildspeicher",
+      "target": "koordinate",
+      "label": "richtig"
+    },
     {
       "id": "e-hilfe-bildspeicher-zurueck",
       "source": "hilfe-bildspeicher",
       "target": "bildspeicher",
       "label": "noch ein Versuch",
       "resetTarget": "result",
-      "condition": { "type": "compare", "left": { "kind": "visits", "nodeId": "bildspeicher" }, "op": "lt", "right": 2 }
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "bildspeicher"
+        },
+        "op": "lt",
+        "right": 2
+      }
     },
-    { "id": "e-hilfe-bildspeicher-weiter", "source": "hilfe-bildspeicher", "target": "koordinate", "label": "weiter" },
+    {
+      "id": "e-hilfe-bildspeicher-weiter",
+      "source": "hilfe-bildspeicher",
+      "target": "koordinate",
+      "label": "weiter"
+    },
     {
       "id": "e-koordinate-falsch",
       "source": "koordinate",
       "target": "hilfe-koordinate",
       "label": "noch nicht",
-      "condition": { "type": "compare", "left": { "kind": "result", "nodeId": "koordinate", "path": "state" }, "op": "eq", "right": "wrong" }
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "koordinate",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
     },
-    { "id": "e-koordinate-helligkeit", "source": "koordinate", "target": "helligkeit", "label": "richtig" },
+    {
+      "id": "e-koordinate-zeile",
+      "source": "koordinate",
+      "target": "zeile",
+      "label": "richtig"
+    },
     {
       "id": "e-hilfe-koordinate-zurueck",
       "source": "hilfe-koordinate",
       "target": "koordinate",
       "label": "noch ein Versuch",
       "resetTarget": "result",
-      "condition": { "type": "compare", "left": { "kind": "visits", "nodeId": "koordinate" }, "op": "lt", "right": 2 }
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "koordinate"
+        },
+        "op": "lt",
+        "right": 2
+      }
     },
-    { "id": "e-hilfe-koordinate-weiter", "source": "hilfe-koordinate", "target": "helligkeit", "label": "weiter" },
-    { "id": "e-helligkeit-trace", "source": "helligkeit", "target": "trace" },
-    { "id": "e-trace-schleifen", "source": "trace", "target": "schleifen" },
-    { "id": "e-schleifen-ende", "source": "schleifen", "target": "ende" }
+    {
+      "id": "e-hilfe-koordinate-weiter",
+      "source": "hilfe-koordinate",
+      "target": "zeile",
+      "label": "weiter"
+    },
+    {
+      "id": "e-helligkeit-trace",
+      "source": "helligkeit",
+      "target": "trace"
+    },
+    {
+      "id": "e-trace-schleifen",
+      "source": "trace",
+      "target": "schleifen"
+    },
+    {
+      "id": "e-schleifen-ende",
+      "source": "schleifen",
+      "target": "ende"
+    },
+    {
+      "id": "e-zeile-falsch",
+      "source": "zeile",
+      "target": "hilfe-zeile",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "zeile",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-zeile-laengen",
+      "source": "zeile",
+      "target": "laengen",
+      "label": "richtig"
+    },
+    {
+      "id": "e-hilfe-zeile-zurueck",
+      "source": "hilfe-zeile",
+      "target": "zeile",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "zeile"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-zeile-weiter",
+      "source": "hilfe-zeile",
+      "target": "laengen",
+      "label": "weiter"
+    },
+    {
+      "id": "e-laengen-malen",
+      "source": "laengen",
+      "target": "malen"
+    },
+    {
+      "id": "e-malen-helligkeit",
+      "source": "malen",
+      "target": "helligkeit"
+    }
   ]
 }

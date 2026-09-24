@@ -12,10 +12,213 @@ rechnet eine neue Zahl aus und schreibt sie ins Ergebnis. Was rundherum liegt,
 interessiert ihn nicht. Solche Filter heißen **Punktoperatoren** – und
 überraschend viel von dem, was eine Kamera-App anbietet, gehört dazu.
 
+## Ein neues Gitter anlegen
+
+Auf der letzten Seite hast du Gitter nur gelesen. Ein Filter muss aber ein
+**neues** Bild herstellen, und dafür braucht er ein leeres Gitter, in das er
+schreiben kann. Das legst du so an, wie du es vom eindimensionalen Feld kennst,
+nur mit zwei Größenangaben:
+
+| eindimensional | zweidimensional |
+| --- | --- |
+| `int[] werte = new int[10];` | `int[][] bild = new int[72][96];` |
+| 10 Einträge | **72 Zeilen** mit je **96 Spalten** |
+| überall steht 0 | überall steht 0 |
+
+Die Reihenfolge ist dieselbe wie beim Zugriff: **zuerst die Zeilen, dann die
+Spalten**. `new int[72][96]` legt also ein Bild an, das 96 Bildpunkte breit und
+72 hoch ist.
+
+Das folgende Programm legt ein solches Gitter an, füllt es mit den zwei
+geschachtelten Schleifen und zeigt es an. Ein Foto braucht es dafür nicht.
+
+:::onlineide{height="600px" speed="1000000"}
+
+```java Main.java
+void main() {
+    int[][] verlauf = new int[72][96];
+
+    for (int zeile = 0; zeile < verlauf.length; zeile++) {
+        for (int spalte = 0; spalte < verlauf[zeile].length; spalte++) {
+            verlauf[zeile][spalte] = spalte * 2;
+        }
+    }
+
+    Leinwand leinwand = new Leinwand(1);
+    leinwand.zeige(verlauf);
+}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::snippet{#aufgabe}
+a) **Sage vorher**, wie das Bild aussieht: Wo ist es hell, wo dunkel? Starte
+   das Programm dann.
+
+b) Ändere die eine Zeile im Schleifenrumpf so, dass der Verlauf **von oben
+   nach unten** geht: oben schwarz, unten hell.
+
+c) Male ein **Schachbrett** aus Feldern mit einer Größe von 12 × 12 Bildpunkten,
+   abwechselnd schwarz (0) und weiß (255).
+
+d) Male einen weißen **Rahmen**, der 4 Bildpunkte breit ist, um ein schwarzes
+   Bild. Lass die Zahlen 72 und 96 dabei nicht im Schleifenrumpf stehen,
+   sondern benutze `verlauf.length` und `verlauf[zeile].length`.
+:::
+
+::::collapsible{title="Tipp zu b)"}
+
+In `spalte * 2` steckt, dass die Helligkeit nach rechts zunimmt. Nach unten
+nimmt die **Zeile** zu. Überlege dir, womit du die Zeile malnehmen musst, damit
+in der untersten Zeile 71 ein Wert nahe 255 herauskommt.
+
+::::
+
+::::collapsible{title="Tipp zu c)"}
+
+`spalte / 12` sagt dir, im wievielten Feld von links ein Bildpunkt liegt, und
+`zeile / 12`, im wievielten Feld von oben. Ein Feld ist weiß, wenn die Summe
+beider Nummern gerade ist. Ob eine Zahl gerade ist, prüfst du mit `% 2 == 0`.
+
+::::
+
+::::collapsible{title="Tipp zu d)"}
+
+Ein Bildpunkt gehört zum Rahmen, wenn er nah genug an **einem** der vier Ränder
+liegt. Der obere Rand ist `zeile < 4`. Der untere Rand ist
+`zeile >= verlauf.length - 4`. Die beiden anderen findest du selbst. Verbinde
+die vier Bedingungen mit `||`.
+
+::::
+
+:::protect{password="foto-2-0" description="Eine mögliche Lösung. Erfrage das Passwort bei deiner Lehrkraft oder sieh auf der Seite Lösungspasswörter nach."}
+
+b) `verlauf[zeile][spalte] = zeile * 3;` Die unterste Zeile 71 bekommt dann den
+Wert 213. Mit `zeile * 255 / 71` erreicht sie genau 255.
+
+c) und d) stehen hier in einem gemeinsamen Programm:
+
+```java
+void main() {
+    int[][] schach = new int[72][96];
+    for (int zeile = 0; zeile < schach.length; zeile++) {
+        for (int spalte = 0; spalte < schach[zeile].length; spalte++) {
+            if ((zeile / 12 + spalte / 12) % 2 == 0) {
+                schach[zeile][spalte] = 255;
+            }
+        }
+    }
+
+    int[][] rahmen = new int[72][96];
+    for (int zeile = 0; zeile < rahmen.length; zeile++) {
+        for (int spalte = 0; spalte < rahmen[zeile].length; spalte++) {
+            if (zeile < 4 || zeile >= rahmen.length - 4
+                    || spalte < 4 || spalte >= rahmen[zeile].length - 4) {
+                rahmen[zeile][spalte] = 255;
+            }
+        }
+    }
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(schach);
+    leinwand.zeige(rahmen);
+}
+```
+
+Ein `else`, das die übrigen Bildpunkte auf 0 setzt, ist nicht nötig. Ein
+frisch angelegtes Gitter ist schon überall 0.
+
+:::
+
+## Dein erster Filter
+
+Jetzt kommt beides zusammen: ein Gitter **lesen**, wie auf der letzten Seite,
+und ein neues Gitter **schreiben**, wie gerade eben. Das ist schon der ganze
+Bauplan eines Filters.
+
+Starte das Programm zuerst unverändert: Beide Bilder sehen gleich aus. Ergänze
+dann in der markierten Zeile `+ pStufen` und starte es erneut.
+
+:::onlineide{height="700px" speed="1000000"}
+@file dest="fotofilter.png" src="/images/fotofilter.png"
+
+```java Main.java
+void main() {
+    Foto foto = new Foto();
+    int[][] grau = foto.graustufen();
+
+    Leinwand leinwand = new Leinwand(2);
+    leinwand.zeige(grau);
+    leinwand.zeige(heller(grau, 60));
+}
+
+/** Liefert ein neues Bild, in dem jeder Wert um pStufen groesser ist. */
+int[][] heller(int[][] pGrau, int pStufen) {
+    int[][] neu = new int[pGrau.length][pGrau[0].length];
+
+    for (int zeile = 0; zeile < pGrau.length; zeile++) {
+        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
+            int wert = pGrau[zeile][spalte]; // ergaenze hier: + pStufen
+            if (wert > 255) {
+                wert = 255;
+            }
+            neu[zeile][spalte] = wert;
+        }
+    }
+
+    return neu;
+}
+```
+
+```java Foto.java
+{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
+```
+
+```java Leinwand.java
+{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
+```
+
+:::
+
+:::collapsible{title="Selbstkontrolle"}
+
+Die markierte Zeile lautet danach:
+
+```java
+int wert = pGrau[zeile][spalte] + pStufen;
+```
+
+Das zweite Bild muss nun deutlich heller aussehen. Falls beide Bilder weiterhin
+gleich aussehen, prüfe, ob du das Programm nach der Änderung erneut gestartet
+hast.
+
+:::
+
+:::snippet{#merken}
+**Ein Filter liefert ein neues Gitter, er ändert das alte nicht.**
+
+```java
+int[][] neu = new int[pGrau.length][pGrau[0].length];
+```
+
+Diese Zeile steht am Anfang fast jedes Filters. Sie legt ein Gitter mit so
+vielen Zeilen und Spalten an, wie das Original hat, und das Gitter ist mit
+Nullen gefüllt, die gleich überschrieben werden. Nur so kannst du das Original
+hinterher noch danebenstellen.
+
+Danach folgen immer dieselben drei Schritte für jeden Bildpunkt: den alten Wert
+aus `pGrau[zeile][spalte]` **lesen**, einen neuen **ausrechnen** und ihn nach
+`neu[zeile][spalte]` **schreiben**.
+:::
+
 ## Heller und dunkler
 
-Heller heißt: zu jedem Wert etwas dazuzählen. Eines musst du dabei bedenken –
-es gibt keine Helligkeit über 255.
+Dunkler ist dasselbe wie heller, nur mit einer negativen Zahl. Das Programm
+zeigt beides neben dem Original.
 
 :::onlineide{height="660px" speed="1000000"}
 @file dest="fotofilter.png" src="/images/fotofilter.png"
@@ -60,18 +263,6 @@ int[][] dunkler(int[][] pGrau, int pStufen) {
 {{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
 ```
 
-:::
-
-:::snippet{#merken}
-**Ein Filter liefert ein neues Gitter, er ändert das alte nicht.**
-
-```java
-int[][] neu = new int[pGrau.length][pGrau[0].length];
-```
-
-Diese Zeile steht am Anfang fast jedes Filters. Sie legt ein Gitter derselben
-Größe an – gefüllt mit Nullen, die gleich überschrieben werden. Nur so kannst
-du das Original hinterher noch danebenstellen.
 :::
 
 :::snippet{#aufgabe}

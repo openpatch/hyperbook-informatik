@@ -323,9 +323,12 @@ class FotoGitter extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        :host { display: block; box-sizing: border-box; }
+        :host { display: block; box-sizing: border-box;
+        margin-bottom: var(--element-gap);
+        }
         * { box-sizing: border-box; }
         .container {
+
           border: 2px solid var(--color-nav-border, #3c3c3c);
           border-radius: 12px; padding: 16px;
           background: var(--color-background, white);

@@ -57,9 +57,9 @@ Alle drei auf 0 ergibt Schwarz, alle drei auf 255 ergibt Weiß. Sind alle drei
 Seiten.
 :::
 
-Das leere Gitter `nichts` zeigt nebenbei etwas Nützliches: `new int[72][96]` ist
-nicht leer, sondern **mit Nullen gefüllt**. Java legt jedes frische Zahlenfeld
-so an.
+Das Gitter `nichts` ist mit `new int[foto.hoehe()][foto.breite()]` angelegt und
+deshalb überall 0. Als Kanal eingesetzt, bedeutet es „von dieser Farbe gar
+nichts“.
 
 ## Aufgabe 1: Graustufen selbst rechnen
 
@@ -186,9 +186,12 @@ blau  = grau *  75 / 100
 
    Vergiss das Begrenzen nach oben nicht.
 
-c) Baue dir daraus einen Regler: Schreibe `farbstich(int[][] pGrau, int pRot,
-   int pGruen, int pBlau)`, dem du die drei Prozentzahlen übergibst. Welche
-   Zahlen ergeben einen kalten, blaustichigen Look?
+   Du musst dafür nicht drei Filter schreiben. Im Programmierbereich steht die
+   Methode `farbstich(int[][] pGrau, int pProzent)`. Sie liefert ein Gitter,
+   in dem jeder Wert auf `pProzent` Prozent seiner selbst steht. Ergänze sie
+   und rufe sie **dreimal** mit demselben Graubild auf, einmal für jeden Kanal.
+
+c) Welche drei Prozentzahlen ergeben einen kalten, blaustichigen Look?
 :::
 
 :::onlineide{height="720px" speed="1000000"}

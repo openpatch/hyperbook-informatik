@@ -20,6 +20,7 @@ jede Kachel ein Bildpunkt, jede Zahl eine Helligkeit zwischen 0 und 255.
 Fahre mit der Maus über das Gitter: Zeile und Spalte des Bildpunkts werden
 markiert, und die Zeile darunter zeigt die Java-Schreibweise `bild[zeile][spalte]`.
 Ein Klick hält den Bildpunkt fest, ein zweiter Klick gibt ihn wieder frei.
+Was diese Schreibweise genau bedeutet, klären die nächsten Abschnitte.
 
 Probiere danach die Filter aus. Jeder wendet seine Regel – angezeigt als
 Java-Code – auf jeden einzelnen Bildpunkt an.
@@ -35,89 +36,161 @@ Java-Code – auf jeden einzelnen Bildpunkt an.
 101  95  91  76  91  97  22  20  85  25
 </foto-gitter>
 
-## Startmission: Wie arbeitet ein Fotofilter?
+## Eine Zeile kennst du schon
 
-Wenn du im Gitter herumprobiert hast, bearbeite die fünf kurzen Stationen. Du
-brauchst noch keinen neuen Code
-zu schreiben: Untersuche das Bildgitter, rechne einen Filter von Hand durch und
-setze seinen Bauplan zusammen. Wenn etwas noch nicht stimmt, erhältst du direkt
-eine Erklärung und einen neuen Versuch.
+Nimm dir nur die oberste Zeile des Gitters vor. Das sind zehn Zahlen
+nebeneinander, also ein ganz gewöhnliches eindimensionales Feld:
 
-<style>
-/* Solange die eingebundene Bitflow-Version die Inhaltsbreite noch auf 720px
-   kapppt: volle Breite plus Padding, wie im neuen Bibliotheks-Standard. */
-#bitflow-fotofilter-einstieg bitflow-flow {
-  --bitflow-max-width-content: none;
-}
-</style>
+```java
+int[] zeile0 = {64, 82, 240, 240, 94, 189, 73, 69, 100, 76};
+```
 
-::bitflow{id="fotofilter-einstieg" src="einstieg.bitflow" height="890px"}
+`zeile0[2]` ist 240, `zeile0.length` ist 10. Mit einer Schleife kommst du an
+jeden Wert dieser Zeile heran.
 
-## Dein erster Filter
+Das Gitter hat aber acht Zeilen, das echte Foto sogar 72. Acht Variablen
+`zeile0` bis `zeile7` anzulegen wäre umständlich, und über acht einzelne
+Variablen kann keine Schleife laufen. Dieses Problem kennst du schon: Statt
+vieler einzelner Zahlen hast du damals **ein Feld** mit Zahlen angelegt. Hier
+geht es genauso, nur legst du statt der Zahlen die **Zeilen** in ein Feld.
 
-Jetzt wendest du den Bauplan auf das echte Foto an. Starte das Programm zuerst
-unverändert: Beide Bilder sehen gleich aus. Ergänze dann in der markierten Zeile
-`+ pStufen` und starte es erneut.
+## Ein Feld von Feldern
 
-:::onlineide{height="700px" speed="1000000"}
-@file dest="fotofilter.png" src="/images/fotofilter.png"
+Ein kleines Bild mit zwei Zeilen und drei Spalten sieht in Java so aus:
+
+```java
+int[][] bild = {
+    {20, 80, 240},
+    {50, 120, 200}
+};
+```
+
+Lies den Typ `int[][]` von links nach rechts als „ein Feld, dessen Einträge
+`int[]` sind“. Das äußere Feld hat **zwei** Einträge, einen für jede Zeile.
+Jeder dieser Einträge ist wieder ein Feld, und zwar eines mit **drei** Zahlen.
+
+Daraus folgt, wie man auf einen einzelnen Wert zugreift, nämlich in zwei
+Schritten:
+
+| Ausdruck | Typ | Ergebnis |
+| --- | --- | --- |
+| `bild[1]` | `int[]` | die ganze Zeile 1, also `{50, 120, 200}` |
+| `bild[1][2]` | `int` | in dieser Zeile der Eintrag 2, also `200` |
+
+:::snippet{#aufgabe}
+**Sage vorher**, was das Programm ausgibt. Schreibe dir alle sechs Zeilen auf
+und starte es erst dann.
+
+Ergänze danach eine Ausgabe für `bild[2][0]`. Was passiert, und warum?
+:::
+
+:::onlineide{height="520px" speed="1000000"}
 
 ```java Main.java
 void main() {
-    Foto foto = new Foto();
-    int[][] grau = foto.graustufen();
+    int[][] bild = {
+        {20, 80, 240},
+        {50, 120, 200}
+    };
 
-    Leinwand leinwand = new Leinwand(2);
-    leinwand.zeige(grau);
-    leinwand.zeige(heller(grau, 60));
+    int[] zeile = bild[1];
+    IO.println("zeile.length   = " + zeile.length);
+    IO.println("zeile[2]       = " + zeile[2]);
+    IO.println("bild[1][2]     = " + bild[1][2]);
+    IO.println("bild[0][1]     = " + bild[0][1]);
+
+    IO.println("bild.length    = " + bild.length);
+    IO.println("bild[0].length = " + bild[0].length);
 }
-
-/** Liefert ein neues Bild, in dem jeder Wert um pStufen groesser ist. */
-int[][] heller(int[][] pGrau, int pStufen) {
-    int[][] neu = new int[pGrau.length][pGrau[0].length];
-
-    for (int zeile = 0; zeile < pGrau.length; zeile++) {
-        for (int spalte = 0; spalte < pGrau[zeile].length; spalte++) {
-            int wert = pGrau[zeile][spalte]; // ergaenze hier: + pStufen
-            if (wert > 255) {
-                wert = 255;
-            }
-            neu[zeile][spalte] = wert;
-        }
-    }
-
-    return neu;
-}
-```
-
-```java Foto.java
-{{{rfile "/book/projekte/fotofilter/quelle/Foto.java"}}}
-```
-
-```java Leinwand.java
-{{{rfile "/book/projekte/fotofilter/quelle/Leinwand.java"}}}
 ```
 
 :::
 
-:::collapsible{title="Selbstkontrolle"}
+::::collapsible{title="Auflösung"}
 
-Die markierte Zeile lautet danach:
-
-```java
-int wert = pGrau[zeile][spalte] + pStufen;
+```
+zeile.length   = 3
+zeile[2]       = 200
+bild[1][2]     = 200
+bild[0][1]     = 80
+bild.length    = 2
+bild[0].length = 3
 ```
 
-Das zweite Bild muss nun deutlich heller aussehen. Falls beide Bilder weiterhin
-gleich aussehen, prüfe, ob du das Programm nach der Änderung erneut gestartet
-hast.
+`zeile[2]` und `bild[1][2]` liefern denselben Wert. Das ist kein Zufall:
+`bild[1][2]` ist nur die kurze Schreibweise für „hole die Zeile `bild[1]` und
+darin den Eintrag `[2]`“.
 
+`bild.length` ist **2** und nicht 6. Das äußere Feld zählt nur seine Einträge,
+und das sind die zwei Zeilen. Wie viele Werte in einer Zeile stehen, verrät
+erst die Zeile selbst: `bild[0].length`.
+
+`bild[2][0]` führt zu einem **Laufzeitfehler**. Eine Zeile 2 gibt es nicht,
+weil das äußere Feld nur die Indizes 0 und 1 hat. Dieser Fehler begegnet dir im
+Projekt noch öfter, meistens dann, wenn Zeile und Spalte vertauscht sind.
+
+::::
+
+:::snippet{#merken}
+| Schreibweise | Bedeutung |
+| --- | --- |
+| `int[][] bild` | ein zweidimensionales Feld, also ein **Feld von Feldern** |
+| `bild[zeile]` | eine ganze Zeile, ein `int[]` |
+| `bild[zeile][spalte]` | ein einzelner Wert: **zuerst die Zeile, dann die Spalte** |
+| `bild.length` | die Anzahl der **Zeilen** |
+| `bild[zeile].length` | die Anzahl der **Spalten** in dieser Zeile |
+
+Beide Indizes beginnen bei 0. **Zeile 0 ist oben**, und die Zeilennummern
+wachsen nach unten.
 :::
+
+## Wie das Gitter im Speicher liegt
+
+Die Tabellenform ist eine Vorstellung, die beim Programmieren hilft. Im
+Speicher liegt das Gitter aber anders: Das äußere Feld enthält keine Zahlen,
+sondern **Verweise** auf die Zeilen. Jede Zeile ist ein eigenes Feldobjekt.
+
+Das Diagramm zeigt `bild` aus dem Programm oben. Bearbeite danach die beiden
+Schritte:
+
+1. `int[] zeile = bild[1];` Trage ein, worauf `zeile` danach verweist.
+2. `zeile[2] = 0;` Ändere den Wert, der sich dadurch ändert.
+
+::jmp{id="fotofilter-feld-von-feldern" src="feld-von-feldern.jmp" height="560px"}
+
+:::snippet{#brain}
+Nach den beiden Schritten wird `bild[1][2]` ausgegeben. Kommt 200 heraus
+oder 0? Begründe mit dem Diagramm und probiere es im Programm oben aus.
+:::
+
+::::collapsible{title="Auflösung"}
+
+Es kommt **0** heraus. `int[] zeile = bild[1];` legt keine Kopie der Zeile an.
+Die Variable `zeile` bekommt nur denselben Verweis, der auch in `bild[1]`
+steht. `zeile` und `bild[1]` sind danach zwei Namen für **dasselbe**
+Feldobjekt, und eine Änderung über den einen Namen ist auch über den anderen
+zu sehen.
+
+Das ist später in diesem Projekt wichtig: Ein Filter bekommt als Parameter nur
+den Verweis auf das Bild. Schreibt er hinein, verändert er das Original.
+
+::::
+
+## Startmission: Im Gitter zurechtfinden
+
+Bearbeite jetzt die Stationen. Du brauchst noch keinen Code zu schreiben, nur
+zu lesen: Du findest Bildpunkte, zählst Zeilen und Spalten, malst aus, was ein
+Programm in ein Gitter schreibt, und setzt am Ende eine geschachtelte Schleife
+zusammen. Wenn etwas noch nicht stimmt, bekommst du direkt eine Erklärung und
+einen neuen Versuch.
+
+::bitflow{id="fotofilter-einstieg" src="einstieg.bitflow" height="auto" maxHeight="85vh"}
 
 ## Das Foto untersuchen
 
-Das Objekt `foto` liefert dir das Bild als **Graustufen** – eine Zahl je
-Bildpunkt, 0 ist schwarz, 255 ist weiß.
+Das echte Foto ist dasselbe wie das kleine `bild`, nur größer. Das Objekt
+`foto` liefert es dir als **Graustufen**: eine Zahl je Bildpunkt, 0 ist
+schwarz und 255 ist weiß.
 
 :::onlineide{height="640px" speed="1000000"}
 @file dest="fotofilter.png" src="/images/fotofilter.png"
@@ -147,21 +220,6 @@ void main() {
 
 :::
 
-:::snippet{#merken}
-| Schreibweise | Bedeutung |
-| --- | --- |
-| `int[][] grau` | ein zweidimensionales Feld – ein **Feld von Feldern** |
-| `grau[3][10]` | der Bildpunkt in **Zeile 3**, **Spalte 10** |
-| `grau.length` | die Anzahl der **Zeilen**, hier 72 |
-| `grau[0].length` | die Anzahl der **Spalten** in Zeile 0, hier 96 |
-
-**Zuerst die Zeile, dann die Spalte.** Wer das vertauscht, greift bei einem
-96 × 72 großen Bild irgendwann außerhalb zu und bekommt einen Laufzeitfehler.
-
-Und: **Zeile 0 ist oben.** Die Zeilennummern wachsen nach unten, anders als
-die y-Achse auf der Bühne.
-:::
-
 ```
 grau
        Spalte 0    1    2   …   95
@@ -174,10 +232,60 @@ Zeile 71 │101 │100 │100 │ … │ 25 │
          └────┴────┴────┴───┴────┘
 ```
 
+:::snippet{#aufgabe}
+a) Das Foto ist 96 Bildpunkte **breit** und 72 **hoch**. Warum ist dann
+   `grau.length` 72 und nicht 96?
+
+b) Vertausche in der Zeile mit „Unten rechts“ die beiden Zahlen, sodass dort
+   `grau[95][71]` steht. **Sage vorher**, was passiert, und starte das
+   Programm dann.
+
+c) Gib den Bildpunkt in der **Mitte** des Fotos aus. Welche Zeile und welche
+   Spalte ist das?
+:::
+
+::::collapsible{title="Auflösung"}
+
+a) `grau.length` zählt die Einträge des äußeren Feldes, und das sind die
+**Zeilen**. Wie hoch ein Bild ist, bestimmt die Zahl seiner Zeilen. Die Breite
+ist die Länge einer Zeile, also `grau[0].length`.
+
+b) Das Programm bricht mit einem **Laufzeitfehler** ab. `grau[95]` wäre die
+Zeile 95, aber es gibt nur die Zeilen 0 bis 71. Wer Zeile und Spalte
+vertauscht, merkt das bei einem quadratischen Bild nicht, bei einem
+rechteckigen aber sofort.
+
+c) Die Mitte liegt bei Zeile 36 und Spalte 48:
+
+```java
+IO.println("Mitte: " + grau[36][48]);
+```
+
+Besser ist es, nicht selbst zu rechnen, sondern
+`grau[grau.length / 2][grau[0].length / 2]` zu schreiben. Dann stimmt die Zeile
+auch für ein anderes Foto.
+
+::::
+
 ## Jeden Bildpunkt einmal anfassen
 
-Fast jeder Filter in diesem Projekt sieht innen gleich aus: zwei
-ineinandergeschachtelte Schleifen, außen die Zeilen, innen die Spalten.
+Um eine einzelne Zeile zu durchlaufen, brauchst du eine Schleife, so wie bei
+jedem eindimensionalen Feld. Um **alle** Zeilen zu durchlaufen, setzt du
+um diese Schleife eine zweite: Die äußere holt eine Zeile nach der anderen, die
+innere läuft durch die geholte Zeile.
+
+```java
+for (int zeile = 0; zeile < grau.length; zeile++) {
+    int[] reihe = grau[zeile];                     // die ganze Zeile, ein int[]
+    for (int spalte = 0; spalte < reihe.length; spalte++) {
+        // reihe[spalte] ist dasselbe wie grau[zeile][spalte]
+    }
+}
+```
+
+Die Hilfsvariable `reihe` zeigt, was passiert. Man lässt sie meistens weg und
+schreibt gleich `grau[zeile][spalte]`. Diese Form steht in fast jedem Filter
+des Projekts:
 
 :::snippet{#merken}
 ```java
@@ -188,9 +296,13 @@ for (int zeile = 0; zeile < grau.length; zeile++) {
 }
 ```
 
-Schreibe innen `grau[zeile].length` und nicht `grau[0].length`. Bei einem
-Foto sind alle Zeilen gleich lang, aber die Gewohnheit trägt später, wenn sie
-es nicht mehr sind.
+- **Außen die Zeilen, innen die Spalten.** Die äußere Schleife läuft bis
+  `grau.length`, die innere bis `grau[zeile].length`.
+- Die innere Schleife läuft **für jede Zeile einmal ganz durch**. Beim Foto
+  wird der Rumpf also 72 · 96 = 6912-mal ausgeführt.
+- Schreibe innen `grau[zeile].length` und nicht `grau[0].length`. Bei einem
+  Foto sind alle Zeilen gleich lang, aber so stimmt die Schleife auch dann
+  noch, wenn sie es einmal nicht sind.
 :::
 
 ## Aufgabe 1: Wie hell ist das Bild?
@@ -233,7 +345,23 @@ int durchschnitt(int[][] pGrau) {
 
 :::
 
-::::collapsible{title="Tipp 1: Was brauchst du?"}
+::::collapsible{title="Tipp 1: Wie ging das bei einem eindimensionalen Feld?"}
+
+Die Summe aller Werte eines `int[] werte` hast du so gebildet:
+
+```java
+int summe = 0;
+for (int i = 0; i < werte.length; i++) {
+    summe = summe + werte[i];
+}
+```
+
+Beim Gitter ist es dasselbe. Nur läuft die Schleife jetzt über die Zeilen, und
+um sie herum steht die Schleife aus dem Merkkasten oben.
+
+::::
+
+::::collapsible{title="Tipp 2: Was brauchst du?"}
 
 Zwei Dinge: die **Summe** aller Werte und die **Anzahl** der Bildpunkte. Die
 Summe sammelst du in einer Variablen, die vor den Schleifen angelegt wird. Die
@@ -241,7 +369,7 @@ Anzahl musst du nicht mitzählen – sie ist `pGrau.length * pGrau[0].length`.
 
 ::::
 
-::::collapsible{title="Tipp 2: Das Gerüst"}
+::::collapsible{title="Tipp 3: Das Gerüst"}
 
 ```java
 int summe = 0;
@@ -290,6 +418,9 @@ Punkten (Wert 0) um ihn herum und zeige das Bild noch einmal.
 
 Anders als bei Aufgabe 1 genügt eine Zahl als Ergebnis nicht – du brauchst
 **zwei**. Überlege dir, wie du beide aus einer Methode herausbekommst.
+
+In ein Gitter **schreibst** du genauso, wie du daraus liest:
+`grau[zeile][spalte] = 0;` setzt einen einzelnen Bildpunkt auf Schwarz.
 :::
 
 :::onlineide{height="700px" speed="1000000"}

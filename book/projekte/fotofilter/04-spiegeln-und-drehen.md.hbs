@@ -160,7 +160,9 @@ weichzeichnen ist etwas anderes als umgekehrt.
 ## Aufgabe 2: Um 90 Grad drehen
 
 Hier wird es interessant, denn aus einem Bild von 96 × 72 wird eines von
-72 × 96. Das Ergebnisgitter hat also eine **andere Form** als das Original.
+72 × 96. Das Ergebnisgitter hat also eine **andere Form** als das Original:
+Es hat so viele Zeilen, wie das Original Spalten hat. Deshalb kannst du die
+`new`-Zeile nicht wie bisher abschreiben.
 
 :::snippet{#aufgabe}
 Schreibe `gedrehtRechts` – das Bild wird um 90 Grad im Uhrzeigersinn gedreht.
@@ -168,11 +170,14 @@ Schreibe `gedrehtRechts` – das Bild wird um 90 Grad im Uhrzeigersinn gedreht.
 a) Wie viele Zeilen und wie viele Spalten hat das Ergebnis? Schreibe die
    `new`-Zeile auf, bevor du an die Schleifen gehst.
 
-b) Wohin wandert der Bildpunkt oben links? Und der oben rechts? Zeichne dazu
-   ein kleines Gitter von 3 × 2 auf Papier und drehe es.
+b) Wohin wandert der Bildpunkt oben links? Und der oben rechts? Bearbeite
+   dazu die beiden Stationen unter der Aufgabe. Dort drehst du zuerst ein
+   kleines Bild von Hand und liest dann die Indizes ab.
 
 c) Setze es um.
 :::
+
+::bitflow{id="fotofilter-drehen" src="drehen.bitflow" height="auto" maxHeight="85vh"}
 
 :::onlineide{height="660px" speed="1000000"}
 @file dest="fotofilter.png" src="/images/fotofilter.png"
@@ -245,9 +250,9 @@ int[][] gedrehtRechts(int[][] pGrau) {
 ```
 
 Zwei Dinge geschehen hier gleichzeitig: Die beiden Indizes **tauschen die
-Plätze** – das allein wäre das Transponieren aus dem Kapitel
-[Zweidimensionale Felder](/oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/01-zweidimensionale-felder) –,
-und einer von beiden zählt zusätzlich **rückwärts**. Ohne das Rückwärtszählen
+Plätze**, und einer von beiden zählt zusätzlich **rückwärts**. Das
+Plätzetauschen allein heißt **Transponieren**: Mit
+`neu[spalte][zeile] = pGrau[zeile][spalte]` werden die Zeilen zu Spalten. Ohne das Rückwärtszählen
 bekämst du das Bild an der Diagonalen gespiegelt, was von einer Drehung nur
 schwer zu unterscheiden ist, wenn man nicht genau hinsieht.
 
