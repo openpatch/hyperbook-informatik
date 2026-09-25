@@ -538,7 +538,7 @@
             "distractor": true
           }
         ],
-        "indentationMatters": true,
+        "indentationMatters": false,
         "penaliseDistractors": false,
         "evaluation": {
           "mode": "auto",
