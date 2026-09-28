@@ -1,0 +1,925 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-uebung-1-daten-und-formeln",
+    "title": "Übung: Daten, Zellen und Formeln",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": [
+      {
+        "id": "reiseetat",
+        "label": "Der Reiseetat für Lissabon",
+        "markdown": "![Reiseetat: Flug, Hostel und Tram-Ticket für je 26 Personen zu 58, 84 und 12 Euro. In Spalte D stehen =B2*C2 bis =B4*C4, in D5 =SUMME(D2:D4).](data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20394%20156%22%20width%3D%22394%22%20height%3D%22156%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%3E%3Crect%20width%3D%22394%22%20height%3D%22156%22%20fill%3D%22%23ffffff%22/%3E%3Crect%20width%3D%22394%22%20height%3D%2226%22%20fill%3D%22%23e6e6e6%22/%3E%3Crect%20width%3D%2228%22%20height%3D%22156%22%20fill%3D%22%23e6e6e6%22/%3E%3Ctext%20x%3D%2278.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EA%3C/text%3E%3Ctext%20x%3D%22160.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EB%3C/text%3E%3Ctext%20x%3D%22234.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EC%3C/text%3E%3Ctext%20x%3D%22335.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3ED%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E1%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%2244%22%3EPosition%3C/text%3E%3Ctext%20x%3D%22133%22%20y%3D%2244%22%3EAnzahl%3C/text%3E%3Ctext%20x%3D%22197%22%20y%3D%2244%22%3EEinzelpreis%3C/text%3E%3Ctext%20x%3D%22281%22%20y%3D%2244%22%3EGesamt%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E2%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%2270%22%3EFlug%3C/text%3E%3Ctext%20x%3D%22133%22%20y%3D%2270%22%3E26%3C/text%3E%3Ctext%20x%3D%22197%22%20y%3D%2270%22%3E58%2C00%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22281%22%20y%3D%2270%22%20font-family%3D%22monospace%22%3E%3DB2%2AC2%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%2296%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E3%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%2296%22%3EHostel%3C/text%3E%3Ctext%20x%3D%22133%22%20y%3D%2296%22%3E26%3C/text%3E%3Ctext%20x%3D%22197%22%20y%3D%2296%22%3E84%2C00%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22281%22%20y%3D%2296%22%20font-family%3D%22monospace%22%3E%3DB3%2AC3%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%22122%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E4%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%22122%22%3ETram-Ticket%3C/text%3E%3Ctext%20x%3D%22133%22%20y%3D%22122%22%3E26%3C/text%3E%3Ctext%20x%3D%22197%22%20y%3D%22122%22%3E12%2C00%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22281%22%20y%3D%22122%22%20font-family%3D%22monospace%22%3E%3DB4%2AC4%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%22148%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E5%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%22148%22%3ESumme%3C/text%3E%3Ctext%20x%3D%22281%22%20y%3D%22148%22%20font-family%3D%22monospace%22%3E%3DSUMME%28D2%3AD4%29%3C/text%3E%3Cline%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%2228%22%20y1%3D%220%22%20x2%3D%2228%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22128%22%20y1%3D%220%22%20x2%3D%22128%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22192%22%20y1%3D%220%22%20x2%3D%22192%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22276%22%20y1%3D%220%22%20x2%3D%22276%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22394%22%20y1%3D%220%22%20x2%3D%22394%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22394%22%20y2%3D%220%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%2226%22%20x2%3D%22394%22%20y2%3D%2226%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%2252%22%20x2%3D%22394%22%20y2%3D%2252%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%2278%22%20x2%3D%22394%22%20y2%3D%2278%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%22104%22%20x2%3D%22394%22%20y2%3D%22104%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%22130%22%20x2%3D%22394%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%22156%22%20x2%3D%22394%22%20y2%3D%22156%22%20stroke%3D%22%23aaaaaa%22/%3E%3C/svg%3E)"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Übung: Daten, Zellen und Formeln",
+        "markdown": "Zehn kurze Aufgaben zu Zelladressen, Datentypen, Formeln und Funktionen. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "adresse",
+      "type": "task-fill-in-the-blank",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "Ergänze die Zelladressen.",
+        "text": "Die Zelle in Spalte F und Zeile 12 heißt [[1]]. Der Bereich von B3 bis E9 wird als [[2]] geschrieben.",
+        "blanks": {
+          "1": [
+            "F12"
+          ],
+          "2": [
+            "B3:E9"
+          ]
+        },
+        "caseSensitive": false,
+        "trim": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "datentypen",
+      "type": "task-matching",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Ordne jeder Eingabe zu, wie Calc sie speichert.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": {
+              "kind": "text",
+              "label": "Lissabon"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Text"
+            }
+          },
+          {
+            "id": "p2",
+            "left": {
+              "kind": "text",
+              "label": "24.06.2027"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Datum"
+            }
+          },
+          {
+            "id": "p3",
+            "left": {
+              "kind": "text",
+              "label": "89,90 €"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Zahl mit Währungsformat"
+            }
+          },
+          {
+            "id": "p4",
+            "left": {
+              "kind": "text",
+              "label": "15 %"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Zahl mit Prozentformat"
+            }
+          },
+          {
+            "id": "p5",
+            "left": {
+              "kind": "text",
+              "label": "=B2*C2"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Formel"
+            }
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "prozentwert",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "In einer Zelle wird `15 %` angezeigt. Welchen Zahlenwert speichert Calc?",
+        "expected": "0.15",
+        "tolerance": "exact",
+        "toleranceValue": 0,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "rechenbar",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "Mit welchen Einträgen kann Calc rechnen? Wähle alle passenden aus.",
+        "variant": "multiple",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`24`",
+            "correct": true
+          },
+          {
+            "id": "o2",
+            "markdown": "`24 Personen`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das ist Text – die Einheit gehört in die Überschrift.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`129,90` im Währungsformat",
+            "correct": true
+          },
+          {
+            "id": "o4",
+            "markdown": "`ca. 130`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das ist Text. Calc kann „ca.“ nicht verrechnen.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o5",
+            "markdown": "`12.05.2027` als Datum",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig – ein Datum ist intern eine Zahl.",
+              "severity": "success"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "reiseetat",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "instruction": "Die Klasse plant eine Fahrt nach Lissabon. Trage in `D2` bis `D4` Formeln ein, die die Gesamtkosten jeder Position berechnen, und in `D5` eine Formel mit einer Funktion für die Summe.",
+        "caption": "",
+        "columns": [
+          {
+            "id": "a",
+            "header": "A",
+            "kind": "text"
+          },
+          {
+            "id": "b",
+            "header": "B",
+            "kind": "text"
+          },
+          {
+            "id": "c",
+            "header": "C",
+            "kind": "text"
+          },
+          {
+            "id": "d",
+            "header": "D",
+            "kind": "formula"
+          }
+        ],
+        "rows": [
+          {
+            "id": "z1",
+            "header": "1",
+            "cells": {
+              "a": {
+                "given": "Position"
+              },
+              "b": {
+                "given": "Anzahl"
+              },
+              "c": {
+                "given": "Einzelpreis"
+              },
+              "d": {
+                "given": "Gesamt"
+              }
+            }
+          },
+          {
+            "id": "z2",
+            "header": "2",
+            "cells": {
+              "a": {
+                "given": "Flug"
+              },
+              "b": {
+                "given": "26"
+              },
+              "c": {
+                "given": "58,00 €"
+              },
+              "d": {
+                "accepted": [
+                  "=B2*C2",
+                  "=C2*B2"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z3",
+            "header": "3",
+            "cells": {
+              "a": {
+                "given": "Hostel"
+              },
+              "b": {
+                "given": "26"
+              },
+              "c": {
+                "given": "84,00 €"
+              },
+              "d": {
+                "accepted": [
+                  "=B3*C3",
+                  "=C3*B3"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z4",
+            "header": "4",
+            "cells": {
+              "a": {
+                "given": "Tram-Ticket"
+              },
+              "b": {
+                "given": "26"
+              },
+              "c": {
+                "given": "12,00 €"
+              },
+              "d": {
+                "accepted": [
+                  "=B4*C4",
+                  "=C4*B4"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z5",
+            "header": "5",
+            "cells": {
+              "a": {
+                "given": "Summe"
+              },
+              "b": {
+                "given": ""
+              },
+              "c": {
+                "given": ""
+              },
+              "d": {
+                "accepted": [
+                  "=SUMME(D2:D4)"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": true,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "summe",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Welcher Wert erscheint in `D5`?",
+        "expected": "4004",
+        "tolerance": "exact",
+        "toleranceValue": 0,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "reiseetat"
+    },
+    {
+      "id": "pro-person",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "Wie viel kostet die Fahrt pro Person?",
+        "expected": "154",
+        "tolerance": "exact",
+        "toleranceValue": 0,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "reiseetat"
+    },
+    {
+      "id": "funktionen",
+      "type": "task-fill-in-the-blank",
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
+      "data": {
+        "instruction": "Ergänze die Funktionsnamen.",
+        "text": "Den günstigsten Einzelpreis liefert =[[1]](C2:C4), den teuersten =[[2]](C2:C4) und den Durchschnitt =[[3]](C2:C4).",
+        "blanks": {
+          "1": [
+            "MIN"
+          ],
+          "2": [
+            "MAX"
+          ],
+          "3": [
+            "MITTELWERT"
+          ]
+        },
+        "caseSensitive": false,
+        "trim": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "reiseetat"
+    },
+    {
+      "id": "plausibel",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 1260
+      },
+      "data": {
+        "instruction": "Jemand berechnet den durchschnittlichen Einzelpreis und erhält 693,00 €. Der teuerste Einzelpreis ist aber 84,00 €. Was ist die wahrscheinlichste Ursache?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Der Bereich in der Formel enthält auch die Gesamtkosten aus Spalte D.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau. Ein Mittelwert muss zwischen Minimum und Maximum liegen.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "Mittelwerte können größer sein als der größte Wert.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Nein – der Durchschnitt liegt immer zwischen kleinstem und größtem Wert.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Die Zelle braucht ein Prozentformat.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das Format ändert nur die Anzeige, nicht den berechneten Wert.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "reiseetat"
+    },
+    {
+      "id": "feste-zahlen",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 1400
+      },
+      "data": {
+        "instruction": "Jemand schreibt in `D2` statt `=B2*C2` die Formel `=26*58`. Das Ergebnis stimmt. Warum ist die Formel trotzdem ungünstig?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Ändert sich die Anzahl in `B2`, rechnet `D2` nicht mit.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig. Erst Zellbezüge machen die Tabelle zu einem Modell.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "Calc kann mit festen Zahlen nicht multiplizieren.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Doch – das Ergebnis stimmt ja. Das Problem zeigt sich erst bei einer Änderung.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Die Formel muss mit `SUMME` beginnen.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "SUMME addiert Bereiche. Hier wird multipliziert.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "reiseetat"
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 1540
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du kannst Zellen adressieren, Datentypen unterscheiden und Formeln mit Zellbezügen und Funktionen schreiben. Schau dir in der Übersicht an, wo du noch unsicher warst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-adresse",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Erst die Spalte, dann die Zeile",
+        "markdown": "Eine Adresse nennt zuerst den **Spaltenbuchstaben**, dann die **Zeilennummer**: `C4`. Ein Bereich besteht aus der linken oberen und der rechten unteren Zelle, getrennt durch einen **Doppelpunkt**: `B2:D6`."
+      }
+    },
+    {
+      "id": "hilfe-datentypen",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 350
+      },
+      "data": {
+        "title": "Wert und Format",
+        "markdown": "Calc speichert einen **Wert** und zeigt ihn in einem **Format**. `89,90 €` ist die Zahl 89,9 im Währungsformat, `15 %` die Zahl 0,15 im Prozentformat. Alles, was mit `=` beginnt, ist eine Formel."
+      }
+    },
+    {
+      "id": "hilfe-prozentwert",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 490
+      },
+      "data": {
+        "title": "Prozent heißt Hundertstel",
+        "markdown": "15 % sind 15 von 100, also 15 : 100. Calc speichert diese Dezimalzahl und zeigt sie nur mit Prozentzeichen an."
+      }
+    },
+    {
+      "id": "hilfe-reiseetat",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 770
+      },
+      "data": {
+        "title": "Zellbezüge statt Zahlen",
+        "markdown": "In jede Formel gehören **Zellbezüge**, keine abgetippten Zahlen: `=B2*C2` rechnet neu, sobald sich Anzahl oder Preis ändern. Für die Summe eines Bereichs gibt es die Funktion `SUMME`, zum Beispiel `=SUMME(D2:D4)`."
+      }
+    },
+    {
+      "id": "hilfe-summe",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 910
+      },
+      "data": {
+        "title": "Rechne Zeile für Zeile",
+        "markdown": "26 · 58 = 1 508, 26 · 84 = 2 184 und 26 · 12 = 312. Addiere die drei Ergebnisse."
+      }
+    },
+    {
+      "id": "hilfe-plausibel",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 1330
+      },
+      "data": {
+        "title": "Plausibilität prüfen",
+        "markdown": "Ein Mittelwert liegt **immer zwischen Minimum und Maximum**. Liegt er darüber, stimmt der Bereich nicht – oft wurde eine Spalte mit Ergebnissen mitmarkiert."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-adresse",
+      "source": "start",
+      "target": "adresse"
+    },
+    {
+      "id": "e-adresse-datentypen",
+      "source": "adresse",
+      "target": "datentypen"
+    },
+    {
+      "id": "e-datentypen-prozentwert",
+      "source": "datentypen",
+      "target": "prozentwert"
+    },
+    {
+      "id": "e-prozentwert-rechenbar",
+      "source": "prozentwert",
+      "target": "rechenbar"
+    },
+    {
+      "id": "e-rechenbar-reiseetat",
+      "source": "rechenbar",
+      "target": "reiseetat"
+    },
+    {
+      "id": "e-reiseetat-summe",
+      "source": "reiseetat",
+      "target": "summe"
+    },
+    {
+      "id": "e-summe-pro-person",
+      "source": "summe",
+      "target": "pro-person"
+    },
+    {
+      "id": "e-pro-person-funktionen",
+      "source": "pro-person",
+      "target": "funktionen"
+    },
+    {
+      "id": "e-funktionen-plausibel",
+      "source": "funktionen",
+      "target": "plausibel"
+    },
+    {
+      "id": "e-plausibel-feste-zahlen",
+      "source": "plausibel",
+      "target": "feste-zahlen"
+    },
+    {
+      "id": "e-feste-zahlen-ende",
+      "source": "feste-zahlen",
+      "target": "ende"
+    },
+    {
+      "id": "e-adresse-falsch",
+      "source": "adresse",
+      "target": "hilfe-adresse",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "adresse",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-adresse-zurueck",
+      "source": "hilfe-adresse",
+      "target": "adresse",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "adresse"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-adresse-weiter",
+      "source": "hilfe-adresse",
+      "target": "datentypen",
+      "label": "weiter"
+    },
+    {
+      "id": "e-datentypen-falsch",
+      "source": "datentypen",
+      "target": "hilfe-datentypen",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "datentypen",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-datentypen-zurueck",
+      "source": "hilfe-datentypen",
+      "target": "datentypen",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "datentypen"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-datentypen-weiter",
+      "source": "hilfe-datentypen",
+      "target": "prozentwert",
+      "label": "weiter"
+    },
+    {
+      "id": "e-prozentwert-falsch",
+      "source": "prozentwert",
+      "target": "hilfe-prozentwert",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "prozentwert",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-prozentwert-zurueck",
+      "source": "hilfe-prozentwert",
+      "target": "prozentwert",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "prozentwert"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-prozentwert-weiter",
+      "source": "hilfe-prozentwert",
+      "target": "rechenbar",
+      "label": "weiter"
+    },
+    {
+      "id": "e-reiseetat-falsch",
+      "source": "reiseetat",
+      "target": "hilfe-reiseetat",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "reiseetat",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-reiseetat-zurueck",
+      "source": "hilfe-reiseetat",
+      "target": "reiseetat",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "reiseetat"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-reiseetat-weiter",
+      "source": "hilfe-reiseetat",
+      "target": "summe",
+      "label": "weiter"
+    },
+    {
+      "id": "e-summe-falsch",
+      "source": "summe",
+      "target": "hilfe-summe",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "summe",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-summe-zurueck",
+      "source": "hilfe-summe",
+      "target": "summe",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "summe"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-summe-weiter",
+      "source": "hilfe-summe",
+      "target": "pro-person",
+      "label": "weiter"
+    },
+    {
+      "id": "e-plausibel-falsch",
+      "source": "plausibel",
+      "target": "hilfe-plausibel",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "plausibel",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-plausibel-zurueck",
+      "source": "hilfe-plausibel",
+      "target": "plausibel",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "plausibel"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-plausibel-weiter",
+      "source": "hilfe-plausibel",
+      "target": "feste-zahlen",
+      "label": "weiter"
+    }
+  ]
+}

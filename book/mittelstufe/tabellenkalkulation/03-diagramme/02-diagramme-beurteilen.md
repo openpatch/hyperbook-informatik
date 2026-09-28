@@ -22,14 +22,34 @@ Prüfe ein Diagramm auf **Quelle, Zeitraum, Achsenanfang, Skalierung, Einheit, a
 
 ## Korrelation ist keine Ursache
 
-Wenn in warmen Monaten sowohl Eisverkauf als auch Sonnenbrände steigen, verursacht Eis keine Sonnenbrände. Eine dritte Größe – die Temperatur – beeinflusst beide.
+Zwei Größen können gemeinsam steigen und fallen, ohne dass die eine die andere verursacht. Wie man ein solches Diagramm vorsichtig liest, zeigt das folgende Beispiel.
+
+:::snippet{#beispiel}
+Das Diagramm zeigt für die Monate April bis September, wie viel Eis in einer Stadt verkauft wurde und wie viele Menschen wegen eines Sonnenbrands behandelt wurden.
+
+![XY-Punktdiagramm mit fiktiven Daten: Ein Punkt je Monat von April bis September. Je mehr Eis verkauft wird, desto mehr Sonnenbrände werden behandelt; am höchsten liegen Juli und August, am niedrigsten April und Mai.](./eis-sonnenbrand.svg)
+
+1. **Beobachtung, die das Diagramm trägt:** In Monaten, in denen viel Eis verkauft wird, werden auch viele Sonnenbrände behandelt. Beide Größen steigen bis zum Juli und fallen danach wieder – im Juli sind es rund 170 000 Kugeln und 82 Behandlungen, im April 45 000 Kugeln und 12 Behandlungen.
+2. **Vorschnelle Ursache-Wirkungs-Behauptung:** „Eisessen verursacht Sonnenbrand.“ Oder umgekehrt: „Wer weniger Eis isst, bekommt keinen Sonnenbrand.“ Das Diagramm zeigt nur, dass beide Größen gemeinsam auftreten – nicht, dass die eine die andere auslöst.
+3. **Größen, die geprüft werden müssten:** die **Temperatur** bzw. die Zahl der Sonnenstunden und die **Zahl der Menschen, die sich im Freien aufhalten** (etwa Freibadbesuche). Warmes, sonniges Wetter treibt beide Werte in die Höhe. Eine solche dritte Größe, die zwei andere gemeinsam beeinflusst, erklärt den Zusammenhang.
+:::
 
 :::snippet{#aufgabe}
-Eine Grafik zeigt: In größeren europäischen Städten gibt es mehr Fahrräder und mehr Verkehrsunfälle. Formuliere:
+Jetzt bist du an der Reihe. Die Grafik zeigt: In größeren europäischen Städten gibt es mehr Fahrräder und mehr Verkehrsunfälle.
 
-1. eine Beobachtung, die das Diagramm wirklich trägt,
-2. eine vorschnelle Ursache-Wirkungs-Behauptung,
-3. zwei weitere Größen, die geprüft werden müssten.
+![XY-Punktdiagramm mit fiktiven Daten: Sechs Städte von 0,3 bis 3,6 Millionen Einwohnern. Je größer die Stadt, desto mehr Fahrräder und desto mehr Verkehrsunfälle.](./fahrraeder-unfaelle.svg)
+
+1. Formuliere eine Beobachtung, die das Diagramm wirklich trägt.
+
+::textinput{id="calc-korrelation-beobachtung" placeholder="In den betrachteten Städten …" height="100px"}
+
+2. Formuliere eine vorschnelle Ursache-Wirkungs-Behauptung.
+
+::textinput{id="calc-korrelation-behauptung" placeholder="„…“ – das Diagramm zeigt aber nur, dass …" height="100px"}
+
+3. Nenne zwei weitere Größen, die geprüft werden müssten.
+
+::textinput{id="calc-korrelation-groessen" placeholder="Prüfen müsste man … und …, weil …" height="100px"}
 :::
 
 :::protect{password="calc-3-2-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}

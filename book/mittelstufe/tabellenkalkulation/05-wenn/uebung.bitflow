@@ -1,0 +1,746 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-uebung-5-wenn",
+    "title": "Übung: Entscheidungen mit WENN",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": []
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Übung: Entscheidungen mit WENN",
+        "markdown": "Acht Aufgaben zu WENN, Vergleichsoperatoren, UND und ODER und zu Grenztests. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "grenze",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "In `B2` steht 150, in `F1` das Budget 150. Was liefert `=WENN(B2<=$F$1; \"im Budget\"; \"zu teuer\")`?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "im Budget",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig: 150 ≤ 150 ist wahr.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "zu teuer",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "`<=` heißt kleiner **oder gleich** – die Grenze gehört dazu.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "eine Fehlermeldung",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Die Formel ist vollständig: Bedingung; wahr; falsch.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ungleich",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Welcher Operator bedeutet in Calc „ungleich“?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`<>`",
+            "correct": true
+          },
+          {
+            "id": "o2",
+            "markdown": "`!=`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "So schreibt man es in vielen Programmiersprachen, aber nicht in Calc.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`=/=`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Diesen Operator gibt es nicht.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "rabatt",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "In `B2` stehen 12 Teilnehmende, in `C2` der Preis 250 €, in `F2` der Rabatt 8 %. Was liefert `=WENN(B2>=10; C2*(1-$F$2); C2)`?",
+        "expected": "230",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      }
+    },
+    {
+      "id": "verschachtelt",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "In `B2` steht `=WENN(A2<100; \"günstig\"; WENN(A2<=150; \"mittel\"; \"teuer\"))`, nach unten kopiert. Sage die Ausgaben voraus.",
+        "caption": "",
+        "columns": [
+          {
+            "id": "a",
+            "header": "A",
+            "kind": "number"
+          },
+          {
+            "id": "b",
+            "header": "B",
+            "kind": "text"
+          }
+        ],
+        "rows": [
+          {
+            "id": "z2",
+            "header": "2",
+            "cells": {
+              "a": {
+                "given": "99"
+              },
+              "b": {
+                "accepted": [
+                  "günstig"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z3",
+            "header": "3",
+            "cells": {
+              "a": {
+                "given": "100"
+              },
+              "b": {
+                "accepted": [
+                  "mittel"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z4",
+            "header": "4",
+            "cells": {
+              "a": {
+                "given": "150"
+              },
+              "b": {
+                "accepted": [
+                  "mittel"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z5",
+            "header": "5",
+            "cells": {
+              "a": {
+                "given": "151"
+              },
+              "b": {
+                "accepted": [
+                  "teuer"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": true,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "und-oder",
+      "type": "task-boolean-logic",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "instruction": "Ergänze die Wahrheitstabelle für UND und ODER.",
+        "variables": [
+          "A",
+          "B"
+        ],
+        "columns": [
+          {
+            "id": "und",
+            "label": "UND(A; B)",
+            "expression": {
+              "kind": "and",
+              "left": {
+                "kind": "variable",
+                "name": "A"
+              },
+              "right": {
+                "kind": "variable",
+                "name": "B"
+              }
+            },
+            "given": false
+          },
+          {
+            "id": "oder",
+            "label": "ODER(A; B)",
+            "expression": {
+              "kind": "or",
+              "left": {
+                "kind": "variable",
+                "name": "A"
+              },
+              "right": {
+                "kind": "variable",
+                "name": "B"
+              }
+            },
+            "given": false
+          }
+        ],
+        "rowOrder": "standard",
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "schwimmbad",
+      "type": "task-fill-in-the-blank",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Jugendliche bis einschließlich 17 Jahre bekommen Rabatt, wenn sie zusätzlich eine Schülerkarte haben. Das Alter steht in `B2`, in `C2` steht „ja“ oder „nein“.",
+        "text": "=WENN([[1]](B2<=[[2]]; C2=\"ja\"); \"Rabatt\"; \"Normalpreis\")",
+        "blanks": {
+          "1": [
+            "UND"
+          ],
+          "2": [
+            "17"
+          ]
+        },
+        "caseSensitive": false,
+        "trim": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "grenztest",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "Ab 10 Teilnehmenden gibt es Rabatt. Welche Testwerte prüfen diese Grenze am besten? Wähle alle passenden aus.",
+        "variant": "multiple",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "9",
+            "correct": true
+          },
+          {
+            "id": "o2",
+            "markdown": "10",
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "markdown": "11",
+            "correct": true
+          },
+          {
+            "id": "o4",
+            "markdown": "50",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Weit weg von der Grenze findest du vertauschte Operatoren nicht.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o5",
+            "markdown": "0",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das ist ein Sonderfall, aber kein Test der Grenze 10.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "grenzen-modell",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
+      "data": {
+        "instruction": "Die Formel `=WENN(UND(B2<=17; C2=\"ja\"); \"Rabatt\"; \"Normalpreis\")` liefert „Rabatt“. Was kann das Modell trotzdem nicht prüfen?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "ob die vorgezeigte Schülerkarte echt und gültig ist",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau – das Modell verarbeitet nur die eingegebenen Daten.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "ob das Alter höchstens 17 ist",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Genau das prüft die Bedingung `B2<=17`.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "ob in `C2` „ja“ steht",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das prüft die Bedingung `C2=\"ja\"`.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 1260
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du baust Entscheidungsregeln mit WENN und testest sie an ihren Grenzen. Schau in der Übersicht nach, wo du noch unsicher warst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-grenze",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Kleiner oder gleich",
+        "markdown": "`<=` ist wahr, wenn der linke Wert kleiner **oder gleich** dem rechten ist. Ist die Bedingung wahr, liefert WENN das zweite Argument."
+      }
+    },
+    {
+      "id": "hilfe-rabatt",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 490
+      },
+      "data": {
+        "title": "Erst prüfen, dann rechnen",
+        "markdown": "12 ≥ 10 ist wahr, also wird das zweite Argument berechnet: 250 · (1 − 0,08)."
+      }
+    },
+    {
+      "id": "hilfe-verschachtelt",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 630
+      },
+      "data": {
+        "title": "Von außen nach innen",
+        "markdown": "Zuerst wird `A2<100` geprüft. Nur wenn das **falsch** ist, kommt die innere WENN-Funktion dran: `A2<=150` – die 150 gehört also noch zu „mittel“."
+      }
+    },
+    {
+      "id": "hilfe-und-oder",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 770
+      },
+      "data": {
+        "title": "UND und ODER",
+        "markdown": "**UND** ist nur wahr, wenn **alle** Bedingungen wahr sind. **ODER** ist wahr, sobald **mindestens eine** Bedingung wahr ist."
+      }
+    },
+    {
+      "id": "hilfe-schwimmbad",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 910
+      },
+      "data": {
+        "title": "Beide Bedingungen müssen stimmen",
+        "markdown": "Rabatt gibt es nur, wenn das Alter passt **und** die Karte vorliegt. „Bis einschließlich 17“ heißt: `<=17`."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-grenze",
+      "source": "start",
+      "target": "grenze"
+    },
+    {
+      "id": "e-grenze-ungleich",
+      "source": "grenze",
+      "target": "ungleich"
+    },
+    {
+      "id": "e-ungleich-rabatt",
+      "source": "ungleich",
+      "target": "rabatt"
+    },
+    {
+      "id": "e-rabatt-verschachtelt",
+      "source": "rabatt",
+      "target": "verschachtelt"
+    },
+    {
+      "id": "e-verschachtelt-und-oder",
+      "source": "verschachtelt",
+      "target": "und-oder"
+    },
+    {
+      "id": "e-und-oder-schwimmbad",
+      "source": "und-oder",
+      "target": "schwimmbad"
+    },
+    {
+      "id": "e-schwimmbad-grenztest",
+      "source": "schwimmbad",
+      "target": "grenztest"
+    },
+    {
+      "id": "e-grenztest-grenzen-modell",
+      "source": "grenztest",
+      "target": "grenzen-modell"
+    },
+    {
+      "id": "e-grenzen-modell-ende",
+      "source": "grenzen-modell",
+      "target": "ende"
+    },
+    {
+      "id": "e-grenze-falsch",
+      "source": "grenze",
+      "target": "hilfe-grenze",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "grenze",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-grenze-zurueck",
+      "source": "hilfe-grenze",
+      "target": "grenze",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "grenze"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-grenze-weiter",
+      "source": "hilfe-grenze",
+      "target": "ungleich",
+      "label": "weiter"
+    },
+    {
+      "id": "e-rabatt-falsch",
+      "source": "rabatt",
+      "target": "hilfe-rabatt",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "rabatt",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-rabatt-zurueck",
+      "source": "hilfe-rabatt",
+      "target": "rabatt",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "rabatt"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-rabatt-weiter",
+      "source": "hilfe-rabatt",
+      "target": "verschachtelt",
+      "label": "weiter"
+    },
+    {
+      "id": "e-verschachtelt-falsch",
+      "source": "verschachtelt",
+      "target": "hilfe-verschachtelt",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "verschachtelt",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-verschachtelt-zurueck",
+      "source": "hilfe-verschachtelt",
+      "target": "verschachtelt",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "verschachtelt"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-verschachtelt-weiter",
+      "source": "hilfe-verschachtelt",
+      "target": "und-oder",
+      "label": "weiter"
+    },
+    {
+      "id": "e-und-oder-falsch",
+      "source": "und-oder",
+      "target": "hilfe-und-oder",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "und-oder",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-und-oder-zurueck",
+      "source": "hilfe-und-oder",
+      "target": "und-oder",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "und-oder"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-und-oder-weiter",
+      "source": "hilfe-und-oder",
+      "target": "schwimmbad",
+      "label": "weiter"
+    },
+    {
+      "id": "e-schwimmbad-falsch",
+      "source": "schwimmbad",
+      "target": "hilfe-schwimmbad",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "schwimmbad",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-schwimmbad-zurueck",
+      "source": "hilfe-schwimmbad",
+      "target": "schwimmbad",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "schwimmbad"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-schwimmbad-weiter",
+      "source": "hilfe-schwimmbad",
+      "target": "grenztest",
+      "label": "weiter"
+    }
+  ]
+}

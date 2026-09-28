@@ -208,6 +208,30 @@ direkt. Das findet unbekannte Module (`Cube` statt `cube`), fehlende Semikola
 und falsch benutzte Bibliotheksfunktionen in Sekunden statt in Minuten. Für
 BOSL2-Blöcke muss `OPENSCADPATH` auf die Bibliotheken zeigen.
 
+### tabellenkalkulation
+
+| Datei | Zweck |
+| --- | --- |
+| `check_lernpfad.py` | Links, Passwörter, Selbsttests, Kapitelabschlüsse, Formeln in den ODS-Dateien – und ob jeder Rückblick seine Übung einbindet |
+| `erzeuge_loesungsdateien.py` | erzeugt die Calc-Lösungsdateien und die Beispieldatei |
+| `erzeuge_screenshot_vorlagen.py` | baut die Calc-Dokumente für die Screenshots (deutsche Zahlenformate) und speichert sie in `/tmp/calc-lernpfad` |
+| `screenshots.py` | nimmt die vier `calc-*.png` des Lernpfads auf – mit deutscher Oberfläche, Dezimalkomma und hellem Theme; LibreOffice läuft dafür mit frischem Profil in Xvfb |
+| `erzeuge_uebungen.py` | erzeugt je Kapitel die interaktive Übung `uebung.bitflow`, die der Rückblick einbindet |
+
+Die Screenshots entstehen nicht von Hand: `screenshots.py` braucht das deutsche
+Sprachpaket von LibreOffice (etwa `libreoffice-still-de`), `Xvfb`, ImageMagick und
+`xdotool`. Es trägt bewusst keinen `erzeuge_`-Namen – `pruefe-alles.py` soll es
+nicht ausführen, denn es braucht einen X-Server und liefert nie bitgleiche Bilder.
+
+Die Übungen sind [bitflow](https://bitflow.openpatch.org/llms.txt)-Dateien. Geändert
+werden sie im Generator, nicht im JSON. Ob eine Datei gültig ist, prüft
+`validateFlow` aus `@bitflow/core` – aber nur, wenn die Bits dort registriert
+sind. `loadAllBits()` aus `@bitflow/web-component` registriert sie in der
+**eigenen, mitgebündelten** Kopie von core, nicht in `@bitflow/core`; die
+Bit-Module müssen deshalb über `bitLoaders` geladen und mit `registerBit` an
+core übergeben werden. Sonst meldet `validateFlow` jede Hilfeschleife als
+Fehler („… is not a task“).
+
 ### turtle-render
 
 | Datei | Zweck |

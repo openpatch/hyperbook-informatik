@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-diagrammtyp-waehlen",
+    "title": "Welcher Diagrammtyp passt?",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": []
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Welcher Diagrammtyp passt?",
+        "markdown": "Zwei Zuordnungen: Zuerst ordnest du jeder Frage einen Diagrammtyp zu, danach jedem Diagrammtyp seine Begründung. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "zuordnung",
+      "type": "task-matching",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "Ordne jeder Frage den passenden Diagrammtyp zu.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": {
+              "kind": "text",
+              "label": "Monatsmitteltemperatur in Berlin über ein Jahr"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Liniendiagramm"
+            }
+          },
+          {
+            "id": "p2",
+            "left": {
+              "kind": "text",
+              "label": "Jahresniederschlag von fünf Hauptstädten"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Säulendiagramm"
+            }
+          },
+          {
+            "id": "p3",
+            "left": {
+              "kind": "text",
+              "label": "Zusammenhang zwischen Entfernung und Fahrtdauer"
+            },
+            "right": {
+              "kind": "text",
+              "label": "XY-Punktdiagramm"
+            }
+          },
+          {
+            "id": "p4",
+            "left": {
+              "kind": "text",
+              "label": "Anteile verschiedener Verkehrsmittel an allen Fahrten"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Kreisdiagramm"
+            }
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "begruendung",
+      "type": "task-matching",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Begründe deine Wahl: Ordne jedem Diagrammtyp zu, wann er passt.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": {
+              "kind": "text",
+              "label": "Liniendiagramm"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Die Werte folgen zeitlich aufeinander; der Verlauf soll sichtbar werden."
+            }
+          },
+          {
+            "id": "p2",
+            "left": {
+              "kind": "text",
+              "label": "Säulendiagramm"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Wenige Kategorien werden direkt miteinander verglichen."
+            }
+          },
+          {
+            "id": "p3",
+            "left": {
+              "kind": "text",
+              "label": "XY-Punktdiagramm"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Zu jedem Datensatz gibt es zwei Zahlen; gesucht ist, ob sie zusammenhängen."
+            }
+          },
+          {
+            "id": "p4",
+            "left": {
+              "kind": "text",
+              "label": "Kreisdiagramm"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Die Teile ergeben zusammen ein Ganzes, also 100 %."
+            }
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du wählst den Diagrammtyp nach der Frage, die das Diagramm beantworten soll – nicht danach, was am schönsten aussieht.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-zuordnung",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Die Frage bestimmt den Typ",
+        "markdown": "- **Linie:** Wie verändert sich eine Größe über die Zeit?\n- **Säulen oder Balken:** Wie unterscheiden sich wenige Kategorien?\n- **Kreis:** Wie setzt sich ein Ganzes zusammen?\n- **XY-Punkte:** Hängen zwei Zahlenmerkmale zusammen?\n\nAchte auch auf die **Begründung**: Sie muss sagen, was die Daten sind – ein Verlauf, Kategorien, Anteile oder zwei Messgrößen."
+      }
+    },
+    {
+      "id": "hilfe-begruendung",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 350
+      },
+      "data": {
+        "title": "Die Frage bestimmt den Typ",
+        "markdown": "- **Linie:** Wie verändert sich eine Größe über die Zeit?\n- **Säulen oder Balken:** Wie unterscheiden sich wenige Kategorien?\n- **Kreis:** Wie setzt sich ein Ganzes zusammen?\n- **XY-Punkte:** Hängen zwei Zahlenmerkmale zusammen?\n\nAchte auch auf die **Begründung**: Sie muss sagen, was die Daten sind – ein Verlauf, Kategorien, Anteile oder zwei Messgrößen."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-zuordnung",
+      "source": "start",
+      "target": "zuordnung"
+    },
+    {
+      "id": "e-zuordnung-begruendung",
+      "source": "zuordnung",
+      "target": "begruendung"
+    },
+    {
+      "id": "e-begruendung-ende",
+      "source": "begruendung",
+      "target": "ende"
+    },
+    {
+      "id": "e-zuordnung-falsch",
+      "source": "zuordnung",
+      "target": "hilfe-zuordnung",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "zuordnung",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-zuordnung-zurueck",
+      "source": "hilfe-zuordnung",
+      "target": "zuordnung",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "zuordnung"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-zuordnung-weiter",
+      "source": "hilfe-zuordnung",
+      "target": "begruendung",
+      "label": "weiter"
+    },
+    {
+      "id": "e-begruendung-falsch",
+      "source": "begruendung",
+      "target": "hilfe-begruendung",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "begruendung",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-begruendung-zurueck",
+      "source": "hilfe-begruendung",
+      "target": "begruendung",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "begruendung"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-begruendung-weiter",
+      "source": "hilfe-begruendung",
+      "target": "ende",
+      "label": "weiter"
+    }
+  ]
+}

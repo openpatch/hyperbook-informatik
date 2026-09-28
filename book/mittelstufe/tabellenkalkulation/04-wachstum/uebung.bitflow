@@ -1,0 +1,793 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-uebung-4-wachstum",
+    "title": "Übung: Wachstum modellieren und simulieren",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": []
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Übung: Wachstum modellieren und simulieren",
+        "markdown": "Acht Aufgaben zu linearem, exponentiellem und quadratischem Wachstum und zu Prognosen. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "modelle",
+      "type": "task-matching",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "Ordne jeder Regel das Wachstumsmodell zu.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": {
+              "kind": "text",
+              "label": "Jeden Monat kommen 20 Kundinnen und Kunden hinzu."
+            },
+            "right": {
+              "kind": "text",
+              "label": "linear"
+            }
+          },
+          {
+            "id": "p2",
+            "left": {
+              "kind": "text",
+              "label": "Jeden Monat wächst die Zahl um 8 %."
+            },
+            "right": {
+              "kind": "text",
+              "label": "exponentiell"
+            }
+          },
+          {
+            "id": "p3",
+            "left": {
+              "kind": "text",
+              "label": "Die Zuwächse lauten +3, +5, +7, +9, …"
+            },
+            "right": {
+              "kind": "text",
+              "label": "quadratisch"
+            }
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "faktor",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Welcher Wachstumsfaktor gehört zu 6 % Wachstum?",
+        "expected": "1.06",
+        "tolerance": "exact",
+        "toleranceValue": 0,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "wertetabelle",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "Beide Modelle starten bei 100. Modell B wächst jedes Jahr um 20, Modell C um 10 %. Trage die Werte für die Jahre 1 bis 3 ein.",
+        "caption": "",
+        "columns": [
+          {
+            "id": "a",
+            "header": "A",
+            "kind": "text"
+          },
+          {
+            "id": "b",
+            "header": "B",
+            "kind": "number"
+          },
+          {
+            "id": "c",
+            "header": "C",
+            "kind": "number"
+          }
+        ],
+        "rows": [
+          {
+            "id": "z1",
+            "header": "1",
+            "cells": {
+              "a": {
+                "given": "Jahr"
+              },
+              "b": {
+                "given": "linear"
+              },
+              "c": {
+                "given": "exponentiell"
+              }
+            }
+          },
+          {
+            "id": "z2",
+            "header": "2",
+            "cells": {
+              "a": {
+                "given": "0"
+              },
+              "b": {
+                "given": "100"
+              },
+              "c": {
+                "given": "100"
+              }
+            }
+          },
+          {
+            "id": "z3",
+            "header": "3",
+            "cells": {
+              "a": {
+                "given": "1"
+              },
+              "b": {
+                "accepted": [
+                  "120"
+                ]
+              },
+              "c": {
+                "accepted": [
+                  "110"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z4",
+            "header": "4",
+            "cells": {
+              "a": {
+                "given": "2"
+              },
+              "b": {
+                "accepted": [
+                  "140"
+                ]
+              },
+              "c": {
+                "accepted": [
+                  "121"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z5",
+            "header": "5",
+            "cells": {
+              "a": {
+                "given": "3"
+              },
+              "b": {
+                "accepted": [
+                  "160"
+                ]
+              },
+              "c": {
+                "accepted": [
+                  "133,1",
+                  "133.1"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": true,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0.05,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "formeln",
+      "type": "task-fill-in-the-blank",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "Der feste Zuwachs steht in `F1`, die Wachstumsrate in `F2`. Ergänze die Formeln für `B3` (linear) und `C3` (exponentiell), die sich nach unten kopieren lassen.",
+        "text": "B3: =B2+[[1]]    C3: =C2*(1+[[2]])",
+        "blanks": {
+          "1": [
+            "$F$1"
+          ],
+          "2": [
+            "$F$2"
+          ]
+        },
+        "caseSensitive": false,
+        "trim": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "folge",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "instruction": "Eine Folge lautet 2, 6, 18, 54, … Welches Modell liegt vor?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "exponentiell",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig: Der Quotient aufeinanderfolgender Werte ist immer 3.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "linear",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Die Zuwächse (4, 12, 36) sind nicht gleich.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "quadratisch",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Die Zuwächse wachsen nicht gleichmäßig, sie verdreifachen sich.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ueberholen",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Modell A startet bei 500 und wächst jährlich um 50. Modell B startet bei 500 und wächst jährlich um 8 %. Nach wie vielen Jahren liegt B erstmals vor A?",
+        "expected": "7",
+        "tolerance": "exact",
+        "toleranceValue": 0,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "prognose",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "Eine Stadt hat 2 Mio. Übernachtungen pro Jahr. Ein Modell rechnet mit 7 % Wachstum pro Jahr. Welche Formulierung einer Prognose ist verantwortbar?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Wenn die Rate konstant bei 7 % bleibt, ergibt das Modell nach 25 Jahren rund 11 Mio. Übernachtungen.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau – eine Wenn-dann-Aussage nennt die Annahme.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "In 25 Jahren wird es 11 Mio. Übernachtungen geben.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das klingt wie eine Gewissheit. Das Modell gilt nur unter seinen Annahmen.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Die Tabelle beweist, dass der Tourismus immer wächst.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Ein Modell beweist nichts über die Zukunft.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "grenzen",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
+      "data": {
+        "instruction": "Ein Tourismusverband sagt: „Die Übernachtungen wachsen für immer um 7 % pro Jahr.“ Welche Gründe sprechen dagegen? Wähle alle passenden aus.",
+        "variant": "multiple",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Die Zahl der Betten ist begrenzt.",
+            "correct": true
+          },
+          {
+            "id": "o2",
+            "markdown": "Nachfrage und Reiseverhalten können sich ändern.",
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "markdown": "Unvorhersehbare Ereignisse können das Wachstum stoppen.",
+            "correct": true
+          },
+          {
+            "id": "o4",
+            "markdown": "Calc kann nicht weiter als 20 Jahre rechnen.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Calc rechnet beliebig weit. Das Problem liegt in den Annahmen des Modells.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 1260
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du erkennst Wachstumsmodelle an ihrer Regel, setzt sie mit Parameterzellen um und formulierst Prognosen vorsichtig. Schau in der Übersicht nach, wo du noch unsicher warst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-modelle",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Woran man die Modelle erkennt",
+        "markdown": "**Linear:** gleicher Zuwachs. **Exponentiell:** gleicher Faktor, also gleicher prozentualer Zuwachs. **Quadratisch:** Die Zuwächse selbst wachsen gleichmäßig."
+      }
+    },
+    {
+      "id": "hilfe-faktor",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 350
+      },
+      "data": {
+        "title": "Faktor = 1 + Rate",
+        "markdown": "Zum alten Wert (100 % = 1) kommen 6 % = 0,06 hinzu."
+      }
+    },
+    {
+      "id": "hilfe-wertetabelle",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 490
+      },
+      "data": {
+        "title": "Addieren oder multiplizieren",
+        "markdown": "Linear: jedes Jahr **+ 20**. Exponentiell: jedes Jahr **· 1,1** – der Zuwachs wird dadurch von Jahr zu Jahr größer: +10, +11, +12,1."
+      }
+    },
+    {
+      "id": "hilfe-formeln",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 630
+      },
+      "data": {
+        "title": "Parameter festhalten",
+        "markdown": "Der vorige Wert (`B2`, `C2`) soll beim Kopieren wandern. Zuwachs und Rate gelten für alle Jahre – sie werden mit `$` vor Spalte und Zeile festgehalten."
+      }
+    },
+    {
+      "id": "hilfe-folge",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 770
+      },
+      "data": {
+        "title": "Differenzen und Quotienten",
+        "markdown": "Bilde die **Differenzen** benachbarter Werte. Sind sie gleich: linear. Wachsen sie gleichmäßig: quadratisch. Ist stattdessen der **Quotient** gleich: exponentiell."
+      }
+    },
+    {
+      "id": "hilfe-ueberholen",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 910
+      },
+      "data": {
+        "title": "Rechne es in Calc nach",
+        "markdown": "Nach einem Jahr: A = 550, B = 540. B wächst aber jedes Jahr um mehr. Lege zwei Spalten an und vergleiche Jahr für Jahr."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-modelle",
+      "source": "start",
+      "target": "modelle"
+    },
+    {
+      "id": "e-modelle-faktor",
+      "source": "modelle",
+      "target": "faktor"
+    },
+    {
+      "id": "e-faktor-wertetabelle",
+      "source": "faktor",
+      "target": "wertetabelle"
+    },
+    {
+      "id": "e-wertetabelle-formeln",
+      "source": "wertetabelle",
+      "target": "formeln"
+    },
+    {
+      "id": "e-formeln-folge",
+      "source": "formeln",
+      "target": "folge"
+    },
+    {
+      "id": "e-folge-ueberholen",
+      "source": "folge",
+      "target": "ueberholen"
+    },
+    {
+      "id": "e-ueberholen-prognose",
+      "source": "ueberholen",
+      "target": "prognose"
+    },
+    {
+      "id": "e-prognose-grenzen",
+      "source": "prognose",
+      "target": "grenzen"
+    },
+    {
+      "id": "e-grenzen-ende",
+      "source": "grenzen",
+      "target": "ende"
+    },
+    {
+      "id": "e-modelle-falsch",
+      "source": "modelle",
+      "target": "hilfe-modelle",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "modelle",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-modelle-zurueck",
+      "source": "hilfe-modelle",
+      "target": "modelle",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "modelle"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-modelle-weiter",
+      "source": "hilfe-modelle",
+      "target": "faktor",
+      "label": "weiter"
+    },
+    {
+      "id": "e-faktor-falsch",
+      "source": "faktor",
+      "target": "hilfe-faktor",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "faktor",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-faktor-zurueck",
+      "source": "hilfe-faktor",
+      "target": "faktor",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "faktor"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-faktor-weiter",
+      "source": "hilfe-faktor",
+      "target": "wertetabelle",
+      "label": "weiter"
+    },
+    {
+      "id": "e-wertetabelle-falsch",
+      "source": "wertetabelle",
+      "target": "hilfe-wertetabelle",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "wertetabelle",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-wertetabelle-zurueck",
+      "source": "hilfe-wertetabelle",
+      "target": "wertetabelle",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "wertetabelle"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-wertetabelle-weiter",
+      "source": "hilfe-wertetabelle",
+      "target": "formeln",
+      "label": "weiter"
+    },
+    {
+      "id": "e-formeln-falsch",
+      "source": "formeln",
+      "target": "hilfe-formeln",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "formeln",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-formeln-zurueck",
+      "source": "hilfe-formeln",
+      "target": "formeln",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "formeln"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-formeln-weiter",
+      "source": "hilfe-formeln",
+      "target": "folge",
+      "label": "weiter"
+    },
+    {
+      "id": "e-folge-falsch",
+      "source": "folge",
+      "target": "hilfe-folge",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "folge",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-folge-zurueck",
+      "source": "hilfe-folge",
+      "target": "folge",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "folge"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-folge-weiter",
+      "source": "hilfe-folge",
+      "target": "ueberholen",
+      "label": "weiter"
+    },
+    {
+      "id": "e-ueberholen-falsch",
+      "source": "ueberholen",
+      "target": "hilfe-ueberholen",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "ueberholen",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-ueberholen-zurueck",
+      "source": "hilfe-ueberholen",
+      "target": "ueberholen",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "ueberholen"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-ueberholen-weiter",
+      "source": "hilfe-ueberholen",
+      "target": "prognose",
+      "label": "weiter"
+    }
+  ]
+}

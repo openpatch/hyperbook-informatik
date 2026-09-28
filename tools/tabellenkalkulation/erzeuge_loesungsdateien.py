@@ -329,7 +329,7 @@ def main() -> None:
         ["C", 230, 650, 1300, Formel("[.C4]/[.D4]*100", 50)],
     ], ["Absolute Zahlen allein belegen nicht, dass Fahrräder Unfälle verursachen. Bezugsgrößen verändern den Vergleich."])
     erzeuge(ziel("03-diagramme", "calc-3-3-1"), "Mini-Projekt: Klimavergleich", climate + [
-        ["Mittelwert", Formel("AVERAGE([.B2:.B13])", 11.75), Formel("AVERAGE([.C2:.C13])", 17.83)],
+        ["Mittelwert", Formel("AVERAGE([.B2:.B13])", 131 / 12), Formel("AVERAGE([.C2:.C13])", 215 / 12)],
         ["Minimum", Formel("MIN([.B2:.B13])", 1), Formel("MIN([.C2:.C13])", 12)],
         ["Maximum", Formel("MAX([.B2:.B13])", 21), Formel("MAX([.C2:.C13])", 24)],
     ], ["Ergänze dokumentierte Niederschlagsdaten auf einem zweiten Tabellenblatt und erstelle zwei getrennte Diagramme."])

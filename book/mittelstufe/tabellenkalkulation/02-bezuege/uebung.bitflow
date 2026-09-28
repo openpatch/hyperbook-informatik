@@ -1,0 +1,871 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-uebung-2-bezuege",
+    "title": "Übung: Formeln kopieren und Bezüge steuern",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": [
+      {
+        "id": "mila",
+        "label": "Milas Währungsrechner",
+        "markdown": "![Milas Währungsrechner: Preise in Euro in B2 bis B4, Kurs 4,25 in F1. In C2 steht =B2*F1, in C3 und C4 wird 0,00 angezeigt.](data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20392%20130%22%20width%3D%22392%22%20height%3D%22130%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%3E%3Crect%20width%3D%22392%22%20height%3D%22130%22%20fill%3D%22%23ffffff%22/%3E%3Crect%20width%3D%22392%22%20height%3D%2226%22%20fill%3D%22%23e6e6e6%22/%3E%3Crect%20width%3D%2228%22%20height%3D%22130%22%20fill%3D%22%23e6e6e6%22/%3E%3Ctext%20x%3D%2276.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EA%3C/text%3E%3Ctext%20x%3D%22162.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EB%3C/text%3E%3Ctext%20x%3D%22240.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EC%3C/text%3E%3Ctext%20x%3D%22292.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3ED%3C/text%3E%3Ctext%20x%3D%22326.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EE%3C/text%3E%3Ctext%20x%3D%22370.0%22%20y%3D%2218%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3EF%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E1%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%2244%22%3EArtikel%3C/text%3E%3Ctext%20x%3D%22129%22%20y%3D%2244%22%3EPreis%20in%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22205%22%20y%3D%2244%22%3EPreis%20in%20z%C5%82%3C/text%3E%3Ctext%20x%3D%22309%22%20y%3D%2244%22%3EKurs%3C/text%3E%3Ctext%20x%3D%22353%22%20y%3D%2244%22%3E4%2C25%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E2%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%2270%22%3EMittagessen%3C/text%3E%3Ctext%20x%3D%22129%22%20y%3D%2270%22%3E12%2C00%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22205%22%20y%3D%2270%22%20font-family%3D%22monospace%22%3E%3DB2%2AF1%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%2296%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E3%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%2296%22%3EStra%C3%9Fenbahn%3C/text%3E%3Ctext%20x%3D%22129%22%20y%3D%2296%22%3E1%2C20%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22205%22%20y%3D%2296%22%3E0%2C00%3C/text%3E%3Ctext%20x%3D%2214.0%22%20y%3D%22122%22%20text-anchor%3D%22middle%22%20font-weight%3D%22bold%22%3E4%3C/text%3E%3Ctext%20x%3D%2233%22%20y%3D%22122%22%3EMuseum%3C/text%3E%3Ctext%20x%3D%22129%22%20y%3D%22122%22%3E8%2C00%20%E2%82%AC%3C/text%3E%3Ctext%20x%3D%22205%22%20y%3D%22122%22%3E0%2C00%3C/text%3E%3Cline%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%2228%22%20y1%3D%220%22%20x2%3D%2228%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22124%22%20y1%3D%220%22%20x2%3D%22124%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22200%22%20y1%3D%220%22%20x2%3D%22200%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22280%22%20y1%3D%220%22%20x2%3D%22280%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22304%22%20y1%3D%220%22%20x2%3D%22304%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22348%22%20y1%3D%220%22%20x2%3D%22348%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%22392%22%20y1%3D%220%22%20x2%3D%22392%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22392%22%20y2%3D%220%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%2226%22%20x2%3D%22392%22%20y2%3D%2226%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%2252%22%20x2%3D%22392%22%20y2%3D%2252%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%2278%22%20x2%3D%22392%22%20y2%3D%2278%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%22104%22%20x2%3D%22392%22%20y2%3D%22104%22%20stroke%3D%22%23aaaaaa%22/%3E%3Cline%20x1%3D%220%22%20y1%3D%22130%22%20x2%3D%22392%22%20y2%3D%22130%22%20stroke%3D%22%23aaaaaa%22/%3E%3C/svg%3E)"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Übung: Formeln kopieren und Bezüge steuern",
+        "markdown": "Neun Aufgaben zu relativen, absoluten und gemischten Bezügen – mit dem Währungsrechner. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "wandern",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "In `C2` steht `=B2*F1`. Die Formel wird eine Zeile nach unten kopiert. Was steht dann in `C3`?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`=B3*F2`",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig: Beide relativen Bezüge wandern eine Zeile mit.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "`=B3*F1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das wäre richtig mit `$F$1`. Ohne Dollarzeichen wandert auch F1.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`=B2*F1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Relative Bezüge bleiben beim Kopieren nicht stehen.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "vorhersagen",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "In `C2` steht jeweils eine Formel mit dem angegebenen Bezug. Sie wird nach `E5` kopiert – zwei Spalten nach rechts, drei Zeilen nach unten. Wie lautet der Bezug dort?",
+        "caption": "",
+        "columns": [
+          {
+            "id": "in c2",
+            "header": "in C2",
+            "kind": "formula"
+          },
+          {
+            "id": "in e5",
+            "header": "in E5",
+            "kind": "formula"
+          }
+        ],
+        "rows": [
+          {
+            "id": "z1",
+            "header": "1",
+            "cells": {
+              "in c2": {
+                "given": "=B2"
+              },
+              "in e5": {
+                "accepted": [
+                  "=D5"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z2",
+            "header": "2",
+            "cells": {
+              "in c2": {
+                "given": "=$B$2"
+              },
+              "in e5": {
+                "accepted": [
+                  "=$B$2"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z3",
+            "header": "3",
+            "cells": {
+              "in c2": {
+                "given": "=$B2"
+              },
+              "in e5": {
+                "accepted": [
+                  "=$B5"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z4",
+            "header": "4",
+            "cells": {
+              "in c2": {
+                "given": "=B$2"
+              },
+              "in e5": {
+                "accepted": [
+                  "=D$2"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": true,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "waehrung",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "Mila baut einen Währungsrechner: Preise in Euro stehen in `B2:B4`, der Kurs für Złoty in `F1`. Welche Formel gehört in `C2`, damit sie sich nach unten kopieren lässt?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`=B2*$F$1`",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau: Der Preis wandert, der Kurs bleibt fest.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "`=B2*F1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Beim Kopieren würde F1 zu F2 und F3 wandern.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`=$B$2*$F$1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Dann rechnet jede Zeile mit dem ersten Preis.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "fehler-null",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "Mila hat `=B2*F1` aus `C2` nach unten kopiert. In `C3` und `C4` erscheint `0`. Warum?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Die Formeln verweisen auf `F2` und `F3` – dort steht kein Kurs.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig. Eine leere Zelle zählt als 0.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "Calc kann Formeln nicht nach unten kopieren.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Doch – das Ausfüllkästchen ist genau dafür da.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Die Preise in `B3` und `B4` sind zu klein.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Auch ein kleiner Preis mal Kurs ergibt nicht 0.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "mila"
+    },
+    {
+      "id": "rabatt",
+      "type": "task-fill-in-the-blank",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "instruction": "In `F1` steht der Kurs, in `F2` ein Rabatt. Ergänze die Formel für `C2` so, dass sie sich nach unten kopieren lässt.",
+        "text": "=B2*(1-[[1]])*[[2]]",
+        "blanks": {
+          "1": [
+            "$F$2"
+          ],
+          "2": [
+            "$F$1"
+          ]
+        },
+        "caseSensitive": false,
+        "trim": true,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "lange-formel",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Ein Angebot kostet 50 Pfund. Es gibt 10 % Rabatt, danach kommen 5 Pfund Versand hinzu, auf alles 20 % Steuer. Umgerechnet wird mit dem Kurs 1,1. Wie viel Euro kostet das Angebot?",
+        "expected": "66",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      }
+    },
+    {
+      "id": "testwerte",
+      "type": "task-matching",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "Welchen Teil der Formel prüft welcher Testwert?",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": {
+              "kind": "text",
+              "label": "Rabatt 0 %"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Ist der Rabatt richtig eingebaut?"
+            }
+          },
+          {
+            "id": "p2",
+            "left": {
+              "kind": "text",
+              "label": "Kurs 1"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Funktioniert die Umrechnung?"
+            }
+          },
+          {
+            "id": "p3",
+            "left": {
+              "kind": "text",
+              "label": "Preis 0"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Wird der Versand versehentlich rabattiert?"
+            }
+          },
+          {
+            "id": "p4",
+            "left": {
+              "kind": "text",
+              "label": "Steuer 0 %"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Ist der Steuerfaktor richtig?"
+            }
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "gemischt",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
+      "data": {
+        "instruction": "Eine Umrechnungstabelle: Euro-Beträge in Spalte A, Kurse in Zeile 2. In `B3` steht `=$A3*B$2`. Die Formel wird in den ganzen Bereich kopiert. Trage die Formeln ein, die in `C3`, `B4` und `C4` entstehen.",
+        "caption": "",
+        "columns": [
+          {
+            "id": "a",
+            "header": "A",
+            "kind": "text"
+          },
+          {
+            "id": "b",
+            "header": "B",
+            "kind": "formula"
+          },
+          {
+            "id": "c",
+            "header": "C",
+            "kind": "formula"
+          }
+        ],
+        "rows": [
+          {
+            "id": "z1",
+            "header": "1",
+            "cells": {
+              "a": {
+                "given": "Euro"
+              },
+              "b": {
+                "given": "PLN"
+              },
+              "c": {
+                "given": "CZK"
+              }
+            }
+          },
+          {
+            "id": "z2",
+            "header": "2",
+            "cells": {
+              "a": {
+                "given": "Kurs"
+              },
+              "b": {
+                "given": "4,25"
+              },
+              "c": {
+                "given": "24,50"
+              }
+            }
+          },
+          {
+            "id": "z3",
+            "header": "3",
+            "cells": {
+              "a": {
+                "given": "10"
+              },
+              "b": {
+                "given": "=$A3*B$2"
+              },
+              "c": {
+                "accepted": [
+                  "=$A3*C$2"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z4",
+            "header": "4",
+            "cells": {
+              "a": {
+                "given": "20"
+              },
+              "b": {
+                "accepted": [
+                  "=$A4*B$2"
+                ]
+              },
+              "c": {
+                "accepted": [
+                  "=$A4*C$2"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": true,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "versand",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 1260
+      },
+      "data": {
+        "instruction": "In `D4` steht `=B4*(1-$H$2)+$H3`. In `H3` steht ein einziger Versandpreis für alle Zeilen. Wie sollte der Versandbezug lauten?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`$H$3`",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig. Nur so bleibt er auch beim Kopieren nach unten fest.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "`$H3`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Beim Kopieren nach unten wandert die Zeile – aus H3 wird H4, H5, …",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`H3`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Dann wandern Spalte und Zeile.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 1400
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du entscheidest bewusst, welcher Bezug beim Kopieren wandert und welcher feststeht. Schau in der Übersicht nach, welche Art von Bezug dir noch Mühe macht.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-wandern",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Relative Bezüge wandern",
+        "markdown": "Calc verschiebt beim Kopieren **jeden relativen Bezug** um denselben Weg wie die Formel. Eine Zeile tiefer wird aus `B2` also `B3` – und aus `F1` wird `F2`."
+      }
+    },
+    {
+      "id": "hilfe-vorhersagen",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 350
+      },
+      "data": {
+        "title": "Das Dollarzeichen hält fest, was dahinter steht",
+        "markdown": "`$B` hält die **Spalte** fest, `$2` die **Zeile**. Alles ohne `$` wandert mit: zwei Spalten nach rechts (B → D) und drei Zeilen nach unten (2 → 5)."
+      }
+    },
+    {
+      "id": "hilfe-rabatt",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 770
+      },
+      "data": {
+        "title": "Parameter immer festhalten",
+        "markdown": "Kurs und Rabatt gelten für **alle** Zeilen. Solche Parameterzellen werden vollständig festgehalten: Dollarzeichen vor Spalte **und** Zeile."
+      }
+    },
+    {
+      "id": "hilfe-lange-formel",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 910
+      },
+      "data": {
+        "title": "Schritt für Schritt",
+        "markdown": "Rabatt: 50 · 0,9 = 45. Versand: 45 + 5 = 50. Steuer: 50 · 1,2 = 60. Kurs: 60 · 1,1 = …"
+      }
+    },
+    {
+      "id": "hilfe-gemischt",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 1190
+      },
+      "data": {
+        "title": "Gemischte Bezüge",
+        "markdown": "`$A3`: Die Spalte A bleibt fest, die Zeile wandert – der Betrag steht immer in Spalte A. `B$2`: Die Zeile 2 bleibt fest, die Spalte wandert – der Kurs steht immer in Zeile 2."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-wandern",
+      "source": "start",
+      "target": "wandern"
+    },
+    {
+      "id": "e-wandern-vorhersagen",
+      "source": "wandern",
+      "target": "vorhersagen"
+    },
+    {
+      "id": "e-vorhersagen-waehrung",
+      "source": "vorhersagen",
+      "target": "waehrung"
+    },
+    {
+      "id": "e-waehrung-fehler-null",
+      "source": "waehrung",
+      "target": "fehler-null"
+    },
+    {
+      "id": "e-fehler-null-rabatt",
+      "source": "fehler-null",
+      "target": "rabatt"
+    },
+    {
+      "id": "e-rabatt-lange-formel",
+      "source": "rabatt",
+      "target": "lange-formel"
+    },
+    {
+      "id": "e-lange-formel-testwerte",
+      "source": "lange-formel",
+      "target": "testwerte"
+    },
+    {
+      "id": "e-testwerte-gemischt",
+      "source": "testwerte",
+      "target": "gemischt"
+    },
+    {
+      "id": "e-gemischt-versand",
+      "source": "gemischt",
+      "target": "versand"
+    },
+    {
+      "id": "e-versand-ende",
+      "source": "versand",
+      "target": "ende"
+    },
+    {
+      "id": "e-wandern-falsch",
+      "source": "wandern",
+      "target": "hilfe-wandern",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "wandern",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-wandern-zurueck",
+      "source": "hilfe-wandern",
+      "target": "wandern",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "wandern"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-wandern-weiter",
+      "source": "hilfe-wandern",
+      "target": "vorhersagen",
+      "label": "weiter"
+    },
+    {
+      "id": "e-vorhersagen-falsch",
+      "source": "vorhersagen",
+      "target": "hilfe-vorhersagen",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "vorhersagen",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-vorhersagen-zurueck",
+      "source": "hilfe-vorhersagen",
+      "target": "vorhersagen",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "vorhersagen"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-vorhersagen-weiter",
+      "source": "hilfe-vorhersagen",
+      "target": "waehrung",
+      "label": "weiter"
+    },
+    {
+      "id": "e-rabatt-falsch",
+      "source": "rabatt",
+      "target": "hilfe-rabatt",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "rabatt",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-rabatt-zurueck",
+      "source": "hilfe-rabatt",
+      "target": "rabatt",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "rabatt"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-rabatt-weiter",
+      "source": "hilfe-rabatt",
+      "target": "lange-formel",
+      "label": "weiter"
+    },
+    {
+      "id": "e-lange-formel-falsch",
+      "source": "lange-formel",
+      "target": "hilfe-lange-formel",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "lange-formel",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-lange-formel-zurueck",
+      "source": "hilfe-lange-formel",
+      "target": "lange-formel",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "lange-formel"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-lange-formel-weiter",
+      "source": "hilfe-lange-formel",
+      "target": "testwerte",
+      "label": "weiter"
+    },
+    {
+      "id": "e-gemischt-falsch",
+      "source": "gemischt",
+      "target": "hilfe-gemischt",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "gemischt",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-gemischt-zurueck",
+      "source": "hilfe-gemischt",
+      "target": "gemischt",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "gemischt"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-gemischt-weiter",
+      "source": "hilfe-gemischt",
+      "target": "versand",
+      "label": "weiter"
+    }
+  ]
+}

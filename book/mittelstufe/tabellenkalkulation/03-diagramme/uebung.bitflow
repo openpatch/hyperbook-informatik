@@ -1,0 +1,723 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-uebung-3-diagramme",
+    "title": "Übung: Daten mit Diagrammen erzählen",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": [
+      {
+        "id": "diagramm",
+        "label": "Das Diagramm aus der vorigen Aufgabe",
+        "markdown": "![Säulendiagramm: Stadt A 78, Stadt B 80, Stadt C 82 Punkte. Die y-Achse beginnt bei 77.](data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20620%20310%22%20width%3D%22440%22%20height%3D%22220%22%20font-family%3D%22sans-serif%22%20font-size%3D%2216%22%3E%0A%3Crect%20width%3D%22620%22%20height%3D%22310%22%20fill%3D%22%23ffffff%22/%3E%0A%3Ctext%20x%3D%22310%22%20y%3D%2228%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-weight%3D%22bold%22%3EZufriedenheit%20in%20drei%20St%C3%A4dten%3C/text%3E%0A%3Cg%20stroke%3D%22%23bbbbbb%22%20stroke-dasharray%3D%224%204%22%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%22250%22%20x2%3D%22560%22%20y2%3D%22250%22/%3E%3Cline%20x1%3D%22120%22%20y1%3D%22210%22%20x2%3D%22560%22%20y2%3D%22210%22/%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%22170%22%20x2%3D%22560%22%20y2%3D%22170%22/%3E%3Cline%20x1%3D%22120%22%20y1%3D%22130%22%20x2%3D%22560%22%20y2%3D%22130%22/%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%2290%22%20x2%3D%22560%22%20y2%3D%2290%22/%3E%3Cline%20x1%3D%22120%22%20y1%3D%2250%22%20x2%3D%22560%22%20y2%3D%2250%22/%3E%0A%3C/g%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%2240%22%20x2%3D%22120%22%20y2%3D%22250%22%20stroke%3D%22%23000000%22%20stroke-width%3D%222%22/%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%22250%22%20x2%3D%22560%22%20y2%3D%22250%22%20stroke%3D%22%23000000%22%20stroke-width%3D%222%22/%3E%0A%3Cg%20text-anchor%3D%22end%22%3E%0A%3Ctext%20x%3D%22110%22%20y%3D%22256%22%3E77%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%22216%22%3E78%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%22176%22%3E79%3C/text%3E%0A%3Ctext%20x%3D%22110%22%20y%3D%22136%22%3E80%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%2296%22%3E81%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%2256%22%3E82%3C/text%3E%0A%3C/g%3E%0A%3Crect%20x%3D%22160%22%20y%3D%22210%22%20width%3D%2280%22%20height%3D%2240%22%20fill%3D%22%2323373b%22/%3E%0A%3Crect%20x%3D%22300%22%20y%3D%22130%22%20width%3D%2280%22%20height%3D%22120%22%20fill%3D%22%2323373b%22/%3E%0A%3Crect%20x%3D%22440%22%20y%3D%2250%22%20width%3D%2280%22%20height%3D%22200%22%20fill%3D%22%2323373b%22/%3E%0A%3Cg%20text-anchor%3D%22middle%22%3E%0A%3Ctext%20x%3D%22200%22%20y%3D%22276%22%3EStadt%20A%3C/text%3E%3Ctext%20x%3D%22340%22%20y%3D%22276%22%3EStadt%20B%3C/text%3E%3Ctext%20x%3D%22480%22%20y%3D%22276%22%3EStadt%20C%3C/text%3E%0A%3C/g%3E%0A%3Ctext%20x%3D%2230%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate%28-90%2030%20150%29%22%3EPunkte%3C/text%3E%0A%3C/svg%3E)"
+      },
+      {
+        "id": "fahrrad",
+        "label": "Fahrräder und Verkehrsunfälle",
+        "markdown": "![XY-Punktdiagramm mit fiktiven Daten: Sechs Städte von 0,3 bis 3,6 Millionen Einwohnern. Je größer die Stadt, desto mehr Fahrräder (60 000 bis 600 000) und desto mehr Verkehrsunfälle (310 bis 2 250 pro Jahr).](data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20620%20360%22%20width%3D%22480%22%20height%3D%22279%22%20font-family%3D%22sans-serif%22%20font-size%3D%2213%22%3E%3Crect%20width%3D%22620%22%20height%3D%22360%22%20fill%3D%22%23ffffff%22/%3E%3Ctext%20x%3D%22335%22%20y%3D%2224%22%20text-anchor%3D%22middle%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%3EFahrr%C3%A4der%20und%20Verkehrsunf%C3%A4lle%20in%20sechs%20europ%C3%A4ischen%20St%C3%A4dten%3C/text%3E%3Ctext%20x%3D%22335%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20fill%3D%22%23555555%22%3Efiktive%20Daten%20%C2%B7%20in%20Klammern%3A%20Einwohner%3C/text%3E%3Cline%20x1%3D%2290.0%22%20y1%3D%2260%22%20x2%3D%2290.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2290.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E0%3C/text%3E%3Cline%20x1%3D%22160.0%22%20y1%3D%2260%22%20x2%3D%22160.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22160.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E100%3C/text%3E%3Cline%20x1%3D%22230.0%22%20y1%3D%2260%22%20x2%3D%22230.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22230.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E200%3C/text%3E%3Cline%20x1%3D%22300.0%22%20y1%3D%2260%22%20x2%3D%22300.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22300.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E300%3C/text%3E%3Cline%20x1%3D%22370.0%22%20y1%3D%2260%22%20x2%3D%22370.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22370.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E400%3C/text%3E%3Cline%20x1%3D%22440.0%22%20y1%3D%2260%22%20x2%3D%22440.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22440.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E500%3C/text%3E%3Cline%20x1%3D%22510.0%22%20y1%3D%2260%22%20x2%3D%22510.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22510.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E600%3C/text%3E%3Cline%20x1%3D%22580.0%22%20y1%3D%2260%22%20x2%3D%22580.0%22%20y2%3D%22300%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%22580.0%22%20y%3D%22318%22%20text-anchor%3D%22middle%22%3E700%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%22300.0%22%20x2%3D%22580%22%20y2%3D%22300.0%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2282%22%20y%3D%22304.0%22%20text-anchor%3D%22end%22%3E0%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%22252.0%22%20x2%3D%22580%22%20y2%3D%22252.0%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2282%22%20y%3D%22256.0%22%20text-anchor%3D%22end%22%3E500%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%22204.0%22%20x2%3D%22580%22%20y2%3D%22204.0%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2282%22%20y%3D%22208.0%22%20text-anchor%3D%22end%22%3E1.000%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%22156.0%22%20x2%3D%22580%22%20y2%3D%22156.0%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2282%22%20y%3D%22160.0%22%20text-anchor%3D%22end%22%3E1.500%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%22108.0%22%20x2%3D%22580%22%20y2%3D%22108.0%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2282%22%20y%3D%22112.0%22%20text-anchor%3D%22end%22%3E2.000%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%2260.0%22%20x2%3D%22580%22%20y2%3D%2260.0%22%20stroke%3D%22%23dddddd%22/%3E%3Ctext%20x%3D%2282%22%20y%3D%2264.0%22%20text-anchor%3D%22end%22%3E2.500%3C/text%3E%3Cline%20x1%3D%2290%22%20y1%3D%22300%22%20x2%3D%22580%22%20y2%3D%22300%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.5%22/%3E%3Cline%20x1%3D%2290%22%20y1%3D%2260%22%20x2%3D%2290%22%20y2%3D%22300%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22335.0%22%20y%3D%22342%22%20text-anchor%3D%22middle%22%3EFahrr%C3%A4der%20%28in%20Tausend%29%3C/text%3E%3Ctext%20x%3D%2222%22%20y%3D%22180.0%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate%28-90%2022%20180.0%29%22%3EVerkehrsunf%C3%A4lle%20pro%20Jahr%3C/text%3E%3Ccircle%20cx%3D%22132.0%22%20cy%3D%22270.24%22%20r%3D%226%22%20fill%3D%22%2323373b%22/%3E%3Ctext%20x%3D%22142.0%22%20y%3D%22286.24%22%3EStadt%20A%20%280%2C3%20Mio.%29%3C/text%3E%3Ccircle%20cx%3D%22181.0%22%20cy%3D%22248.16%22%20r%3D%226%22%20fill%3D%22%2323373b%22/%3E%3Ctext%20x%3D%22191.0%22%20y%3D%22264.15999999999997%22%3EStadt%20B%20%280%2C6%20Mio.%29%3C/text%3E%3Ccircle%20cx%3D%22237.0%22%20cy%3D%22213.60000000000002%22%20r%3D%226%22%20fill%3D%22%2323373b%22/%3E%3Ctext%20x%3D%22247.0%22%20y%3D%22229.60000000000002%22%3EStadt%20C%20%281%2C1%20Mio.%29%3C/text%3E%3Ccircle%20cx%3D%22321.0%22%20cy%3D%22186.72%22%20r%3D%226%22%20fill%3D%22%2323373b%22/%3E%3Ctext%20x%3D%22331.0%22%20y%3D%22202.72%22%3EStadt%20D%20%281%2C8%20Mio.%29%3C/text%3E%3Ccircle%20cx%3D%22419.0%22%20cy%3D%22134.88000000000002%22%20r%3D%226%22%20fill%3D%22%2323373b%22/%3E%3Ctext%20x%3D%22429.0%22%20y%3D%22150.88000000000002%22%3EStadt%20E%20%282%2C6%20Mio.%29%3C/text%3E%3Ccircle%20cx%3D%22510.0%22%20cy%3D%2284.0%22%20r%3D%226%22%20fill%3D%22%2323373b%22/%3E%3Ctext%20x%3D%22500.0%22%20y%3D%22102.0%22%20text-anchor%3D%22end%22%3EStadt%20F%20%283%2C6%20Mio.%29%3C/text%3E%3C/svg%3E)"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Übung: Daten mit Diagrammen erzählen",
+        "markdown": "Acht Aufgaben zur Wahl des Diagrammtyps, zur Beschriftung und zu irreführenden Darstellungen. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "diagrammtyp",
+      "type": "task-matching",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "Ordne jeder Frage den passenden Diagrammtyp zu.",
+        "pairs": [
+          {
+            "id": "p1",
+            "left": {
+              "kind": "text",
+              "label": "Besucherzahl eines Museums in Wien von 2015 bis 2025"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Liniendiagramm"
+            }
+          },
+          {
+            "id": "p2",
+            "left": {
+              "kind": "text",
+              "label": "Einwohnerzahl von vier europäischen Metropolen"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Säulendiagramm"
+            }
+          },
+          {
+            "id": "p3",
+            "left": {
+              "kind": "text",
+              "label": "Anteile von Fahrt, Unterkunft und Eintritten am Reiseetat"
+            },
+            "right": {
+              "kind": "text",
+              "label": "Kreisdiagramm"
+            }
+          },
+          {
+            "id": "p4",
+            "left": {
+              "kind": "text",
+              "label": "Zusammenhang zwischen Körpergröße und Schuhgröße"
+            },
+            "right": {
+              "kind": "text",
+              "label": "XY-Punktdiagramm"
+            }
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "assistent",
+      "type": "task-ordering",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Bringe die Schritte in die richtige Reihenfolge, um in Calc ein Diagramm zu erstellen.",
+        "items": [
+          {
+            "id": "s1",
+            "kind": "text",
+            "label": "Monatsnamen und Werte markieren"
+          },
+          {
+            "id": "s2",
+            "kind": "text",
+            "label": "Einfügen → Diagramm wählen"
+          },
+          {
+            "id": "s3",
+            "kind": "text",
+            "label": "Diagrammtyp festlegen"
+          },
+          {
+            "id": "s4",
+            "kind": "text",
+            "label": "Datenbereich und Datenreihen kontrollieren"
+          },
+          {
+            "id": "s5",
+            "kind": "text",
+            "label": "Titel und Achsen beschriften"
+          }
+        ],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "beschriftung",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "Was braucht ein Diagramm mit zwei Temperaturreihen mindestens? Wähle alle passenden aus.",
+        "variant": "multiple",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "einen Titel, der den Zusammenhang nennt",
+            "correct": true
+          },
+          {
+            "id": "o2",
+            "markdown": "Achsenbeschriftungen mit Größe und Einheit",
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "markdown": "eine Legende, die die beiden Reihen unterscheidet",
+            "correct": true
+          },
+          {
+            "id": "o4",
+            "markdown": "einen 3D-Effekt",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "3D verzerrt Größen und erschwert das Ablesen.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o5",
+            "markdown": "eine farbige Hintergrundgrafik",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Dekoration trägt keine Aussage.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "achse",
+      "type": "task-find-hotspots",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "Dieses Diagramm übertreibt die Unterschiede. Klicke auf die Stelle, die dafür verantwortlich ist.",
+        "background": {
+          "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20620%20310%22%20font-family%3D%22sans-serif%22%20font-size%3D%2216%22%3E%0A%3Crect%20width%3D%22620%22%20height%3D%22310%22%20fill%3D%22%23ffffff%22/%3E%0A%3Ctext%20x%3D%22310%22%20y%3D%2228%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-weight%3D%22bold%22%3EZufriedenheit%20in%20drei%20St%C3%A4dten%3C/text%3E%0A%3Cg%20stroke%3D%22%23bbbbbb%22%20stroke-dasharray%3D%224%204%22%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%22250%22%20x2%3D%22560%22%20y2%3D%22250%22/%3E%3Cline%20x1%3D%22120%22%20y1%3D%22210%22%20x2%3D%22560%22%20y2%3D%22210%22/%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%22170%22%20x2%3D%22560%22%20y2%3D%22170%22/%3E%3Cline%20x1%3D%22120%22%20y1%3D%22130%22%20x2%3D%22560%22%20y2%3D%22130%22/%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%2290%22%20x2%3D%22560%22%20y2%3D%2290%22/%3E%3Cline%20x1%3D%22120%22%20y1%3D%2250%22%20x2%3D%22560%22%20y2%3D%2250%22/%3E%0A%3C/g%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%2240%22%20x2%3D%22120%22%20y2%3D%22250%22%20stroke%3D%22%23000000%22%20stroke-width%3D%222%22/%3E%0A%3Cline%20x1%3D%22120%22%20y1%3D%22250%22%20x2%3D%22560%22%20y2%3D%22250%22%20stroke%3D%22%23000000%22%20stroke-width%3D%222%22/%3E%0A%3Cg%20text-anchor%3D%22end%22%3E%0A%3Ctext%20x%3D%22110%22%20y%3D%22256%22%3E77%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%22216%22%3E78%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%22176%22%3E79%3C/text%3E%0A%3Ctext%20x%3D%22110%22%20y%3D%22136%22%3E80%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%2296%22%3E81%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%2256%22%3E82%3C/text%3E%0A%3C/g%3E%0A%3Crect%20x%3D%22160%22%20y%3D%22210%22%20width%3D%2280%22%20height%3D%2240%22%20fill%3D%22%2323373b%22/%3E%0A%3Crect%20x%3D%22300%22%20y%3D%22130%22%20width%3D%2280%22%20height%3D%22120%22%20fill%3D%22%2323373b%22/%3E%0A%3Crect%20x%3D%22440%22%20y%3D%2250%22%20width%3D%2280%22%20height%3D%22200%22%20fill%3D%22%2323373b%22/%3E%0A%3Cg%20text-anchor%3D%22middle%22%3E%0A%3Ctext%20x%3D%22200%22%20y%3D%22276%22%3EStadt%20A%3C/text%3E%3Ctext%20x%3D%22340%22%20y%3D%22276%22%3EStadt%20B%3C/text%3E%3Ctext%20x%3D%22480%22%20y%3D%22276%22%3EStadt%20C%3C/text%3E%0A%3C/g%3E%0A%3Ctext%20x%3D%2230%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate%28-90%2030%20150%29%22%3EPunkte%3C/text%3E%0A%3C/svg%3E",
+          "alt": "Säulendiagramm: Stadt A 78, Stadt B 80, Stadt C 82 Punkte. Die y-Achse beginnt bei 77."
+        },
+        "size": {
+          "width": 620,
+          "height": 310
+        },
+        "hotspots": [
+          {
+            "id": "achsenanfang",
+            "shape": "rect",
+            "x": 0.08,
+            "y": 0.72,
+            "width": 0.14,
+            "height": 0.16,
+            "correct": true,
+            "label": "Achsenanfang bei 77",
+            "feedback": "Genau: Die y-Achse beginnt bei 77 statt bei 0."
+          },
+          {
+            "id": "titel",
+            "shape": "rect",
+            "x": 0.2,
+            "y": 0.02,
+            "width": 0.6,
+            "height": 0.1,
+            "correct": false,
+            "label": "Titel",
+            "feedback": "Der Titel ist sachlich. Schau auf die Zahlenachse."
+          },
+          {
+            "id": "saeule-c",
+            "shape": "rect",
+            "x": 0.7,
+            "y": 0.15,
+            "width": 0.14,
+            "height": 0.66,
+            "correct": false,
+            "label": "Säule C",
+            "feedback": "Die Säule zeigt den richtigen Wert 82. Wo beginnt die Achse?"
+          }
+        ],
+        "missFeedback": "Schau dir die Zahlenachse genau an.",
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "wirkung",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "instruction": "Wievielmal so hoch wie die Säule von Stadt A *wirkt* die Säule von Stadt C?",
+        "expected": "5",
+        "tolerance": "exact",
+        "toleranceValue": 0,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "diagramm"
+    },
+    {
+      "id": "wirklich",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Wievielmal so groß ist der Wert von Stadt C wirklich? Runde auf zwei Nachkommastellen.",
+        "expected": "1.05",
+        "tolerance": "absolute",
+        "toleranceValue": 0.005,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "diagramm"
+    },
+    {
+      "id": "korrelation",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "Das Diagramm zeigt: In größeren europäischen Städten gibt es mehr Fahrräder und mehr Verkehrsunfälle. Welche Aussage trägt das Diagramm wirklich?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "In den betrachteten Städten treten viele Fahrräder und viele Unfälle gemeinsam auf.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig – das ist eine Beobachtung, keine Ursache.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "Fahrräder verursachen Verkehrsunfälle.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Korrelation ist keine Ursache. Größere Städte haben einfach von allem mehr.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Weniger Fahrräder würden die Unfälle senken.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Das ist eine Vermutung über eine Ursache, die das Diagramm nicht belegt.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "fahrrad"
+    },
+    {
+      "id": "bezugsgroesse",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
+      "data": {
+        "instruction": "Welche Größe macht den Unfallvergleich zwischen den Städten fairer?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Unfälle pro 100 000 Einwohner",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau – eine Bezugsgröße macht Städte vergleichbar.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "Unfälle insgesamt",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Absolute Zahlen sind in großen Städten fast immer größer.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Unfälle als 3D-Säulen",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Die Darstellung ändert nichts an der Vergleichsgröße.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "fahrrad"
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 1260
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du wählst Diagramme passend zur Frage und erkennst, wann eine Darstellung täuscht. Schau in der Übersicht nach, wo du noch unsicher warst.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-diagrammtyp",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Die Frage bestimmt den Typ",
+        "markdown": "**Linie:** Verlauf über die Zeit. **Säulen:** wenige Kategorien vergleichen. **Kreis:** Anteile an einem Ganzen. **XY-Punkte:** Hängen zwei Zahlenmerkmale zusammen?"
+      }
+    },
+    {
+      "id": "hilfe-beschriftung",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 490
+      },
+      "data": {
+        "title": "Aussage statt Dekoration",
+        "markdown": "Ein Diagramm braucht **Titel**, **Achsen mit Größe und Einheit** und gut erkennbare **Datenreihen** – bei mehreren Reihen also eine Legende."
+      }
+    },
+    {
+      "id": "hilfe-achse",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 630
+      },
+      "data": {
+        "title": "Die abgeschnittene Achse",
+        "markdown": "Säulen vergleichen **Längen**. Beginnt die Achse nicht bei 0, stimmen die Längen nicht mehr mit den Werten überein – kleine Unterschiede wirken riesig."
+      }
+    },
+    {
+      "id": "hilfe-wirkung",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 770
+      },
+      "data": {
+        "title": "Längen vergleichen",
+        "markdown": "Die Achse beginnt bei 77. Die Säule A reicht von 77 bis 78, die Säule C von 77 bis 82. Vergleiche die beiden Längen."
+      }
+    },
+    {
+      "id": "hilfe-korrelation",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 1050
+      },
+      "data": {
+        "title": "Korrelation ist keine Ursache",
+        "markdown": "Ein gemeinsamer Verlauf zeigt nur einen **Zusammenhang**. Oft beeinflusst eine dritte Größe beide – hier die Einwohnerzahl."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-diagrammtyp",
+      "source": "start",
+      "target": "diagrammtyp"
+    },
+    {
+      "id": "e-diagrammtyp-assistent",
+      "source": "diagrammtyp",
+      "target": "assistent"
+    },
+    {
+      "id": "e-assistent-beschriftung",
+      "source": "assistent",
+      "target": "beschriftung"
+    },
+    {
+      "id": "e-beschriftung-achse",
+      "source": "beschriftung",
+      "target": "achse"
+    },
+    {
+      "id": "e-achse-wirkung",
+      "source": "achse",
+      "target": "wirkung"
+    },
+    {
+      "id": "e-wirkung-wirklich",
+      "source": "wirkung",
+      "target": "wirklich"
+    },
+    {
+      "id": "e-wirklich-korrelation",
+      "source": "wirklich",
+      "target": "korrelation"
+    },
+    {
+      "id": "e-korrelation-bezugsgroesse",
+      "source": "korrelation",
+      "target": "bezugsgroesse"
+    },
+    {
+      "id": "e-bezugsgroesse-ende",
+      "source": "bezugsgroesse",
+      "target": "ende"
+    },
+    {
+      "id": "e-diagrammtyp-falsch",
+      "source": "diagrammtyp",
+      "target": "hilfe-diagrammtyp",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "diagrammtyp",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-diagrammtyp-zurueck",
+      "source": "hilfe-diagrammtyp",
+      "target": "diagrammtyp",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "diagrammtyp"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-diagrammtyp-weiter",
+      "source": "hilfe-diagrammtyp",
+      "target": "assistent",
+      "label": "weiter"
+    },
+    {
+      "id": "e-beschriftung-falsch",
+      "source": "beschriftung",
+      "target": "hilfe-beschriftung",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "beschriftung",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-beschriftung-zurueck",
+      "source": "hilfe-beschriftung",
+      "target": "beschriftung",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "beschriftung"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-beschriftung-weiter",
+      "source": "hilfe-beschriftung",
+      "target": "achse",
+      "label": "weiter"
+    },
+    {
+      "id": "e-achse-falsch",
+      "source": "achse",
+      "target": "hilfe-achse",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "achse",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-achse-zurueck",
+      "source": "hilfe-achse",
+      "target": "achse",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "achse"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-achse-weiter",
+      "source": "hilfe-achse",
+      "target": "wirkung",
+      "label": "weiter"
+    },
+    {
+      "id": "e-wirkung-falsch",
+      "source": "wirkung",
+      "target": "hilfe-wirkung",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "wirkung",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-wirkung-zurueck",
+      "source": "hilfe-wirkung",
+      "target": "wirkung",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "wirkung"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-wirkung-weiter",
+      "source": "hilfe-wirkung",
+      "target": "wirklich",
+      "label": "weiter"
+    },
+    {
+      "id": "e-korrelation-falsch",
+      "source": "korrelation",
+      "target": "hilfe-korrelation",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "korrelation",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-korrelation-zurueck",
+      "source": "hilfe-korrelation",
+      "target": "korrelation",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "korrelation"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-korrelation-weiter",
+      "source": "hilfe-korrelation",
+      "target": "bezugsgroesse",
+      "label": "weiter"
+    }
+  ]
+}

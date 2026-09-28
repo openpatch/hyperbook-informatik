@@ -1,0 +1,460 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-bezuege-vorhersagen",
+    "title": "Wohin wandern die Bezüge?",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": []
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Wohin wandern die Bezüge?",
+        "markdown": "Sage vorher, was beim Kopieren aus einer Formel wird. Danach probierst du es in Calc aus. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "nach-unten",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "In `C2` steht `=B2*$F$1`. Die Formel wird eine Zeile nach unten nach `C3` kopiert. Welche Formel steht dann in `C3`?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`=B3*$F$1`",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig: Der Preis wandert mit, der Kurs bleibt fest.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "`=B3*$F$2`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "`$F$1` ist absolut – Spalte und Zeile sind festgehalten.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`=B2*$F$1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "`B2` ist relativ und wandert eine Zeile mit.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "nach-rechts",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Dieselbe Formel `=B2*$F$1` wird von `C2` eine Spalte nach **rechts** nach `D2` kopiert. Welche Formel steht dann in `D2`?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`=C2*$F$1`",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau: Nach rechts wandert der Spaltenbuchstabe, B wird zu C.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "`=B3*$F$1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Nach rechts ändert sich die Spalte, nicht die Zeile.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`=C2*$G$1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "`$F$1` bleibt auch beim Kopieren nach rechts fest.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "vier-bezuege",
+      "type": "task-table",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "In `C2` steht jeweils eine Formel mit dem angegebenen Bezug. Sie wird nach `D4` kopiert – eine Spalte nach rechts, zwei Zeilen nach unten. Trage ein, was dann in `D4` steht.",
+        "caption": "",
+        "columns": [
+          {
+            "id": "in c2",
+            "header": "in C2",
+            "kind": "formula"
+          },
+          {
+            "id": "in d4",
+            "header": "in D4",
+            "kind": "formula"
+          }
+        ],
+        "rows": [
+          {
+            "id": "z1",
+            "header": "1",
+            "cells": {
+              "in c2": {
+                "given": "=B2"
+              },
+              "in d4": {
+                "accepted": [
+                  "=C4"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z2",
+            "header": "2",
+            "cells": {
+              "in c2": {
+                "given": "=$B$2"
+              },
+              "in d4": {
+                "accepted": [
+                  "=$B$2"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z3",
+            "header": "3",
+            "cells": {
+              "in c2": {
+                "given": "=$B2"
+              },
+              "in d4": {
+                "accepted": [
+                  "=$B4"
+                ]
+              }
+            }
+          },
+          {
+            "id": "z4",
+            "header": "4",
+            "cells": {
+              "in c2": {
+                "given": "=B$2"
+              },
+              "in d4": {
+                "accepted": [
+                  "=C$2"
+                ]
+              }
+            }
+          }
+        ],
+        "rowHeaders": true,
+        "rowOrder": "fixed",
+        "caseSensitive": false,
+        "ignoreWhitespace": true,
+        "numberTolerance": 0,
+        "partialCredit": true,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "zwei-parameter",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "In `C2` steht `=B2*(1-$F$2)*$F$1`. Welche Bezüge verändern sich, wenn du die Formel nach unten kopierst? Wähle alle aus.",
+        "variant": "multiple",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "`B2`",
+            "correct": true
+          },
+          {
+            "id": "o2",
+            "markdown": "`$F$2`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Der Rabatt gilt für alle Angebote und bleibt fest.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "`$F$1`",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Der Wechselkurs gilt für alle Angebote und bleibt fest.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du kannst vorhersagen, wie sich Bezüge beim Kopieren verändern. Prüfe deine Vorhersagen jetzt in Calc.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-nach-unten",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Was wandert, was bleibt?",
+        "markdown": "Kopierst du eine Formel, verschiebt Calc jeden **relativen** Bezug um denselben Weg: eine Zeile tiefer → Zeilennummer + 1, eine Spalte weiter rechts → nächster Buchstabe. Das `$` hält fest, was **direkt dahinter** steht: `$B` die Spalte, `$2` die Zeile."
+      }
+    },
+    {
+      "id": "hilfe-nach-rechts",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 350
+      },
+      "data": {
+        "title": "Was wandert, was bleibt?",
+        "markdown": "Kopierst du eine Formel, verschiebt Calc jeden **relativen** Bezug um denselben Weg: eine Zeile tiefer → Zeilennummer + 1, eine Spalte weiter rechts → nächster Buchstabe. Das `$` hält fest, was **direkt dahinter** steht: `$B` die Spalte, `$2` die Zeile."
+      }
+    },
+    {
+      "id": "hilfe-vier-bezuege",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 490
+      },
+      "data": {
+        "title": "Was wandert, was bleibt?",
+        "markdown": "Kopierst du eine Formel, verschiebt Calc jeden **relativen** Bezug um denselben Weg: eine Zeile tiefer → Zeilennummer + 1, eine Spalte weiter rechts → nächster Buchstabe. Das `$` hält fest, was **direkt dahinter** steht: `$B` die Spalte, `$2` die Zeile."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-nach-unten",
+      "source": "start",
+      "target": "nach-unten"
+    },
+    {
+      "id": "e-nach-unten-nach-rechts",
+      "source": "nach-unten",
+      "target": "nach-rechts"
+    },
+    {
+      "id": "e-nach-rechts-vier-bezuege",
+      "source": "nach-rechts",
+      "target": "vier-bezuege"
+    },
+    {
+      "id": "e-vier-bezuege-zwei-parameter",
+      "source": "vier-bezuege",
+      "target": "zwei-parameter"
+    },
+    {
+      "id": "e-zwei-parameter-ende",
+      "source": "zwei-parameter",
+      "target": "ende"
+    },
+    {
+      "id": "e-nach-unten-falsch",
+      "source": "nach-unten",
+      "target": "hilfe-nach-unten",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "nach-unten",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-nach-unten-zurueck",
+      "source": "hilfe-nach-unten",
+      "target": "nach-unten",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "nach-unten"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-nach-unten-weiter",
+      "source": "hilfe-nach-unten",
+      "target": "nach-rechts",
+      "label": "weiter"
+    },
+    {
+      "id": "e-nach-rechts-falsch",
+      "source": "nach-rechts",
+      "target": "hilfe-nach-rechts",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "nach-rechts",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-nach-rechts-zurueck",
+      "source": "hilfe-nach-rechts",
+      "target": "nach-rechts",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "nach-rechts"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-nach-rechts-weiter",
+      "source": "hilfe-nach-rechts",
+      "target": "vier-bezuege",
+      "label": "weiter"
+    },
+    {
+      "id": "e-vier-bezuege-falsch",
+      "source": "vier-bezuege",
+      "target": "hilfe-vier-bezuege",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "vier-bezuege",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-vier-bezuege-zurueck",
+      "source": "hilfe-vier-bezuege",
+      "target": "vier-bezuege",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "vier-bezuege"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-vier-bezuege-weiter",
+      "source": "hilfe-vier-bezuege",
+      "target": "zwei-parameter",
+      "label": "weiter"
+    }
+  ]
+}

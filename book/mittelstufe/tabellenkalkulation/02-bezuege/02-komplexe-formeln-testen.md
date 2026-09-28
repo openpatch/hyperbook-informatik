@@ -6,6 +6,8 @@ permaid: mittelstufe-calc-komplexe-formeln
 
 # Längere Formeln aufbauen und prüfen
 
+In dieser Lektion lernst du, wie du eine längere Formel mit Hilfsspalten Schritt für Schritt aufbaust, wie du sie mit **Sonderfällen** testest und wie du einen Fehler gezielt findest.
+
 Eine längere Formel verbindet mehrere Rechenschritte. Hier sind es Rabatt, Versand, Steuer und Wechselkurs. **Prüfen** bedeutet: Du setzt bewusst einfache Testwerte ein und kontrollierst, ob sich das Ergebnis so verändert, wie du es erwartest.
 
 Calc prüft nur, ob es die Formel ausrechnen kann. Ob die Formel zur Aufgabe passt, musst du selbst prüfen.
@@ -44,6 +46,10 @@ Baue die Rechnung von links nach rechts auf. Tippe jede Formel in die angegebene
 | E2 | danach Umrechnung | `=D2*$H$5` |
 | F2 | dieselbe Rechnung in einer Formel | `=((A2*(1-$H$2)+$H$3)*(1+$H$4))*$H$5` |
 
+So sieht die fertige Tabelle in Calc aus. Die Parameter stehen beschriftet in `G2:H5`:
+
+![Calc: In A2 und A3 stehen die Preise 100 und 80. Die Hilfsspalten B bis E zeigen nach Rabatt 88,00, mit Versand 96,00, mit Steuer 115,20 und in Euro 133,63. F2 ist ausgewählt; die Eingabezeile zeigt =((A2*(1-$H$2)+$H$3)*(1+$H$4))*$H$5, das Ergebnis ist ebenfalls 133,63.](./calc-formel-testen.png)
+
 Die Ergebnisse in B2 bis E2 zeigen jeden Schritt. F2 rechnet dasselbe direkt aus den Eingaben. Die Klammer um `A2*(1-$H$2)+$H$3` zeigt: Erst werden Rabatt und Versand berechnet, dann wird auf diese Zwischensumme die Steuer angewendet.
 
 :::snippet{#merken}
@@ -67,9 +73,12 @@ Das sind **Sonderfälle**. Sie machen jeweils einen Teil der Formel unwirksam un
 :::snippet{#aufgabe}
 1. Baue die Formel aus der Tabelle schrittweise auf.
 2. Vergleiche das Ergebnis in F2 mit E2. Beide sollten gleich sein.
-3. Notiere vor jedem Test, welches Ergebnis oder welche Veränderung du erwartest. Ändere dazu jeweils einen Wert in H2 bis H5 oder den Preis in A2.
-4. Kopiere die Formeln aus B2:F2 nach unten in Zeile 3. Kontrolliere: A2 wird zu A3; die Parameter H2 bis H5 bleiben fest.
+3. Bearbeite das Quiz „Sage die Sonderfälle voraus“. Berechne darin vorher, welches Ergebnis Calc bei jedem Sonderfall anzeigen muss.
+4. Prüfe deine Vorhersagen in Calc: Ändere jeweils **einen** Wert in H2 bis H5 oder den Preis in A2 und setze ihn danach zurück.
+5. Kopiere die Formeln aus B2:F2 nach unten in Zeile 3. Kontrolliere: A2 wird zu A3; die Parameter H2 bis H5 bleiben fest.
 :::
+
+::bitflow{id="calc-sonderfaelle-vorhersagen" src="sonderfaelle.bitflow" height="auto" maxHeight="85vh"}
 
 ::::collapsible{title="Tipp: Wenn nur die erste Zeile stimmt"}
 
@@ -96,6 +105,22 @@ Gehe nicht die ganze Formel auf einmal durch, sondern prüfe in dieser Reihenfol
 3. Stehen die Klammern an den richtigen Stellen?
 4. Wandert beim Kopieren nur der Preisbezug?
 5. Besteht die Formel die einfachen Tests von oben?
+
+:::snippet{#beispiel}
+Jemand hat die Klammern vergessen und schreibt in `F2`:
+
+```text
+=A2*(1-$H$2)+$H$3*(1+$H$4)*$H$5
+```
+
+Calc zeigt **99,14 €** statt 133,63 €. Eine Fehlermeldung gibt es nicht. So lässt sich der Fehler eingrenzen:
+
+1. **Test Versand = 0:** Die Formel liefert jetzt **88,00 €** – genau den rabattierten Preis. Steuer und Wechselkurs wirken also gar nicht auf den Preis.
+2. **Test Preis = 0:** Übrig bleiben **11,14 €** – das sind 8 · 1,2 · 1,16. Steuer und Kurs wirken nur auf den Versand.
+3. **Schluss:** Calc rechnet *Punkt vor Strich*. Ohne Klammer wird zuerst `$H$3*(1+$H$4)*$H$5` berechnet und dann zum Preis addiert. Die Klammer um `A2*(1-$H$2)+$H$3` fehlt.
+
+Zwei Sonderfälle genügen, um den Fehler zu finden – ohne die ganze Formel Zeichen für Zeichen durchzugehen.
+:::
 
 :::snippet{#brain}
 Eine kurze Formel ist nicht automatisch eine gute Formel. Eine nachvollziehbare Rechnung mit Hilfsspalten ist oft leichter zu erklären, zu kontrollieren und zu verbessern.
