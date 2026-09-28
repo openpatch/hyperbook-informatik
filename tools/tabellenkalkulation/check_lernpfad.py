@@ -2,7 +2,7 @@
 """Prueft den Lernpfad Tabellenkalkulation auf typische Fehlerquellen.
 
 Geprueft werden lokale Links, eindeutige Loesungspasswoerter, Selbsttests,
-Kapitelabschluesse sowie die Struktur und Formeln der verlinkten ODS-Dateien.
+Kapitelabschluesse, die eingebundenen Uebungen sowie die Struktur und Formeln der verlinkten ODS-Dateien.
 """
 
 from __future__ import annotations
@@ -19,6 +19,7 @@ PROBLEMS: list[str] = []
 
 LINK_RE = re.compile(r"!?\[[^]]*\]\(([^)]+)\)")
 PASSWORD_RE = re.compile(r'password="([^"]+)"')
+BITFLOW_RE = re.compile(r'::bitflow\{[^}]*src="([^"]+)"')
 
 
 def line_of(text: str, pos: int) -> int:
@@ -81,10 +82,23 @@ def main() -> int:
             where = ", ".join(str(path.relative_to(ROOT)) for path in paths)
             PROBLEMS.append(f"Loesungspasswort {password} ist mehrfach vergeben: {where}")
 
-    chapters = sorted(path for path in BOOK.iterdir() if path.is_dir())
+    # Die Referenz ist ein Kapitel zum Nachschlagen: ohne Rueckblick und ohne Uebung
+    # (wie in den anderen Lernpfaden, siehe OHNE_RUECKBLICK dort).
+    chapters = sorted(path for path in BOOK.iterdir() if path.is_dir() and "referenz" not in path.name)
     for chapter in chapters:
-        if not list(chapter.glob("*-rueckblick.md")):
+        rueckblicke = list(chapter.glob("*-rueckblick.md"))
+        if not rueckblicke:
             PROBLEMS.append(f"{chapter.relative_to(ROOT)}: Rueckblick fehlt")
+            continue
+        # Jeder Rueckblick bindet die interaktive Uebung des Kapitels ein
+        # (erzeugt von erzeuge_uebungen.py).
+        text = rueckblicke[0].read_text(encoding="utf-8")
+        quellen = BITFLOW_RE.findall(text)
+        if not quellen:
+            PROBLEMS.append(f"{rueckblicke[0].relative_to(ROOT)}: interaktive Uebung (::bitflow) fehlt")
+        for quelle in quellen:
+            if not (chapter / quelle).exists():
+                PROBLEMS.append(f"{rueckblicke[0].relative_to(ROOT)}: bitflow-Datei fehlt: {quelle}")
 
     contents: dict[str, str] = {}
     for path in sorted(linked_ods):

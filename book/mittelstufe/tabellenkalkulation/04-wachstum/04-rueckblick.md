@@ -17,6 +17,12 @@ Du kannst Wachstumsregeln in Tabellenmodelle übersetzen, Szenarien sichtbar ver
 - [ ] Ich kann Prognosen als bedingte Aussagen formulieren und Grenzen benennen. ([4.2](./02-szenarien-und-prognosen))
 - [ ] Ich kann mögliche gesellschaftliche Folgen einer Fehlprognose beurteilen. ([Mini-Projekt](./03-mini-projekt-glaskugel))
 
+## Interaktive Übung
+
+Hier kannst du die Inhalte des Kapitels üben. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch. Am Ende siehst du, bei welchen Aufgaben du noch unsicher bist.
+
+::bitflow{id="calc-uebung-4-wachstum" src="uebung.bitflow" height="auto" maxHeight="85vh"}
+
 ## Gemischte Aufgaben
 
 :::snippet{#aufgabe}

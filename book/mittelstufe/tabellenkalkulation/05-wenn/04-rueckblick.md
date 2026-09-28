@@ -17,6 +17,12 @@ Du kannst Regeln so formulieren, dass Calc abhängig von Daten unterschiedliche 
 - [ ] Ich kann eine einfache verschachtelte WENN-Funktion erklären. ([5.2](./02-bedingungen-verknuepfen))
 - [ ] Ich kann automatische Entscheidungen begründen und kritisch beurteilen. ([Mini-Projekt](./03-mini-projekt-reiseampel))
 
+## Interaktive Übung
+
+Hier kannst du die Inhalte des Kapitels üben. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch. Am Ende siehst du, bei welchen Aufgaben du noch unsicher bist.
+
+::bitflow{id="calc-uebung-5-wenn" src="uebung.bitflow" height="auto" maxHeight="85vh"}
+
 ## Gemischte Aufgaben
 
 :::snippet{#aufgabe}

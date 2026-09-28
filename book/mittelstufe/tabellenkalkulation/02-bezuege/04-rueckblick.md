@@ -16,14 +16,28 @@ Du kannst aus einer geprüften Formel viele korrekte Berechnungen erzeugen und e
 - [ ] Ich kann Formeln mit Sonderfällen testen. ([2.2](./02-komplexe-formeln-testen))
 - [ ] Ich kann veränderliche Annahmen als Parameter sichtbar machen. ([Mini-Projekt](./03-mini-projekt-preisvergleich))
 
+## Interaktive Übung
+
+Hier kannst du die Inhalte des Kapitels üben. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch. Am Ende siehst du, bei welchen Aufgaben du noch unsicher bist.
+
+::bitflow{id="calc-uebung-2-bezuege" src="uebung.bitflow" height="auto" maxHeight="85vh"}
+
 ## Gemischte Aufgaben
 
 :::snippet{#aufgabe}
 In `D4` steht `=B4*(1-$H$2)+$H3`. Die Formel wird zwei Spalten nach rechts und drei Zeilen nach unten kopiert.
 
 1. Sage die neue Formel voraus.
+
+::textinput{id="calc-rueckblick-2-formel" placeholder="Die neue Formel lautet: = …" height="80px"}
+
 2. Erkläre für jeden Bezug, was fest bleibt.
+
+::textinput{id="calc-rueckblick-2-bezuege" placeholder="B4 … · $H$2 … · $H3 …" height="120px"}
+
 3. Entscheide, ob `$H3` für einen einzigen globalen Versandpreis sinnvoll ist, und verbessere ihn gegebenenfalls.
+
+::textinput{id="calc-rueckblick-2-versand" placeholder="$H3 ist … sinnvoll, weil … Besser wäre …" height="100px"}
 :::
 
 :::protect{password="calc-2-4-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}

@@ -16,6 +16,12 @@ Du kannst Daten so erfassen, dass Calc sie verarbeiten kann, und aus Eingaben mi
 - [ ] Ich kann SUMME, MITTELWERT, MIN und MAX sinnvoll einsetzen. ([1.2](./02-formeln-und-funktionen))
 - [ ] Ich kann Annahmen und Grenzen eines Kostenmodells benennen. ([Mini-Projekt](./03-mini-projekt-reiseetat))
 
+## Interaktive Übung
+
+Hier kannst du die Inhalte des Kapitels üben. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch. Am Ende siehst du, bei welchen Aufgaben du noch unsicher bist.
+
+::bitflow{id="calc-uebung-1-daten-und-formeln" src="uebung.bitflow" height="auto" maxHeight="85vh"}
+
 ## Gemischte Aufgaben
 
 :::snippet{#aufgabe}

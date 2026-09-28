@@ -1,6 +1,6 @@
 ---
 title: Rückblick
-index: 4
+index: 5
 permaid: mittelstufe-calc-diagramme-rueckblick
 ---
 
@@ -15,6 +15,12 @@ Du kannst aus Daten eine sichtbare Aussage machen – und erkennst, dass Diagram
 - [ ] Ich kann irreführende Achsen und Vergleiche erkennen. ([3.2](./02-diagramme-beurteilen))
 - [ ] Ich kann Beobachtung und Ursache unterscheiden. ([3.2](./02-diagramme-beurteilen))
 - [ ] Ich kann europäische Klimadaten fair vergleichen. ([Mini-Projekt](./03-mini-projekt-klimavergleich))
+
+## Interaktive Übung
+
+Hier kannst du die Inhalte des Kapitels üben. Bei einem Fehler bekommst du einen Hinweis und einen zweiten Versuch. Am Ende siehst du, bei welchen Aufgaben du noch unsicher bist.
+
+::bitflow{id="calc-uebung-3-diagramme" src="uebung.bitflow" height="auto" maxHeight="85vh"}
 
 ## Gemischte Aufgaben
 

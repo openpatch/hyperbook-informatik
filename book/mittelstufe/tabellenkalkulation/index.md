@@ -44,6 +44,8 @@ Die Bilder wurden mit LibreOffice Calc 26 erstellt. Bei einer anderen Version k�
 
 Am Ende besteht deine Abgabe also nicht aus fünf voneinander unabhängigen Dateien, sondern aus **einer gewachsenen Arbeitsmappe mit fünf nachvollziehbar benannten Tabellenblättern**.
 
+Alle Schreibweisen – Adressen, Rechenzeichen, Funktionen, Bezüge, Diagrammtypen und `WENN` – stehen zum Nachschlagen in der [Referenz](./06-referenz) am Ende des Lernpfads.
+
 <!--
 Lehrplanbezug:
 - geeignete Datentypen wählen: 1.1

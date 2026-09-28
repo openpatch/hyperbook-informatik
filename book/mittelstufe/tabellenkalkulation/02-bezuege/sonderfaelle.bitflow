@@ -1,0 +1,667 @@
+{
+  "version": 1,
+  "meta": {
+    "id": "calc-sonderfaelle-vorhersagen",
+    "title": "Sage die Sonderfälle voraus",
+    "locale": "de",
+    "askConfidence": false,
+    "askReasoning": false,
+    "navigation": "back",
+    "allowSkip": false,
+    "sections": [
+      {
+        "id": "ausgang",
+        "label": "Die Ausgangswerte",
+        "markdown": "In `F2` steht `=((A2*(1-$H$2)+$H$3)*(1+$H$4))*$H$5`. Die Ausgangswerte:\n\n- Preis `A2`: 100 · Rabatt `H2`: 12 % · Versand `H3`: 8 · Steuer `H4`: 20 % · Wechselkurs `H5`: 1,16\n- Ergebnis in `F2`: **133,63 €**\n\nIn jeder Aufgabe änderst du **genau einen** Wert, alle anderen bleiben wie hier."
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start-simple",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "title": "Sage die Sonderfälle voraus",
+        "markdown": "Ein guter Test beginnt mit einer Vorhersage. Berechne im Kopf oder mit dem Taschenrechner, was Calc anzeigen müsste – danach prüfst du es in deiner Tabelle.",
+        "showOutline": false
+      }
+    },
+    {
+      "id": "rabatt-null",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 140
+      },
+      "data": {
+        "instruction": "Du setzt den Rabatt auf **0 %**. Welcher Wert erscheint dann in `F2`? Runde auf zwei Nachkommastellen.",
+        "expected": "150.34",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "ausgang"
+    },
+    {
+      "id": "versand-null",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 280
+      },
+      "data": {
+        "instruction": "Du setzt den Versand auf **0**. Welcher Wert erscheint dann in `F2`? Runde auf zwei Nachkommastellen.",
+        "expected": "122.50",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "ausgang"
+    },
+    {
+      "id": "steuer-null",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 420
+      },
+      "data": {
+        "instruction": "Du setzt die Steuer auf **0 %**. Welcher Wert erscheint dann in `F2`? Runde auf zwei Nachkommastellen.",
+        "expected": "111.36",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "ausgang"
+    },
+    {
+      "id": "kurs-eins",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 560
+      },
+      "data": {
+        "instruction": "Du setzt den Wechselkurs auf **1**. Welcher Wert erscheint dann in `F2`? Runde auf zwei Nachkommastellen.",
+        "expected": "115.20",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "ausgang"
+    },
+    {
+      "id": "preis-null",
+      "type": "task-numeric",
+      "position": {
+        "x": 0,
+        "y": 700
+      },
+      "data": {
+        "instruction": "Du setzt den Preis auf **0**. Welcher Wert erscheint dann in `F2`? Runde auf zwei Nachkommastellen.",
+        "expected": "11.14",
+        "tolerance": "absolute",
+        "toleranceValue": 0.01,
+        "decimalSeparator": "both",
+        "allowExpression": false,
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        },
+        "unitMode": "shown",
+        "unit": "€"
+      },
+      "section": "ausgang"
+    },
+    {
+      "id": "klammer",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 840
+      },
+      "data": {
+        "instruction": "Jemand schreibt `=A2*(1-$H$2)+$H$3*(1+$H$4)*$H$5` und erhält **99,14 €** statt 133,63 €. Was ist falsch?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "Es fehlen Klammern: Steuer und Kurs wirken nur auf den Versand.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Genau. Punkt vor Strich – ohne Klammer wird nur $H$3 mit Steuer und Kurs multipliziert.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "Der Rabatt müsste ein relativer Bezug sein.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Relativ oder absolut ändert in Zeile 2 nichts am Ergebnis – erst beim Kopieren.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "Calc rechnet Prozentwerte falsch.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Calc rechnet richtig. Die Formel beschreibt eine andere Rechnung als gewollt.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      },
+      "section": "ausgang"
+    },
+    {
+      "id": "kopierfehler",
+      "type": "task-choice",
+      "position": {
+        "x": 0,
+        "y": 980
+      },
+      "data": {
+        "instruction": "Die Formel stimmt in `F2`. Nach dem Kopieren zeigt `F3` einen falschen Wert. In `F3` steht `=((A3*(1-H3)+H4)*(1+H5))*H6`. Was ist die Ursache?",
+        "variant": "single",
+        "choices": [
+          {
+            "id": "o1",
+            "markdown": "In `F2` fehlten die Dollarzeichen – die Parameter sind beim Kopieren mitgewandert.",
+            "correct": true,
+            "feedbackWhenChecked": {
+              "message": "Richtig. Parameter wie Rabatt und Kurs müssen mit $ festgehalten werden.",
+              "severity": "success"
+            }
+          },
+          {
+            "id": "o2",
+            "markdown": "`A3` müsste `A2` bleiben.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Der Preis soll wandern – Zeile 3 hat ihren eigenen Preis.",
+              "severity": "warning"
+            }
+          },
+          {
+            "id": "o3",
+            "markdown": "In `F3` muss man die Formel neu eintippen.",
+            "correct": false,
+            "feedbackWhenChecked": {
+              "message": "Dann wäre das Kopieren sinnlos. Die Formel in `F2` muss so gebaut sein, dass sie kopierbar ist.",
+              "severity": "warning"
+            }
+          }
+        ],
+        "shuffle": false,
+        "partialCredit": false,
+        "patternFeedback": [],
+        "evaluation": {
+          "mode": "auto",
+          "enableRetry": false,
+          "showFeedback": true,
+          "allowSkip": false
+        }
+      }
+    },
+    {
+      "id": "ende",
+      "type": "end-tries",
+      "position": {
+        "x": 0,
+        "y": 1120
+      },
+      "data": {
+        "title": "Geschafft",
+        "markdown": "Du kannst mit Sonderfällen vorhersagen, was eine Formel liefern muss, und Fehler gezielt eingrenzen. Prüfe deine Vorhersagen jetzt in Calc.",
+        "showBreakdown": true,
+        "showScore": true,
+        "allowReview": true
+      }
+    },
+    {
+      "id": "hilfe-rabatt-null",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 210
+      },
+      "data": {
+        "title": "Ohne Rabatt",
+        "markdown": "Der volle Preis 100 wird verwendet: (100 + 8) · 1,2 · 1,16."
+      }
+    },
+    {
+      "id": "hilfe-versand-null",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 350
+      },
+      "data": {
+        "title": "Ohne Versand",
+        "markdown": "100 · 0,88 = 88. Ohne Versand bleibt es bei 88; dann · 1,2 · 1,16."
+      }
+    },
+    {
+      "id": "hilfe-steuer-null",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 490
+      },
+      "data": {
+        "title": "Ohne Steuer",
+        "markdown": "(100 · 0,88 + 8) = 96. Der Faktor für die Steuer ist jetzt 1; dann · 1,16."
+      }
+    },
+    {
+      "id": "hilfe-kurs-eins",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 630
+      },
+      "data": {
+        "title": "Kurs 1",
+        "markdown": "Mit dem Faktor 1 bleibt das Ergebnis in der Ausgangswährung: (88 + 8) · 1,2."
+      }
+    },
+    {
+      "id": "hilfe-preis-null",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 770
+      },
+      "data": {
+        "title": "Preis 0",
+        "markdown": "Vom Preis bleibt nichts übrig. Versand, Steuer und Kurs wirken weiter: 8 · 1,2 · 1,16."
+      }
+    },
+    {
+      "id": "hilfe-klammer",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 910
+      },
+      "data": {
+        "title": "Punkt vor Strich",
+        "markdown": "Auch Calc rechnet **Punkt vor Strich**. Ohne Klammer um `A2*(1-$H$2)+$H$3` wird zuerst `$H$3*(1+$H$4)*$H$5` berechnet und danach zum rabattierten Preis addiert."
+      }
+    },
+    {
+      "id": "hilfe-kopierfehler",
+      "type": "title-simple",
+      "position": {
+        "x": 360,
+        "y": 1050
+      },
+      "data": {
+        "title": "Was wandert, was bleibt?",
+        "markdown": "Kopierst du eine Formel, verschiebt Calc jeden **relativen** Bezug um denselben Weg: eine Zeile tiefer → Zeilennummer + 1, eine Spalte weiter rechts → nächster Buchstabe. Das `$` hält fest, was **direkt dahinter** steht: `$B` die Spalte, `$2` die Zeile."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-start-rabatt-null",
+      "source": "start",
+      "target": "rabatt-null"
+    },
+    {
+      "id": "e-rabatt-null-versand-null",
+      "source": "rabatt-null",
+      "target": "versand-null"
+    },
+    {
+      "id": "e-versand-null-steuer-null",
+      "source": "versand-null",
+      "target": "steuer-null"
+    },
+    {
+      "id": "e-steuer-null-kurs-eins",
+      "source": "steuer-null",
+      "target": "kurs-eins"
+    },
+    {
+      "id": "e-kurs-eins-preis-null",
+      "source": "kurs-eins",
+      "target": "preis-null"
+    },
+    {
+      "id": "e-preis-null-klammer",
+      "source": "preis-null",
+      "target": "klammer"
+    },
+    {
+      "id": "e-klammer-kopierfehler",
+      "source": "klammer",
+      "target": "kopierfehler"
+    },
+    {
+      "id": "e-kopierfehler-ende",
+      "source": "kopierfehler",
+      "target": "ende"
+    },
+    {
+      "id": "e-rabatt-null-falsch",
+      "source": "rabatt-null",
+      "target": "hilfe-rabatt-null",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "rabatt-null",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-rabatt-null-zurueck",
+      "source": "hilfe-rabatt-null",
+      "target": "rabatt-null",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "rabatt-null"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-rabatt-null-weiter",
+      "source": "hilfe-rabatt-null",
+      "target": "versand-null",
+      "label": "weiter"
+    },
+    {
+      "id": "e-versand-null-falsch",
+      "source": "versand-null",
+      "target": "hilfe-versand-null",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "versand-null",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-versand-null-zurueck",
+      "source": "hilfe-versand-null",
+      "target": "versand-null",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "versand-null"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-versand-null-weiter",
+      "source": "hilfe-versand-null",
+      "target": "steuer-null",
+      "label": "weiter"
+    },
+    {
+      "id": "e-steuer-null-falsch",
+      "source": "steuer-null",
+      "target": "hilfe-steuer-null",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "steuer-null",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-steuer-null-zurueck",
+      "source": "hilfe-steuer-null",
+      "target": "steuer-null",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "steuer-null"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-steuer-null-weiter",
+      "source": "hilfe-steuer-null",
+      "target": "kurs-eins",
+      "label": "weiter"
+    },
+    {
+      "id": "e-kurs-eins-falsch",
+      "source": "kurs-eins",
+      "target": "hilfe-kurs-eins",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "kurs-eins",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-kurs-eins-zurueck",
+      "source": "hilfe-kurs-eins",
+      "target": "kurs-eins",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "kurs-eins"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-kurs-eins-weiter",
+      "source": "hilfe-kurs-eins",
+      "target": "preis-null",
+      "label": "weiter"
+    },
+    {
+      "id": "e-preis-null-falsch",
+      "source": "preis-null",
+      "target": "hilfe-preis-null",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "preis-null",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-preis-null-zurueck",
+      "source": "hilfe-preis-null",
+      "target": "preis-null",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "preis-null"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-preis-null-weiter",
+      "source": "hilfe-preis-null",
+      "target": "klammer",
+      "label": "weiter"
+    },
+    {
+      "id": "e-klammer-falsch",
+      "source": "klammer",
+      "target": "hilfe-klammer",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "klammer",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-klammer-zurueck",
+      "source": "hilfe-klammer",
+      "target": "klammer",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "klammer"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-klammer-weiter",
+      "source": "hilfe-klammer",
+      "target": "kopierfehler",
+      "label": "weiter"
+    },
+    {
+      "id": "e-kopierfehler-falsch",
+      "source": "kopierfehler",
+      "target": "hilfe-kopierfehler",
+      "label": "noch nicht",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "result",
+          "nodeId": "kopierfehler",
+          "path": "state"
+        },
+        "op": "eq",
+        "right": "wrong"
+      }
+    },
+    {
+      "id": "e-hilfe-kopierfehler-zurueck",
+      "source": "hilfe-kopierfehler",
+      "target": "kopierfehler",
+      "label": "noch ein Versuch",
+      "resetTarget": "result",
+      "condition": {
+        "type": "compare",
+        "left": {
+          "kind": "visits",
+          "nodeId": "kopierfehler"
+        },
+        "op": "lt",
+        "right": 2
+      }
+    },
+    {
+      "id": "e-hilfe-kopierfehler-weiter",
+      "source": "hilfe-kopierfehler",
+      "target": "ende",
+      "label": "weiter"
+    }
+  ]
+}

@@ -6,7 +6,21 @@ permaid: mittelstufe-calc-zellbezuege
 
 # Relative und absolute Bezüge
 
+In dieser Lektion lernst du, wie du eine Formel in LibreOffice Calc mit dem **Ausfüllkästchen** auf viele Zeilen kopierst – und wie du mit Dollarzeichen steuerst, welche Zellbezüge dabei mitwandern und welche stehen bleiben.
+
 Eine Formel kann für viele Zeilen kopiert werden. Dabei muss Calc wissen: **Welche Zelladresse soll mitwandern und welche soll gleich bleiben?**
+
+## Formeln kopieren mit dem Ausfüllkästchen
+
+Wenn du eine Zelle anklickst, erscheint unten rechts an ihrem Rahmen ein kleines Quadrat: das **Ausfüllkästchen** (im Bild rot eingekreist). Ziehst du es mit gedrückter Maustaste nach unten, kopiert Calc die Formel in alle Zellen, über die du ziehst.
+
+![Calc, stark vergrößert: Die Zelle C2 mit der Formel =B2*(1-$F$2)*$F$1 ist ausgewählt. Unten rechts am Zellrahmen sitzt das kleine Ausfüllkästchen, rot eingekreist.](./calc-ausfuellkaestchen.png)
+
+1. Klicke die Zelle mit der Formel an, hier `C2`.
+2. Zeige mit der Maus auf das Ausfüllkästchen. Der Mauszeiger wird zu einem dünnen Kreuz.
+3. Ziehe nach unten bis zur letzten Zeile und lass los.
+
+Du kannst eine Formel auch mit **Strg + C** kopieren und mit **Strg + V** in andere Zellen einfügen. Calc passt die Bezüge dabei genauso an.
 
 ## Was ist ein Zellbezug?
 
@@ -38,7 +52,11 @@ Das Dollarzeichen hat hier **nichts mit einer Währung** zu tun. Es ist ein Fest
 
 Calc verschiebt beim Kopieren jeden relativen Bezug um denselben Weg wie die Formel. Aus `=B2*F1` in C2 wird deshalb eine Zeile tiefer `=B3*F2`.
 
-Der Bezug auf den nächsten Preis ist richtig. Der Wechselkurs steht aber weiterhin in F1 und darf nicht zu F2 wandern. Deshalb lautet die Formel `=B2*$F$1`.
+Der Bezug auf den nächsten Preis ist richtig. Der Wechselkurs steht aber weiterhin in F1 und darf nicht zu F2 wandern. So sieht das Ergebnis aus, wenn man `=B2*F1` trotzdem nach unten kopiert:
+
+![In C3 steht nach dem Kopieren =B3*F2. Statt mit dem Wechselkurs wird mit dem Rabatt von 8 % multipliziert; C3 zeigt 7,60 €, C4 und C5 zeigen 0,00 €, weil F3 und F4 leer sind.](./calc-bezuege-fehler.png)
+
+Nur die erste Zeile stimmt. In `C3` rechnet Calc mit dem Rabatt aus `F2`, in `C4` und `C5` mit leeren Zellen. Calc zeigt dabei **keine Fehlermeldung** – das falsche Ergebnis fällt nur auf, wenn du es prüfst. Richtig ist `=B2*$F$1`.
 
 :::snippet{#merken}
 Frage dich vor dem Kopieren bei jedem Zellbezug:
@@ -60,9 +78,27 @@ Kopierst du eine Formel von C2 nach D4, liegt die Kopie eine Spalte weiter recht
 
 Die letzten beiden heißen **gemischte Bezüge**. Du brauchst sie vor allem, wenn du Formeln nicht nur nach unten, sondern auch nach rechts kopierst.
 
-:::snippet{#aufgabe}
-Schreibe die vier Bezüge aus der Tabelle in Calc. Sage jeweils zuerst voraus, was beim Kopieren von C2 nach D4 entsteht. Kopiere dann und vergleiche.
+:::snippet{#beispiel}
+Eine Umrechnungstabelle soll Euro-Beträge in drei Währungen umrechnen. Die Beträge stehen in **Spalte A**, die Kurse in **Zeile 2**. Eine einzige Formel in `B3` wird in den ganzen Bereich `B3:D7` kopiert:
+
+```text
+=$A3*B$2
+```
+
+- `$A3`: Der Betrag steht immer in Spalte A. Die **Spalte** wird festgehalten, die Zeile wandert mit.
+- `B$2`: Der Kurs steht immer in Zeile 2. Die **Zeile** wird festgehalten, die Spalte wandert mit.
+
+In `D5` ist daraus `=$A5*D$2` geworden: 50 € in Schweizer Franken.
+
+![Calc: Umrechnungstabelle mit Euro-Beträgen in A3 bis A7 und Kursen für PLN, CZK und CHF in B2 bis D2. D5 ist ausgewählt und zeigt die Formel =$A5*D$2 mit dem Ergebnis 47,00.](./calc-gemischt.png)
 :::
+
+:::snippet{#aufgabe}
+1. Bearbeite das Quiz „Wohin wandern die Bezüge?“. Sage darin vorher, was beim Kopieren entsteht.
+2. Schreibe anschließend die vier Bezüge aus der Tabelle in Calc, kopiere sie von `C2` nach `D4` und vergleiche mit deinen Vorhersagen.
+:::
+
+::bitflow{id="calc-bezuege-vorhersagen" src="bezuege-vorhersagen.bitflow" height="auto" maxHeight="85vh"}
 
 :::protect{password="calc-2-1-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
@@ -86,8 +122,11 @@ Lies die Formel von links nach rechts: **Preis aus dieser Zeile · Anteil nach R
 
 :::snippet{#aufgabe}
 1. Trage sechs Preise in `B2:B7`, den Wechselkurs in `F1` und den Rabatt in `F2` ein.
-2. Schreibe die Formel nur in `C2` und sage voraus, welche Bezüge beim Kopieren wandern.
-3. Ziehe die Formel nach unten. Klicke anschließend `C7` an und kontrolliere die Formel in der Eingabezeile.
+2. Schreibe die Formel nur in `C2`. Sage voraus, wie die Formel in `C7` lauten wird, und begründe, welche Bezüge wandern.
+
+::textinput{id="calc-bezuege-vorhersage-c7" placeholder="In C7 wird stehen: = … Es wandert nur …, weil …" height="100px"}
+
+3. Ziehe die Formel mit dem Ausfüllkästchen nach unten. Klicke anschließend `C7` an und vergleiche die Formel in der Eingabezeile mit deiner Vorhersage.
 4. Ändere den Rabatt. Alle Endpreise müssen sich ändern.
 :::
 
