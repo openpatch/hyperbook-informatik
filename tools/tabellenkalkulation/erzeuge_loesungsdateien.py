@@ -316,6 +316,42 @@ def main() -> None:
         ["Verbesserung", "=B4*(1-$H$2)+$H$3", "F7", "=D7*(1-$H$2)+$H$3", "Versand bleibt vollständig fest"],
     ])
 
+    # Zwischencheck zwischen Kapitel 2 und 3 (Übung vor der ersten Klassenarbeit)
+    hostels = [
+        ("Kopenhagen", 38, 45, 62), ("Prag", 18, 24, 31), ("Lissabon", 22, 30, 41),
+        ("Wien", 28, 33, 39), ("Amsterdam", 42, 55, 74),
+    ]
+    hostel_zeilen: list[list[Any]] = [["Stadt", "März", "Mai", "Juli", "Mittelwert"]]
+    for i, (stadt, *preise) in enumerate(hostels, start=2):
+        hostel_zeilen.append([stadt, *[Waehrung(p) for p in preise],
+                              Waehrung(Formel(f"AVERAGE([.B{i}:.D{i}])", round(sum(preise) / 3, 4)))])
+    hostel_zeilen.append(["Mittelwert", *[
+        Waehrung(Formel(f"AVERAGE([.{s}2:.{s}6])", round(sum(h[k] for h in hostels) / 5, 4)))
+        for k, s in ((1, "B"), (2, "C"), (3, "D"))
+    ], ""])
+    hostel_zeilen.append(["günstigster Mittelwert", "", "", "",
+                          Waehrung(Formel("MIN([.E2:.E6])", round(73 / 3, 4)))])
+    erzeuge(ziel("02-zwischencheck", "calc-z-1-1"), "Mittelwerte berechnen und prüfen", hostel_zeilen,
+            ["Jede Kopie verwendet ihre eigene Zeile bzw. Spalte, deshalb reichen relative Bezüge.",
+             "Min-Max-Probe: Jeder Mittelwert liegt zwischen dem kleinsten und dem größten Wert seiner Zeile."])
+
+    programm = [("Museum", 12), ("Zoo", 24.5), ("Hafenrundfahrt", 18), ("Freizeitpark", 36), ("Stadtführung", 8)]
+    rabatte = [0.10, 0.20, 0.25]
+    spalten = ["C", "D", "E"]
+    rabatt_zeilen: list[list[Any]] = [["Programmpunkt", "Preis", *[Prozent(r) for r in rabatte]]]
+    for i, (punkt, preis) in enumerate(programm, start=2):
+        rabatt_zeilen.append([punkt, Waehrung(preis), *[
+            Waehrung(Formel(f"[.$B{i}]*(1-[.{s}$1])", round(preis * (1 - r), 4)))
+            for s, r in zip(spalten, rabatte)
+        ]])
+    rabatt_zeilen.append(["günstigster Preis", "", *[
+        Waehrung(Formel(f"MIN([.{s}2:.{s}6])", round(min(p for _, p in programm) * (1 - r), 4)))
+        for s, r in zip(spalten, rabatte)
+    ]])
+    erzeuge(ziel("02-zwischencheck", "calc-z-2-1"), "Eine Formel für die ganze Tabelle", rabatt_zeilen,
+            ["Eine einzige Formel in C2 für C2:E6: =$B2*(1-C$1). Der Preis steht immer in Spalte B, der Rabatt immer in Zeile 1.",
+             "Sonderfälle: Rabatt 0 % lässt den Preis unverändert, 100 % ergibt 0,00 €."])
+
     climate = [["Monat", "Berlin °C", "Lissabon °C"]] + [[m, b, l] for m, b, l in zip(
         ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
         [1, 2, 6, 11, 16, 19, 21, 20, 16, 11, 6, 2],

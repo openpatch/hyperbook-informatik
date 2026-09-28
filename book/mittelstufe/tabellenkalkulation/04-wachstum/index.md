@@ -1,6 +1,6 @@
 ---
 name: Wachstum modellieren und simulieren
-index: 4
+index: 5
 permaid: mittelstufe-calc-wachstum
 ---
 
