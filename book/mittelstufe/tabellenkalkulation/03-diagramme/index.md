@@ -1,6 +1,6 @@
 ---
 name: Daten mit Diagrammen erzählen
-index: 3
+index: 4
 permaid: mittelstufe-calc-diagramme
 ---
 

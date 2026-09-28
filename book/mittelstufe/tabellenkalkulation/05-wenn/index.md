@@ -1,6 +1,6 @@
 ---
 name: Entscheidungen mit WENN
-index: 5
+index: 6
 permaid: mittelstufe-calc-wenn
 ---
 

@@ -83,8 +83,12 @@ def main() -> int:
             PROBLEMS.append(f"Loesungspasswort {password} ist mehrfach vergeben: {where}")
 
     # Die Referenz ist ein Kapitel zum Nachschlagen: ohne Rueckblick und ohne Uebung
-    # (wie in den anderen Lernpfaden, siehe OHNE_RUECKBLICK dort).
-    chapters = sorted(path for path in BOOK.iterdir() if path.is_dir() and "referenz" not in path.name)
+    # (wie in den anderen Lernpfaden, siehe OHNE_RUECKBLICK dort). Der Zwischencheck
+    # ist selbst eine Wiederholung von Kapitel 1 und 2 und braucht deshalb keinen Rueckblick.
+    chapters = sorted(
+        path for path in BOOK.iterdir()
+        if path.is_dir() and "referenz" not in path.name and "zwischencheck" not in path.name
+    )
     for chapter in chapters:
         rueckblicke = list(chapter.glob("*-rueckblick.md"))
         if not rueckblicke:

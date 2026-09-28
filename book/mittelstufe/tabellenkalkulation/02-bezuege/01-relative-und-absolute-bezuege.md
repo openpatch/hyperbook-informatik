@@ -61,8 +61,8 @@ Nur die erste Zeile stimmt. In `C3` rechnet Calc mit dem Rabatt aus `F2`, in `C4
 :::snippet{#merken}
 Frage dich vor dem Kopieren bei jedem Zellbezug:
 
-- Soll die Formel in der nächsten Zeile den **nächsten Wert** verwenden? Dann ohne $.
-- Soll sie immer **dieselbe Zelle** verwenden? Dann Spalte und Zeile mit $ festhalten.
+- Soll die Formel in der nächsten Zeile den **nächsten Wert** verwenden? Dann ohne `$`.
+- Soll sie immer **dieselbe Zelle** verwenden? Dann Spalte und Zeile mit `$` festhalten.
 :::
 
 ## Zwei Feststeller – vier Möglichkeiten
@@ -165,9 +165,9 @@ In Zeile 2 lautet die Formel etwa `=B2*(1-$F$2)*$F$1`. In Zeile 7 muss daraus `=
 {H{Richtig.}}
 
 **5. Die Formel `=B2*$F$1` wird eine Zeile nach unten kopiert. Welche Formel entsteht?**
-{r5{!gleich B3 * $F$1}}
-{r5{gleich B2 * $F$1}}
-{r5{gleich B3 * $F$2}}
+{r5{!gleich B3 * \$F\$1}}
+{r5{gleich B2 * \$F\$1}}
+{r5{gleich B3 * \$F\$2}}
 {H{Richtig. B2 wandert zu B3; F1 bleibt fest.}}
 
 ::::

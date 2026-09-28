@@ -42,6 +42,8 @@ Die Bilder wurden mit LibreOffice Calc 26 erstellt. Bei einer anderen Version k�
 | 4. Wachstum modellieren und simulieren | `Prognose` | eine begründete Prognose mit mehreren Szenarien |
 | 5. Entscheidungen mit WENN | `Reiseampel` | eine Reiseampel, die die Ergebnisse nach transparenten Regeln bewertet |
 
+Zwischen Kapitel 2 und 3 steht ein [Zwischencheck](./02-zwischencheck) mit zwei Übungsseiten zu Funktionen und gemischten Bezügen. Er legt die Übungsblätter `Hostels` und `Gruppenrabatt` an, die nicht zur Abgabe gehören.
+
 Am Ende besteht deine Abgabe also nicht aus fünf voneinander unabhängigen Dateien, sondern aus **einer gewachsenen Arbeitsmappe mit fünf nachvollziehbar benannten Tabellenblättern**.
 
 Alle Schreibweisen – Adressen, Rechenzeichen, Funktionen, Bezüge, Diagrammtypen und `WENN` – stehen zum Nachschlagen in der [Referenz](./06-referenz) am Ende des Lernpfads.
