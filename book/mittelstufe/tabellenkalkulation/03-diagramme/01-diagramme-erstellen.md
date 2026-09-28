@@ -51,7 +51,15 @@ Bearbeite das Quiz „Welcher Diagrammtyp passt?“.
 
 **Ändere** anschließend einen auffälligen Tabellenwert. **Beschreibe**, wie du am Diagramm erkennst, dass es mit den Daten verbunden ist.
 
-::texinput{id="diagramme-beschreiben-aenderung"}
+::textinput{id="diagramme-beschreiben-aenderung"}
+:::
+
+:::snippet{#aufgabe}
+**Berechne** unter der Tabelle mit einer Funktion die **Jahresmitteltemperatur** von Berlin. Schreibe dazu in `A14` die Beschriftung `Mittelwert` und in `B14` die Formel.
+
+**Prüfe** dein Ergebnis: Ein Mittelwert muss zwischen der kältesten und der wärmsten Monatstemperatur liegen. Findest du den Wert auch ungefähr im Diagramm wieder?
+
+::textinput{id="diagramme-mittelwert" placeholder="Formel in B14: … · Ergebnis: … °C" height="60px"}
 :::
 
 
@@ -72,6 +80,8 @@ Im Diagrammassistenten kannst du festlegen, ob die erste Zeile beziehungsweise e
 [Calc-Lösung herunterladen](./loesung-calc-3-1-1.ods)
 
 Für Monatswerte ist ein Liniendiagramm passend, weil die zeitliche Reihenfolge wichtig ist. Die x-Achse zeigt die Monate, die y-Achse `Temperatur in °C`. Nach einer Änderung des Tabellenwerts muss sich der zugehörige Punkt automatisch verschieben.
+
+Die Jahresmitteltemperatur berechnet `=MITTELWERT(B2:B13)`: 131 : 12 ≈ 10,9 °C. Der Wert liegt zwischen dem Minimum (1 °C im Januar) und dem Maximum (21 °C im Juli). Im Diagramm verläuft eine gedachte Linie bei knapp 11 °C etwa durch die Werte von April und Oktober. Stehen die Werte nebeneinander in einer Zeile, etwa in `B2:M2`, funktioniert die Formel genauso: `=MITTELWERT(B2:M2)`.
 
 :::
 

@@ -320,8 +320,10 @@ def main() -> None:
         ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
         [1, 2, 6, 11, 16, 19, 21, 20, 16, 11, 6, 2],
         [12, 13, 15, 17, 19, 22, 24, 24, 23, 19, 15, 12])]
-    erzeuge(ziel("03-diagramme", "calc-3-1-1"), "Liniendiagramm vorbereiten", climate,
-            ["Markiere A1:C13 und füge ein Liniendiagramm ein. X-Achse: Monat; Y-Achse: Temperatur in °C."])
+    erzeuge(ziel("03-diagramme", "calc-3-1-1"), "Liniendiagramm vorbereiten", climate + [
+        ["Mittelwert", Formel("AVERAGE([.B2:.B13])", 131 / 12), Formel("AVERAGE([.C2:.C13])", 215 / 12)],
+    ], ["Markiere A1:C13 (ohne die Mittelwert-Zeile) und füge ein Liniendiagramm ein. X-Achse: Monat; Y-Achse: Temperatur in °C.",
+        "Der Mittelwert liegt zwischen Minimum und Maximum: Berlin ≈ 10,9 °C, Lissabon ≈ 17,9 °C."])
     erzeuge(ziel("03-diagramme", "calc-3-2-1"), "Korrelation verantwortungsvoll deuten", [
         ["Stadt", "Fahrräder (Tsd.)", "Unfälle absolut", "Einwohner (Tsd.)", "Unfälle je 100 000 Einwohner"],
         ["A", 80, 320, 500, Formel("[.C2]/[.D2]*100", 64)],

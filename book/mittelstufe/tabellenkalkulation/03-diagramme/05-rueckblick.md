@@ -12,6 +12,7 @@ Du kannst aus Daten eine sichtbare Aussage machen – und erkennst, dass Diagram
 
 - [ ] Ich kann einen Diagrammtyp zur Fragestellung wählen. ([3.1](./01-diagramme-erstellen))
 - [ ] Ich kann Datenbereich, Reihen und Beschriftung kontrollieren. ([3.1](./01-diagramme-erstellen))
+- [ ] Ich kann zu den Diagrammdaten den Mittelwert berechnen und ihn auf Plausibilität prüfen. ([3.1](./01-diagramme-erstellen))
 - [ ] Ich kann irreführende Achsen und Vergleiche erkennen. ([3.2](./02-diagramme-beurteilen))
 - [ ] Ich kann Beobachtung und Ursache unterscheiden. ([3.2](./02-diagramme-beurteilen))
 - [ ] Ich kann europäische Klimadaten fair vergleichen. ([Mini-Projekt](./03-mini-projekt-klimavergleich))
