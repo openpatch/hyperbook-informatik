@@ -60,6 +60,8 @@ b) Wie oft läuft die `while`-Schleife? Woran erkennst du, dass sie nicht endlos
 c) Wie oft wird im dritten Programm die `print`-Zeile ausgeführt? Nenne die Rechnung.
 
 d) Was passierte im zweiten Programm, wenn dort `zahl = zahl - 1` stünde? Und was bei `zahl = zahl + 1`?
+
+e) Teste deine Antworten, indem du die Quelltexte unten eingibst.
 :::
 
 :::pyide{height="400px"}
@@ -172,7 +174,53 @@ Die Antwort auf die Schlussfrage lautet also: **bei keinem**. Alle vier fallen a
 :::
 
 :::snippet{#aufgabe}
-**Aufgabe 3: Ein Windrad aus Quadraten**
+**Aufgabe 3: Temperatur raten**
+
+Für ein Ratespiel steht die gesuchte Temperatur 18 fest im Programm. Das Programm fragt so lange nach einer ganzen Zahl, bis die gesuchte Temperatur eingegeben wurde.
+Nach jeder falschen Eingabe gibt das Programm entweder „zu warm“ oder „zu kalt“ aus. Am Ende soll ausgegeben werden, wie viele Eingaben benötigt wurden.
+
+**Implementiere das Programm in Python**
+:::
+
+:::pyide{canvas id="temperatur-raten"}
+
+```python
+
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Was brauchst du?"}
+Welche Variablen brauchst du? Denke an die gesuchte Temperatur, den aktuellen Tipp und die Anzahl der Versuche.
+::::
+
+::::collapsible{title="Tipp 2: Eingabe lesen"}
+Nutze eine Eingabe und wandel sie in eine Zahl um:
+```python
+tipp = int(input("Dein Tipp:"))
+```
+::::
+
+::::collapsible{title="Tipp 3: Ablauf gestalten"}
+Dein Programm soll immer wieder etwas fragen, daher brauchst du eine Schleife `while`. 
+
+Außerdem muss dein Programm entscheiden, was bei verschiedenen Eingaben passieren soll, dafür brauchst du eine Verzweigung `if-else`.
+::::
+
+::::collapsible{title="Tipp 4: Das Gerüst"}
+
+```python
+temperatur = 0
+versuche = 1
+tipp = int(input("Temperatur: "))
+
+while tipp != temperatur:
+    ...
+```
+::::
+
+:::snippet{#aufgabe}
+**Aufgabe 4: Ein Windrad aus Quadraten**
 
 Zeichne diese Figur: **sechs** Quadrate mit 80 Pixeln Kantenlänge, die alle im selben Punkt beginnen und jeweils um 60 Grad gegeneinander gedreht sind.
 
