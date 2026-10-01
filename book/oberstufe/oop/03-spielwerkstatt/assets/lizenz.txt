@@ -1,0 +1,15 @@
+# Ninja Adventure Asset Pack
+
+Quelle: https://pixel-boy.itch.io/ninja-adventure-asset-pack
+Grafik: Pixel-boy · Musik und Klänge: AAA
+
+Lizenz: CC0 1.0 (gemeinfrei) – https://creativecommons.org/publicdomain/zero/1.0/deed.de
+Eine Namensnennung ist nicht erforderlich; wir nennen die Urheber trotzdem.
+
+## Änderungen gegenüber dem Original
+
+- Soundeffekte und Jingles von WAV in OGG (Vorbis, Qualität 3) umgewandelt.
+- Von der Musik sind nur zehn Stücke enthalten, neu kodiert (Vorbis, Qualität 0).
+  Das vollständige Paket gibt es über den Link oben.
+- Alle Datei- und Ordnernamen in Kleinbuchstaben, ohne Sonderzeichen und mit
+  Bindestrichen (aus `Sounds/Ambient/WaveFar.wav` wird `sounds/ambient/wave-far.ogg`).
