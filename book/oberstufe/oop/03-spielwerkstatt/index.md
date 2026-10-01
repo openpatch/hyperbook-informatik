@@ -30,9 +30,12 @@ Dein Spiel wächst mit dem Unterricht. Jeder Meilenstein gehört zu einem Kapite
 | Meilenstein | Was dein Spiel dann kann | Dazu passt |
 | --- | --- | --- |
 | Startgerüst | eine Figur läuft durch einen Raum und sammelt Münzen | [Das Startgerüst](./01-startgeruest) |
+| eigenes Aussehen | eigene Figuren, Kacheln und Klänge aus über 2000 Dateien | [Grafiken und Klänge](./02-grafiken-und-klaenge) |
 | eigene Klassen | eigene Gegenstände und Hindernisse, mit gemeinsamer Oberklasse | [Objektorientierung](../01-grundlagen/06-objektorientierung), [Vertiefte Objektorientierung](../02-erweiterungen/01-vertiefte-objektorientierung) |
 | eigene Räume | Räume als Plan aus Zeichen, also als Feld | [Felder, Referenzen, Generik](../02-erweiterungen/02-felder-referenzen-generik) |
-| Schlange, Stapel, Liste | Nachrichten der Reihe nach, Rückgängig, ein Inventar | [Lineare Datenstrukturen](../02-erweiterungen/04-lineare-datenstrukturen) |
+| Schlange | Meldungen erscheinen der Reihe nach | [Meldungen der Reihe nach](./03-meldungen), [Warteschlange](../02-erweiterungen/04-lineare-datenstrukturen/warteschlange) |
+| Stapel | Kisten schieben und Züge zurücknehmen | [Kisten schieben und zurücknehmen](./04-kisten), [Stapel](../02-erweiterungen/04-lineare-datenstrukturen/stapel) |
+| Liste | ein Inventar mit Auswahl | [Ein Inventar](./05-inventar), [Liste](../02-erweiterungen/04-lineare-datenstrukturen/liste) |
 | Bäume | Gespräche mit Figuren, ein Nachschlagewerk der Gegner | [Nichtlineare Datenstrukturen](../02-erweiterungen/05-nichtlineare-datenstrukturen) |
 
 <!--

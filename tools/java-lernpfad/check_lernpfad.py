@@ -293,11 +293,11 @@ def check_images(path: pathlib.Path, text: str) -> None:
 
 
 def check_selbsttest(path: pathlib.Path, rel: pathlib.Path, text: str) -> None:
-    # Kapitelseiten, Referenzseiten und Projekte brauchen keinen Selbsttest -
-    # Projekte werden am Produkt beurteilt, nicht an Ankreuzfragen.
+    # Kapitelseiten, Referenzseiten, Projekte und die Spielwerkstatt brauchen
+    # keinen Selbsttest - sie werden am Produkt beurteilt, nicht an Ankreuzfragen.
     if path.name == "index.md" or "referenz" in path.name:
         return
-    if "projekte" in str(rel):
+    if "projekte" in str(rel) or "spielwerkstatt" in str(rel):
         return
     if "## Selbsttest" not in text:
         problems.append(f"{rel}: kein Selbsttest am Ende der Lektion")

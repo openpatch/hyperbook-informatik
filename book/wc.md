@@ -2,6 +2,7 @@
 name: Web Components
 hide: true
 scripts:
+  - /wc/asset-suche.js
   - /wc/binary-to-ascii.js
   - /wc/bit-rows.js
   - /wc/card-matching.js
@@ -32,6 +33,23 @@ scripts:
 ---
 
 # Web Components
+
+## Asset-Suche
+
+Durchsuchbare Übersicht über die Grafiken und Klänge der Spielwerkstatt. Ein Klick auf eine Datei zeigt sie groß und darunter den Java-Code für Scratch for Java, mit dem sie geladen wird. Bei einem Kachelbild wählt ein Klick ins Bild die Kachel aus. Die Liste erzeugt `tools/spielwerkstatt/erzeuge_assetliste.py`; die Pfade darin gelten relativ zur Liste.
+
+| Attribute | Type   | Description                                                    |
+|-----------|--------|----------------------------------------------------------------|
+| `liste`   | String | Adresse der Asset-Liste (JSON), relativ zur Seite. Standard: `assets-liste.json` |
+
+**Beispiel:**
+```html
+<asset-suche liste="assets-liste.json"></asset-suche>
+```
+
+<asset-suche liste="/oberstufe/oop/03-spielwerkstatt/assets-liste.json"></asset-suche>
+
+---
 
 ## Binary to ASCII
 

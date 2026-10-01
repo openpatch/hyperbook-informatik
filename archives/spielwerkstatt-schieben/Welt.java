@@ -16,20 +16,24 @@ public class Welt extends Stage {
         "#......M.......#",
         "#..S...........#",
         "#.....##...M...#",
-        "#..M..##.......#",
-        "#.........K....#",
+        "#..M..##..K....#",
+        "#.....K...K....#",
         "#....M......M..#",
         "#..............#",
         "################"
     };
 
+    private Spieler spieler;
     private Text anzeige;
     private int punkte = 0;
+
+    /// Die Schiebezüge, der letzte obenauf. Taste Z nimmt ihn zurück.
+    private Stack<Zug> zuege = new Stack<Zug>();
 
     public Welt() {
         this.addSound("muenze", "assets/audio/sounds/bonus/coin.ogg");
 
-        Spieler spieler = new Spieler(this);
+        spieler = new Spieler(this);
         // Erst der Boden: Unter allem liegt Gras. Was später hinzukommt,
         // liegt oben - so verschwindet nichts unter dem Boden.
         for (int z = 0; z < ZEILEN; z++) {
@@ -77,6 +81,21 @@ public class Welt extends Stage {
     /// Die y-Koordinate der Mitte einer Zeile. Zeile 0 liegt ganz oben.
     public static double zuY(int pZeile) {
         return ZEILEN * KACHEL / 2 - KACHEL / 2 - pZeile * KACHEL;
+    }
+
+    /// Legt einen Schiebezug oben auf den Stapel.
+    public void merke(Zug pZug) {
+        zuege.push(pZug);
+    }
+
+    /// Taste Z: Der letzte Schiebezug wird zurückgenommen.
+    public void whenKeyPressed(KeyCode pTaste) {
+        if (pTaste == KeyCode.Z && !zuege.isEmpty()) {
+            Zug letzter = zuege.top();
+            zuege.pop();
+            letzter.getKiste().setPosition(letzter.getKisteX(), letzter.getKisteY());
+            spieler.setPosition(letzter.getSpielerX(), letzter.getSpielerY());
+        }
     }
 
     /// Zählt eine eingesammelte Münze.
