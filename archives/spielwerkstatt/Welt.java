@@ -30,11 +30,17 @@ public class Welt extends Stage {
         this.addSound("muenze", "assets/audio/sounds/bonus/coin.ogg");
 
         Spieler spieler = new Spieler(this);
+        // Erst der Boden: Unter allem liegt Gras. Was später hinzukommt,
+        // liegt oben - so verschwindet nichts unter dem Boden.
+        for (int z = 0; z < ZEILEN; z++) {
+            for (int s = 0; s < SPALTEN; s++) {
+                this.setze(new Gras(), s, z);
+            }
+        }
+        // Dann alles, was darauf steht.
         for (int z = 0; z < ZEILEN; z++) {
             for (int s = 0; s < SPALTEN; s++) {
                 char zeichen = PLAN[z].charAt(s);
-                // Unter allem liegt Gras. Was darauf steht, kommt danach.
-                this.setze(new Gras(), s, z);
                 if (zeichen == '#') {
                     this.setze(new Stein(), s, z);
                 } else if (zeichen == 'K') {
@@ -46,7 +52,7 @@ public class Welt extends Stage {
                 }
             }
         }
-        // Was zuletzt hinzukommt, liegt oben.
+        // Der Spieler kommt zuletzt, damit er über allem läuft.
         this.add(spieler);
 
         anzeige = new Text("", 0, 196, 600);

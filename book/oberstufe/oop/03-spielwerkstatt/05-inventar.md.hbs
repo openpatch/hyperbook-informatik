@@ -1,0 +1,203 @@
+---
+name: "Liste: ein Inventar"
+index: 5
+lang: de
+permaid: java-werkstatt-inventar
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - liste
+---
+
+# Liste: ein Inventar
+
+Im Raum liegen jetzt Dinge, die der Spieler **aufheben** kann: ein Heiltrank, eine Feuerrolle, ein Reisbällchen. Was er aufhebt, kommt ins Inventar, eine Reihe am unteren Rand. Eins davon ist **ausgewählt** und wird größer gezeigt. Mit **E** wählt er das nächste aus, mit der **Leertaste** benutzt er das ausgewählte.
+
+Hier reicht weder eine Schlange noch ein Stapel. Benutzt werden soll nicht das erste oder das letzte, sondern **irgendeins**, und zwar das, das gerade ausgewählt ist. Und um alle anzuzeigen, muss man die ganze Reihe durchgehen. Das kann die [Liste](../02-erweiterungen/04-lineare-datenstrukturen/liste).
+
+## So sieht es aus
+
+Starte das Beispiel und hebe ein paar Dinge auf. Wechsle mit **E** und benutze mit der **Leertaste**.
+
+:::onlineide{libraries="scratch,nrw" height="640px" outputWidth="60%" id="werkstatt-inventar-beispiel"}
+
+```java Main.java
+{{{rfile "/archives/spielwerkstatt-inventar/Main.java" "reg:^import "}}}
+```
+
+```java Welt.java
+{{{rfile "/archives/spielwerkstatt-inventar/Welt.java" "reg:^import "}}}
+```
+
+```java Fundstueck.java
+{{{rfile "/archives/spielwerkstatt-inventar/Fundstueck.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/spielwerkstatt-inventar/Spieler.java" "reg:^import "}}}
+```
+
+```java Muenze.java
+{{{rfile "/archives/spielwerkstatt-inventar/Muenze.java" "reg:^import "}}}
+```
+
+```java Kachel.java
+{{{rfile "/archives/spielwerkstatt-inventar/Kachel.java" "reg:^import "}}}
+```
+
+```java Gras.java
+{{{rfile "/archives/spielwerkstatt-inventar/Gras.java" "reg:^import "}}}
+```
+
+```java Wand.java
+{{{rfile "/archives/spielwerkstatt-inventar/Wand.java" "reg:^import "}}}
+```
+
+```java Stein.java
+{{{rfile "/archives/spielwerkstatt-inventar/Stein.java" "reg:^import "}}}
+```
+
+```java Kiste.java
+{{{rfile "/archives/spielwerkstatt-inventar/Kiste.java" "reg:^import "}}}
+```
+
+:::
+
+## Was dazugekommen ist
+
+### Fundstücke
+
+Die neue Klasse `Fundstueck` ist eine Figur mit einem Namen und einem Bild. Sie merkt sich, ob sie schon im Inventar liegt, damit der Spieler sie nicht zweimal aufhebt. Im `PLAN` stehen die neuen Zeichen `T`, `R` und `O`.
+
+### Das aktuelle Element ist die Auswahl
+
+Die `Welt` führt das Inventar als Liste:
+
+```java
+private List<Fundstueck> inventar = new List<Fundstueck>();
+```
+
+Die NRW-Liste hat immer höchstens ein **aktuelles Element**. Genau das ist hier das ausgewählte Fundstück. **E** schaltet mit `next()` weiter und springt am Ende mit `toFirst()` wieder an den Anfang. Die **Leertaste** entfernt das aktuelle Element mit `remove()`; danach ist sein Nachfolger aktuell.
+
+```java
+if (pTaste == KeyCode.E) {
+    inventar.next();
+    if (!inventar.hasAccess()) {
+        inventar.toFirst();
+    }
+} else if (pTaste == KeyCode.SPACE && inventar.hasAccess()) {
+    Fundstueck f = inventar.getContent();
+    inventar.remove();
+    f.remove();
+    spieler.say(f.getName() + " benutzt!", 1500);
+    if (!inventar.hasAccess()) {
+        inventar.toFirst();
+    }
+}
+```
+
+### Anzeigen, ohne die Auswahl zu verlieren
+
+Um die Fundstücke in eine Reihe zu stellen, muss man die Liste durchlaufen. Dabei wandert das aktuelle Element mit, und die Auswahl wäre danach weg. `zeigeInventar()` merkt sich deshalb vorher, was ausgewählt war, und sucht es danach wieder:
+
+```java
+Fundstueck gewaehlt = null;
+if (inventar.hasAccess()) {
+    gewaehlt = inventar.getContent();
+}
+// ... die Liste mit toFirst, hasAccess und next durchlaufen ...
+inventar.toFirst();
+while (inventar.hasAccess() && inventar.getContent() != gewaehlt) {
+    inventar.next();
+}
+```
+
+:::snippet{#merken}
+**Warum eine Liste?** Eine Schlange gibt nur das vorderste Element heraus, ein Stapel nur das oberste. Ein Inventar braucht aber Zugriff auf **jedes** Element: alle anzeigen, eins auswählen, eins aus der Mitte entfernen. Das kann nur die Liste.
+
+Der Preis: Die Liste hat nur **ein** aktuelles Element. Wer sie durchläuft, verschiebt es.
+:::
+
+## In deinem Spiel
+
+:::snippet{#aufgabe}
+**Aufgabe 1: Übernimm das Inventar**
+
+Baue das Inventar in dein Spiel ein, unten in deiner Werkstatt. Du brauchst die Klasse `Fundstueck`, die neuen Zeichen im `PLAN`, in der `Welt` die Liste, `nimm`, `whenKeyPressed` und `zeigeInventar`, und im `Spieler` das Aufheben. Achte darauf, dass `spieler` in der `Welt` ein Attribut ist.
+:::
+
+:::snippet{#aufgabe}
+**Aufgabe 2: Jedes Ding wirkt anders**
+
+Bisher sagt der Spieler beim Benutzen nur, was er benutzt hat. Lass den Heiltrank ein Leben schenken, die Feuerrolle eine Kiste verbrennen und das Reisbällchen den Spieler eine Weile schneller machen.
+
+Mach dazu aus `Fundstueck` eine abstrakte Klasse mit einer Methode `benutze(Welt pWelt)` und schreibe für jede Sorte eine Unterklasse.
+:::
+
+:::snippet{#aufgabe}
+**Aufgabe 3: Zurückblättern**
+
+Die NRW-Liste kann nur vorwärts: Es gibt `next()`, aber kein `previous()`. Lass die Taste **Q** trotzdem das **vorherige** Fundstück auswählen. Beim ersten Fundstück soll Q zum letzten springen.
+:::
+
+::::collapsible{title="Tipp zu Aufgabe 3"}
+
+Merke dir das aktuelle Fundstück, gehe mit `toFirst()` an den Anfang und laufe so lange weiter, bis das **nächste** Element das gemerkte ist. Dann steht die Liste auf seinem Vorgänger. Was passiert, wenn das gemerkte Element das erste ist?
+
+::::
+
+## Weitere Ideen mit der Liste
+
+Eine Liste passt überall, wo man **alle** Elemente durchgehen oder **mittendrin** etwas einfügen oder entfernen will:
+
+| Idee | Was in der Liste steht |
+| --- | --- |
+| **Gegner im Raum**: Alle bewegen sich, besiegte verschwinden aus der Mitte. | die Gegner |
+| **Aufgabenbuch**: Erledigte Aufgaben werden gestrichen, neue kommen dazu. | die offenen Aufgaben |
+| **Bestenliste**: Ein neues Ergebnis wird an der richtigen Stelle eingefügt. | die Ergebnisse, sortiert |
+| **Fallen**: In jedem Bild wird geprüft, ob der Spieler eine berührt. | die Fallen |
+
+## Deine Werkstatt
+
+Hier arbeitest du an deinem eigenen Spiel weiter. Es ist derselbe Arbeitsbereich wie auf allen anderen Seiten der Werkstatt.
+
+:::onlineide{libraries="scratch,nrw" height="640px" outputWidth="60%" id="spielwerkstatt"}
+
+```java Main.java
+{{{rfile "/archives/spielwerkstatt/Main.java" "reg:^import "}}}
+```
+
+```java Welt.java
+{{{rfile "/archives/spielwerkstatt/Welt.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/spielwerkstatt/Spieler.java" "reg:^import "}}}
+```
+
+```java Muenze.java
+{{{rfile "/archives/spielwerkstatt/Muenze.java" "reg:^import "}}}
+```
+
+```java Kachel.java
+{{{rfile "/archives/spielwerkstatt/Kachel.java" "reg:^import "}}}
+```
+
+```java Gras.java
+{{{rfile "/archives/spielwerkstatt/Gras.java" "reg:^import "}}}
+```
+
+```java Wand.java
+{{{rfile "/archives/spielwerkstatt/Wand.java" "reg:^import "}}}
+```
+
+```java Stein.java
+{{{rfile "/archives/spielwerkstatt/Stein.java" "reg:^import "}}}
+```
+
+```java Kiste.java
+{{{rfile "/archives/spielwerkstatt/Kiste.java" "reg:^import "}}}
+```
+
+:::

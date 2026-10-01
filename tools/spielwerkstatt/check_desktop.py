@@ -33,7 +33,8 @@ import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 WERKSTATT = ROOT / "book" / "oberstufe" / "oop" / "03-spielwerkstatt"
-ARCHIVE = [ROOT / "archives" / "spielwerkstatt"]
+# das Startgeruest und jeder Stand, den eine Werkstatt-Seite zeigt
+ARCHIVE = sorted(p for p in (ROOT / "archives").glob("spielwerkstatt*") if p.is_dir())
 
 RFILE_RE = re.compile(r'rfile\s+"/archives/([^/"]+)/([^"]+)"')
 ASSET_RE = re.compile(r'"(assets/[^"]+)"')
