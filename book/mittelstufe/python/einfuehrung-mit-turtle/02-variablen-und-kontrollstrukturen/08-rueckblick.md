@@ -28,6 +28,8 @@ Dahinter steckt dasselbe Prinzip: ein kleiner Schritt, oft genug wiederholt. Bei
 
 ## Gemischte Aufgaben
 
+Weitere Aufgaben dieser Art findest du auf der Seite [Weitere Übungen](./11-weitere-uebungen).
+
 :::snippet{#aufgabe}
 **Aufgabe 1: Werte verfolgen**
 
