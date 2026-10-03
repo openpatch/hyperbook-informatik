@@ -8,9 +8,8 @@ public class Bildschirm extends Stage {
    public Bildschirm(int pNaechstesLevel) {
       naechstesLevel = pNaechstesLevel;
       this.setColor(250, 245, 235);
-      Hintergrund hintergrund = new Hintergrund();
-      hintergrund.setTransparency(50);
-      this.add(hintergrund);
+      Gitter gitter = new Gitter(440);
+      gitter.zeichneAuf(this);
    }
 
    /**
