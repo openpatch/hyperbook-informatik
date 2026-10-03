@@ -1,0 +1,107 @@
+---
+name: Dem Mauszeiger folgen
+index: 1
+lang: de
+permaid: donut-io-maus
+---
+
+# Dem Mauszeiger folgen
+
+Am Anfang steht ein einziger Donut, der dem Mauszeiger hinterherrollt. Dafür
+brauchst du zwei Klassen: `Donut` für alles, was jeder Donut kann, und
+`SpielerDonut` für das, was nur deiner kann.
+
+:::onlineide{libraries="scratch" height="640px" outputWidth="60%" speed="1000000" id="donut-io-1-maus"}
+
+```java Main.java
+{{{rfile "/book/projekte/donut-io/quelle/1-maus/Main.java"}}}
+```
+
+```java SpielerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/1-maus/SpielerDonut.java"}}}
+```
+
+```java Donut.java
+{{{rfile "/book/projekte/donut-io/quelle/1-maus/Donut.java"}}}
+```
+
+```java Welt.java
+{{{rfile "/book/projekte/donut-io/quelle/1-maus/Welt.java"}}}
+```
+
+:::
+
+:::snippet{#aufgabe}
+Starte das Programm, klicke in die Ausgabe und bewege die Maus. Der Donut folgt
+ihr – aber nicht sofort, sondern gemächlich.
+:::
+
+## Die Stärke ist die Größe
+
+Jeder Donut hat eine **Stärke**. Sie entscheidet später, wer wen fressen darf.
+Damit man sie sieht, ist sie zugleich die Größe in Prozent: `setStaerke(10)`
+ruft `setSize(10)` auf, und das Bild des Donuts, das eigentlich 512 Pixel breit
+ist, erscheint nur noch 51 Pixel breit.
+
+Die Farbe wird bei jedem Donut zufällig gewählt: `setTint` färbt das Bild ein.
+
+## Vektoren: Pfeile mit Richtung und Länge
+
+Ein **Vektor** ist ein Pfeil. Er hat eine Richtung und eine Länge und wird
+durch zwei Zahlen beschrieben: wie weit er nach rechts und wie weit nach oben
+zeigt. In Scratch for Java heißt die Klasse dafür `Vector2`.
+
+Eine Position ist auch ein Vektor: der Pfeil vom Nullpunkt der Bühne zur Figur.
+`getPosition()` liefert die Position des Donuts, `getMouse()` die des Mauszeigers.
+
+In `run()` passiert bei jedem Bild Folgendes:
+
+| Schritt | Code | Bedeutung |
+| --- | --- | --- |
+| 1 | `getMouse().sub(getPosition())` | Der Pfeil vom Donut **zur Maus**: Ziel minus Start. |
+| 2 | `richtung.unitVector()` | Derselbe Pfeil, aber mit der Länge 1. Er zeigt nur noch die Richtung. |
+| 3 | `.multiply(tempo)` | Der Pfeil wird so lang wie ein Schritt. |
+| 4 | `getPosition().add(...)` | Den Schritt an die alte Position hängen – das ist die neue. |
+
+:::snippet{#merken}
+| Methode von `Vector2` | Ergebnis |
+| --- | --- |
+| `a.add(b)` | a + b: erst a, dann b anhängen |
+| `a.sub(b)` | a − b: der Pfeil von b nach a |
+| `a.multiply(k)` | a, k-mal so lang |
+| `a.unitVector()` | a mit der Länge 1 |
+| `a.length()` | die Länge von a |
+:::
+
+:::snippet{#aufgabe}
+a) Setze `tempo` in `Donut` auf 5. Was ändert sich?
+
+b) In `run()` steht `if (richtung.length() > tempo)`. Nimm die Bedingung heraus
+   und lass den Donut immer laufen. Halte die Maus dann still. Was beobachtest
+   du, und woran liegt es?
+
+c) Lass `unitVector()` weg. Wie bewegt sich der Donut jetzt – und warum ist er
+   weit weg von der Maus schneller als in ihrer Nähe?
+:::
+
+::::collapsible{title="Tipp zu b)"}
+
+Liegt der Donut näher als einen Schritt an der Maus, springt er mit einem
+ganzen Schritt **über sie hinweg**. Im nächsten Bild zeigt der Pfeil zurück …
+
+::::
+
+::::collapsible{title="Tipp zu c)"}
+
+Ohne `unitVector()` ist der Schritt so lang wie der ganze Weg zur Maus, mal
+`tempo`. Wie lang ist der Weg, wenn die Maus weit weg ist?
+
+::::
+
+## Weiterspielen
+
+:::snippet{#challenge}
+**Größer heißt langsamer.** In agar.io werden große Zellen träge. Berechne
+`tempo` aus der Stärke, sodass ein Donut mit Stärke 10 schneller ist als einer
+mit Stärke 50.
+:::

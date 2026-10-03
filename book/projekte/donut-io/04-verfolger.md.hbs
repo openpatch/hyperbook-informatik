@@ -1,0 +1,114 @@
+---
+name: Verfolger
+index: 4
+lang: de
+permaid: donut-io-gegner
+---
+
+# Verfolger
+
+Bisher ist das Spiel friedlich. Jetzt kommen Gegner dazu: `VerfolgerDonut`s,
+die irgendwo in der Welt starten und auf den Spieler zurollen. Ist ein
+Verfolger stärker, frisst er dich – ist er schwächer, frisst du ihn.
+
+:::onlineide{libraries="scratch" height="640px" outputWidth="60%" speed="1000000" id="donut-io-4-gegner"}
+
+```java Main.java
+{{{rfile "/book/projekte/donut-io/quelle/4-gegner/Main.java"}}}
+```
+
+```java VerfolgerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/4-gegner/VerfolgerDonut.java"}}}
+```
+
+```java Donut.java
+{{{rfile "/book/projekte/donut-io/quelle/4-gegner/Donut.java"}}}
+```
+
+```java SpielerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/4-gegner/SpielerDonut.java"}}}
+```
+
+```java Welt.java
+{{{rfile "/book/projekte/donut-io/quelle/4-gegner/Welt.java"}}}
+```
+
+```java Hintergrund.java
+{{{rfile "/book/projekte/donut-io/quelle/4-gegner/Hintergrund.java"}}}
+```
+
+:::
+
+## Eine Methode für alle
+
+Der Verfolger bewegt sich genauso wie der Spieler – nur nicht zur Maus, sondern
+zum Spieler. Statt die vier Zeilen Vektorrechnung zu kopieren, stehen sie jetzt
+als Methode `bewegeZu(Vector2 pZiel)` in der Oberklasse `Donut`. Beide
+Unterklassen benutzen sie, jede mit ihrem eigenen Ziel:
+
+| Klasse | `run()` |
+| --- | --- |
+| `SpielerDonut` | `this.bewegeZu(this.getMouse());` |
+| `VerfolgerDonut` | `this.bewegeZu(beute.getPosition());` |
+
+Woher kennt der Verfolger den Spieler? Er bekommt ihn im Konstruktor übergeben
+und merkt ihn sich im Attribut `beute`. Das ist eine **Assoziation**: Der
+Verfolger kennt den Spieler, der Spieler aber nicht den Verfolger.
+
+```mermaid
+classDiagram
+    Sprite <|-- Donut
+    Donut <|-- SpielerDonut
+    Donut <|-- VerfolgerDonut
+    VerfolgerDonut --> SpielerDonut : beute
+    class Donut {
+        -staerke: int
+        #tempo: double
+        +getStaerke() int
+        +setStaerke(pStaerke: int)
+        +bewegeZu(pZiel: Vector2)
+        +run()
+    }
+    class SpielerDonut {
+        +run()
+    }
+    class VerfolgerDonut {
+        +run()
+    }
+```
+
+Die Gegner starten weit verstreut: irgendwo zwischen −2000 und 2000 in
+x-Richtung und −3000 und 3000 in y-Richtung. Auch hier sorgt eine
+fußgesteuerte Schleife dafür, dass keiner direkt auf dem Spieler entsteht.
+
+:::snippet{#aufgabe}
+a) Gib dem `VerfolgerDonut` ein eigenes Tempo, zum Beispiel 0.5. Wo setzt du
+   den Wert, damit nur Verfolger langsamer sind?
+
+b) Warum darf `tempo` in `Donut` nicht `private` sein? Probiere es aus.
+
+c) Ändere `ANZAHL_GEGNER` auf 20. Ist das Spiel noch zu gewinnen?
+
+d) Wird der Spieler gefressen, läuft das Spiel einfach weiter. Was passiert mit
+   den Verfolgern? Erkläre es mit dem Attribut `beute`.
+:::
+
+::::collapsible{title="Tipp zu b)"}
+
+`tempo` wird in `bewegeZu` gelesen, also in der Klasse `Donut` selbst. Wer
+außerdem darauf zugreifen will, steht in Aufgabe a).
+
+::::
+
+## Weiterspielen
+
+:::snippet{#challenge}
+**Fluchttiere.** Baue eine dritte Unterklasse `FluchtDonut`, die sich vom
+Spieler **weg** bewegt. Mit Vektoren ist das eine Kleinigkeit: Welcher Pfeil
+zeigt vom Spieler weg?
+:::
+
+:::snippet{#challenge}
+**Kluge Verfolger.** Ein Verfolger, der schwächer ist als der Spieler, sollte
+lieber fliehen als angreifen. Lass ihn je nach Stärke die Richtung wählen.
+:::

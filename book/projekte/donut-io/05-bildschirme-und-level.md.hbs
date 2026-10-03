@@ -1,0 +1,132 @@
+---
+name: Bildschirme und Level
+index: 5
+lang: de
+permaid: donut-io-bildschirme
+---
+
+# Bildschirme und Level
+
+Ein richtiges Spiel beginnt mit einem Startbildschirm und endet mit „Gewonnen“
+oder „Verloren“. Und wer gewonnen hat, will das nächste, schwerere Level
+spielen. Jede dieser Ansichten ist in Scratch for Java eine eigene **Bühne**.
+
+:::onlineide{libraries="scratch" height="640px" outputWidth="60%" speed="1000000" id="donut-io-5-bildschirme"}
+
+```java Main.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Main.java"}}}
+```
+
+```java Welt.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Welt.java"}}}
+```
+
+```java Bildschirm.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Bildschirm.java"}}}
+```
+
+```java Startbildschirm.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Startbildschirm.java"}}}
+```
+
+```java Gewonnen.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Gewonnen.java"}}}
+```
+
+```java Verloren.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Verloren.java"}}}
+```
+
+```java Donut.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Donut.java"}}}
+```
+
+```java SpielerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/SpielerDonut.java"}}}
+```
+
+```java VerfolgerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/VerfolgerDonut.java"}}}
+```
+
+```java Hintergrund.java
+{{{rfile "/book/projekte/donut-io/quelle/5-bildschirme/Hintergrund.java"}}}
+```
+
+:::
+
+## Von Bühne zu Bühne
+
+Das Programm startet jetzt mit dem `Startbildschirm`. Drückt man die
+Leertaste, wechselt das Fenster zu einer neuen `Welt`:
+
+```java
+Window.getInstance().transitionToStage(new Welt(naechstesLevel), 500);
+```
+
+`Window.getInstance()` liefert das eine Fenster des Programms,
+`transitionToStage` blendet innerhalb von 500 Millisekunden zur neuen Bühne
+über. Die alte Bühne mit allen ihren Figuren ist danach weg – jedes Level
+beginnt mit einer frischen Welt.
+
+Die `Welt` selbst prüft in `run()`, ob das Level vorbei ist:
+
+- Gibt es keinen `VerfolgerDonut` mehr, hat der Spieler gewonnen.
+- Gibt es keinen `SpielerDonut` mehr, wurde er gefressen.
+
+`count(VerfolgerDonut.class)` zählt dafür die Figuren einer Klasse auf der
+Bühne. Nach dem Wechsel steht `return`, damit der Rest von `run()` nicht mehr
+mit einem Spieler rechnet, den es vielleicht gar nicht mehr gibt.
+
+## Drei Bildschirme, eine Oberklasse
+
+Start, Gewonnen und Verloren sehen fast gleich aus: halb durchsichtiges Gitter,
+ein paar Zeilen Text, Leertaste startet ein Level. Was gleich ist, steht in der
+Oberklasse `Bildschirm`. Die Unterklassen unterscheiden sich nur im Text und
+darin, welches Level als Nächstes kommt – das geben sie dem Konstruktor der
+Oberklasse mit:
+
+| Bildschirm | `super(...)` | Leertaste startet |
+| --- | --- | --- |
+| `Startbildschirm` | `super(0)` | Level 0 |
+| `Gewonnen` | `super(pLevel + 1)` | das nächste Level |
+| `Verloren` | `super(0)` | wieder Level 0 |
+
+## Immer schwerer
+
+Das Level steckt in der Welt und bestimmt zwei Dinge:
+
+- Es gibt `5 * (level + 1)` Verfolger: 5 in Level 0, 10 in Level 1, …
+- Ihre Stärke liegt zwischen 10 und `20 * (level + 1)`.
+
+:::snippet{#aufgabe}
+a) Verfolge den Weg des Levels: Wo wird es festgelegt, wenn man in Level 2
+   gewinnt, und wie kommt es in die neue `Welt`?
+
+b) Ändere die Formeln so, dass die Zahl der Verfolger langsamer wächst, ihre
+   Stärke aber schneller.
+
+c) Ergänze einen Text in der `Welt`, der oben das aktuelle Level anzeigt.
+
+d) Was passiert, wenn man auf dem Startbildschirm eine andere Taste als die
+   Leertaste drückt? Wo steht das im Code?
+:::
+
+## Weiterspielen
+
+:::snippet{#challenge}
+**Rekord.** Merke dir das höchste erreichte Level und zeige es auf dem
+Startbildschirm an. Wo kann der Wert gespeichert werden, wenn jede Bühne beim
+Wechsel neu erzeugt wird?
+:::
+
+:::snippet{#challenge}
+**Pause.** Mit P soll das Spiel anhalten und ein Pausenbildschirm erscheinen.
+Mit P geht es weiter – und zwar in **derselben** Welt, nicht in einer neuen.
+:::
+
+:::snippet{#challenge}
+**Dein eigenes Spiel.** Nimm Donut IO als Ausgangspunkt für etwas Eigenes:
+Fische im Meer, Planeten im All, Schneebälle auf einem Hang. Was ist bei dir
+die Stärke, was das Futter, was die Verfolger?
+:::
