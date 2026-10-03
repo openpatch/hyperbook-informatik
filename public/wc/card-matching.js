@@ -288,7 +288,7 @@ class CardMatching extends HTMLElement {
           display: block;
           padding: 10px 20px;
           background: var(--color-brand, #007864);
-          color: var(--color-brand-text, white);
+          color: var(--color-background, #fff);
           border: none;
           border-radius: 25px;
           font-size: 18px;

@@ -657,7 +657,7 @@ class OopSortierung extends HTMLElement {
           min-width: 32px; padding: 2px 8px; border-radius: 6px;
           font-weight: 700;
           background: var(--color-brand, #007864);
-          color: var(--color-brand-text, #fff);
+          color: var(--color-background, #fff);
         }
         .feld {
           display: flex; align-items: flex-end; gap: 6px;
@@ -682,6 +682,7 @@ class OopSortierung extends HTMLElement {
         .balken.gewaehlt { border-color: var(--color-text, black); }
         .balken.minimum { border-color: var(--color-text, black); border-style: dashed; }
         .balken.pivot { background: var(--color-brand, #007864); }
+        .balken.pivot .wert { color: var(--color-background, #fff); }
         .balken.ausserhalb { opacity: 0.35; }
         .balken.luecke {
           background: transparent;
@@ -706,10 +707,10 @@ class OopSortierung extends HTMLElement {
         .btn {
           padding: 8px 14px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.95em; font-weight: bold;
-          background: var(--color-brand, #007864); color: #fff;
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
         .btn.klein { padding: 6px 12px; font-size: 0.88em; }
-        .btn.sekundaer { background: #6b7280; }
+        .btn.sekundaer { background: #6b7280; color: #fff; }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .meldung { font-size: 0.9em; border-radius: 8px; }

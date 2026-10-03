@@ -114,7 +114,7 @@ class AssetSuche extends HTMLElement {
           background: var(--color-nav, #f4f4f4); color: var(--color-text, #222);
           border-radius: 999px; padding: 3px 10px; cursor: pointer; font: inherit; font-size: 0.9rem; }
         .bereiche button[aria-pressed="true"] { background: var(--color-brand, #ba7720);
-          color: var(--color-brand-text, #fff); border-color: var(--color-brand, #ba7720); }
+          color: var(--color-background, #fff); border-color: var(--color-brand, #ba7720); }
         .treffer { font-size: 0.9rem; margin: 4px 0 8px; }
         .gitter { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
         .karte { border: 1px solid var(--color-spacer, #ddd); border-radius: 6px; padding: 6px;

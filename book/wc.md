@@ -619,16 +619,16 @@ Stapel und Warteschlange mit den Methodennamen der Abiturklassen (`push`/`pop`/`
 |-----------|--------|----------------------------------------------------------------------|
 | `modus`   | String | `"stapel"` (Standard) oder `"schlange"`                              |
 | `inhalt`  | String | Startinhalt als Kommaliste, vom ältesten zum jüngsten Element        |
-| `folge`   | String | Operationsfolge für den Vorhersagemodus, getrennt durch `;`          |
+| `folge`   | String | Operationsfolge für den Vorhersagemodus, getrennt durch `;`. Zeichenketten wie in Java in Anführungszeichen (`push("Anna")`), das Attribut deshalb in einfache Anführungszeichen setzen |
 
 **Beispiel:**
 ```html
-<oop-stapel-schlange modus="stapel" folge="push(A); push(B); top(); pop(); isEmpty()"></oop-stapel-schlange>
+<oop-stapel-schlange modus="stapel" folge='push("A"); push("B"); top(); pop(); isEmpty()'></oop-stapel-schlange>
 
 <oop-stapel-schlange modus="schlange" inhalt="A,B"></oop-stapel-schlange>
 ```
 
-<oop-stapel-schlange id="wc-stapel" modus="stapel" folge="push(Anna); push(Ben); top(); pop(); push(Cem); top(); isEmpty()"></oop-stapel-schlange>
+<oop-stapel-schlange id="wc-stapel" modus="stapel" folge='push("Anna"); push("Ben"); top(); pop(); push("Cem"); top(); isEmpty()'></oop-stapel-schlange>
 
 ---
 

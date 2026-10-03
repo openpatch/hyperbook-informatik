@@ -383,7 +383,7 @@ class FotoGitter extends HTMLElement {
           border: 1px solid var(--color-spacer, #a4a4a4);
         }
         .btn[aria-pressed="true"] {
-          background: var(--color-brand, #ba7720); color: #fff; border-color: transparent;
+          background: var(--color-brand, #ba7720); color: var(--color-background, #fff); border-color: transparent;
         }
         .indizes-umschalten {
           display: flex; align-items: center; gap: 6px; font-size: 0.88em; opacity: 0.85;

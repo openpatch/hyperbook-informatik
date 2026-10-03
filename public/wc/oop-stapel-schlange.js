@@ -1,6 +1,12 @@
 // Stapel und Warteschlange im Vergleich. Im Vorhersagemodus notieren die
 // Lernenden erst die erwartete Ausgabe einer Operationsfolge und lassen sie
 // danach ablaufen.
+// "Anna" -> Anna; alles andere bleibt, wie es ist.
+function ohneAnfuehrungszeichen(s) {
+  const m = s.match(/^"(.*)"$/);
+  return m ? m[1] : s;
+}
+
 class OopStapelSchlange extends HTMLElement {
   constructor() {
     super();
@@ -14,7 +20,7 @@ class OopStapelSchlange extends HTMLElement {
     this.modus = (this.getAttribute("modus") || "stapel").toLowerCase();
     this.start = (this.getAttribute("inhalt") || "")
       .split(",")
-      .map((s) => s.trim())
+      .map((s) => ohneAnfuehrungszeichen(s.trim()))
       .filter((s) => s.length > 0);
 
     this.folge = (this.getAttribute("folge") || "")
@@ -61,9 +67,13 @@ class OopStapelSchlange extends HTMLElement {
   fuehreAus(text) {
     const b = this.begriffe();
     const name = text.includes("(") ? text.slice(0, text.indexOf("(")).trim() : text.trim();
-    const arg = text.includes("(")
+    const roh = text.includes("(")
       ? text.slice(text.indexOf("(") + 1, text.lastIndexOf(")")).trim()
       : "";
+    // Zeichenketten stehen wie in Java in Anführungszeichen: enqueue("Anna").
+    // Gespeichert und ausgegeben wird der Inhalt ohne Anführungszeichen.
+    const arg = ohneAnfuehrungszeichen(roh);
+    const zeichenkette = (s) => (s === "null" ? "null" : `"${s}"`);
 
     if (name === b.rein) {
       if (arg === "" || arg === "null") {
@@ -71,7 +81,7 @@ class OopStapelSchlange extends HTMLElement {
         return null;
       }
       this.inhalt.push(arg);
-      this.protokoll.push({ text: `${name}(${arg})`, ausgabe: null });
+      this.protokoll.push({ text: `${name}(${zeichenkette(arg)})`, ausgabe: null });
       return null;
     }
 
@@ -115,7 +125,7 @@ class OopStapelSchlange extends HTMLElement {
         return;
       }
       feld.value = "";
-      this.fuehreAus(`${b.rein}(${wert})`);
+      this.fuehreAus(`${b.rein}("${ohneAnfuehrungszeichen(wert)}")`);
     } else {
       this.fuehreAus(`${name}()`);
     }
@@ -150,6 +160,7 @@ class OopStapelSchlange extends HTMLElement {
     const eingabe = (feld ? feld.value : "")
       .split(",")
       .map((s) => s.trim())
+      .map(ohneAnfuehrungszeichen)
       .filter((s) => s.length > 0);
     const richtig = this.ausgaben;
 
@@ -315,9 +326,10 @@ class OopStapelSchlange extends HTMLElement {
         .btn {
           padding: 7px 13px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.9em; font-weight: bold; font-family: ui-monospace, monospace;
-          background: var(--color-brand, #007864); color: #fff;
+          /* Im Dunkelmodus ist die Markenfarbe hell - dort braucht es dunkle Schrift. */
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
-        .btn.sekundaer { background: #6b7280; font-family: system-ui, sans-serif; }
+        .btn.sekundaer { background: #6b7280; color: #fff; font-family: system-ui, sans-serif; }
 
         .folge-box {
           padding: 10px; border-radius: 8px; margin-bottom: 12px;
