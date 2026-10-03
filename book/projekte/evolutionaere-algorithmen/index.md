@@ -17,8 +17,6 @@ In der Natur sehen wir, wie Arten im Laufe der Zeit durch Mutationen und natürl
 
 In diesem Projekt lernst du wie evolutionäre Algorithmen funktionieren. Dies lernst du unter anderen an einem Projekt, in dem smarte Raketen lernen zu einem Ziel zu fliegen.
 
-![Smart Rocket Projekt](/images/evolutionaere-algorithmen/smart-rocket.gif)
-
 ## Vorwissen
 
 Grundlegende Kenntnisse der objektorientierten Programmiersprache Java.

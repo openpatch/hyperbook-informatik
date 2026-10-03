@@ -7,10 +7,10 @@ public class Level extends Stage {
 
   private Ziel ziel;
   private Population population;
-  private double mutationsrate = 0.03;
-  private int populationsgroesse = 10;
+  private double mutationsrate = 0.01;
+  private int populationsgroesse = 20;
   // Wie viele Frames lebt eine Generation?
-  private int lebenszeit = 300;
+  private int lebenszeit = 180;
   // Wie viele Frames sind vergangen?
   private int zeit = 0;
 
@@ -19,7 +19,7 @@ public class Level extends Stage {
     this.ziel.setPosition(100, 20);
     this.add(this.ziel);
     this.statistiken = new Text();
-    this.statistiken.setPosition(-this.getWidth() / 2 + 10, this.getHeight() / 2 - 10);
+    this.statistiken.setPosition(-this.getWidth() / 2 + 10, this.getHeight() / 2 - 50);
     this.statistiken.setAlign(TextAlign.LEFT);
     this.add(this.statistiken);
 
@@ -42,7 +42,7 @@ public class Level extends Stage {
       if (this.zeit >= this.lebenszeit) {
         this.zeit = 0;
         this.population.berechneFit();
-        this.population.natuerlicheSelektionFitness();
+        this.population.natuerlicheSelektion();
         this.population.neueGeneration();
       } else {
         this.zeit++;

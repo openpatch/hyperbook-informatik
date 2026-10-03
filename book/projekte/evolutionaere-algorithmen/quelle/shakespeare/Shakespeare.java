@@ -2,7 +2,7 @@
 
 import org.openpatch.scratch.*;
 
-public class OneMax extends Stage {
+public class Shakespeare extends Stage {
 
   private Text bestPhrase;
   private Text allPhrases;
@@ -11,20 +11,18 @@ public class OneMax extends Stage {
   private String target;
   private int populationsize;
   private float mutationrate;
-  private char[] geneSet;
 
   private Population population;
 
-  public OneMax() {
-    super(1000, 600);
+  public Shakespeare() {
+    super(800, 600);
 
-    this.target = "1".repeat(10000);
-    this.populationsize = 50;
-    this.mutationrate = 0.02f;
-    this.geneSet = "01".toCharArray();
+    this.target = "To be, or not to be, that is the question.";
+    this.populationsize = 5000;
+    this.mutationrate = 0.01f;
 
     this.bestPhrase = new Text();
-    this.bestPhrase.setPosition(-490, 250);
+    this.bestPhrase.setPosition(-390, 250);
     this.bestPhrase.setAlign(TextAlign.LEFT);
     this.bestPhrase.setTextSize(20);
     this.bestPhrase.setTextColor(200, 50, 50);
@@ -36,11 +34,11 @@ public class OneMax extends Stage {
     this.add(this.allPhrases);
 
     this.statistics = new Text();
-    this.statistics.setPosition(-490, 100);
+    this.statistics.setPosition(-390, 100);
     this.statistics.setAlign(TextAlign.LEFT);
     this.add(this.statistics);
 
-    this.population = new Population(this.target, this.mutationrate, this.populationsize, this.geneSet);
+    this.population = new Population(this.target, this.mutationrate, this.populationsize);
   }
 
   public void run() {
@@ -55,18 +53,13 @@ public class OneMax extends Stage {
 
       String statisticText = "";
       statisticText += "Generations: " + this.population.getGeneration() + "\n";
-      statisticText += "Average Fit: " + this.population.getAverageFit() + "\n";
-      statisticText += "Best Fit: " + this.population.getBest().getFit() + "\n";
+      statisticText += "Average Fit: " + this.population.gibDurchschnittlichenFit() + "\n";
       statisticText += "Populationsize: " + this.populationsize + "\n";
       statisticText += "Mutationrate: " + Math.round(this.mutationrate * 100) + "%\n";
 
       this.statistics.showText(statisticText);
-      this.bestPhrase.showText("Best Guess:\n" + this.population.getBest().getPhrase());
-      this.allPhrases.showText("All Guesses:\n" + this.population.getAllPhrases(25));
+      this.bestPhrase.showText("Best Phrase:\n" + this.population.getBest());
+      this.allPhrases.showText("All Phrases:\n" + this.population.getAllPhrases(25));
     }
-  }
-
-  public static void main(String[] args) {
-    new OneMax();
   }
 }
