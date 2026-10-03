@@ -1,56 +1,51 @@
 ---
 name: Aufbau und Funktionsweise
-index: 1
+index: 2
 lang: de
 permaid: java-stapel-aufbau
-scripts:
-  - /wc/oop-stapel-schlange.js
 ---
 
 # Aufbau und Funktionsweise
 
-Drück in einem beliebigen Programm zehnmal Strg+Z. Die Änderungen werden **rückwärts** zurückgenommen – die letzte zuerst, die erste zuletzt. Das Programm hat sie sich gemerkt wie einen Stapel Teller: Neues kommt oben drauf, und heruntergenommen wird auch von oben.
+Auch der Stapel besteht innen aus **Knoten**, die aneinanderhängen. Anders als die Schlange merkt er sich aber nur **einen** Knoten: den obersten (`head`). Von dort aus zeigt jeder Knoten auf den, der unter ihm liegt.
 
-Das ist die zweite Zugriffsregel, die in der Informatik überall auftaucht – und sie ist genau die **Umkehrung** der Warteschlange.
-
-:::snippet{#definition}
-Ein **Stapel** (englisch *stack*, auch *Kellerstapel*) ist eine lineare Datenstruktur mit nur **einer** Zugriffsstelle, dem oberen Ende:
-
-- `push` legt oben auf,
-- `top` liest das oberste Element,
-- `pop` entfernt es.
-
-Das Prinzip heißt **LIFO** – *Last In, First Out*: Was zuletzt hineinkommt, kommt zuerst wieder heraus.
-:::
+Auf dieser Seite schaust du hinein. Als Beispiel dient ein Messenger, der neue Nachrichten oben auf einen Stapel legt.
 
 :::snippet{#merken}
-Der Stapel ist die Struktur für alles, was **verschachtelt** ist und in umgekehrter Reihenfolge wieder aufgelöst werden muss:
-
-| Wo | Was liegt auf dem Stapel |
+| Teil | Was er sich merkt |
 | --- | --- |
-| Rückgängig-Funktion | die letzten Änderungen |
-| Methodenaufrufe | wohin zurückgesprungen werden muss – der **Aufrufstapel** |
-| Klammerprüfung | die noch offenen Klammern |
-| Zurück-Knopf im Browser | die zuletzt besuchten Seiten |
+| `Stack` | `head` – den obersten Knoten |
+| `StackNode` | `content` – das gespeicherte Objekt, `nextNode` – den Knoten darunter |
 
-Alle vier haben dieselbe Form: Das zuletzt Begonnene muss als Erstes abgeschlossen werden.
+Der unterste Knoten hat keinen Nachfolger: Sein `nextNode` ist `null`. Einen leeren Stapel erkennt man daran, dass `head` auf `null` zeigt.
 :::
 
-![](/images/stack-crc-karten.png)
+Das Klassendiagramm zeigt alle drei beteiligten Klassen, die Pfeile tragen die Namen der Verweise aus den Objektdiagrammen.
 
-## Erst einmal ausprobieren
-
-Bevor du den Stapel selbst baust, benutze ihn. Unten liegt eine Operationsfolge bereit: Sage **zuerst** voraus, welche Ausgaben sie erzeugt, und lass sie dann ablaufen.
-
-<oop-stapel-schlange id="stapel-spielwiese" modus="stapel" folge="push(Anna); push(Ben); top(); pop(); push(Cem); top(); pop(); pop(); isEmpty()"></oop-stapel-schlange>
-
-:::snippet{#aufgabe}
-a) Notiere die erwarteten Ausgaben, trage sie ein und lass die Folge ablaufen.
-
-b) Nur `top()` und `isEmpty()` liefern überhaupt etwas. Erkläre, warum `pop()` in der Dokumentation keinen Rückgabewert hat.
-
-c) Lege danach von Hand drei Nachrichten auf und hebe sie wieder ab. In welcher Reihenfolge kommen sie heraus? Wie heißt dieses Prinzip?
-:::
+```mermaid
+classDiagram
+    direction LR
+    class Stack {
+        +isEmpty() boolean
+        +push(pContent: Message)
+        +pop()
+        +top() Message
+    }
+    class StackNode {
+        +StackNode(pContent: Message)
+        +getNext() StackNode
+        +setNext(pNext: StackNode)
+        +getContent() Message
+    }
+    class Message {
+        +getUsername() String
+        +getText() String
+        +getDate() String
+    }
+    Stack --> StackNode : head
+    StackNode --> StackNode : nextNode
+    StackNode --> Message : content
+```
 
 ## Nachrichten auflegen
 
@@ -58,54 +53,75 @@ Die Methode push soll eine neue Nachricht auf den Stapel legen.
 
 ::jmp{id="stapel-auflegen" src="auflegen.jmp"}
 
+:::snippet{#aufgabe}
 1. Setze die Schritte im Objektdiagramm um.
-2. Entwerfe zur Methode push der Klasse Stack einen Algorithmus im :t[Pseudocode].
-3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+2. Entwirf zur Methode push der Klasse Stack einen Algorithmus in :t[Pseudocode].
+3. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms zu präsentieren.
+:::
 
-:::collapsible{title="Formulierungshilfe: Pseudocode" id="jkaskjkfjsafka"}
+:::collapsible{title="Formulierungshilfe: Pseudocode" id="stapel-pseudocode-auflegen"}
 
 - Erzeuge ...
 - Setze das Attribut / die Variable ... auf die Referenz ...
 
 :::
 
-## Benachrichtigungen lesen
+:::snippet{#brain}
+**Weiterdenken:** In push kommt es auf die **Reihenfolge** der Zuweisungen an. Was geht verloren, wenn man `head` zuerst auf den neuen Knoten setzt?
+:::
 
-Die Methode top soll die erste Nachricht auf dem Stapel zurückgeben. Die Methode pop soll die erste Nachricht des Stapels entfernen.
+## Nachrichten lesen und entfernen
+
+Die Methode top soll die oberste Nachricht zurückgeben. Die Methode pop soll die oberste Nachricht vom Stapel entfernen.
 
 ::jmp{id="stapel-abheben" src="abheben.jmp"}
 
+:::snippet{#aufgabe}
 1. Setze die Schritte im Objektdiagramm um.
-2. Entwerfe zu den Methoden pop und top einen Algorithmus im :t[Pseudocode].
-3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
-
-:::collapsible{title="Formulierungshilfe: Pseudocode" id="jkaskjkfjsafkasjfasdfsa"}
-
-- Setze das Attribut / die Variable ... auf die Referenz ...
-
+2. Entwirf zu den Methoden pop und top einen Algorithmus in :t[Pseudocode].
+3. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms zu präsentieren.
 :::
 
-## Der Aufrufstapel
+## Grenzfälle: der leere Stapel
 
-Der wichtigste Stapel ist einer, den du nie selbst anlegst: Java führt für jedes Programm einen mit, um Methodenaufrufe zu verwalten. Ihn kennst du schon aus [2.3 Kellerstapel und Halde](../../02-felder-referenzen-generik/03-kellerstapel-und-halde) – und aus [3.1 Rekursion](../../03-rekursion-und-problemloesestrategien/01-rekursion), wo du ihn beim Aufrufbaum in Aktion gesehen hast.
+Bei der Schlange brauchte das Einreihen in eine leere Schlange einen eigenen Fall. Wie ist das beim Stapel?
+
+::jmp{id="stapel-grenzfaelle" src="grenzfaelle.jmp"}
 
 :::snippet{#aufgabe}
-a) Erkläre mit den Begriffen dieser Seite, was beim Aufruf einer Methode auf den Aufrufstapel gelegt und was beim `return` wieder abgehoben wird.
-
-b) Begründe, warum dafür ein **Stapel** die richtige Struktur ist und keine Warteschlange.
-
-c) Eine Endlosrekursion bricht mit einem `StackOverflowError` ab. Erkläre den Namen dieses Fehlers.
+1. Setze beide Schritte im Objektdiagramm um.
+2. Prüfe deine Algorithmen von oben an diesen beiden Fällen. Brauchen sie eine zusätzliche Fallunterscheidung?
+3. Was müssen top und pop tun, wenn der Stapel schon leer ist? Schlag in der [Dokumentation](./dokumentation) nach und ergänze deine Algorithmen.
 :::
 
-::::collapsible{title="Auflösung" id="stapel-aufrufstapel-aufloesung"}
+::::protect{password="java-q-4-st-a-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
-a) Bei jedem Aufruf wird ein **Kellerrahmen** aufgelegt: die Parameter, die lokalen Variablen und die Stelle, an die zurückgesprungen werden muss. Beim `return` wird genau dieser Rahmen wieder abgehoben, und das Programm läuft an der gemerkten Stelle weiter.
+**push(pContent)**
 
-b) Weil Methodenaufrufe **verschachtelt** sind: Ruft `a()` die Methode `b()` auf und `b()` die Methode `c()`, dann muss `c()` als Erstes fertig werden. Das zuletzt Begonnene wird zuerst abgeschlossen – genau LIFO. Eine Warteschlange würde `a()` zuerst beenden wollen, obwohl `a()` noch mitten im Aufruf steckt.
+- Wenn pContent gleich null ist, tue nichts.
+- Erzeuge einen neuen Knoten mit pContent als Inhalt.
+- Setze nextNode des neuen Knotens auf head.
+- Setze head auf den neuen Knoten.
 
-c) Der Stapel hat eine feste Größe. Eine Rekursion ohne Abbruchbedingung legt Rahmen auf Rahmen, ohne je einen abzuheben – irgendwann läuft der Stapel über: *stack overflow*.
+**top()**
+
+- Wenn der Stapel leer ist, gib null zurück.
+- Sonst gib den Inhalt von head zurück.
+
+**pop()**
+
+- Wenn der Stapel leer ist, tue nichts.
+- Sonst setze head auf den Nachfolger von head.
+
+Worauf es ankam:
+
+- **Die Reihenfolge in push.** Wer zuerst `head` auf den neuen Knoten setzt, hat danach keinen Verweis mehr auf den alten Stapel – er ist verloren.
+- **Kein Sonderfall beim leeren Stapel.** Auf einen leeren Stapel zeigt `head` auf `null`. Der neue Knoten bekommt also `null` als Nachfolger – genau richtig für den untersten Knoten. Beim Entfernen des letzten Knotens wird `head` zu dessen Nachfolger, also `null`. Weil es keinen zweiten Verweis wie `tail` gibt, muss nichts nachgezogen werden.
+- **Nur top und pop prüfen auf leer.** Laut Dokumentation liefert `top` dann `null` und `pop` tut nichts. Ohne die Prüfung bricht der Zugriff auf `head` mit einer `NullPointerException` ab.
 
 ::::
+
+<!-- KLP QPh: "erläutern Operationen dynamischer Datenstrukturen (A)" - hier am Objektdiagramm. -->
 
 ---
 
@@ -113,48 +129,46 @@ c) Der Stapel hat eine feste Größe. Eine Rekursion ohne Abbruchbedingung legt 
 
 ::::multievent
 
-**1. In welcher Reihenfolge verlässt man einen Stapel?**
+**1. Welchen Verweis braucht ein Stapel mindestens?**
 
-{r1{wer zuerst kam, geht zuerst}}
+{r1{einen auf das unterste Element}}
 
-{r1{!wer zuletzt kam, geht zuerst}}
+{r1{!einen auf das oberste Element}}
 
-{r1{in zufälliger Reihenfolge}}
+{r1{je einen auf oben und unten}}
 
-{h{Denk an einen Stapel Teller.}}
-{H{Richtig! Man nennt das auch Last In, First Out.}}
+{h{Eingefügt und entfernt wird nur an einer Stelle.}}
+{H{Richtig! Deshalb ist der Stapel einfacher als die Schlange.}}
 
-**2. An welcher Stelle wird bei einem Stapel eingefügt und entfernt?**
+**2. Was passiert beim Auflegen mit dem bisherigen obersten Knoten?**
 
-{r2{vorne eingefügt, hinten entfernt}}
+{r2{er wird gelöscht}}
 
-{r2{!an derselben Stelle, nämlich oben}}
+{r2{!der neue Knoten verweist auf ihn}}
 
-{r2{an einer beliebigen Stelle}}
+{r2{er wandert nach unten ans Ende}}
 
-{h{Genau das macht den Stapel so einfach.}}
+{h{Der neue Knoten wird davorgehängt.}}
 {H{Richtig!}}
 
-**3. Wo begegnet dir ein Stapel im Rechner?** (Mehrfachauswahl)
+**3. Woran erkennt man einen leeren Stapel?**
 
-{c1{!bei der Verwaltung von Methodenaufrufen}}
+{r3{an einem Zähler}}
 
-{c1{!bei der Rückgängig-Funktion eines Programms}}
+{r3{!daran, dass head null ist}}
 
-{c1{!beim Auswerten von Klammerausdrücken}}
+{r3{daran, dass next des obersten Knotens null ist}}
 
-{c1{bei der Warteschlange an einem Drucker}}
+{h{Man braucht dafür kein zusätzliches Attribut.}}
+{H{Richtig!}}
 
-{h{Beim Drucker kommt dran, wer zuerst da war.}}
-{H{Richtig! Das ist eine Schlange, kein Stapel.}}
+**4. Welchen Aufwand haben push, pop und top?**
 
-**4. Welche Aufwandsklasse hat das Auflegen auf einen Stapel?**
+{r4{!konstant}}
 
-{r3{linear}}
+{r4{linear}}
 
-{r3{!konstant}}
-
-{r3{logarithmisch}}
+{r4{logarithmisch}}
 
 {h{Es wird immer nur oben angesetzt, egal wie hoch der Stapel ist.}}
 {H{Richtig!}}

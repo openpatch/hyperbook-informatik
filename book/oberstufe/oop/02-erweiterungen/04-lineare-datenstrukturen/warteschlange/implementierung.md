@@ -1,6 +1,6 @@
 ---
 name: Implementierung
-index: 3
+index: 5
 lang: de
 permaid: java-warteschlange-implementierung
 keywords:

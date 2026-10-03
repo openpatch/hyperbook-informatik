@@ -1,7 +1,7 @@
 ---
 name: Dokumentation
 lang: de
-index: 2
+index: 3
 permaid: java-liste-dokumentation
 ---
 
@@ -9,9 +9,9 @@ permaid: java-liste-dokumentation
 
 Für das Abitur werden verschiedene Klassen bereitgestellt, mit denen du arbeiten musst. In Klausur wirst du zu den benötigten Klassen eine Dokumentation erhalten, jedoch bietet es sich an viele der Funktionalitäten der Klasse auswendig zu kennen und die Dokumentation nur als Unterstützung zu nutzen.
 
-Die Dokumentation, die du auch im Abitur bekommst, kannst du hier herunterladen: https://www.schulentwicklung.nrw.de/lehrplaene/upload/klp_SII/if/Dokumentation_ZA-IF_GK-LK_ab_2018_2021_12_22.pdf
+Die Dokumentation, die du auch im Abitur bekommst, findest du im [Lehrplannavigator NRW (PDF)](https://lehrplannavigator.nrw.de/system/files/media/document/file/dokumentation_za-if_gk-lk_ab_2018_2021_12_22.pdf).
 
-Die Implementation der Klassen fürs Abitur kannst du hier herunterladen: https://www.schulentwicklung.nrw.de/lehrplaene/upload/klp_SII/if/MaterialZABI/2020-03-11_Implementationen_von_Klassen_fuer_das_Zentralabitur_ab_2018.zip
+Die Implementation der Klassen fürs Abitur kannst du dort ebenfalls [herunterladen (ZIP)](https://lehrplannavigator.nrw.de/system/files/media/document/file/2020-03-11_implementationen_von_klassen_fuer_das_zentralabitur_ab_2018.zip).
 
 Zur Vereinfachung kannst du die Dokumentation der Klasse List im Folgenden finden, sodass du nicht immer auf das PDF zurückgreifen musst.
 
@@ -38,17 +38,17 @@ classDiagram
 
     class ListNode~ContentType~ {
         +ListNode(pContent: ContentType)
-        +getNext() ListNode
-        +setNext(pNext: ListNode)
-        +getContent() ContentType
-        +setContent(pContent: ContentType)
+        +getNextNode() ListNode
+        +setNextNode(pNext: ListNode)
+        +getContentObject() ContentType
+        +setContentObject(pContent: ContentType)
     }
 
     List~ContentType~ --> ListNode~ContentType~: first
     List~ContentType~ --> ListNode~ContentType~: last
     List~ContentType~ --> ListNode~ContentType~: current
     ListNode~ContentType~ --> ListNode~ContentType~: next
-    ListNode~ContentType~ --> ContentType: content
+    ListNode~ContentType~ --> ContentType: contentObject
 
     class ContentType {
 

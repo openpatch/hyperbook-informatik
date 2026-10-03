@@ -1,15 +1,15 @@
 ---
 name: Aufbau und Funktionsweise
-index: 1
+index: 2
 lang: de
 permaid: java-liste-aufbau
 ---
 
 # Aufbau und Funktionsweise
 
-Stapel und Warteschlange können jeweils genau eine Sache. Für einen Nachrichtenverlauf reicht das nicht: Dort will man **durchblättern**, eine bestimmte Nachricht löschen und eine neue an einer beliebigen Stelle einfügen.
+Wie Schlange und Stapel besteht auch die Liste innen aus Knoten. Sie braucht aber mehr Verweise: einen auf den Anfang, einen auf das Ende und einen auf das aktuelle Element. Auf dieser Seite schaust du hinein. Als Beispiel dient wieder der Messenger, diesmal mit einem Nachrichtenverlauf zum Durchblättern.
 
-Ein Feld könnte das – aber schlecht. Seine Größe steht beim Anlegen fest, und wer vorne etwas entfernt, muss alles Übrige aufrücken lassen.
+Warum nicht einfach ein Feld? Ein Feld könnte das auch – aber schlecht. Seine Größe steht beim Anlegen fest, und wer vorne etwas entfernt, muss alles Übrige aufrücken lassen.
 
 :::snippet{#definition}
 Eine **verkettete Liste** besteht aus **Knoten**. Jeder Knoten enthält
@@ -33,7 +33,36 @@ Der Unterschied zum Feld in einem Satz: **Ein Feld liegt am Stück, eine Liste h
 Keine der beiden Strukturen ist besser. Sie sind an verschiedenen Stellen gut – und genau das ist die Frage, die du in [Kapitel 7](../../07-testen-und-laufzeit) beurteilen lernst.
 :::
 
-![](/images/liste-crc-karten.png)
+Im Messenger-Beispiel stehen Nachrichten in der Liste. Das Klassendiagramm zeigt alle drei beteiligten Klassen, die Pfeile tragen die Namen der Verweise aus den Objektdiagrammen.
+
+```mermaid
+classDiagram
+    direction LR
+    class List {
+        +toFirst()
+        +next()
+        +append(pContent: Message)
+        +remove()
+    }
+    class ListNode {
+        +getNextNode() ListNode
+        +setNextNode(pNext: ListNode)
+        +getContentObject() Message
+        +setContentObject(pContent: Message)
+    }
+    class Message {
+        +getUsername() String
+        +getText() String
+        +getDate() String
+    }
+    List --> ListNode : first
+    List --> ListNode : last
+    List --> ListNode : current
+    ListNode --> ListNode : next
+    ListNode --> Message : contentObject
+```
+
+Gezeigt sind nur die Methoden, die auf dieser Seite vorkommen. Die vollständige Abiturklasse steht in der [Dokumentation](./dokumentation).
 
 ## Nachrichten anhängen
 
@@ -128,7 +157,7 @@ c) Modifiziere die Algorithmen so, dass die Grenzfälle beachtet werden.
 
 :::
 
-::::collapsible{title="Auflösung zu a)" id="liste-grenzfaelle-aufloesung"}
+::::protect{password="java-q-4-l-a-1" description="Auflösung zu a). Erfrage das Passwort bei deiner Lehrkraft."}
 
 Die Grenzfälle ergeben sich aus zwei Fragen.
 
@@ -150,6 +179,29 @@ Die Grenzfälle ergeben sich aus zwei Fragen.
 | `current` zeigt auf `null` | Es gibt kein aktuelles Objekt; `remove` und `getContent` dürfen dann **nichts** tun bzw. `null` liefern. |
 
 Das Muster dahinter ist allgemein und kommt in [7.1 Systematisch testen](../../07-testen-und-laufzeit/01-systematisch-testen) wieder: Grenzfälle sind die **kleinstmögliche Eingabe** und die **Ränder** des Bereichs, auf dem man arbeitet.
+
+::::
+
+## Abgrenzung zur Warteschlange
+
+Eine Liste kann alles, was eine Warteschlange kann – und mehr. Auf den ersten Blick wirkt die Warteschlange deshalb wie ein Rückschritt.
+
+:::snippet{#aufgabe}
+a) Beschreibe die Unterschiede zwischen Warteschlange und Liste. Nimm dazu beide Dokumentationen nebeneinander: Welche Operationen hat die eine, die die andere nicht hat?
+
+b) Begründe, warum es trotzdem spezialisierte Strukturen wie die Warteschlange gibt. Denk dabei an zwei verschiedene Arten von Vorteil – einen für den, der die Struktur **benutzt**, und einen für den, der sie **baut**.
+:::
+
+::::protect{password="java-q-4-l-a-2" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+a) Die Liste hat einen beweglichen Zeiger (`toFirst`, `next`, `hasAccess`, `getContent`) und erlaubt Einfügen und Entfernen an jeder Stelle. Die Warteschlange hat nur `enqueue`, `front`, `dequeue` und `isEmpty` – kein Durchlaufen, kein Zugriff auf die Mitte.
+
+b) Zwei Vorteile:
+
+- **Für den, der sie benutzt:** Der Typ sagt die Absicht. Steht im Quelltext `Queue<Auftrag>`, dann weiß jede Leserin sofort, dass hier der Reihe nach abgearbeitet wird – und niemand *kann* versehentlich vordrängeln. Eine Liste ließe beides offen.
+- **Für den, der sie baut:** Wer weniger verspricht, kann es besser halten. Weil nur an den beiden Enden gearbeitet wird, kommt die Warteschlange mit einem Verweis auf den Anfang **und** einem auf das Ende aus und schafft beide Operationen in konstanter Zeit.
+
+Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft die bessere.**
 
 ::::
 

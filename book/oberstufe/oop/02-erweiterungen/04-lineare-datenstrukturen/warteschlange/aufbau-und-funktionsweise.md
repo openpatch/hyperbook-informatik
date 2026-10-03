@@ -1,48 +1,52 @@
 ---
 name: Aufbau und Funktionsweise
-index: 1
+index: 2
 lang: de
 permaid: java-warteschlange-aufbau
-scripts:
-  - /wc/oop-stapel-schlange.js
 ---
 
 # Aufbau und Funktionsweise
 
-An der Supermarktkasse gilt eine Regel, die niemand aufschreiben muss: **Wer zuerst da war, ist zuerst dran.** Wer dazukommt, stellt sich hinten an. Bedient wird vorne. Dazwischen passiert nichts – man kann sich nicht in die Mitte stellen und auch niemanden aus der Mitte herausziehen.
+Von außen sieht man der Schlange nur vier Methoden an. Innen besteht sie aus **Knoten**, die aneinanderhängen: Jeder Knoten hält einen Inhalt und kennt seinen Nachfolger. Die Schlange selbst merkt sich nur zwei Knoten – den vorderen (`head`) und den hinteren (`tail`).
 
-Genau diese Regel – und genau diese Beschränkung – ist die **Warteschlange**.
-
-:::snippet{#definition}
-Eine **Warteschlange** (englisch *queue*) ist eine lineare Datenstruktur mit zwei Zugriffsstellen:
-
-- **hinten** wird eingefügt (`enqueue`),
-- **vorne** wird gelesen (`front`) und entfernt (`dequeue`).
-
-Das Prinzip heißt **FIFO** – *First In, First Out*: Was zuerst hineinkommt, kommt zuerst wieder heraus.
-:::
+Auf dieser Seite schaust du hinein. Als Beispiel dient ein Messenger, der eingehende Nachrichten der Reihe nach anzeigt.
 
 :::snippet{#merken}
-Dass man **nicht** in die Mitte greifen kann, ist kein Mangel, sondern der Zweck. Eine Struktur, die nur zwei Operationen zulässt, kann man nicht falsch bedienen – und sie lässt sich so bauen, dass beide Operationen **gleich schnell** sind, egal wie lang die Schlange ist.
+| Teil | Was er sich merkt |
+| --- | --- |
+| `Queue` | `head` – den vordersten Knoten, `tail` – den hintersten Knoten |
+| `QueueNode` | `content` – das gespeicherte Objekt, `nextNode` – den Knoten dahinter |
 
-Wo dir das im Rechner begegnet: Druckaufträge, eingehende Netzwerkpakete, Tastatureingaben, Aufgaben in einer Warteliste.
+Der hinterste Knoten hat keinen Nachfolger: Sein `nextNode` ist `null`. Eine leere Schlange erkennt man daran, dass `head` auf `null` zeigt.
 :::
 
-![](/images/queue-crc-karten.png)
+Im Messenger-Beispiel stehen Nachrichten in der Schlange. Das Klassendiagramm zeigt alle drei beteiligten Klassen, die Pfeile tragen die Namen der Verweise aus den Objektdiagrammen.
 
-## Erst einmal ausprobieren
-
-Dieselbe Operationsfolge wie beim Stapel – nur heißen die Methoden anders und die Reihenfolge dreht sich um. Sage voraus, was herauskommt.
-
-<oop-stapel-schlange id="schlange-spielwiese" modus="schlange" folge="enqueue(Anna); enqueue(Ben); front(); dequeue(); enqueue(Cem); front(); dequeue(); dequeue(); isEmpty()"></oop-stapel-schlange>
-
-:::snippet{#aufgabe}
-a) Notiere die erwarteten Ausgaben, trage sie ein und lass die Folge ablaufen.
-
-b) Vergleiche mit dem [Stapel](../stapel/aufbau-und-funktionsweise): Dieselbe Folge, andere Ausgaben. Erkläre den Unterschied in einem Satz.
-
-c) `front()` liefert immer das Element, das am längsten wartet. An welchem Ende der Schlange wird also angehängt und an welchem entnommen?
-:::
+```mermaid
+classDiagram
+    direction LR
+    class Queue {
+        +isEmpty() boolean
+        +enqueue(pContent: Message)
+        +dequeue()
+        +front() Message
+    }
+    class QueueNode {
+        +QueueNode(pContent: Message)
+        +getNext() QueueNode
+        +setNext(pNext: QueueNode)
+        +getContent() Message
+    }
+    class Message {
+        +getUsername() String
+        +getText() String
+        +getDate() String
+    }
+    Queue --> QueueNode : head
+    Queue --> QueueNode : tail
+    QueueNode --> QueueNode : nextNode
+    QueueNode --> Message : content
+```
 
 ## Nachrichten einreihen
 
@@ -50,55 +54,84 @@ Die Methode enqueue soll eine neue Nachricht ans Ende der Warteschlange anhänge
 
 ::jmp{id="schlange-einreihen" src="einreihen.jmp"}
 
+:::snippet{#aufgabe}
 1. Setze die Schritte im Objektdiagramm um.
-2. Entwerfe zur Methode enqueue der Klasse Queue einen Algorithmus im :t[Pseudocode].
-3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+2. Entwirf zur Methode enqueue der Klasse Queue einen Algorithmus in :t[Pseudocode].
+3. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms zu präsentieren.
+:::
 
-:::collapsible{title="Formulierungshilfe: Pseudocode" id="jkaskjkfjsafka"}
+:::collapsible{title="Formulierungshilfe: Pseudocode" id="schlange-pseudocode-einreihen"}
 
 - Erzeuge ...
 - Setze das Attribut / die Variable ... auf die Referenz ...
 
 :::
 
-## Benachrichtigungen lesen
+## Nachrichten lesen und entfernen
 
 Die Methode front soll die erste Nachricht in der Warteschlange zurückgeben. Die Methode dequeue soll die erste Nachricht aus der Warteschlange entfernen.
 
 ::jmp{id="schlange-entnehmen" src="entnehmen.jmp"}
 
+:::snippet{#aufgabe}
 1. Setze die Schritte im Objektdiagramm um.
-2. Entwerfe zu den Methoden dequeue und front einen Algorithmus im :t[Pseudocode].
-3. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
-
-:::collapsible{title="Formulierungshilfe: Pseudocode" id="jkaskjkfjsafkasjfasdfsa"}
-
-- Setze das Attribut / die Variable ... auf die Referenz ...
-
+2. Entwirf zu den Methoden dequeue und front einen Algorithmus in :t[Pseudocode].
+3. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms zu präsentieren.
 :::
 
-## Abgrenzung zur Liste
+:::snippet{#brain}
+**Weiterdenken:** Was geschieht mit dem Knoten, der gerade entfernt wurde? Niemand verweist mehr auf ihn. Wer räumt ihn weg?
+:::
 
-Eine Liste kann alles, was eine Warteschlange kann – und mehr. Auf den ersten Blick wirkt die Warteschlange deshalb wie ein Rückschritt.
+## Grenzfälle: die leere Schlange
+
+Bisher stand die Schlange schon voll da. Ein Algorithmus ist aber erst fertig, wenn er auch an den Rändern stimmt: beim ersten Einreihen in eine **leere** Schlange und beim Entfernen des **letzten** Knotens.
+
+::jmp{id="schlange-grenzfaelle" src="grenzfaelle.jmp"}
 
 :::snippet{#aufgabe}
-a) Beschreibe die Unterschiede zwischen Warteschlange und Liste. Nimm dazu beide Dokumentationen nebeneinander: Welche Operationen hat die eine, die die andere nicht hat?
-
-b) Begründe, warum es trotzdem spezialisierte Strukturen wie die Warteschlange gibt. Denk dabei an zwei verschiedene Arten von Vorteil – einen für den, der die Struktur **benutzt**, und einen für den, der sie **baut**.
+1. Setze beide Schritte im Objektdiagramm um.
+2. Prüfe deine Algorithmen von oben an diesen beiden Fällen. Wo würden sie scheitern?
+3. Ergänze deine Algorithmen so, dass sie auch hier stimmen.
 :::
 
-::::collapsible{title="Auflösung" id="schlange-abgrenzung-aufloesung"}
+:::snippet{#brain}
+**Weiterdenken:** Warum braucht die Schlange überhaupt einen Verweis auf das Ende? Beschreibe, wie enqueue ohne `tail` funktionieren müsste und was das bei einer Schlange mit 10 000 Nachrichten bedeutet.
+:::
 
-a) Die Liste hat einen beweglichen Zeiger (`toFirst`, `next`, `hasAccess`, `getContent`) und erlaubt Einfügen und Entfernen an jeder Stelle. Die Warteschlange hat nur `enqueue`, `front`, `dequeue` und `isEmpty` – kein Durchlaufen, kein Zugriff auf die Mitte.
+:::protect{password="java-q-4-ws-a-1" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
-b) Zwei Vorteile:
+**enqueue(pContent)**
 
-- **Für den, der sie benutzt:** Der Typ sagt die Absicht. Steht im Quelltext `Queue<Auftrag>`, dann weiß jede Leserin sofort, dass hier der Reihe nach abgearbeitet wird – und niemand *kann* versehentlich vordrängeln. Eine Liste ließe beides offen.
-- **Für den, der sie baut:** Wer weniger verspricht, kann es besser halten. Weil nur an den beiden Enden gearbeitet wird, kommt die Warteschlange mit einem Verweis auf den Anfang **und** einem auf das Ende aus und schafft beide Operationen in konstanter Zeit.
+- Wenn pContent gleich null ist, tue nichts.
+- Erzeuge einen neuen Knoten mit pContent als Inhalt.
+- Wenn die Schlange leer ist:
+  - Setze head auf den neuen Knoten.
+- Sonst:
+  - Setze nextNode von tail auf den neuen Knoten.
+- Setze tail auf den neuen Knoten.
 
-Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft die bessere.**
+**front()**
 
-::::
+- Wenn die Schlange leer ist, gib null zurück.
+- Sonst gib den Inhalt von head zurück.
+
+**dequeue()**
+
+- Wenn die Schlange leer ist, tue nichts.
+- Setze head auf den Nachfolger von head.
+- Wenn head jetzt null ist, setze auch tail auf null.
+
+Worauf es ankam:
+
+- **Die leere Schlange beim Einreihen.** Es gibt keinen hinteren Knoten, an den man anhängen könnte. Der neue Knoten wird zugleich `head` und `tail`.
+- **Der letzte Knoten beim Entfernen.** Wer nur `head` weitersetzt, lässt `tail` auf den entfernten Knoten zeigen. Das nächste `enqueue` hängt dann an einen Knoten an, der gar nicht mehr zur Schlange gehört.
+- **Keine Schleife.** Weil `head` und `tail` beide Enden kennen, braucht keine Methode die Schlange zu durchlaufen. Alle Operationen haben konstanten Aufwand.
+- **Weiterdenken:** Den entfernten Knoten räumt die automatische Speicherbereinigung (englisch *garbage collector*) weg, sobald kein Verweis mehr auf ihn zeigt. Ohne `tail` müsste enqueue jedes Mal von `head` aus bis zum Ende laufen – bei 10 000 Nachrichten also 10 000 Schritte für ein einziges Einreihen.
+
+:::
+
+<!-- KLP QPh: "erläutern Operationen dynamischer Datenstrukturen (A)" - hier am Objektdiagramm. -->
 
 ---
 
@@ -106,50 +139,48 @@ Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft
 
 ::::multievent
 
-**1. In welcher Reihenfolge verlässt man eine Schlange?**
+**1. Worauf verweist head?**
 
-{r1{!wer zuerst kam, geht zuerst}}
+{r1{auf den zuletzt eingereihten Knoten}}
 
-{r1{wer zuletzt kam, geht zuerst}}
+{r1{!auf den vordersten Knoten}}
 
-{r1{in zufälliger Reihenfolge}}
+{r1{auf den Inhalt des vordersten Knotens}}
 
-{h{Wie an der Supermarktkasse.}}
-{H{Richtig! Man nennt das auch First In, First Out.}}
-
-**2. An welchen Stellen wird bei einer Schlange gearbeitet?**
-
-{r2{nur vorne}}
-
-{r2{!hinten eingefügt, vorne entfernt}}
-
-{r2{nur hinten}}
-
-{h{Genau darin unterscheidet sie sich vom Stapel.}}
+{h{Von head aus wird entnommen.}}
 {H{Richtig!}}
 
-**3. Wo begegnet dir eine Schlange im Rechner?** (Mehrfachauswahl)
+**2. Warum braucht eine Schlange zwei Verweise?**
 
-{c1{!bei Druckaufträgen}}
+{r2{um schneller zu sein}}
 
-{c1{!bei Nachrichten, die der Reihe nach abgearbeitet werden}}
+{r2{!weil an beiden Enden gearbeitet wird}}
 
-{c1{!bei der Breitensuche in einem Graphen}}
-
-{c1{bei der Verwaltung von Methodenaufrufen}}
-
-{h{Methodenaufrufe kehren in umgekehrter Reihenfolge zurück.}}
-{H{Richtig! Dafür ist ein Stapel zuständig.}}
-
-**4. Warum braucht eine Schlange zwei Verweise?**
-
-{r3{um schneller zu sein}}
-
-{r3{!weil an beiden Enden gearbeitet wird}}
-
-{r3{um die Länge zu kennen}}
+{r2{um die Länge zu kennen}}
 
 {h{Ohne Verweis auf das Ende müsste jedes Einfügen die ganze Schlange durchlaufen.}}
+{H{Richtig!}}
+
+**3. Der einzige Knoten einer Schlange wird entfernt. Was muss danach gelten?**
+
+{r3{nur head ist null}}
+
+{r3{nur tail ist null}}
+
+{r3{!head und tail sind null}}
+
+{h{Eine leere Schlange hat weder einen vorderen noch einen hinteren Knoten.}}
+{H{Richtig! Wer tail vergisst, zeigt auf einen Knoten, der nicht mehr dazugehört.}}
+
+**4. Welchen Aufwand hat das Einreihen in eine Schlange mit tail-Verweis?**
+
+{r4{!konstant}}
+
+{r4{linear}}
+
+{r4{logarithmisch}}
+
+{h{Es wird immer direkt am hinteren Knoten angehängt.}}
 {H{Richtig!}}
 
 ::::
