@@ -1,0 +1,120 @@
+---
+name: Futter fressen
+index: 2
+lang: de
+permaid: donut-io-futter
+---
+
+# Futter fressen
+
+Jetzt bekommt dein Donut etwas zu fressen. Jede Sekunde erscheint irgendwo ein
+kleiner Donut. Berührt dein Donut ihn, frisst er ihn und wird um dessen Stärke
+größer.
+
+:::onlineide{libraries="scratch" height="640px" outputWidth="60%" speed="1000000" id="donut-io-2-futter"}
+
+```java Main.java
+{{{rfile "/book/projekte/donut-io/quelle/2-futter/Main.java"}}}
+```
+
+```java Welt.java
+{{{rfile "/book/projekte/donut-io/quelle/2-futter/Welt.java"}}}
+```
+
+```java Donut.java
+{{{rfile "/book/projekte/donut-io/quelle/2-futter/Donut.java"}}}
+```
+
+```java SpielerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/2-futter/SpielerDonut.java"}}}
+```
+
+:::
+
+## Jede Sekunde ein Donut
+
+Die Bühne hat, wie jede Figur, eine Methode `run()`, die bei jedem Bild
+aufgerufen wird. `getTimer().everyMillis(1000)` ist genau einmal pro Sekunde
+`true` – dann ruft `run()` die Methode `erzeugeFutter()` auf.
+
+Das Futter soll nicht direkt auf dem Spieler entstehen, sonst wäre es sofort
+gefressen. Deshalb würfelt eine **fußgesteuerte Schleife** die Position so
+lange neu, bis das Futter den Spieler nicht berührt:
+
+```java
+do {
+   futter.setPosition(Random.random(-400, 400), Random.random(-300, 300));
+} while (futter.isTouchingSprite(spieler));
+```
+
+## Wer frisst wen?
+
+Fressen kann **jeder** Donut, deshalb steht es in der Oberklasse `Donut`:
+
+```java
+public void run() {
+   Donut anderer = this.getTouchingSprite(Donut.class);
+   if (anderer != null && staerke >= anderer.getStaerke()) {
+      this.setStaerke(staerke + anderer.getStaerke());
+      anderer.remove();
+   }
+}
+```
+
+`getTouchingSprite(Donut.class)` liefert einen Donut, den dieser gerade
+berührt – oder `null`, wenn er keinen berührt. Ist der andere nicht stärker,
+wird er gefressen: seine Stärke kommt dazu, und er verschwindet von der Bühne.
+
+Der `SpielerDonut` hat aber schon ein eigenes `run()` für die Bewegung. Damit
+er trotzdem fressen kann, ruft er am Ende `super.run()` auf – das `run()` der
+Oberklasse.
+
+:::snippet{#merken}
+**Überschreiben und `super`:** Hat eine Unterklasse eine Methode mit demselben
+Namen wie die Oberklasse, wird nur die der Unterklasse ausgeführt. Mit
+`super.methode()` ruft man die Methode der Oberklasse zusätzlich auf.
+:::
+
+## Die Hitbox
+
+Zwei Figuren berühren sich, wenn sich ihre **Hitboxen** überschneiden. Ohne
+eigene Hitbox ist das das ganze Rechteck des Bildes – auch die leeren Ecken um
+den runden Donut. `setHitbox(new Ellipse(0, 0, 512, 480))` legt stattdessen eine
+Ellipse in das Bild, die genau so groß ist wie der Donut. Die Zahlen beziehen
+sich auf das Originalbild mit 512 × 480 Pixeln; beim Verkleinern wächst die
+Hitbox mit.
+
+:::snippet{#aufgabe}
+a) Entferne `super.run();` aus `SpielerDonut`. Was passiert, und warum?
+
+b) Entferne die Zeile mit `setHitbox` aus `Donut`. Fahre mit deinem Donut so
+   an das Futter heran, dass sich nur die Ecken der Bilder berühren.
+
+c) Auch das Futter ist ein `Donut` und hat dasselbe `run()`. Was passiert,
+   wenn zwei Futter-Donuts nebeneinander entstehen?
+
+d) Lass das Futter alle 200 Millisekunden erscheinen. Wie schnell wächst dein
+   Donut jetzt?
+:::
+
+::::collapsible{title="Tipp zu c)"}
+
+Lies das `run()` von `Donut` noch einmal und achte darauf, wer `this` ist,
+wenn ein Futter-Donut es ausführt.
+
+::::
+
+## Weiterspielen
+
+:::snippet{#challenge}
+**Punkte.** Zeige oben auf der Bühne die aktuelle Stärke deines Donuts an.
+
+*Ein `Text` braucht eine Position und eine Breite. Die x-Koordinate ist die
+Mitte des Textes.*
+:::
+
+:::snippet{#challenge}
+**Giftige Donuts.** Lass gelegentlich einen grünen Donut erscheinen, der beim
+Fressen die Stärke **verringert**. Dafür brauchst du eine weitere Unterklasse
+von `Donut`.
+:::

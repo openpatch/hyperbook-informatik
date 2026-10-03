@@ -1,0 +1,117 @@
+---
+name: Die Kamera
+index: 3
+lang: de
+permaid: donut-io-kamera
+---
+
+# Die Kamera
+
+Bisher endet die Welt am Rand des Bildschirms. In agar.io ist das Spielfeld
+aber riesig, und man sieht immer nur den Ausschnitt um die eigene Zelle. Genau
+das macht eine **Kamera**: Sie legt fest, welcher Teil der Welt auf dem
+Bildschirm zu sehen ist.
+
+:::onlineide{libraries="scratch" height="640px" outputWidth="60%" speed="1000000" id="donut-io-3-kamera"}
+
+```java Main.java
+{{{rfile "/book/projekte/donut-io/quelle/3-kamera/Main.java"}}}
+```
+
+```java Welt.java
+{{{rfile "/book/projekte/donut-io/quelle/3-kamera/Welt.java"}}}
+```
+
+```java Hintergrund.java
+{{{rfile "/book/projekte/donut-io/quelle/3-kamera/Hintergrund.java"}}}
+```
+
+```java Donut.java
+{{{rfile "/book/projekte/donut-io/quelle/3-kamera/Donut.java"}}}
+```
+
+```java SpielerDonut.java
+{{{rfile "/book/projekte/donut-io/quelle/3-kamera/SpielerDonut.java"}}}
+```
+
+:::
+
+## Die Kamera folgt dem Spieler
+
+Jede Bühne hat eine Kamera. In `run()` setzt die Welt sie bei jedem Bild auf
+die Position des Spielers:
+
+```java
+kamera.setPosition(spieler.getPosition());
+```
+
+Damit steht der Spieler immer in der Mitte des Bildschirms, und die Welt
+scheint sich unter ihm zu bewegen. An den Koordinaten der Figuren ändert die
+Kamera nichts – sie bestimmt nur, was man sieht. Auch `getMouse()` liefert
+weiterhin eine Position **in der Welt**, deshalb muss der `SpielerDonut` nicht
+geändert werden.
+
+Das Futter entsteht jetzt nicht mehr um den Nullpunkt, sondern um die
+Kamera herum – sonst würde es nach einer Weile hinter dem Spieler liegen.
+
+## Rauszoomen beim Wachsen
+
+Je größer der Donut, desto weiter zoomt die Kamera heraus. Der Zoom ist eine
+Prozentzahl: 100 ist die normale Größe, 50 zeigt alles halb so groß und damit
+doppelt so viel von der Welt. Die Welt rechnet bei jedem Bild aus, welcher Zoom
+zur Stärke passt, und nähert sich ihm in kleinen Schritten:
+
+```java
+double zielZoom = 1000.0 / spieler.getStaerke();
+if (kamera.getZoom() > zielZoom) {
+   kamera.changeZoom(-0.1);
+}
+```
+
+`setZoomLimit(30, 200)` im Konstruktor legt fest, dass nie weiter als auf 30 %
+herausgezoomt wird.
+
+## Ein Gitter, das mitwandert
+
+Ohne Hintergrund sieht man nicht, dass sich der Spieler bewegt – die Bühne ist
+überall gleich hell. Deshalb liegt ein Gitter darunter. Es ist aber nur
+3200 × 2400 Pixel groß. Damit es trotzdem überall zu sehen ist, wandert es mit
+der Kamera mit – allerdings nicht stufenlos, sondern immer in Sprüngen von
+genau einem Kästchen (40 Pixel):
+
+```java
+this.setPosition(kamera.getX() - kamera.getX() % 40, kamera.getY() - kamera.getY() % 40);
+```
+
+`kamera.getX() % 40` ist der Rest bei der Division durch 40. Zieht man ihn ab,
+bleibt das nächstkleinere Vielfache von 40. Weil das Gitter immer um ein ganzes
+Kästchen springt, sieht es nach dem Sprung genauso aus wie vorher – man merkt
+den Sprung nicht.
+
+:::snippet{#aufgabe}
+a) Ersetze im `Hintergrund` die Zeile durch
+   `this.setPosition(kamera.getX(), kamera.getY());`. Warum sieht es jetzt so
+   aus, als stünde der Spieler still?
+
+b) Lass die Zeile in `run()` des `Hintergrund`s ganz weg. Fahre weit genug in
+   eine Richtung.
+
+c) Berechne für die Kamera-x-Koordinaten 95, 120 und −30, wohin das Gitter
+   springt. Prüfe dein Ergebnis für −30 genau – in Java ist der Rest einer
+   negativen Zahl negativ.
+
+d) Ändere `1000.0` in der Formel für `zielZoom`. Was bewirken 500 und 2000?
+:::
+
+## Weiterspielen
+
+:::snippet{#challenge}
+**Zoomen per Tastatur.** Lass die Spielerin mit den Tasten 1 und 0 selbst
+herein- und herauszoomen und mit R auf 100 % zurückstellen. Solange sie selbst
+gezoomt hat, soll die Welt nicht mehr automatisch zoomen.
+:::
+
+:::snippet{#challenge}
+**Weltgrenze.** Die Welt ist unendlich. Leg eine Grenze fest, etwa ±2000 in
+beide Richtungen, und lass den Spieler nicht darüber hinaus.
+:::
