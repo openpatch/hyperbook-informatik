@@ -1,422 +1,509 @@
 ---
-name: Übungen
-index: 5
+name: Übungsstunde
+index: 6
 lang: de
 permaid: java-liste-uebungen
 ---
 
-# Übungen
+# Übungsstunde
 
-Die folgenden Aufgaben sollen mit der Abiturklasse List bearbeitet werden.
+Aufbau und Handhabung der Liste habt ihr gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
 
-## Aufgabe 1
+| Weg | Was du machst | Wohin |
+| --- | --- | --- |
+| **Sicher werden** | kleine Aufgaben ohne Projekt, Schritt für Schritt schwieriger, mit Tests zur Rückmeldung | weiter auf dieser Seite |
+| **Im Spiel anwenden** | eine Mechanik mit einer Liste in dein eigenes Spiel einbauen | [Spielwerkstatt: ein Inventar](/projekte/spielwerkstatt/22-inventar) und die [Mechaniken mit einer Liste](/projekte/spielwerkstatt/13-lineare-datenstrukturen#mechaniken-mit-einer-liste) |
 
-Beantworte die folgenden Verständnisfragen (ohne Programmierung).
+Beide Wege üben dasselbe: eine Liste über ihre Methoden benutzen. Du kannst sie auch wechseln.
 
-1. In einer Liste wurden bereits drei Elemente eingefügt. Wenn man das zweite Element in der Liste löschen möchte, welche Methoden (der Klasse List) ruft man dazu nacheinander auf?
-2. Eine Liste hat drei Elemente. Wenn man zwischen dem ersten und zweiten Element der Liste ein weiteres Element einfügen möchte, welche Methoden ruft man dazu nacheinander auf?
-3. In welchen Fällen liefert hasAccess() den Wert false? In welchen Fällen den Wert true? Liste alle denkbaren Fälle auf.
-4. Warum kann man mit insert() kein Element am Ende der Liste einfügen? Wie kann man trotzdem ein Objekt ans Ende der Liste hängen?
+## Stufe 1: Zustand verfolgen
 
-## Aufgabe 2
-
-Das folgende Beispielprogramm erzeugt eine Liste und fügt einige Elemente ein. Setze die Schritte im Diagramm
-unter dem Programm um. **Herunterladen (PNG)** gibt dir zu jeder Situation ein Bild.
+:::snippet{#aufgabe}
+Das Programm erzeugt eine Liste und verändert sie. Setze die Schritte im Objektdiagramm unter dem Programm um. Achte besonders darauf, wohin `current` zeigt.
+:::
 
 ```java
-public class Beispiel {
-    public void ausfuehren() {
-        List<String>farbenListe = new List<>();
-        // 1. Diagramm
+List<String> farbenListe = new List<String>();
+// 1. Diagramm
 
-        farbenListe.append("Rot");
-        farbenListe.append("Blau");
-        farbenListe.append("Gelb");
-        // 2. Diagramm
+farbenListe.append("Rot");
+farbenListe.append("Blau");
+farbenListe.append("Gelb");
+// 2. Diagramm
 
-        farbenListe.toFirst();
-        farbenListe.next();
-        farbenListe.remove();
-        farbenListe.next();
-        farbenListe.insert("Grün");
-        farbenListe.append("Orange");
-        // 3. Diagramm
-    }
-}
-
+farbenListe.toFirst();
+farbenListe.next();
+farbenListe.remove();
+farbenListe.next();
+farbenListe.insert("Grün");
+farbenListe.append("Orange");
+// 3. Diagramm
 ```
 
 ::jmp{id="liste-uebung-2" src="vorlage.jmp"}
 
-## Aufgabe 3
+## Stufe 2: Code und Struktogramme lesen
 
-Lade dir das Projekt herunter und bearbeite die nachfolgenden Aufgaben. Wahlweise kannst du die Aufgaben auch in der Online-IDE bearbeiten
+:::snippet{#aufgabe}
+In der Liste stehen Anna, Ben, Cem und Dora.
 
-::archive[Projekt]{name="list-aufgabe-3"}
+a) Was liefert `raten(liste)`? Beschreibe in einem Satz, was die Methode allgemein tut.
 
-1. Deklariere und erzeuge eine Referenz für ein Objekt der Klasse List, welche Strings enthalten soll. Das Objekt soll im Konstruktor erzeugt werden.
-2. Implementiere die Methode `fuellen()`. Sie fügt die Strings "Rot", "Blau", "Gelb" und "Grün" (in dieser Reihenfolge) in die Liste ein.
-3. Implementiere die Methode vertauschen1(). Die Methode soll das zweite und das vierte Element der Liste vertauschen, ohne die Methode setContent zu benutzen – getContent() ist jedoch erlaubt und erforderlich. Falls die Liste nicht genügend Elemente hat, soll die Methode nichts tun.
-4. Implementiere die Methode vertauschen2(int pos1, int pos2). Die Methode vertauscht die Elemente der Liste an den Stellen pos1 und pos2. Beispiel: pos1 = 0 und pos2 = 2 vertauscht das erste und das dritte Element der Liste. Falls die Liste nicht genügend Elemente hat, geschieht nichts. Für diese Aufgabe darfst du die Methode setContent() benutzen, aber vielleicht schaffst du es auch ohne ;).
+```java
+int raten(List<String> pListe) {
+    int ergebnis = 0;
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        if (pListe.getContent().length() > 3) {
+            ergebnis++;
+        }
+        pListe.next();
+    }
+    return ergebnis;
+}
+```
 
+b) In der Liste stehen Anna und Ben. Wie sieht sie aus, nachdem `verdoppeln` aus dem Struktogramm aufgerufen wurde?
 
-Online IDE
-:::onlineide
+c) Schreibe `verdoppeln` als Java-Methode `void verdoppeln(List<String> pListe)`.
+:::
+
+:::struktolab{fontSize=15}
+```
+funktion verdoppeln(pListe):
+    pListe.toFirst()
+    wiederhole solange pListe.hasAccess():
+        pListe.insert(pListe.getContent())
+        pListe.next()
+```
+:::
+
+::::protect{password="java-q-4-l-u-1" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+a) `2`. Die Methode zählt, wie viele Einträge länger als drei Zeichen sind – hier Anna und Dora.
+
+b) Anna, Anna, Ben, Ben. `insert` fügt **vor** dem aktuellen Element ein, das aktuelle Element bleibt dasselbe. Das folgende `next` springt deshalb über das Original hinweg zum nächsten noch nicht verdoppelten Element.
+
+c)
+
+```java
+void verdoppeln(List<String> pListe) {
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        pListe.insert(pListe.getContent());
+        pListe.next();
+    }
+}
+```
+
+::::
+
+## Stufe 3: Fehler finden
+
+:::snippet{#aufgabe}
+Jede der drei Methoden enthält genau einen Fehler. Beschreibe, was beim Aufruf mit der Liste Anna, Anna, Ben passiert, und verbessere die Methode.
+
+a) Die Methode soll alle Namen ausgeben.
+
+```java
+void ausgeben(List<String> pListe) {
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        IO.println(pListe.getContent());
+    }
+}
+```
+
+b) Die Methode soll jedes Vorkommen von `pWert` entfernen.
+
+```java
+void entferneAlle(List<String> pListe, String pWert) {
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        if (pListe.getContent().equals(pWert)) {
+            pListe.remove();
+        }
+        pListe.next();
+    }
+}
+```
+
+c) Die Methode soll das erste Element liefern. Direkt nach dem Füllen der Liste liefert sie `null`. Warum?
+
+```java
+String erstes(List<String> pListe) {
+    return pListe.getContent();
+}
+```
+:::
+
+::::protect{password="java-q-4-l-u-2" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+a) Es fehlt `pListe.next();` in der Schleife. Das aktuelle Element bewegt sich nie, das Programm gibt endlos `Anna` aus.
+
+b) Nach `remove` ist schon der Nachfolger aktuell, das `next` überspringt ihn. Bei Anna, Anna, Ben wird die erste Anna entfernt, die zweite übersprungen – sie bleibt stehen. Richtig ist `next` im `else`-Zweig.
+
+c) Es fehlt `pListe.toFirst();`. Nach `append` gibt es noch kein aktuelles Element, `getContent()` liefert deshalb `null`. Richtig ist:
+
+```java
+String erstes(List<String> pListe) {
+    pListe.toFirst();
+    return pListe.getContent();
+}
+```
+
+Bei einer leeren Liste liefert die Methode dann `null` – wie die Dokumentation es für `getContent` festlegt.
+
+::::
+
+## Stufe 4: Methoden schreiben
+
+:::snippet{#aufgabe}
+Implementiere die Methoden der Klasse `Uebungen`, bis alle Tests im Reiter **Testrunner** grün sind. Fang oben an – die Aufgaben werden nach unten schwieriger.
+
+a) `int summe(List<Integer> pZahlen)` liefert die Summe aller Zahlen.
+
+b) `int zaehle(List<String> pListe, String pGesucht)` liefert, wie oft `pGesucht` vorkommt.
+
+c) `int maximum(List<Integer> pZahlen)` liefert die größte Zahl. Die Liste enthält mindestens eine Zahl.
+
+d) `String letztes(List<String> pListe)` liefert das letzte Element, bei einer leeren Liste `null`. Es geht ohne Schleife.
+
+e) `void vertauschen(List<String> pListe, int pPos1, int pPos2)` vertauscht die Elemente an den Stellen `pPos1` und `pPos2`, gezählt ab 0. Hat die Liste nicht genügend Elemente, passiert nichts.
+:::
+
+:::snippet{#aufgabe}
+f) Bevor du `vertauschen` programmierst: Entwirf im Editor zuerst ein Struktogramm. Setze es danach um.
+:::
+
+:::struktolab{mode="edit" fontSize=15 id="liste-struktogramm-vertauschen"}
+```
+funktion vertauschen(pListe, pPos1, pPos2):
+```
+:::
+
+:::onlineide{libraries="nrw" height="640px" speed="1000000" id="liste-uebungen"}
 
 ```java Main.java
 void main() {
-    NRWList<String> liste = new NRWList<String>();
-    IO.println("Liste leer? " + liste.isEmpty());
+    List<Integer> zahlen = new List<Integer>();
+    zahlen.append(3);
+    zahlen.append(8);
+    zahlen.append(5);
 
-    // Sobald du append und getContent ergänzt hast, kannst du hier
-    // testen: Elemente anhängen, mit toFirst an den Anfang gehen und
-    // die Liste mit hasAccess und next durchlaufen.
+    Uebungen u = new Uebungen();
+    IO.println("Summe: " + u.summe(zahlen));
+    IO.println("Führe die Tests über den Reiter Testrunner aus.");
 }
 ```
 
-```java NRWList.java
-public class NRWList<ContentType> {
-    ListNode<ContentType> first;
-    ListNode<ContentType> last;
-    ListNode<ContentType> current;
+```java Uebungen.java
+public class Uebungen {
 
- public NRWList() {
-    first = null;
-    last = null;
-    current = null;
-  }
-
-  /**
-   * Die Anfrage liefert den Wert true, wenn die Liste keine Objekte enthaelt,
-   * sonst liefert sie den Wert false.
-   * 
-   * @return true, wenn die Liste leer ist, sonst false
-   */
-  public boolean isEmpty() {
-    // Die Liste ist leer, wenn es kein erstes Element gibt.
-    return first == null;
-  }
-
-  /**
-   * Die Anfrage liefert den Wert true, wenn es ein aktuelles Objekt gibt,
-   * sonst liefert sie den Wert false.
-   * 
-   * @return true, falls Zugriff moeglich, sonst false
-   */
-  public boolean hasAccess() {
-    // Es gibt keinen Zugriff, wenn current auf kein Element verweist.
-    return current != null; 
-  }
-
-  /**
-   * Falls die Liste nicht leer ist, es ein aktuelles Objekt gibt und dieses
-   * nicht das letzte Objekt der Liste ist, wird das dem aktuellen Objekt in
-   * der Liste folgende Objekt zum aktuellen Objekt, andernfalls gibt es nach
-   * Ausfuehrung des Auftrags kein aktuelles Objekt, d.h. hasAccess() liefert
-   * den Wert false.
-   */
-  public void next() {
-    if (this.hasAccess()) {
-      current = current.getNextNode();
+    public int summe(List<Integer> pZahlen) {
+        return 0; // ersetze diese Zeile
     }
-  }
 
-  /**
-   * Falls die Liste nicht leer ist, wird das erste Objekt der Liste aktuelles
-   * Objekt. Ist die Liste leer, geschieht nichts.
-   */
-  public void toFirst() {
-    if (!isEmpty()) {
-      current = first;
+    public int zaehle(List<String> pListe, String pGesucht) {
+        return 0; // ersetze diese Zeile
     }
-  }
 
-  /**
-   * Falls die Liste nicht leer ist, wird das letzte Objekt der Liste
-   * aktuelles Objekt. Ist die Liste leer, geschieht nichts.
-   */
-  public void toLast() {
-    if (!isEmpty()) {
-      current = last;
+    public int maximum(List<Integer> pZahlen) {
+        return 0; // ersetze diese Zeile
     }
-  }
 
-  /**
-   * Falls es ein aktuelles Objekt gibt (hasAccess() == true), wird das
-   * aktuelle Objekt zurueckgegeben, andernfalls (hasAccess() == false) gibt
-   * die Anfrage den Wert null zurueck.
-   * 
-   * @return das aktuelle Objekt (vom Typ ContentType) oder null, wenn es
-   *         kein aktuelles Objekt gibt
-   */
-  public ContentType getContent() {
-    if (this.hasAccess()) {
-      return current.getContentObject();
-    } else {
-      return null;
+    public String letztes(List<String> pListe) {
+        return null; // ersetze diese Zeile
     }
-  }
 
-  /**
-   * Falls es ein aktuelles Objekt gibt (hasAccess() == true) und pContent
-   * ungleich null ist, wird das aktuelle Objekt durch pContent ersetzt. Sonst
-   * geschieht nichts.
-   * 
-   * @param pContent
-   *            das zu schreibende Objekt vom Typ ContentType
-   */
-  public void setContent(ContentType pContent) {
-    // Nichts tun, wenn es keinen Inhalt oder kein aktuelles Element gibt.
-    if (pContent != null && this.hasAccess()) { 
-      current.setContentObject(pContent);
-    }
-  }
-
-  /**
-   * Falls es ein aktuelles Objekt gibt (hasAccess() == true), wird ein neues
-   * Objekt vor dem aktuellen Objekt in die Liste eingefuegt. Das aktuelle
-   * Objekt bleibt unveraendert. <br />
-   * Wenn die Liste leer ist, wird pContent in die Liste eingefuegt und es
-   * gibt weiterhin kein aktuelles Objekt (hasAccess() == false). <br />
-   * Falls es kein aktuelles Objekt gibt (hasAccess() == false) und die Liste
-   * nicht leer ist oder pContent gleich null ist, geschieht nichts.
-   * 
-   * @param pContent
-   *            das einzufuegende Objekt vom Typ ContentType
-   */
-  public void insert(ContentType pContent) {
-    if (pContent != null) { // Nichts tun, wenn es keinen Inhalt gibt.
-      if (this.hasAccess()) { // Fall: Es gibt ein aktuelles Element.
-
-        // Neuen Knoten erstellen.
-        ListNode<ContentType> newNode = new ListNode<ContentType>(pContent); 
-
-        if (current != first) { // Fall: Nicht an erster Stelle einfuegen.
-          ListNode<ContentType> previous = this.getPrevious(current);
-          newNode.setNextNode(previous.getNextNode());
-          previous.setNextNode(newNode);
-        } else { // Fall: An erster Stelle einfuegen.
-          newNode.setNextNode(first);
-          first = newNode;
-        }
-
-      } else { //Fall: Es gibt kein aktuelles Element.
-
-        if (this.isEmpty()) { // Fall: In leere Liste einfuegen.
-
-          // Neuen Knoten erstellen.
-          ListNode<ContentType> newNode = new ListNode<ContentType>(pContent); 
-
-          first = newNode;
-          last = newNode;
-        }
-
-      }
-    }
-  }
-
-  /**
-   * Falls pContent gleich null ist, geschieht nichts.<br />
-   * Ansonsten wird ein neues Objekt pContent am Ende der Liste eingefuegt.
-   * Das aktuelle Objekt bleibt unveraendert. <br />
-   * Wenn die Liste leer ist, wird das Objekt pContent in die Liste eingefuegt
-   * und es gibt weiterhin kein aktuelles Objekt (hasAccess() == false).
-   * 
-   * @param pContent
-   *            das anzuhaengende Objekt vom Typ ContentType
-   */
-  public void append(ContentType pContent) {
-    if (pContent != null) { // Nichts tun, wenn es keine Inhalt gibt.
-
-      if (this.isEmpty()) { // Fall: An leere Liste anfuegen.
-        this.insert(pContent);
-      } else { // Fall: An nicht-leere Liste anfuegen.
-
-        // Neuen Knoten erstellen.
-        ListNode<ContentType> newNode = new ListNode<ContentType>(pContent); 
-
-        last.setNextNode(newNode);
-        last = newNode; // Letzten Knoten aktualisieren.
-      }
+    public void vertauschen(List<String> pListe, int pPos1, int pPos2) {
 
     }
-  }
-
-  /**
-   * Falls pList null oder eine leere Liste ist, geschieht nichts.<br />
-   * Ansonsten wird die Liste pList an die aktuelle Liste angehaengt.
-   * Anschliessend wird pList eine leere Liste. Das aktuelle Objekt bleibt
-   * unveraendert. Insbesondere bleibt hasAccess identisch.
-   * 
-   * @param pList
-   *            die am Ende anzuhaengende Liste vom Typ List<ContentType>
-   */
-  public void concat(NRWList<ContentType> pList) {
-    if (pList != null && !pList.isEmpty()) { // Nichts tun, wenn pList leer oder nicht existent.
-
-      if (this.isEmpty()) { // Fall: An leere Liste anfuegen.
-        this.first = pList.first;
-        this.last = pList.last;
-      } else { // Fall: An nicht-leere Liste anfuegen.
-        this.last.setNextNode(pList.first);
-        this.last = pList.last;
-      }
-
-      // Liste pList loeschen.
-      pList.first = null;
-      pList.last = null;
-      pList.current = null;
-    }
-  }
-
-  /**
-   * Wenn die Liste leer ist oder es kein aktuelles Objekt gibt (hasAccess()
-   * == false), geschieht nichts.<br />
-   * Falls es ein aktuelles Objekt gibt (hasAccess() == true), wird das
-   * aktuelle Objekt geloescht und das Objekt hinter dem geloeschten Objekt
-   * wird zum aktuellen Objekt. <br />
-   * Wird das Objekt, das am Ende der Liste steht, geloescht, gibt es kein
-   * aktuelles Objekt mehr.
-   */
-  public void remove() {
-    // Nichts tun, wenn es kein aktuelle Element gibt oder die Liste leer ist.
-    if (this.hasAccess() && !this.isEmpty()) { 
-
-      if (current == first) {
-        first = first.getNextNode();
-      } else {
-        ListNode<ContentType> previous = this.getPrevious(current);
-        if (current == last) {
-          last = previous;
-        }
-        previous.setNextNode(current.getNextNode());
-      }
-
-      ListNode<ContentType> temp = current.getNextNode();
-      current.setContentObject(null);
-      current.setNextNode(null);
-      current = temp;
-
-      //Beim loeschen des letzten Elements last auf null setzen. 
-      if (this.isEmpty()) {
-        last = null;
-      }
-    }
-  }
-
-  /**
-   * Liefert den Vorgaengerknoten des Knotens pNode. Ist die Liste leer, pNode
-   * == null, pNode nicht in der Liste oder pNode der erste Knoten der Liste,
-   * wird null zurueckgegeben.
-   *
-   * @param pNode
-   *         der Knoten, dessen Vorgaenger zurueckgegeben werden soll
-   * @return der Vorgaenger des Knotens pNode oder null, falls die Liste leer ist,
-   *         pNode == null ist, pNode nicht in der Liste ist oder pNode der erste Knoten
-   *         der Liste ist
-   */
-  private ListNode<ContentType> getPrevious(ListNode<ContentType> pNode) {
-    if (pNode != null && pNode != first && !this.isEmpty()) {
-      ListNode<ContentType> temp = first;
-      while (temp != null && temp.getNextNode() != pNode) {
-        temp = temp.getNextNode();
-      }
-      return temp;
-    } else {
-      return null;
-    }
-  }
 }
 ```
 
-```java ListNode.java
-public class ListNode<ContentType> {
+```java UebungenTest.java
+@Test
+class UebungenTest {
 
-    private ContentType contentObject;
-    private ListNode<ContentType> next;
-
-    /**
-     * Ein neues Objekt wird erschaffen. Der Verweis ist leer.
-     * 
-     * @param pContent das Inhaltsobjekt vom Typ ContentType
-     */
-    public ListNode(ContentType pContent) {
-      contentObject = pContent;
-      next = null;
+    List<String> baue(String[] pNamen) {
+        List<String> liste = new List<String>();
+        for (int i = 0; i < pNamen.length; i++) {
+            liste.append(pNamen[i]);
+        }
+        return liste;
     }
 
-    /**
-     * Der Inhalt des Knotens wird zurueckgeliefert.
-     * 
-     * @return das Inhaltsobjekt des Knotens
-     */
-    public ContentType getContentObject() {
-      return contentObject;
+    // Liest die Liste von vorne nach hinten als Text aus.
+    String inhalt(List<String> pListe) {
+        String text = "";
+        pListe.toFirst();
+        while (pListe.hasAccess()) {
+            if (!text.equals("")) {
+                text = text + ", ";
+            }
+            text = text + pListe.getContent();
+            pListe.next();
+        }
+        return text;
     }
 
-    /**
-     * Der Inhalt dieses Kontens wird gesetzt.
-     * 
-     * @param pContent das Inhaltsobjekt vom Typ ContentType
-     */
-    public void setContentObject(ContentType pContent) {
-      contentObject = pContent;
+    List<Integer> zahlen() {
+        List<Integer> z = new List<Integer>();
+        z.append(3);
+        z.append(8);
+        z.append(5);
+        return z;
     }
 
-    /**
-     * Der Nachfolgeknoten wird zurueckgeliefert.
-     * 
-     * @return das Objekt, auf das der aktuelle Verweis zeigt
-     */
-    public ListNode<ContentType> getNextNode() {
-      return this.next;
+    @Test
+    void testSumme() {
+        Uebungen u = new Uebungen();
+        assertEquals(16, u.summe(zahlen()), "3 + 8 + 5 = 16");
+        assertEquals(0, u.summe(new List<Integer>()), "Die Summe der leeren Liste ist 0.");
     }
 
-    /**
-     * Der Verweis wird auf das Objekt, das als Parameter uebergeben wird, gesetzt.
-     * 
-     * @param pNext der Nachfolger des Knotens
-     */
-    public void setNextNode(ListNode<ContentType> pNext) {
-      this.next = pNext;
-    }
-  }
-```
-
-```java Aufgabe3.java
-/*
- * Vertauscht zwei Elemente einer Liste
- * (Name, Datum)
- */
-public class Aufgabe3
-{
-    // Deklaration der Liste
-
-    public Aufgabe3()
-    {
+    @Test
+    void testZaehle() {
+        Uebungen u = new Uebungen();
+        List<String> liste = baue(new String[]{"Anna", "Ben", "Anna", "Cem", "Anna"});
+        assertEquals(3, u.zaehle(liste, "Anna"), "Anna steht dreimal in der Liste.");
+        assertEquals(0, u.zaehle(liste, "Dora"), "Dora kommt nicht vor.");
+        assertEquals(0, u.zaehle(new List<String>(), "Anna"), "In der leeren Liste kommt niemand vor.");
     }
 
-    public void fuellen()
-    {
+    @Test
+    void testMaximum() {
+        Uebungen u = new Uebungen();
+        assertEquals(8, u.maximum(zahlen()), "Die groesste Zahl ist 8.");
+        List<Integer> eine = new List<Integer>();
+        eine.append(-4);
+        assertEquals(-4, u.maximum(eine), "Bei nur einer Zahl ist sie das Maximum - auch wenn sie negativ ist.");
     }
 
-    /*
-     * Vertauschen von 2 und 4
-     */
-    public void vertauschen1()
-    {
+    @Test
+    void testLetztes() {
+        Uebungen u = new Uebungen();
+        assertEquals("Cem", u.letztes(baue(new String[]{"Anna", "Ben", "Cem"})), "Cem steht am Ende.");
+        assertEquals(null, u.letztes(new List<String>()), "Die leere Liste hat kein letztes Element.");
     }
 
-    /*
-     * Vertauschen parametrisiert
-     */
-    public void vertauschen2(int pos1, int pos2)
-    {
+    @Test
+    void testVertauschen() {
+        Uebungen u = new Uebungen();
+        List<String> liste = baue(new String[]{"Rot", "Blau", "Gelb", "Grün"});
+        u.vertauschen(liste, 1, 3);
+        assertEquals("Rot, Grün, Gelb, Blau", inhalt(liste), "Blau und Grün haben die Plätze getauscht.");
+        u.vertauschen(liste, 2, 0);
+        assertEquals("Gelb, Grün, Rot, Blau", inhalt(liste), "Die Reihenfolge der Positionen spielt keine Rolle.");
+        u.vertauschen(liste, 1, 7);
+        assertEquals("Gelb, Grün, Rot, Blau", inhalt(liste), "Eine Stelle 7 gibt es nicht - nichts passiert.");
     }
 }
 ```
 
 :::
+
+::::collapsible{title="Tipp: vertauschen" id="liste-ueben-tipp-vertauschen"}
+
+Geh die Liste zweimal durch und zähle dabei die Stelle mit.
+
+1. Beim ersten Durchlauf merkst du dir die beiden Inhalte an `pPos1` und `pPos2`. Hast du danach nicht beide gefunden, ist die Liste zu kurz.
+2. Beim zweiten Durchlauf setzt du mit `setContent` an `pPos1` den zweiten und an `pPos2` den ersten Inhalt.
+
+::::
+
+::::protect{password="java-q-4-l-u-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+**Struktogramm zu `vertauschen`:**
+
+:::struktolab{fontSize=15}
+```
+funktion vertauschen(pListe, pPos1, pPos2):
+    erster = null
+    zweiter = null
+    stelle = 0
+    pListe.toFirst()
+    wiederhole solange pListe.hasAccess():
+        falls stelle == pPos1:
+            erster = pListe.getContent()
+        sonst:
+        falls stelle == pPos2:
+            zweiter = pListe.getContent()
+        sonst:
+        stelle = stelle + 1
+        pListe.next()
+    falls erster != null und zweiter != null:
+        stelle = 0
+        pListe.toFirst()
+        wiederhole solange pListe.hasAccess():
+            falls stelle == pPos1:
+                pListe.setContent(zweiter)
+            sonst:
+                falls stelle == pPos2:
+                    pListe.setContent(erster)
+                sonst:
+            stelle = stelle + 1
+            pListe.next()
+    sonst:
+```
+:::
+
+**Quelltext:**
+
+```java
+public int summe(List<Integer> pZahlen) {
+    int summe = 0;
+    pZahlen.toFirst();
+    while (pZahlen.hasAccess()) {
+        summe = summe + pZahlen.getContent();
+        pZahlen.next();
+    }
+    return summe;
+}
+
+public int zaehle(List<String> pListe, String pGesucht) {
+    int anzahl = 0;
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        if (pListe.getContent().equals(pGesucht)) {
+            anzahl++;
+        }
+        pListe.next();
+    }
+    return anzahl;
+}
+
+public int maximum(List<Integer> pZahlen) {
+    pZahlen.toFirst();
+    int max = pZahlen.getContent();
+    while (pZahlen.hasAccess()) {
+        if (pZahlen.getContent() > max) {
+            max = pZahlen.getContent();
+        }
+        pZahlen.next();
+    }
+    return max;
+}
+
+public String letztes(List<String> pListe) {
+    pListe.toLast();
+    return pListe.getContent();
+}
+
+public void vertauschen(List<String> pListe, int pPos1, int pPos2) {
+    String erster = null;
+    String zweiter = null;
+    int stelle = 0;
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        if (stelle == pPos1) {
+            erster = pListe.getContent();
+        }
+        if (stelle == pPos2) {
+            zweiter = pListe.getContent();
+        }
+        stelle++;
+        pListe.next();
+    }
+    if (erster != null && zweiter != null) {
+        stelle = 0;
+        pListe.toFirst();
+        while (pListe.hasAccess()) {
+            if (stelle == pPos1) {
+                pListe.setContent(zweiter);
+            } else if (stelle == pPos2) {
+                pListe.setContent(erster);
+            }
+            stelle++;
+            pListe.next();
+        }
+    }
+}
+```
+
+- **`letztes` braucht keine Schleife.** `toLast` setzt das aktuelle Element direkt ans Ende. Bei einer leeren Liste gibt es keins, und `getContent` liefert `null`.
+- **`vertauschen` tauscht nur die Inhalte**, die Knoten bleiben, wo sie sind. Ohne `setContent` müsste man Elemente entfernen und an anderer Stelle wieder einfügen – das geht auch, ist aber deutlich aufwendiger.
+
+::::
+
+## Stufe 5: Knobelaufgabe
+
+:::snippet{#aufgabe}
+**Doppelte entfernen.** Implementiere `void entferneDoppelte(List<String> pListe)`. Jeder Name soll danach nur noch einmal vorkommen, und zwar an der Stelle seines **ersten** Auftretens. Aus Anna, Ben, Anna, Cem, Ben wird Anna, Ben, Cem.
+
+Die Schwierigkeit: Die Liste hat nur **ein** aktuelles Element. Wer beim Prüfen „kam der Name schon vor?“ in derselben Liste sucht, verliert die Stelle, an der er gerade steht.
+:::
+
+:::onlineide{libraries="nrw" height="560px" speed="1000000" id="liste-doppelte"}
+
+```java Main.java
+void main() {
+    List<String> liste = new List<String>();
+    liste.append("Anna");
+    liste.append("Ben");
+    liste.append("Anna");
+    liste.append("Cem");
+    liste.append("Ben");
+
+    entferneDoppelte(liste);
+
+    // Erwartet: Anna, Ben, Cem
+    liste.toFirst();
+    while (liste.hasAccess()) {
+        IO.println(liste.getContent());
+        liste.next();
+    }
+}
+
+void entferneDoppelte(List<String> pListe) {
+
+}
+```
+
+:::
+
+::::collapsible{title="Tipp" id="liste-doppelte-tipp"}
+
+Lege eine **zweite** Liste `gesehen` an. Darin sammelst du jeden Namen, der dir zum ersten Mal begegnet. Steht der aktuelle Name schon in `gesehen`, wird er entfernt. Das Suchen in `gesehen` bewegt nur deren aktuelles Element – deine Stelle in `pListe` bleibt erhalten.
+
+::::
+
+::::protect{password="java-q-4-l-u-4" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+```java
+void entferneDoppelte(List<String> pListe) {
+    List<String> gesehen = new List<String>();
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        String aktuell = pListe.getContent();
+        if (enthaelt(gesehen, aktuell)) {
+            pListe.remove();
+        } else {
+            gesehen.append(aktuell);
+            pListe.next();
+        }
+    }
+}
+
+boolean enthaelt(List<String> pListe, String pWert) {
+    pListe.toFirst();
+    while (pListe.hasAccess()) {
+        if (pListe.getContent().equals(pWert)) {
+            return true;
+        }
+        pListe.next();
+    }
+    return false;
+}
+```
+
+Hier kommen zwei Muster zusammen: das **Entfernen beim Durchlaufen** in `pListe` und das **Durchlaufen** einer zweiten Liste zum Suchen.
+
+::::
+
+<!-- KLP QPh GK: "implementieren Algorithmen ... unter Verwendung von Datenstrukturen (Liste) (I)".
+     Differenzierung: Übungsweg "Sicher werden" neben dem Spielwerkstatt-Weg. -->
 
 ---
 
@@ -432,14 +519,14 @@ public class Aufgabe3
 
 {r1{mit insert}}
 
-{h{Zuerst muss das zu löschende Element aktuelles Objekt werden.}}
+{h{Zuerst muss das zu löschende Element aktuelles Element werden.}}
 {H{Richtig!}}
 
 **2. Warum kann man mit insert kein Element am Ende anhängen?**
 
 {r2{weil insert nur einmal aufgerufen werden darf}}
 
-{r2{!weil insert immer vor dem aktuellen Objekt einfügt und es hinter dem letzten kein aktuelles Objekt gibt}}
+{r2{!weil insert immer vor dem aktuellen Element einfügt und es hinter dem letzten kein aktuelles Element gibt}}
 
 {r2{weil insert nur bei leeren Listen funktioniert}}
 
@@ -456,14 +543,14 @@ public class Aufgabe3
 
 {c1{wenn die Liste genau ein Element hat}}
 
-{h{Bei genau einem Element gibt es nach toFirst sehr wohl ein aktuelles Objekt.}}
+{h{Bei genau einem Element gibt es nach toFirst sehr wohl ein aktuelles Element.}}
 {H{Richtig!}}
 
 **4. Warum ist das Vertauschen zweier Elemente ohne setContent schwieriger?**
 
 {r3{weil getContent nicht funktioniert}}
 
-{r3{!weil man dann Knoten umhängen statt nur Inhalte austauschen muss}}
+{r3{!weil man dann Elemente entfernen und neu einfügen muss, statt nur Inhalte auszutauschen}}
 
 {r3{weil die Liste sonst leer wird}}
 

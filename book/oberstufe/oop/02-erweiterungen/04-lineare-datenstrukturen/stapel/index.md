@@ -1,6 +1,6 @@
 ---
 name: Stapel
-index: 1
+index: 2
 lang: de
 permaid: java-stapel
 ---

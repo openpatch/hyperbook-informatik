@@ -1,6 +1,6 @@
 ---
 name: Implementierung
-index: 4
+index: 5
 lang: de
 permaid: java-liste-implementierung
 keywords:

@@ -1,0 +1,288 @@
+{
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "options": {
+    "hideSidebar": false,
+    "hideCallMethod": false,
+    "hideDeclareGlobalVariable": true,
+    "hideNewArray": true,
+    "disableGarbageCollector": true,
+    "inlineStrings": true,
+    "hideSteps": false
+  },
+  "klasses": {
+    "Queue": {
+      "attributes": {
+        "head": "QueueNode",
+        "tail": "QueueNode"
+      }
+    },
+    "QueueNode": {
+      "attributes": {
+        "nextNode": "QueueNode",
+        "content": "Message"
+      }
+    },
+    "Message": {
+      "attributes": {
+        "username": "String",
+        "text": "String"
+      }
+    }
+  },
+  "steps": [
+    {
+      "label": "Ausgangslage: Die Schlange ist leer, incomingMessage wartet daneben.",
+      "objects": {
+        "@schlange": {
+          "klass": "Queue",
+          "attributes": {
+            "head": {
+              "dataType": "QueueNode"
+            },
+            "tail": {
+              "dataType": "QueueNode"
+            }
+          },
+          "position": {
+            "x": 195,
+            "y": 385
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            }
+          },
+          "position": {
+            "x": 319,
+            "y": 267
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "anna",
+          "attributes": {},
+          "position": {
+            "x": 599,
+            "y": 687
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Ist hier jemand?",
+          "attributes": {},
+          "position": {
+            "x": 599,
+            "y": 757
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "notifications",
+          "dataType": "Queue",
+          "value": "@schlange",
+          "position": {
+            "x": 23,
+            "y": 383
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m1",
+          "position": {
+            "x": 36,
+            "y": 270
+          }
+        }
+      },
+      "methodCalls": {}
+    },
+    {
+      "label": "notifications.enqueue(incomingMessage): Reihe die Nachricht in die leere Schlange ein.",
+      "objects": {
+        "@schlange": {
+          "klass": "Queue",
+          "attributes": {
+            "head": {
+              "dataType": "QueueNode",
+              "value": "@n1"
+            },
+            "tail": {
+              "dataType": "QueueNode",
+              "value": "@n1"
+            }
+          },
+          "position": {
+            "x": 195,
+            "y": 385
+          }
+        },
+        "@n1": {
+          "klass": "QueueNode",
+          "attributes": {
+            "nextNode": {
+              "dataType": "QueueNode"
+            },
+            "content": {
+              "dataType": "Message",
+              "value": "@m1"
+            }
+          },
+          "position": {
+            "x": 420,
+            "y": 470
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            }
+          },
+          "position": {
+            "x": 319,
+            "y": 267
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "anna",
+          "attributes": {},
+          "position": {
+            "x": 599,
+            "y": 687
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Ist hier jemand?",
+          "attributes": {},
+          "position": {
+            "x": 599,
+            "y": 757
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "notifications",
+          "dataType": "Queue",
+          "value": "@schlange",
+          "position": {
+            "x": 23,
+            "y": 383
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m1",
+          "position": {
+            "x": 36,
+            "y": 270
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true,
+      "note": "Es gibt keinen letzten Knoten, an den du anhängen könntest. Der neue Knoten ist zugleich der erste und der letzte."
+    },
+    {
+      "label": "notifications.dequeue(): Nimm den einzigen Knoten wieder heraus.",
+      "objects": {
+        "@schlange": {
+          "klass": "Queue",
+          "attributes": {
+            "head": {
+              "dataType": "QueueNode"
+            },
+            "tail": {
+              "dataType": "QueueNode"
+            }
+          },
+          "position": {
+            "x": 195,
+            "y": 385
+          }
+        },
+        "@m1": {
+          "klass": "Message",
+          "attributes": {
+            "username": {
+              "dataType": "String",
+              "value": "@s1"
+            },
+            "text": {
+              "dataType": "String",
+              "value": "@s2"
+            }
+          },
+          "position": {
+            "x": 319,
+            "y": 267
+          }
+        },
+        "@s1": {
+          "klass": "String",
+          "literal": "anna",
+          "attributes": {},
+          "position": {
+            "x": 599,
+            "y": 687
+          }
+        },
+        "@s2": {
+          "klass": "String",
+          "literal": "Ist hier jemand?",
+          "attributes": {},
+          "position": {
+            "x": 599,
+            "y": 757
+          }
+        }
+      },
+      "variables": {
+        "@v1": {
+          "name": "notifications",
+          "dataType": "Queue",
+          "value": "@schlange",
+          "position": {
+            "x": 23,
+            "y": 383
+          }
+        },
+        "@v2": {
+          "name": "incomingMessage",
+          "dataType": "Message",
+          "value": "@m1",
+          "position": {
+            "x": 36,
+            "y": 270
+          }
+        }
+      },
+      "methodCalls": {},
+      "exercise": true,
+      "note": "Danach ist die Schlange leer. Prüfe beide Verweise der Schlange: Worauf darf tail jetzt noch zeigen?"
+    }
+  ]
+}
