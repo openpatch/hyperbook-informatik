@@ -1,0 +1,192 @@
+---
+name: Lineare Datenstrukturen im Spiel
+index: 13
+lang: de
+permaid: spielwerkstatt-linear
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - warteschlange
+  - stapel
+  - liste
+---
+
+# Lineare Datenstrukturen im Spiel
+
+Im Kapitel [Lineare Datenstrukturen](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen) hast du drei Strukturen kennengelernt, die Dinge in einer Reihe speichern. Sie unterscheiden sich nur darin, **wer als Nächstes drankommt**. Genau diese Frage stellt ein Spiel ständig.
+
+:::snippet{#merken}
+**Die Leitfrage für dein Spiel:** Wer kommt als Nächstes dran?
+- **der Erste**, der kam: eine [Warteschlange](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange), FIFO
+- **der Letzte**, der kam: ein [Stapel](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel), LIFO
+- **irgendeiner**, oder alle der Reihe nach: eine [Liste](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste)
+:::
+
+Du kommst in der Übungsstunde nach jeder Struktur hierher – erst nach der Schlange, dann nach dem Stapel, dann nach der Liste. Bau jedes Mal **eine** Mechanik mit der Struktur ein, die ihr gerade besprochen habt. Zu jeder Struktur gibt es ein ausführlich erklärtes Beispiel mit lauffähigem Code.
+
+## Mechaniken mit einer Schlange
+
+### Meldungen der Reihe nach
+
+**Im Spiel:** Meldungen wie „Autsch!“ oder „Ein Leben mehr!“ erscheinen nacheinander, keine überschreibt die vorige.
+
+**Dahinter steckt:** eine `Queue<String>`. Wer etwas sagen will, reiht sich hinten ein. `run()` zeigt die vorderste Meldung zwei Sekunden lang und nimmt dann die nächste. Ausführlich erklärt im Beispiel [Meldungen der Reihe nach](./20-meldungen).
+
+Aufwand: ★☆☆
+
+### Gegnerwellen
+
+**Im Spiel:** Ist ein Raum leer, kommt die nächste Welle. Zuerst drei Schleime, dann zwei Fledermäuse, dann alles zusammen.
+
+**Dahinter steckt:** eine Schlange aus Wellen, zum Beispiel als Zeichenketten `"GGG"`, `"VV"`, `"GGVV"`. Was zuerst eingeplant wurde, kommt zuerst.
+
+Aufwand: ★★☆
+
+### Befehle vorausplanen
+
+**Im Spiel:** Erst plant man mit den Pfeiltasten eine Folge von Schritten, dann läuft die Figur sie Schritt für Schritt ab. Ein Rätselspiel.
+
+**Dahinter steckt:** eine Schlange von Richtungen. Das Planen reiht ein, das Ablaufen nimmt vorne heraus.
+
+Aufwand: ★★☆
+
+### Snake
+
+**Im Spiel:** Eine Schlange aus Körperteilen kriecht über das Raster. Frisst sie etwas, wird sie länger.
+
+**Dahinter steckt:** passenderweise eine Warteschlange. Bei jedem Schritt kommt vorne ein neues Körperteil dazu, hinten fällt eins weg. Nach dem Fressen fällt hinten einmal nichts weg.
+
+Aufwand: ★★★
+
+### Wer ist am Zug?
+
+**Im Spiel:** ein rundenbasierter Kampf. Spieler und Gegner handeln abwechselnd in fester Reihenfolge.
+
+**Dahinter steckt:** eine Schlange der Kämpfenden. Wer dran war, wird vorne herausgenommen und hinten wieder eingereiht.
+
+Aufwand: ★★☆
+
+## Mechaniken mit einem Stapel
+
+### Die Spur zurück
+
+**Im Spiel:** Mit der Taste R läuft die Figur ihre eigene Spur rückwärts, Schritt für Schritt.
+
+**Dahinter steckt:** ein `Stack<Platz>`. Alle 15 Bilder kommt die aktuelle Position oben drauf. R nimmt den obersten Platz und setzt die Figur dorthin. Der zuletzt besuchte Platz muss als Erstes zurückkommen.
+
+```java
+private void geheZurueck() {
+   if (!spur.isEmpty()) {
+      Platz p = spur.top();
+      spur.pop();
+      held.setPosition(p.getX(), p.getY());
+   }
+}
+```
+
+Warum speichert der Stapel Plätze und nicht einfach den Spieler? Überlege, worauf ein Verweis auf den Spieler zeigen würde.
+
+Aufwand: ★★☆
+
+### Kisten schieben und zurücknehmen
+
+**Im Spiel:** Kisten lassen sich schieben, und eine Taste nimmt den letzten Schiebezug zurück, dann den davor.
+
+**Dahinter steckt:** ein Stapel von Zügen. Ausführlich erklärt im Beispiel [Kisten schieben und zurücknehmen](./21-kisten).
+
+Aufwand: ★★★
+
+### Räume und Menüs
+
+**Im Spiel:** Durch eine Tür geht es in ein Haus, im Haus in den Keller. Jeder Ausgang führt in den Raum davor. Genauso bei Menüs: Escape führt eine Ebene zurück.
+
+**Dahinter steckt:** ein Stapel der besuchten Räume. Betreten heißt `push`, Verlassen heißt `pop`.
+
+Aufwand: ★★☆
+
+### Ein Kartenstapel
+
+**Im Spiel:** Man zieht Karten mit Zaubersprüchen oder Ereignissen von einem gemischten Stapel. Benutzte Karten kommen auf einen Ablagestapel.
+
+**Dahinter steckt:** zwei Stapel. Ist der Nachziehstapel leer, wird der Ablagestapel gemischt und wird zum neuen Nachziehstapel.
+
+Aufwand: ★★☆
+
+## Mechaniken mit einer Liste
+
+### Ein Inventar mit Auswahl
+
+**Im Spiel:** Aufgehobene Dinge stehen in einer Reihe am unteren Rand. Eins ist ausgewählt, eine Taste wählt das nächste, eine andere benutzt es.
+
+**Dahinter steckt:** eine `List`, deren **aktuelles Element** die Auswahl ist. Ausführlich erklärt im Beispiel [Ein Inventar](./22-inventar).
+
+Aufwand: ★★☆
+
+### Eine Patrouille
+
+**Im Spiel:** Eine Wache läuft eine feste Runde über mehrere Wegpunkte, immer wieder.
+
+**Dahinter steckt:** eine Liste von Plätzen. Das aktuelle Element ist das nächste Ziel. Ist es erreicht, geht es mit `next()` weiter, und am Ende mit `toFirst()` wieder von vorn.
+
+Aufwand: ★★☆
+
+### Was ist noch offen?
+
+**Im Spiel:** Die Anzeige nennt die Gegenstände, die in diesem Level noch fehlen.
+
+**Dahinter steckt:** eine Liste, die beim Aufbau gefüllt und beim Einsammeln verkleinert wird. Zum Anzeigen läuft man sie mit `toFirst()`, `hasAccess()` und `next()` durch. In der NRW-Fassung von Scratch for Java liefert auch `this.find(Muenze.class)` eine solche Liste.
+
+Aufwand: ★☆☆
+
+### Ein Questlog
+
+**Im Spiel:** Figuren geben Aufträge. Eine Liste zeigt die offenen, erledigte verschwinden, neue kommen an beliebiger Stelle dazu.
+
+**Dahinter steckt:** eine Liste von Aufträgen. Anders als bei Schlange und Stapel wird auch **in der Mitte** entfernt.
+
+Aufwand: ★★☆
+
+### Mehrere Zauber gleichzeitig
+
+**Im Spiel:** Die Figur ist gerade schnell **und** unverwundbar **und** leicht vergiftet. Jeder Effekt läuft zu einer anderen Zeit ab, oben steht eine Liste der aktiven.
+
+**Dahinter steckt:** eine `List<Effekt>`. Jeder `Effekt` kennt seine Restzeit. In jedem Bild läuft `run()` die Liste mit `toFirst()`, `hasAccess()` und `next()` durch, zieht Zeit ab und entfernt abgelaufene Effekte mit `remove()`, auch mitten aus der Liste. Ein neuer Zauber kommt mit `append` dazu. Wer `Effekt` als abstrakte Klasse baut, lässt jeden Effekt selbst entscheiden, was er tut.
+
+Aufwand: ★★★
+
+### Ein Gespräch der Reihe nach
+
+**Im Spiel:** Eine Figur erzählt eine kleine Geschichte in mehreren Sätzen. Jeder steht ein paar Sekunden in ihrer Sprechblase, dann kommt der nächste.
+
+**Dahinter steckt:** eine Schlange von Sätzen, wie bei den Meldungen, nur mit `say(…)` statt einer Textzeile.
+
+Aufwand: ★☆☆
+
+## Und ohne Spiel?
+
+| Im Spiel | Dieselbe Struktur woanders |
+| --- | --- |
+| Meldungen, Wellen der Reihe nach | Druckaufträge, Warteschlange an der Kasse, Nachrichten im Postfach |
+| Spur zurück, Schritt für Schritt | Rückgängig im Textprogramm, Zurück-Knopf im Browser, Aufrufstapel |
+| Inventar, offene Gegenstände | Warenkorb, Teilnehmerliste, alle Nachrichten eines Chats |
+
+Wer in der Klausur entscheiden muss, welche Struktur passt, stellt genau eine Frage: **Wer kommt als Nächstes dran, der Erste, der Letzte oder alle der Reihe nach?**
+
+## Deine eigene Idee
+
+Wo in deinem Spiel wartet etwas darauf, drangenommen zu werden? Wo soll etwas rückgängig gemacht werden? Wo gibt es eine veränderliche Sammlung, aus der man auswählt?
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Begründe für jede Struktur, die du eingebaut hast, warum es diese ist. Beschreibe für eine davon genau, was im Spiel passieren würde, wenn du stattdessen eine der anderen beiden genommen hättest.
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel stellen sich Meldungen in einer Schlange an, und ein Stapel merkt sich die Spur des Spielers, die man mit R zurückgehen kann. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Lineare Datenstrukturen (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-04-lineare-datenstrukturen.json"}
+
+:archive[Checkpoint: Lineare Datenstrukturen (Projekt für den Rechner)]{name="spielwerkstatt-q-04-lineare-datenstrukturen"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

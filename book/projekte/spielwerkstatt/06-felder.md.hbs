@@ -1,0 +1,139 @@
+---
+name: Felder im Spiel
+index: 6
+lang: de
+permaid: spielwerkstatt-felder
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - felder
+---
+
+# Felder im Spiel
+
+Im Kapitel [Felder](../../oberstufe/oop/01-grundlagen/05-felder) hast du gelernt, viele Werte derselben Art unter einem Namen zu speichern. In Spielen ist das überall: Kacheln einer Landschaft, Münzen, Gegner, Sprüche einer Figur, die Punkte mehrerer Runden.
+
+:::snippet{#merken}
+**Die Leitfrage für dein Spiel:** Wo hast du viele Dinge derselben Art, die du einzeln anlegst? Und wo möchtest du über alle diese Dinge hinweg etwas zählen, suchen oder summieren?
+:::
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Die Welt als Plan
+
+**Im Spiel:** Die ganze Landschaft steht als Bild aus Zeichen im Code. Wer sie ändern will, ändert nur ein paar Buchstaben.
+
+**Dahinter steckt:** ein Feld von Zeichenketten. Jede Zeichenkette ist eine Zeile der Bühne, jedes Zeichen ein Feld von 48 × 48 Pixeln. Zwei verschachtelte Schleifen gehen alle Zeichen durch, und eine Verzweigung entscheidet, was an diese Stelle kommt.
+
+```java
+private String[] plan = {
+   "################",
+   "#S.....M.......#",
+   "#..B.......F...#",
+   // ... insgesamt 9 Zeilen mit je 16 Zeichen
+};
+```
+
+```java
+for (int z = 0; z < plan.length; z++) {
+   for (int s = 0; s < plan[z].length(); s++) {
+      char zeichen = plan[z].charAt(s);
+      if (zeichen == '#') {
+         this.setzeStein(this.zuX(s), this.zuY(z));
+      } else if (zeichen == 'M') {
+         // ...
+      }
+   }
+}
+```
+
+Die Methoden `zuX` und `zuY` rechnen Spalte und Zeile in Koordinaten um: `-360 + pSpalte * 48` und `192 - pZeile * 48`.
+
+Aufwand: ★★☆
+
+### Mehrere Räume
+
+**Im Spiel:** Am rechten Rand gibt es eine Lücke in der Mauer. Wer hindurchgeht, steht im nächsten Raum, mit eigener Landschaft und eigenen Münzen. Links geht es zurück.
+
+**Dahinter steckt:** ein Plan je Raum, also mehrere Felder von Zeichenketten, und eine Variable für den aktuellen Raum. Verlässt der Spieler die Bühne, nimmt `this.removeAll()` alles herunter, und die Welt baut den anderen Raum aus seinem Plan auf. Der Spieler kommt auf der gegenüberliegenden Seite wieder herein. Damit das übersichtlich bleibt, steckt der Aufbau in einer Methode `baueRaum(String[] pPlan)`. Vorsicht: `removeAll()` nimmt auch den Spieler herunter. Er muss danach wieder auf die Bühne. Ob du dafür ein Feld wie `planWiese` einfach einer Variable `plan` zuweisen darfst oder es kopieren musst, klärt in der Qualifikationsphase das Kapitel über Referenzen.
+
+Ein Haken: Weil jeder Raum beim Betreten neu gebaut wird, vergisst er alles. Eingesammelte Münzen liegen wieder da, besiegte Gegner stehen wieder auf. Wie sich jeder Raum seinen Zustand merkt, steht bei *Räume als eigene Bühnen* in [Objektorientierung im Spiel](./07-objektorientierung).
+
+Aufwand: ★★★
+
+### Eine Welt größer als der Bildschirm
+
+**Im Spiel:** Die Landschaft ist viel breiter als das Fenster. Die Kamera folgt der Figur, und man entdeckt die Welt beim Laufen.
+
+**Dahinter steckt:** ein Plan mit mehr Spalten und Zeilen, als auf die Bühne passen, zum Beispiel 40 × 20, und eine **virtuelle Kamera**. In `run()` richtet sie sich jedes Bild neu auf den Spieler aus:
+
+```java
+this.getCamera().setPosition(held.getX(), held.getY());
+```
+
+Probiere aus, was mit den Anzeigen passiert, wenn sich die Kamera bewegt.
+
+Aufwand: ★★☆
+
+### Ein Händler mit Sprüchen
+
+**Im Spiel:** Eine Figur am Wegrand sagt bei jedem Start etwas anderes.
+
+**Dahinter steckt:** ein Feld von Zeichenketten und ein Index. Woher der Index kommt, entscheidest du: von einer Zufallszahl oder von der Anzahl der Münzen, damit sich der Spruch beim Sammeln ändert.
+
+```java
+private String[] sprueche = {
+   "Schöner Tag heute!",
+   "Hinter dem Felsen liegt etwas.",
+   "Ich verkaufe nichts. Noch nicht."
+};
+```
+
+`Math.random()` liefert eine zufällige Kommazahl von 0 bis knapp unter 1. Mal die Länge des Felds und in eine ganze Zahl umgewandelt wird daraus ein Index: `(int) (Math.random() * sprueche.length)`.
+
+Aufwand: ★☆☆
+
+### Münzen mit verschiedenen Werten
+
+**Im Spiel:** Die erste Münze bringt 5 Punkte, die zweite 10, die dritte 50.
+
+**Dahinter steckt:** ein Feld mit den Werten, und die Zahl der schon eingesammelten Münzen ist der Index: `punktzahl = punktzahl + werte[punkte];`. Was passiert, wenn es mehr Münzen als Werte gibt? Das ist die [häufigste Fehlermeldung](../../oberstufe/oop/01-grundlagen/05-felder/01-eindimensionale-felder) bei Feldern.
+
+Aufwand: ★☆☆
+
+### Wege aus parallelen Feldern
+
+**Im Spiel:** Münzen liegen genau dort, wo du sie haben willst, ohne Plan und ohne zwanzig einzelne Aufrufe.
+
+**Dahinter steckt:** [parallele Felder](../../oberstufe/oop/01-grundlagen/05-felder/03-felder-veraendern) für die x- und y-Koordinaten. Die Münze Nummer `i` liegt bei `(xs[i], ys[i])`.
+
+Aufwand: ★☆☆
+
+### Statistik nach dem Spiel
+
+**Im Spiel:** Am Ende steht, wie viele Sekunden du für jede Münze gebraucht hast und welche am längsten gedauert hat.
+
+**Dahinter steckt:** ein Feld, in das `wennMuenzeEingesammelt()` die aktuelle Zeit schreibt. Am Ende durchläufst du es mit den [drei Grundaufgaben](../../oberstufe/oop/01-grundlagen/05-felder/02-felder-durchlaufen): summieren, Extremwert suchen, zählen.
+
+Aufwand: ★★★
+
+## Deine eigene Idee
+
+Wo legst du in deinem Code noch viele Dinge einzeln an? Bäume, Gegner, Schilder, Sprüche? Was davon ließe sich in einem Feld sammeln, und was würdest du dann damit machen?
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Zeige an deinem Spiel, was ohne Feld schwieriger wäre. Wie viele Variablen bräuchtest du sonst, und welche Schleife könntest du dann nicht schreiben?
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel entsteht die ganze Welt aus einem Plan: Steine, Pflanzen, Münzen und der Startplatz. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Felder (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-05-felder.json"}
+
+:archive[Checkpoint: Felder (Projekt für den Rechner)]{name="spielwerkstatt-ef-05-felder"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

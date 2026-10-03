@@ -18,12 +18,15 @@ Geprueft wird ausserdem, was das Archiv zum Laufen braucht:
 2. Jeder Pfad assets/..., den der Quelltext laedt, gibt es im Ordner assets der
    Werkstatt - denn im Buch wie auf dem Rechner wird er relativ zum Projekt
    aufgeloest.
+3. Jede Checkpoint-Datei fuer die Online-IDE passt zu ihrem Archiv. Sonst muss
+   tools/spielwerkstatt/erzeuge_checkpoints.py noch einmal laufen.
 
 Rueckgabewert 0: alles in Ordnung, 1: Fehler, 2: javac fehlt, nicht geprueft.
 """
 
 from __future__ import annotations
 
+import json
 import pathlib
 import re
 import shutil
@@ -31,8 +34,10 @@ import subprocess
 import sys
 import tempfile
 
+import erzeuge_checkpoints
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-WERKSTATT = ROOT / "book" / "oberstufe" / "oop" / "03-spielwerkstatt"
+WERKSTATT = ROOT / "book" / "projekte" / "spielwerkstatt"
 # das Startgeruest und jeder Stand, den eine Werkstatt-Seite zeigt
 ARCHIVE = sorted(p for p in (ROOT / "archives").glob("spielwerkstatt*") if p.is_dir())
 
@@ -56,12 +61,25 @@ def pruefe_assets(archiv: pathlib.Path) -> None:
                 problems.append(f"{quelle.relative_to(ROOT)}: Datei fehlt: {pfad}")
 
 
+def pruefe_checkpoints() -> None:
+    for archivname in erzeuge_checkpoints.CHECKPOINTS:
+        datei = erzeuge_checkpoints.ZIEL / f"{archivname}.json"
+        if not datei.exists():
+            problems.append(f"{datei.relative_to(ROOT)} fehlt - erzeuge_checkpoints.py ausfuehren")
+            continue
+        gespeichert = json.loads(datei.read_text(encoding="utf-8"))["modules"]
+        if gespeichert != erzeuge_checkpoints.module(ROOT / "archives" / archivname):
+            problems.append(f"{datei.relative_to(ROOT)} ist veraltet - erzeuge_checkpoints.py ausfuehren")
+
+
 def uebersetze(archiv: pathlib.Path) -> None:
     jars = sorted((archiv / "+libs").glob("*.jar"))
     if not jars:
         problems.append(f"{archiv.relative_to(ROOT)}: keine Bibliothek in +libs")
         return
-    quellen = sorted(str(p) for p in archiv.glob("*.java"))
+    # Testklassen sind im Format des Testrunners der Online-IDE geschrieben (@Test vor class,
+    # ohne Import) und lassen sich ohne JUnit nicht uebersetzen.
+    quellen = sorted(str(p) for p in archiv.glob("*.java") if not p.stem.endswith("Test"))
     with tempfile.TemporaryDirectory() as out:
         r = subprocess.run(
             ["javac", "-nowarn", "-encoding", "UTF-8", "-d", out,
@@ -80,6 +98,7 @@ def main() -> int:
         print("javac nicht gefunden - die Spielwerkstatt wurde nicht uebersetzt.")
         return 2
     pruefe_rfiles()
+    pruefe_checkpoints()
     for archiv in ARCHIVE:
         pruefe_assets(archiv)
         uebersetze(archiv)

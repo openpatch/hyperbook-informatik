@@ -1,0 +1,128 @@
+---
+name: Methoden im Spiel
+index: 5
+lang: de
+permaid: spielwerkstatt-methoden
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - methoden
+---
+
+# Methoden im Spiel
+
+Im Kapitel [Methoden und Modularisierung](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung) hast du gelernt, Anweisungen unter einem Namen zusammenzufassen. Dein Konstruktor ist inzwischen vermutlich lang geworden. Viermal dieselben Zeilen für einen Stein, dreimal fast dieselben für einen Baum. Wer darin etwas sucht, sucht lange.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Welche Zeilen schreibst du immer wieder, nur mit anderen Zahlen? Daraus wird eine Methode mit **Parametern**.
+- Welche Frage stellt dein Spiel immer wieder? Daraus wird eine Methode mit **Rückgabewert**.
+:::
+
+## Mechaniken
+
+Hier geht es weniger um neue Dinge im Spiel als um besseren Code. Am Ende soll dein Spiel genauso funktionieren wie vorher, aber man soll es lesen können. Such dir mindestens zwei Ideen aus.
+
+### Bausteine für die Landschaft
+
+**Im Spiel:** nichts Neues, aber jeder Stein und jede Pflanze ist nur noch eine Zeile.
+
+**Dahinter steckt:** eine Methode mit Parametern für alles, was sich unterscheidet.
+
+```java
+/// Setzt einen Stein an die Stelle (pX, pY).
+private void setzeStein(double pX, double pY) {
+   Hindernis stein = new Hindernis();
+   stein.addCostume("stein", "assets/backgrounds/tilesets/tileset-dungeon.png", 128, 48, 16, 16);
+   stein.setPosition(pX, pY);
+   this.add(stein);
+}
+```
+
+```java
+this.setzeStein(-360, 192);
+this.setzePflanze(32, 0, 140, -40);   // eine Tanne
+```
+
+Aufwand: ★☆☆
+
+### Mauern mit beliebiger Länge
+
+**Im Spiel:** Mauern, Zäune und Hecken in jeder Länge, waagerecht oder senkrecht.
+
+**Dahinter steckt:** eine Methode mit Schleife, `setzeMauer(double pX, double pY, int pAnzahl)`. Mit [Überladen](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung/03-modularisierung) gibt es eine zweite Methode desselben Namens mit einem weiteren Parameter für die Richtung.
+
+Aufwand: ★★☆
+
+### Der Konstruktor als Inhaltsverzeichnis
+
+**Im Spiel:** wieder nichts Neues. Aber wer deinen Code öffnet, versteht sofort, wie die Welt entsteht.
+
+**Dahinter steckt:** [Modularisierung](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung/03-modularisierung). Der Konstruktor ruft nur noch Methoden auf, und jede erledigt eine Teilaufgabe.
+
+```java
+public Welt() {
+   this.baueRahmen();
+   this.pflanzeWald();
+   this.verteileMuenzen();
+   this.bereiteAnzeigeVor();
+   this.stelleHeldAuf();
+}
+```
+
+Aufwand: ★★☆
+
+### Fragen mit Rückgabewert
+
+**Im Spiel:** Die Bedingungen in `run()` lesen sich wie Sätze.
+
+**Dahinter steckt:** Methoden, die einen Wahrheitswert liefern, wie `istGerade` im Lernpfad.
+
+```java
+private boolean istGewonnen() {
+   return punkte == anzahlMuenzen;
+}
+```
+
+```java
+if (this.istGewonnen()) {
+```
+
+Aufwand: ★☆☆
+
+### Eine Uhr mit Minuten
+
+**Im Spiel:** Statt „Zeit: 75“ steht „Zeit: 1:15“ in der Anzeige.
+
+**Dahinter steckt:** eine Methode `zeitText(int pSekunden)`, die einen `String` liefert. Die Minuten bekommst du mit `/ 60`, die restlichen Sekunden mit `% 60`. Vorsicht bei „1:5“: Unter zehn Sekunden fehlt eine Null.
+
+Diese Methode kannst du sogar **testen**, wie im Abschnitt [Methoden mit Tests prüfen](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung/02-rueckgabewerte): Was muss bei 0, bei 59, bei 60 und bei 605 herauskommen?
+
+Aufwand: ★★☆
+
+### Eine Methode fürs Spielende
+
+**Im Spiel:** Gewinnen, Verlieren und vielleicht weitere Enden laufen alle gleich ab: Das Spiel steht, die Figur bleibt stehen, eine Meldung erscheint.
+
+**Dahinter steckt:** eine Methode `beende(String pMeldung)`. Statt dreimal dieselben drei Zeilen steht in `run()` nur noch `this.beende("Gewonnen!");`.
+
+Aufwand: ★☆☆
+
+## Deine eigene Idee
+
+Gehe deinen Code von oben nach unten durch. Wo wiederholt sich etwas? Wo müsstest du einen Kommentar schreiben, damit man versteht, was passiert? Beides sind Stellen für eine Methode, und der Kommentar wird zu ihrem Namen.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Wähle eine deiner Methoden aus. Wie viele Zeilen hat sie dir gespart? Was müsstest du ändern, wenn alle Steine eine andere Farbe bekommen sollen, einmal **mit** und einmal **ohne** die Methode?
+:::
+
+## Checkpoint
+
+Der Checkpoint nach diesem Kapitel kann dasselbe wie der nach den Kontrollstrukturen, ist aber in Methoden zerlegt: `baueRahmen`, `setzeStein`, `setzePflanze`, `setzeMuenze`, `istGewonnen` und `beende`. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Methoden (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-04-methoden.json"}
+
+:archive[Checkpoint: Methoden (Projekt für den Rechner)]{name="spielwerkstatt-ef-04-methoden"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

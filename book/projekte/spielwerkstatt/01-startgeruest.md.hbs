@@ -1,0 +1,106 @@
+---
+name: Das Startgerüst
+index: 1
+lang: de
+permaid: spielwerkstatt-startgeruest
+keywords:
+  - java
+  - scratch4j
+  - spiel
+---
+
+# Das Startgerüst
+
+Hier beginnt dein Spiel: ein Abenteuer von oben gesehen, wie in vielen Rollenspielen. Eine Figur läuft über eine Wiese, stößt an Bäume und Felsen und sammelt Münzen. Starte es in deiner Werkstatt mit ▶ und steuere die Figur mit den **Pfeiltasten**. Über den Knopf oben rechts in der Ausgabe spielst du im Vollbild.
+
+:::snippet{#merken}
+Dein Spiel liegt auf der Seite **[Deine Werkstatt](./00-werkstatt)**. Öffne sie in einem eigenen Tab und lass sie offen, während du hier liest.
+:::
+
+## Was du schon ändern kannst
+
+Für den Anfang brauchst du nur eine Datei: **`Welt`**. Im Konstruktor steht alles, was in deinem Spiel vorkommt. Es ist genau das, was du in [Die erste Grafik](../../oberstufe/oop/01-grundlagen/01-erste-schritte/03-die-erste-grafik) gelernt hast: Figuren erzeugen, ihnen ein Kostüm geben, sie an eine Stelle setzen und auf die Bühne stellen.
+
+```java
+Hindernis baum = new Hindernis();
+baum.addCostume("baum", "assets/backgrounds/tilesets/tileset-nature.png", 0, 0, 32, 32);
+baum.setPosition(-120, 90);
+this.add(baum);
+```
+
+Neu ist nur das Kostüm. Die Bilder kommen nicht aus der Bibliothek, sondern aus dem Ordner `assets`. Viele liegen dort nicht einzeln, sondern nebeneinander in einem großen **Kachelbild**. `addCostume("baum", bild, 0, 0, 32, 32)` schneidet daraus ein Stück aus: ab der Stelle (0, 0) im Bild, 32 Pixel breit und 32 Pixel hoch. Welche Bilder es gibt und wo die Stücke liegen, zeigt dir die Seite [Grafiken und Klänge](./02-grafiken-und-klaenge).
+
+Die Bühne ist hier **768 Pixel breit und 432 Pixel hoch**, also größer als in der ersten Grafik. Der Punkt (0, 0) liegt wieder in der Mitte.
+
+## Was schon fertig ist
+
+Die anderen Dateien sind für dich vorbereitet. Du musst sie noch nicht verstehen. Im Lauf der beiden Lernpfade wirst du eine nach der anderen öffnen und umbauen.
+
+| Klasse | Was sie tut | Verstehen wirst du sie … |
+| --- | --- | --- |
+| `Main` | öffnet das Fenster und stellt die `Welt` hinein | sofort, sie hat nur drei Zeilen |
+| `Spielwelt` | legt die Wiese als Hintergrund und sorgt dafür, dass weiter unten Stehendes vor weiter oben Stehendem gezeichnet wird. So läuft man hinter Bäumen vorbei. `Welt` baut darauf auf, so wie deine Bühne auf `Stage`. | sofort, sie hat nur zwei Anweisungen |
+| `Spieler` | läuft mit den Pfeiltasten, bleibt an Hindernissen hängen, sammelt Münzen | im Kapitel über Objektorientierung |
+| `Hindernis` | ein Sprite, durch das der Spieler nicht hindurchkommt. Nur die untere Hälfte des Bildes hält auf, der Stamm eines Baums, nicht seine Krone. | im Kapitel über Objektorientierung |
+| `Muenze` | dreht sich, bis sie eingesammelt wird | im Kapitel über Objektorientierung |
+
+Unten in `Welt` stehen außerdem zwei leere Blöcke, `wennMuenzeEingesammelt()` und `run()`. Sie funktionieren wie Ereignisblöcke in Scratch. Du brauchst sie ab dem Kapitel über Variablen, bis dahin lässt du sie einfach leer.
+
+## Ideen für deinen Anfang
+
+Such dir aus, was dich reizt. Du musst nicht alles machen, und du darfst dir auch etwas ganz anderes ausdenken.
+
+### Deine Landschaft
+
+Stelle Bäume, Felsen und Büsche so auf, dass Wege, Sackgassen und Verstecke für die Münzen entstehen. Im Bild [tileset-nature.png](./assets/backgrounds/tilesets/tileset-nature.png) findest du viele Pflanzen und Steine. Die großen sind 32 × 32 Pixel, die kleinen 16 × 16.
+
+Aufwand: ★☆☆
+
+### Deine Figur
+
+Im Ordner `assets/actor/character/` liegen über 90 Figuren. Tausche den Jungen gegen eine andere aus, indem du bei `new Spieler("boy")` einen anderen Ordnernamen einsetzt, zum Beispiel `"ninja-green"`, `"knight"` oder `"princess"`.
+
+Aufwand: ★☆☆
+
+### Deko, die nicht im Weg steht
+
+Nicht alles soll den Spieler aufhalten. Blumen, Gras oder ein Teppich dürfen betreten werden. Nimm dafür statt `new Hindernis()` ein ganz normales `new Sprite()`. Achte darauf, dass `setSize(300)` dann fehlt, denn das erledigt nur der Konstruktor von `Hindernis`.
+
+Aufwand: ★☆☆
+
+### Schilder und Figuren, die sprechen
+
+Ein `Text` auf der Bühne erklärt das Ziel. Eine Figur, die nur herumsteht, kann mit `say("…")` etwas sagen, zum Beispiel ein Händler oder eine Wache. Figuren gibt es in `assets/actor/`. Für eine stehende Figur reicht ein Ausschnitt von 16 × 16 Pixeln aus ihrem `sprite-sheet.png`.
+
+Aufwand: ★★☆
+
+### Ein Rahmen aus Steinen
+
+Umgib die Wiese mit einer Mauer, damit der Spieler nicht aus dem Bild laufen kann. Das sind viele gleiche Zeilen. Wie es kürzer geht, lernst du im Kapitel über Schleifen.
+
+Aufwand: ★★☆
+
+## Auf deinem Rechner
+
+Das Projekt läuft auch ohne Browser, in jeder Java-Entwicklungsumgebung. Du brauchst ein **JDK 25**, zum Beispiel mit [VS Code](https://code.visualstudio.com/) oder BlueJ.
+
+::archive[Projekt: Spielwerkstatt]{name="spielwerkstatt"}
+
+Entpacke das Archiv und starte es aus dem Projektordner heraus:
+
+```bash
+java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-5.5.0-nrw-all.jar" Main.java
+```
+
+Im Archiv liegt alles, was das Projekt braucht:
+
+| Was | Wofür |
+| --- | --- |
+| deine Klassen | derselbe Quelltext wie hier, mit einer `import`-Zeile am Anfang. Die Entwicklungsumgebung im Browser kennt die Klassen schon. |
+| `assets/` | Grafiken und Klänge |
+| `+libs/scratch-5.5.0-nrw-all.jar` | Scratch for Java. In dieser Fassung liefern `find`, `getAll` und `getTouchingSprites` eine `List` der Abiturklassen. BlueJ findet die Bibliothek im Ordner `+libs` von selbst. |
+| `List.java`, `Queue.java`, `Stack.java`, `BinaryTree.java`, `BinarySearchTree.java`, `ComparableContent.java`, `Graph.java`, `Vertex.java`, `Edge.java` | die Abiturklassen des Landes NRW, unverändert. Du brauchst sie erst in der Qualifikationsphase. Im Browser sind sie schon eingebaut. |
+
+:::alert{info}
+Wenn du auf dem Rechner weiterarbeitest, kopiere deine geänderten Klassen aus dem Browser in das Projekt. Die `import`-Zeile `import org.openpatch.scratch.*;` brauchst du dort in jeder Datei, die Klassen von Scratch for Java benutzt.
+:::

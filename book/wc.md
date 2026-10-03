@@ -47,7 +47,7 @@ Durchsuchbare Übersicht über die Grafiken und Klänge der Spielwerkstatt. Ein 
 <asset-suche liste="assets-liste.json"></asset-suche>
 ```
 
-<asset-suche liste="/oberstufe/oop/03-spielwerkstatt/assets-liste.json"></asset-suche>
+<asset-suche liste="/projekte/spielwerkstatt/assets-liste.json"></asset-suche>
 
 ---
 

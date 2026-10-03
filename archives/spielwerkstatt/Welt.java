@@ -1,92 +1,54 @@
 import org.openpatch.scratch.*;
 
-/// Ein Raum der Spielwelt. Wie er aussieht, steht im Plan: ein Zeichen je Kachel.
-public class Welt extends Stage {
+/// Deine Spielwelt. Hier stellst du alles auf, was im Spiel vorkommt.
+public class Welt extends Spielwelt {
 
-    /// So viele Kacheln liegen nebeneinander.
-    public static final int SPALTEN = 16;
-    /// So viele Kacheln liegen untereinander.
-    public static final int ZEILEN = 9;
-    /// So viele Pixel ist eine Kachel auf der Bühne breit und hoch.
-    public static final int KACHEL = 48;
+   public Welt() {
+      Hindernis baum = new Hindernis();
+      baum.addCostume("baum", "assets/backgrounds/tilesets/tileset-nature.png", 0, 0, 32, 32);
+      baum.setPosition(-120, 90);
+      this.add(baum);
 
-    /// `#` Stein, `.` Gras, `K` Kiste, `M` Münze, `S` Startplatz
-    private static final String[] PLAN = {
-        "################",
-        "#......M.......#",
-        "#..S...........#",
-        "#.....##...M...#",
-        "#..M..##.......#",
-        "#.........K....#",
-        "#....M......M..#",
-        "#..............#",
-        "################"
-    };
+      Hindernis tanne = new Hindernis();
+      tanne.addCostume("tanne", "assets/backgrounds/tilesets/tileset-nature.png", 32, 0, 32, 32);
+      tanne.setPosition(140, -80);
+      this.add(tanne);
 
-    private Text anzeige;
-    private int punkte = 0;
+      Hindernis fels = new Hindernis();
+      fels.addCostume("fels", "assets/backgrounds/tilesets/tileset-nature.png", 256, 128, 32, 32);
+      fels.setPosition(220, 110);
+      this.add(fels);
 
-    public Welt() {
-        this.addSound("muenze", "assets/audio/sounds/bonus/coin.ogg");
+      Muenze m1 = new Muenze();
+      m1.setPosition(-200, -120);
+      this.add(m1);
 
-        Spieler spieler = new Spieler(this);
-        // Erst der Boden: Unter allem liegt Gras. Was später hinzukommt,
-        // liegt oben - so verschwindet nichts unter dem Boden.
-        for (int z = 0; z < ZEILEN; z++) {
-            for (int s = 0; s < SPALTEN; s++) {
-                this.setze(new Gras(), s, z);
-            }
-        }
-        // Dann alles, was darauf steht.
-        for (int z = 0; z < ZEILEN; z++) {
-            for (int s = 0; s < SPALTEN; s++) {
-                char zeichen = PLAN[z].charAt(s);
-                if (zeichen == '#') {
-                    this.setze(new Stein(), s, z);
-                } else if (zeichen == 'K') {
-                    this.setze(new Kiste(), s, z);
-                } else if (zeichen == 'M') {
-                    this.setze(new Muenze(), s, z);
-                } else if (zeichen == 'S') {
-                    spieler.setPosition(zuX(s), zuY(z));
-                }
-            }
-        }
-        // Der Spieler kommt zuletzt, damit er über allem läuft.
-        this.add(spieler);
+      Muenze m2 = new Muenze();
+      m2.setPosition(40, 150);
+      this.add(m2);
 
-        anzeige = new Text("", 0, 196, 600);
-        anzeige.setTextSize(20);
-        anzeige.setTextColor(255, 255, 255);
-        anzeige.setStrokeColor(0, 0, 0);
-        this.add(anzeige);
-        this.zeigePunkte();
-    }
+      Muenze m3 = new Muenze();
+      m3.setPosition(300, -150);
+      this.add(m3);
 
-    /// Legt eine Figur auf die Kachel in Spalte pSpalte und Zeile pZeile.
-    public void setze(Sprite pFigur, int pSpalte, int pZeile) {
-        pFigur.setPosition(zuX(pSpalte), zuY(pZeile));
-        this.add(pFigur);
-    }
+      Text titel = new Text("Sammle alle Münzen!", 0, 200, 400);
+      titel.setTextSize(20);
+      titel.setTextColor(255, 255, 255);
+      this.add(titel);
 
-    /// Die x-Koordinate der Mitte einer Spalte. Spalte 0 liegt ganz links.
-    public static double zuX(int pSpalte) {
-        return -SPALTEN * KACHEL / 2 + KACHEL / 2 + pSpalte * KACHEL;
-    }
+      Spieler held = new Spieler("boy");
+      held.setPosition(-300, 0);
+      this.add(held);
+   }
 
-    /// Die y-Koordinate der Mitte einer Zeile. Zeile 0 liegt ganz oben.
-    public static double zuY(int pZeile) {
-        return ZEILEN * KACHEL / 2 - KACHEL / 2 - pZeile * KACHEL;
-    }
+   // Die beiden Blöcke hier unten brauchst du ab dem Kapitel über Variablen.
+   // Sie funktionieren wie die Ereignisblöcke in Scratch.
 
-    /// Zählt eine eingesammelte Münze.
-    public void punkten() {
-        punkte = punkte + 1;
-        this.playSound("muenze");
-        this.zeigePunkte();
-    }
+   /// Wird jedes Mal ausgeführt, wenn der Spieler eine Münze einsammelt.
+   public void wennMuenzeEingesammelt() {
+   }
 
-    private void zeigePunkte() {
-        anzeige.showText("Münzen: " + punkte);
-    }
+   /// Wird immer wieder ausgeführt, etwa 60-mal in der Sekunde.
+   public void run() {
+   }
 }

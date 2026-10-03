@@ -1,0 +1,162 @@
+---
+name: Variablen und Datentypen im Spiel
+index: 3
+lang: de
+permaid: spielwerkstatt-variablen
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - variablen
+---
+
+# Variablen und Datentypen im Spiel
+
+Im Kapitel [Variablen und Datentypen](../../oberstufe/oop/01-grundlagen/02-variablen-und-datentypen) hast du gelernt, wie sich ein Programm etwas merkt. Ein Spiel merkt sich ständig etwas: wie viele Münzen schon gesammelt sind, wie viel Zeit bleibt, wie die Spielerin heißt.
+
+:::snippet{#merken}
+**Die Leitfrage für dein Spiel:** Was muss sich mein Spiel merken, und von welcher Art ist es: eine ganze Zahl, eine Kommazahl, ein Text, ein Ja oder Nein?
+:::
+
+## Neu für dich: die Ereignisblöcke
+
+Bisher passiert in deinem Spiel alles im Konstruktor von `Welt`, also einmal beim Start. Für einen Spielstand reicht das nicht. Er muss sich ändern, **während** gespielt wird. Dafür stehen unten in `Welt` zwei Blöcke, die bisher leer waren. Sie funktionieren wie die Ereignisblöcke in Scratch:
+
+| Block | Wird ausgeführt … | wie in Scratch |
+| --- | --- | --- |
+| `wennMuenzeEingesammelt()` | jedes Mal, wenn der Spieler eine Münze einsammelt | „Wenn ich … empfange“ |
+| `run()` | immer wieder, etwa 60-mal in der Sekunde | „Wiederhole fortlaufend“ |
+
+Eine Variable, die du **im** Konstruktor oder **in** einem Block anlegst, gibt es nur dort, und am Ende des Blocks ist sie wieder weg. Was sich das Spiel die ganze Zeit merken soll, steht deshalb **oben in der Klasse**, außerhalb aller Blöcke:
+
+```java
+public class Welt extends Spielwelt {
+
+   private int punkte = 0;
+
+   public Welt() {
+      // ...
+```
+
+Das `private` heißt: Nur die Welt selbst darf diese Variable ändern. Warum das wichtig ist, erfährst du im Kapitel über Objektorientierung. Bis dahin schreibst du es einfach davor.
+
+## Mechaniken
+
+Such dir mindestens eine aus und baue sie in dein Spiel ein. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Münzzähler
+
+**Im Spiel:** Oben steht, wie viele Münzen schon eingesammelt sind.
+
+**Dahinter steckt:** eine Variable vom Typ `int`, die bei jeder Münze um eins wächst, und ein `Text`, der sie anzeigt.
+
+```java
+private int punkte = 0;
+private Text anzeige;
+```
+
+```java
+public void wennMuenzeEingesammelt() {
+   punkte = punkte + 1;
+   anzeige.showText("Münzen: " + punkte);
+}
+```
+
+Den `Text` legst du im Konstruktor an, so wie den Titel im Startgerüst: `anzeige = new Text("", 0, 200, 700);` und dann `this.add(anzeige);`. Die Zahl `0` ist die Mitte des Textes, er steht also mittig oben.
+
+Aufwand: ★☆☆
+
+### Countdown
+
+**Im Spiel:** Die Zeit läuft rückwärts. Wer sammelt alle Münzen, bevor sie abgelaufen ist?
+
+**Dahinter steckt:** eine Variable vom Typ `double`, von der `run()` 60-mal in der Sekunde ein Sechzigstel abzieht. Angezeigt werden nur die ganzen Sekunden.
+
+```java
+private double zeit = 30;
+```
+
+```java
+public void run() {
+   zeit = zeit - 1.0 / 60;
+   anzeige.showText("Zeit: " + (int) zeit);
+}
+```
+
+:::alert{warn}
+**Achtung, Falle:** Schreibst du `1 / 60` statt `1.0 / 60`, bleibt die Zeit stehen. Warum? Überlege, welchen Datentyp das Ergebnis von `1 / 60` hat.
+:::
+
+Was passiert, wenn die Zeit abgelaufen ist? Im Moment nichts, sie wird einfach negativ. Das änderst du nach dem Kapitel über Kontrollstrukturen.
+
+Aufwand: ★★☆
+
+### Münzen mit Wert
+
+**Im Spiel:** Nicht jede Münze ist gleich viel wert. Es gibt eine Punktzahl statt eines Zählers.
+
+**Dahinter steckt:** eine zweite Variable für den Wert. Wird sie im Lauf des Spiels größer, bringt jede weitere Münze mehr als die davor.
+
+```java
+private int punktzahl = 0;
+private int wert = 10;
+```
+
+```java
+public void wennMuenzeEingesammelt() {
+   punktzahl = punktzahl + wert;
+   wert = wert + 5;
+}
+```
+
+Aufwand: ★☆☆
+
+### Stoppuhr
+
+**Im Spiel:** Statt eines Countdowns misst das Spiel, wie lange du brauchst, auf eine Zehntelsekunde genau.
+
+**Dahinter steckt:** eine `double`-Variable, die in `run()` wächst. Für eine Nachkommastelle rechnest du um: `(int) (zeit * 10) / 10.0`. Probiere aus, was ohne das `.0` passiert.
+
+Aufwand: ★★☆
+
+### Ein Name für die Heldin oder den Helden
+
+**Im Spiel:** Die Anzeige nennt die Figur beim Namen: „Lea hat 3 Münzen.“
+
+**Dahinter steckt:** eine Variable vom Typ `String`. Mit den Methoden aus [Zeichenketten](../../oberstufe/oop/01-grundlagen/02-variablen-und-datentypen/04-zeichenketten) machst du mehr daraus, zum Beispiel `name.toUpperCase()` für einen Schlachtruf oder `name.charAt(0)` für ein Kürzel.
+
+```java
+private String name = "Lea";
+```
+
+Aufwand: ★☆☆
+
+### Tempo
+
+**Im Spiel:** Die Figur ist schneller oder langsamer als im Startgerüst.
+
+**Dahinter steckt:** Der `Spieler` hat eine Methode `setTempo`. Sie legt fest, wie viele Pixel er in jedem Bild geht. Probiere Werte zwischen 1 und 8 aus. Was passiert bei 20?
+
+```java
+held.setTempo(5);
+```
+
+Aufwand: ★☆☆
+
+## Deine eigene Idee
+
+Was soll sich dein Spiel noch merken? Ein Kontostand im Laden, die Zahl der Schritte, der Name des Levels? Lege eine Variable dafür an, wähle den passenden Datentyp und zeige sie an.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Welche Variablen hat dein Spiel jetzt? Begründe für **eine** davon, warum du genau diesen Datentyp gewählt hast und was mit einem anderen schiefgegangen wäre.
+:::
+
+## Checkpoint
+
+Der Checkpoint nach diesem Kapitel zählt die Münzen und lässt einen Countdown von 30 Sekunden laufen. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Variablen (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-02-variablen.json"}
+
+:archive[Checkpoint: Variablen (Projekt für den Rechner)]{name="spielwerkstatt-ef-02-variablen"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

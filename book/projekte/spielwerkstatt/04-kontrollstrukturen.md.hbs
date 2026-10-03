@@ -1,0 +1,177 @@
+---
+name: Kontrollstrukturen im Spiel
+index: 4
+lang: de
+permaid: spielwerkstatt-kontrollstrukturen
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - verzweigung
+  - schleife
+---
+
+# Kontrollstrukturen im Spiel
+
+Im Kapitel [Kontrollstrukturen](../../oberstufe/oop/01-grundlagen/03-kontrollstrukturen) hast du gelernt, wie ein Programm Entscheidungen trifft und Dinge wiederholt. Ohne das gibt es kein Spiel: Erst eine Verzweigung entscheidet, ob du gewonnen hast. Und wer eine Mauer aus zwanzig Steinen baut, schreibt nicht zwanzigmal dieselben vier Zeilen.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- **Verzweigung:** Wann soll etwas passieren, und wann nicht?
+- **Schleife:** Was kommt in deinem Spiel viele Male vor, nur an einer anderen Stelle?
+:::
+
+## Mechaniken
+
+Such dir mindestens eine Mechanik mit einer **Verzweigung** und eine mit einer **Schleife** aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Gewinnen und verlieren
+
+**Im Spiel:** Sind alle Münzen eingesammelt, steht da „Gewonnen!“. Ist vorher die Zeit um, ist das Spiel verloren. In beiden Fällen bleibt die Figur stehen.
+
+**Dahinter steckt:** eine Verzweigung mit `else if` in `run()`. Damit `run()` die Figur anhalten kann, muss die Welt sie kennen. `held` wird deshalb eine Variable oben in der Klasse, wie `punkte`. Eine Variable vom Typ `boolean` merkt sich, ob das Spiel noch läuft.
+
+```java
+private boolean laeuft = true;
+private Spieler held;
+```
+
+```java
+public void run() {
+   if (laeuft) {
+      zeit = zeit - 1.0 / 60;
+      if (punkte == anzahlMuenzen) {
+         laeuft = false;
+         held.setTempo(0);
+         anzeige.showText("Gewonnen!");
+      } else if (zeit <= 0) {
+         laeuft = false;
+         held.setTempo(0);
+         anzeige.showText("Die Zeit ist um!");
+      } else {
+         anzeige.showText("Münzen: " + punkte + "   Zeit: " + (int) zeit);
+      }
+   }
+}
+```
+
+Wie viele Münzen es gibt, zählst du im Konstruktor mit: Nach jedem `this.add(m)` für eine Münze kommt `anzahlMuenzen = anzahlMuenzen + 1;`.
+
+Aufwand: ★★☆
+
+### Ein Rahmen aus Steinen
+
+**Im Spiel:** Eine Mauer rund um die Wiese, damit niemand aus dem Bild läuft.
+
+**Dahinter steckt:** eine Zählschleife, die in Schritten von 48 Pixeln über die Breite läuft, denn so breit ist ein Stein auf der Bühne. Oben und unten kommt in jedem Durchlauf je ein Stein dazu, links und rechts genauso mit einer zweiten Schleife.
+
+```java
+for (int x = -360; x <= 360; x = x + 48) {
+   Hindernis oben = new Hindernis();
+   oben.addCostume("stein", "assets/backgrounds/tilesets/tileset-dungeon.png", 128, 48, 16, 16);
+   oben.setPosition(x, 192);
+   this.add(oben);
+   // unten genauso, mit y = -192
+}
+```
+
+Aufwand: ★☆☆
+
+### Münzreihen und Münzfelder
+
+**Im Spiel:** Münzen liegen in einer Reihe, in einem Rechteck oder als Treppe.
+
+**Dahinter steckt:** für eine Reihe eine Schleife, für ein Rechteck zwei verschachtelte Schleifen, wie beim [Punktegitter](../../oberstufe/oop/01-grundlagen/03-kontrollstrukturen/06-verschachtelte-schleifen). Für eine Treppe hängt die Grenze der inneren Schleife von der äußeren ab.
+
+Aufwand: ★★☆
+
+### Ein Wald mit Lichtungen
+
+**Im Spiel:** Ein ganzer Wald aus Bäumen, durch den nur ein schmaler Weg führt.
+
+**Dahinter steckt:** verschachtelte Schleifen über Zeilen und Spalten. Eine Verzweigung lässt an bestimmten Stellen eine Lücke, zum Beispiel `if (spalte != 5)` für einen Weg, oder `if ((zeile + spalte) % 3 != 0)` für ein Muster aus Lichtungen.
+
+Aufwand: ★★★
+
+### Bonus für Schnelle
+
+**Im Spiel:** Wer alle Münzen hat **und** noch mehr als 20 Sekunden übrig, bekommt einen Stern.
+
+**Dahinter steckt:** ein [logischer Ausdruck](../../oberstufe/oop/01-grundlagen/03-kontrollstrukturen/02-logische-ausdruecke) mit `&&`. Schreibe die Bedingung vorher als Satz auf. Welche Fälle gibt es, und welcher bekommt welche Meldung?
+
+Aufwand: ★☆☆
+
+### Die Zeit wird knapp
+
+**Im Spiel:** In den letzten zehn Sekunden wird die Anzeige rot.
+
+**Dahinter steckt:** eine Verzweigung in `run()`, die die Farbe wechselt: `anzeige.setTextColor(255, 80, 80);`. Wer mag, lässt sie blinken. Dafür brauchst du die ganzen Sekunden und den Rest bei der Division durch 2.
+
+Aufwand: ★☆☆
+
+### Schwierigkeitsstufen
+
+**Im Spiel:** Oben in `Welt` steht eine Stufe von 1 bis 3. Je höher, desto weniger Zeit und desto langsamer die Figur.
+
+**Dahinter steckt:** eine `switch`-Anweisung im Konstruktor, die je nach Stufe `zeit` und das Tempo setzt.
+
+Aufwand: ★★☆
+
+### Am Rand hinaus, auf der anderen Seite herein
+
+**Im Spiel:** Wer rechts aus dem Bild läuft, kommt links wieder herein, wie bei Pac-Man. Die Welt hat keinen Rand mehr.
+
+**Dahinter steckt:** eine Verzweigung in `run()`, die die Position des Spielers prüft. Die Bühne reicht von −384 bis 384 und von −216 bis 216.
+
+```java
+if (held.getX() > 384) {
+   held.setX(-384);
+} else if (held.getX() < -384) {
+   held.setX(384);
+}
+```
+
+Oben und unten geht es genauso. Das klappt nur ohne Steinrahmen, oder mit einer Lücke darin.
+
+Aufwand: ★☆☆
+
+### Ein Zauber, der nachlässt
+
+**Im Spiel:** Eine besondere Münze macht die Figur zehn Sekunden lang schneller. Danach läuft sie wieder normal. Ebenso denkbar: zehn Sekunden unverwundbar, oder vergiftet und langsam.
+
+**Dahinter steckt:** ein **Statuseffekt**. Eine Variable zählt, wie lange er noch wirkt, und `run()` zieht in jedem Bild etwas ab. Eine Verzweigung entscheidet, ob er noch wirkt.
+
+```java
+private double eileNoch = 0;
+```
+
+```java
+if (eileNoch > 0) {
+   eileNoch = eileNoch - 1.0 / 60;
+   held.setTempo(6);
+} else {
+   held.setTempo(3);
+}
+```
+
+Gestartet wird der Effekt mit `eileNoch = 10;`, zum Beispiel wenn eine bestimmte Münze eingesammelt wird.
+
+Aufwand: ★★☆
+
+## Deine eigene Idee
+
+Wo soll dein Spiel eine Entscheidung treffen? Was kommt viele Male vor? Vielleicht ein Zaun, eine Allee, ein Schachbrettboden aus zwei Kacheln oder eine Meldung, wenn die Hälfte der Münzen gefunden ist.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Zeichne ein [Struktogramm](../../oberstufe/oop/01-grundlagen/03-kontrollstrukturen/07-struktogramme) für deinen Block `run()`. Erkläre an einer Stelle, warum du dort `else if` geschrieben hast und nicht zwei einzelne `if`, oder umgekehrt.
+:::
+
+## Checkpoint
+
+Der Checkpoint nach diesem Kapitel hat einen Rahmen aus Steinen, eine Münzreihe aus einer Schleife, und er erkennt Gewinnen und Verlieren. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Kontrollstrukturen (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-03-kontrollstrukturen.json"}
+
+:archive[Checkpoint: Kontrollstrukturen (Projekt für den Rechner)]{name="spielwerkstatt-ef-03-kontrollstrukturen"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

@@ -1,0 +1,147 @@
+---
+name: Felder, Referenzen und Generik im Spiel
+index: 11
+lang: de
+permaid: spielwerkstatt-referenzen
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - zweidimensionale felder
+  - referenzen
+---
+
+# Felder, Referenzen und Generik im Spiel
+
+Im Kapitel [Felder, Referenzen und Generik](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik) hast du zweidimensionale Felder kennengelernt und gesehen, dass Variablen von Objekttypen **Verweise** speichern, keine Objekte. Ein Spiel auf einem Raster ist dafür das ideale Versuchsfeld: Das Level ist eine Fläche, und jedes Ding darauf steht sowohl auf der Bühne als auch im Feld.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Was in deinem Spiel ist eine **Fläche** aus Zeilen und Spalten?
+- Wo zeigen **zwei Stellen** auf dasselbe Objekt, und was passiert, wenn sich nur eine davon ändert?
+:::
+
+## Woran es hakt
+
+Seit den Feldern in der Einführungsphase entsteht die Welt aus einem Plan. Danach vergisst das Spiel aber, was wo liegt. Fragen wie *Was liegt links von mir?* oder *Ist dieses Feld frei?* lassen sich nur beantworten, indem man **alle** Objekte durchsucht und ihre Koordinaten vergleicht. Ein zweidimensionales Feld beantwortet sie mit einem einzigen Zugriff.
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Das Gitter neben der Bühne
+
+**Im Spiel:** nichts Neues zu sehen, aber das Spiel weiß jetzt, was wo liegt.
+
+**Dahinter steckt:** ein [zweidimensionales Feld](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/01-zweidimensionale-felder) mit derselben Größe wie der Plan. Beim Aufbau kommt jeder Gegenstand auf die Bühne **und** ins Gitter. Auf einem leeren Feld steht `null`.
+
+```java
+private Gegenstand[][] gegenstaende = new Gegenstand[plan.length][plan[0].length()];
+```
+
+```java
+private void setzeGegenstand(Gegenstand pGegenstand, int pZeile, int pSpalte) {
+   pGegenstand.setFeld(pZeile, pSpalte);
+   gegenstaende[pZeile][pSpalte] = pGegenstand;
+   this.setze(pGegenstand, this.zuX(pSpalte), this.zuY(pZeile));
+}
+```
+
+Aufwand: ★★☆
+
+### Der Fehler, den man nicht sieht
+
+**Im Spiel:** Eine eingesammelte Münze ist von der Bühne verschwunden. Fragt man das Gitter, ist sie noch da.
+
+**Dahinter steckt:** [Referenzen](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/02-referenzen). Nach dem Aufbau zeigen zwei Stellen auf dasselbe Objekt: die Bühne und `gegenstaende[z][s]`. `remove()` löscht nur den Verweis der Bühne. Das Objekt selbst lebt weiter, solange das Gitter darauf zeigt. Deshalb gibt es eine Methode, die **beide** Verweise entfernt:
+
+```java
+public void entferne(Gegenstand pGegenstand) {
+   pGegenstand.remove();
+   gegenstaende[pGegenstand.getZeile()][pGegenstand.getSpalte()] = null;
+}
+```
+
+Probiere es aus: Nimm die zweite Zeile heraus und lass dir nach jedem Einsammeln zählen, wie viele Münzen das Gitter noch kennt.
+
+Aufwand: ★★☆
+
+### Versteckte Fallen
+
+**Im Spiel:** Fallen sind unsichtbar. Erst wer direkt danebensteht, sieht sie.
+
+**Dahinter steckt:** In jedem Bild rechnet die Welt aus, in welcher Zeile und Spalte der Spieler steht, und fragt die acht Nachbarfelder im Gitter. Jeder Gegenstand dort bekommt `inDerNaehe()` aufgerufen. Die meisten tun nichts, die Falle zeigt sich. Achte auf den Rand: Zeile `-1` gibt es nicht.
+
+```java
+for (int z = zeile - 1; z <= zeile + 1; z++) {
+   for (int s = spalte - 1; s <= spalte + 1; s++) {
+      boolean imGitter = z >= 0 && z < gegenstaende.length && s >= 0 && s < gegenstaende[z].length;
+      if (imGitter && gegenstaende[z][s] != null) {
+         gegenstaende[z][s].inDerNaehe();
+      }
+   }
+}
+```
+
+Aufwand: ★★☆
+
+### Nebel über dem Unerforschten
+
+**Im Spiel:** Am Anfang liegt über allem dunkler Nebel. Wo der Spieler gewesen ist, lichtet er sich und bleibt licht.
+
+**Dahinter steckt:** ein Feld `boolean[][] erkundet` und ein zweites Feld mit dunklen Kacheln. Steht der Spieler auf einem Feld, wird es mit seinen Nachbarn erkundet, und die Nebelkacheln dort verschwinden.
+
+Aufwand: ★★★
+
+### Eine Karte in der Ecke
+
+**Im Spiel:** Oben rechts zeigt eine kleine Karte das ganze Level, mit einem Punkt für den Spieler.
+
+**Dahinter steckt:** derselbe Plan noch einmal, aber mit Kacheln, die nur ein paar Pixel groß sind. Für den Punkt rechnest du die Position des Spielers in Zeile und Spalte um.
+
+Aufwand: ★★☆
+
+### Ein Level, das sich zurücksetzen lässt
+
+**Im Spiel:** Ein Schalter verändert das Level, Steine verschwinden, Wege öffnen sich. Eine neue Runde stellt den Anfangszustand wieder her.
+
+**Dahinter steckt:** eine Kopie des Plans beim Start. Ob eine Zuweisung `kopie = plan;` reicht, ob du eine [flache oder eine tiefe Kopie](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/02-referenzen) brauchst, und warum Zeichenketten hier gutmütig sind, ist die eigentliche Aufgabe.
+
+Aufwand: ★★★
+
+### Ein Beutel für alles
+
+**Im Spiel:** Eine Truhe enthält einen Gegenstand, ein Händler verkauft eine Ware, eine Belohnung kann Münzen, Herzen oder Schlüssel sein.
+
+**Dahinter steckt:** eine [generische Klasse](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/04-generische-klassen) `Beutel<T>`, die einen Inhalt beliebigen Typs aufnimmt. Derselbe Code dient für `Beutel<Muenze>` und `Beutel<Herz>`, und der Übersetzer passt auf, dass niemand ein Herz aus einem Münzbeutel holt.
+
+Aufwand: ★★☆
+
+## Und ohne Spiel?
+
+| Im Spiel | In den Aufgaben des Kapitels |
+| --- | --- |
+| Plan aus Zeichen → Gitter aus Verweisen | Sitzplan, Spielbrett, Pixelbild |
+| `gegenstaende[z][s] == null` | „auf diesem Platz sitzt niemand“ |
+| Bühne und Gitter laufen auseinander | zwei Variablen zeigen auf dasselbe Feld, eine ändert es |
+| `gegenstaende[z].length` statt `gegenstaende[0].length` | das pascalsche Dreieck mit verschieden langen Zeilen |
+
+**Ein zweidimensionales Feld speichert Verweise.** Wer das einmal an einer verschwundenen Münze gesehen hat, sucht den Fehler in der Klausur nicht mehr im Algorithmus.
+
+## Deine eigene Idee
+
+Was in deinem Spiel liegt auf einem Raster? Welche Frage würde dein Spiel gern stellen, die bisher eine Schleife über alle Objekte braucht?
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Zeichne für einen Moment in deinem Spiel auf, worauf die Bühne und das Gitter verweisen, als Speicherbild wie im Abschnitt [Kellerstapel und Halde](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/03-kellerstapel-und-halde). Markiere die Stelle, an der ein Verweis vergessen werden kann.
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel liegen alle Gegenstände zusätzlich in einem Gitter `Gegenstand[][]`. Eingesammeltes wird aus beiden entfernt, und Fallen sind versteckt, bis der Spieler danebensteht. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Felder, Referenzen und Generik (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-02-felder-und-referenzen.json"}
+
+:archive[Checkpoint: Felder, Referenzen und Generik (Projekt für den Rechner)]{name="spielwerkstatt-q-02-felder-und-referenzen"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

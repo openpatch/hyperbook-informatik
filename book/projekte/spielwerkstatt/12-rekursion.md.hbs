@@ -1,0 +1,133 @@
+---
+name: Rekursion im Spiel
+index: 12
+lang: de
+permaid: spielwerkstatt-rekursion
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - rekursion
+  - backtracking
+---
+
+# Rekursion im Spiel
+
+Im Kapitel [Rekursion und Problemlösestrategien](../../oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien) hast du Probleme gelöst, indem du sie auf ein kleineres Problem derselben Art zurückgeführt hast. In einem Spiel auf einem Raster begegnen dir solche Probleme ständig, denn jedes Feld hat Nachbarn, und die haben wieder Nachbarn.
+
+:::snippet{#merken}
+**Die Leitfrage für dein Spiel:** Gibt es eine Frage, die schwer für das **ganze Level** ist, aber leicht für **ein einziges Feld**, wenn man die Antwort für seine Nachbarn schon kennt?
+:::
+
+## Woran es hakt
+
+Ein Level mit Mauern hat ein Problem, das ein Level ohne Mauern nicht hat: Man kann Münzen an Stellen legen, an die **niemand hinkommt**. Bei 16 mal 9 Feldern sieht man das noch mit dem Auge. Bei einem größeren Level, und erst recht bei einem, das der Rechner selbst erzeugt, hilft Hinsehen nicht mehr. Das Programm muss die Frage selbst beantworten:
+
+> Welche Felder kann der Spieler vom Start aus erreichen?
+
+Für das ganze Level ist das schwer. Für ein Feld ist es leicht: *Ein Feld ist erreichbar, wenn ich darauf stehe. Dann sind auch alle Nachbarn erreichbar, die keine Mauer sind.*
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Kommt man da überhaupt hin?
+
+**Im Spiel:** Münzen hinter Mauern werden blass und zählen nicht mit. Das Spiel lässt sich immer gewinnen.
+
+**Dahinter steckt:** eine [Rekursion](../../oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/01-rekursion), die vom Startfeld aus alle erreichbaren Felder markiert, die **Flutfüllung**. Drei Basisfälle beenden sie: außerhalb des Plans, eine Mauer, schon markiert.
+
+```java
+private void markiere(int pZeile, int pSpalte) {
+   if (pZeile < 0 || pZeile >= plan.length || pSpalte < 0 || pSpalte >= plan[pZeile].length()) {
+      return;
+   }
+   if (this.istMauer(plan[pZeile].charAt(pSpalte)) || erreichbar[pZeile][pSpalte]) {
+      return;
+   }
+   erreichbar[pZeile][pSpalte] = true;
+   this.markiere(pZeile - 1, pSpalte);
+   this.markiere(pZeile + 1, pSpalte);
+   this.markiere(pZeile, pSpalte - 1);
+   this.markiere(pZeile, pSpalte + 1);
+}
+```
+
+Was passiert ohne den Basisfall „schon markiert“? Überlege es dir, bevor du es ausprobierst.
+
+Ein Haken: Bäume und Felsen sind auf der Bühne größer als ein Feld des Plans. Die Flutfüllung hält ein Feld neben einem Baum für frei, obwohl man dort vielleicht hängen bleibt. Wie würdest du das lösen?
+
+Aufwand: ★★☆
+
+### Eine Kettenreaktion
+
+**Im Spiel:** Ein Fass explodiert und reißt alle Fässer auf den Nachbarfeldern mit, und die wieder ihre Nachbarn.
+
+**Dahinter steckt:** dieselbe Rekursion wie bei der Flutfüllung, nur dass sie an Fässern entlangläuft statt an freien Feldern. Mit dem Gitter aus dem vorigen Kapitel siehst du sofort, was auf einem Nachbarfeld liegt.
+
+Aufwand: ★★☆
+
+### Felder aufdecken wie bei Minesweeper
+
+**Im Spiel:** Der Boden ist verdeckt. Betritt man ein Feld ohne Falle in der Nähe, deckt sich die ganze zusammenhängende sichere Fläche auf.
+
+**Dahinter steckt:** Rekursion mit einer Bedingung: Ein Feld deckt seine Nachbarn nur auf, wenn um es herum keine Falle liegt. Sonst zeigt es die Zahl der Fallen und hört auf.
+
+Aufwand: ★★★
+
+### Ein Dungeon aus geteilten Räumen
+
+**Im Spiel:** Bei jedem Start sieht der Dungeon anders aus: Räume verschiedener Größe, durch Türen verbunden.
+
+**Dahinter steckt:** [Teilen und Herrschen](../../oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/02-teilen-und-herrschen). Ein großer Raum wird durch eine Mauer mit einer Tür in zwei kleinere geteilt, und jeder davon wieder, bis die Räume klein genug sind.
+
+Aufwand: ★★★
+
+### Ein Labyrinth, das sich selbst baut
+
+**Im Spiel:** Ein zufälliges Labyrinth mit genau einem Weg zwischen je zwei Feldern.
+
+**Dahinter steckt:** [Backtracking](../../oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/03-backtracking). Von einem Feld aus wird ein zufälliger, noch unbesuchter Nachbar gewählt, die Mauer dazwischen eingerissen und von dort weitergemacht. Gibt es keinen unbesuchten Nachbarn mehr, geht es einen Schritt zurück.
+
+*(Nur Leistungskurs.)*
+
+Aufwand: ★★★
+
+### Der Weg zum Schatz
+
+**Im Spiel:** Ein Hinweis-Pfeil oder eine Spur aus Leuchtpunkten zeigt einen Weg vom Spieler zum Schatz.
+
+**Dahinter steckt:** Backtracking auf dem Gitter. Ein Weg wird Feld für Feld verlängert. Endet er in einer Sackgasse, wird der letzte Schritt zurückgenommen und eine andere Richtung versucht.
+
+*(Nur Leistungskurs.)*
+
+Aufwand: ★★★
+
+## Und ohne Spiel?
+
+| Im Spiel | Woanders derselbe Algorithmus |
+| --- | --- |
+| erreichbare Felder markieren | Farbeimer in einem Malprogramm |
+| eingemauerte Münze finden | zusammenhängende Gebiete auf einer Landkarte |
+| „war ich hier schon?“ | besuchte Knoten bei der Tiefensuche im Graphen |
+| Basisfall am Rand des Plans | Abbruch am Rand jedes rekursiven Durchlaufs |
+
+Wenn du später Graphen durchläufst, wirst du die Flutfüllung wiedererkennen. Dort heißen die Felder Knoten und die Nachbarn Kanten.
+
+## Deine eigene Idee
+
+Wo hat dein Spiel etwas, das sich ausbreitet, verzweigt oder in kleinere Teile derselben Art zerfällt? Feuer, Wasser, Höhlen, Stammbäume, Kettenreaktionen?
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Schreibe für deine rekursive Methode die beiden Sätze auf: „Der Basisfall ist …“ und „Sonst gilt: …“. Begründe, warum die Rekursion in deinem Level auf jeden Fall endet.
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel markiert eine Flutfüllung alle erreichbaren Felder. Eine Münze liegt eingemauert in der Ecke unten rechts. Sie ist blass und zählt nicht mit. Wie du den Checkpoint lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Rekursion (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-03-rekursion.json"}
+
+:archive[Checkpoint: Rekursion (Projekt für den Rechner)]{name="spielwerkstatt-q-03-rekursion"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

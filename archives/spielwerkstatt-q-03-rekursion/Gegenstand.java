@@ -1,0 +1,1 @@
+../spielwerkstatt-q-02-felder-und-referenzen/Gegenstand.java

@@ -1,0 +1,129 @@
+---
+name: Testen und Laufzeit im Spiel
+index: 16
+lang: de
+permaid: spielwerkstatt-testen
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - testen
+  - laufzeit
+---
+
+# Testen und Laufzeit im Spiel
+
+Im Kapitel [Testen und Laufzeit](../../oberstufe/oop/02-erweiterungen/07-testen-und-laufzeit) hast du gelernt, Programme systematisch zu prüfen und abzuschätzen, was sie kosten. Ein Spiel scheint dafür schlecht geeignet: Man testet es, indem man es spielt. Genau das ist das Problem.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Welche **Regel** in deinem Spiel ließe sich prüfen, ohne dass jemand eine Taste drückt?
+- Was macht dein Spiel **in jedem Bild**, und wie wächst der Aufwand, wenn es mehr Figuren werden?
+:::
+
+## Woran es hakt
+
+Eine Punkteregel, wie sie in vielen Spielen steht: Wer mehrere Münzen hintereinander einsammelt, bekommt einen **Kombo-Bonus**. Ab der dritten Münze in Folge zählt jede doppelt, ab der sechsten dreifach. Ein Treffer setzt die Kombo zurück.
+
+Steht diese Regel mitten in `Welt` oder im `Spieler`, lässt sie sich nur prüfen, indem man spielt: sechs Münzen einsammeln, ohne getroffen zu werden, und dann nachrechnen. Bei jeder Änderung von vorn. Und ob die Grenze bei der dritten oder der vierten Münze liegt, merkt man dabei kaum.
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Eine Regel ohne Bühne
+
+**Im Spiel:** eine Punktzahl mit Kombo-Bonus und der Anzeige der aktuellen Kombo.
+
+**Dahinter steckt:** Die Regel braucht keine Grafik, sie braucht nur zu wissen, was passiert ist. Also bekommt sie eine eigene Klasse ohne jede Verbindung zur Bühne. Eine Klasse, die nur rechnet und nichts anzeigt, ist ohne Umgebung lauffähig und deshalb ohne Umgebung prüfbar. Die `Welt` meldet ihr nur noch `treffer(10)` und `fehler()`.
+
+```java
+public class Punkteregel {
+   public void treffer(int pGrundwert) {
+      kombo = kombo + 1;
+      punkte = punkte + pGrundwert * this.faktor();
+   }
+   // ...
+}
+```
+
+Aufwand: ★★☆
+
+### Tests, die in einer Sekunde laufen
+
+**Im Spiel:** nichts zu sehen. Aber im Reiter **Testrunner** unter dem Editor stehen vier grüne Haken.
+
+**Dahinter steckt:** eine [Testklasse](../../oberstufe/oop/02-erweiterungen/07-testen-und-laufzeit/01-systematisch-testen), die die Regel nach dem Muster Vorbereiten, Ausführen, Vergleichen prüft. Der Kern sind die **Grenzen**: 2 → 3 und 5 → 6. Genau dort stehen die `>=`-Vergleiche, und genau dort passieren die Fehler. Teste immer beide Seiten einer Grenze, den letzten Fall davor und den ersten danach.
+
+```java
+@Test
+void grenzeZumDoppelten() {
+   Punkteregel r = new Punkteregel();
+   r.treffer(10);
+   r.treffer(10);
+   assertEquals(20, r.getPunkte(), "Der zweite Treffer zählt noch einfach.");
+   r.treffer(10);
+   assertEquals(40, r.getPunkte(), "Der dritte Treffer zählt doppelt: 20 + 20.");
+}
+```
+
+Aufwand: ★★☆
+
+### Eine Testliste fürs Spielen
+
+**Im Spiel:** nichts zu sehen, aber weniger Überraschungen bei der Vorstellung.
+
+**Dahinter steckt:** Was sich nicht automatisch prüfen lässt, prüfst du nach einer Liste. Sie enthält vor allem die **Sonderfälle**: Was passiert am Rand? Wenn zwei Gegner gleichzeitig treffen? Wenn das letzte Leben genau beim letzten Einsammeln verloren geht? Wenn man die Leertaste mitten im Spiel drückt?
+
+Aufwand: ★☆☆
+
+### Was kostet die Kollisionsprüfung?
+
+**Im Spiel:** Mit 5 Gegnern läuft alles flüssig, mit 200 ruckelt es.
+
+**Dahinter steckt:** Jeder Gegner prüft in jedem Bild, ob er ein Hindernis berührt. Fragt jeder jeden, sind das bei *n* Figuren etwa *n*² Vergleiche, 60-mal in der Sekunde. Mit dem Gitter aus dem Kapitel über Felder fragt jeder nur noch seine Nachbarfelder: eine feste Zahl von Zugriffen, egal wie groß das Level ist. Schätze für dein Spiel ab, wie viele Vergleiche ein Bild kostet.
+
+Aufwand: ★★★
+
+### Die Flutfüllung testen
+
+**Im Spiel:** nichts zu sehen. Aber du weißt sicher, dass die eingemauerte Münze erkannt wird, auch in Plänen, die du nie gespielt hast.
+
+**Dahinter steckt:** dieselbe Trennung wie bei der Punkteregel. Eine Klasse `Karte` bekommt den Plan als Feld von Zeichenketten und beantwortet `istErreichbar(zeile, spalte)`, ganz ohne Bühne. Die Tests prüfen kleine, von Hand gebaute Pläne: ein offener Raum, eine eingemauerte Ecke, ein Start direkt neben der Mauer.
+
+*(Nur Leistungskurs.)*
+
+Aufwand: ★★★
+
+## Und ohne Spiel?
+
+| Im Spiel | Dieselbe Einsicht woanders |
+| --- | --- |
+| Punkteregel aus dem Sprite herauslösen | Geschäftslogik von der Benutzeroberfläche trennen |
+| Grenzen 2 → 3 und 5 → 6 prüfen | Notengrenzen, Rabattstufen, Altersgrenzen |
+| „das teste ich, indem ich es spiele“ | „das teste ich, indem ich es benutze“ |
+| jeder gegen jeden | jeder Datensatz gegen jeden anderen beim Abgleich |
+
+**Schlecht testbarer Code ist fast immer schlecht entworfener Code.** Wenn ein Test unmöglich erscheint, liegt es selten am Test.
+
+## Deine eigene Idee
+
+Welche Regel in deinem Spiel rechnet etwas aus, ohne etwas anzuzeigen? Preise im Laden, Schaden im Kampf, Erfahrungspunkte, Stufenaufstiege? Löse sie heraus und teste sie.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Welche Klasse deines Spiels hast du getestet? Liste deine Testfälle auf und markiere, welche davon Grenzfälle sind. Welchen Fehler hätte jeder einzelne gefunden?
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel rechnet die Klasse `Punkteregel` die Punktzahl mit Kombo-Bonus aus, und `PunkteregelTest` prüft sie mit vier Tests. Starte sie über den Reiter **Testrunner**. Wie du den Checkpoint lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:::alert{info}
+Die Testklasse ist im Format der Online-IDE geschrieben. Auf dem Rechner brauchst du JUnit, das zum Beispiel BlueJ schon mitbringt. Entferne dort das `@Test` vor `class PunkteregelTest`.
+:::
+
+:download[Checkpoint: Testen (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-07-testen.json"}
+
+:archive[Checkpoint: Testen (Projekt für den Rechner)]{name="spielwerkstatt-q-07-testen"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

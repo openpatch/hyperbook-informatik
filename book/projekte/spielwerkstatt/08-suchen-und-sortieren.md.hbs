@@ -1,0 +1,116 @@
+---
+name: Suchen und Sortieren im Spiel
+index: 8
+lang: de
+permaid: spielwerkstatt-suchen-sortieren
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - sortieren
+  - suchen
+---
+
+# Suchen und Sortieren im Spiel
+
+Im Kapitel [Algorithmen: Suchen und Sortieren](../../oberstufe/oop/01-grundlagen/07-algorithmen-suchen-und-sortieren) hast du gelernt, wie man in einem Feld etwas findet und wie man es ordnet. Spiele suchen und sortieren ständig: Welcher Gegner ist am nächsten? Welche Zeit war die beste? In welcher Reihenfolge stehen die Sachen im Rucksack?
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Wo muss dein Spiel unter vielen Dingen **eins finden**, das am nächsten, das stärkste oder das mit einem bestimmten Namen?
+- Wo soll etwas **geordnet** angezeigt werden?
+:::
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Neue Runde
+
+**Im Spiel:** Nach dem Ende startet die Leertaste eine neue Runde: alle Münzen zurück, Zeit und Leben voll, Figur an den Start.
+
+**Dahinter steckt:** noch kein Suchen oder Sortieren, aber die Voraussetzung für die Bestenliste. `whenKeyPressed` der Welt reagiert auf die Leertaste. `this.remove(Muenze.class)` nimmt alle übrigen Münzen von der Bühne, dann legt eine Methode sie neu aus dem Plan.
+
+```java
+public void whenKeyPressed(KeyCode pTaste) {
+   if (pTaste == KeyCode.SPACE && !laeuft) {
+      this.neueRunde();
+   }
+}
+```
+
+Aufwand: ★★☆
+
+### Eine Bestenliste
+
+**Im Spiel:** Rechts oben stehen die fünf schnellsten Zeiten, die beste zuerst.
+
+**Dahinter steckt:** ein Feld, das immer sortiert bleibt. Kommt eine neue Zeit dazu, rücken alle langsameren eine Stelle nach hinten, und die neue kommt in die Lücke. Das ist genau ein Schritt von [Sortieren durch Einfügen](../../oberstufe/oop/01-grundlagen/07-algorithmen-suchen-und-sortieren/05-sortieren-durch-einfuegen).
+
+```java
+private double[] bestzeiten = new double[5];
+private int anzahlBestzeiten = 0;
+```
+
+```java
+int i = anzahlBestzeiten;
+while (i > 0 && bestzeiten[i - 1] > pSekunden) {
+   bestzeiten[i] = bestzeiten[i - 1];
+   i = i - 1;
+}
+bestzeiten[i] = pSekunden;
+```
+
+Was passiert, wenn die Liste voll ist und eine sechste Zeit kommt? Im Checkpoint siehst du eine Lösung.
+
+Aufwand: ★★☆
+
+### Ein Kompass
+
+**Im Spiel:** Ein Pfeil oder ein Text zeigt die Richtung zur nächsten Münze.
+
+**Dahinter steckt:** eine [lineare Suche](../../oberstufe/oop/01-grundlagen/07-algorithmen-suchen-und-sortieren/02-lineare-suche) nach dem kleinsten Abstand. Dafür müssen die Münzen in einem Feld `Muenze[]` liegen. Bereits eingesammelte überspringst du. Ob eine Münze noch auf der Bühne ist, verrät dir `m.getStage() != null`.
+
+Aufwand: ★★★
+
+### Der nächste Gegner greift an
+
+**Im Spiel:** Von mehreren Gegnern wird nur der nächste aktiv und läuft auf dich zu, die anderen bleiben stehen.
+
+**Dahinter steckt:** dieselbe Suche nach dem kleinsten Abstand, diesmal in einem Feld von Gegnern. Der gefundene Gegner bekommt Tempo, alle anderen Tempo 0.
+
+Aufwand: ★★★
+
+### Ein sortierter Rucksack
+
+**Im Spiel:** Eingesammelte Gegenstände stehen am unteren Rand, alphabetisch oder nach Wert geordnet.
+
+**Dahinter steckt:** ein Feld von Namen und ein Sortierverfahren deiner Wahl. Zum Vergleichen von Zeichenketten gibt es `a.compareTo(b)`. Das Ergebnis ist negativ, wenn `a` im Alphabet vor `b` kommt.
+
+Aufwand: ★★☆
+
+### Wie schnell ist schnell genug?
+
+**Im Spiel:** nichts zu sehen, solange alles gut geht.
+
+**Dahinter steckt:** `run()` läuft 60-mal in der Sekunde. Sortierst du darin in jedem Bild ein Feld, zählt jeder Vergleich. Wie viele Vergleiche braucht Bubblesort für 10, für 100, für 1000 Einträge? Lies dazu [Wie schnell ist das?](../../oberstufe/oop/01-grundlagen/07-algorithmen-suchen-und-sortieren/06-wie-schnell-ist-das) und überlege, wann es in einem Spiel eng würde.
+
+Aufwand: ★☆☆
+
+## Deine eigene Idee
+
+Wo sucht oder ordnet dein Spiel etwas? Vielleicht eine Rangliste von Monstern nach Stärke, ein Laden, der das billigste Angebot findet, oder ein Schatz, der immer an der Stelle liegt, die am weitesten vom Start entfernt ist.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Welches Such- oder Sortierverfahren steckt in deinem Spiel? Begründe, warum es hier passt. Schätze ab, wie viele Vergleiche es höchstens braucht, und wie oft es läuft: einmal pro Runde oder 60-mal in der Sekunde?
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel startet die Leertaste nach dem Ende eine neue Runde, und eine Bestenliste hält die fünf schnellsten Zeiten sortiert. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Suchen und Sortieren (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-07-suchen-und-sortieren.json"}
+
+:archive[Checkpoint: Suchen und Sortieren (Projekt für den Rechner)]{name="spielwerkstatt-ef-07-suchen-und-sortieren"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

@@ -26,6 +26,6 @@ Programmiert wird direkt im Browser – du musst nichts installieren. Wenn eine 
 2. **[Erweiterungen der Programmierung mit Java](./02-erweiterungen)** – Qualifikationsphase
    Polymorphie und abstrakte Klassen, Rekursion, dynamische Datenstrukturen, effiziente Such- und Sortierverfahren, Laufzeitbetrachtungen.
 
-Neben beiden Lernpfaden läuft die **[Spielwerkstatt](./03-spielwerkstatt)**. Dort baust du über Wochen ein eigenes Spiel und setzt ein, was du in den Lernpfaden lernst.
+Neben beiden Lernpfaden läuft das Projekt **[Spielwerkstatt](/projekte/spielwerkstatt)**. Dort baust du über Wochen ein eigenes Spiel und setzt ein, was du in den Lernpfaden lernst.
 
 Modellierungsdiagramme zum Nachschlagen findest du unter [Objektorientierte Modellierung](../oom).
