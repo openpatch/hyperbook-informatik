@@ -42,10 +42,28 @@ gefressen. Deshalb würfelt eine **fußgesteuerte Schleife** die Position so
 lange neu, bis das Futter den Spieler nicht berührt:
 
 ```java
+int versuche = 0;
 do {
    futter.setPosition(Random.random(-400, 400), Random.random(-300, 300));
-} while (futter.isTouchingSprite(spieler));
+   versuche++;
+} while (futter.isTouchingSprite(spieler) && versuche < MAX_VERSUCHE);
+
+if (futter.isTouchingSprite(spieler)) {
+   futter.remove();
+}
 ```
+
+Warum der Zähler `versuche`? Ohne ihn liefe die Schleife, bis eine freie
+Stelle gefunden ist. Solange dein Donut klein ist, klappt das fast immer
+beim ersten Wurf. Aber er wächst – und irgendwann ist er so groß, dass er die
+ganze Bühne bedeckt. Dann gibt es **keine** freie Stelle mehr, die Schleife
+endet nie, und das Spiel friert ein. Deshalb gibt die Schleife nach
+`MAX_VERSUCHE` Würfen auf, und das Futter kommt wieder von der Bühne.
+
+:::snippet{#merken}
+Eine Schleife, die so lange würfelt, bis sie Glück hat, braucht eine
+**Obergrenze**. Sonst hängt das Programm, sobald es kein Glück mehr geben kann.
+:::
 
 ## Wer frisst wen?
 
@@ -95,6 +113,10 @@ c) Auch das Futter ist ein `Donut` und hat dasselbe `run()`. Was passiert,
 
 d) Lass das Futter alle 200 Millisekunden erscheinen. Wie schnell wächst dein
    Donut jetzt?
+
+e) Setze die Stärke des `SpielerDonut` im Konstruktor auf 250 und starte. Was
+   passiert mit dem Futter? Was wäre ohne die Obergrenze `MAX_VERSUCHE`
+   passiert?
 :::
 
 ::::collapsible{title="Tipp zu c)"}
