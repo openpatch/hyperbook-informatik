@@ -9,7 +9,8 @@ public class Welt extends Stage {
 
    public Welt() {
       this.setColor(250, 245, 235);
-      this.add(new Hintergrund());
+      Gitter gitter = new Gitter(3000);
+      gitter.zeichneAuf(this);
 
       spieler = new SpielerDonut();
       this.add(spieler);
