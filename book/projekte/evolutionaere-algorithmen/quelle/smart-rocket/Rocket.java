@@ -1,3 +1,5 @@
+ 
+
 import org.openpatch.scratch.*;
 
 public class Rocket extends Sprite {
@@ -10,9 +12,9 @@ public class Rocket extends Sprite {
   private Ziel ziel;
 
   public Rocket(Vector2 pPosition, DNA pDna, Ziel pZiel) {
-    this.addCostume("rocket", "fishGreen");
+    this.addCostume("playerShip2_orange");
     this.setPosition(pPosition);
-    this.setHitbox(68, 27, 68, 20, 76, 21, 76, 26);
+    this.setHitbox(51, 40, 51, 24, 61, 24, 61, 40);
     this.beschleunigung = new Vector2();
     this.geschwindigkeit = new Vector2();
     this.dna = pDna;
