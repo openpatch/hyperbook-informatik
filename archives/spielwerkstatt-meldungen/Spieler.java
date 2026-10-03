@@ -1,1 +1,1 @@
-../spielwerkstatt/Spieler.java
+../spielwerkstatt-raumplan/Spieler.java

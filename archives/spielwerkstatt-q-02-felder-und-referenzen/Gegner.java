@@ -1,0 +1,1 @@
+../spielwerkstatt-q-01-objektorientierung/Gegner.java

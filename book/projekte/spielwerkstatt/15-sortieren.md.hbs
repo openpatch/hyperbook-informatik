@@ -1,0 +1,126 @@
+---
+name: Effizient sortieren im Spiel
+index: 15
+lang: de
+permaid: spielwerkstatt-sortieren
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - quicksort
+  - mergesort
+---
+
+# Effizient sortieren im Spiel
+
+Im Kapitel [Suchen und Sortieren](../../oberstufe/oop/02-erweiterungen/06-suchen-und-sortieren) hast du Quicksort und Mergesort kennengelernt, die in der Regel viel schneller sind als die Verfahren aus der Einführungsphase. Im Spiel zeigt sich aber, dass „schneller“ davon abhängt, was man über die Daten weiß.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Wie oft wird sortiert: **einmal**, oder **in jedem Bild**?
+- Wie sehen die Daten aus: **ungeordnet**, oder **fast schon sortiert**?
+- Musst du wirklich alles sortieren, oder brauchst du nur **das eine Größte oder Kleinste**?
+:::
+
+## Woran es hakt
+
+Die Bühne zeichnet ihre Figuren in der Reihenfolge, in der sie hinzugefügt wurden. Für ein Spiel von schräg oben ist das falsch. Was **weiter unten** steht, ist näher am Betrachter und muss **vor** allem anderen gezeichnet werden. Läuft der Spieler hinter einem Baum entlang, muss der Baum ihn verdecken. Läuft er davor, muss er den Baum verdecken.
+
+Solange sich nichts bewegt, fügt man die Figuren einmal in der richtigen Reihenfolge hinzu. Sobald sie sich bewegen, ändert sich die richtige Reihenfolge, und zwar in **jedem Bild**.
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Wer steht vorn?
+
+**Im Spiel:** Der Spieler läuft hinter Bäumen vorbei und vor ihnen entlang, und es sieht richtig aus.
+
+**Dahinter steckt:** ein Feld aller hohen und beweglichen Figuren, das in jedem Bild nach der y-Koordinate sortiert wird. Danach kommt jede Figur der Reihe nach mit `goToFrontLayer()` nach vorn, die unterste zuletzt.
+
+Die Reflexantwort lautet Quicksort. Sie ist hier falsch. Zwischen zwei Bildern vergeht eine Sechzigstelsekunde, und in dieser Zeit überholt kaum eine Figur eine andere. Das Feld ist also **fast sortiert**. Sortieren durch Einfügen braucht dafür nur etwa *n* Vergleiche, weil kaum etwas zu verschieben ist. Quicksort braucht auch dann *n* · log *n*, und mit einem ungünstigen Pivot bei vorsortierten Daten sogar *n*².
+
+```java
+for (int i = 1; i < anzahlFiguren; i++) {
+   Sprite aktuell = figuren[i];
+   int j = i;
+   while (j > 0 && figuren[j - 1].getY() < aktuell.getY()) {
+      figuren[j] = figuren[j - 1];
+      j = j - 1;
+   }
+   figuren[j] = aktuell;
+}
+```
+
+Lass dir zählen, wie viele Verschiebungen in jedem Bild nötig sind. Die Zahl ist fast immer 0.
+
+Aufwand: ★★☆
+
+### Eine große Bestenliste
+
+**Im Spiel:** Nach vielen Runden, oder für eine ganze Klasse, stehen Hunderte Ergebnisse in einer Liste, und am Ende soll man sie sortiert sehen.
+
+**Dahinter steckt:** Hier sieht es anders aus. Die Ergebnisse kommen **ungeordnet**, es sind **viele**, und sortiert wird **einmal**. Das ist genau der Fall, für den [Quicksort](../../oberstufe/oop/02-erweiterungen/06-suchen-und-sortieren/01-quicksort) gebaut ist.
+
+Aufwand: ★★☆
+
+### Auf welchem Platz bin ich?
+
+**Im Spiel:** Nach einer Runde steht nicht nur die Zeit da, sondern auch der Platz in der Bestenliste.
+
+**Dahinter steckt:** In einer sortierten Liste findet die [binäre Suche](../../oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/02-teilen-und-herrschen) die richtige Stelle mit wenigen Vergleichen, statt die ganze Liste durchzugehen.
+
+Aufwand: ★★☆
+
+### Ein Inventar nach zwei Kriterien
+
+**Im Spiel:** Das Inventar ist nach Art sortiert, und innerhalb jeder Art nach Wert.
+
+**Dahinter steckt:** zweimal sortieren, erst nach Wert, dann nach Art. Das klappt nur, wenn das zweite Sortieren die Reihenfolge gleicher Elemente nicht durcheinanderbringt. Ein solches Verfahren heißt **stabil**. [Mergesort](../../oberstufe/oop/02-erweiterungen/06-suchen-und-sortieren/02-mergesort) ist stabil, Quicksort nicht.
+
+Aufwand: ★★★
+
+### Nicht sortieren, wo Suchen reicht
+
+**Im Spiel:** Ein Gegner greift den nächsten Verbündeten des Spielers an.
+
+**Dahinter steckt:** Für den nächsten braucht man keine sortierte Rangliste aller Abstände, sondern nur das **Minimum**. Eine einzige Schleife genügt: *n* Vergleiche statt *n* · log *n*. Die beste Sortierung ist manchmal gar keine.
+
+Aufwand: ★☆☆
+
+### Was kostet ein Bild?
+
+**Im Spiel:** Eine kleine Anzeige zeigt, wie viele Vergleiche dein Spiel im letzten Bild gemacht hat.
+
+**Dahinter steckt:** ein Zähler in jeder Sortier- und Suchmethode. Probiere aus, was passiert, wenn du statt Einfügen ein anderes Verfahren nimmst, und wie sich die Zahl ändert, wenn sich zwei Figuren gerade überholen.
+
+Aufwand: ★☆☆
+
+## Und ohne Spiel?
+
+| Im Spiel | Dieselbe Überlegung woanders |
+| --- | --- |
+| in jedem Bild neu sortieren, Daten fast sortiert | Messwerte, die laufend nachkommen; Tabellen, die sich kaum ändern |
+| einmal sortieren, viele Daten | Bestenliste, Suchergebnisse, Notenliste |
+| binäre Suche in der Bestenliste | Nachschlagen in einem sortierten Verzeichnis |
+| Quicksort im schlechtesten Fall | vorsortierte Eingabe bei fester Wahl des Pivots |
+
+**Welches Verfahren passt, entscheidet nicht die O-Notation allein, sondern das, was man über die Daten weiß.**
+
+## Deine eigene Idee
+
+Wo sortiert oder sucht dein Spiel? Wie oft, und wie viele Daten? Sind sie vorher schon fast geordnet?
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Begründe für eine Stelle in deinem Spiel, welches Sortier- oder Suchverfahren du gewählt hast. Nenne die drei Dinge, die du über die Daten weißt: wie viele, wie oft, wie geordnet.
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel sortiert die Welt in jedem Bild Pflanzen, Gegner und Spieler nach ihrer Höhe auf der Bühne, mit Sortieren durch Einfügen. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Sortieren (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-06-sortieren.json"}
+
+:archive[Checkpoint: Sortieren (Projekt für den Rechner)]{name="spielwerkstatt-q-06-sortieren"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

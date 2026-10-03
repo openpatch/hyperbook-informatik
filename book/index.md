@@ -18,6 +18,4 @@ Bei jedem Projekt ist angegeben, ob du Vorwissen benötigst oder nicht. Außerde
 
 Starte doch einfach mit einem Projekt zum Einstieg in die objektorientierte Programmierung:
 
-- [Scratch for Java RPG](/projekte/rpg)
-
-![Screenshot vom Scratch for Java RPG Projekt](/images/scratch-for-java-rpg.png "Screenshot des Scratch for Java RPG Projektes")
+- [Spielwerkstatt](/projekte/spielwerkstatt): ein eigenes 2D-Rollenspiel, das mit jedem neuen Konzept wächst

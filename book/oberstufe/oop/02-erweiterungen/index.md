@@ -44,19 +44,6 @@ Die Kennzeichnung steht auf drei Ebenen:
 Betroffen sind: 1.2 (der Abschnitt *Konstanten*), 1.6 Schnittstellen, 3.3 Backtracking, die Seiten *Implementierung* in Kapitel 4, die Aufgabe *Selbst implementieren* in 6.1 und 6.2, Teile von 7.1 und das ganze Kapitel 8.
 :::
 
-## Die Seiten „Im Spiel“
-
-Am Ende der meisten Kapitel steht eine Seite mit dem Titel **Im Spiel**. Sie nimmt das Spiel aus dem [Abschlussprojekt der Einführungsphase](../01-grundlagen/08-projekte/03-eigenes-spiel) und wendet darauf an, was das Kapitel gerade behandelt hat – Polymorphie, zweidimensionale Felder, Rekursion, Stapel und Schlange, Bäume, Sortierverfahren, Testen.
-
-:::alert{info}
-**Diese Seiten sind optional.** Sie führen nichts Neues ein, und nichts im Lernpfad setzt sie voraus – weder der Rückblick eines Kapitels noch ein späteres Kapitel. Wenn du sie alle überspringst, fehlt dir für die Klausur nichts.
-
-Sie benutzen die Grafikbibliothek **Scratch for Java** aus der Einführungsphase. Du musst sie nicht kennen: Auf jeder dieser Seiten steht oben ein ausklappbarer Kasten mit allem Nötigen, und nachschlagen kannst du in der [Referenz](./09-referenz#scratch-for-java).
-:::
-
-Warum es sie gibt: Die Beispiele in den Lektionen sind bewusst abiturnah – Fahrzeuge, Mitarbeiter, Sensoren. Manche Entwurfsfrage wird aber erst dann greifbar, wenn man den Unterschied **sieht**. Dafür sind diese Seiten da. Jede endet mit einer Tabelle, die den Bezug zu den Aufgaben des Kapitels wieder herstellt.
-
-
 ## Die Kapitel
 
 1. **Vertiefte Objektorientierung** – Implementationsdiagramme, Polymorphie, abstrakte Klassen, Schnittstellen

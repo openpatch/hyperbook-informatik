@@ -5,7 +5,7 @@ Aufruf aus dem Repository-Wurzelverzeichnis:
 
     python3 tools/spielwerkstatt/erzeuge_assetliste.py
 
-Liest book/oberstufe/oop/03-spielwerkstatt/assets und schreibt daneben
+Liest book/projekte/spielwerkstatt/assets und schreibt daneben
 assets-liste.json. Die Web-Component asset-suche (public/wc/asset-suche.js)
 zeigt daraus eine durchsuchbare Uebersicht und schlaegt zu jeder Datei den
 passenden Java-Code vor.
@@ -31,7 +31,7 @@ import pathlib
 import struct
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-WERKSTATT = ROOT / "book" / "oberstufe" / "oop" / "03-spielwerkstatt"
+WERKSTATT = ROOT / "book" / "projekte" / "spielwerkstatt"
 ASSETS = WERKSTATT / "assets"
 ZIEL = WERKSTATT / "assets-liste.json"
 

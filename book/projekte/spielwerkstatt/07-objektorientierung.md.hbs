@@ -1,0 +1,174 @@
+---
+name: Objektorientierung im Spiel
+index: 7
+lang: de
+permaid: spielwerkstatt-objektorientierung
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - klassen
+  - vererbung
+---
+
+# Objektorientierung im Spiel
+
+Im Kapitel [Objektorientierung](../../oberstufe/oop/01-grundlagen/06-objektorientierung) hast du gelernt, eigene Klassen zu schreiben, ihre Daten zu schützen, Objekte miteinander bekannt zu machen und Klassen voneinander erben zu lassen. Im Abschnitt [Eigene Sprites](../../oberstufe/oop/01-grundlagen/06-objektorientierung/05-eigene-sprites) hast du gesehen, wie eine Figur mit `run()` ein eigenes Verhalten bekommt.
+
+Damit kannst du jetzt die Klassen lesen, die bisher „fertig für dich“ waren. Und du kannst eigene schreiben.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Welche Dinge in deinem Spiel haben ein **eigenes Verhalten**? Sie bekommen eine eigene Klasse.
+- Welche Klassen haben **etwas gemeinsam**? Das gehört in eine Oberklasse.
+- Wer muss **wen kennen**, damit etwas passieren kann? Das ist eine Assoziation.
+:::
+
+## Die fertigen Klassen, geöffnet
+
+Öffne in [deiner Werkstatt](./00-werkstatt) nacheinander `Hindernis`, `Muenze` und `Spieler`. Alles darin kennst du jetzt.
+
+| Klasse | Was du jetzt darin erkennst |
+| --- | --- |
+| `Hindernis` | eine Unterklasse von `Sprite`. Der Spieler **erkennt** sie an ihrer Klasse: `getTouchingSprite(Hindernis.class)`. Sie überschreibt `addCostume`, um nach dem Kostüm auch eine Hitbox nur für die untere Bildhälfte zu setzen. |
+| `Muenze` | eine Unterklasse von `AnimatedSprite` mit eigenem `run()`, das die Animation abspielt |
+| `Spieler` | `run()` mit den Pfeiltasten. Das Attribut `tempo` ist `private` und nur über `setTempo` änderbar, das ist das Geheimnisprinzip. Die Ereignisblöcke der Welt ruft er selbst auf: `(Welt) this.getStage()` liefert die Bühne, auf der er steht. |
+| `Spielwelt` | die Oberklasse deiner `Welt`. Dein `Welt`-Konstruktor ruft ihren Konstruktor zuerst auf, so liegt die Wiese, bevor deine Dinge daraufkommen. Sie schaltet auch die Sortierung nach y ein. |
+
+## Mechaniken
+
+Such dir mindestens eine Mechanik mit einer **eigenen Klasse** und eine mit **Vererbung** aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Eigene Hindernisse
+
+**Im Spiel:** nichts Neues zu sehen, aber `new Stein()` statt vier Zeilen.
+
+**Dahinter steckt:** Unterklassen von `Hindernis`, die ihr Kostüm selbst wählen. Weil sie Hindernisse **sind**, hält der Spieler auch an ihnen an, ohne dass du am `Spieler` etwas änderst.
+
+```java
+public class Stein extends Hindernis {
+
+   public Stein() {
+      this.addCostume("stein", "assets/backgrounds/tilesets/tileset-dungeon.png", 128, 48, 16, 16);
+   }
+}
+```
+
+Aufwand: ★☆☆
+
+### Ein Gegner
+
+**Im Spiel:** Ein Schleim kriecht hin und her. Stößt er an ein Hindernis, kehrt er um.
+
+**Dahinter steckt:** eine eigene Klasse mit einem Attribut für die Richtung und einem `run()`, das ihn bewegt. Monster gibt es in `assets/actor/monster/`.
+
+```java
+public void run() {
+   this.playAnimation("kriechen");
+   this.changeX(tempo);
+   if (this.getTouchingSprite(Hindernis.class) != null) {
+      this.changeX(-tempo);
+      tempo = -tempo;
+   }
+}
+```
+
+Aufwand: ★★☆
+
+### Leben und Treffer
+
+**Im Spiel:** Erwischt dich ein Gegner, verlierst du ein Leben und fängst am Start wieder an. Ohne Leben ist das Spiel vorbei.
+
+**Dahinter steckt:** Der `Spieler` merkt, dass er einen Gegner berührt, und meldet es der Welt, wie bei den Münzen. Die Welt zählt die Leben und weiß, wo der Start ist.
+
+```java
+// im Spieler, in run()
+if (this.getTouchingSprite(Gegner.class) != null) {
+   Welt welt = (Welt) this.getStage();
+   welt.wennGegnerBeruehrt();
+}
+```
+
+Aufwand: ★★☆
+
+### Ein Verfolger
+
+**Im Spiel:** Ein Geist schwebt langsam auf dich zu, egal wo du bist.
+
+**Dahinter steckt:** eine [Assoziation](../../oberstufe/oop/01-grundlagen/06-objektorientierung/03-assoziation). Der Verfolger kennt den Spieler, weil die Welt ihn im Konstruktor übergibt: `new Verfolger(held)`. In `run()` vergleicht er seine Position mit der des Spielers und geht ein Stück in dessen Richtung.
+
+Aufwand: ★★☆
+
+### Gegenstände mit gemeinsamer Oberklasse
+
+**Im Spiel:** Neben Münzen gibt es Heiltränke und Schlüssel. Alle lassen sich einsammeln, aber jeder wirkt anders.
+
+**Dahinter steckt:** eine [Oberklasse](../../oberstufe/oop/01-grundlagen/06-objektorientierung/04-vererbung) `Gegenstand` mit dem, was alle gemeinsam haben, zum Beispiel einer Methode `einsammeln()`. `Muenze`, `Trank` und `Schluessel` erben davon. Der Spieler fragt nur noch nach `Gegenstand.class`. Gegenstände findest du in `assets/items/`.
+
+Aufwand: ★★★
+
+### Tür und Schlüssel
+
+**Im Spiel:** Eine Tür versperrt den Weg zu einem Schatz. Erst mit dem passenden Schlüssel geht sie auf.
+
+**Dahinter steckt:** Die `Tuer` ist ein `Hindernis` und kennt ihren `Schluessel`. Wird er eingesammelt, entfernt sich die Tür mit `remove()`. Bei mehreren Türen weiß so jede, welcher Schlüssel zu ihr gehört.
+
+Aufwand: ★★★
+
+### Figuren, die etwas zu sagen haben
+
+**Im Spiel:** Am Wegrand steht eine Figur, ein Händler, eine Wache oder ein Kind. Kommt man ihr nah, sagt sie etwas. Geht man weg, verstummt sie.
+
+**Dahinter steckt:** eine eigene Klasse für solche **NPCs** (non-player characters, Figuren, die nicht gespielt werden). Sie kennt den Spieler (eine Assoziation) und prüft in `run()` mit `distanceToSprite(spieler)`, ob er nah genug ist. Dann spricht sie mit `say("…")`, sonst mit `say("")` nichts. Jede Figur bekommt ihren eigenen Satz über den Konstruktor: `new Npc(held, "Hinter dem Felsen liegt etwas.")`.
+
+Aufwand: ★★☆
+
+### Tiere, die umherstreifen
+
+**Im Spiel:** Hühner, Kühe oder Hasen laufen ziellos über die Wiese. Sie stören nicht, aber die Welt wirkt lebendig.
+
+**Dahinter steckt:** eine Klasse `Tier` mit einer Richtung als Attribut. Alle paar Sekunden wählt das Tier mit `this.pickRandom(0, 3)` eine neue Richtung, in den Bildern dazwischen geht es in die alte. Stößt es an ein Hindernis, kehrt es um. Tiere gibt es in `assets/actor/animal/`.
+
+Aufwand: ★★☆
+
+### Räume als eigene Bühnen
+
+**Im Spiel:** Mehrere Räume, zwischen denen man hin und her wechselt. Anders als beim Neubau aus dem Plan merkt sich jeder Raum, was in ihm passiert ist: Eine eingesammelte Münze bleibt weg, ein besiegter Gegner bleibt besiegt.
+
+**Dahinter steckt:** Jeder Raum ist ein eigenes **Objekt** der Klasse `Welt`, also eine eigene Bühne. Den Plan bekommt sie über den Konstruktor, so entstehen aus einer Klasse verschiedene Räume. Alle Räume werden einmal am Anfang erzeugt und in Variablen gemerkt. Gewechselt wird, indem das Fenster eine andere Bühne zeigt. Die übrigen Bühnen bleiben dabei, wie sie sind, sie werden nur nicht gezeigt.
+
+```java
+Welt wiese = new Welt(planWiese);
+Welt hoehle = new Welt(planHoehle);
+```
+
+```java
+// wenn der Spieler den Ausgang erreicht
+held.remove();
+hoehle.add(held);
+Window.getInstance().transitionToStage(hoehle, 500);
+```
+
+Der Spieler zieht mit um: Er wird von der alten Bühne genommen und auf die neue gestellt. Damit jeder Raum seine Nachbarn kennt, bekommt die Welt Attribute für ihre Ausgänge, zum Beispiel `private Welt rechts;`, und eine Methode, die sie setzt. Das ist eine Assoziation zwischen Objekten derselben Klasse.
+
+Vorsicht: Bisher erzeugt jede `Welt` in ihrem Konstruktor einen eigenen Spieler. Bei mehreren Räumen gäbe es dann mehrere. Erzeuge den Spieler deshalb einmal, zum Beispiel in `main`, und gib ihn der Welt, die er gerade betritt, etwa mit einer Methode `betrete(Spieler pSpieler)`. Sie stellt ihn auf die Bühne und merkt ihn sich in `held`.
+
+Aufwand: ★★★
+
+## Deine eigene Idee
+
+Welche Figur, welches Ding oder welches Hindernis in deinem Spiel soll sich selbst bewegen, reagieren oder etwas wissen? Zeichne zuerst ein Klassendiagramm mit deinen Klassen, dann schreibe den Code.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Zeichne das Klassendiagramm deines Spiels. Prüfe jede Vererbung mit dem Satztest „… ist ein …“. Begründe für eine Assoziation, warum gerade dieses Objekt das andere kennen muss.
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel gibt es eigene Klassen `Stein` und `Pflanze`, zwei Schleime als `Gegner` und drei Leben. Der `Spieler` meldet Treffer an die Welt. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Objektorientierung (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-06-objektorientierung.json"}
+
+:archive[Checkpoint: Objektorientierung (Projekt für den Rechner)]{name="spielwerkstatt-ef-06-objektorientierung"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

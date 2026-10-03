@@ -1,0 +1,132 @@
+---
+name: "Beispiel Stapel: Kisten schieben und zurücknehmen"
+index: 21
+lang: de
+permaid: spielwerkstatt-kisten
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - stapel
+---
+
+# Stapel: Kisten schieben und zurücknehmen
+
+Bisher stehen die Kisten nur im Weg. Jetzt kann der Spieler sie **schieben**, bis sie an eine Wand oder eine andere Kiste stoßen. Damit entstehen Rätsel: Eine Kiste versperrt den Gang zur Münze, und schiebt man sie falsch, kommt man nicht mehr vorbei.
+
+Deshalb braucht das Spiel eine Taste zum **Zurücknehmen**. Drückt man sie, wird der letzte Schiebezug rückgängig gemacht, beim nächsten Drücken der davor, und so weiter. Was zuletzt passiert ist, wird zuerst zurückgenommen. Das ist ein [Stapel](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel).
+
+:::alert{info}
+**Ein ausgearbeitetes Beispiel** zur Seite [Lineare Datenstrukturen im Spiel](./13-lineare-datenstrukturen). Es baut auf einem Raum aus Kacheln auf, nicht auf deinem eigenen Spiel. Nimm daraus, was du brauchst.
+:::
+
+## So sieht es aus
+
+Starte das Beispiel. Laufe gegen eine Kiste, um sie zu schieben. Mit der Taste **Z** nimmst du Schiebezüge zurück, einen nach dem anderen.
+
+:::onlineide{libraries="scratch,nrw" height="640px" outputWidth="60%" speed="1000000" id="werkstatt-kisten-beispiel"}
+
+```java Main.java
+{{{rfile "/archives/spielwerkstatt-schieben/Main.java" "reg:^import "}}}
+```
+
+```java Welt.java
+{{{rfile "/archives/spielwerkstatt-schieben/Welt.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/spielwerkstatt-schieben/Spieler.java" "reg:^import "}}}
+```
+
+```java Kiste.java
+{{{rfile "/archives/spielwerkstatt-schieben/Kiste.java" "reg:^import "}}}
+```
+
+```java Zug.java
+{{{rfile "/archives/spielwerkstatt-schieben/Zug.java" "reg:^import "}}}
+```
+
+```java Muenze.java
+{{{rfile "/archives/spielwerkstatt-schieben/Muenze.java" "reg:^import "}}}
+```
+
+```java Kachel.java
+{{{rfile "/archives/spielwerkstatt-schieben/Kachel.java" "reg:^import "}}}
+```
+
+```java Gras.java
+{{{rfile "/archives/spielwerkstatt-schieben/Gras.java" "reg:^import "}}}
+```
+
+```java Wand.java
+{{{rfile "/archives/spielwerkstatt-schieben/Wand.java" "reg:^import "}}}
+```
+
+```java Stein.java
+{{{rfile "/archives/spielwerkstatt-schieben/Stein.java" "reg:^import "}}}
+```
+
+:::
+
+## Was dazugekommen ist
+
+### Die Kiste ist keine Wand mehr
+
+`Kiste` erbt jetzt direkt von `Kachel`, nicht mehr von `Wand`. Sonst würde der Spieler an ihr abprallen, statt sie zu schieben. Dafür bekommt sie eine Methode, die sie verschiebt und prüft, ob das erlaubt war:
+
+```java
+public boolean schiebe(double pDx, double pDy) {
+   this.changePosition(pDx, pDy);
+   if (this.getTouchingSprite(Wand.class) != null || this.getTouchingSprite(Kiste.class) != null) {
+      this.changePosition(-pDx, -pDy);
+      return false;
+   }
+   return true;
+}
+```
+
+### Ein Zug ist ein Datensatz
+
+Um einen Schiebezug zurückzunehmen, muss man wissen, wie es **vorher** aussah: welche Kiste, wo sie stand und wo der Spieler stand. Genau das hält ein Objekt der Klasse `Zug` fest. Es ist keine Figur, sondern nur ein Datensatz mit Gettern.
+
+### Die Welt führt den Stapel
+
+```java
+private Stack<Zug> zuege = new Stack<Zug>();
+
+public void merke(Zug pZug) {
+   zuege.push(pZug);
+}
+
+public void whenKeyPressed(KeyCode pTaste) {
+   if (pTaste == KeyCode.Z && !zuege.isEmpty()) {
+      Zug letzter = zuege.top();
+      zuege.pop();
+      letzter.getKiste().setPosition(letzter.getKisteX(), letzter.getKisteY());
+      spieler.setPosition(letzter.getSpielerX(), letzter.getSpielerY());
+   }
+}
+```
+
+`whenKeyPressed` wird bei **jedem Tastendruck einmal** aufgerufen. Anders als `isKeyPressed` in `run()` meldet es eine gedrückt gehaltene Taste also nicht 60-mal in der Sekunde.
+
+### Der Spieler schiebt
+
+In `run()` des Spielers steht eine Kiste im Weg, dann wird sie mitgeschoben. Ein neuer Zug wird nur gemerkt, wenn der Spieler **im letzten Bild noch nicht geschoben** hat. Sonst läge für jedes einzelne Bild ein Zug auf dem Stapel, und Z würde die Kiste jedes Mal nur um 3 Pixel zurücksetzen.
+
+:::snippet{#merken}
+**Warum ein Stapel?** Zurückgenommen wird immer der **jüngste** Zug zuerst: **LIFO**. Nur so passt der Zustand danach zusammen. Würde man einen älteren Zug zuerst zurücknehmen, stünde eine Kiste plötzlich dort, wo inzwischen eine andere steht.
+:::
+
+## Wenn du es übernehmen willst
+
+Für dein Spiel brauchst du die neue `Kiste`, die Klasse `Zug`, das Schieben im `Spieler` und in der `Welt` den Stapel, `merke` und `whenKeyPressed`. Die `Welt` muss den Spieler kennen, er ist also ein Attribut.
+
+Zwei Stellen, an denen man leicht hängen bleibt:
+
+- **Wie viele Züge sind noch da?** Der NRW-Stapel hat keine Methode für seine Größe. Zähle selbst mit: eins mehr bei jedem `merke`, eins weniger bei jedem Zurücknehmen.
+- **Münzen zurücklegen.** Eine Figur, die mit `remove()` von der Bühne genommen wurde, lässt sich nicht wieder hinzufügen. Soll ein Zurücknehmen auch eine eingesammelte Münze zurückbringen, speichere im `Zug`, **wo** sie lag, und erzeuge eine **neue** Münze an dieser Stelle. Auch die Punkte müssen dann wieder sinken.
+
+Ein Kistenrätsel wird erst gut, wenn es jemand anderes löst. Lass jemanden aus deiner Klasse spielen und schau zu.
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

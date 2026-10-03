@@ -1,0 +1,66 @@
+---
+name: Nebenläufigkeit im Spiel
+index: 17
+lang: de
+permaid: spielwerkstatt-nebenlaeufig
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - nebenläufigkeit
+  - lk
+---
+
+# Nebenläufigkeit im Spiel
+
+:::alert{info}
+**Nur Leistungskurs.** Diese Seite gehört zum Kapitel [Nebenläufigkeit](../../oberstufe/oop/02-erweiterungen/08-nebenlaeufigkeit), das zu den zusätzlichen Anforderungen des Leistungskurses gehört.
+:::
+
+Dein Spiel ist schon lange nebenläufig. Der Spieler läuft, die Schleime kriechen, die Münzen drehen sich, die Wache entscheidet sich, alles scheinbar gleichzeitig. Die Bibliothek ruft dafür das `run()` jeder Figur reihum auf, etwa 60-mal in der Sekunde. Weil immer nur eins davon gleichzeitig läuft, kommen sie sich nie in die Quere.
+
+:::snippet{#merken}
+**Die Leitfrage für dein Spiel:** Gibt es etwas, das **so lange dauert**, dass das Spiel währenddessen stehen bleiben würde? Und welche Daten würden sich dann zwei Abläufe teilen?
+:::
+
+## Mechaniken
+
+Such dir höchstens eine aus. Hier geht es mehr ums Verstehen als ums Bauen.
+
+### Wer ist eigentlich zuerst dran?
+
+**Im Spiel:** Ein Gegner und der Spieler berühren sich im selben Bild. Wird der Treffer einmal gezählt oder zweimal?
+
+**Dahinter steckt:** Sowohl der `Spieler` als auch ein Gegner könnten den Treffer melden. Weil die Bibliothek die `run()`-Methoden nacheinander aufruft, gibt es eine feste Reihenfolge, aber du kennst sie nicht. Untersuche, ob dein Spiel in beiden Reihenfolgen dasselbe tut. Diese Frage ist der Kern jeder nebenläufigen Programmierung, auch wenn hier noch kein zweiter Thread im Spiel ist.
+
+Aufwand: ★☆☆
+
+### Ein Level im Hintergrund erzeugen
+
+**Im Spiel:** Ein großes Labyrinth oder ein Dungeon aus geteilten Räumen wird erzeugt, während schon ein Ladebild mit einer drehenden Münze läuft.
+
+**Dahinter steckt:** ein eigener `Thread`, der das Level berechnet. Das Spiel fragt in `run()`, ob er fertig ist, und baut erst dann die Welt auf. Die beiden teilen sich das Ergebnis. Was passiert, wenn das Spiel es liest, während der Thread noch schreibt?
+
+Aufwand: ★★★
+
+### Ein Gegner, der nachdenkt
+
+**Im Spiel:** Ein schlauer Gegner rechnet einen weiten Weg zum Spieler aus. Das dauert, aber das Spiel soll dabei nicht ruckeln.
+
+**Dahinter steckt:** Die Wegsuche läuft in einem eigenen Thread, der Gegner bewegt sich bis dahin nach seinem alten Plan. Ist der neue Weg fertig, übernimmt er ihn. Überlege, an welcher Stelle sich die beiden Abläufe abstimmen müssen.
+
+Aufwand: ★★★
+
+## Und ohne Spiel?
+
+| Im Spiel | Dieselbe Frage woanders |
+| --- | --- |
+| alle `run()`-Methoden reihum | ein Webserver, der viele Anfragen abwechselnd bedient |
+| Level im Hintergrund erzeugen | eine App, die beim Laden einer Seite nicht einfriert |
+| Spieler und Gegner melden denselben Treffer | zwei Kassen buchen dasselbe Konto |
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Beschreibe eine Stelle in deinem Spiel, an der zwei Abläufe dieselben Daten benutzen. Was könnte schiefgehen, wenn sie wirklich gleichzeitig liefen, und warum passiert es in deinem Spiel trotzdem nicht?
+:::
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

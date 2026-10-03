@@ -1,0 +1,148 @@
+---
+name: Bäume und Graphen im Spiel
+index: 14
+lang: de
+permaid: spielwerkstatt-baeume
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - binärbaum
+  - entscheidungsbaum
+---
+
+# Bäume und Graphen im Spiel
+
+Im Kapitel [Nichtlineare Datenstrukturen](../../oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen) hast du Strukturen kennengelernt, die sich verzweigen. Spiele verzweigen sich überall: Ein Gegner entscheidet sich, ein Gespräch nimmt verschiedene Wendungen, eine Welt besteht aus Orten, die auf verschiedenen Wegen verbunden sind.
+
+:::snippet{#merken}
+**Die Leitfragen für dein Spiel:**
+- Wo gibt es in deinem Spiel eine Folge von **Fragen**, an deren Ende eine **Entscheidung** steht? Das ist ein Baum.
+- Wo muss dein Spiel unter vielen Dingen schnell **eins nach seinem Namen oder Wert finden**? Das ist ein Suchbaum.
+- Wo ist etwas **auf mehreren Wegen verbunden**? Das ist ein Graph.
+:::
+
+## Woran es hakt
+
+So sieht die Entscheidung eines Gegners aus, wenn man sie direkt hinschreibt:
+
+```java
+if (this.distanceToSprite(ziel) < 160) {
+   // verfolgen
+} else {
+   if (abstandZumPosten > 4) {
+      // zurück zum Posten
+   } else {
+      // warten
+   }
+}
+```
+
+Das funktioniert. Aber wer einem zweiten Gegner ein anderes Verhalten geben will, kopiert die ganze Klasse und ändert die Verschachtelung. Dabei **ist** diese Verschachtelung bereits ein Baum, man sieht ihn nur nicht:
+
+```mermaid
+flowchart TD
+    A{"Spieler nah?"} -->|ja| B["verfolgen"]
+    A -->|nein| C{"weit vom Posten?"}
+    C -->|ja| D["zurück zum Posten"]
+    C -->|nein| E["warten"]
+```
+
+## Mechaniken
+
+Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Ein Gegner, der sich entscheidet
+
+**Im Spiel:** Eine Wache steht an ihrem Posten. Kommt der Spieler nah, verfolgt sie ihn. Ist er weg, kehrt sie zurück. Über ihrem Kopf steht, was sie gerade tut.
+
+**Dahinter steckt:** ein [Entscheidungsbaum](../../oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen/baumstrukturen/beispiel-entscheidungsbaum) als `BinaryTree<String>`. Innere Knoten tragen Fragen, Blätter tragen Handlungen. Links geht es bei ja weiter, rechts bei nein. Die Auswertung läuft von der Wurzel bis zu einem Blatt.
+
+```java
+BinaryTree<String> verfolgen = new BinaryTree<String>("verfolgen");
+BinaryTree<String> zurueck = new BinaryTree<String>("zurück zum Posten");
+BinaryTree<String> warten = new BinaryTree<String>("warten");
+BinaryTree<String> weg = new BinaryTree<String>("weit vom Posten?", zurueck, warten);
+entscheidung = new BinaryTree<String>("Spieler nah?", verfolgen, weg);
+```
+
+```java
+private String entscheide() {
+   BinaryTree<String> knoten = entscheidung;
+   while (!knoten.getLeftTree().isEmpty()) {
+      if (this.beantworte(knoten.getContent())) {
+         knoten = knoten.getLeftTree();
+      } else {
+         knoten = knoten.getRightTree();
+      }
+   }
+   return knoten.getContent();
+}
+```
+
+Der Gewinn: Eine zweite Wache mit **anderem Baum** verhält sich anders, bei gleichem Programmcode.
+
+Aufwand: ★★☆
+
+### Ein Gespräch mit Abzweigungen
+
+**Im Spiel:** Eine Figur stellt Fragen. Je nach Antwort, J oder N, geht das Gespräch anders weiter und endet mit einem Geschenk, einem Auftrag oder einer Abfuhr.
+
+**Dahinter steckt:** derselbe Aufbau wie beim Entscheidungsbaum. Nur beantwortet nicht das Programm die Fragen, sondern der Mensch an der Tastatur. Jeder Tastendruck geht einen Knoten tiefer.
+
+Aufwand: ★★☆
+
+### Ein Monsterlexikon
+
+**Im Spiel:** Ein Buch, in dem man jedes Monster nachschlagen kann, das man schon getroffen hat, alphabetisch sortiert.
+
+**Dahinter steckt:** ein [binärer Suchbaum](../../oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen/binaerer-suchbaum). Ein Eintrag implementiert `ComparableContent` und vergleicht nach dem Namen. Die Ausgabe in alphabetischer Reihenfolge liefert ein [Inorder-Durchlauf](../../oberstufe/oop/02-erweiterungen/05-nichtlineare-datenstrukturen/binaerbaum/traversierung).
+
+Aufwand: ★★★
+
+### Ein Fähigkeitenbaum
+
+**Im Spiel:** Mit gesammelten Punkten schaltet man Fähigkeiten frei. Eine Fähigkeit geht erst, wenn die darüber schon freigeschaltet ist: erst „schneller laufen“, dann „rennen“ oder „springen“.
+
+**Dahinter steckt:** ein Baum, in dem jeder Knoten eine Fähigkeit ist. Freischalten darf man nur Kinder von freigeschalteten Knoten.
+
+Aufwand: ★★☆
+
+### Eine Weltkarte mit Wegen
+
+**Im Spiel:** Mehrere Räume, durch Türen verbunden. Nicht jeder Raum ist mit jedem verbunden, und manche Wege sind länger.
+
+**Dahinter steckt:** ein Graph mit den Abiturklassen `Graph`, `Vertex` und `Edge`. Räume sind Knoten, Türen sind Kanten, die Länge des Wegs ist das Gewicht. Jeder Raum kann eine eigene Bühne sein, wie bei *Räume als eigene Bühnen* in [Objektorientierung im Spiel](./07-objektorientierung); der Graph sagt dann, welche Bühne hinter welcher Tür liegt. Ob jeder Raum erreichbar ist, beantwortet eine Tiefensuche, im Prinzip dieselbe wie die Flutfüllung aus dem Kapitel über Rekursion. Die Klassen findest du in der [Referenz](../../oberstufe/oop/02-erweiterungen/09-referenz).
+
+*(Nur Leistungskurs.)*
+
+Aufwand: ★★★
+
+## Und ohne Spiel?
+
+| Im Spiel | Derselbe Baum woanders |
+| --- | --- |
+| Gegner entscheidet sich | ärztliche Diagnose, Kreditvergabe, Fehlersuche im Handbuch |
+| Frage im inneren Knoten | Merkmal in einem gelernten Entscheidungsbaum |
+| Blatt trägt eine Handlung | Klasse, in die eingeordnet wird |
+| Baum tauschen, Auswertung behalten | dasselbe Programm für andere Regeln |
+
+Entscheidungsbäume sind eines der ältesten Verfahren des maschinellen Lernens. Dort wird der Baum nicht von Hand gebaut, sondern aus Daten erzeugt. Die Auswertung bleibt genau die, die hier in zehn Zeilen steht.
+
+## Deine eigene Idee
+
+Wo verzweigt sich etwas in deinem Spiel? Wo würdest du gern nach einem Namen nachschlagen? Was ist auf mehreren Wegen verbunden?
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Zeichne deinen Baum. Wie viele Fragen werden für eine Entscheidung höchstens gestellt? Wie ändert sich das, wenn du eine weitere Frage einfügst?
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel steht oben rechts eine Wache. Sie entscheidet mit einem Entscheidungsbaum, ob sie den Spieler verfolgt, zu ihrem Posten zurückkehrt oder wartet, und sagt es. Wie du den Checkpoint lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Bäume (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-05-baeume.json"}
+
+:archive[Checkpoint: Bäume (Projekt für den Rechner)]{name="spielwerkstatt-q-05-baeume"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

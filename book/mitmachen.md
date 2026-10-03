@@ -134,11 +134,11 @@ Genau **ein** Kürzel je Bereich, und es wird nicht verschachtelt: `java-liste-a
 | Oberstufe · Datenbanken | `datenbanken` |
 | Oberstufe · Programmierung mit Java | `java` |
 | Oberstufe · Objektorientierte Modellierung | `oom` |
-| Projekte | je Projekt eines: `amsterdam`, `autorennen`, `bunny-hop`, `donut-io`, `evolution`, `fangspiel`, `genkunst`, `messenger`, `rpg`, `smart-home` |
+| Projekte | je Projekt eines: `amsterdam`, `autorennen`, `donut-io`, `evolution`, `fangspiel`, `genkunst`, `messenger`, `smart-home`, `spielwerkstatt` |
 
 Die beiden Java-Lernpfade teilen sich das Kürzel `java`; nur ihre Startseiten unterscheiden sich (`java-grundlagen`, `java-erweiterungen`). Eine Lektion, die aus der Einführungs- in die Qualifikationsphase wandert, behält so ihren Permaid.
 
-Die Startseite eines Bereichs trägt das Kürzel allein: `web`, `datenbanken`, `3d-druck`, `bunny-hop`. Dasselbe gilt für die vier Stufenseiten (`unterstufe`, `mittelstufe`, `oberstufe`, `projekte`) und die Buchseiten daneben (`glossar`, `loesungen`, `lesezeichen`, `spieleecke`, `mitmachen`).
+Die Startseite eines Bereichs trägt das Kürzel allein: `web`, `datenbanken`, `3d-druck`, `donut-io`. Dasselbe gilt für die vier Stufenseiten (`unterstufe`, `mittelstufe`, `oberstufe`, `projekte`) und die Buchseiten daneben (`glossar`, `loesungen`, `lesezeichen`, `spieleecke`, `mitmachen`).
 
 ### Die Kapitelmarke
 
@@ -150,7 +150,7 @@ Die Marke steht auch im Permaid der Kapitelseite selbst. Sie ist so gewählt, da
 
 - **Der Inhalt, nicht der Platz.** `java-zaehlschleifen` – nicht `java-lektion-4`.
 - **Mehrere Lektionen zu einem Thema** unterscheidet ein Wort, keine Zahl: `java-liste-aufbau`, `java-liste-implementierung`, `java-liste-uebungen`.
-- **Wiederkehrende Seitenarten** hängen hinten an: `-uebungen`, `-rueckblick`, `-referenz`, `-projekt`, `-im-spiel`. Weil es sie in jedem Kapitel gibt, steht das Kapitelthema davor: `java-rekursion-rueckblick`.
+- **Wiederkehrende Seitenarten** hängen hinten an: `-uebungen`, `-rueckblick`, `-referenz`, `-projekt`. Weil es sie in jedem Kapitel gibt, steht das Kapitelthema davor: `java-rekursion-rueckblick`.
 - Das **Kapitelthema** darf also vorkommen – es ist ein Thema. Die **Kapitelnummer** nie.
 - Kleinbuchstaben, Ziffern und Bindestriche. Umlaute werden zu `ae`, `oe`, `ue`, `ss`. Ziffern nur, wenn sie zur Sache gehören (`3d-druck`, `daten-2er-komplement`).
 - Möglichst unter 35 Zeichen und höchstens vier Wortteile – der Permaid soll sich vorlesen lassen. Bei langen Fachwörtern (`datenbanken-integritaetsbedingungen`) geht es nicht kürzer, das ist in Ordnung.

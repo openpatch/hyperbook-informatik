@@ -1,1 +1,1 @@
-../spielwerkstatt/Stein.java
+../spielwerkstatt-raumplan/Stein.java

@@ -1,0 +1,123 @@
+---
+name: "Beispiel Schlange: Meldungen der Reihe nach"
+index: 20
+lang: de
+permaid: spielwerkstatt-meldungen
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - warteschlange
+---
+
+# Schlange: Meldungen der Reihe nach
+
+Dein Spiel soll etwas sagen: „Eine Münze!", „Die Tür ist verschlossen.", „Alle Münzen gefunden!". Eine Zeile am unteren Rand reicht dafür. Schwierig wird es erst, wenn **zwei Meldungen fast gleichzeitig** kommen. Zeigst du jede sofort an, überschreibt die zweite die erste, und niemand hat sie gelesen.
+
+Die Lösung: Meldungen stellen sich an. Jede bleibt eine Weile stehen, dann kommt die nächste dran, und zwar die, die **zuerst** kam. Das ist eine [Warteschlange](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange).
+
+:::alert{info}
+**Ein ausgearbeitetes Beispiel** zur Seite [Lineare Datenstrukturen im Spiel](./13-lineare-datenstrukturen). Es baut auf einem Raum aus Kacheln auf, nicht auf deinem eigenen Spiel. Nimm daraus, was du brauchst.
+:::
+
+## So sieht es aus
+
+Starte das Beispiel und sammle zwei Münzen kurz hintereinander ein. Achte auf die untere Zeile.
+
+:::onlineide{libraries="scratch,nrw" height="640px" outputWidth="60%" speed="1000000" id="werkstatt-meldungen-beispiel"}
+
+```java Main.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Main.java" "reg:^import "}}}
+```
+
+```java Welt.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Welt.java" "reg:^import "}}}
+```
+
+```java Spieler.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Spieler.java" "reg:^import "}}}
+```
+
+```java Muenze.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Muenze.java" "reg:^import "}}}
+```
+
+```java Kachel.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Kachel.java" "reg:^import "}}}
+```
+
+```java Gras.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Gras.java" "reg:^import "}}}
+```
+
+```java Wand.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Wand.java" "reg:^import "}}}
+```
+
+```java Stein.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Stein.java" "reg:^import "}}}
+```
+
+```java Kiste.java
+{{{rfile "/archives/spielwerkstatt-meldungen/Kiste.java" "reg:^import "}}}
+```
+
+:::
+
+## Was dazugekommen ist
+
+Geändert hat sich nur `Welt`. Sie bekommt eine Schlange aus Zeichenketten und eine zweite Textzeile:
+
+```java
+private Queue<String> meldungen = new Queue<String>();
+private Text meldungszeile;
+private int restBilder = 0;
+```
+
+Wer etwas sagen will, **reiht seine Meldung hinten ein**. Angezeigt wird hier noch nichts:
+
+```java
+public void melde(String pText) {
+   meldungen.enqueue(pText);
+}
+```
+
+Gezeigt wird in `run()`, also etwa 60-mal in der Sekunde. Solange die aktuelle Meldung noch stehen bleiben soll, zählt `restBilder` herunter. Ist die Zeit um, kommt die **vorderste** Meldung dran und wird aus der Schlange genommen:
+
+```java
+public void run() {
+   if (restBilder > 0) {
+      restBilder = restBilder - 1;
+   } else if (!meldungen.isEmpty()) {
+      meldungszeile.showText(meldungen.front());
+      meldungen.dequeue();
+      restBilder = 120;   // etwa zwei Sekunden
+   } else {
+      meldungszeile.showText("");
+   }
+}
+```
+
+Gemeldet wird beim Start und in `punkten()`:
+
+```java
+this.melde("Eine Münze! Jetzt hast du " + punkte + ".");
+if (this.count(Muenze.class) == 0) {
+   this.melde("Alle Münzen gefunden!");
+}
+```
+
+:::snippet{#merken}
+**Warum eine Schlange und kein Stapel?** Die Meldungen sollen in der Reihenfolge erscheinen, in der sie passiert sind. Was zuerst eingereiht wurde, kommt zuerst dran: **FIFO**. Ein Stapel würde die neueste Meldung zuerst zeigen. Aus „Eine Münze!" und „Alle Münzen gefunden!" würde dann eine Geschichte, die rückwärts erzählt wird.
+:::
+
+## Wenn du es übernehmen willst
+
+Für dein Spiel brauchst du die drei Attribute, die Methode `melde`, die Anzeige in `run()` und die Textzeile im Konstruktor. Prüfe danach: Erscheinen zwei schnell eingesammelte Münzen nacheinander?
+
+Zwei Stellen, an denen man leicht hängen bleibt:
+
+- **Eine Meldung bei jedem Stoß.** Lässt du „Autsch!“ melden, wenn der Spieler gegen ein Hindernis läuft, und hältst eine Pfeiltaste gedrückt, warten nach zwei Sekunden schon 120 Meldungen. `run()` läuft 60-mal in der Sekunde, und in **jedem** Bild stößt der Spieler an. Merke dir in einem Attribut, ob er im letzten Bild schon dort stand, und melde nur, wenn nicht.
+- **Lesbarkeit.** Wie lange darf eine Meldung stehen, damit man sie lesen kann? Passe `restBilder` an die Länge deiner Texte an.
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

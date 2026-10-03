@@ -1,0 +1,1 @@
+../spielwerkstatt-q-05-baeume/Wache.java

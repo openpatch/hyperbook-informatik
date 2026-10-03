@@ -1,0 +1,1 @@
+../spielwerkstatt-ef-06-objektorientierung/Stein.java

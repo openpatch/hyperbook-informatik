@@ -1,0 +1,146 @@
+---
+name: Vertiefte Objektorientierung im Spiel
+index: 10
+lang: de
+permaid: spielwerkstatt-polymorphie
+keywords:
+  - java
+  - scratch4j
+  - spiel
+  - polymorphie
+  - abstrakte klasse
+---
+
+# Vertiefte Objektorientierung im Spiel
+
+Im Kapitel [Vertiefte Objektorientierung](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung) hast du Polymorphie, abstrakte Klassen und Schnittstellen kennengelernt. In den Lektionen ging es um Fahrzeuge und Mitarbeiter. Im Spiel sieht man, wozu das gut ist: sobald es mehr als eine Sorte von Dingen gibt, die etwas tun.
+
+:::alert{info}
+**Neu in der Werkstatt?** Wenn du in der Einführungsphase nicht dabei warst, lade den Checkpoint nach *Suchen und Sortieren* von der [Startseite der Werkstatt](./#checkpoints). Wie das Spiel aufgebaut ist, erklären [Das Startgerüst](./01-startgeruest) und [Objektorientierung im Spiel](./07-objektorientierung). Die Grafik kommt aus der Bibliothek Scratch for Java, alles Nötige steht in der [Referenz](../../oberstufe/oop/02-erweiterungen/09-referenz#scratch-for-java).
+:::
+
+:::snippet{#merken}
+**Die Leitfrage für dein Spiel:** Welche Dinge in deinem Spiel werden auf **dieselbe Weise angestoßen**, reagieren aber **verschieden**? Was haben sie gemeinsam, und wer entscheidet, was passiert?
+:::
+
+## Woran es hakt
+
+Bisher gibt es nur Münzen. Ein Spiel, das Spaß macht, hat mehr: Herzen geben Leben zurück, Fallen kosten welche. Der naheliegende Weg ist eine Abfrage im `Spieler`:
+
+```java
+if (this.getTouchingSprite(Muenze.class) != null) { ... }
+if (this.getTouchingSprite(Herz.class) != null) { ... }
+if (this.getTouchingSprite(Falle.class) != null) { ... }
+```
+
+Bei jeder neuen Sorte wächst diese Kette, und der `Spieler` muss alles über alle Gegenstände wissen. Gemeinsam ist den dreien nicht das Aussehen und nicht das Verhalten, sondern der **Anlass**: Alle tun etwas, wenn der Spieler sie berührt.
+
+## Mechaniken
+
+Such dir mindestens eine Mechanik mit **Polymorphie** aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
+
+### Gegenstände, die selbst wissen, was sie tun
+
+**Im Spiel:** Münzen, Herzen und Fallen. Neue Sorten kommen dazu, ohne dass sich der `Spieler` ändert.
+
+**Dahinter steckt:** eine [abstrakte Oberklasse](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/05-abstrakte-klassen) mit einer abstrakten Methode. Der Spieler fragt nur noch nach `Gegenstand` und ruft `beruehrtVon` auf. Welche Fassung läuft, entscheidet zur Laufzeit das Objekt: [Polymorphie](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/04-polymorphie).
+
+```java
+public abstract class Gegenstand extends AnimatedSprite {
+   public abstract void beruehrtVon(Welt pWelt);
+}
+```
+
+```java
+// im Spieler
+Gegenstand g = this.getTouchingSprite(Gegenstand.class);
+if (g != null) {
+   g.beruehrtVon(welt);
+}
+```
+
+Warum `abstract` und nicht einfach ein leerer Rumpf? Wer eine neue Sorte schreibt und vergisst, `beruehrtVon` zu überschreiben, bekommt sonst keine Fehlermeldung. Das Objekt liegt dann für immer im Weg und tut nichts, und man sucht den Fehler im Spiel statt im Quelltext.
+
+Aufwand: ★★☆
+
+### Magische Gegenstände
+
+**Im Spiel:** Ein Trank der Eile macht schneller, ein Ring macht für ein paar Sekunden unsichtbar für Gegner, eine Schriftrolle lässt alle Münzen aufleuchten.
+
+**Dahinter steckt:** weitere Unterklassen von `Gegenstand`, jede mit eigenem `beruehrtVon`. Der Spieler muss dafür nicht geändert werden, das ist der Gewinn der Polymorphie. Viele Zauber wirken nur eine Weile. Wie man das zählt, steht bei *Ein Zauber, der nachlässt* in [Kontrollstrukturen im Spiel](./04-kontrollstrukturen). Mehrere gleichzeitig verwaltet eine Liste, siehe [Lineare Datenstrukturen im Spiel](./13-lineare-datenstrukturen).
+
+Aufwand: ★★☆
+
+### Gegner mit eigener Art, sich zu bewegen
+
+**Im Spiel:** Schleime kriechen waagerecht, Fledermäuse fliegen senkrecht, Geister schweben auf dich zu.
+
+**Dahinter steckt:** eine abstrakte Klasse `Gegner`, deren `run()` für alle gleich ist und die abstrakte Methode `bewege()` aufruft. Jede Unterklasse füllt nur `bewege()`. Was gleich ist, steht einmal in der Oberklasse, was sich unterscheidet, in der Unterklasse ([Generalisierung](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/03-generalisierung-und-spezialisierung)).
+
+```java
+public void run() {
+   this.playAnimation("laufen");
+   this.bewege();
+}
+
+protected abstract void bewege();
+```
+
+Aufwand: ★★☆
+
+### Ein Schatz, der mehrere Dinge auf einmal ist
+
+**Im Spiel:** Eine Truhe ist ein Hindernis, man kann also nicht durch sie hindurch. Öffnet man sie, gibt sie aber auch Punkte, wie eine Münze.
+
+**Dahinter steckt:** Java erlaubt nur eine Oberklasse. Für die zweite Rolle gibt es eine [Schnittstelle](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/06-schnittstellen), etwa `Wertvoll` mit `int getWert()`. Münzen und Truhen implementieren sie, obwohl sie in verschiedenen Zweigen der Hierarchie stehen. Das Spiel kann dann am Start zusammenrechnen, wie viel insgesamt zu holen ist.
+
+*(Nur Leistungskurs.)*
+
+Aufwand: ★★★
+
+### Einstellungen an einer Stelle
+
+**Im Spiel:** nichts zu sehen, aber Tempo, Startleben und Spielzeit lassen sich an einer Stelle ändern.
+
+**Dahinter steckt:** [Konstanten](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/02-klassenattribute-und-konstanten) mit `public static final`. Sie gehören zur Klasse, nicht zu einem einzelnen Objekt. Ein Klassenattribut ohne `final` kann außerdem zählen, wie viele Gegner es insgesamt gibt.
+
+Aufwand: ★☆☆
+
+### Das Spiel als Diagramm
+
+**Im Spiel:** nichts zu sehen. Aber du siehst dein Spiel von oben.
+
+**Dahinter steckt:** ein [Implementationsdiagramm](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/01-implementationsdiagramme) mit allen Klassen, abstrakten Klassen und Schnittstellen. Abstrakte Klassen und Methoden werden kursiv gesetzt.
+
+Aufwand: ★☆☆
+
+## Und ohne Spiel?
+
+Die Frage auf dieser Seite ist dieselbe wie in jeder Aufgabe des Kapitels:
+
+| Im Spiel | In den Aufgaben des Kapitels |
+| --- | --- |
+| `Gegenstand` mit `beruehrtVon` | `Form` mit `flaeche()`, `Sensor` mit `messwert()` |
+| Münze, Herz, Falle | Kreis und Quadrat, Thermometer und Hygrometer |
+| `if`-Kette nach Sorten im `Spieler` | `if`-Kette nach Fahrzeugtypen in der Mautstelle |
+| `Wertvoll` quer zur Hierarchie | `Bezahlbar` für Angestellte **und** Stromrechnungen |
+
+**Welche Frage muss jede Unterklasse beantworten, und wo steht die Antwort?** Wer das im Spiel einmal gesehen hat, erkennt es in der Klausur wieder.
+
+## Deine eigene Idee
+
+Welche Sorten von Dingen hat dein Spiel? Gibt es schon eine Kette von `if`-Abfragen nach dem Typ? Das ist die Stelle für eine Oberklasse.
+
+:::snippet{#aufgabe}
+**Fürs Tagebuch:** Zeichne das Implementationsdiagramm deiner Gegenstände oder Gegner. Erkläre an einem Beispiel, was passiert, wenn du eine neue Sorte hinzufügst: Welche Klassen musst du anfassen, und welche nicht?
+:::
+
+## Checkpoint
+
+Im Checkpoint nach diesem Kapitel gibt es eine abstrakte Klasse `Gegenstand` mit `Muenze`, `Herz` und `Falle` und eine abstrakte Klasse `Gegner` mit `Schleim` und `Fledermaus`. Der `Spieler` kennt nur noch die beiden Oberklassen. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
+
+:download[Checkpoint: Vertiefte Objektorientierung (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-01-objektorientierung.json"}
+
+:archive[Checkpoint: Vertiefte Objektorientierung (Projekt für den Rechner)]{name="spielwerkstatt-q-01-objektorientierung"}
+
+Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).
