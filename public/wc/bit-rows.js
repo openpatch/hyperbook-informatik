@@ -130,7 +130,7 @@ class BitRows extends HTMLElement {
           transition: all 0.3s ease;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
           background: var(--color-brand, #007864);
-          color: var(--color-brand-text, white);
+          color: var(--color-background, #fff);
           touch-action: manipulation;
         }
 

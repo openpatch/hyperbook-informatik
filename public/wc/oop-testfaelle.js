@@ -301,9 +301,9 @@ class OopTestfaelle extends HTMLElement {
         .btn {
           padding: 7px 13px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.9em; font-weight: bold;
-          background: var(--color-brand, #007864); color: #fff;
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
-        .btn.sekundaer { background: #6b7280; }
+        .btn.sekundaer { background: #6b7280; color: #fff; }
 
         .rueckmeldung { font-size: 0.89em; padding: 10px 12px; border-radius: 8px; line-height: 1.55; }
         .rueckmeldung.ok {

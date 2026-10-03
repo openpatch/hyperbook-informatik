@@ -151,7 +151,7 @@ class BinaryToAscii extends HTMLElement {
           border-radius: 15px;
           padding: 30px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-          color: var(--color-brand-text, white);
+          color: var(--color-background, #fff);
         }
 
         h2 {

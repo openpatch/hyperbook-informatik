@@ -337,9 +337,9 @@ class OopNebenlaeufig extends HTMLElement {
         .btn {
           padding: 7px 12px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.86em; font-weight: bold;
-          background: var(--color-brand, #007864); color: #fff;
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
-        .btn.sekundaer { background: #6b7280; }
+        .btn.sekundaer { background: #6b7280; color: #fff; }
         .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
         .knopfleiste {
@@ -361,7 +361,7 @@ class OopNebenlaeufig extends HTMLElement {
         .zeile .marke {
           font-weight: 700; font-size: 0.85em; padding: 1px 7px; border-radius: 10px; color: #fff;
         }
-        .zeile .marke-A { background: var(--color-brand, #007864); }
+        .zeile .marke-A { background: var(--color-brand, #007864); color: var(--color-background, #fff); }
         .zeile .marke-B { background: #b45309; }
         .zeile .stand { margin-left: auto; font-size: 0.92em; }
         .zeile.leer { opacity: 0.6; background: transparent; padding: 0; }

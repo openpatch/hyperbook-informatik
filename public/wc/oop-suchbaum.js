@@ -385,9 +385,9 @@ class OopSuchbaum extends HTMLElement {
         .btn {
           padding: 7px 13px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.92em; font-weight: bold;
-          background: var(--color-brand, #007864); color: #fff;
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
-        .btn.sekundaer { background: #6b7280; }
+        .btn.sekundaer { background: #6b7280; color: #fff; }
 
         .statistik {
           display: flex; flex-wrap: wrap; gap: 14px;

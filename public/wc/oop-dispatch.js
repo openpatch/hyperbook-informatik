@@ -375,9 +375,9 @@ class OopDispatch extends HTMLElement {
         .btn {
           padding: 8px 14px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.95em; font-weight: bold;
-          background: var(--color-brand, #007864); color: #fff;
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
-        .btn.sekundaer { background: #6b7280; }
+        .btn.sekundaer { background: #6b7280; color: #fff; }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .aufruf {

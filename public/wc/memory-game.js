@@ -215,7 +215,7 @@ class MemoryGame extends HTMLElement {
           font-weight: bold;
           transition: all 0.2s ease;
           background: var(--color-brand, #007864);
-          color: var(--color-brand-text, white);
+          color: var(--color-background, #fff);
         }
 
         .btn-reset:hover {
@@ -280,7 +280,7 @@ class MemoryGame extends HTMLElement {
 
         .card-front {
           background: var(--color-brand, #007864);
-          color: var(--color-brand-text, white);
+          color: var(--color-background, #fff);
         }
 
         .card-back-face {

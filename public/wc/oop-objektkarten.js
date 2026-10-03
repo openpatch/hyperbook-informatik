@@ -372,9 +372,9 @@ class OopObjektkarten extends HTMLElement {
         .btn {
           padding: 7px 13px; border: none; border-radius: 6px; cursor: pointer;
           font-size: 0.92em; font-weight: bold;
-          background: var(--color-brand, #007864); color: #fff;
+          background: var(--color-brand, #007864); color: var(--color-background, #fff);
         }
-        .btn.sekundaer { background: #6b7280; }
+        .btn.sekundaer { background: #6b7280; color: #fff; }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .buehne {
@@ -402,7 +402,7 @@ class OopObjektkarten extends HTMLElement {
           padding: 2px 6px; border-radius: 4px; font-weight: 700;
           background: var(--color-spacer, #a4a4a4); color: #fff;
         }
-        .stempel.objekt-stempel { background: var(--color-brand, #007864); }
+        .stempel.objekt-stempel { background: var(--color-brand, #007864); color: var(--color-background, #fff); }
         .titel { font-weight: 700; font-family: ui-monospace, monospace; font-size: 0.92em; }
         .weg {
           margin-left: auto; border: none; background: none; cursor: pointer;

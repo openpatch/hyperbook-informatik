@@ -283,7 +283,7 @@ class CategoryDrag extends HTMLElement {
 
         .btn-check {
           background: var(--color-brand, #3b82f6);
-          color: white;
+          color: var(--color-background, #fff);
         }
 
         .btn-reset {
