@@ -53,6 +53,9 @@ geändert werden.
 
 Das Futter entsteht jetzt nicht mehr um den Nullpunkt, sondern um die
 Kamera herum – sonst würde es nach einer Weile hinter dem Spieler liegen.
+Und weil die Kamera beim Wachsen herauszoomt, wird auch der Bereich größer, in
+dem es entsteht: Die Zufallswerte werden mit `faktor = 100 / kamera.getZoom()`
+multipliziert. Bei 50 % Zoom sieht man doppelt so weit, der Faktor ist dann 2.
 
 ## Rauszoomen beim Wachsen
 
