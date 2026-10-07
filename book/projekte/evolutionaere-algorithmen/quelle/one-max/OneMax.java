@@ -18,7 +18,7 @@ public class OneMax extends Stage {
   public OneMax() {
     super(1000, 600);
 
-    this.target = "1".repeat(10000);
+    this.target = this.erzeugeZiel(10000);
     this.populationsize = 50;
     this.mutationrate = 0.02f;
     this.geneSet = "01".toCharArray();
@@ -41,6 +41,14 @@ public class OneMax extends Stage {
     this.add(this.statistics);
 
     this.population = new Population(this.target, this.mutationrate, this.populationsize, this.geneSet);
+  }
+
+  private String erzeugeZiel(int anzahl) {
+    char[] ziel = new char[anzahl];
+    for (int i = 0; i < anzahl; i++) {
+      ziel[i] = '1';
+    }
+    return new String(ziel);
   }
 
   public void run() {

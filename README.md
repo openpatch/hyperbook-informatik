@@ -25,8 +25,9 @@ Um das Hyperbook lokal zu entwickeln und zu testen:
 git clone https://github.com/openpatch/hyperbook-informatik.git
 cd hyperbook-informatik
 
-# Entwicklungsserver starten
-npx hyperbook dev
+# Festgelegte Abhängigkeiten installieren und Entwicklungsserver starten
+npm ci
+npm run dev
 ```
 
 **Alternative:** Installiere die [Hyperbook Extension für VS Code](https://marketplace.visualstudio.com/items?itemName=openpatch.hyperbook) für eine noch bessere Entwicklungserfahrung direkt in deinem Editor.
@@ -36,11 +37,16 @@ npx hyperbook dev
 Mehrere Lernpfade enthalten ausführbaren Code – Java, SQL, HTML und CSS. Damit dort nichts Kaputtes steht, gibt es Prüfskripte:
 
 ```bash
-# nur die statischen Prüfungen, dauert Sekunden
-python3 tools/pruefe-alles.py --schnell
+# alle statischen Prüfungen (Python 3.12+, Node.js 22+, JDK 25)
+npm run check:static
+
+# derselbe Java-Browsercheck wie vor dem Publishing
+npm run browser:install
+npm run build
+npm run check:java:browser -- --serve
 
 # alles: statische Prüfungen, Bauen und Browserprüfungen
-python3 tools/pruefe-alles.py
+npm run check
 ```
 
 Das Skript findet die Prüfungen selbst und startet den Dev-Server bei Bedarf. Was es wo prüft, wie man ein neues Werkzeug ergänzt und was einmalig einzurichten ist, steht in [tools/README.md](tools/README.md).

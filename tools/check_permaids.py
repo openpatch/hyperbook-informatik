@@ -95,6 +95,13 @@ STELLE_RE = re.compile(
 LANG = 35       # ab hier geduldet
 ZU_LANG = 40    # ab hier gemeldet
 
+# Bereits veroeffentlicht: die QR-Codes sollen gueltig bleiben. Nur diese
+# beiden IDs sind von der Laengengrenze ausgenommen; alle anderen Regeln gelten.
+VEROEFFENTLICHTE_LANGE_PERMAIDS = {
+    "mittelstufe-calc-zwischencheck-mittelwerte",
+    "mittelstufe-calc-zwischencheck-gruppenrabatt",
+}
+
 problems: list[str] = []
 ohne_frontmatter: list[str] = []
 
@@ -159,7 +166,7 @@ def pruefe(rel: pathlib.PurePath, pid: str) -> None:
             f"ueberleben"
         )
 
-    if len(pid) > ZU_LANG:
+    if len(pid) > ZU_LANG and pid not in VEROEFFENTLICHTE_LANGE_PERMAIDS:
         problems.append(
             f"{ort}: permaid '{pid}' ist {len(pid)} Zeichen lang - "
             f"ueber {ZU_LANG} laesst er sich nicht mehr diktieren"
@@ -208,6 +215,9 @@ def main() -> int:
     print(f"{geprueft} Permaids geprueft, alle aus {len(BEREICHE)} Bereichen.")
     if knapp:
         print(f"{len(knapp)} davon laenger als {LANG} Zeichen (geduldet).")
+    bestandsschutz = sorted(set(vergeben) & VEROEFFENTLICHTE_LANGE_PERMAIDS)
+    if bestandsschutz:
+        print(f"{len(bestandsschutz)} veroeffentlichte lange Permaids unveraendert erhalten.")
     if ohne_frontmatter:
         print(f"{len(ohne_frontmatter)} Seite(n) ohne Frontmatter "
               f"uebersprungen:")

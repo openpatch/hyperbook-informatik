@@ -18,13 +18,19 @@ Das Format liest die IDE in loadWorkspaceFromFile:
     {"name": ..., "settings": {"language": "Java", "libraries": [...]},
      "modules": [{"name": "Welt.java", "text": "..."}, ...]}
 
-Wie im Buch fehlen die import-Zeilen, und die Abiturklassen bleiben weg, weil
-die Online-IDE sie schon mitbringt.
+Importe bleiben erhalten. Assets und Abiturklassen werden als Daten-URLs
+mitgenommen; desktopFiles verhindert doppelte NRW-Klassen im Browser.
+Die ebenfalls erzeugten ZIPs enthalten dieselben Dateien als echte Dateien.
 """
 
 from __future__ import annotations
 
+import argparse
+import base64
 import json
+import mimetypes
+import sys
+import zipfile
 import pathlib
 import re
 
@@ -58,25 +64,86 @@ ZUERST = ["Welt.java", "Main.java"]
 IMPORT_RE = re.compile(r"^import .*\n", re.M)
 
 
-def module(archiv: pathlib.Path) -> list[dict[str, str]]:
-    dateien = [p for p in archiv.glob("*.java") if p.stem not in ABITURKLASSEN]
-    dateien.sort(key=lambda p: (ZUERST.index(p.name) if p.name in ZUERST else len(ZUERST), p.name))
-    return [{"name": p.name, "text": IMPORT_RE.sub("", p.read_text(encoding="utf-8")).lstrip("\n")}
-            for p in dateien]
+def assets(archiv: pathlib.Path) -> list[pathlib.Path]:
+    """Only referenced files plus the selectable characters, without preview images."""
+    selected = {ROOT / "book/projekte/spielwerkstatt/assets/lizenz.txt"}
+    for source in archiv.glob("*.java"):
+        for name in re.findall(r'"(assets/[^"\n]+)"', source.read_text(encoding="utf-8")):
+            path = ROOT / "book/projekte/spielwerkstatt" / name
+            if path.is_file():
+                selected.add(path)
+            elif path.is_dir():
+                selected.update(path.glob("*/sprite-sheet.png"))
+    return sorted(selected)
 
 
-def main() -> None:
+def module(archiv: pathlib.Path) -> list[dict]:
+    sources = sorted(archiv.glob("*.java"), key=lambda p: (
+        ZUERST.index(p.name) if p.name in ZUERST else len(ZUERST), p.name))
+    modules = []
+    for path in sources + assets(archiv):
+        name = path.name if path in sources else path.relative_to(ROOT / "book/projekte/spielwerkstatt").as_posix()
+        if path in sources and path.stem not in ABITURKLASSEN:
+            text = path.read_text(encoding="utf-8")
+        else:
+            mime = mimetypes.guess_type(name)[0] or "application/octet-stream"
+            text = "data:" + mime + ";base64," + base64.b64encode(path.read_bytes()).decode("ascii")
+        modules.append({"name": name, "text": text, "id": len(modules) + 1,
+                        "isFolder": False, "identical_to_repository_version": True})
+    return modules
+
+
+def workspace(archivname: str, name: str) -> dict:
+    archiv = ARCHIVE / archivname
+    metadata = {
+        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "5.8.0",
+        "startStage": "Main", "startFile": "Main.java", "pixelArt": True,
+        "lesson": "spielwerkstatt", "checkpoint": archivname, "sourceEnvironment": "browser",
+        "browserFeatures": [], "externalDependencies": [],
+        "desktopFiles": sorted(p.name for p in archiv.glob("*.java") if p.stem in ABITURKLASSEN),
+    }
+    modules = module(archiv)
+    checks = [p.stem for p in archiv.glob("*.java") if re.search(r"@Test\b", p.read_text(encoding="utf-8"))]
+    if checks:
+        modules.append({"name": ".scratch4j/checks.json", "text": json.dumps({
+            "schemaVersion": 1, "mode": "logic", "classes": checks}, indent=2) + "\n",
+            "id": len(modules) + 1, "isFolder": False, "identical_to_repository_version": True})
+    return {"name": name, "settings": {"language": "Java", "libraries": ["scratch", "nrw"],
+            "scratchProject": metadata}, "modules": modules}
+
+
+def write_zip(project: dict, target: pathlib.Path) -> None:
+    with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for entry in project["modules"]:
+            text = entry["text"]
+            contents = base64.b64decode(text.split(",", 1)[1]) if text.startswith("data:") else text.encode("utf-8")
+            archive.writestr(entry["name"], contents)
+        archive.writestr(".scratch4j/project.json",
+                         json.dumps(project["settings"]["scratchProject"], ensure_ascii=False, indent=2) + "\n")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="Check committed JSON without writing files")
+    parser.add_argument("--zip-only", action="store_true", help="Generate ignored portable ZIP downloads for a book build")
+    args = parser.parse_args()
     ZIEL.mkdir(exist_ok=True)
+    failed = False
     for archivname, name in CHECKPOINTS.items():
-        workspace = {
-            "name": name,
-            "settings": {"language": "Java", "libraries": ["scratch", "nrw"]},
-            "modules": module(ARCHIVE / archivname),
-        }
-        datei = ZIEL / f"{archivname}.json"
-        datei.write_text(json.dumps(workspace, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"[ok] {datei.relative_to(ROOT)} ({len(workspace['modules'])} Dateien)")
+        project = workspace(archivname, name)
+        target = ZIEL / f"{archivname}.json"
+        expected = json.dumps(project, ensure_ascii=False, indent=2) + "\n"
+        if args.check:
+            if not target.exists() or target.read_text(encoding="utf-8") != expected:
+                print(f"[stale] {target.relative_to(ROOT)}; run {pathlib.Path(__file__).relative_to(ROOT)}")
+                failed = True
+        elif not args.zip_only:
+            target.write_text(expected, encoding="utf-8")
+        if not args.check:
+            write_zip(project, target.with_suffix(".zip"))
+            print(f"[ok] {target.relative_to(ROOT)} ({len(project['modules'])} files, portable ZIP)")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -22,15 +22,64 @@ concurrency:
 
 jobs:
   build:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v6
 
-      - name: Setup and Build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - run: npm ci
+
+      - name: Install OpenSCAD
+        run: sudo apt-get update && sudo apt-get install -y openscad
+
+      - name: Install the tested BOSL2 library
+        uses: actions/checkout@v6
+        with:
+          repository: BelfrySCAD/BOSL2
+          ref: b9c5dd7618f13bbbe24fbf51d1f46027ea773053
+          path: .validation/BOSL2
+
+      - name: Check all static lessons and desktop checkpoints
+        run: npm run check:static
+        env:
+          OPENSCADPATH: ${{ github.workspace }}/.validation
+
+      - name: Build with pinned Hyperbook
+        run: npm run build
+
+      - name: Install the pinned Chromium
+        run: npm run browser:install -- --with-deps
+
+      - name: Compile every embedded Java lesson
+        run: npm run check:java:browser -- --serve
+
+      - name: Checkout the browser teaching-check adapter
+        uses: actions/checkout@v6
+        with:
+          repository: openpatch/online-ide
+          path: .validation/online-ide
+
+      - name: Execute portable teaching checks in the browser interpreter
         run: |
-          npx hyperbook build
+          python3 tools/spielwerkstatt/sync_teaching_tests.py --online-ide .validation/online-ide --check
+          npm --prefix .validation/online-ide ci
+          npm --prefix .validation/online-ide run test:ci -- src/test/PortableTeachingTests.test.ts
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

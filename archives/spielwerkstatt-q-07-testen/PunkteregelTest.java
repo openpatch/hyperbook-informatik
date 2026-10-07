@@ -1,5 +1,6 @@
 /// Tests für die Punkteregel. Starte sie in der Online-IDE über den Reiter Testrunner.
-/// Auf dem Rechner brauchst du JUnit: In BlueJ entfernst du dafür das @Test vor class.
+/// In Studio: Ausführen > Verhaltenstests ausführen. Die Quelldatei bleibt unverändert.
+/// Andere Java-IDEs: JUnit 5 hinzufügen, Klassen-@Test entfernen und JUnit-Imports ergänzen.
 @Test
 class PunkteregelTest {
 
