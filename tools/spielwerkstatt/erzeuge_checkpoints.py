@@ -61,6 +61,16 @@ ABITURKLASSEN = {"List", "Queue", "Stack", "BinaryTree", "BinarySearchTree",
 # Diese Dateien stehen vorn, der Rest folgt alphabetisch.
 ZUERST = ["Welt.java", "Main.java"]
 
+# These are the only asset types currently embedded in a checkpoint. Keep the
+# mapping explicit: Python's system MIME database differs between developer
+# machines and GitHub runners, and a different media type changes every JSON
+# checkpoint even though the project itself did not change.
+MIME_TYPES = {
+    ".ogg": "audio/ogg",
+    ".png": "image/png",
+    ".txt": "text/plain",
+}
+
 IMPORT_RE = re.compile(r"^import .*\n", re.M)
 
 
@@ -86,7 +96,7 @@ def module(archiv: pathlib.Path) -> list[dict]:
         if path in sources and path.stem not in ABITURKLASSEN:
             text = path.read_text(encoding="utf-8")
         else:
-            mime = mimetypes.guess_type(name)[0] or "application/octet-stream"
+            mime = MIME_TYPES.get(path.suffix.lower()) or mimetypes.guess_type(name)[0] or "application/octet-stream"
             text = "data:" + mime + ";base64," + base64.b64encode(path.read_bytes()).decode("ascii")
         modules.append({"name": name, "text": text, "id": len(modules) + 1,
                         "isFolder": False, "identical_to_repository_version": True})
@@ -103,7 +113,7 @@ def workspace(archivname: str, name: str) -> dict:
         "desktopFiles": sorted(p.name for p in archiv.glob("*.java") if p.stem in ABITURKLASSEN),
     }
     modules = module(archiv)
-    checks = [p.stem for p in archiv.glob("*.java") if re.search(r"@Test\b", p.read_text(encoding="utf-8"))]
+    checks = [p.stem for p in sorted(archiv.glob("*.java")) if re.search(r"@Test\b", p.read_text(encoding="utf-8"))]
     if checks:
         modules.append({"name": ".scratch4j/checks.json", "text": json.dumps({
             "schemaVersion": 1, "mode": "logic", "classes": checks}, indent=2) + "\n",
