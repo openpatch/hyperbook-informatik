@@ -182,6 +182,11 @@ python3 tools/check_permaids.py
 
 Das Skript meldet fehlende und doppelte Permaids, Stellenangaben darin, falsche Bereichskürzel und alles über 40 Zeichen. Was es **nicht** prüfen kann, ist Regel 2: Ob ein Permaid gegenüber früher geändert wurde, weiß es nicht – dafür müsste es wissen, was schon im Umlauf ist. Da bist du allein verantwortlich.
 
+Zwei bereits veröffentlichte Adressen bleiben trotz ihrer Länge erhalten:
+`mittelstufe-calc-zwischencheck-mittelwerte` und
+`mittelstufe-calc-zwischencheck-gruppenrabatt`. Die Prüfung nimmt nur diese
+beiden von der Längengrenze aus. Neue Adressen dürfen höchstens 40 Zeichen haben.
+
 Regel 2 gilt ab jetzt. Im September 2026 wurden alle Permaids einmalig nach diesem Schema neu vergeben – das ging, weil noch keiner von ihnen im Umlauf war. Ein zweites Mal geht es nicht.
 
 Einen Permaid bekommen alle Sektionen und alle Lektionen – 492 sind es zurzeit. Hilfsseiten ohne eigenen Zweck – `404`, `impressum`, `wc`, die Startseite des Buches, alles unter `_probe` – bekommen keinen, leere Platzhalterseiten erst, wenn sie Inhalt haben.

@@ -59,8 +59,8 @@ TERMINAL = sys.stdout.isatty()
 
 # Uebliche Orte fuer playwright-core. Siehe NOTIZEN.md der Lernpfade.
 PLAYWRIGHT_ORTE = [
-    pathlib.Path("/tmp/pw/node_modules"),
     ROOT / "node_modules",
+    pathlib.Path("/tmp/pw/node_modules"),
 ]
 
 
@@ -130,7 +130,7 @@ def finde_playwright() -> str | None:
 def starte_server() -> subprocess.Popen | None:
     print("  Dev-Server wird gestartet …")
     prozess = subprocess.Popen(
-        ["npx", "hyperbook", "dev"],
+        ["npm", "run", "dev"],
         cwd=ROOT,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
@@ -152,8 +152,8 @@ def starte_server() -> subprocess.Popen | None:
 def stoppe_server(prozess: subprocess.Popen) -> None:
     """Beendet den Dev-Server samt Kindprozessen.
 
-    npx startet den eigentlichen Server als Kindprozess. Ein terminate() auf
-    npx allein laesst diesen weiterlaufen - der Port bliebe belegt und der
+    npm startet den eigentlichen Server als Kindprozess. Ein terminate() auf
+    npm allein laesst diesen weiterlaufen - der Port bliebe belegt und der
     naechste Lauf hielte den Ueberrest fuer einen absichtlich gestarteten
     Server. Deshalb wird die ganze Prozessgruppe beendet; sie existiert, weil
     der Start mit start_new_session=True erfolgt ist.
@@ -234,8 +234,11 @@ def pruefe_generatoren(generatoren: list[Pruefung], ausfuehrlich: bool) -> None:
 
 def main() -> int:
     p = argparse.ArgumentParser(description="Startet alle Pruefungen des Repositorys.")
-    p.add_argument("--schnell", "-s", action="store_true",
+    modus = p.add_mutually_exclusive_group()
+    modus.add_argument("--schnell", "-s", action="store_true",
                    help="nur die statischen Pruefungen, kein Bauen, kein Browser")
+    modus.add_argument("--statisch", action="store_true",
+                       help="nur statische Pruefungen auswaehlen (vollstaendiger CI-Teilcheck)")
     p.add_argument("--liste", "-l", action="store_true",
                    help="nur anzeigen, was laufen wuerde")
     p.add_argument("--nur", metavar="MUSTER",
@@ -274,7 +277,7 @@ def main() -> int:
         pruefe_generatoren(generatoren, args.ausfuehrlich)
 
     server = None
-    if not args.schnell:
+    if not (args.schnell or args.statisch):
         lief_schon = server_laeuft()
 
         if lief_schon:
@@ -282,7 +285,7 @@ def main() -> int:
                   "baut selbst.")
         else:
             print("\nBauen")
-            bauen = Pruefung("npx hyperbook build", ["npx", "hyperbook", "build"], "bauen")
+            bauen = Pruefung("npm run build", ["npm", "run", "build"], "bauen")
             fuehre_aus(bauen, args.ausfuehrlich)
 
         if browser:
@@ -291,11 +294,10 @@ def main() -> int:
                 print("\nBrowserpruefungen werden uebersprungen: playwright-core "
                       "nicht gefunden.")
                 print("  Einmalig einrichten:")
-                print("    mkdir -p /tmp/pw && cd /tmp/pw && npm init -y && "
-                      "npm i playwright-core")
+                print("    npm ci && npm run browser:install")
                 uebersprungen += [x.name for x in browser]
-            elif not shutil.which("npx"):
-                print("\nBrowserpruefungen werden uebersprungen: npx nicht gefunden.")
+            elif not shutil.which("npm"):
+                print("\nBrowserpruefungen werden uebersprungen: npm nicht gefunden.")
                 uebersprungen += [x.name for x in browser]
             else:
                 print(f"\nBrowserpruefungen ({len(browser)})")
@@ -310,8 +312,8 @@ def main() -> int:
                     fuehre_aus(x, args.ausfuehrlich)
                 if server is not None:
                     stoppe_server(server)
-    else:
-        uebersprungen += ["npx hyperbook build"] + [x.name for x in browser]
+    elif args.schnell:
+        uebersprungen += ["npm run build"] + [x.name for x in browser]
 
     alle = statisch + [x for x in browser if x.ergebnis != "offen"] + generatoren
     if bauen is not None:

@@ -5,3 +5,7 @@ out
 *.class
 references
 __pycache__
+node_modules
+
+# Rebuilt from ordinary project files before every book build.
+book/projekte/spielwerkstatt/checkpoints/*.zip

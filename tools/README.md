@@ -38,7 +38,7 @@ grünen Haken verwechseln.
 Den Dev-Server startet und beendet das Skript bei Bedarf selbst. Läuft schon
 einer, benutzt es ihn und überspringt das separate Bauen.
 
-**Wie lange das dauert** (gemessen, Größenordnung):
+**Bisherige Laufzeiten** (gemessen mit den früheren festen Browser-Wartezeiten):
 
 | Teil | Dauer |
 | --- | --- |
@@ -129,18 +129,55 @@ eine ausdrückliche Bezeichnung erhalten.
 
 ## Einmalige Einrichtung
 
-Die statischen Prüfungen brauchen nur Python. Für die **Browserprüfungen**
-werden `playwright-core` und ein Chromium gebraucht. Weil das Repository kein
-`package.json` hat, liegt beides am einfachsten außerhalb:
+Die Prüfungen brauchen Python 3.12+, Node.js 22+ und für die
+Spielwerkstatt-Archive ein JDK 25 (`javac` im PATH). Hyperbook und
+`playwright-core` sind im `package.json` festgelegt; das Lockfile fixiert auch
+deren Abhängigkeiten.
 
 ```bash
-mkdir -p /tmp/pw && cd /tmp/pw && npm init -y && npm i playwright-core
-npx playwright install chromium
+npm ci
+npm run browser:install
+npm run check:java          # Java-Lernpfad, Desktop-Archive, Seitensuche
+npm run check:static        # alle statischen Prüfungen, Rückgabewert 0 bei Erfolg
+npm run build              # mit der festgelegten Hyperbook-Version
+npm run check:java:browser -- --serve # temporärer Server für den fertigen Build
+npm run dev                # vor den Browserprüfungen
+npm run check:java:browser  # in einem zweiten Terminal
 ```
 
-`pruefe-alles.py` findet das von selbst; es sucht der Reihe nach in
-`$NODE_PATH`, in `/tmp/pw/node_modules` und in `node_modules/`. Fehlt es,
-werden die Browserprüfungen mit einer Erklärung übersprungen (Rückgabewert 2).
+Auf Linux-CI kann der Browser mit `npx playwright-core install --with-deps chromium`
+eingerichtet werden. `HYPERBOOK_URL` setzt die Serveradresse (Standard:
+`http://localhost:8080`); `CHROMIUM_PATH` wählt eine vorhandene Chromium-Datei.
+
+Die Java-Browserprüfung durchsucht **alle** gebauten HTML-Seiten nach
+`java-online`-Blöcken. Spielwerkstatt und neue Projekte werden automatisch
+mitgeprüft. Sie wartet auf Compiler-Ergebniszeilen statt feste Pausen und
+liest Fehlermarkierungen unabhängig von der Oberflächensprache. Fehlende
+Compiler-Ergebnisse sind ein Fehler. Interne Hyperbook-HTML-Vorlagen unter `__hyperbook_assets`
+sind keine Unterrichtsseiten und werden ausgelassen. Die Auswahl lässt sich ohne Browser prüfen:
+
+```bash
+node tools/java-lernpfad/pruefe_seiten.js --liste
+node tools/java-lernpfad/pruefe_seiten.test.js
+```
+
+`pruefe-alles.py` sucht in `$NODE_PATH`, dann in `node_modules/` und zuletzt
+in `/tmp/pw/node_modules` für ältere Installationen. Fehlt Playwright, werden
+die Browserprüfungen mit einer Erklärung übersprungen (Rückgabewert 2).
+`--schnell` liefert ebenfalls 2, wenn nur Browser/Build bewusst übersprungen
+wurden; `npm run check:java` ist der vollständige Java-Check ohne Browser.
+
+Pages-Publishing verlangt `npm run check:static`, einen frischen Build und
+`npm run check:java:browser -- --serve`. Der temporäre Server wird nach der
+Prüfung geschlossen. Der Build entfernt vorher `.hyperbook/out`, damit gelöschte
+Seiten nicht weiter geprüft oder veröffentlicht werden.
+
+Für die Übersetzung der 3D-Beispiele braucht man OpenSCAD 2021.01+ und BOSL2
+im Bibliothekspfad (`OPENSCADPATH`). CI installiert OpenSCAD und verwendet
+BOSL2-Revision `b9c5dd7618f13bbbe24fbf51d1f46027ea773053`. Lokal meldet der
+3D-Checker ausdrücklich, wenn OpenSCAD fehlt und nur statisch geprüft wurde.
+SQL- und Web-Browserprüfungen sind weiterhin Teil von `npm run check`,
+aber noch kein Pages-Publishing-Gate.
 
 ## Was es gibt
 
@@ -289,3 +326,21 @@ passwortgeschützte Lösungen, Selbsttests, Lehrplanbezüge in Kommentaren –
 stehen im Buch selbst unter [Mitmachen](../book/mitmachen.md). Dort steht auch,
 warum in `multievent`-Blöcken kein Inline-Code stehen darf und wann Aufgaben
 vom Typ „finde den Fehler" funktionieren und wann nicht.
+
+
+### Portable Spielwerkstatt checks
+
+`check_desktop.py` compiles every Java file, including browser-format test
+classes, and runs the four Punkteregel tests through pinned JUnit console 1.11.4.
+The adapter changes temporary copies; student files remain unchanged. The JUnit
+artifact is cached and its SHA-256 checked. `SCRATCH_JUNIT_JAR` may point at the
+same pinned artifact for offline validation.
+
+```sh
+python3 tools/spielwerkstatt/sync_teaching_tests.py --online-ide /path/to/online-ide --check
+```
+
+This checks the unchanged browser teaching-test snapshots. Without `--check`, it
+refreshes them. Browser interpreter tests execute the same four checks and verify
+that an incorrect score fails. Publishing requires snapshot freshness and these
+browser tests as well as desktop/static and full embedded lesson compilation.

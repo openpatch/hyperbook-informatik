@@ -188,7 +188,9 @@ for (int i = 0; i < f.length; i++) {
 ```
 
 ```java Flaecheninhalt.java
-
+public interface Flaecheninhalt {
+    // TODO: Die Methode aus dem Diagramm deklarieren.
+}
 ```
 
 :::

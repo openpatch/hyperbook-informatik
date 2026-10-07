@@ -185,7 +185,11 @@ class Warensystem {
 ```
 
 ```java Brot.java
-    public class Brot {}
+public class Brot extends Ware {
+    public Brot(String pName, double pPreis, String pGetreideArt) {
+        // TODO: Attribute und Initialisierung nach dem Diagramm ergänzen.
+    }
+}
 
 ```
 

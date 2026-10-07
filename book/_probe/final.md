@@ -65,6 +65,9 @@ class BTest {
 
 ## C: protected static
 
+Die Testklasse erbt von `VorratC` und liest das geschützte Attribut als
+Unterklasse. Damit braucht die Probe keinen Zugriff über ein gemeinsames Paket.
+
 :::onlineide{height="420px" speed="1000000"}
 
 ```java Main.java
@@ -85,7 +88,7 @@ public class VorratC {
 
 ```java CTest.java
 @Test
-class CTest {
+class CTest extends VorratC {
     @Test
     void testProtectedStatic() {
         int vorher = VorratC.erzeugt;

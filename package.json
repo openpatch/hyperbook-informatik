@@ -1,0 +1,17 @@
+{
+  "name": "hyperbook-informatik",
+  "private": true,
+  "scripts": {
+    "dev": "hyperbook dev",
+    "build": "node tools/baue.js",
+    "check:java": "python3 tools/java-lernpfad/check_lernpfad.py && python3 tools/spielwerkstatt/check_desktop.py && node tools/java-lernpfad/pruefe_seiten.test.js",
+    "check:java:browser": "node tools/java-lernpfad/pruefe_seiten.js",
+    "check:static": "python3 tools/pruefe-alles.py --statisch && node tools/java-lernpfad/pruefe_seiten.test.js",
+    "check": "python3 tools/pruefe-alles.py",
+    "browser:install": "playwright-core install chromium"
+  },
+  "devDependencies": {
+    "hyperbook": "0.112.0",
+    "playwright-core": "1.62.1"
+  }
+}
