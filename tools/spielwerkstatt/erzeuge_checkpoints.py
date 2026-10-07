@@ -66,6 +66,7 @@ ZUERST = ["Welt.java", "Main.java"]
 # machines and GitHub runners, and a different media type changes every JSON
 # checkpoint even though the project itself did not change.
 MIME_TYPES = {
+    ".java": "application/octet-stream",
     ".ogg": "audio/ogg",
     ".png": "image/png",
     ".txt": "text/plain",
