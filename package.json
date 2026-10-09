@@ -11,7 +11,7 @@
     "browser:install": "playwright-core install chromium"
   },
   "devDependencies": {
-    "hyperbook": "0.112.1",
+    "hyperbook": "0.112.2",
     "playwright-core": "1.62.1"
   }
 }
