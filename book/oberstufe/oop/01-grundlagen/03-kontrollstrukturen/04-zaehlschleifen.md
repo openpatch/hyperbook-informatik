@@ -259,7 +259,8 @@ b) Setze es mit einer Zählschleife um.
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -348,7 +349,8 @@ für $k = 0, 1, \dots, n$.
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

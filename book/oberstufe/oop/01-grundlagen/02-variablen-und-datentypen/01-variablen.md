@@ -139,7 +139,8 @@ Jetzt lösen wir das Problem vom Ende des letzten Kapitels – zumindest halb.
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

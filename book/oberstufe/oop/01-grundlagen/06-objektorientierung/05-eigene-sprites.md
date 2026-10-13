@@ -14,7 +14,8 @@ Jetzt kommt alles zusammen. `Sprite` ist eine Klasse aus der Bibliothek – und 
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -85,7 +86,8 @@ b) Der Hase erscheint, bewegt sich aber nicht mehr. `run()` ist in `Sprite` bere
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -166,7 +168,8 @@ classDiagram
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -254,7 +257,8 @@ Baue aus den Bausteinen ein kleines Spiel:
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

@@ -61,7 +61,8 @@ Aus 10 und 10 werden 100. Aus 1000 und 1000 werden eine Million. Diese Multiplik
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
