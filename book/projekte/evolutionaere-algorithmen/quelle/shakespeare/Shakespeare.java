@@ -15,7 +15,6 @@ public class Shakespeare extends Stage {
   private Population population;
 
   public Shakespeare() {
-    super(800, 600);
 
     this.target = "To be, or not to be, that is the question.";
     this.populationsize = 5000;

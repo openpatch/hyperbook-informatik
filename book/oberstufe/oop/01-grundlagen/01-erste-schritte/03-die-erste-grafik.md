@@ -14,7 +14,8 @@ Text auf der Konsole ist praktisch, aber man sieht wenig. Für alles Grafische v
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -33,6 +34,7 @@ public class Buehne extends Stage {
 :::
 
 :::snippet{#merken}
+- In `main` entsteht zuerst das **Fenster** (`new Window(480, 360)`), dann kommt die Bühne hinein (`fenster.setStage(...)`).
 - `public class Buehne extends Stage` – wir bauen eine **eigene Bühne** auf Grundlage der fertigen Bühne aus der Bibliothek.
 - Alles zwischen `public Buehne() {` und der zugehörigen `}` wird ausgeführt, wenn die Bühne entsteht.
 - `new Sprite()` erzeugt eine neue Figur, `addCostume("bunny1_stand")` gibt ihr ein Aussehen (ein **Kostüm**), `this.add(hase)` stellt sie auf die Bühne.
@@ -41,7 +43,7 @@ public class Buehne extends Stage {
 
 ## Das Koordinatensystem
 
-Die Bühne ist **480 Pixel breit und 360 Pixel hoch**. Der Punkt (0, 0) liegt in der **Mitte**. Die x-Achse zeigt nach rechts, die y-Achse nach **oben**.
+Die Bühne ist so groß wie das Fenster, hier **480 Pixel breit und 360 Pixel hoch**. Der Punkt (0, 0) liegt in der **Mitte**. Die x-Achse zeigt nach rechts, die y-Achse nach **oben**.
 
 ```mermaid
 flowchart LR
@@ -72,7 +74,8 @@ b) Der Hase rutscht nach **unten**, denn negative y-Werte liegen unterhalb der M
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -118,7 +121,8 @@ Neben Figuren gibt es einen **Stift** (`Pen`). Er zeichnet eine Linie, solange e
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -167,7 +171,8 @@ b) Setze es danach im Programm um.
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -240,7 +245,8 @@ Was fällt dir beim Schreiben des Programms auf? Notiere, was dich daran stört.
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

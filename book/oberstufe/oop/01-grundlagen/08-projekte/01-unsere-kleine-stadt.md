@@ -34,7 +34,8 @@ Diese fünf Punkte sind eure **Schnittstellenvereinbarung**. Wer sich daran häl
 
 ```java Main.java
 void main() {
-    new Stadt();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Stadt());
 }
 ```
 

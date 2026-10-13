@@ -250,7 +250,8 @@ Die Bibliothek wird über `libraries="scratch"` geladen. Es gibt **keine** `impo
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

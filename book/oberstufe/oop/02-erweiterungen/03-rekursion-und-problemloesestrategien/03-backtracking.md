@@ -41,7 +41,8 @@ Das Labyrinth aus dem Kapitel über zweidimensionale Felder – jetzt suchen wir
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

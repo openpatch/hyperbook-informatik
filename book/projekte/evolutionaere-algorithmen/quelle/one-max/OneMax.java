@@ -16,7 +16,6 @@ public class OneMax extends Stage {
   private Population population;
 
   public OneMax() {
-    super(1000, 600);
 
     this.target = this.erzeugeZiel(10000);
     this.populationsize = 50;

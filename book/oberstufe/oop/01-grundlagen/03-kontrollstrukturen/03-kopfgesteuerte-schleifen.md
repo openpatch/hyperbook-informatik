@@ -142,7 +142,8 @@ Jetzt lösen wir das Münzproblem endgültig.
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

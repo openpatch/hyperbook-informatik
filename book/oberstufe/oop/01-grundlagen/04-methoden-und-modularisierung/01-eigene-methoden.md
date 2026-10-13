@@ -24,7 +24,8 @@ c) Stell dir vor, alle Bäume sollen braune statt schwarze Stämme bekommen. Wie
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -100,7 +101,8 @@ c) An **drei** Stellen. Bei zwanzig Bäumen an zwanzig Stellen. Und wenn man ein
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 
@@ -302,7 +304,8 @@ Erinnerst du dich an das Haus aus Kapitel 1? Baue es zu einer Methode `zeichneHa
 
 ```java Main.java
 void main() {
-    new Buehne();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Buehne());
 }
 ```
 

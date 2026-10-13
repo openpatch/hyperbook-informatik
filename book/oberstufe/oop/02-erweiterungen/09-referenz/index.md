@@ -297,7 +297,8 @@ Beide Bibliotheken zusammen lädt man kommasepariert: `libraries="nrw,scratch"`.
 ```java
 // Main.java
 void main() {
-    new Spiel();
+    Window fenster = new Window(480, 360);
+    fenster.setStage(new Spiel());
 }
 
 // Spiel.java
