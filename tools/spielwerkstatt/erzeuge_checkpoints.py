@@ -107,7 +107,7 @@ def module(archiv: pathlib.Path) -> list[dict]:
 def workspace(archivname: str, name: str) -> dict:
     archiv = ARCHIVE / archivname
     metadata = {
-        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "5.8.0",
+        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "6.1.2",
         "startStage": "Main", "startFile": "Main.java", "pixelArt": True,
         "lesson": "spielwerkstatt", "checkpoint": archivname, "sourceEnvironment": "browser",
         "browserFeatures": [], "externalDependencies": [],
