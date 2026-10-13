@@ -76,7 +76,7 @@ Wer länger gefehlt hat, zum Beispiel wegen eines Auslandsaufenthalts, muss nich
 
 **In Studio oder im Browser:** Die zusätzliche **Projekt-ZIP** enthält Java-Dateien, die verwendeten Grafiken und Klänge sowie die NRW-Klassen. Öffne sie in Studio über **Projekt → Projekt-ZIP / Workspace-JSON öffnen** oder lade sie in einer Online-IDE mit ZIP-Unterstützung. Die bisherigen Workspace-JSON-Dateien bleiben nutzbar. Studio kann sie ebenfalls importieren.
 
-**In anderen Java-Umgebungen:** Das vollständige Archiv enthält zusätzlich die Bibliothek. Die Projekt-ZIP benötigt Scratch for Java 5.7.0 NRW; Studio bringt diese Bibliothek mit.
+**In anderen Java-Umgebungen:** Das vollständige Archiv enthält zusätzlich die Bibliothek. Die Projekt-ZIP benötigt Scratch for Java 6.1.2 NRW; Studio bringt diese Bibliothek mit.
 
 | Nach dem Kapitel | Was das Beispielspiel dann kann | Im Buch | Auf deinem Rechner |
 | --- | --- | --- | --- |
