@@ -47,8 +47,7 @@ class AssetSuche extends HTMLElement {
   name(eintrag) {
     const teile = eintrag.pfad.split("/");
     const datei = teile[teile.length - 1].replace(/\.[a-z0-9]+$/, "");
-    let ordner = teile[teile.length - 2];
-    if (/^separate/.test(ordner) && teile.length > 3) ordner = teile[teile.length - 3];
+    const ordner = teile[teile.length - 2];
     if (datei === "sprite-sheet" || datei === ordner) return ordner;
     if (/^(sprite-sheet|faceset|preview|idle|walk|attack|jump|dead|item|special|hit|charge)/.test(datei)) {
       return `${ordner}-${datei}`;

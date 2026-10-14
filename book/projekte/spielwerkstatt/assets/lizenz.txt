@@ -13,3 +13,6 @@ Eine Namensnennung ist nicht erforderlich; wir nennen die Urheber trotzdem.
   Das vollständige Paket gibt es über den Link oben.
 - Alle Datei- und Ordnernamen in Kleinbuchstaben, ohne Sonderzeichen und mit
   Bindestrichen (aus `Sounds/Ambient/WaveFar.wav` wird `sounds/ambient/wave-far.ogg`).
+- Weggelassen: die Einzelbilder der Figuren (`separate-anim`, sie stecken alle im
+  `sprite-sheet.png`), die animierte Figur `character-animated`, die doppelte Figur
+  `villager6`, die unfertigen Oberflächen-Themes (`wip`) und die meisten Vorschaubilder.
