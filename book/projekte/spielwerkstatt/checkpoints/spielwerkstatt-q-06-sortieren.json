@@ -189,7 +189,7 @@
     },
     {
       "name": "Stein.java",
-      "text": "/// Ein Stein für Mauern, 16 × 16 Pixel aus dem Dungeon-Kachelbild.\npublic class Stein extends Hindernis {\n\n   public Stein() {\n      this.addCostume(\"stein\", \"assets/backgrounds/tilesets/tileset-dungeon.png\", 128, 48, 16, 16);\n   }\n}\n",
+      "text": "/// Ein Stein für Mauern, 16 × 16 Pixel aus dem Dungeon-Kachelbild.\npublic class Stein extends Hindernis {\n\n   public Stein() {\n      this.addCostume(\"stein\", \"assets/backgrounds/tilesets/tileset-dungeon.png\", 128, 48, 16, 16);\n      // Steine bilden die Mauer am Rand: Sie halten mit dem ganzen Bild auf, nicht nur unten.\n      this.setHitbox(0, 0, 16, 0, 16, 16, 0, 16);\n   }\n}\n",
       "id": 23,
       "isFolder": false,
       "identical_to_repository_version": true
