@@ -37,7 +37,6 @@ ZIEL = WERKSTATT / "assets-liste.json"
 
 BEREICHE = [
     ("actor/character/", "Figuren"),
-    ("actor/character-animated/", "Figuren"),
     ("actor/monster/", "Monster"),
     ("actor/animal/", "Tiere"),
     ("actor/boss/", "Bosse"),
@@ -104,15 +103,14 @@ def main() -> int:
         eintraege.append(eintrag)
 
     # Sortiert nach Bereich, darin das Brauchbarste zuerst: ganze Figurenblaetter
-    # und Animationen vor Einzelbildern, Einzelbilder aus "separate-anim" zuletzt.
+    # und Animationen vor Einzelbildern.
     reihenfolge = [name for _, name in BEREICHE]
     rang = {"figur": 0, "streifen": 1, "kacheln": 1, "klang": 1, "musik": 1, "bild": 2}
 
     def schluessel(e: dict[str, object]) -> tuple:
-        pfad = str(e["pfad"])
         return (reihenfolge.index(str(e["bereich"])) if e["bereich"] in reihenfolge else len(reihenfolge),
-                rang.get(str(e["art"]), 3) + (2 if "/separate-anim/" in pfad else 0),
-                pfad)
+                rang.get(str(e["art"]), 3),
+                str(e["pfad"]))
 
     eintraege.sort(key=schluessel)
     inhalt = json.dumps(eintraege, ensure_ascii=False, separators=(",", ":")) + "\n"
