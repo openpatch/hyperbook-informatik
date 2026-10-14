@@ -74,26 +74,26 @@ Wer länger gefehlt hat, zum Beispiel wegen eines Auslandsaufenthalts, muss nich
 
 **Im Buch:** Lade die Checkpoint-Datei herunter. Gehe dann auf die Seite [Deine Werkstatt](./00-werkstatt) und klicke in der Entwicklungsumgebung auf „Workspace aus Datei laden“. Wähle die Datei aus.
 
-**In Scratch for Java Studio:** Lade die Projekt-ZIP herunter. Sie enthält die Java-Dateien, die verwendeten Grafiken und Klänge sowie die NRW-Klassen. Öffne sie über **Projekt → Projekt-ZIP / Workspace-JSON öffnen**. Die Bibliothek Scratch for Java bringt Studio selbst mit. Die Checkpoint-Datei aus dem Buch kann Studio ebenfalls öffnen. Auch eine Online-IDE mit ZIP-Unterstützung lädt die Projekt-ZIP.
+**Auf deinem Rechner:** Lade das vollständige Projektarchiv herunter. Es enthält die Java-Dateien, **alle Grafiken und Klänge der Werkstatt**, die NRW-Klassen und die Bibliothek Scratch for Java 6.1.2 NRW im Ordner `+libs`. Damit kannst du auch andere Figuren, Landschaften und Klänge für dein eigenes Spiel verwenden.
 
-**In einer anderen Java-Umgebung** wie BlueJ oder VS Code: Lade das vollständige Archiv herunter. Es enthält zusätzlich die Bibliothek Scratch for Java 6.1.2 NRW im Ordner `+libs` und alle Grafiken und Klänge der Werkstatt.
+In **Scratch for Java Studio** öffnest du das Archiv über **Projekt → Projekt-ZIP / Workspace-JSON öffnen**. In **BlueJ oder VS Code** entpackst du es zuerst; die weiteren Schritte stehen unter [Auf deinem Rechner](./01-startgeruest#auf-deinem-rechner).
 
-| Nach dem Kapitel | Was das Beispielspiel dann kann | Im Buch | Scratch for Java Studio | Andere Java-Umgebung |
-| --- | --- | --- | --- | --- |
-| Erste Schritte | Figur, Hindernisse, Münzen | :download[Start]{src="./checkpoints/spielwerkstatt.json"} | :download[Start]{src="./checkpoints/spielwerkstatt.zip"} | :archive[Start]{name="spielwerkstatt"} |
-| Variablen und Datentypen | Münzzähler, Countdown | :download[Variablen]{src="./checkpoints/spielwerkstatt-ef-02-variablen.json"} | :download[Variablen]{src="./checkpoints/spielwerkstatt-ef-02-variablen.zip"} | :archive[Variablen]{name="spielwerkstatt-ef-02-variablen"} |
-| Kontrollstrukturen | Steinrahmen per Schleife, Gewinnen und Verlieren | :download[Kontrollstrukturen]{src="./checkpoints/spielwerkstatt-ef-03-kontrollstrukturen.json"} | :download[Kontrollstrukturen]{src="./checkpoints/spielwerkstatt-ef-03-kontrollstrukturen.zip"} | :archive[Kontrollstrukturen]{name="spielwerkstatt-ef-03-kontrollstrukturen"} |
-| Methoden und Modularisierung | dasselbe, in Methoden zerlegt | :download[Methoden]{src="./checkpoints/spielwerkstatt-ef-04-methoden.json"} | :download[Methoden]{src="./checkpoints/spielwerkstatt-ef-04-methoden.zip"} | :archive[Methoden]{name="spielwerkstatt-ef-04-methoden"} |
-| Felder | die Welt aus einem Plan | :download[Felder]{src="./checkpoints/spielwerkstatt-ef-05-felder.json"} | :download[Felder]{src="./checkpoints/spielwerkstatt-ef-05-felder.zip"} | :archive[Felder]{name="spielwerkstatt-ef-05-felder"} |
-| Objektorientierung | eigene Klassen, Gegner, Leben | :download[Objektorientierung]{src="./checkpoints/spielwerkstatt-ef-06-objektorientierung.json"} | :download[Objektorientierung]{src="./checkpoints/spielwerkstatt-ef-06-objektorientierung.zip"} | :archive[Objektorientierung]{name="spielwerkstatt-ef-06-objektorientierung"} |
-| Algorithmen: Suchen und Sortieren | neue Runde, sortierte Bestenliste | :download[Suchen und Sortieren]{src="./checkpoints/spielwerkstatt-ef-07-suchen-und-sortieren.json"} | :download[Suchen und Sortieren]{src="./checkpoints/spielwerkstatt-ef-07-suchen-und-sortieren.zip"} | :archive[Suchen und Sortieren]{name="spielwerkstatt-ef-07-suchen-und-sortieren"} |
-| Vertiefte Objektorientierung | Gegenstände und Gegner mit abstrakter Oberklasse | :download[Vertiefte OOP]{src="./checkpoints/spielwerkstatt-q-01-objektorientierung.json"} | :download[Vertiefte OOP]{src="./checkpoints/spielwerkstatt-q-01-objektorientierung.zip"} | :archive[Vertiefte OOP]{name="spielwerkstatt-q-01-objektorientierung"} |
-| Felder, Referenzen und Generik | Gitter neben der Bühne, versteckte Fallen | :download[Felder und Referenzen]{src="./checkpoints/spielwerkstatt-q-02-felder-und-referenzen.json"} | :download[Felder und Referenzen]{src="./checkpoints/spielwerkstatt-q-02-felder-und-referenzen.zip"} | :archive[Felder und Referenzen]{name="spielwerkstatt-q-02-felder-und-referenzen"} |
-| Rekursion | Flutfüllung findet eingemauerte Münzen | :download[Rekursion]{src="./checkpoints/spielwerkstatt-q-03-rekursion.json"} | :download[Rekursion]{src="./checkpoints/spielwerkstatt-q-03-rekursion.zip"} | :archive[Rekursion]{name="spielwerkstatt-q-03-rekursion"} |
-| Lineare Datenstrukturen | Meldungen in einer Schlange, Spur auf einem Stapel | :download[Lineare Datenstrukturen]{src="./checkpoints/spielwerkstatt-q-04-lineare-datenstrukturen.json"} | :download[Lineare Datenstrukturen]{src="./checkpoints/spielwerkstatt-q-04-lineare-datenstrukturen.zip"} | :archive[Lineare Datenstrukturen]{name="spielwerkstatt-q-04-lineare-datenstrukturen"} |
-| Nichtlineare Datenstrukturen | Wache mit Entscheidungsbaum | :download[Bäume]{src="./checkpoints/spielwerkstatt-q-05-baeume.json"} | :download[Bäume]{src="./checkpoints/spielwerkstatt-q-05-baeume.zip"} | :archive[Bäume]{name="spielwerkstatt-q-05-baeume"} |
-| Suchen und Sortieren (Q) | Tiefensortierung in jedem Bild | :download[Sortieren]{src="./checkpoints/spielwerkstatt-q-06-sortieren.json"} | :download[Sortieren]{src="./checkpoints/spielwerkstatt-q-06-sortieren.zip"} | :archive[Sortieren]{name="spielwerkstatt-q-06-sortieren"} |
-| Testen und Laufzeit | Punkteregel mit Kombo und Tests | :download[Testen]{src="./checkpoints/spielwerkstatt-q-07-testen.json"} | :download[Testen]{src="./checkpoints/spielwerkstatt-q-07-testen.zip"} | :archive[Testen]{name="spielwerkstatt-q-07-testen"} |
+| Nach dem Kapitel | Was das Beispielspiel dann kann | Im Buch | Auf deinem Rechner |
+| --- | --- | --- | --- |
+| Erste Schritte | Figur, Hindernisse, Münzen | :download[Start]{src="./checkpoints/spielwerkstatt.json"} | :archive[Start]{name="spielwerkstatt"} |
+| Variablen und Datentypen | Münzzähler, Countdown | :download[Variablen]{src="./checkpoints/spielwerkstatt-ef-02-variablen.json"} | :archive[Variablen]{name="spielwerkstatt-ef-02-variablen"} |
+| Kontrollstrukturen | Steinrahmen per Schleife, Gewinnen und Verlieren | :download[Kontrollstrukturen]{src="./checkpoints/spielwerkstatt-ef-03-kontrollstrukturen.json"} | :archive[Kontrollstrukturen]{name="spielwerkstatt-ef-03-kontrollstrukturen"} |
+| Methoden und Modularisierung | dasselbe, in Methoden zerlegt | :download[Methoden]{src="./checkpoints/spielwerkstatt-ef-04-methoden.json"} | :archive[Methoden]{name="spielwerkstatt-ef-04-methoden"} |
+| Felder | die Welt aus einem Plan | :download[Felder]{src="./checkpoints/spielwerkstatt-ef-05-felder.json"} | :archive[Felder]{name="spielwerkstatt-ef-05-felder"} |
+| Objektorientierung | eigene Klassen, Gegner, Leben | :download[Objektorientierung]{src="./checkpoints/spielwerkstatt-ef-06-objektorientierung.json"} | :archive[Objektorientierung]{name="spielwerkstatt-ef-06-objektorientierung"} |
+| Algorithmen: Suchen und Sortieren | neue Runde, sortierte Bestenliste | :download[Suchen und Sortieren]{src="./checkpoints/spielwerkstatt-ef-07-suchen-und-sortieren.json"} | :archive[Suchen und Sortieren]{name="spielwerkstatt-ef-07-suchen-und-sortieren"} |
+| Vertiefte Objektorientierung | Gegenstände und Gegner mit abstrakter Oberklasse | :download[Vertiefte OOP]{src="./checkpoints/spielwerkstatt-q-01-objektorientierung.json"} | :archive[Vertiefte OOP]{name="spielwerkstatt-q-01-objektorientierung"} |
+| Felder, Referenzen und Generik | Gitter neben der Bühne, versteckte Fallen | :download[Felder und Referenzen]{src="./checkpoints/spielwerkstatt-q-02-felder-und-referenzen.json"} | :archive[Felder und Referenzen]{name="spielwerkstatt-q-02-felder-und-referenzen"} |
+| Rekursion | Flutfüllung findet eingemauerte Münzen | :download[Rekursion]{src="./checkpoints/spielwerkstatt-q-03-rekursion.json"} | :archive[Rekursion]{name="spielwerkstatt-q-03-rekursion"} |
+| Lineare Datenstrukturen | Meldungen in einer Schlange, Spur auf einem Stapel | :download[Lineare Datenstrukturen]{src="./checkpoints/spielwerkstatt-q-04-lineare-datenstrukturen.json"} | :archive[Lineare Datenstrukturen]{name="spielwerkstatt-q-04-lineare-datenstrukturen"} |
+| Nichtlineare Datenstrukturen | Wache mit Entscheidungsbaum | :download[Bäume]{src="./checkpoints/spielwerkstatt-q-05-baeume.json"} | :archive[Bäume]{name="spielwerkstatt-q-05-baeume"} |
+| Suchen und Sortieren (Q) | Tiefensortierung in jedem Bild | :download[Sortieren]{src="./checkpoints/spielwerkstatt-q-06-sortieren.json"} | :archive[Sortieren]{name="spielwerkstatt-q-06-sortieren"} |
+| Testen und Laufzeit | Punkteregel mit Kombo und Tests | :download[Testen]{src="./checkpoints/spielwerkstatt-q-07-testen.json"} | :archive[Testen]{name="spielwerkstatt-q-07-testen"} |
 
 <!--
 Für Lehrkräfte: Die Spielwerkstatt begleitet beide Lernpfade von EF-Kapitel 1
@@ -118,8 +118,9 @@ Kombo-Punkteregel mit Tests). Die Beispiele zu Schlange, Stapel und Liste
 auf dem Referenzspiel der Checkpoints.
 
 Checkpoints: Die Archive heißen archives/spielwerkstatt*. Die Workspace-Dateien
-in checkpoints/ erzeugt tools/spielwerkstatt/erzeuge_checkpoints.py aus den
-Archiven; tools/spielwerkstatt/check_desktop.py meldet, wenn eine veraltet ist.
+in checkpoints/ und die Studio-Einstellungen in den Archiven erzeugt
+tools/spielwerkstatt/erzeuge_checkpoints.py; tools/spielwerkstatt/check_desktop.py
+meldet, wenn eine Datei veraltet ist.
 
 Technisch gibt es genau einen Arbeitsbereich: den onlineide-Block mit
 id="spielwerkstatt" auf der Seite 00-werkstatt (layout: wide). Die anderen

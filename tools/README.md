@@ -330,6 +330,11 @@ vom Typ „finde den Fehler" funktionieren und wann nicht.
 
 ### Portable Spielwerkstatt checks
 
+`erzeuge_checkpoints.py` generates the browser workspace JSON files and Studio
+settings in each archive's `.scratch4j/` folder. Hyperbook builds the complete
+project archives for Studio, BlueJ and VS Code, including all workshop assets.
+`--check` verifies that the committed workspaces and archive settings are current.
+
 `check_desktop.py` compiles every Java file, including browser-format test
 classes, and runs the four Punkteregel tests through pinned JUnit console 1.11.4.
 The adapter changes temporary copies; student files remain unchanged. The JUnit
