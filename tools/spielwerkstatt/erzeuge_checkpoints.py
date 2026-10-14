@@ -8,7 +8,8 @@ Aufruf aus dem Repository-Wurzelverzeichnis:
 Ein Checkpoint ist ein Stand des Referenzspiels, mit dem man wieder einsteigen
 kann, wenn man laenger gefehlt hat. Es gibt ihn zweimal:
 
-- offline als zip-Archiv: archives/<name>, eingebunden mit ::archive
+- auf dem Rechner als vollstaendiges ZIP-Archiv mit allen Assets:
+  archives/<name>, eingebunden mit ::archive (fuer Studio, BlueJ und VS Code)
 - im Buch als Workspace-Datei: book/projekte/spielwerkstatt/checkpoints/<name>.json
 
 Die Workspace-Datei laedt man in der eingebetteten Online-IDE ueber den Knopf
@@ -20,7 +21,8 @@ Das Format liest die IDE in loadWorkspaceFromFile:
 
 Importe bleiben erhalten. Assets und Abiturklassen werden als Daten-URLs
 mitgenommen; desktopFiles verhindert doppelte NRW-Klassen im Browser.
-Die ebenfalls erzeugten ZIPs enthalten dieselben Dateien als echte Dateien.
+Die Studio-Einstellungen und Verhaltenstests werden in .scratch4j/ des
+vollstaendigen Archivs abgelegt. Die ZIPs dieser Archive erzeugt Hyperbook.
 """
 
 from __future__ import annotations
@@ -30,7 +32,6 @@ import base64
 import json
 import mimetypes
 import sys
-import zipfile
 import pathlib
 import re
 
@@ -123,36 +124,36 @@ def workspace(archivname: str, name: str) -> dict:
             "scratchProject": metadata}, "modules": modules}
 
 
-def write_zip(project: dict, target: pathlib.Path) -> None:
-    with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for entry in project["modules"]:
-            text = entry["text"]
-            contents = base64.b64decode(text.split(",", 1)[1]) if text.startswith("data:") else text.encode("utf-8")
-            archive.writestr(entry["name"], contents)
-        archive.writestr(".scratch4j/project.json",
-                         json.dumps(project["settings"]["scratchProject"], ensure_ascii=False, indent=2) + "\n")
+def checkpoint_files(archivname: str, name: str) -> dict[pathlib.Path, str]:
+    """Workspace im Buch und Studio-Einstellungen im vollstaendigen Archiv."""
+    project = workspace(archivname, name)
+    metadata = {**project["settings"]["scratchProject"], "sourceEnvironment": "studio"}
+    files = {
+        ZIEL / f"{archivname}.json": json.dumps(project, ensure_ascii=False, indent=2) + "\n",
+        ARCHIVE / archivname / ".scratch4j/project.json": json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+    }
+    for entry in project["modules"]:
+        if entry["name"] == ".scratch4j/checks.json":
+            files[ARCHIVE / archivname / entry["name"]] = entry["text"]
+    return files
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="Check committed JSON without writing files")
-    parser.add_argument("--zip-only", action="store_true", help="Generate ignored portable ZIP downloads for a book build")
+    parser.add_argument("--check", action="store_true", help="Check committed workspaces and archive settings without writing files")
     args = parser.parse_args()
-    ZIEL.mkdir(exist_ok=True)
     failed = False
     for archivname, name in CHECKPOINTS.items():
-        project = workspace(archivname, name)
-        target = ZIEL / f"{archivname}.json"
-        expected = json.dumps(project, ensure_ascii=False, indent=2) + "\n"
-        if args.check:
-            if not target.exists() or target.read_text(encoding="utf-8") != expected:
-                print(f"[stale] {target.relative_to(ROOT)}; run {pathlib.Path(__file__).relative_to(ROOT)}")
-                failed = True
-        elif not args.zip_only:
-            target.write_text(expected, encoding="utf-8")
+        for target, expected in checkpoint_files(archivname, name).items():
+            if args.check:
+                if not target.exists() or target.read_text(encoding="utf-8") != expected:
+                    print(f"[stale] {target.relative_to(ROOT)}; run {pathlib.Path(__file__).relative_to(ROOT)}")
+                    failed = True
+            else:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(expected, encoding="utf-8")
         if not args.check:
-            write_zip(project, target.with_suffix(".zip"))
-            print(f"[ok] {target.relative_to(ROOT)} ({len(project['modules'])} files, portable ZIP)")
+            print(f"[ok] {archivname}: Workspace und Archiveinstellungen")
     return 1 if failed else 0
 
 

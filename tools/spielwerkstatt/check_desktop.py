@@ -18,7 +18,8 @@ Geprueft wird ausserdem, was das Archiv zum Laufen braucht:
 2. Jeder Pfad assets/..., den der Quelltext laedt, gibt es im Ordner assets der
    Werkstatt - denn im Buch wie auf dem Rechner wird er relativ zum Projekt
    aufgeloest.
-3. Jede Checkpoint-Datei fuer die Online-IDE passt zu ihrem Archiv. Sonst muss
+3. Jede Checkpoint-Datei fuer die Online-IDE und die Studio-Einstellungen
+   passen zu ihrem Archiv. Sonst muss
    tools/spielwerkstatt/erzeuge_checkpoints.py noch einmal laufen.
 
 Rueckgabewert 0: alles in Ordnung, 1: Fehler, 2: javac fehlt, nicht geprueft.
@@ -26,7 +27,6 @@ Rueckgabewert 0: alles in Ordnung, 1: Fehler, 2: javac fehlt, nicht geprueft.
 
 from __future__ import annotations
 
-import json
 import os
 import pathlib
 import re
@@ -64,14 +64,12 @@ def pruefe_assets(archiv: pathlib.Path) -> None:
 
 
 def pruefe_checkpoints() -> None:
-    for archivname in erzeuge_checkpoints.CHECKPOINTS:
-        datei = erzeuge_checkpoints.ZIEL / f"{archivname}.json"
-        if not datei.exists():
-            problems.append(f"{datei.relative_to(ROOT)} fehlt - erzeuge_checkpoints.py ausfuehren")
-            continue
-        gespeichert = json.loads(datei.read_text(encoding="utf-8"))
-        if gespeichert != erzeuge_checkpoints.workspace(archivname, erzeuge_checkpoints.CHECKPOINTS[archivname]):
-            problems.append(f"{datei.relative_to(ROOT)} ist veraltet - erzeuge_checkpoints.py ausfuehren")
+    for archivname, name in erzeuge_checkpoints.CHECKPOINTS.items():
+        for datei, erwartet in erzeuge_checkpoints.checkpoint_files(archivname, name).items():
+            if not datei.exists():
+                problems.append(f"{datei.relative_to(ROOT)} fehlt - erzeuge_checkpoints.py ausfuehren")
+            elif datei.read_text(encoding="utf-8") != erwartet:
+                problems.append(f"{datei.relative_to(ROOT)} ist veraltet - erzeuge_checkpoints.py ausfuehren")
 
 
 def uebersetze(archiv: pathlib.Path) -> None:

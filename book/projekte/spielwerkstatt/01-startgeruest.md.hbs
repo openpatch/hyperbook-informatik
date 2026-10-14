@@ -82,11 +82,11 @@ Aufwand: ★★☆
 
 ## Auf deinem Rechner
 
-Das Projekt läuft auch ohne Browser, in jeder Java-Entwicklungsumgebung. Du brauchst ein **JDK 25**, zum Beispiel mit [VS Code](https://code.visualstudio.com/) oder BlueJ.
+Das Projekt läuft auch ohne Browser. In **Scratch for Java Studio** öffnest du das vollständige Projektarchiv über **Projekt → Projekt-ZIP / Workspace-JSON öffnen**. Für eine andere Java-Entwicklungsumgebung wie [VS Code](https://code.visualstudio.com/) oder BlueJ brauchst du ein **JDK 25**.
 
 ::archive[Projekt: Spielwerkstatt]{name="spielwerkstatt"}
 
-Entpacke das Archiv und starte es aus dem Projektordner heraus:
+In einer anderen Java-Umgebung entpackst du das Archiv und startest es aus dem Projektordner heraus:
 
 ```bash
 java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-6.1.2-nrw-all.jar" Main.java
@@ -97,7 +97,7 @@ Im Archiv liegt alles, was das Projekt braucht:
 | Was | Wofür |
 | --- | --- |
 | deine Klassen | derselbe Quelltext wie hier, mit einer `import`-Zeile am Anfang. Die Entwicklungsumgebung im Browser kennt die Klassen schon. |
-| `assets/` | Grafiken und Klänge |
+| `assets/` | alle Grafiken und Klänge der Werkstatt, auch zum Austauschen von Figuren und Landschaften |
 | `+libs/scratch-6.1.2-nrw-all.jar` | Scratch for Java. In dieser Fassung liefern `find`, `getAll` und `getTouchingSprites` eine `List` der Abiturklassen. BlueJ findet die Bibliothek im Ordner `+libs` von selbst. |
 | `List.java`, `Queue.java`, `Stack.java`, `BinaryTree.java`, `BinarySearchTree.java`, `ComparableContent.java`, `Graph.java`, `Vertex.java`, `Edge.java` | die Abiturklassen des Landes NRW, unverändert. Du brauchst sie erst in der Qualifikationsphase. Im Browser sind sie schon eingebaut. |
 
