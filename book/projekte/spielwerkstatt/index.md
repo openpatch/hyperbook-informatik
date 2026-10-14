@@ -74,7 +74,7 @@ Wer länger gefehlt hat, zum Beispiel wegen eines Auslandsaufenthalts, muss nich
 
 **Im Buch:** Lade die Checkpoint-Datei herunter. Gehe dann auf die Seite [Deine Werkstatt](./00-werkstatt) und klicke in der Entwicklungsumgebung auf „Workspace aus Datei laden“. Wähle die Datei aus.
 
-**Auf deinem Rechner:** Lade das vollständige Projektarchiv herunter. Es enthält die Java-Dateien, **alle Grafiken und Klänge der Werkstatt**, die NRW-Klassen und die Bibliothek Scratch for Java 6.1.2 NRW im Ordner `+libs`. Damit kannst du auch andere Figuren, Landschaften und Klänge für dein eigenes Spiel verwenden.
+**Auf deinem Rechner:** Lade das vollständige Projektarchiv herunter. Es enthält die Java-Dateien, **alle Grafiken und Klänge der Werkstatt**, die NRW-Klassen und die Bibliothek Scratch for Java 6.2.0 NRW im Ordner `+libs`. Damit kannst du auch andere Figuren, Landschaften und Klänge für dein eigenes Spiel verwenden.
 
 In **Scratch for Java Studio** öffnest du das Archiv über **Projekt → Projekt-ZIP / Workspace-JSON öffnen**. In **BlueJ oder VS Code** entpackst du es zuerst; die weiteren Schritte stehen unter [Auf deinem Rechner](./01-startgeruest#auf-deinem-rechner).
 
