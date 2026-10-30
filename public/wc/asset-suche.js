@@ -61,19 +61,22 @@ class AssetSuche extends HTMLElement {
     switch (eintrag.art) {
       case "figur": {
         const bilder = Math.floor(eintrag.hoehe / 16) >= 4 ? 4 : Math.floor(eintrag.hoehe / 16);
+        const spalten = Math.floor(eintrag.breite / 16);
+        // Die Bilder eines Sprite-Sheets werden zeilenweise ab 0 gezählt.
+        const spalte = (s) => Array.from({ length: bilder }, (_, i) => s + i * spalten).join(", ");
         return [
           `String bild = "${pfad}";`,
           `// je Blickrichtung eine Spalte, die Schritte untereinander`,
-          `this.addAnimation("unten", bild, ${bilder}, 16, 16, 0, true);`,
-          `this.addAnimation("oben", bild, ${bilder}, 16, 16, 1, true);`,
-          `this.addAnimation("links", bild, ${bilder}, 16, 16, 2, true);`,
-          `this.addAnimation("rechts", bild, ${bilder}, 16, 16, 3, true);`,
+          `this.addAnimation("unten", bild, 16, 16, ${spalte(0)});`,
+          `this.addAnimation("oben", bild, 16, 16, ${spalte(1)});`,
+          `this.addAnimation("links", bild, 16, 16, ${spalte(2)});`,
+          `this.addAnimation("rechts", bild, 16, 16, ${spalte(3)});`,
         ].join("\n");
       }
       case "streifen":
         return [
           `// ${eintrag.bilder} Bilder zu je ${eintrag.kachel} × ${eintrag.kachel} Pixeln nebeneinander`,
-          `this.addAnimation("${name}", "${pfad}", ${eintrag.bilder}, ${eintrag.kachel}, ${eintrag.kachel});`,
+          `this.addAnimation("${name}", "${pfad}", ${eintrag.kachel}, ${eintrag.kachel}, ${Array.from({ length: eintrag.bilder }, (_, i) => i).join(", ")});`,
           `this.playAnimation("${name}");   // in run()`,
         ].join("\n");
       case "kacheln": {

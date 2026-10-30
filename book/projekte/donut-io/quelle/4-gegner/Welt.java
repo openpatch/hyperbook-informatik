@@ -28,7 +28,7 @@ public class Welt extends Stage {
    }
 
    public void run() {
-      if (this.getTimer().everyMillis(1000)) {
+      if (this.getTimer().every(1)) {
          this.erzeugeFutter();
       }
 

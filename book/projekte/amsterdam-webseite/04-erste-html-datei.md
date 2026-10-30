@@ -32,9 +32,7 @@ Das hier ist das **Grundgerüst**, mit dem jede HTML-Datei anfängt. Änder ruhi
 </html>
 ```
 
-```html template
-###HTML###
-```
+
 
 :::
 

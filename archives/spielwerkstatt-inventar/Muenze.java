@@ -1,1 +1,0 @@
-../spielwerkstatt-raumplan/Muenze.java

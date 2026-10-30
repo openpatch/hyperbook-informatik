@@ -13,7 +13,20 @@ Links sind das, was aus einzelnen Seiten ein **Netz** macht. Bilder sind das, wa
 :::webide{id="web-2-4-links" height="350px"}
 
 ```html
-<h1 id="oben">Über den Rhein</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><h1 id="oben">Über den Rhein</h1>
 
 <p>Mehr steht in der
    <a href="https://de.wikipedia.org/wiki/Rhein">Wikipedia</a>.</p>
@@ -24,7 +37,8 @@ Links sind das, was aus einzelnen Seiten ein **Netz** macht. Bilder sind das, wa
 
 <p>Schreib mir: <a href="mailto:info@example.org">info@example.org</a></p>
 
-<p>Nach oben: <a href="#oben">zum Seitenanfang</a></p>
+<p>Nach oben: <a href="#oben">zum Seitenanfang</a></p></body>
+
 ```
 
 :::
@@ -97,7 +111,21 @@ Statt „Mehr Informationen findest du [hier](#)" schreibe „Mehr Informationen
 :::webide{id="web-2-4-bilder" height="390px"}
 
 ```html
-<h2>Ein Bild</h2>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h2>Ein Bild</h2>
 
 <img src="/images/willkommen-banner.jpg"
      alt="Bunte Kabel auf einer Steckplatine"
@@ -110,10 +138,11 @@ Statt „Mehr Informationen findest du [hier](#)" schreibe „Mehr Informationen
        alt="Bildschirmfoto eines Fangspiels mit fallenden Orangen"
        width="300" loading="lazy">
   <figcaption>Ein Fangspiel, entstanden im Unterricht.</figcaption>
-</figure>
+</figure></body>
+
 ```
 
-```css
+```css file="style.css"
 img {
   max-width: 100%;
   height: auto;
@@ -202,11 +231,26 @@ Als Bild kannst du `/images/willkommen-banner.jpg` verwenden.
 :::webide{id="web-2-4-uebung" height="460px"}
 
 ```html
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
 
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+</body>
 
 ```
 
-```css
+```css file="style.css"
 img {
   max-width: 100%;
   height: auto;

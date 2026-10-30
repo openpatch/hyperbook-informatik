@@ -33,12 +33,27 @@ body { max-width: 70rem; margin-inline: auto; padding: 1rem; }
 :::webide{id="web-4-6-clamp" height="330px"}
 
 ```html
-<h1>Diese Überschrift wächst mit</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Diese Überschrift wächst mit</h1>
 <p>Verschiebe die Trennlinie zwischen Vorschau und Editor und beobachte
-die Überschrift und die Abstände.</p>
+die Überschrift und die Abstände.</p></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {
@@ -69,15 +84,30 @@ Manches lässt sich nicht rechnen. Dann fragt man nach der Fensterbreite.
 :::webide{id="web-4-6-media" height="640px"}
 
 ```html
-<div class="seite">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="seite">
   <header>Kopfbereich</header>
   <nav>Navigation</nav>
   <main>Hauptinhalt</main>
   <footer>Fußbereich</footer>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {
@@ -169,14 +199,29 @@ Das ist aus drei Gründen schlechter:
 :::webide{id="web-4-6-schema" height="640px"}
 
 ```html
-<article class="karte">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><article class="karte">
   <h2>Helles und dunkles Design</h2>
   <p>Stell in deinem Betriebssystem auf dunkles Design um und lade
   diese Seite neu.</p>
-</article>
+</article></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 :root {
@@ -243,16 +288,31 @@ d) Ab 50rem Fensterbreite soll die Seite höchstens 60rem breit und zentriert se
 :::webide{id="web-4-6-uebung" height="350px"}
 
 ```html
-<h1>Unsere Pflanzen</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Unsere Pflanzen</h1>
 <div class="karten">
   <article><h2>Tomaten</h2><p>Brauchen viel Sonne.</p></article>
   <article><h2>Basilikum</h2><p>Mag es warm.</p></article>
   <article><h2>Erdbeeren</h2><p>Tragen im Juni.</p></article>
   <article><h2>Minze</h2><p>Wuchert gern.</p></article>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {

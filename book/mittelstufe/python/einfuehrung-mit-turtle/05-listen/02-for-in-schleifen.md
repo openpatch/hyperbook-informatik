@@ -103,7 +103,7 @@ Modifiziere die Maximum-Funktion aus der letzten Lektion so, dass sie die neue S
 Denke daran, das Problem mit den negativen Zahlen gleich mit zu lösen.
 :::
 
-:::pyide
+:::pyide{id="71a23b60d299fd5db21299f580e1a32b569c32faa79bfb88abb97e17d0e750c0"}
 
 ```python
 def maximum(zahlen):
@@ -114,7 +114,7 @@ def maximum(zahlen):
 print(maximum([40, 60, 20, 100, 80]))
 ```
 
-```python test
+```python file="test_1.py" role="test" hidden
 #SCRIPT#
 if maximum([40, 60, 20, 100, 80]) == 100:
     print("Bestanden: Das Maximum ist 100")
@@ -122,7 +122,7 @@ else:
     print("Nicht bestanden: erwartet 100, erhalten", maximum([40, 60, 20, 100, 80]))
 ```
 
-```python test
+```python file="test_2.py" role="test" hidden
 #SCRIPT#
 if maximum([-5, -20, -3]) == -3:
     print("Bestanden: Auch bei negativen Zahlen stimmt das Ergebnis")
@@ -130,7 +130,7 @@ else:
     print("Nicht bestanden: erwartet -3, erhalten", maximum([-5, -20, -3]))
 ```
 
-```python test
+```python file="test_3.py" role="test" hidden
 #SCRIPT#
 if maximum([7]) == 7:
     print("Bestanden: Einelementige Liste")
@@ -159,7 +159,7 @@ def maximum(zahlen):
 Entwickle eine Funktion `minimum(zahlen)`, die die **kleinste** Zahl einer Liste bestimmt.
 :::
 
-:::pyide
+:::pyide{id="f8cdca12ee722dd8d0117334c92fdaaa4bf0db9e52f0e6ce18272682d9b3fb5c"}
 
 ```python
 def minimum(zahlen):
@@ -170,7 +170,7 @@ def minimum(zahlen):
 print(minimum([40, 60, 20, 100, 80]))
 ```
 
-```python test
+```python file="test_1.py" role="test" hidden
 #SCRIPT#
 if minimum([40, 60, 20, 100, 80]) == 20:
     print("Bestanden: Das Minimum ist 20")
@@ -178,7 +178,7 @@ else:
     print("Nicht bestanden: erwartet 20, erhalten", minimum([40, 60, 20, 100, 80]))
 ```
 
-```python test
+```python file="test_2.py" role="test" hidden
 #SCRIPT#
 if minimum([-5, -20, -3]) == -20:
     print("Bestanden: Auch bei negativen Zahlen stimmt das Ergebnis")
@@ -202,7 +202,7 @@ Entwickle eine Funktion `mittelwert(zahlen)`, die den Mittelwert der Zahlen eine
 **Hinweis:** Sind in der Liste zum Beispiel die Zahlen 10, 20 und 60 gespeichert, ist das Ergebnis 30.
 :::
 
-:::pyide
+:::pyide{id="cb630301a5804d9cca26c6cc70be613a8e9e96d7d322055af95640d04c6b4290"}
 
 ```python
 def mittelwert(zahlen):
@@ -213,7 +213,7 @@ def mittelwert(zahlen):
 print(mittelwert([10, 20, 60]))
 ```
 
-```python test
+```python file="test_1.py" role="test" hidden
 #SCRIPT#
 if mittelwert([10, 20, 60]) == 30:
     print("Bestanden: Der Mittelwert ist 30")
@@ -221,7 +221,7 @@ else:
     print("Nicht bestanden: erwartet 30, erhalten", mittelwert([10, 20, 60]))
 ```
 
-```python test
+```python file="test_2.py" role="test" hidden
 #SCRIPT#
 if mittelwert([5, 5, 5, 5]) == 5:
     print("Bestanden: Bei gleichen Werten ist der Mittelwert dieser Wert")
@@ -229,7 +229,7 @@ else:
     print("Nicht bestanden: erwartet 5, erhalten", mittelwert([5, 5, 5, 5]))
 ```
 
-```python test
+```python file="test_3.py" role="test" hidden
 #SCRIPT#
 if mittelwert([1, 2]) == 1.5:
     print("Bestanden: Auch Kommaergebnisse stimmen")

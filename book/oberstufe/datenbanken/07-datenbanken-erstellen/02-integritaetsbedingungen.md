@@ -156,7 +156,7 @@ b) Das Gründungsjahr 3025 liegt in der Zukunft, und *Mars* ist kein Land.
 
 c) Eine Wertebereichsbedingung. Im SQL-Standard schreibt man dafür `CHECK (gruendungsjahr <= 2026)`; für das Herkunftsland würde man eine eigene Tabelle `land` anlegen und einen :t[Fremdschlüssel]{#fremdschluessel} darauf setzen.
 
-`CHECK` versteht die hier verwendete IDE nicht – siehe die Notizen in `tools/datenbank-lernpfad/NOTIZEN.md`. In einem ausgewachsenen Datenbanksystem steht es zur Verfügung.
+`CHECK` versteht die hier verwendete [SQL-IDE](https://hyperbook.openpatch.org/elements/sql-ide) nicht. In einem ausgewachsenen Datenbanksystem steht es zur Verfügung.
 
 d) Ohne `CHECK` bleibt nur die Anwendung. Und damit sind wir wieder bei dem Problem vom Anfang: Was in der Anwendung geprüft wird, gilt nur für diese eine Anwendung. Ein zweites Programm, ein Datenimport oder eine Korrektur von Hand umgehen die Prüfung.
 

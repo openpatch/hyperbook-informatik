@@ -208,7 +208,7 @@ public class Sammelbar extends Sprite {
 
     /** Alle Sammelgegenstände schweben auf und ab. */
     public void run() {
-        this.changeY(Math.sin(Timer.millis() / 300.0) * 1.2);
+        this.changeY(Math.sin(this.getTimer().getSeconds() * 3.3) * 1.2);
     }
 }
 ```

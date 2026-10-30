@@ -48,6 +48,8 @@ flowchart TD
     C -->|nein| E["warten"]
 ```
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
 Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
@@ -84,6 +86,26 @@ Der Gewinn: Eine zweite Wache mit **anderem Baum** verhält sich anders, bei gle
 
 Aufwand: ★★☆
 
+<!-- MVP: 14-entscheidung -->
+
+**MVP zum Ausprobieren:** Steuere den Hasen zur Wache und entferne dich wieder. Die Wache nennt ihre Entscheidung.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-14-entscheidung"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/14-entscheidung.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Halte Fragen und Handlungen im Baum getrennt von dessen Auswertung.
+
+<!-- /MVP -->
+
 ### Ein Gespräch mit Abzweigungen
 
 **Im Spiel:** Eine Figur stellt Fragen. Je nach Antwort, J oder N, geht das Gespräch anders weiter und endet mit einem Geschenk, einem Auftrag oder einer Abfuhr.
@@ -91,6 +113,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** derselbe Aufbau wie beim Entscheidungsbaum. Nur beantwortet nicht das Programm die Fragen, sondern der Mensch an der Tastatur. Jeder Tastendruck geht einen Knoten tiefer.
 
 Aufwand: ★★☆
+
+<!-- MVP: 14-dialogbaum -->
+
+**MVP zum Ausprobieren:** Antworte mit J oder N. R beginnt das Gespräch erneut.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-14-dialogbaum"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/14-dialogbaum.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Der aktuelle Knoten ist der Gesprächszustand. An einem Blatt ist das Gespräch beendet.
+
+<!-- /MVP -->
 
 ### Ein Monsterlexikon
 
@@ -100,6 +142,22 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 14-monsterlexikon -->
+
+**MVP zum Ausprobieren:** Ergänze ein Monster und ändere den gesuchten Namen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-14-monsterlexikon"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/14-monsterlexikon.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Vergleiche Einträge über ComparableContent und gib den Suchbaum mit Inorder alphabetisch aus.
+
+<!-- /MVP -->
+
 ### Ein Fähigkeitenbaum
 
 **Im Spiel:** Mit gesammelten Punkten schaltet man Fähigkeiten frei. Eine Fähigkeit geht erst, wenn die darüber schon freigeschaltet ist: erst „schneller laufen“, dann „rennen“ oder „springen“.
@@ -107,6 +165,26 @@ Aufwand: ★★★
 **Dahinter steckt:** ein Baum, in dem jeder Knoten eine Fähigkeit ist. Freischalten darf man nur Kinder von freigeschalteten Knoten.
 
 Aufwand: ★★☆
+
+<!-- MVP: 14-faehigkeiten -->
+
+**MVP zum Ausprobieren:** Leertaste kauft die aktuelle Fähigkeit. Danach geht J zum linken und N zum rechten Kind. R führt zur Wurzel.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-14-faehigkeiten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/14-faehigkeiten.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Erlaube den Abstieg nur über freigeschaltete Eltern und ziehe die Kosten genau einmal ab.
+
+<!-- /MVP -->
 
 ### Eine Weltkarte mit Wegen
 
@@ -117,6 +195,22 @@ Aufwand: ★★☆
 *(Nur Leistungskurs.)*
 
 Aufwand: ★★★
+
+<!-- MVP: 14-weltkarte -->
+
+**MVP zum Ausprobieren:** Entferne eine Kante. Welche Orte sind vom Dorf aus noch erreichbar?
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-14-weltkarte"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/14-weltkarte.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Benutze Knoten für Räume und gewichtete Kanten für Verbindungen. Tiefensuche prüft Erreichbarkeit, nicht den kürzesten Weg.
+
+<!-- /MVP -->
 
 ## Und ohne Spiel?
 
@@ -142,7 +236,5 @@ Wo verzweigt sich etwas in deinem Spiel? Wo würdest du gern nach einem Namen na
 Im Checkpoint nach diesem Kapitel steht oben rechts eine Wache. Sie entscheidet mit einem Entscheidungsbaum, ob sie den Spieler verfolgt, zu ihrem Posten zurückkehrt oder wartet, und sagt es. Wie du den Checkpoint lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Bäume (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-05-baeume.json"}
-
-:archive[Checkpoint: Bäume (Projekt für den Rechner)]{name="spielwerkstatt-q-05-baeume"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

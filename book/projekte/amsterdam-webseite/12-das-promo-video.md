@@ -34,7 +34,21 @@ Die einfache Lösung: **erst fragen, dann laden.** Statt des Videos steht ein Vo
 :::webide{id="ams-12-video" height="620px"}
 
 ```html
-<h2>Amsterdam in 3 Minuten</h2>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h2>Amsterdam in 3 Minuten</h2>
 
 <a class="video" href="https://www.youtube.com/watch?v=VIDEO-ID" target="_blank" rel="noopener">
   <img src="/images/amsterdam-platzhalter.svg"
@@ -42,10 +56,11 @@ Die einfache Lösung: **erst fragen, dann laden.** Statt des Videos steht ein Vo
        width="320" height="180">
   <span class="knopf" aria-hidden="true"></span>
   <span class="hinweis">Video bei YouTube ansehen – dabei werden Daten an YouTube übertragen</span>
-</a>
+</a></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

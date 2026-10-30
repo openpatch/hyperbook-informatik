@@ -25,31 +25,28 @@ Um das Hyperbook lokal zu entwickeln und zu testen:
 git clone https://github.com/openpatch/hyperbook-informatik.git
 cd hyperbook-informatik
 
-# Festgelegte Abhängigkeiten installieren und Entwicklungsserver starten
-npm ci
-npm run dev
+# Entwicklungsserver starten (Hyperbook-CLI)
+npx --yes hyperbook dev
 ```
+
+Das Buch braucht kein `package.json` – `hyperbook.json` ist die einzige Konfiguration. Gebaut und gestartet wird es direkt mit der Hyperbook-CLI (`npx hyperbook build` bzw. `npx hyperbook dev`).
 
 **Alternative:** Installiere die [Hyperbook Extension für VS Code](https://marketplace.visualstudio.com/items?itemName=openpatch.hyperbook) für eine noch bessere Entwicklungserfahrung direkt in deinem Editor.
 
-## Prüfen
+## Bauen
 
-Mehrere Lernpfade enthalten ausführbaren Code – Java, SQL, HTML und CSS. Damit dort nichts Kaputtes steht, gibt es Prüfskripte:
+`npx --yes hyperbook build` (oder einfach `hyperbook build`) baut das Buch – reiner Hyperbook-Build, keine externen Build-Skripte. So baut auch Hyperbook Cloud (dort als `hyperbook build --offline` in einer Sandbox). `node tools/baue.js` macht denselben Build plus Checkpoint-Check und frischem `.hyperbook/out`.
+
+Für Hyperbook Cloud gilt: `node_modules/` und `.hyperbook/` landen nicht im Upload (werden ignoriert), es gibt kein `package.json`, und das Buch enthält keine Symlinks – geteilte Dateien liegen als echte Dateien vor bzw. werden über `rfile`/`::archive` eingebunden.
+
+## Lokal testen
 
 ```bash
-# alle statischen Prüfungen (Python 3.12+, Node.js 22+, JDK 25)
-npm run check:static
-
-# derselbe Java-Browsercheck wie vor dem Publishing
-npm run browser:install
-npm run build
-npm run check:java:browser -- --serve
-
-# alles: statische Prüfungen, Bauen und Browserprüfungen
-npm run check
+npx --yes hyperbook dev     # Dev-Server, Änderungen live im Browser
+npx --yes hyperbook build   # kompletter Build nach .hyperbook/out
 ```
 
-Das Skript findet die Prüfungen selbst und startet den Dev-Server bei Bedarf. Was es wo prüft, wie man ein neues Werkzeug ergänzt und was einmalig einzurichten ist, steht in [tools/README.md](tools/README.md).
+Die Generatoren in `tools/` erzeugen Dateien, die im Buch eingecheckt sind – siehe [tools/README.md](tools/README.md).
 
 ## Mitmachen
 
@@ -72,7 +69,8 @@ Für ausführliche Informationen zum Mitmachen, zur Projektstruktur, zu Snippets
 │   └── wc/            # Web Components
 ├── snippets/          # Snippet-Templates
 ├── archives/          # Projektarchive (Java, etc.)
-├── tools/             # Prüfskripte und Generatoren, siehe tools/README.md
+├── quellen/           # Quellen, die Seiten einbinden, ohne Download-Archiv
+├── tools/             # Generatoren für eingecheckte Dateien, siehe tools/README.md
 └── hyperbook.json     # Konfigurationsdatei
 ```
 

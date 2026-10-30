@@ -34,7 +34,7 @@ größer.
 ## Jede Sekunde ein Donut
 
 Die Bühne hat, wie jede Figur, eine Methode `run()`, die bei jedem Bild
-aufgerufen wird. `getTimer().everyMillis(1000)` ist genau einmal pro Sekunde
+aufgerufen wird. `getTimer().every(1)` ist genau einmal pro Sekunde
 `true` – dann ruft `run()` die Methode `erzeugeFutter()` auf.
 
 Das Futter soll nicht direkt auf dem Spieler entstehen, sonst wäre es sofort
@@ -111,7 +111,7 @@ b) Entferne die Zeile mit `setHitbox` aus `Donut`. Fahre mit deinem Donut so
 c) Auch das Futter ist ein `Donut` und hat dasselbe `run()`. Was passiert,
    wenn zwei Futter-Donuts nebeneinander entstehen?
 
-d) Lass das Futter alle 200 Millisekunden erscheinen. Wie schnell wächst dein
+d) Lass das Futter alle 0,2 Sekunden erscheinen. Wie schnell wächst dein
    Donut jetzt?
 
 e) Setze die Stärke des `SpielerDonut` im Konstruktor auf 250 und starte. Was

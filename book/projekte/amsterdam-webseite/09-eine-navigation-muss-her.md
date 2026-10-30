@@ -16,7 +16,21 @@ Auf **jeder** Seite steht oben dieselbe Navigation – und zum ersten Mal bekomm
 :::webide{id="ams-09-navigation" height="620px"}
 
 ```html
-<header>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><header>
   <h1>Amsterdam</h1>
   <nav>
     <ul>
@@ -30,10 +44,11 @@ Auf **jeder** Seite steht oben dieselbe Navigation – und zum ersten Mal bekomm
 
 <main>
   <p>Willkommen. Klick dich durch – oben findest du alles.</p>
-</main>
+</main></body>
+
 ```
 
-```css
+```css file="style.css"
 :root {
   --farbe: hsl(205 60% 30%);
   --hell: hsl(205 60% 96%);

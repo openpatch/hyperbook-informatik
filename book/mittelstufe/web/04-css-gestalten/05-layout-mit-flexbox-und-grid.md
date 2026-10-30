@@ -13,15 +13,30 @@ Bis hierher stand alles untereinander. Für alles andere gibt es zwei Werkzeuge 
 :::webide{id="web-4-5-flex" height="580px"}
 
 ```html
-<nav>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><nav>
   <a href="#">Start</a>
   <a href="#">Garten</a>
   <a href="#">Termine</a>
   <a href="#">Kontakt</a>
-</nav>
+</nav></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {
@@ -66,14 +81,29 @@ Wichtig: Die Eigenschaften stehen am **Container**, nicht an den Kindern.
 :::webide{id="web-4-5-justify" height="540px"}
 
 ```html
-<div class="leiste">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="leiste">
   <span>Links</span>
   <span>Mitte</span>
   <span>Rechts</span>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {
@@ -146,16 +176,31 @@ Wenn sich bei `justify-content` gar nichts tut, ist meist kein Platz übrig: Die
 :::webide{id="web-4-5-grid" height="560px"}
 
 ```html
-<div class="karten">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="karten">
   <article><h3>Tomaten</h3><p>Brauchen viel Sonne.</p></article>
   <article><h3>Basilikum</h3><p>Mag es warm.</p></article>
   <article><h3>Erdbeeren</h3><p>Tragen im Juni.</p></article>
   <article><h3>Radieschen</h3><p>Sind schnell reif.</p></article>
   <article><h3>Minze</h3><p>Wuchert gern.</p></article>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {
@@ -233,15 +278,30 @@ Beides lässt sich kombinieren – ein Grid-Feld darf innen eine Flexbox sein.
 :::webide{id="web-4-5-seite" height="640px"}
 
 ```html
-<div class="seite">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="seite">
   <header>Kopfbereich</header>
   <nav>Navigation</nav>
   <main>Hauptinhalt</main>
   <footer>Fußbereich</footer>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * { box-sizing: border-box; }
 
 body {

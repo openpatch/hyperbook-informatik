@@ -16,7 +16,21 @@ Auf deiner Startseite steht eine Liste – Dinge, die man bei deinem Thema erleb
 :::webide{id="ams-07-listen" height="600px"}
 
 ```html
-<h2>Fünf Dinge, die man in Amsterdam gemacht haben sollte</h2>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h2>Fünf Dinge, die man in Amsterdam gemacht haben sollte</h2>
 
 <ul>
   <li>Mit dem Rad über die Grachtengürtel fahren</li>
@@ -32,10 +46,11 @@ Auf deiner Startseite steht eine Liste – Dinge, die man bei deinem Thema erleb
   <li>Am Bahnhof Schiphol ein Ticket kaufen</li>
   <li>In den Zug Richtung Amsterdam Centraal steigen</li>
   <li>Nach 17 Minuten aussteigen</li>
-</ol>
+</ol></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

@@ -101,17 +101,32 @@ d) Diese Seite sieht am Ende richtig aus. Nenne trotzdem zwei Gründe, warum der
 :::webide{id="web-3-3-repariert" height="330px"}
 
 ```html
-<!-- Dieser Quelltext ist absichtlich fehlerhaft. -->
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><!-- Dieser Quelltext ist absichtlich fehlerhaft. -->
 <div>
   <p>Erster Absatz
   <ul>
     <li>Punkt eins</li>
     <li>Punkt zwei
   </ul>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * { outline: 1px solid hsl(210 50% 70%); }
 ```
 

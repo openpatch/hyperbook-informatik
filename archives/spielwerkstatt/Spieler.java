@@ -3,7 +3,7 @@ import org.openpatch.scratch.*;
 /// Fertig für dich: die Figur, die du mit den Pfeiltasten steuerst.
 /// Sie bleibt an Hindernissen hängen und sammelt Münzen ein.
 /// Im Kapitel über Objektorientierung schaust du dir an, wie sie gebaut ist.
-public class Spieler extends AnimatedSprite {
+public class Spieler extends Sprite {
 
    /// So viele Pixel geht der Spieler in jedem Bild.
    private int tempo = 3;
@@ -13,14 +13,14 @@ public class Spieler extends AnimatedSprite {
       String bild = "assets/actor/character/" + pFigur + "/sprite-sheet.png";
       // Im Bild steht jede Blickrichtung in einer eigenen Spalte,
       // die vier Schritte untereinander.
-      this.addAnimation("unten", bild, 4, 16, 16, 0, true);
-      this.addAnimation("oben", bild, 4, 16, 16, 1, true);
-      this.addAnimation("links", bild, 4, 16, 16, 2, true);
-      this.addAnimation("rechts", bild, 4, 16, 16, 3, true);
-      this.setAnimationInterval(150);
+      this.addAnimation("unten", bild, 16, 16, 0, 4, 8, 12);
+      this.addAnimation("oben", bild, 16, 16, 1, 5, 9, 13);
+      this.addAnimation("links", bild, 16, 16, 2, 6, 10, 14);
+      this.addAnimation("rechts", bild, 16, 16, 3, 7, 11, 15);
+      this.setAnimationInterval(0.15);
       this.setSize(250);
       // Nur die Füße zählen: So kann die Figur vor einem Baum stehen, ohne an ihm hängen zu bleiben.
-      this.setHitbox(4, 10, 12, 10, 12, 16, 4, 16);
+      this.setHitbox(new Polygon(new double[] {4, 12, 12, 4}, new double[] {10, 10, 16, 16}));
       this.addSound("muenze", "assets/audio/sounds/bonus/coin.ogg");
    }
 

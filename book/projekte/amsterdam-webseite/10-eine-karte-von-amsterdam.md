@@ -18,7 +18,21 @@ Zieh den Übungsbereich schmaler – die Marker bleiben an ihrem Platz auf der K
 :::webide{id="ams-10-karte" height="640px"}
 
 ```html
-<h2>Wo liegt was?</h2>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h2>Wo liegt was?</h2>
 
 <div class="karte">
   <img src="/images/amsterdam-karte-platzhalter.svg"
@@ -28,10 +42,11 @@ Zieh den Übungsbereich schmaler – die Marker bleiben an ihrem Platz auf der K
   <a class="pin" href="orte/rijksmuseum.html" style="left: 28%; top: 34%">Rijksmuseum</a>
   <a class="pin" href="orte/hafen.html" style="left: 63%; top: 22%">Hafen</a>
   <a class="pin" href="orte/grachten.html" style="left: 46%; top: 72%">Grachten</a>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   max-width: 40rem;

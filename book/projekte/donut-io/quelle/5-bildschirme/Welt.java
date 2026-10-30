@@ -31,15 +31,15 @@ public class Welt extends Stage {
 
    public void run() {
       if (this.count(VerfolgerDonut.class) == 0) {
-         Window.getInstance().transitionToStage(new Gewonnen(level), 500);
+         Window.getInstance().transitionToStage(new Gewonnen(level), 0.5);
          return;
       }
       if (this.count(SpielerDonut.class) == 0) {
-         Window.getInstance().transitionToStage(new Verloren(level), 500);
+         Window.getInstance().transitionToStage(new Verloren(level), 0.5);
          return;
       }
 
-      if (this.getTimer().everyMillis(1000)) {
+      if (this.getTimer().every(1)) {
          this.erzeugeFutter();
       }
 

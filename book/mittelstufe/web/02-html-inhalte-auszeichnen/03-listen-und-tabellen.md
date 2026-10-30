@@ -13,7 +13,20 @@ Sobald mehrere gleichartige Dinge zusammengehören, ist eine Liste oder eine Tab
 :::webide{id="web-2-3-listen" height="540px"}
 
 ```html
-<h2>Zutaten</h2>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><h2>Zutaten</h2>
 <ul>
   <li>250 g Mehl</li>
   <li>3 Eier</li>
@@ -33,7 +46,8 @@ Sobald mehrere gleichartige Dinge zusammengehören, ist eine Liste oder eine Tab
   <dd>Zeit, in der das Mehl die Flüssigkeit aufnimmt.</dd>
   <dt>Backtriebmittel</dt>
   <dd>Stoff, der den Teig aufgehen lässt.</dd>
-</dl>
+</dl></body>
+
 ```
 
 :::
@@ -106,7 +120,21 @@ Die Folgen: Ein Vorleseprogramm sagt nicht „Liste mit drei Einträgen" an. Man
 :::webide{id="web-2-3-tabelle" height="640px"}
 
 ```html
-<table>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><table>
   <caption>Stundenplan Montag</caption>
   <thead>
     <tr>
@@ -132,10 +160,11 @@ Die Folgen: Ein Vorleseprogramm sagt nicht „Liste mit drei Einträgen" an. Man
       <td>Halle</td>
     </tr>
   </tbody>
-</table>
+</table></body>
+
 ```
 
-```css
+```css file="style.css"
 table {
   border-collapse: collapse;
 }
@@ -184,15 +213,30 @@ b) Eine **Tabelle** mit drei Spalten (Fach, Lehrkraft, Raum) und mindestens drei
 :::webide{id="web-2-3-uebung" height="300px"}
 
 ```html
-<h2>Meine Termine</h2>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h2>Meine Termine</h2>
 
 
 <h2>Meine Fächer</h2>
 
+</body>
 
 ```
 
-```css
+```css file="style.css"
 table {
   border-collapse: collapse;
 }

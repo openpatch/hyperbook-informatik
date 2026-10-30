@@ -59,7 +59,21 @@ Wenn du dort auf ein Element klickst, wird es in der Seite hervorgehoben. Umgeke
 :::webide{id="web-3-1-baum" height="310px"}
 
 ```html
-<main>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><main>
   <section>
     <h2>Über uns</h2>
     <p>Wir sind die <strong>Garten-AG</strong> der Schule.</p>
@@ -68,10 +82,11 @@ Wenn du dort auf ein Element klickst, wird es in der Seite hervorgehoben. Umgeke
       <li>Alle dürfen mitmachen.</li>
     </ul>
   </section>
-</main>
+</main></body>
+
 ```
 
-```css
+```css file="style.css"
 * { outline: 1px solid hsl(210 50% 70%); }
 ```
 
@@ -152,14 +167,29 @@ c) Ergänze `h2 { color: black; }` und erkläre das Ergebnis.
 :::webide{id="web-3-1-vererbung" height="300px"}
 
 ```html
-<h1>Nicht in der section</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Nicht in der section</h1>
 <section>
   <h2>In der section</h2>
   <p>Auch in der section, mit <em>Betonung</em>.</p>
-</section>
+</section></body>
+
 ```
 
-```css
+```css file="style.css"
 section {
   color: green;
 }

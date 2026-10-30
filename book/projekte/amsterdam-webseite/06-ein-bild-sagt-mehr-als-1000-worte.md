@@ -18,7 +18,21 @@ Das Bild hier ist nur ein gezeichneter Platzhalter. Bei dir kommt an diese Stell
 :::webide{id="ams-06-bild" height="560px"}
 
 ```html
-<h1>Amsterdam</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Amsterdam</h1>
 
 <figure>
   <img src="/images/amsterdam-platzhalter.svg"
@@ -27,10 +41,11 @@ Das Bild hier ist nur ein gezeichneter Platzhalter. Bei dir kommt an diese Stell
   <figcaption>Grachtenhäuser im Zentrum. Zeichnung: Hyperbook, CC BY-SA</figcaption>
 </figure>
 
-<p>So schmal sind die Häuser, weil früher nach der Breite der Fassade besteuert wurde.</p>
+<p>So schmal sind die Häuser, weil früher nach der Breite der Fassade besteuert wurde.</p></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

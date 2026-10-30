@@ -16,7 +16,21 @@ Zum Schluss die Seite, die deine Besucherinnen am längsten festhält: ein Quiz 
 :::webide{id="ams-13-quiz" height="640px"}
 
 ```html
-<h1>Pubquiz Amsterdam</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Pubquiz Amsterdam</h1>
 
 <p>Sechs Fragen. Erst raten, dann aufklappen.</p>
 
@@ -33,10 +47,11 @@ Zum Schluss die Seite, die deine Besucherinnen am längsten festhält: ein Quiz 
 <details>
   <summary>Wozu dienen die Haken an den Giebeln?</summary>
   <p>Zum <strong>Hochziehen von Möbeln</strong>. Die Treppen im Inneren sind so eng, dass Schränke durchs Fenster müssen.</p>
-</details>
+</details></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

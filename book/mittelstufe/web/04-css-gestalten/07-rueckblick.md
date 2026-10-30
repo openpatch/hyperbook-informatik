@@ -55,16 +55,31 @@ d) Ergänze `main { color: purple; }`. Ändert sich etwas? Begründe mit dem Wor
 :::webide{id="web-4-7-kaskade" height="420px"}
 
 ```html
-<main>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><main>
   <p>Erster Absatz</p>
   <p class="hinweis">Zweiter Absatz</p>
   <section>
     <p class="hinweis">Dritter Absatz</p>
   </section>
-</main>
+</main></body>
+
 ```
 
-```css
+```css file="style.css"
 p { color: black; }
 main p { color: teal; }
 .hinweis { color: orange; }
@@ -226,7 +241,21 @@ Das ist die eine Zeile aus [Lektion 4.5](./05-layout-mit-flexbox-und-grid), die 
 :::webide{id="web-4-7-projekt" height="640px"}
 
 ```html
-<header>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><header>
   <h1>Schulgarten-AG</h1>
   <nav>
     <ul>
@@ -257,10 +286,11 @@ Das ist die eine Zeile aus [Lektion 4.5](./05-layout-mit-flexbox-und-grid), die 
 
 <footer>
   <p>Garten-AG der Gesamtschule Musterstadt</p>
-</footer>
+</footer></body>
+
 ```
 
-```css
+```css file="style.css"
 
 ```
 

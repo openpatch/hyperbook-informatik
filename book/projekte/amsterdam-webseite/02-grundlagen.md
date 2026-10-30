@@ -25,11 +25,26 @@ Links die Vorschau, rechts der Quelltext. Die Vorschau aktualisiert sich, sobald
 :::webide{id="ams-02-demo" height="480px"}
 
 ```html
-<h1>Meine erste Webseite</h1>
-<p>Willkommen auf meiner Webseite!</p>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Meine erste Webseite</h1>
+<p>Willkommen auf meiner Webseite!</p></body>
+
 ```
 
-```css
+```css file="style.css"
 html, body {
     background: darkslategray;
     color: darkseagreen;

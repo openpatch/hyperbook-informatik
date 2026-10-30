@@ -11,14 +11,29 @@ permaid: web-farben-schrift-variablen
 :::webide{id="web-4-3-farben" height="310px"}
 
 ```html
-<p class="a">Mit einem Namen</p>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><p class="a">Mit einem Namen</p>
 <p class="b">Als Hexadezimalzahl</p>
 <p class="c">Mit rot, grün, blau</p>
 <p class="d">Mit Farbton, Sättigung, Helligkeit</p>
-<p class="e">Halb durchsichtig</p>
+<p class="e">Halb durchsichtig</p></body>
+
 ```
 
-```css
+```css file="style.css"
 p {
   padding: 0.5rem;
   color: white;
@@ -65,7 +80,21 @@ Sobald dieselbe Farbe an fünf Stellen steht, wird das Ändern lästig. :t[CSS]{
 :::webide{id="web-4-3-variablen" height="640px"}
 
 ```html
-<header>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><header>
   <h1>Der Schulgarten</h1>
 </header>
 <main>
@@ -74,10 +103,11 @@ Sobald dieselbe Farbe an fünf Stellen steht, wird das Ändern lästig. :t[CSS]{
 </main>
 <footer>
   <p>Garten-AG</p>
-</footer>
+</footer></body>
+
 ```
 
-```css
+```css file="style.css"
 :root {
   --gruen: hsl(140 60% 30%);
   --gruen-hell: hsl(140 60% 95%);
@@ -161,15 +191,30 @@ c) Beides gibt einem Wert einen **Namen** und benutzt danach den Namen statt des
 :::webide{id="web-4-3-schrift" height="520px"}
 
 ```html
-<h1>Überschrift</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Überschrift</h1>
 <p>Ein Absatz mit etwas mehr Text, damit man sehen kann, wie sich der
 Zeilenabstand auswirkt und wie lang eine Zeile werden darf, bevor sie
 schwer zu lesen wird.</p>
 <p class="klein">Kleingedrucktes.</p>
-<pre>Feste Zeichenbreite</pre>
+<pre>Feste Zeichenbreite</pre></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   font-size: 1rem;
@@ -245,17 +290,32 @@ d) Die Seite bekommt eine serifenlose Schrift, einen Zeilenabstand von 1.6 und e
 :::webide{id="web-4-3-uebung" height="460px"}
 
 ```html
-<header>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><header>
   <h1>Mein Lieblingsort</h1>
 </header>
 <main>
   <p>Der Baldeneysee liegt im Süden von Essen. Im Sommer kann man dort
   segeln, im Winter ist es dort besonders still.</p>
   <p class="hinweis">Baden ist nur an der Seaside Beach erlaubt.</p>
-</main>
+</main></body>
+
 ```
 
-```css
+```css file="style.css"
 
 ```
 

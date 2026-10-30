@@ -14,7 +14,7 @@ public class Rocket extends Sprite {
   public Rocket(Vector2 pPosition, DNA pDna, Ziel pZiel) {
     this.addCostume("playerShip2_orange");
     this.setPosition(pPosition);
-    this.setHitbox(51, 40, 51, 24, 61, 24, 61, 40);
+    this.setHitbox(new Polygon(new double[] {51, 51, 61, 61}, new double[] {40, 24, 24, 40}));
     this.beschleunigung = new Vector2();
     this.geschwindigkeit = new Vector2();
     this.dna = pDna;
@@ -39,10 +39,11 @@ public class Rocket extends Sprite {
       beschleunigung = beschleunigung.add(dna.gibGene()[geneZaehler]);
       geneZaehler = (geneZaehler + 1) % dna.gibGene().length;
       geschwindigkeit = geschwindigkeit.add(beschleunigung);
-      move(geschwindigkeit);
+      this.setDirection(geschwindigkeit.direction());
+      this.move(geschwindigkeit.length());
       beschleunigung = beschleunigung.multiply(0);
     } else {
-      this.setTint(200);
+      this.setTint(179, 0, 255);
     }
   }
 }

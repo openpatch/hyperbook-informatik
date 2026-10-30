@@ -35,6 +35,8 @@ if (this.getTouchingSprite(Falle.class) != null) { ... }
 
 Bei jeder neuen Sorte wächst diese Kette, und der `Spieler` muss alles über alle Gegenstände wissen. Gemeinsam ist den dreien nicht das Aussehen und nicht das Verhalten, sondern der **Anlass**: Alle tun etwas, wenn der Spieler sie berührt.
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
 Such dir mindestens eine Mechanik mit **Polymorphie** aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
@@ -46,7 +48,7 @@ Such dir mindestens eine Mechanik mit **Polymorphie** aus. Du darfst sie veränd
 **Dahinter steckt:** eine [abstrakte Oberklasse](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/05-abstrakte-klassen) mit einer abstrakten Methode. Der Spieler fragt nur noch nach `Gegenstand` und ruft `beruehrtVon` auf. Welche Fassung läuft, entscheidet zur Laufzeit das Objekt: [Polymorphie](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/04-polymorphie).
 
 ```java
-public abstract class Gegenstand extends AnimatedSprite {
+public abstract class Gegenstand extends Sprite {
    public abstract void beruehrtVon(Welt pWelt);
 }
 ```
@@ -63,6 +65,22 @@ Warum `abstract` und nicht einfach ein leerer Rumpf? Wer eine neue Sorte schreib
 
 Aufwand: ★★☆
 
+<!-- MVP: 10-polymorphie -->
+
+**MVP zum Ausprobieren:** Ergänze eine weitere Unterklasse, etwa einen Schlüssel.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-10-polymorphie"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/10-polymorphie.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Der Aufrufer kennt nur Gegenstand; jede Unterklasse liefert ihre eigene Wirkung.
+
+<!-- /MVP -->
+
 ### Magische Gegenstände
 
 **Im Spiel:** Ein Trank der Eile macht schneller, ein Ring macht für ein paar Sekunden unsichtbar für Gegner, eine Schriftrolle lässt alle Münzen aufleuchten.
@@ -70,6 +88,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** weitere Unterklassen von `Gegenstand`, jede mit eigenem `beruehrtVon`. Der Spieler muss dafür nicht geändert werden, das ist der Gewinn der Polymorphie. Viele Zauber wirken nur eine Weile. Wie man das zählt, steht bei *Ein Zauber, der nachlässt* in [Kontrollstrukturen im Spiel](./04-kontrollstrukturen). Mehrere gleichzeitig verwaltet eine Liste, siehe [Lineare Datenstrukturen im Spiel](./13-lineare-datenstrukturen).
 
 Aufwand: ★★☆
+
+<!-- MVP: 10-magie -->
+
+**MVP zum Ausprobieren:** Leertaste wendet einen Eiletrank an. Bewege die Figur mit den Pfeiltasten.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-10-magie"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/10-magie.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Rufe beruehrtVon beim Einsammeln auf und verwalte die Restzeit beim betroffenen Spieler.
+
+<!-- /MVP -->
 
 ### Gegner mit eigener Art, sich zu bewegen
 
@@ -88,6 +126,26 @@ protected abstract void bewege();
 
 Aufwand: ★★☆
 
+<!-- MVP: 10-gegnertypen -->
+
+**MVP zum Ausprobieren:** Vergleiche die Bewegung der beiden Gegner.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-10-gegnertypen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/10-gegnertypen.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Lass run die gemeinsame Arbeit erledigen und nur bewege von Unterklassen ausfüllen.
+
+<!-- /MVP -->
+
 ### Ein Schatz, der mehrere Dinge auf einmal ist
 
 **Im Spiel:** Eine Truhe ist ein Hindernis, man kann also nicht durch sie hindurch. Öffnet man sie, gibt sie aber auch Punkte, wie eine Münze.
@@ -98,6 +156,22 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 10-schnittstelle -->
+
+**MVP zum Ausprobieren:** Ergänze einen dritten wertvollen Gegenstand und nimm ihn in das Feld auf.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-10-schnittstelle"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/10-schnittstelle.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Nutze ein Interface für eine gemeinsame Rolle über verschiedene Vererbungszweige hinweg.
+
+<!-- /MVP -->
+
 ### Einstellungen an einer Stelle
 
 **Im Spiel:** nichts zu sehen, aber Tempo, Startleben und Spielzeit lassen sich an einer Stelle ändern.
@@ -106,6 +180,26 @@ Aufwand: ★★★
 
 Aufwand: ★☆☆
 
+<!-- MVP: 10-konstanten -->
+
+**MVP zum Ausprobieren:** Ändere TEMPO und STARTLEBEN in Einstellungen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-10-konstanten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/10-konstanten.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Lies dieselben Klassenkonstanten überall dort, wo du Tempo, Leben oder Zeit brauchst.
+
+<!-- /MVP -->
+
 ### Das Spiel als Diagramm
 
 **Im Spiel:** nichts zu sehen. Aber du siehst dein Spiel von oben.
@@ -113,6 +207,22 @@ Aufwand: ★☆☆
 **Dahinter steckt:** ein [Implementationsdiagramm](../../oberstufe/oop/02-erweiterungen/01-vertiefte-objektorientierung/01-implementationsdiagramme) mit allen Klassen, abstrakten Klassen und Schnittstellen. Abstrakte Klassen und Methoden werden kursiv gesetzt.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 10-diagramm -->
+
+**MVP zum Ausprobieren:** Öffne den Reiter Klassendiagramm und suche Vererbung, Schnittstelle und Assoziation.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-10-diagramm"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/10-diagramm.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Vergleiche den erzeugten Überblick mit deinem eigenen Implementationsdiagramm.
+
+<!-- /MVP -->
 
 ## Und ohne Spiel?
 
@@ -140,7 +250,5 @@ Welche Sorten von Dingen hat dein Spiel? Gibt es schon eine Kette von `if`-Abfra
 Im Checkpoint nach diesem Kapitel gibt es eine abstrakte Klasse `Gegenstand` mit `Muenze`, `Herz` und `Falle` und eine abstrakte Klasse `Gegner` mit `Schleim` und `Fledermaus`. Der `Spieler` kennt nur noch die beiden Oberklassen. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Vertiefte Objektorientierung (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-01-objektorientierung.json"}
-
-:archive[Checkpoint: Vertiefte Objektorientierung (Projekt für den Rechner)]{name="spielwerkstatt-q-01-objektorientierung"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

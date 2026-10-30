@@ -1,1 +1,0 @@
-../spielwerkstatt/ComparableContent.java

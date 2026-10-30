@@ -24,7 +24,21 @@ graph TD
 :::webide{id="web-2-5-struktur" height="640px"}
 
 ```html
-<header>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><header>
   <h1>Waffelblog</h1>
   <nav>
     <ul>
@@ -57,10 +71,11 @@ graph TD
 
 <footer>
   <p><a href="impressum.html">Impressum</a></p>
-</footer>
+</footer></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
@@ -129,13 +144,28 @@ c) Die **Bedeutung**. Für den Browser sind sechs `<div>` sechs namenlose Kisten
 :::webide{id="web-2-5-div-span" height="310px"}
 
 ```html
-<div class="hinweiskasten">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="hinweiskasten">
   <h2>Achtung</h2>
   <p>Das Waffeleisen wird sehr <span class="warnung">heiß</span>.</p>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 .hinweiskasten {
   border: 2px solid hsl(35 80% 45%);
   border-radius: 0.5rem;
@@ -181,7 +211,20 @@ Gliedere sie mit `<header>`, `<nav>`, `<main>`, `<article>`, `<aside>` und `<foo
 :::webide{id="web-2-5-uebung" height="460px"}
 
 ```html
-<h1>Der Schulgarten</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><h1>Der Schulgarten</h1>
 
 <ul>
   <li><a href="#pflanzen">Pflanzen</a></li>
@@ -197,7 +240,8 @@ Gliedere sie mit `<header>`, `<nav>`, `<main>`, `<article>`, `<aside>` und `<foo
 <h2>Übrigens</h2>
 <p>Die Bienen im Nachbargarten gehören dem Hausmeister.</p>
 
-<p>Verantwortlich: Garten-AG · <a href="impressum.html">Impressum</a></p>
+<p>Verantwortlich: Garten-AG · <a href="impressum.html">Impressum</a></p></body>
+
 ```
 
 :::

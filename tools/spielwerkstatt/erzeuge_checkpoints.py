@@ -6,14 +6,15 @@ Aufruf aus dem Repository-Wurzelverzeichnis:
     python3 tools/spielwerkstatt/erzeuge_checkpoints.py
 
 Ein Checkpoint ist ein Stand des Referenzspiels, mit dem man wieder einsteigen
-kann, wenn man laenger gefehlt hat. Es gibt ihn zweimal:
-
-- auf dem Rechner als vollstaendiges ZIP-Archiv mit allen Assets:
-  archives/<name>, eingebunden mit ::archive (fuer Studio, BlueJ und VS Code)
-- im Buch als Workspace-Datei: book/projekte/spielwerkstatt/checkpoints/<name>.json
+kann, wenn man laenger gefehlt hat. Seine Quellen liegen in
+quellen/spielwerkstatt/<name>, im Buch steht er als Workspace-Datei:
+book/projekte/spielwerkstatt/checkpoints/<name>.json
 
 Die Workspace-Datei laedt man in der eingebetteten Online-IDE ueber den Knopf
 "Workspace aus Datei laden". Sie ersetzt dann alle Dateien des Arbeitsbereichs.
+Auf den Rechner kommt ein Stand ueber den Export der IDE nach Scratch for Java
+Studio. Nur das Startgeruest liegt zusaetzlich als vollstaendiges ZIP-Archiv in
+archives/spielwerkstatt (eingebunden mit ::archive, fuer VS Code).
 Das Format liest die IDE in loadWorkspaceFromFile:
 
     {"name": ..., "settings": {"language": "Java", "libraries": [...]},
@@ -22,7 +23,7 @@ Das Format liest die IDE in loadWorkspaceFromFile:
 Importe bleiben erhalten. Assets und Abiturklassen werden als Daten-URLs
 mitgenommen; desktopFiles verhindert doppelte NRW-Klassen im Browser.
 Die Studio-Einstellungen und Verhaltenstests werden in .scratch4j/ des
-vollstaendigen Archivs abgelegt. Die ZIPs dieser Archive erzeugt Hyperbook.
+vollstaendigen Archivs abgelegt. Das ZIP erzeugt Hyperbook.
 """
 
 from __future__ import annotations
@@ -37,9 +38,10 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ARCHIVE = ROOT / "archives"
+QUELLEN = ROOT / "quellen" / "spielwerkstatt"
 ZIEL = ROOT / "book" / "projekte" / "spielwerkstatt" / "checkpoints"
 
-# Archivname -> Name des Workspace. Die Reihenfolge ist die der Lernpfade.
+# Ordnername -> Name des Workspace. Die Reihenfolge ist die der Lernpfade.
 CHECKPOINTS = {
     "spielwerkstatt": "Spielwerkstatt: Start",
     "spielwerkstatt-ef-02-variablen": "Spielwerkstatt: nach Variablen und Datentypen",
@@ -105,10 +107,16 @@ def module(archiv: pathlib.Path) -> list[dict]:
     return modules
 
 
-def workspace(archivname: str, name: str) -> dict:
+def ordner(archivname: str) -> pathlib.Path:
+    """Nur das Startgeruest ist ein Archiv, die uebrigen Staende sind Quellen."""
     archiv = ARCHIVE / archivname
+    return archiv if archiv.is_dir() else QUELLEN / archivname
+
+
+def workspace(archivname: str, name: str) -> dict:
+    archiv = ordner(archivname)
     metadata = {
-        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "6.2.0",
+        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "7.1.0",
         "startStage": "Main", "startFile": "Main.java", "pixelArt": True,
         "lesson": "spielwerkstatt", "checkpoint": archivname, "sourceEnvironment": "browser",
         "browserFeatures": [], "externalDependencies": [],
@@ -125,13 +133,13 @@ def workspace(archivname: str, name: str) -> dict:
 
 
 def checkpoint_files(archivname: str, name: str) -> dict[pathlib.Path, str]:
-    """Workspace im Buch und Studio-Einstellungen im vollstaendigen Archiv."""
+    """Workspace im Buch, beim vollstaendigen Archiv auch die Studio-Einstellungen."""
     project = workspace(archivname, name)
+    files = {ZIEL / f"{archivname}.json": json.dumps(project, ensure_ascii=False, indent=2) + "\n"}
+    if ordner(archivname).parent != ARCHIVE:
+        return files
     metadata = {**project["settings"]["scratchProject"], "sourceEnvironment": "studio"}
-    files = {
-        ZIEL / f"{archivname}.json": json.dumps(project, ensure_ascii=False, indent=2) + "\n",
-        ARCHIVE / archivname / ".scratch4j/project.json": json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
-    }
+    files[ARCHIVE / archivname / ".scratch4j/project.json"] = json.dumps(metadata, ensure_ascii=False, indent=2) + "\n"
     for entry in project["modules"]:
         if entry["name"] == ".scratch4j/checks.json":
             files[ARCHIVE / archivname / entry["name"]] = entry["text"]

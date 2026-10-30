@@ -10,8 +10,8 @@ Du kannst auch Bilder in OpenSCAD verwenden, um 3D-Modelle zu erstellen. Das ist
 
 Dazu kannst du die `surface()`-Funktion verwenden, um ein Bild als Höhenkarte zu interpretieren. Hier ist ein Beispiel, wie du ein Bild in OpenSCAD verwenden kannst:
 
-:::openscad{height="600px"}
-@file dest="/blume.png" src="./blume.png"
+:::openscad{id="40b59aa0f6ce57573ecd886cca406274fe1b84901e85fda350019c867ec59d8e" height="600px"}
+::file{path="blume.png" src="./blume.png"}
 
 ```scad
 surface(file="/blume.png", center=true, invert=true);

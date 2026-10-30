@@ -194,12 +194,21 @@ Weil es die Zielseiten noch nicht gibt, darfst du `href="#"` schreiben.
 :::webide{id="web-2-6-projekt" height="500px"}
 
 ```html
-<!-- Ersetze alles hier durch deine eigene Seite. -->
-<p>Noch leer.</p>
-```
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
 
-```html template
-###HTML###
+</style>
+</head>
+<body><!-- Ersetze alles hier durch deine eigene Seite. -->
+<p>Noch leer.</p></body>
 ```
 
 :::

@@ -26,9 +26,9 @@ Von OpenSCAD können TrueType Fonts (.ttf) und OpenType Fonts (.otf) verwendet
 werden. Du kannst eigene Schriftarten in dein Projekt einbinden, indem du sie
 in den Projektordner kopierst (online als Binärdatei hinzufügst) und mit dem `use`-Befehl einbindest.
 
-:::openscad{height="600px"}
+:::openscad{id="153df59e6d92af88f87688629568892b14414b7a2791b80eae5f0f6f0608499e" height="600px"}
 
-@file dest="/Super Bouncer.ttf" src="./Super Bouncer.ttf"
+::file{path="Super Bouncer.ttf" src="./Super Bouncer.ttf"}
 
 ```scad
 use </Super Bouncer.ttf>

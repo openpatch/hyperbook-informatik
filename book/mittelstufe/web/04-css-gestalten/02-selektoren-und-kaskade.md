@@ -13,7 +13,21 @@ Der Selektor entscheidet, **welche** Elemente eine Regel trifft. Und wenn mehrer
 :::webide{id="web-4-2-selektoren" height="640px"}
 
 ```html
-<h1 id="titel">Der Schulgarten</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1 id="titel">Der Schulgarten</h1>
 
 <p>Ein ganz normaler Absatz.</p>
 <p class="hinweis">Ein Hinweis.</p>
@@ -26,10 +40,11 @@ Der Selektor entscheidet, **welche** Elemente eine Regel trifft. Und wenn mehrer
   </div>
 </section>
 
-<a href="#titel">Ein Link</a>
+<a href="#titel">Ein Link</a></body>
+
 ```
 
-```css
+```css file="style.css"
 /* 1 Typ: alle Absätze */
 p {
   margin-block: 0.5rem;
@@ -138,10 +153,25 @@ Mehrere Regeln treffen dasselbe Element. Was passiert?
 :::webide{id="web-4-2-kaskade" height="330px"}
 
 ```html
-<p class="hinweis" id="besonders">Welche Farbe habe ich?</p>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><p class="hinweis" id="besonders">Welche Farbe habe ich?</p></body>
+
 ```
 
-```css
+```css file="style.css"
 p {
   color: blue;
 }
@@ -208,15 +238,30 @@ Der bessere Weg ist fast immer: einen einfacheren Selektor nehmen.
 :::webide{id="web-4-2-vererbung" height="300px"}
 
 ```html
-<body>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><body>
   <h1>Überschrift</h1>
   <section>
     <p>Ein Absatz mit einem <a href="#">Link</a> darin.</p>
   </section>
-</body>
+</body></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   color: hsl(220 15% 25%);
@@ -277,7 +322,21 @@ d) Links beim Überfahren mit der Maus die Farbe wechseln
 :::webide{id="web-4-2-uebung" height="460px"}
 
 ```html
-<nav>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><nav>
   <ul>
     <li><a href="#a">Start</a></li>
     <li><a href="#b">Garten</a></li>
@@ -293,10 +352,11 @@ d) Links beim Überfahren mit der Maus die Farbe wechseln
     <li>Tomaten</li>
     <li>Basilikum</li>
   </ul>
-</main>
+</main></body>
+
 ```
 
-```css
+```css file="style.css"
 
 ```
 

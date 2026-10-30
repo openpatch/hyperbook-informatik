@@ -403,7 +403,7 @@ Gegeben ist die folgende Vorlage. Ergänze den fehlenden Programmtext so, dass a
 Teste deine Lösung mit verschiedenen Werten in der Liste.
 :::
 
-:::pyide
+:::pyide{id="0910dd9c1bf5efb9b0036be5d63c1a45d79591d81df36de8478dc2c75831af04"}
 
 ```python
 def maximum(zahlen):
@@ -418,7 +418,7 @@ def maximum(zahlen):
 print(maximum([40, 60, 20, 100, 80]))
 ```
 
-```python test
+```python file="test_1.py" role="test" hidden
 #SCRIPT#
 if maximum([40, 60, 20, 100, 80]) == 100:
     print("Bestanden: Das Maximum ist 100")
@@ -426,7 +426,7 @@ else:
     print("Nicht bestanden: erwartet 100, erhalten", maximum([40, 60, 20, 100, 80]))
 ```
 
-```python test
+```python file="test_2.py" role="test" hidden
 #SCRIPT#
 if maximum([7]) == 7:
     print("Bestanden: Bei einer einelementigen Liste ist das Maximum das Element selbst")
@@ -434,7 +434,7 @@ else:
     print("Nicht bestanden: erwartet 7, erhalten", maximum([7]))
 ```
 
-```python test
+```python file="test_3.py" role="test" hidden
 #SCRIPT#
 if maximum([5, 5, 5]) == 5:
     print("Bestanden: Auch bei gleichen Werten stimmt das Ergebnis")

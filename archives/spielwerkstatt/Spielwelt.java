@@ -12,6 +12,6 @@ public class Spielwelt extends Stage {
 
       // Wer weiter unten steht, ist näher am Betrachter: Er wird später gezeichnet
       // und verdeckt, was hinter ihm steht. So läuft man hinter Bäumen vorbei.
-      this.getSorting().byY();
+      this.sortByY();
    }
 }

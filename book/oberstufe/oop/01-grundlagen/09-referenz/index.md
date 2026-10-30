@@ -294,7 +294,7 @@ Die Bühne ist **480 × 360** Pixel groß. Der Punkt (0, 0) liegt in der **Mitte
 
 | Gruppe | Methoden |
 | --- | --- |
-| Bewegung | `setPosition(x, y)`, `changeX(d)`, `changeY(d)`, `move(schritte)`, `turnRight(grad)`, `turnLeft(grad)`, `pointInDirection(grad)`, `ifOnEdgeBounce()`, `glide(sek, x, y)` |
+| Bewegung | `setPosition(x, y)`, `changeX(d)`, `changeY(d)`, `move(schritte)`, `turnRight(grad)`, `turnLeft(grad)`, `setDirection(grad)`, `ifOnEdgeBounce()`, `glide(sek, x, y)` |
 | Aussehen | `addCostume(name)`, `switchCostume(name)`, `nextCostume()`, `say(text)`, `think(text)`, `show()`, `hide()`, `setSize(prozent)`, `setTint(r, g, b)` |
 | Fühlen | `isTouchingSprite(Klasse.class)`, `getTouchingSprite(Klasse.class)`, `isTouchingEdge()`, `isKeyPressed(KeyCode.RIGHT)`, `getMouseX()`, `distanceToSprite(anderes)` |
 | Ereignisse | `run()`, `whenClicked()`, `whenKeyPressed(taste)`, `whenAddedToStage()`, `whenIReceive(nachricht)`, `broadcast(nachricht)` |

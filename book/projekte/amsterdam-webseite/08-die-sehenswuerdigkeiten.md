@@ -18,7 +18,21 @@ So ist eine Unterseite aufgebaut – eine Überschrift, ein Bild, ein paar Absä
 :::webide{id="ams-08-unterseite" height="600px"}
 
 ```html
-<p><a href="../index.html">← Zurück zur Startseite</a></p>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><p><a href="../index.html">← Zurück zur Startseite</a></p>
 
 <h1>Rijksmuseum</h1>
 
@@ -40,10 +54,11 @@ So ist eine Unterseite aufgebaut – eine Überschrift, ein Bild, ein paar Absä
   <li>Geöffnet täglich von 9 bis 17 Uhr</li>
   <li>Unter 18 Jahren ist der Eintritt frei</li>
   <li>Tickets vorher online kaufen, sonst wartet man lange</li>
-</ul>
+</ul></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

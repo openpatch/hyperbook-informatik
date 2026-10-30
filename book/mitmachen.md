@@ -174,18 +174,11 @@ Die Marke steht auch im Permaid der Kapitelseite selbst. Sie ist so gewählt, da
 1. **Buchweit eindeutig.** Zwei Seiten mit demselben Permaid sind ein Fehler, kein Streitfall.
 2. **Einmal veröffentlicht, nie geändert.** Ein Permaid steht auf ausgedruckten Blättern, die niemand mehr einsammelt. Wird eine Seite verschoben oder umbenannt, **wandert der Permaid mit** – er wird nicht an den neuen Dateinamen angepasst. Passt er inhaltlich nicht mehr, ist das der Preis dafür, dass der alte QR-Code weiter funktioniert.
 
-Geprüft wird beides mit:
-
-```bash
-python3 tools/check_permaids.py
-```
-
-Das Skript meldet fehlende und doppelte Permaids, Stellenangaben darin, falsche Bereichskürzel und alles über 40 Zeichen. Was es **nicht** prüfen kann, ist Regel 2: Ob ein Permaid gegenüber früher geändert wurde, weiß es nicht – dafür müsste es wissen, was schon im Umlauf ist. Da bist du allein verantwortlich.
+Was kein Werkzeug prüfen kann, ist Regel 2: Ob ein Permaid gegenüber früher geändert wurde, müsste man wissen, was schon im Umlauf ist. Da bist du allein verantwortlich.
 
 Zwei bereits veröffentlichte Adressen bleiben trotz ihrer Länge erhalten:
 `mittelstufe-calc-zwischencheck-mittelwerte` und
-`mittelstufe-calc-zwischencheck-gruppenrabatt`. Die Prüfung nimmt nur diese
-beiden von der Längengrenze aus. Neue Adressen dürfen höchstens 40 Zeichen haben.
+`mittelstufe-calc-zwischencheck-gruppenrabatt`. Neue Adressen dürfen höchstens 40 Zeichen haben.
 
 Regel 2 gilt ab jetzt. Im September 2026 wurden alle Permaids einmalig nach diesem Schema neu vergeben – das ging, weil noch keiner von ihnen im Umlauf war. Ein zweites Mal geht es nicht.
 
@@ -218,11 +211,7 @@ Die **Zahlenpräfixe** im Dateinamen stimmen mit dem `index:` im Frontmatter üb
 
 Seit Hyperbook 0.101 werden beide in **einer** Reihenfolge sortiert. Früher hatten Seiten und Sektionen getrennte Reihenfolgen, weshalb eine Übersichtsseite mit `index: 0` und ein Kapitel mit `index: 0` nebeneinander bestehen konnten. Heute konkurrieren sie, und welche zuerst kommt, entscheidet dann nicht mehr die Absicht.
 
-Dasselbe gilt für Einträge **ohne** `index:`: Sie rutschen ans Ende, auch wenn der Dateiname etwas anderes nahelegt. Geprüft wird das mit:
-
-```bash
-python3 tools/check_reihenfolge.py
-```
+Dasselbe gilt für Einträge **ohne** `index:`: Sie rutschen ans Ende, auch wenn der Dateiname etwas anderes nahelegt.
 :::
 
 ### Die Startseite
@@ -264,17 +253,13 @@ Jedes Inhaltskapitel endet mit `NN-rueckblick.md`. Der Selbsttest einer Lektion 
 - **Gemischte Aufgaben** – zwei bis drei Aufgaben, die **mehrere** Lektionen zugleich verlangen, mit Tipps und geschützter Lösung. Genau das wird in einer Klassenarbeit gefordert.
 - **Selbsttest** über das ganze Kapitel.
 
-Projekt- und Referenzkapitel brauchen keinen Rückblick; die Prüfskripte nehmen sie automatisch aus.
+Projekt- und Referenzkapitel brauchen keinen Rückblick.
 
 ### Lösungen und Passwörter
 
 Lösungen stehen in `:::protect{password="…" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}`.
 
-Das Passwort folgt dem Schema `<pfad>-<kapitel>-<lektion>-<nummer>`, etwa `db-4-3-2` oder `web-2-6-1`, und ist **im ganzen Buch eindeutig**. Die Passwortübersicht hilft dabei:
-
-```bash
-python3 tools/passwoerter.py              # Übersicht für Lehrkräfte, mit Seite und Abschnitt
-```
+Das Passwort folgt dem Schema `<pfad>-<kapitel>-<lektion>-<nummer>`, etwa `db-4-3-2` oder `web-2-6-1`, und ist **im ganzen Buch eindeutig**.
 
 Die Seite [Lösungspasswörter](/loesungen) verwendet die eingebaute `passwordlist`-Direktive von Hyperbook ab Version 0.108.0. Sie wird bei jedem Build automatisch aus den aktuellen `protect`-Blöcken zusammengestellt. Bei ungewöhnlichen Seitenstrukturen kannst du mit `name="…"` am `protect`-Block die Aufgabenbezeichnung für die Liste festlegen.
 
@@ -300,27 +285,16 @@ Zwei Wege führen daran vorbei:
 
 ### Prüfen
 
-Zu jedem Lernpfad mit ausführbarem Code gehören Prüfskripte. Sie alle startet ein einziger Aufruf:
-
-```bash
-python3 tools/pruefe-alles.py --schnell   # nur die statischen Prüfungen, dauert Sekunden
-python3 tools/pruefe-alles.py             # zusätzlich Bauen und Browserprüfungen
-```
-
-Das Skript findet die Prüfungen selbst und startet den Dev-Server bei Bedarf. Ein Rückgabewert von **2** bedeutet: Alles Gelaufene war in Ordnung, aber etwas konnte nicht geprüft werden – meistens fehlt dann Playwright für die Browserprüfungen.
-
-Was es genau wo prüft, wie man ein neues Werkzeug ergänzt und was einmalig einzurichten ist, steht in `tools/README.md`.
+Gebaut wird das Buch mit `npx hyperbook build`, lokal angesehen mit `npx hyperbook dev`. Erzeugte Dateien (Checkpoints, Asset-Liste, Datenbanken) regenerierst du mit den Generatoren in `tools/` – siehe `tools/README.md`.
 
 ### Web-Lernpfad
 
-Der Lernpfad [Webentwicklung](/mittelstufe/web) nutzt das `webide`-Element. Was es kann, steht in `tools/web-lernpfad/NOTIZEN.md`.
+Der Lernpfad [Webentwicklung](/mittelstufe/web) nutzt das [`webide`-Element](https://hyperbook.openpatch.org/elements/web-ide). Was es kann, steht in der Hyperbook-Dokumentation.
 
 Zwei Regeln sind dort besonders wichtig:
 
 - **Jeder Block braucht eine feste `id`.** Darunter wird die Arbeit der Lernenden gespeichert. Ändert sich die `id`, ist sie weg – also nie nachträglich anfassen.
 - **JavaScript wird nicht verwendet.** Ein `js`-Fence läuft einmal gegen einen noch leeren `body` und wirft dabei einen Fehler; im Unterrichtsvorhaben ist JavaScript ohnehin nicht vorgesehen.
-
-Geprüft wird mit `tools/web-lernpfad/check_lernpfad.py` und `pruefe_seiten.js` – beide startet `pruefe-alles.py` mit.
 
 :::snippet{#merken}
 **Bei HTML und CSS funktioniert „finde den Fehler" – anders als bei Java und SQL.**
@@ -329,7 +303,7 @@ Der Browser zeigt weder für fehlerhaftes HTML noch für ungültiges CSS eine Me
 
 Solche Aufgaben brauchen dann aber zwei Dinge: eine **Vorhersage** vorher („Wie sollte es aussehen?") und einen Fehler, dessen Wirkung man **sieht** – ein vergessenes `</ul>` mitten in einer verschachtelten Liste taugt, ein fehlendes Semikolon in einer unsichtbaren Regel nicht.
 
-Für die Qualitätssicherung gilt die Kehrseite: Was die Prüfwerkzeuge nicht finden, findet niemand. Deshalb prüft `check_lernpfad.py` die Wohlgeformtheit des HTML selbst nach, und `pruefe_seiten.js` testet jede CSS-Deklaration mit `CSS.supports`.
+Für die Qualitätssicherung gilt die Kehrseite: HTML- und CSS-Fehler meldet der Browser nicht von selbst. Solche Aufgaben brauchen deshalb eine Vorhersage und einen Fehler mit sichtbarem Effekt.
 :::
 
 ### Datenbank-Lernpfad
@@ -342,11 +316,9 @@ Die vier SQLite-Dateien unter `public/datenbanken/` sind **erzeugt**, nicht von 
 python3 tools/datenbank-lernpfad/erzeuge_datenbanken.py
 ```
 
-Das Skript läuft mit festem Startwert und liefert byte-gleiche Dateien. Wer es ändert, muss anschließend alle Ergebniszahlen im Text neu prüfen. Dass die eingecheckten Datenbanken zum Skript passen, prüft `python3 tools/pruefe-alles.py --generatoren`.
+Das Skript läuft mit festem Startwert und liefert byte-gleiche Dateien. Wer es ändert, muss anschließend alle Ergebniszahlen im Text neu prüfen.
 
-Was die IDE kann und – wichtiger – was sie nicht kann, steht in `tools/datenbank-lernpfad/NOTIZEN.md`. Sie versteht unter anderem kein `IS NULL`, kein `CASE WHEN` und kein `EXISTS`; Anweisungen mit solchen Konstrukten werden gar nicht erst ausgeführt.
-
-Geprüft wird mit `tools/datenbank-lernpfad/check_lernpfad.py` und `pruefe_sql.py`. Der erste prüft die Struktur der Seiten, die Selbsttests, die Passwörter und die `sqlide`-Blöcke. Der zweite führt **jede** SQL-Anweisung des Lernpfads gegen die echte Datenbank aus – damit fallen Tippfehler in Spaltennamen auf, bevor jemand die Seite öffnet. Beide startet `pruefe-alles.py` mit.
+Was die IDE kann und – wichtiger – was sie nicht kann, steht in der [Dokumentation der SQL-IDE](https://hyperbook.openpatch.org/elements/sql-ide). Sie versteht unter anderem kein `IS NULL`, kein `CASE WHEN` und kein `EXISTS`; Anweisungen mit solchen Konstrukten werden gar nicht erst ausgeführt.
 
 :::alert{info}
 Nur ein ` ```sql `-Fence **mit Dateinamen** wird ausgeführt. Ein Fence ohne Dateinamen gilt als Schema mit Platzhaltern und wird übersprungen. Anweisungen, die scheitern sollen, bekommen den Kommentar `-- scheitert absichtlich`, Aufgabengerüste den Kommentar `-- UNGEPRUEFT`.
@@ -356,6 +328,4 @@ Nur ein ` ```sql `-Fence **mit Dateinamen** wird ausgeführt. Ein Fence ohne Dat
 
 Die beiden Java-Lernpfade nutzen die [Online-IDE](https://hyperbook.openpatch.org/elements/online-ide) und für alles Grafische [Scratch for Java](https://scratch4j.openpatch.org).
 
-Die Online-IDE ist eine Java-**ähnliche** Sprache, keine echte Java-Umgebung. Was dort geht und was nicht, steht in `tools/java-lernpfad/NOTIZEN.md` – zusammen mit der vollständigen Klassenbibliothek in `tools/java-lernpfad/api-online-ide.txt`.
-
-Geprüft wird mit `tools/java-lernpfad/check_lernpfad.py` und `pruefe_seiten.js`. Der Validator prüft die Struktur der Seiten, die Syntax der Selbsttests, die Eindeutigkeit der Lösungspasswörter und die Wohlgeformtheit aller `onlineide`-Blöcke; das zweite Skript liest zusätzlich den Fehlerreiter der IDE auf jeder gebauten Seite aus. Beide startet `pruefe-alles.py` mit.
+Die Online-IDE ist eine Java-**ähnliche** Sprache, keine echte Java-Umgebung. Was dort geht und was nicht, steht in der [Dokumentation der Online-IDE](https://hyperbook.openpatch.org/elements/online-ide).

@@ -109,12 +109,27 @@ In diesem Lernpfad kommt es deshalb nicht mehr vor.
 :::webide{id="web-4-1-erste-regeln" height="370px"}
 
 ```html
-<h1>Der Schulgarten</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Der Schulgarten</h1>
 <p>Wir treffen uns jeden Dienstag am Hochbeet.</p>
-<p class="hinweis">Bringt bitte feste Schuhe mit.</p>
+<p class="hinweis">Bringt bitte feste Schuhe mit.</p></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

@@ -15,13 +15,28 @@ Das ist bequem und gefährlich zugleich: Ein Fehler fällt nicht auf, wenn du da
 :::webide{id="web-3-2-repariert" height="300px"}
 
 ```html
-<!-- Dieser Quelltext ist absichtlich fehlerhaft. -->
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><!-- Dieser Quelltext ist absichtlich fehlerhaft. -->
 <p>Erster Absatz
 <p>Zweiter Absatz</p>
-<div><span>Text</div></span>
+<div><span>Text</div></span></body>
+
 ```
 
-```css
+```css file="style.css"
 * { outline: 1px solid hsl(0 60% 60%); }
 ```
 
@@ -86,7 +101,20 @@ Der Browser entscheidet sich für eine Deutung, weil er muss. Aber die Vorschrif
 :::webide{id="web-3-2-liste" height="310px"}
 
 ```html
-<!-- Dieser Quelltext ist absichtlich fehlerhaft. -->
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><!-- Dieser Quelltext ist absichtlich fehlerhaft. -->
 <h2>Einkaufsliste</h2>
 <ul>
   <li>Mehl</li>
@@ -95,7 +123,8 @@ Der Browser entscheidet sich für eine Deutung, weil er muss. Aber die Vorschrif
       <li>möglichst frisch</li>
   </li>
   <li>Milch</li>
-</ul>
+</ul></body>
+
 ```
 
 :::

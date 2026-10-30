@@ -1,1 +1,0 @@
-../spielwerkstatt-raumplan/Wand.java

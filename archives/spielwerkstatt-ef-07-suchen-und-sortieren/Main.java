@@ -1,1 +1,0 @@
-../spielwerkstatt-ef-06-objektorientierung/Main.java

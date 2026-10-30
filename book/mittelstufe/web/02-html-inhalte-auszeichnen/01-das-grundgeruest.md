@@ -73,9 +73,7 @@ Einige wenige Elemente haben keinen Inhalt und deshalb auch keinen Endtag – zu
 </html>
 ```
 
-```html template
-###HTML###
-```
+
 
 :::
 

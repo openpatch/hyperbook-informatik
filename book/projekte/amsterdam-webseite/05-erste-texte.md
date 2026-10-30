@@ -16,7 +16,21 @@ Deine Startseite bekommt eine Gliederung: eine Hauptüberschrift, zwei oder drei
 :::webide{id="ams-05-texte" height="520px"}
 
 ```html
-<h1>Amsterdam</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Amsterdam</h1>
 
 <p>
   Amsterdam ist die Hauptstadt der Niederlande. In der Innenstadt leben
@@ -36,10 +50,11 @@ Deine Startseite bekommt eine Gliederung: eine Hauptüberschrift, zwei oder drei
 <p>
   Am schönsten ist es von <time datetime="2026-04">April</time> bis Juni:
   Dann blühen die Tulpen, und es ist noch nicht so voll wie im Sommer.
-</p>
+</p></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

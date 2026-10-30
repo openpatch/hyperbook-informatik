@@ -79,16 +79,31 @@ Daraus folgt etwas Praktisches: **Jede Datei, die von einem fremden Server kommt
 :::webide{id="web-5-2-fremd" height="300px"}
 
 ```html
-<h1>Meine Seite</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Meine Seite</h1>
 
 <!-- Bild vom eigenen Server: kein fremder Server erfährt etwas -->
 <img src="/images/willkommen-banner.jpg" alt="Kabel auf einer Steckplatine"
      width="400">
 
-<p>Ein normaler Absatz.</p>
+<p>Ein normaler Absatz.</p></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   padding: 1rem;

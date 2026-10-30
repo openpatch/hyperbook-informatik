@@ -61,11 +61,11 @@ Das Programm startet jetzt mit dem `Startbildschirm`. Drückt man die
 Leertaste, wechselt das Fenster zu einer neuen `Welt`:
 
 ```java
-Window.getInstance().transitionToStage(new Welt(naechstesLevel), 500);
+Window.getInstance().transitionToStage(new Welt(naechstesLevel), 0.5);
 ```
 
 `Window.getInstance()` liefert das eine Fenster des Programms,
-`transitionToStage` blendet innerhalb von 500 Millisekunden zur neuen Bühne
+`transitionToStage` blendet innerhalb einer halben Sekunde (`0.5`) zur neuen Bühne
 über. Die alte Bühne mit allen ihren Figuren ist danach weg – jedes Level
 beginnt mit einer frischen Welt.
 

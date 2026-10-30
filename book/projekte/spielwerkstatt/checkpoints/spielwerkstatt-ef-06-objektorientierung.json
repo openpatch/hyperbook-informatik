@@ -10,7 +10,7 @@
       "version": 1,
       "portableVersion": 1,
       "flavour": "nrw",
-      "libraryVersion": "6.2.0",
+      "libraryVersion": "7.1.0",
       "startStage": "Main",
       "startFile": "Main.java",
       "pixelArt": true,
@@ -42,7 +42,7 @@
     },
     {
       "name": "Main.java",
-      "text": "import org.openpatch.scratch.*;\n\n/// Startet das Spiel.\nvoid main() {\n   // Pixelgrafik bleibt beim Vergrößern scharf.\n   Window.useTextureSampling(TextureSampling.POINT);\n   Window fenster = new Window(768, 432);\n   fenster.setStage(new Welt());\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Startet das Spiel.\nvoid main() {\n   // Pixelgrafik bleibt beim Vergrößern scharf.\n   Window.usePixelArt();\n   Window fenster = new Window(768, 432);\n   fenster.setStage(new Welt());\n}\n",
       "id": 2,
       "isFolder": false,
       "identical_to_repository_version": true
@@ -77,7 +77,7 @@
     },
     {
       "name": "Gegner.java",
-      "text": "import org.openpatch.scratch.*;\n\n/// Ein Schleim, der hin und her kriecht. Stößt er an ein Hindernis, kehrt er um.\npublic class Gegner extends AnimatedSprite {\n\n   /// So viele Pixel kriecht der Schleim in jedem Bild, nach rechts positiv, nach links negativ.\n   private int tempo = 2;\n\n   public Gegner() {\n      this.addAnimation(\"kriechen\", \"assets/actor/monster/slime/slime.png\", 4, 16, 16, 0, true);\n      this.setAnimationInterval(200);\n      this.setSize(250);\n      // Nur die Füße zählen: So kann die Figur vor einem Baum stehen, ohne an ihm hängen zu bleiben.\n      this.setHitbox(4, 10, 12, 10, 12, 16, 4, 16);\n   }\n\n   public void run() {\n      this.playAnimation(\"kriechen\");\n      this.changeX(tempo);\n      if (this.getTouchingSprite(Hindernis.class) != null) {\n         this.changeX(-tempo);\n         tempo = -tempo;\n      }\n   }\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Ein Schleim, der hin und her kriecht. Stößt er an ein Hindernis, kehrt er um.\npublic class Gegner extends Sprite {\n\n   /// So viele Pixel kriecht der Schleim in jedem Bild, nach rechts positiv, nach links negativ.\n   private int tempo = 2;\n\n   public Gegner() {\n      this.addAnimation(\"kriechen\", \"assets/actor/monster/slime/slime.png\", 16, 16, 0, 4, 8, 12);\n      this.setAnimationInterval(0.2);\n      this.setSize(250);\n      // Nur die Füße zählen: So kann die Figur vor einem Baum stehen, ohne an ihm hängen zu bleiben.\n      this.setHitbox(new Polygon(new double[] {4, 12, 12, 4}, new double[] {10, 10, 16, 16}));\n   }\n\n   public void run() {\n      this.playAnimation(\"kriechen\");\n      this.changeX(tempo);\n      if (this.getTouchingSprite(Hindernis.class) != null) {\n         this.changeX(-tempo);\n         tempo = -tempo;\n      }\n   }\n}\n",
       "id": 7,
       "isFolder": false,
       "identical_to_repository_version": true
@@ -91,7 +91,7 @@
     },
     {
       "name": "Hindernis.java",
-      "text": "import org.openpatch.scratch.*;\n\n/// Fertig für dich: eine Figur, durch die der Spieler nicht hindurchlaufen kann.\n/// Ein Hindernis ist ein Sprite wie jedes andere. Sein Kostüm gibst du ihm selbst.\npublic class Hindernis extends Sprite {\n\n   public Hindernis() {\n      // Die Bilder sind winzig. Dreifach vergrößert passen sie zum Spieler.\n      this.setSize(300);\n   }\n\n   /// Wie addCostume von Sprite. Zusätzlich hält nur die untere Hälfte des Bildes auf,\n   /// also der Stamm eines Baums oder der Fuß eines Felsens. Hinter dem Rest kann man vorbeigehen.\n   public void addCostume(String pName, String pBild, int pX, int pY, int pBreite, int pHoehe) {\n      super.addCostume(pName, pBild, pX, pY, pBreite, pHoehe);\n      this.setHitbox(0, pHoehe / 2.0, pBreite, pHoehe / 2.0, pBreite, pHoehe, 0, pHoehe);\n   }\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Fertig für dich: eine Figur, durch die der Spieler nicht hindurchlaufen kann.\n/// Ein Hindernis ist ein Sprite wie jedes andere. Sein Kostüm gibst du ihm selbst.\npublic class Hindernis extends Sprite {\n\n   public Hindernis() {\n      // Die Bilder sind winzig. Dreifach vergrößert passen sie zum Spieler.\n      this.setSize(300);\n   }\n\n   /// Wie addCostume von Sprite. Zusätzlich hält nur die untere Hälfte des Bildes auf,\n   /// also der Stamm eines Baums oder der Fuß eines Felsens. Hinter dem Rest kann man vorbeigehen.\n   public void addCostume(String pName, String pBild, int pX, int pY, int pBreite, int pHoehe) {\n      super.addCostume(pName, pBild, pX, pY, pBreite, pHoehe);\n      this.setHitbox(new Polygon(new double[] {0, pBreite, pBreite, 0}, new double[] {pHoehe / 2.0, pHoehe / 2.0, pHoehe, pHoehe}));\n   }\n}\n",
       "id": 9,
       "isFolder": false,
       "identical_to_repository_version": true
@@ -105,7 +105,7 @@
     },
     {
       "name": "Muenze.java",
-      "text": "import org.openpatch.scratch.*;\n\n/// Fertig für dich: eine Münze, die sich dreht, bis der Spieler sie einsammelt.\npublic class Muenze extends AnimatedSprite {\n\n   public Muenze() {\n      // Vier Bilder zu je 10 × 10 Pixeln nebeneinander.\n      this.addAnimation(\"drehen\", \"assets/items/treasure/coin2.png\", 4, 10, 10);\n      this.setAnimationInterval(150);\n      this.setSize(300);\n   }\n\n   public void run() {\n      this.playAnimation(\"drehen\");\n   }\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Fertig für dich: eine Münze, die sich dreht, bis der Spieler sie einsammelt.\npublic class Muenze extends Sprite {\n\n   public Muenze() {\n      // Vier Bilder zu je 10 × 10 Pixeln nebeneinander.\n      this.addAnimation(\"drehen\", \"assets/items/treasure/coin2.png\", 10, 10, 0, 1, 2, 3);\n      this.setAnimationInterval(0.15);\n      this.setSize(300);\n   }\n\n   public void run() {\n      this.playAnimation(\"drehen\");\n   }\n}\n",
       "id": 11,
       "isFolder": false,
       "identical_to_repository_version": true
@@ -126,14 +126,14 @@
     },
     {
       "name": "Spieler.java",
-      "text": "import org.openpatch.scratch.*;\n\n/// Die Figur, die du mit den Pfeiltasten steuerst.\n/// Sie bleibt an Hindernissen hängen, sammelt Münzen ein und meldet der Welt, wenn ein Gegner sie erwischt.\npublic class Spieler extends AnimatedSprite {\n\n   /// So viele Pixel geht der Spieler in jedem Bild.\n   private int tempo = 3;\n\n   /// Erzeugt einen Spieler. pFigur ist ein Ordner in assets/actor/character/, zum Beispiel \"boy\".\n   public Spieler(String pFigur) {\n      String bild = \"assets/actor/character/\" + pFigur + \"/sprite-sheet.png\";\n      // Im Bild steht jede Blickrichtung in einer eigenen Spalte,\n      // die vier Schritte untereinander.\n      this.addAnimation(\"unten\", bild, 4, 16, 16, 0, true);\n      this.addAnimation(\"oben\", bild, 4, 16, 16, 1, true);\n      this.addAnimation(\"links\", bild, 4, 16, 16, 2, true);\n      this.addAnimation(\"rechts\", bild, 4, 16, 16, 3, true);\n      this.setAnimationInterval(150);\n      this.setSize(250);\n      // Nur die Füße zählen: So kann die Figur vor einem Baum stehen, ohne an ihm hängen zu bleiben.\n      this.setHitbox(4, 10, 12, 10, 12, 16, 4, 16);\n      this.addSound(\"muenze\", \"assets/audio/sounds/bonus/coin.ogg\");\n   }\n\n   public void run() {\n      double altX = this.getX();\n      double altY = this.getY();\n\n      if (this.isKeyPressed(KeyCode.RIGHT)) {\n         this.changeX(tempo);\n         this.playAnimation(\"rechts\");\n      } else if (this.isKeyPressed(KeyCode.LEFT)) {\n         this.changeX(-tempo);\n         this.playAnimation(\"links\");\n      } else if (this.isKeyPressed(KeyCode.UP)) {\n         this.changeY(tempo);\n         this.playAnimation(\"oben\");\n      } else if (this.isKeyPressed(KeyCode.DOWN)) {\n         this.changeY(-tempo);\n         this.playAnimation(\"unten\");\n      }\n\n      // In ein Hindernis hineingelaufen? Dann zurück auf den alten Platz.\n      if (this.getTouchingSprite(Hindernis.class) != null) {\n         this.setPosition(altX, altY);\n      }\n\n      Muenze m = this.getTouchingSprite(Muenze.class);\n      if (m != null) {\n         m.remove();\n         this.playSound(\"muenze\");\n         Welt welt = (Welt) this.getStage();\n         welt.wennMuenzeEingesammelt();\n      }\n\n      if (this.getTouchingSprite(Gegner.class) != null) {\n         Welt welt = (Welt) this.getStage();\n         welt.wennGegnerBeruehrt();\n      }\n   }\n\n   /// Legt fest, wie viele Pixel der Spieler in jedem Bild geht. Mit 0 bleibt er stehen.\n   public void setTempo(int pTempo) {\n      tempo = pTempo;\n   }\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Die Figur, die du mit den Pfeiltasten steuerst.\n/// Sie bleibt an Hindernissen hängen, sammelt Münzen ein und meldet der Welt, wenn ein Gegner sie erwischt.\npublic class Spieler extends Sprite {\n\n   /// So viele Pixel geht der Spieler in jedem Bild.\n   private int tempo = 3;\n\n   /// Erzeugt einen Spieler. pFigur ist ein Ordner in assets/actor/character/, zum Beispiel \"boy\".\n   public Spieler(String pFigur) {\n      String bild = \"assets/actor/character/\" + pFigur + \"/sprite-sheet.png\";\n      // Im Bild steht jede Blickrichtung in einer eigenen Spalte,\n      // die vier Schritte untereinander.\n      this.addAnimation(\"unten\", bild, 16, 16, 0, 4, 8, 12);\n      this.addAnimation(\"oben\", bild, 16, 16, 1, 5, 9, 13);\n      this.addAnimation(\"links\", bild, 16, 16, 2, 6, 10, 14);\n      this.addAnimation(\"rechts\", bild, 16, 16, 3, 7, 11, 15);\n      this.setAnimationInterval(0.15);\n      this.setSize(250);\n      // Nur die Füße zählen: So kann die Figur vor einem Baum stehen, ohne an ihm hängen zu bleiben.\n      this.setHitbox(new Polygon(new double[] {4, 12, 12, 4}, new double[] {10, 10, 16, 16}));\n      this.addSound(\"muenze\", \"assets/audio/sounds/bonus/coin.ogg\");\n   }\n\n   public void run() {\n      double altX = this.getX();\n      double altY = this.getY();\n\n      if (this.isKeyPressed(KeyCode.RIGHT)) {\n         this.changeX(tempo);\n         this.playAnimation(\"rechts\");\n      } else if (this.isKeyPressed(KeyCode.LEFT)) {\n         this.changeX(-tempo);\n         this.playAnimation(\"links\");\n      } else if (this.isKeyPressed(KeyCode.UP)) {\n         this.changeY(tempo);\n         this.playAnimation(\"oben\");\n      } else if (this.isKeyPressed(KeyCode.DOWN)) {\n         this.changeY(-tempo);\n         this.playAnimation(\"unten\");\n      }\n\n      // In ein Hindernis hineingelaufen? Dann zurück auf den alten Platz.\n      if (this.getTouchingSprite(Hindernis.class) != null) {\n         this.setPosition(altX, altY);\n      }\n\n      Muenze m = this.getTouchingSprite(Muenze.class);\n      if (m != null) {\n         m.remove();\n         this.playSound(\"muenze\");\n         Welt welt = (Welt) this.getStage();\n         welt.wennMuenzeEingesammelt();\n      }\n\n      if (this.getTouchingSprite(Gegner.class) != null) {\n         Welt welt = (Welt) this.getStage();\n         welt.wennGegnerBeruehrt();\n      }\n   }\n\n   /// Legt fest, wie viele Pixel der Spieler in jedem Bild geht. Mit 0 bleibt er stehen.\n   public void setTempo(int pTempo) {\n      tempo = pTempo;\n   }\n}\n",
       "id": 14,
       "isFolder": false,
       "identical_to_repository_version": true
     },
     {
       "name": "Spielwelt.java",
-      "text": "import org.openpatch.scratch.*;\n\n/// Fertig für dich: die Wiese als Hintergrund und die Reihenfolge, in der gezeichnet wird.\npublic class Spielwelt extends Stage {\n\n   /// So viele Pixel ist eine Kachel auf der Bühne breit und hoch.\n   public static final int KACHEL = 48;\n\n   public Spielwelt() {\n      // Die Wiese ist ein einziges Bild, so groß wie die Bühne.\n      this.addBackdrop(\"wiese\", \"assets/backgrounds/wiese.png\");\n\n      // Wer weiter unten steht, ist näher am Betrachter: Er wird später gezeichnet\n      // und verdeckt, was hinter ihm steht. So läuft man hinter Bäumen vorbei.\n      this.getSorting().byY();\n   }\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Fertig für dich: die Wiese als Hintergrund und die Reihenfolge, in der gezeichnet wird.\npublic class Spielwelt extends Stage {\n\n   /// So viele Pixel ist eine Kachel auf der Bühne breit und hoch.\n   public static final int KACHEL = 48;\n\n   public Spielwelt() {\n      // Die Wiese ist ein einziges Bild, so groß wie die Bühne.\n      this.addBackdrop(\"wiese\", \"assets/backgrounds/wiese.png\");\n\n      // Wer weiter unten steht, ist näher am Betrachter: Er wird später gezeichnet\n      // und verdeckt, was hinter ihm steht. So läuft man hinter Bäumen vorbei.\n      this.sortByY();\n   }\n}\n",
       "id": 15,
       "isFolder": false,
       "identical_to_repository_version": true
@@ -147,7 +147,7 @@
     },
     {
       "name": "Stein.java",
-      "text": "/// Ein Stein für Mauern, 16 × 16 Pixel aus dem Dungeon-Kachelbild.\npublic class Stein extends Hindernis {\n\n   public Stein() {\n      this.addCostume(\"stein\", \"assets/backgrounds/tilesets/tileset-dungeon.png\", 128, 48, 16, 16);\n      // Steine bilden die Mauer am Rand: Sie halten mit dem ganzen Bild auf, nicht nur unten.\n      this.setHitbox(0, 0, 16, 0, 16, 16, 0, 16);\n   }\n}\n",
+      "text": "import org.openpatch.scratch.*;\n\n/// Ein Stein für Mauern, 16 × 16 Pixel aus dem Dungeon-Kachelbild.\npublic class Stein extends Hindernis {\n\n   public Stein() {\n      this.addCostume(\"stein\", \"assets/backgrounds/tilesets/tileset-dungeon.png\", 128, 48, 16, 16);\n      // Steine bilden die Mauer am Rand: Sie halten mit dem ganzen Bild auf, nicht nur unten.\n      this.setHitbox(new Polygon(new double[] {0, 16, 16, 0}, new double[] {0, 0, 16, 16}));\n   }\n}\n",
       "id": 17,
       "isFolder": false,
       "identical_to_repository_version": true

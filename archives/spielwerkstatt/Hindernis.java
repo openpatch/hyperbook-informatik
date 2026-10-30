@@ -13,6 +13,6 @@ public class Hindernis extends Sprite {
    /// also der Stamm eines Baums oder der Fuß eines Felsens. Hinter dem Rest kann man vorbeigehen.
    public void addCostume(String pName, String pBild, int pX, int pY, int pBreite, int pHoehe) {
       super.addCostume(pName, pBild, pX, pY, pBreite, pHoehe);
-      this.setHitbox(0, pHoehe / 2.0, pBreite, pHoehe / 2.0, pBreite, pHoehe, 0, pHoehe);
+      this.setHitbox(new Polygon(new double[] {0, pBreite, pBreite, 0}, new double[] {pHoehe / 2.0, pHoehe / 2.0, pHoehe, pHoehe}));
    }
 }

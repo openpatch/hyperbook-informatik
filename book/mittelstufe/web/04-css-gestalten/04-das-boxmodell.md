@@ -24,11 +24,26 @@ graph TD
 :::webide{id="web-4-4-box" height="350px"}
 
 ```html
-<div class="box">Inhalt</div>
-<div class="box">Zweite Box</div>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="box">Inhalt</div>
+<div class="box">Zweite Box</div></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   background: hsl(220 15% 92%);
   font-family: system-ui, sans-serif;
@@ -81,11 +96,26 @@ Das überrascht die meisten: Man hat `width: 200px` geschrieben und bekommt 332.
 :::webide{id="web-4-4-borderbox" height="460px"}
 
 ```html
-<div class="alt">width: 200px, ohne border-box</div>
-<div class="neu">width: 200px, mit border-box</div>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="alt">width: 200px, ohne border-box</div>
+<div class="neu">width: 200px, mit border-box</div></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   background: hsl(220 15% 92%);
@@ -143,13 +173,28 @@ margin-inline: auto;              /* links und rechts */
 :::webide{id="web-4-4-zentrieren" height="500px"}
 
 ```html
-<div class="karte">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="karte">
   <h2>Zentrierter Kasten</h2>
   <p>Er hat eine Höchstbreite und teilt den Rest gleichmäßig auf.</p>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 * {
   box-sizing: border-box;
 }
@@ -253,7 +298,21 @@ Die Klasse steht schon im HTML, du musst sie nur ansprechen.
 :::webide{id="web-4-4-uebung" height="460px"}
 
 ```html
-<div class="kasten">
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><div class="kasten">
   <h2>Erster Hinweis</h2>
   <p>Bitte die Werkzeuge zurücklegen.</p>
 </div>
@@ -261,10 +320,11 @@ Die Klasse steht schon im HTML, du musst sie nur ansprechen.
 <div class="kasten">
   <h2>Zweiter Hinweis</h2>
   <p>Das Beet nicht betreten.</p>
-</div>
+</div></body>
+
 ```
 
-```css
+```css file="style.css"
 
 ```
 

@@ -25,6 +25,8 @@ Im Kapitel [Felder, Referenzen und Generik](../../oberstufe/oop/02-erweiterungen
 
 Seit den Feldern in der Einführungsphase entsteht die Welt aus einem Plan. Danach vergisst das Spiel aber, was wo liegt. Fragen wie *Was liegt links von mir?* oder *Ist dieses Feld frei?* lassen sich nur beantworten, indem man **alle** Objekte durchsucht und ihre Koordinaten vergleicht. Ein zweidimensionales Feld beantwortet sie mit einem einzigen Zugriff.
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
 Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
@@ -49,6 +51,26 @@ private void setzeGegenstand(Gegenstand pGegenstand, int pZeile, int pSpalte) {
 
 Aufwand: ★★☆
 
+<!-- MVP: 11-gitter -->
+
+**MVP zum Ausprobieren:** Drücke Leertaste: Das Programm liest genau das Feld [1][2].
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-gitter"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-gitter.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere beim Erzeugen denselben Sprite-Verweis auf der Bühne und im Gitter.
+
+<!-- /MVP -->
+
 ### Der Fehler, den man nicht sieht
 
 **Im Spiel:** Eine eingesammelte Münze ist von der Bühne verschwunden. Fragt man das Gitter, ist sie noch da.
@@ -65,6 +87,26 @@ public void entferne(Gegenstand pGegenstand) {
 Probiere es aus: Nimm die zweite Zeile heraus und lass dir nach jedem Einsammeln zählen, wie viele Münzen das Gitter noch kennt.
 
 Aufwand: ★★☆
+
+<!-- MVP: 11-referenzfehler -->
+
+**MVP zum Ausprobieren:** Leertaste entfernt die Münze von der Bühne. R entfernt danach auch den Gitterverweis.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-referenzfehler"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-referenzfehler.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Benutze beim Einsammeln eine gemeinsame Methode, die Bühne und Gitter aktualisiert.
+
+<!-- /MVP -->
 
 ### Versteckte Fallen
 
@@ -85,6 +127,26 @@ for (int z = zeile - 1; z <= zeile + 1; z++) {
 
 Aufwand: ★★☆
 
+<!-- MVP: 11-fallen -->
+
+**MVP zum Ausprobieren:** Gehe mit den Pfeiltasten auf dem Raster zur rechten Seite.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-fallen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-fallen.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Prüfe nur gültige Nachbarindizes und rufe dort das Aufdecken der Falle auf.
+
+<!-- /MVP -->
+
 ### Nebel über dem Unerforschten
 
 **Im Spiel:** Am Anfang liegt über allem dunkler Nebel. Wo der Spieler gewesen ist, lichtet er sich und bleibt licht.
@@ -92,6 +154,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** ein Feld `boolean[][] erkundet` und ein zweites Feld mit dunklen Kacheln. Steht der Spieler auf einem Feld, wird es mit seinen Nachbarn erkundet, und die Nebelkacheln dort verschwinden.
 
 Aufwand: ★★★
+
+<!-- MVP: 11-nebel -->
+
+**MVP zum Ausprobieren:** Erkunde das Raster mit den Pfeiltasten. Bereits erkundete Stellen bleiben sichtbar.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-nebel"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-nebel.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere den Zustand getrennt von der Anzeige in boolean[][] erkundet.
+
+<!-- /MVP -->
 
 ### Eine Karte in der Ecke
 
@@ -101,6 +183,26 @@ Aufwand: ★★★
 
 Aufwand: ★★☆
 
+<!-- MVP: 11-minikarte -->
+
+**MVP zum Ausprobieren:** Steuere die große Figur und beobachte ihren Punkt auf der kleinen Karte.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-minikarte"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-minikarte.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Rechne Weltkoordinaten mit demselben Maßstab in Kartenkoordinaten um.
+
+<!-- /MVP -->
+
 ### Ein Level, das sich zurücksetzen lässt
 
 **Im Spiel:** Ein Schalter verändert das Level, Steine verschwinden, Wege öffnen sich. Eine neue Runde stellt den Anfangszustand wieder her.
@@ -109,6 +211,22 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 11-kopie -->
+
+**MVP zum Ausprobieren:** Vergleiche alias, flach und tief nach dem Öffnen einer Wand.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-kopie"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-kopie.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Kopiere bei einem veränderlichen 2D-Feld jede Zeile. Bei String[] sind die Zeichenketten unveränderlich.
+
+<!-- /MVP -->
+
 ### Ein Beutel für alles
 
 **Im Spiel:** Eine Truhe enthält einen Gegenstand, ein Händler verkauft eine Ware, eine Belohnung kann Münzen, Herzen oder Schlüssel sein.
@@ -116,6 +234,22 @@ Aufwand: ★★★
 **Dahinter steckt:** eine [generische Klasse](../../oberstufe/oop/02-erweiterungen/02-felder-referenzen-generik/04-generische-klassen) `Beutel<T>`, die einen Inhalt beliebigen Typs aufnimmt. Derselbe Code dient für `Beutel<Muenze>` und `Beutel<Herz>`, und der Übersetzer passt auf, dass niemand ein Herz aus einem Münzbeutel holt.
 
 Aufwand: ★★☆
+
+<!-- MVP: 11-beutel -->
+
+**MVP zum Ausprobieren:** Ergänze einen Beutel für eine weitere Gegenstandsart.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-11-beutel"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/11-beutel.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Setze T auf den jeweiligen Inhaltstyp. Der Aufrufer bekommt ihn ohne Typumwandlung zurück.
+
+<!-- /MVP -->
 
 ## Und ohne Spiel?
 
@@ -141,7 +275,5 @@ Was in deinem Spiel liegt auf einem Raster? Welche Frage würde dein Spiel gern 
 Im Checkpoint nach diesem Kapitel liegen alle Gegenstände zusätzlich in einem Gitter `Gegenstand[][]`. Eingesammeltes wird aus beiden entfernt, und Fallen sind versteckt, bis der Spieler danebensteht. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Felder, Referenzen und Generik (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-02-felder-und-referenzen.json"}
-
-:archive[Checkpoint: Felder, Referenzen und Generik (Projekt für den Rechner)]{name="spielwerkstatt-q-02-felder-und-referenzen"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

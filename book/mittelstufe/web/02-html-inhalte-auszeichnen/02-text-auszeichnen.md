@@ -13,7 +13,20 @@ Ein Text ohne Auszeichnung ist für den Browser ein einziger langer Buchstabensa
 :::webide{id="web-2-2-text" height="420px"}
 
 ```html
-<h1>Waffeln backen</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><h1>Waffeln backen</h1>
 
 <p>Waffeln gehen schnell und schmecken fast immer. Dieses Rezept reicht für vier Personen.</p>
 
@@ -27,7 +40,8 @@ Ein Text ohne Auszeichnung ist für den Browser ein einziger langer Buchstabensa
 
 <h3>Wenn der Teig zu fest ist</h3>
 
-<p>Einfach löffelweise Milch dazugeben.</p>
+<p>Einfach löffelweise Milch dazugeben.</p></body>
+
 ```
 
 :::
@@ -56,10 +70,24 @@ c) Erkläre den Unterschied zwischen zwei `<p>`-Elementen und einem `<br>`.
 :::webide{id="web-2-2-umbruch" height="300px"}
 
 ```html
-<p>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><p>
   Erster Satz.
   Zweiter Satz.
-</p>
+</p></body>
+
 ```
 
 :::
@@ -81,7 +109,20 @@ Man braucht `<br>` selten: bei Gedichten, Liedtexten und Anschriften. Wer damit 
 :::webide{id="web-2-2-betonung" height="330px"}
 
 ```html
-<p>Der Teig muss <strong>unbedingt</strong> zehn Minuten ruhen.</p>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body><p>Der Teig muss <strong>unbedingt</strong> zehn Minuten ruhen.</p>
 
 <p>Ich hätte <em>fast</em> das Salz vergessen.</p>
 
@@ -91,7 +132,8 @@ Man braucht `<br>` selten: bei Gedichten, Liedtexten und Anschriften. Wer damit 
 
 <p>Sie sagte: <q>Das war knapp.</q></p>
 
-<p><abbr title="HyperText Markup Language">HTML</abbr> ist keine Programmiersprache.</p>
+<p><abbr title="HyperText Markup Language">HTML</abbr> ist keine Programmiersprache.</p></body>
+
 ```
 
 :::
@@ -141,12 +183,26 @@ Verwende dabei: ein `<h1>`, mindestens zwei `<h2>`, mehrere `<p>`, mindestens ei
 :::webide{id="web-2-2-uebung" height="300px"}
 
 ```html
-Der Rhein
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+</head>
+<body>Der Rhein
 Der Rhein ist mit 1233 Kilometern einer der längsten Flüsse Europas. Er entspringt in der Schweiz und mündet in den Niederlanden in die Nordsee.
 Verlauf
 Von seiner Quelle im Kanton Graubünden fließt er zunächst nach Westen, dann nach Norden. In Deutschland durchquert er sechs Bundesländer.
 Bedeutung
-Der Rhein ist die meistbefahrene Wasserstraße Europas. Jährlich werden auf ihm rund 200 Millionen Tonnen Güter transportiert. Für die Trinkwasserversorgung ist er ebenfalls wichtig.
+Der Rhein ist die meistbefahrene Wasserstraße Europas. Jährlich werden auf ihm rund 200 Millionen Tonnen Güter transportiert. Für die Trinkwasserversorgung ist er ebenfalls wichtig.</body>
+
 ```
 
 :::

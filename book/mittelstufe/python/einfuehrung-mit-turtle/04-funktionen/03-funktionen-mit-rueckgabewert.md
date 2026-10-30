@@ -279,7 +279,7 @@ def summe(zahl):
     return 0
 ```
 
-```python test
+```python file="test_1.py" role="test" hidden
 #SCRIPT#
 if summe(10) == 55:
     print("Bestanden: summe(10) ist 55")
@@ -287,7 +287,7 @@ else:
     print("Nicht bestanden: summe(10) ergibt", summe(10), "statt 55")
 ```
 
-```python test
+```python file="test_2.py" role="test" hidden
 #SCRIPT#
 if summe(1) == 1:
     print("Bestanden: summe(1) ist 1")
@@ -295,7 +295,7 @@ else:
     print("Nicht bestanden: summe(1) ergibt", summe(1), "statt 1")
 ```
 
-```python test
+```python file="test_3.py" role="test" hidden
 #SCRIPT#
 if summe(100) == 5050:
     print("Bestanden: summe(100) ist 5050")
@@ -352,7 +352,7 @@ def ist_gerade(zahl):
     return False
 ```
 
-```python test
+```python file="test_1.py" role="test" hidden
 #SCRIPT#
 if ist_gerade(4) == True:
     print("Bestanden: 4 ist gerade")
@@ -360,7 +360,7 @@ else:
     print("Nicht bestanden: 4 sollte als gerade erkannt werden")
 ```
 
-```python test
+```python file="test_2.py" role="test" hidden
 #SCRIPT#
 if ist_gerade(7) == False:
     print("Bestanden: 7 ist ungerade")
@@ -368,7 +368,7 @@ else:
     print("Nicht bestanden: 7 sollte als ungerade erkannt werden")
 ```
 
-```python test
+```python file="test_3.py" role="test" hidden
 #SCRIPT#
 if ist_gerade(0) == True:
     print("Bestanden: 0 ist gerade")

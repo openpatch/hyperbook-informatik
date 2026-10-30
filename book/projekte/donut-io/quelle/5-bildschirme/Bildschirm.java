@@ -27,7 +27,7 @@ public class Bildschirm extends Stage {
 
    public void whenKeyPressed(KeyCode pTaste) {
       if (pTaste == KeyCode.SPACE) {
-         Window.getInstance().transitionToStage(new Welt(naechstesLevel), 500);
+         Window.getInstance().transitionToStage(new Welt(naechstesLevel), 0.5);
       }
    }
 }

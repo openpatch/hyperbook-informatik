@@ -18,7 +18,21 @@ Der Ton hier ist ein synthetischer Platzhalter. Bei dir stehen an dieser Stelle 
 :::webide{id="ams-11-audio" height="620px"}
 
 ```html
-<h1>Wie Amsterdam klingt</h1>
+<!DOCTYPE html>
+<head>
+<title>WebIDE</title>
+<meta charset="utf8" />
+<style type='text/css'>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body><h1>Wie Amsterdam klingt</h1>
 
 <p>Schließ die Augen und hör hin. Eine Stadt erkennt man auch mit geschlossenen Augen.</p>
 
@@ -38,10 +52,11 @@ Der Ton hier ist ein synthetischer Platzhalter. Bei dir stehen an dieser Stelle 
     Dein Browser kann keine Töne abspielen.
   </audio>
   <p class="quelle">Platzhalter, erzeugt mit Python. CC0</p>
-</section>
+</section></body>
+
 ```
 
-```css
+```css file="style.css"
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

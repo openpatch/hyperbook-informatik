@@ -122,16 +122,14 @@ Checkpoints: Die Quellen liegen in quellen/spielwerkstatt/spielwerkstatt-*,
 nur das Startgerüst als Archiv in archives/spielwerkstatt (Ausweg für VS Code).
 Auf den Rechner kommen Checkpoints über den Studio-Export der Online-IDE.
 Die Workspace-Dateien in checkpoints/ und die Studio-Einstellungen des Archivs
-erzeugt tools/spielwerkstatt/erzeuge_checkpoints.py; tools/spielwerkstatt/check_desktop.py
-meldet, wenn eine Datei veraltet ist.
+erzeugt tools/spielwerkstatt/erzeuge_checkpoints.py; `node tools/baue.js`
+meldet vor dem Build, wenn eine Datei veraltet ist.
 
 Der Arbeitsbereich des eigenen Spiels ist der onlineide-Block mit
 id="spielwerkstatt" auf der Seite 00-werkstatt (layout: wide). Die MVPs auf den
 Ideenseiten haben eigene IDs mit dem Präfix spielwerkstatt-mvp-. Ihre Quellen
 liegen in mvp/ und werden per rfile eingebunden. Baukasten.java stellt nur
 Darstellung und Steuerung bereit; die Mechanik steht in Beispiel.java.
-tools/spielwerkstatt/check_mvps.py prüft, dass jede Anregung genau ein Beispiel
-mit eindeutiger ID und vorhandenen Quellen hat. Damit relative Pfade wie
-assets/... aufgelöst werden, liegen alle Seiten mit onlineide-Block direkt
-in diesem Ordner.
+Damit relative Pfade wie assets/... aufgelöst werden, liegen alle Seiten mit
+onlineide-Block direkt in diesem Ordner.
 -->
