@@ -44,7 +44,7 @@ sphere(d=50);
 
 ## Model Fernsehturm
 
-![](./fernsehturm.png){height="400px"}
+![](./fernsehturm.jpg){height="400px"}
 
 ::::snippet{#aufgabe}
 Bilde den Berliner Fernsehturm in OpenSCAD nach. Nutze dafür nur Zylinder und Kugeln.
