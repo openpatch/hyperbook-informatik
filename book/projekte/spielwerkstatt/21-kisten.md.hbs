@@ -12,7 +12,7 @@ keywords:
 
 # Stapel: Kisten schieben und zurücknehmen
 
-Bisher stehen die Kisten nur im Weg. Jetzt kann der Spieler sie **schieben**, bis sie an eine Wand oder eine andere Kiste stoßen. Damit entstehen Rätsel: Eine Kiste versperrt den Gang zur Münze, und schiebt man sie falsch, kommt man nicht mehr vorbei.
+Bisher stehen die Kisten nur im Weg. Jetzt kann der Spieler sie **schieben**, bis sie an eine Wand oder eine andere Kiste stoßen. Damit entstehen Rätsel: Eine Kiste versperrt den Gang zur Münze, und schiebst du sie falsch, kommst du nicht mehr vorbei.
 
 Deshalb braucht das Spiel eine Taste zum **Zurücknehmen**. Drückt man sie, wird der letzte Schiebezug rückgängig gemacht, beim nächsten Drücken der davor, und so weiter. Was zuletzt passiert ist, wird zuerst zurückgenommen. Das ist ein [Stapel](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel).
 
@@ -27,43 +27,43 @@ Starte das Beispiel. Laufe gegen eine Kiste, um sie zu schieben. Mit der Taste *
 :::onlineide{libraries="scratch,nrw" height="640px" outputWidth="60%" speed="1000000" id="werkstatt-kisten-beispiel"}
 
 ```java Main.java
-{{{rfile "/archives/spielwerkstatt-schieben/Main.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Main.java" "reg:^import "}}}
 ```
 
 ```java Welt.java
-{{{rfile "/archives/spielwerkstatt-schieben/Welt.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Welt.java" "reg:^import "}}}
 ```
 
 ```java Spieler.java
-{{{rfile "/archives/spielwerkstatt-schieben/Spieler.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Spieler.java" "reg:^import "}}}
 ```
 
 ```java Kiste.java
-{{{rfile "/archives/spielwerkstatt-schieben/Kiste.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Kiste.java" "reg:^import "}}}
 ```
 
 ```java Zug.java
-{{{rfile "/archives/spielwerkstatt-schieben/Zug.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Zug.java" "reg:^import "}}}
 ```
 
 ```java Muenze.java
-{{{rfile "/archives/spielwerkstatt-schieben/Muenze.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Muenze.java" "reg:^import "}}}
 ```
 
 ```java Kachel.java
-{{{rfile "/archives/spielwerkstatt-schieben/Kachel.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Kachel.java" "reg:^import "}}}
 ```
 
 ```java Gras.java
-{{{rfile "/archives/spielwerkstatt-schieben/Gras.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Gras.java" "reg:^import "}}}
 ```
 
 ```java Wand.java
-{{{rfile "/archives/spielwerkstatt-schieben/Wand.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Wand.java" "reg:^import "}}}
 ```
 
 ```java Stein.java
-{{{rfile "/archives/spielwerkstatt-schieben/Stein.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-schieben/Stein.java" "reg:^import "}}}
 ```
 
 :::
@@ -122,7 +122,7 @@ In `run()` des Spielers steht eine Kiste im Weg, dann wird sie mitgeschoben. Ein
 
 Für dein Spiel brauchst du die neue `Kiste`, die Klasse `Zug`, das Schieben im `Spieler` und in der `Welt` den Stapel, `merke` und `whenKeyPressed`. Die `Welt` muss den Spieler kennen, er ist also ein Attribut.
 
-Zwei Stellen, an denen man leicht hängen bleibt:
+Zwei Stellen, an denen du leicht stecken bleibst:
 
 - **Wie viele Züge sind noch da?** Der NRW-Stapel hat keine Methode für seine Größe. Zähle selbst mit: eins mehr bei jedem `merke`, eins weniger bei jedem Zurücknehmen.
 - **Münzen zurücklegen.** Eine Figur, die mit `remove()` von der Bühne genommen wurde, lässt sich nicht wieder hinzufügen. Soll ein Zurücknehmen auch eine eingesammelte Münze zurückbringen, speichere im `Zug`, **wo** sie lag, und erzeuge eine **neue** Münze an dieser Stelle. Auch die Punkte müssen dann wieder sinken.

@@ -7,7 +7,7 @@ permaid: java-datenstrukturen
 
 # Lineare Datenstrukturen
 
-Schlange, Stapel und Liste sind die drei linearen dynamischen Datenstrukturen, die du in der Oberstufe brauchst. Sie unterscheiden sich nicht darin, **was** sie speichern, sondern darin, **wer als Nächstes drankommt**: der Erste, der kam, der Letzte, der kam, oder jeder, den man auswählt.
+Schlange, Stapel und Liste sind die drei linearen dynamischen Datenstrukturen, die du in der Oberstufe behandelst. Sie unterscheiden sich nicht darin, **was** sie speichern, sondern darin, **welches Element als Nächstes an die Reihe kommt**: das zuerst kam, das zuletzt kam oder das, das du auswählst.
 
 ## So ist jede Struktur aufgebaut
 
@@ -22,7 +22,7 @@ Die drei Abschnitte laufen alle gleich ab.
 | **Implementierung** | *nur Leistungskurs:* die Struktur selbst programmieren |
 | **Übungsstunde** | Du wählst: **sicher werden** mit kleinen Übungen oder **im Spiel anwenden** in der [Spielwerkstatt](/projekte/spielwerkstatt) |
 
-Aufgaben, die mit 🧠 markiert sind, gehen über das Nötige hinaus. Wer sie auslässt, verpasst nichts, was später vorausgesetzt wird.
+Aufgaben, die mit 🧠 markiert sind, gehen über das Nötige hinaus. Wer sie auslässt, verpasst nichts, was später benötigt wird.
 
 :::alert{info}
 Die Seiten **Implementierung** – bei denen du die Struktur selbst baust, statt sie zu benutzen – gehören zum **Leistungskurs**. Im Grundkurs reicht es, den Aufbau zu erläutern und die Struktur über ihre Dokumentation zu verwenden.
@@ -39,7 +39,7 @@ Die Seiten **Implementierung** – bei denen du die Struktur selbst baust, statt
 
 Die Objektdiagramme auf den folgenden Seiten kannst du direkt auf der Seite verändern: Objekte
 anlegen, Referenzen umhängen, Werte eintippen. Unter dem Diagramm liegt eine Schrittleiste. Ein
-Schritt, der als **Aufgabe** markiert ist, gehört dir: Du baust ihn selbst, **Prüfen** vergleicht
-ihn mit der Lösung und sagt dir, welche Referenz noch nicht stimmt, **Lösung zeigen** verrät sie.
-Was du baust, bleibt beim nächsten Besuch stehen – der Knopf unten rechts im Diagramm stellt die
+Schritt, der als **Aufgabe** markiert ist, ist deine Aufgabe: Du baust ihn selbst, **Prüfen** vergleicht
+ihn mit der Lösung und sagt dir, welche Referenz noch nicht stimmt, **Lösung zeigen** zeigt sie dir.
+Was du baust, bleibt gespeichert – der Knopf unten rechts im Diagramm stellt die
 Ausgangslage wieder her.

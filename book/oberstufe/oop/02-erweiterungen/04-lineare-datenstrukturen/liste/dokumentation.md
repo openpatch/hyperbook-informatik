@@ -7,7 +7,7 @@ permaid: java-liste-dokumentation
 
 # Dokumentation der Abiturklasse List
 
-Für das Abitur werden verschiedene Klassen bereitgestellt, mit denen du arbeiten musst. In Klausur wirst du zu den benötigten Klassen eine Dokumentation erhalten, jedoch bietet es sich an viele der Funktionalitäten der Klasse auswendig zu kennen und die Dokumentation nur als Unterstützung zu nutzen.
+Für das Abitur werden verschiedene Klassen bereitgestellt, mit denen du arbeiten musst. In der Klausur wirst du zu den benötigten Klassen eine Dokumentation erhalten, jedoch bietet es sich an, viele Funktionalitäten der Klasse auswendig zu können, und die Dokumentation nur als Unterstützung zu nutzen.
 
 Die Dokumentation, die du auch im Abitur bekommst, findest du im [Lehrplannavigator NRW (PDF)](https://lehrplannavigator.nrw.de/system/files/media/document/file/dokumentation_za-if_gk-lk_ab_2018_2021_12_22.pdf).
 
@@ -59,14 +59,14 @@ classDiagram
 ## Methoden
 
 ### List() (Konstruktor)
-Eine leere Liste wird erzeugt. D.h. first, last und current zeigen jeweils auf null.
+Eine leere Liste wird erzeugt. Das heißt: first, last und current zeigen jeweils auf null.
 
 ### boolean isEmpty()
 Gibt true zurück, falls es keine Elemente in der Liste gibt, sonst false.
 
 ### boolean hasAccess()
 Gibt true zurück, falls current auf einen gültigen Knoten zeigt.
-D.h. bei einer leeren List ist hasAccess() == false. Erst wenn es mindestens ein Element in der Liste gibt und
+Das heißt: Bei einer leeren Liste ist hasAccess() == false. Erst wenn es mindestens ein Element in der Liste gibt und
 toFirst() aufgerufen wird, zeigt current auf einen Knoten, und hasAccess() gibt true zurück.
 
 ### void toFirst()
@@ -79,19 +79,19 @@ Falls current auf den letzten Knoten zeigt, zeigt er anschließend auf null, d.h
 
 ### void insert(ContentType pContent)
 Falls current auf einen gültigen Knoten zeigt (hasAccess() == true), wird ein neuer Knoten mit pContent vor
-current eingefügt. Current zeigt weiterhin auf den Knoten, auf den es vorher gezeigt hat.
-Falls die Liste leer ist, wird ebenfalls ein neuer Knoten eingefügt. Current bleibt dann null (wie bei append())
-Falls die Liste nicht leer ist UND hasAccess() == false ist, passiert nichts (es wird kein Knoten eingefügt).
+current eingefügt. `current` zeigt weiterhin auf den Knoten, auf den es vorher gezeigt hat.
+Falls die Liste leer ist, wird ebenfalls ein neuer Knoten eingefügt. `current` bleibt dann null (wie bei append())
+Falls die Liste nicht leer ist und hasAccess() == false ist, passiert nichts (es wird kein Knoten eingefügt).
 Sonderfall: Falls der Parameter pContent null ist, wird kein neuer Knoten eingefügt.
 
 ### void append(ContentType pContent)
 Hängt ein neues Element ans Ende der Liste.
-Current wird dadurch nicht beeinflusst (wenn current vorher den Wert null hatte, bleibt es weiterhin null).
+`current` wird dadurch nicht beeinflusst (wenn current vorher den Wert null hatte, bleibt es weiterhin null).
 Sonderfall: Falls der Parameter pContent null ist, wird kein neuer Knoten angehängt.
 
 ### void remove()
 Falls current auf einen gültigen Knoten zeigt (hasAccess() == true), wird dieser Knoten gelöscht.
-Current wandert dann zu dessen Nachfolger.
+`current` wandert dann zu dessen Nachfolger.
 Falls es keinen Nachfolger gibt, ist anschließend hasAccess() == false.
 Falls current nicht auf einen gültigen Knoten zeigt, passiert nichts.
 
@@ -107,9 +107,9 @@ durch pContent ausgetauscht. Das Inhaltsobjekt, das vorher an diesem Knoten hing
 ### void concat(List<ContentType> pList)
 Eine zweite Liste (pList) wird ans Ende dieser Liste angehängt. Die Liste muss den gleichen Typ von
 Inhaltsobjekten haben. Auf diese Weise können zwei Listen miteinander verbunden werden.
-Current bleibt davon unberührt (zeigt weiterhin auf den gleichen Knoten bzw. auf null).
+`current` bleibt davon unberührt (zeigt weiterhin auf den gleichen Knoten bzw. auf null).
 Die Liste, auf die der Parameter pList zeigt, wird zu einer leeren Liste.
-Das bedeutet dass man mit pList anschließend keinen Zugriff mehr auf die Elemente der Liste hat.
+Das bedeutet, dass du mit pList anschließend keinen Zugriff mehr auf die Elemente der Liste hat.
 
 ---
 

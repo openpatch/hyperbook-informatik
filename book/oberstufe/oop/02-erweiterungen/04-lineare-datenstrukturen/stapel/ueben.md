@@ -9,7 +9,7 @@ scripts:
 
 # Übungsstunde
 
-Aufbau und Handhabung des Stapels habt ihr gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
+Aufbau und Handhabung des Stapels hast du gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
 
 | Weg | Was du machst | Wohin |
 | --- | --- | --- |
@@ -141,7 +141,7 @@ int anzahl(Stack<String> pStapel) {
 }
 ```
 
-c) Die Methode soll liefern, ob oben `pWert` liegt. Mit Anna, Ben, Cem funktioniert sie. Wann nicht?
+c) Die Methode soll liefern, ob oben `pWert` liegt. Mit Anna, Ben, Cem funktioniert sie. Wann funktioniert sie nicht?
 
 ```java
 boolean obenIst(Stack<String> pStapel, String pWert) {
@@ -156,7 +156,7 @@ a) Es fehlt `pStapel.pop();` in der Schleife. Der Stapel wird nie leer, das Prog
 
 b) Die Zahl stimmt, aber das Zurückschichten fehlt. Danach ist `pStapel` leer, alle Namen liegen auf `hilf` – und `hilf` verschwindet mit dem Ende der Methode. Nach der Schleife gehört die zweite Schleife aus dem Werkzeugkasten hinein.
 
-c) Bei einem **leeren** Stapel liefert `top()` den Wert `null`, und `null.equals(...)` bricht mit einer `NullPointerException` ab. Richtig ist:
+c) Bei einem **leeren** Stapel liefert `top()` den Wert `null`, und `null.equals(...)` löst eine `NullPointerException` aus. Richtig ist:
 
 ```java
 boolean obenIst(Stack<String> pStapel, String pWert) {
@@ -164,7 +164,7 @@ boolean obenIst(Stack<String> pStapel, String pWert) {
 }
 ```
 
-Weil `&&` von links nach rechts ausgewertet wird und bei `false` aufhört, wird `top()` bei einem leeren Stapel gar nicht erst aufgerufen.
+Weil `&&` von links nach rechts ausgewertet wird und die Auswertung bei `false` abbricht, wird `top()` bei einem leeren Stapel gar nicht erst aufgerufen.
 
 ::::
 
@@ -445,7 +445,7 @@ public Stack<String> kopie(Stack<String> pStapel) {
 ## Stufe 5: Knobelaufgabe
 
 :::snippet{#aufgabe}
-**Rechnen ohne Klammern.** In der *umgekehrten polnischen Notation* (UPN) steht das Rechenzeichen **hinter** den beiden Zahlen: `34+` bedeutet 3 + 4, und `34+2*` bedeutet (3 + 4) · 2 = 14. Klammern braucht man nie.
+**Rechnen ohne Klammern.** In der *umgekehrten polnischen Notation* (UPN) steht das Rechenzeichen **hinter** den beiden Zahlen: `34+` bedeutet 3 + 4, und `34+2*` bedeutet (3 + 4) · 2 = 14. Klammern brauchst du nie.
 
 Ausgewertet wird mit einem Stapel: Eine Zahl wird aufgelegt. Ein Rechenzeichen nimmt die beiden obersten Zahlen herunter, rechnet und legt das Ergebnis auf. Am Ende liegt das Ergebnis allein auf dem Stapel.
 

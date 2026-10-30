@@ -14,7 +14,7 @@ keywords:
 
 Im Raum liegen jetzt Dinge, die der Spieler **aufheben** kann: ein Heiltrank, eine Feuerrolle, ein Reisbällchen. Was er aufhebt, kommt ins Inventar, eine Reihe am unteren Rand. Eins davon ist **ausgewählt** und wird größer gezeigt. Mit **E** wählt er das nächste aus, mit der **Leertaste** benutzt er das ausgewählte.
 
-Hier reicht weder eine Schlange noch ein Stapel. Benutzt werden soll nicht das erste oder das letzte, sondern **irgendeins**, und zwar das, das gerade ausgewählt ist. Und um alle anzuzeigen, muss man die ganze Reihe durchgehen. Das kann die [Liste](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste).
+Hier reicht weder eine Schlange noch ein Stapel. Benutzt werden soll nicht das erste oder das letzte, sondern **ein Beliebiges**, und zwar dasjenige, das gerade ausgewählt ist. Und um alle anzuzeigen, muss man die ganze Reihe durchgehen. Das kann die [Liste](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste).
 
 :::alert{info}
 **Ein ausgearbeitetes Beispiel** zur Seite [Lineare Datenstrukturen im Spiel](./13-lineare-datenstrukturen). Es baut auf einem Raum aus Kacheln auf, nicht auf deinem eigenen Spiel. Nimm daraus, was du brauchst.
@@ -27,43 +27,43 @@ Starte das Beispiel und hebe ein paar Dinge auf. Wechsle mit **E** und benutze m
 :::onlineide{libraries="scratch,nrw" height="640px" outputWidth="60%" speed="1000000" id="werkstatt-inventar-beispiel"}
 
 ```java Main.java
-{{{rfile "/archives/spielwerkstatt-inventar/Main.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Main.java" "reg:^import "}}}
 ```
 
 ```java Welt.java
-{{{rfile "/archives/spielwerkstatt-inventar/Welt.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Welt.java" "reg:^import "}}}
 ```
 
 ```java Fundstueck.java
-{{{rfile "/archives/spielwerkstatt-inventar/Fundstueck.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Fundstueck.java" "reg:^import "}}}
 ```
 
 ```java Spieler.java
-{{{rfile "/archives/spielwerkstatt-inventar/Spieler.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Spieler.java" "reg:^import "}}}
 ```
 
 ```java Muenze.java
-{{{rfile "/archives/spielwerkstatt-inventar/Muenze.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Muenze.java" "reg:^import "}}}
 ```
 
 ```java Kachel.java
-{{{rfile "/archives/spielwerkstatt-inventar/Kachel.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Kachel.java" "reg:^import "}}}
 ```
 
 ```java Gras.java
-{{{rfile "/archives/spielwerkstatt-inventar/Gras.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Gras.java" "reg:^import "}}}
 ```
 
 ```java Wand.java
-{{{rfile "/archives/spielwerkstatt-inventar/Wand.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Wand.java" "reg:^import "}}}
 ```
 
 ```java Stein.java
-{{{rfile "/archives/spielwerkstatt-inventar/Stein.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Stein.java" "reg:^import "}}}
 ```
 
 ```java Kiste.java
-{{{rfile "/archives/spielwerkstatt-inventar/Kiste.java" "reg:^import "}}}
+{{{rfile "/quellen/spielwerkstatt/spielwerkstatt-inventar/Kiste.java" "reg:^import "}}}
 ```
 
 :::
@@ -94,7 +94,7 @@ if (pTaste == KeyCode.E) {
    Fundstueck f = inventar.getContent();
    inventar.remove();
    f.remove();
-   spieler.say(f.getName() + " benutzt!", 1500);
+   spieler.say(f.getName() + " benutzt!", 1.5);
    if (!inventar.hasAccess()) {
       inventar.toFirst();
    }
@@ -130,6 +130,6 @@ Für dein Spiel brauchst du die Klasse `Fundstueck`, in der `Welt` die Liste, `n
 Zwei Stellen, an denen es spannend wird:
 
 - **Jedes Ding wirkt anders.** Im Beispiel sagt der Spieler beim Benutzen nur, was er benutzt. Soll der Heiltrank ein Leben schenken und das Reisbällchen schneller machen, wird aus `Fundstueck` eine abstrakte Klasse mit `benutze(Welt pWelt)`, wie die Gegenstände auf der Seite [Vertiefte Objektorientierung im Spiel](./10-vertiefte-objektorientierung).
-- **Zurückblättern.** Die NRW-Liste kann nur vorwärts, es gibt `next()`, aber kein `previous()`. Für den Vorgänger merkst du dir das aktuelle Element, gehst mit `toFirst()` an den Anfang und läufst weiter, bis das **nächste** Element das gemerkte ist. Was passiert, wenn das gemerkte das erste ist?
+- **Zurückblättern.** Die NRW-Liste kann nur vorwärts, es gibt `next()`, aber kein `previous()`. Für den Vorgänger merkst du dir das aktuelle Element, gehst mit `toFirst()` an den Anfang und läufst weiter, bis das **nächste** Element das gemerkte ist. Was passiert, wenn das gemerkte Element das erste in der Liste ist?
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

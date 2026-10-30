@@ -23,7 +23,7 @@ keywords:
 ## Aufgaben
 
 1. Implementiere die Methode enqueue. Sie soll das Content-Objekt (pContent) ans Ende der Warteschlange anhängen.
-2. Implementiere die Methode dequeue. Sie soll den ersten Knoten der warteschlange entfernen.
+2. Implementiere die Methode dequeue. Sie soll den ersten Knoten der Warteschlange entfernen.
 3. Implementiere die Methode front. Sie soll den Inhalt des ersten Knotens zurückgeben.
 4. Implementiere die Methode isEmpty. Sie soll zurückgeben, ob die Warteschlange leer ist.
 
@@ -173,7 +173,7 @@ Worauf es ankam:
 - **Der letzte Knoten ist der Sonderfall beim Entnehmen.** Bleibt `tail` auf dem entfernten Knoten stehen, hängt das nächste `enqueue` den neuen Knoten an einen Knoten an, der gar nicht mehr in der Schlange ist.
 - **Der Verweis `tail` ist der Grund, warum `enqueue` O(1) ist.** Ohne ihn müsste jedes Einfügen die ganze Schlange durchlaufen, um das Ende zu finden – das wäre O(n).
 
-Eine Stolperstelle beim Lesen: Das Attribut heißt `front` und die Methode ebenfalls `front()`. Java kann beides auseinanderhalten – `front` ist der Knoten, `front()` der Aufruf –, für Menschen ist es trotzdem verwirrend. In eigenem Quelltext lohnt es sich, dem Attribut einen anderen Namen zu geben.
+Eine Stolperstelle beim Lesen: Das Attribut heißt `front` und die Methode ebenfalls `front()`. Java kann beides auseinanderhalten – `front` ist der Knoten, `front()` der Aufruf –, ist das für Leserinnen und Leser trotzdem verwirrend. In eigenem Quelltext lohnt es sich, dem Attribut einen anderen Namen zu geben.
 
 :::
 

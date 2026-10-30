@@ -11,14 +11,14 @@ keywords:
 
 # Projektrahmen am Ende der EF
 
-Am Ende der Einführungsphase hat dein Spiel einen Stand erreicht, den du vorstellen kannst. Dieser Abschnitt beschreibt, was es dann mindestens können soll, wie du die letzten Wochen planst und woran es beurteilt wird.
+Am Ende der Einführungsphase hat dein Spiel einen Stand erreicht, den du vorstellen kannst. Dieser Abschnitt beschreibt, was es dann mindestens können soll, wie du die letzten Wochen gestaltest und nach welchen Kriterien es beurteilt wird.
 
 ## Was dein Spiel können muss
 
 :::snippet{#merken}
 Am Ende der Einführungsphase hat dein Spiel mindestens:
 
-1. **Drei eigene Klassen**, die von `Sprite` oder `AnimatedSprite` erben. Die Klassen aus dem Startgerüst zählen nicht mit.
+1. **Drei eigene Klassen**, die von `Sprite` erben. Die Klassen aus dem Startgerüst zählen nicht mit.
 2. **Eine Vererbungsbeziehung** zwischen eigenen Klassen, also eine gemeinsame Oberklasse.
 3. **Eine Assoziation**: ein Objekt, das ein anderes kennt.
 4. **Ein Feld**, in dem gleichartige Werte oder Objekte verwaltet werden.
@@ -37,23 +37,23 @@ a) Beschreibe dein Spiel in **fünf Sätzen**: Was sieht man, was tut man, wie g
 
 b) Zeichne das Klassendiagramm, so wie es am Ende aussehen soll. Prüfe jede Vererbung mit dem Satztest „ist ein“.
 
-c) **Lege das Diagramm deiner Lehrkraft vor, bevor du programmierst.** Ein Fehler im Entwurf kostet beim Programmieren ein Vielfaches der Zeit.
+c) **Lege das Diagramm deiner Lehrkraft vor, bevor du programmierst.** Ein Fehler im Entwurf kostet beim Programmieren ein Vielfaches an Zeit.
 
 **Phase 2: Bauen**
 
 d) Baue in kleinen Schritten. Nach jedem Schritt muss das Spiel wieder laufen.
 
-e) Sichere deinen Stand regelmäßig mit „Workspace in Datei speichern“.
+e) Sichere deinen Stand regelmäßig über „Exportieren“ und „Als JSON speichern“.
 
 **Phase 3: Testen**
 
-f) Lege eine Testliste an: Was muss funktionieren? Denke besonders an die **Sonderfälle**: Was passiert am Rand? Wenn zwei Tasten gleichzeitig gedrückt werden? Wenn alle Münzen weg sind? Wenn ein Gegner genau am Start steht?
+f) Lege eine Testliste an: Was muss funktionieren? Denke besonders an die **Sonderfälle**: Was passiert am Rand, wenn zwei Tasten gleichzeitig gedrückt werden, wenn alle Münzen weg sind oder wenn ein Gegner genau am Start steht?
 
-g) Lass jemand anderen dein Spiel spielen, ohne etwas zu erklären. Notiere, wo die Person hängen bleibt.
+g) Lass jemand anderen dein Spiel spielen, ohne etwas zu erklären. Notiere, an welcher Stelle die Person nicht weiterkommt.
 
 **Phase 4: Beurteilen und vorstellen**
 
-h) Beurteile deinen eigenen Entwurf: Was würdest du rückblickend anders machen? Wo hast du Code kopiert, statt eine Methode oder eine Oberklasse zu bauen?
+h) Beurteile deinen eigenen Entwurf: Was würdest du im Nachhinein anders machen? Wo hast du Code kopiert, statt eine Methode oder eine Oberklasse zu bauen?
 
 i) Stelle dein Spiel, dein Diagramm und einen Eintrag aus deinem Tagebuch vor.
 :::

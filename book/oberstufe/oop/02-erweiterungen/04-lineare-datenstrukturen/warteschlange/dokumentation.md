@@ -56,7 +56,7 @@ Die Anfrage liefert den Wert true, wenn die Schlange keine Objekte enthält, son
 Das Objekt pContent wird an die Schlange angehängt. Falls pContent gleich null ist, bleibt die Schlange unverändert.
 
 ### void dequeue()
-Das erste Objekt wird aus der Schlange entfernt. Falls die Schlange leer ist, wird sie nicht verändert.
+Das erste Objekt wird aus der Schlange entfernt. Falls die Schlange leer ist, bleibt sie unverändert.
 
 ### ContentType front()
 Die Anfrage liefert das erste Objekt der Schlange. Die Schlange bleibt unverändert. Falls die Schlange leer ist, wird null zurückgegeben.

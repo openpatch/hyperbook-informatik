@@ -9,7 +9,7 @@ permaid: java-liste-handhabung
 
 Im Abitur benutzt du die Liste über die Methoden aus der [Dokumentation](./dokumentation). In der Online-IDE steht die Abiturklasse `List` bereit, sobald ein Block die NRW-Bibliothek lädt.
 
-Anders als bei Schlange und Stapel **zerstört** das Durchlaufen eine Liste nicht: Man bewegt nur das aktuelle Element weiter. Eine Hilfsstruktur zum Wiederauffüllen braucht man deshalb nicht.
+Anders als bei Schlange und Stapel **zerstört** das Durchlaufen eine Liste nicht: Man bewegt nur das aktuelle Element weiter. Eine Hilfsstruktur zum Wiederauffüllen ist deshalb nicht nötig.
 
 :::snippet{#merken}
 **Werkzeugkasten: zwei Muster**
@@ -50,7 +50,7 @@ b) Welche Methoden ruft man auf, um zwischen dem ersten und dem zweiten Element 
 
 c) In welchen Fällen liefert `hasAccess()` den Wert `false`? Nenne alle Fälle.
 
-d) Warum kann man mit `insert` kein Element **am Ende** der Liste einfügen? Wie geht es stattdessen?
+d) Warum kannst du mit `insert` kein Element **am Ende** der Liste einfügen? Wie geht es stattdessen?
 :::
 
 ::::protect{password="java-q-4-l-h-1" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -59,9 +59,13 @@ a) `toFirst()`, `next()`, `remove()`.
 
 b) `toFirst()`, `next()`, `insert(...)`. `insert` fügt **vor** dem aktuellen Element ein – also vor dem zweiten.
 
-c) Wenn die Liste leer ist, wenn noch nie `toFirst` oder `toLast` aufgerufen wurde, wenn `next` am letzten Element aufgerufen wurde und wenn das letzte Element mit `remove` entfernt wurde.
+c)
+   - die Liste leer ist,
+   - noch nie `toFirst` oder `toLast` aufgerufen wurde,
+   - `next` am letzten Element aufgerufen wurde,
+   - das letzte Element mit `remove` entfernt wurde.
 
-d) `insert` fügt immer **vor** dem aktuellen Element ein. Hinter dem letzten Element gibt es kein aktuelles Element, vor dem man einfügen könnte. Ans Ende hängt `append` an.
+d) `insert` fügt immer **vor** dem aktuellen Element ein. Hinter dem letzten Element gibt es kein aktuelles Element, vor dem du einfügen könntest. Ans Ende hängt `append` an.
 
 ::::
 
@@ -111,7 +115,7 @@ funktion sortiertEinfuegen(pListe, pName):
 
 `a.compareTo(b)` liefert eine Zahl **kleiner 0**, wenn `a` im Alphabet vor `b` steht, **0**, wenn beide gleich sind, und eine Zahl **größer 0**, wenn `a` nach `b` steht.
 
-Lauf also so lange weiter, wie das aktuelle Element **vor** dem neuen Namen steht. Dort, wo du stehen bleibst, gehört der neue Name **davor**. Bleibst du nirgends stehen, gehört er ans Ende.
+Lauf also so lange weiter, wie das aktuelle Element **vor** dem neuen Namen steht. Dort, wo du stehen bleibst, gehört der neue Name **davor**. Findest du keine passende Stelle, gehört er ans Ende.
 
 ::::
 
@@ -335,7 +339,7 @@ public boolean istSortiert(List<String> pListe) {
 
 Worauf es ankam:
 
-- **Die Reihenfolge der Bedingung in `sortiertEinfuegen`.** `hasAccess()` muss vor `getContent()` geprüft werden. Weil `&&` bei `false` aufhört, wird `getContent()` am Ende der Liste gar nicht erst aufgerufen.
+- **Die Reihenfolge der Bedingung in `sortiertEinfuegen`.** `hasAccess()` muss vor `getContent()` geprüft werden. Weil die Auswertung bei `false` abbricht (Kurzschlussauswertung), wird `getContent()` am Ende der Liste gar nicht erst aufgerufen.
 - **`return` mitten in der Schleife ist bei der Liste kein Problem.** Anders als bei Schlange und Stapel ist dabei nichts zerstört worden.
 - **`istSortiert` merkt sich das vorige Element.** Die Liste hat nur ein aktuelles Element – an den Vorgänger kommt man nicht mehr heran, wenn man ihn sich nicht selbst gemerkt hat.
 

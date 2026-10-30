@@ -46,15 +46,33 @@ Die anderen Dateien sind für dich vorbereitet. Du musst sie noch nicht verstehe
 
 Unten in `Welt` stehen außerdem zwei leere Blöcke, `wennMuenzeEingesammelt()` und `run()`. Sie funktionieren wie Ereignisblöcke in Scratch. Du brauchst sie ab dem Kapitel über Variablen, bis dahin lässt du sie einfach leer.
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Ideen für deinen Anfang
 
 Such dir aus, was dich reizt. Du musst nicht alles machen, und du darfst dir auch etwas ganz anderes ausdenken.
 
 ### Deine Landschaft
 
-Stelle Bäume, Felsen und Büsche so auf, dass Wege, Sackgassen und Verstecke für die Münzen entstehen. Im Bild [tileset-nature.png](./assets/backgrounds/tilesets/tileset-nature.png) findest du viele Pflanzen und Steine. Die großen sind 32 × 32 Pixel, die kleinen 16 × 16.
+Stelle Bäume, Felsen und Büsche so auf, dass Wege, Sackgassen und Verstecke für die Münzen entstehen. Im Bild [tileset-nature.png](./assets/backgrounds/tilesets/tileset-nature.png) findest du viele Pflanzen und Steine. Die großen sind 32 × 32 Pixel groß, die kleinen 16 × 16 Pixel.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 01-landschaft -->
+
+**MVP zum Ausprobieren:** Verschiebe einen Baum mit setPosition. Wo entsteht ein Durchgang?
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-01-landschaft"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/01-landschaft.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Übernimm das Erzeugen, Platzieren und Hinzufügen eines Hindernisses.
+
+<!-- /MVP -->
 
 ### Deine Figur
 
@@ -62,11 +80,43 @@ Im Ordner `assets/actor/character/` liegen über 90 Figuren. Tausche den Jungen 
 
 Aufwand: ★☆☆
 
+<!-- MVP: 01-figur -->
+
+**MVP zum Ausprobieren:** Ersetze boy im Bildpfad durch princess oder knight und starte neu.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-01-figur"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/01-figur.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Wähle im Spieler deines Spiels denselben Ordnernamen.
+
+<!-- /MVP -->
+
 ### Deko, die nicht im Weg steht
 
 Nicht alles soll den Spieler aufhalten. Blumen, Gras oder ein Teppich dürfen betreten werden. Nimm dafür statt `new Hindernis()` ein ganz normales `new Sprite()`. Achte darauf, dass `setSize(300)` dann fehlt, denn das erledigt nur der Konstruktor von `Hindernis`.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 01-deko -->
+
+**MVP zum Ausprobieren:** Vergleiche das Kostüm mit tileset-floor.png, Ausschnitt (240, 192, 16, 16).
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-01-deko"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/01-deko.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Füge betretbare Deko als Sprite hinzu; Hindernisse behalten ihre eigene Klasse.
+
+<!-- /MVP -->
 
 ### Schilder und Figuren, die sprechen
 
@@ -74,23 +124,61 @@ Ein `Text` auf der Bühne erklärt das Ziel. Eine Figur, die nur herumsteht, kan
 
 Aufwand: ★★☆
 
+<!-- MVP: 01-schilder -->
+
+**MVP zum Ausprobieren:** Ändere den Hinweis und die Sprechblase.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-01-schilder"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/01-schilder.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Nutze Text für dauerhafte Hinweise und say für die Worte einer Figur.
+
+<!-- /MVP -->
+
 ### Ein Rahmen aus Steinen
 
 Umgib die Wiese mit einer Mauer, damit der Spieler nicht aus dem Bild laufen kann. Das sind viele gleiche Zeilen. Wie es kürzer geht, lernst du im Kapitel über Schleifen.
 
 Aufwand: ★★☆
 
+<!-- MVP: 01-rahmen -->
+
+**MVP zum Ausprobieren:** Ergänze die beiden fehlenden Ecksteine bei (-48, -48) und (48, 48).
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-01-rahmen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/01-rahmen.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Setze im Startgerüst Hindernisse statt normaler Sprites ein, damit der Rahmen aufhält.
+
+<!-- /MVP -->
+
 ## Auf deinem Rechner
 
-Das Projekt läuft auch ohne Browser. In **Scratch for Java Studio** öffnest du das vollständige Projektarchiv über **Projekt → Projekt-ZIP / Workspace-JSON öffnen**. Für eine andere Java-Entwicklungsumgebung wie [VS Code](https://code.visualstudio.com/) oder BlueJ brauchst du ein **JDK 25**.
+Das Projekt läuft auch ohne Browser, am einfachsten in [Scratch for Java Studio](https://github.com/openpatch/scratch-for-java-ide/releases). Klicke in der Entwicklungsumgebung deiner [Werkstatt](./00-werkstatt) auf **„Exportieren“** und bei „In Scratch for Java Studio öffnen“ auf **„Für Studio speichern“**. Ein Doppelklick auf die gespeicherte Datei öffnet dein Spiel in Studio, mit den Bildern und Klängen, die es benutzt. Studio bringt die Bibliothek selbst mit. Einen [Checkpoint](./#checkpoints) bringst du genauso auf den Rechner: erst in die Werkstatt laden, dann exportieren. Meldet Studio beim Öffnen, dass `List.java` fehlt, ergänzt du die Abiturklassen über **Projekt → Abiturklassen**.
+
+### Ohne Studio
+
+Wenn du lieber mit [VS Code](https://code.visualstudio.com/) oder einer anderen Java-Umgebung arbeitest, gibt es das Startgerüst als vollständiges Projektarchiv. Dafür brauchst du ein **JDK 25**. BlueJ wird von Scratch for Java nicht mehr unterstützt.
 
 ::archive[Projekt: Spielwerkstatt]{name="spielwerkstatt"}
 
-In einer anderen Java-Umgebung entpackst du das Archiv und startest es aus dem Projektordner heraus:
+Entpacke das Archiv und starte es aus dem Projektordner heraus:
 
 ```bash
-java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-6.2.0-nrw-all.jar" Main.java
+java --enable-native-access=ALL-UNNAMED -classpath "+libs/scratch-7.1.0-nrw-all.jar" Main.java
 ```
+
+Auf einem Mac muss das Fenster im ersten Thread laufen. Dort ergänzt du `-XstartOnFirstThread` direkt nach `java`.
 
 Im Archiv liegt alles, was das Projekt braucht:
 
@@ -98,9 +186,9 @@ Im Archiv liegt alles, was das Projekt braucht:
 | --- | --- |
 | deine Klassen | derselbe Quelltext wie hier, mit einer `import`-Zeile am Anfang. Die Entwicklungsumgebung im Browser kennt die Klassen schon. |
 | `assets/` | alle Grafiken und Klänge der Werkstatt, auch zum Austauschen von Figuren und Landschaften |
-| `+libs/scratch-6.2.0-nrw-all.jar` | Scratch for Java. In dieser Fassung liefern `find`, `getAll` und `getTouchingSprites` eine `List` der Abiturklassen. BlueJ findet die Bibliothek im Ordner `+libs` von selbst. |
+| `+libs/scratch-7.1.0-nrw-all.jar` | Scratch for Java. In dieser Fassung liefern `find`, `getAll` und `getTouchingSprites` eine `List` der Abiturklassen. Der Rechner braucht OpenGL 3.3 (auf dem Mac 4.1). |
 | `List.java`, `Queue.java`, `Stack.java`, `BinaryTree.java`, `BinarySearchTree.java`, `ComparableContent.java`, `Graph.java`, `Vertex.java`, `Edge.java` | die Abiturklassen des Landes NRW, unverändert. Du brauchst sie erst in der Qualifikationsphase. Im Browser sind sie schon eingebaut. |
 
 :::alert{info}
-Wenn du auf dem Rechner weiterarbeitest, kopiere deine geänderten Klassen aus dem Browser in das Projekt. Die `import`-Zeile `import org.openpatch.scratch.*;` brauchst du dort in jeder Datei, die Klassen von Scratch for Java benutzt.
+Das Archiv enthält nur das Startgerüst. Wenn du in VS Code weiterarbeitest, kopiere deine geänderten Klassen aus dem Browser in das Projekt. Die `import`-Zeile `import org.openpatch.scratch.*;` brauchst du dort in jeder Datei, die Klassen von Scratch for Java benutzt.
 :::

@@ -28,6 +28,8 @@ Die Bühne zeichnet ihre Figuren in der Reihenfolge, in der sie hinzugefügt wur
 
 Solange sich nichts bewegt, fügt man die Figuren einmal in der richtigen Reihenfolge hinzu. Sobald sie sich bewegen, ändert sich die richtige Reihenfolge, und zwar in **jedem Bild**.
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
 Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
@@ -38,7 +40,7 @@ Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etw
 
 **Dahinter steckt:** ein Feld aller hohen und beweglichen Figuren, das in jedem Bild nach der y-Koordinate sortiert wird. Danach kommt jede Figur der Reihe nach mit `goToFrontLayer()` nach vorn, die unterste zuletzt.
 
-Die Reflexantwort lautet Quicksort. Sie ist hier falsch. Zwischen zwei Bildern vergeht eine Sechzigstelsekunde, und in dieser Zeit überholt kaum eine Figur eine andere. Das Feld ist also **fast sortiert**. Sortieren durch Einfügen braucht dafür nur etwa *n* Vergleiche, weil kaum etwas zu verschieben ist. Quicksort braucht auch dann *n* · log *n*, und mit einem ungünstigen Pivot bei vorsortierten Daten sogar *n*².
+Die naheliegende Antwort lautet Quicksort. Sie ist hier falsch. Zwischen zwei Bildern vergeht ein Sechzigstel einer Sekunde, und in dieser Zeit überholt kaum eine Figur eine andere. Das Feld ist also **fast sortiert**. Sortieren durch Einfügen braucht dafür nur etwa *n* Vergleiche, weil kaum etwas zu verschieben ist. Quicksort braucht auch dann *n* · log *n*, und mit einem ungünstigen Pivot bei vorsortierten Daten sogar *n*².
 
 ```java
 for (int i = 1; i < anzahlFiguren; i++) {
@@ -56,6 +58,26 @@ Lass dir zählen, wie viele Verschiebungen in jedem Bild nötig sind. Die Zahl i
 
 Aufwand: ★★☆
 
+<!-- MVP: 15-tiefensortierung -->
+
+**MVP zum Ausprobieren:** Gehe mit dem Hasen nach oben und unten an der Kiste vorbei.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-15-tiefensortierung"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/15-tiefensortierung.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Sortiere von oben nach unten und hole die unterste Figur zuletzt nach vorne.
+
+<!-- /MVP -->
+
 ### Eine große Bestenliste
 
 **Im Spiel:** Nach vielen Runden, oder für eine ganze Klasse, stehen Hunderte Ergebnisse in einer Liste, und am Ende soll man sie sortiert sehen.
@@ -63,6 +85,22 @@ Aufwand: ★★☆
 **Dahinter steckt:** Hier sieht es anders aus. Die Ergebnisse kommen **ungeordnet**, es sind **viele**, und sortiert wird **einmal**. Das ist genau der Fall, für den [Quicksort](../../oberstufe/oop/02-erweiterungen/06-suchen-und-sortieren/01-quicksort) gebaut ist.
 
 Aufwand: ★★☆
+
+<!-- MVP: 15-quicksort -->
+
+**MVP zum Ausprobieren:** Ändere die Größe des Felds oder probiere bereits sortierte Werte aus.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-15-quicksort"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/15-quicksort.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Sortiere die gesammelten Rundenergebnisse einmal am Ende statt in jedem Bild.
+
+<!-- /MVP -->
 
 ### Auf welchem Platz bin ich?
 
@@ -72,6 +110,22 @@ Aufwand: ★★☆
 
 Aufwand: ★★☆
 
+<!-- MVP: 15-platz -->
+
+**MVP zum Ausprobieren:** Probiere 18, 19, 20 und 40 als neue Zeit. Gleiche Zeiten teilen sich den Platz.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-15-platz"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/15-platz.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Die binäre Suche findet die erste Stelle, an der keine bessere Zeit mehr steht.
+
+<!-- /MVP -->
+
 ### Ein Inventar nach zwei Kriterien
 
 **Im Spiel:** Das Inventar ist nach Art sortiert, und innerhalb jeder Art nach Wert.
@@ -79,6 +133,22 @@ Aufwand: ★★☆
 **Dahinter steckt:** zweimal sortieren, erst nach Wert, dann nach Art. Das klappt nur, wenn das zweite Sortieren die Reihenfolge gleicher Elemente nicht durcheinanderbringt. Ein solches Verfahren heißt **stabil**. [Mergesort](../../oberstufe/oop/02-erweiterungen/06-suchen-und-sortieren/02-mergesort) ist stabil, Quicksort nicht.
 
 Aufwand: ★★★
+
+<!-- MVP: 15-stabil -->
+
+**MVP zum Ausprobieren:** Vertausche die Eingabereihenfolge und beobachte die Werte innerhalb derselben Art.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-15-stabil"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/15-stabil.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Sortiere zuerst nach dem Nebenkriterium, dann stabil nach dem Hauptkriterium. Bei Gleichheit kommt beim Mischen links zuerst.
+
+<!-- /MVP -->
 
 ### Nicht sortieren, wo Suchen reicht
 
@@ -88,6 +158,22 @@ Aufwand: ★★★
 
 Aufwand: ★☆☆
 
+<!-- MVP: 15-minimum -->
+
+**MVP zum Ausprobieren:** Ändere einen Abstand. Wie viele Vergleiche braucht die Suche bei sechs Einträgen?
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-15-minimum"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/15-minimum.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Merke nur den Index des bisher besten Kandidaten, statt alle Kandidaten zu sortieren.
+
+<!-- /MVP -->
+
 ### Was kostet ein Bild?
 
 **Im Spiel:** Eine kleine Anzeige zeigt, wie viele Vergleiche dein Spiel im letzten Bild gemacht hat.
@@ -95,6 +181,22 @@ Aufwand: ★☆☆
 **Dahinter steckt:** ein Zähler in jeder Sortier- und Suchmethode. Probiere aus, was passiert, wenn du statt Einfügen ein anderes Verfahren nimmst, und wie sich die Zahl ändert, wenn sich zwei Figuren gerade überholen.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 15-bildkosten -->
+
+**MVP zum Ausprobieren:** Vergleiche fast sortierte und umgekehrte Daten. Gezählt werden die tatsächlich ausgeführten Wertevergleiche.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-15-bildkosten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/15-bildkosten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Setze den Zähler zu Beginn jedes Bilds zurück und erhöhe ihn direkt am Vergleich.
+
+<!-- /MVP -->
 
 ## Und ohne Spiel?
 
@@ -120,7 +222,5 @@ Wo sortiert oder sucht dein Spiel? Wie oft, und wie viele Daten? Sind sie vorher
 Im Checkpoint nach diesem Kapitel sortiert die Welt in jedem Bild Pflanzen, Gegner und Spieler nach ihrer Höhe auf der Bühne, mit Sortieren durch Einfügen. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Sortieren (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-06-sortieren.json"}
-
-:archive[Checkpoint: Sortieren (Projekt für den Rechner)]{name="spielwerkstatt-q-06-sortieren"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

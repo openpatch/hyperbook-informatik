@@ -7,14 +7,14 @@ permaid: java-liste-uebungen
 
 # Übungsstunde
 
-Aufbau und Handhabung der Liste habt ihr gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
+Aufbau und Handhabung der Liste hast du gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
 
 | Weg | Was du machst | Wohin |
 | --- | --- | --- |
 | **Sicher werden** | kleine Aufgaben ohne Projekt, Schritt für Schritt schwieriger, mit Tests zur Rückmeldung | weiter auf dieser Seite |
 | **Im Spiel anwenden** | eine Mechanik mit einer Liste in dein eigenes Spiel einbauen | [Spielwerkstatt: ein Inventar](/projekte/spielwerkstatt/22-inventar) und die [Mechaniken mit einer Liste](/projekte/spielwerkstatt/13-lineare-datenstrukturen#mechaniken-mit-einer-liste) |
 
-Beide Wege üben dasselbe: eine Liste über ihre Methoden benutzen. Du kannst sie auch wechseln.
+Beide Wege üben dasselbe: eine Liste über ihre Methoden benutzen. Du kannst auch zwischen den Wegen wechseln.
 
 ## Stufe 1: Zustand verfolgen
 
@@ -167,7 +167,7 @@ b) `int zaehle(List<String> pListe, String pGesucht)` liefert, wie oft `pGesucht
 
 c) `int maximum(List<Integer> pZahlen)` liefert die größte Zahl. Die Liste enthält mindestens eine Zahl.
 
-d) `String letztes(List<String> pListe)` liefert das letzte Element, bei einer leeren Liste `null`. Es geht ohne Schleife.
+d) `String letztes(List<String> pListe)` liefert das letzte Element, bei einer leeren Liste `null`. Das ist ohne Schleife lösbar.
 
 e) `void vertauschen(List<String> pListe, int pPos1, int pPos2)` vertauscht die Elemente an den Stellen `pPos1` und `pPos2`, gezählt ab 0. Hat die Liste nicht genügend Elemente, passiert nichts.
 :::
@@ -432,7 +432,7 @@ public void vertauschen(List<String> pListe, int pPos1, int pPos2) {
 :::snippet{#aufgabe}
 **Doppelte entfernen.** Implementiere `void entferneDoppelte(List<String> pListe)`. Jeder Name soll danach nur noch einmal vorkommen, und zwar an der Stelle seines **ersten** Auftretens. Aus Anna, Ben, Anna, Cem, Ben wird Anna, Ben, Cem.
 
-Die Schwierigkeit: Die Liste hat nur **ein** aktuelles Element. Wer beim Prüfen „kam der Name schon vor?“ in derselben Liste sucht, verliert die Stelle, an der er gerade steht.
+Die Schwierigkeit: Die Liste hat nur **ein** aktuelles Element. Wer beim Prüfen „kam der Name schon vor?“ in derselben Liste sucht, verliert die eigene aktuelle Position in der Liste.
 :::
 
 :::onlineide{libraries="nrw" height="560px" speed="1000000" id="liste-doppelte"}

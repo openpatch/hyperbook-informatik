@@ -7,7 +7,7 @@ permaid: java-warteschlange-aufbau
 
 # Aufbau und Funktionsweise
 
-Von außen sieht man der Schlange nur vier Methoden an. Innen besteht sie aus **Knoten**, die aneinanderhängen: Jeder Knoten hält einen Inhalt und kennt seinen Nachfolger. Die Schlange selbst merkt sich nur zwei Knoten – den vorderen (`head`) und den hinteren (`tail`).
+Äußerlich zeigt die Schlange nur vier Methoden. Innen besteht sie aus **Knoten**, die aneinanderhängen: Jeder Knoten hält einen Inhalt und kennt seinen Nachfolger. Die Schlange selbst merkt sich nur zwei Knoten – den vorderen (`head`) und den hinteren (`tail`).
 
 Auf dieser Seite schaust du hinein. Als Beispiel dient ein Messenger, der eingehende Nachrichten der Reihe nach anzeigt.
 
@@ -80,12 +80,12 @@ Die Methode front soll die erste Nachricht in der Warteschlange zurückgeben. Di
 :::
 
 :::snippet{#brain}
-**Weiterdenken:** Was geschieht mit dem Knoten, der gerade entfernt wurde? Niemand verweist mehr auf ihn. Wer räumt ihn weg?
+**Weiterdenken:** Was geschieht mit dem Knoten, der gerade entfernt wurde? Niemand verweist mehr auf ihn. Wer gibt seinen Speicher frei?
 :::
 
 ## Grenzfälle: die leere Schlange
 
-Bisher stand die Schlange schon voll da. Ein Algorithmus ist aber erst fertig, wenn er auch an den Rändern stimmt: beim ersten Einreihen in eine **leere** Schlange und beim Entfernen des **letzten** Knotens.
+Bisher war die Schlange bereits gefüllt. Ein Algorithmus ist aber erst fertig, wenn er auch an den Rändern stimmt: beim ersten Einreihen in eine **leere** Schlange und beim Entfernen des **letzten** Knotens.
 
 ::jmp{id="schlange-grenzfaelle" src="grenzfaelle.jmp"}
 
@@ -127,7 +127,7 @@ Worauf es ankam:
 - **Die leere Schlange beim Einreihen.** Es gibt keinen hinteren Knoten, an den man anhängen könnte. Der neue Knoten wird zugleich `head` und `tail`.
 - **Der letzte Knoten beim Entfernen.** Wer nur `head` weitersetzt, lässt `tail` auf den entfernten Knoten zeigen. Das nächste `enqueue` hängt dann an einen Knoten an, der gar nicht mehr zur Schlange gehört.
 - **Keine Schleife.** Weil `head` und `tail` beide Enden kennen, braucht keine Methode die Schlange zu durchlaufen. Alle Operationen haben konstanten Aufwand.
-- **Weiterdenken:** Den entfernten Knoten räumt die automatische Speicherbereinigung (englisch *garbage collector*) weg, sobald kein Verweis mehr auf ihn zeigt. Ohne `tail` müsste enqueue jedes Mal von `head` aus bis zum Ende laufen – bei 10 000 Nachrichten also 10 000 Schritte für ein einziges Einreihen.
+- **Weiterdenken:** Den entfernten Knoten gibt die automatische Speicherbereinigung (englisch *garbage collector*) seinen Speicher frei, sobald kein Verweis mehr auf ihn zeigt. Ohne `tail` müsste enqueue jedes Mal von `head` aus bis zum Ende laufen – bei 10 000 Nachrichten also 10 000 Schritte für ein einziges Einreihen.
 
 :::
 

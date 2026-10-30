@@ -9,7 +9,7 @@ permaid: java-liste-aufbau
 
 Wie Schlange und Stapel besteht auch die Liste innen aus Knoten. Sie braucht aber mehr Verweise: einen auf den Anfang, einen auf das Ende und einen auf das aktuelle Element. Auf dieser Seite schaust du hinein. Als Beispiel dient wieder der Messenger, diesmal mit einem Nachrichtenverlauf zum Durchblättern.
 
-Warum nicht einfach ein Feld? Ein Feld könnte das auch – aber schlecht. Seine Größe steht beim Anlegen fest, und wer vorne etwas entfernt, muss alles Übrige aufrücken lassen.
+Warum nicht einfach ein Feld? Ein Feld könnte das auch – aber schlecht. Seine Größe steht beim Anlegen fest, und wer vorne etwas entfernt, muss alle übrigen Elemente aufrücken.
 
 :::snippet{#definition}
 Eine **verkettete Liste** besteht aus **Knoten**. Jeder Knoten enthält
@@ -33,7 +33,7 @@ Der Unterschied zum Feld in einem Satz: **Ein Feld liegt am Stück, eine Liste h
 Keine der beiden Strukturen ist besser. Sie sind an verschiedenen Stellen gut – und genau das ist die Frage, die du in [Kapitel 7](../../07-testen-und-laufzeit) beurteilen lernst.
 :::
 
-Im Messenger-Beispiel stehen Nachrichten in der Liste. Das Klassendiagramm zeigt alle drei beteiligten Klassen, die Pfeile tragen die Namen der Verweise aus den Objektdiagrammen.
+Im Messenger-Beispiel stehen Nachrichten in der Liste. Das Klassendiagramm zeigt alle drei beteiligten Klassen, die Pfeile sind mit den Namen der Verweise aus den Objektdiagrammen beschriftet.
 
 ```mermaid
 classDiagram
@@ -72,8 +72,8 @@ Die Methode append soll eine neue Nachricht ans Ende der Liste anhängen.
 
 1. Setze die Schritte im Objektdiagramm um.
 2. Entwerfe zur Methode append der Klasse List einen Algorithmus im :t[Pseudocode].
-3. Tausche deinen Algorithmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
-4. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+3. Tausche deinen Algorithmus mit jemandem anderen und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
+4. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-anhaengen"}
 
@@ -88,13 +88,13 @@ Die Methode remove soll den ersten Knoten der Liste entfernen.
 
 ::jmp{id="liste-ersten-entfernen" src="ersten-entfernen.jmp"}
 
-Unter dem Diagramm stehen vier Zuweisungen. Nur eine davon entfernt den ersten Knoten – die anderen drei zerstören die Liste auf je eigene Weise.
+Unter dem Diagramm stehen vier Zuweisungen. Nur eine davon entfernt den ersten Knoten – jede zerstört die Liste auf ihre eigene Weise.
 
 1. Sage für **jede** der vier Zuweisungen voraus, was sie am Diagramm ändern würde.
 2. Führe sie aus und prüfe deine Vorhersage. Mit **Von vorn** setzt du das Diagramm zurück.
 3. Entwerfe zur Methode remove der Klasse List einen Algorithmus im :t[Pseudocode].
-4. Tausche deinen Algorithmus mit jemand anders und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
-5. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+4. Tausche deinen Algorithmus mit jemandem anderen und lasse ihn überprüfen. Überarbeite ihn gegebenenfalls.
+5. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-ersten-entfernen"}
 
@@ -108,13 +108,13 @@ Die Methode remove soll erweitert werden, sodass der aktuelle Knoten (current) d
 
 ::jmp{id="liste-aktuellen-entfernen" src="aktuellen-entfernen.jmp"}
 
-Hier kommt es nicht nur darauf an, **welche** Zuweisungen du ausführst, sondern in **welcher Reihenfolge**. Die Zuweisungen werden in dem Moment ausgewertet, in dem du sie anklickst – ein Ausdruck wie `messages.current.next` liefert also das, worauf `current` gerade jetzt zeigt.
+Hier kommt es nicht nur darauf an, **welche** Zuweisungen du ausführst, sondern in **welcher Reihenfolge**. Die Zuweisungen werden in dem Moment ausgewertet, in dem du sie anklickst – ein Ausdruck wie `messages.current.next` liefert also das, worauf `current` gerade zeigt.
 
-1. Führe die Zuweisungen so aus, dass der aktuelle Knoten aus der Liste verschwindet, und prüfe.
+1. Führe die Zuweisungen so aus, dass der aktuelle Knoten aus der Liste verschwindet, und prüfe das Ergebnis.
 2. Setze zurück und führe **dieselben** Zuweisungen in einer anderen Reihenfolge aus. Beschreibe, was schiefgeht und warum.
-3. Formuliere daraus eine Regel: Welche Referenz muss man zuerst lesen, bevor man sie überschreibt?
+3. Formuliere daraus eine Regel: Welche Referenz musst du zuerst lesen, bevor du sie überschreibst?
 4. Erweitere deinen Algorithmus zum Entfernen von Nachrichten, sodass der aktuelle Knoten (current) entfernt wird.
-5. Bereite dich darauf vor deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
+5. Bereite dich darauf vor, deinen Algorithmus anhand des Objektdiagramms präsentieren zu können.
 
 :::collapsible{title="Formulierungshilfe: Pseudocode" id="pseudocode-aktuellen-entfernen"}
 
@@ -125,16 +125,16 @@ Hier kommt es nicht nur darauf an, **welche** Zuweisungen du ausführst, sondern
 
 :::collapsible{title="Hilfe: Vorgehen" id="hilfe-vorgehen"}
 
-Um den aktuellen (current) Knoten zu löschen, muss man den vorherigen Knoten kennen. Doch wie kommt man an den vorherigen Knoten?
+Um den aktuellen (current) Knoten zu löschen, muss man den vorherigen Knoten kennen. Doch wie kommst du an den vorherigen Knoten?
 
 :::
 
 ## Grenzfälle erkunden
 
-Bis hierher hast du Knoten aus der Mitte entfernt und eine Nachricht ans Ende einer bereits gefüllten Liste angehängt – beides der bequeme Fall. Ein Algorithmus ist aber erst fertig, wenn er auch an den Rändern stimmt.
+Bis hierher hast du Knoten aus der Mitte entfernt und eine Nachricht ans Ende einer bereits gefüllten Liste angehängt – in beiden Fällen der bequeme Fall. Ein Algorithmus ist aber erst fertig, wenn er auch an den Rändern stimmt.
 
 :::snippet{#aufgabe}
-a) Ermittle, welche Grenzfälle es bei der Liste gibt. Geh dafür systematisch vor: Welche **Größen** kann eine Liste haben, und an welchen **Stellen** kann man arbeiten?
+a) Ermittle, welche Grenzfälle es bei der Liste gibt. Gehe dafür systematisch vor: Welche **Größen** kann eine Liste haben, und an welchen **Stellen** kann man arbeiten?
 
 b) Prüfe jeden deiner Algorithmen an jedem Grenzfall und notiere, wo er fehlschlägt.
 
@@ -143,8 +143,8 @@ c) Modifiziere die Algorithmen so, dass die Grenzfälle beachtet werden.
 
 :::collapsible{title="Tipp: Grenzfälle finden" id="tipp-grenzfaelle"}
 
-- Funktionieren deine Algorithmen z.B. für eine leere Liste?
-- Funktioniert dein Algorithmus z.B. beim Entfernen des letzten Knotens?
+- Funktionieren deine Algorithmen zum Beispiel für eine leere Liste?
+- Funktioniert dein Algorithmus zum Beispiel beim Entfernen des letzten Knotens?
 
 :::
 
@@ -165,7 +165,7 @@ Die Grenzfälle ergeben sich aus zwei Fragen.
 
 | Fall | Was ist heikel |
 | --- | --- |
-| leer | `first` ist `null`. Jeder Zugriff auf `first.getContent()` bricht ab. |
+| leer | `first` ist `null`. Jeder Zugriff auf `first.getContent()` löst eine Ausnahme aus. |
 | genau ein Knoten | Er ist **gleichzeitig** erster und letzter. Wer ihn entfernt, muss `first` **und** `last` auf `null` setzen. |
 | mehrere Knoten | der bequeme Fall |
 
@@ -178,7 +178,7 @@ Die Grenzfälle ergeben sich aus zwei Fragen.
 | am Ende | `last` muss auf den neuen letzten Knoten nachgezogen werden. |
 | `current` zeigt auf `null` | Es gibt kein aktuelles Objekt; `remove` und `getContent` dürfen dann **nichts** tun bzw. `null` liefern. |
 
-Das Muster dahinter ist allgemein und kommt in [7.1 Systematisch testen](../../07-testen-und-laufzeit/01-systematisch-testen) wieder: Grenzfälle sind die **kleinstmögliche Eingabe** und die **Ränder** des Bereichs, auf dem man arbeitet.
+Das Muster dahinter ist allgemein und kommt in [7.1 Systematisch testen](../../07-testen-und-laufzeit/01-systematisch-testen) wieder: Grenzfälle sind die **kleinstmögliche Eingabe** und die **Ränder** des Bereichs, auf dem du arbeitest.
 
 ::::
 
@@ -198,10 +198,10 @@ a) Die Liste hat einen beweglichen Zeiger (`toFirst`, `next`, `hasAccess`, `getC
 
 b) Zwei Vorteile:
 
-- **Für den, der sie benutzt:** Der Typ sagt die Absicht. Steht im Quelltext `Queue<Auftrag>`, dann weiß jede Leserin sofort, dass hier der Reihe nach abgearbeitet wird – und niemand *kann* versehentlich vordrängeln. Eine Liste ließe beides offen.
+- **Für den, der sie benutzt:** Der Typ sagt die Absicht. Steht im Quelltext `Queue<Auftrag>`, dann weiß jede, die den Code liest, sofort, dass hier der Reihe nach abgearbeitet wird – und niemand *kann* versehentlich vordrängeln. Eine Liste ließe beides unklar.
 - **Für den, der sie baut:** Wer weniger verspricht, kann es besser halten. Weil nur an den beiden Enden gearbeitet wird, kommt die Warteschlange mit einem Verweis auf den Anfang **und** einem auf das Ende aus und schafft beide Operationen in konstanter Zeit.
 
-Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft die bessere.**
+Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft besser.**
 
 ::::
 
@@ -246,7 +246,7 @@ Das ist ein allgemeines Entwurfsprinzip: **Die schwächere Schnittstelle ist oft
 {h{Für jeden Knoten kommt ein zusätzlicher Verweis dazu.}}
 {H{Richtig! Der wahlfreie Zugriff ist beim Feld sogar deutlich schneller.}}
 
-**4. Wie kommt man an das dritte Element einer verketteten Liste?**
+**4. Wie kommst du an das dritte Element einer verketteten Liste?**
 
 {r3{über den Index 2}}
 

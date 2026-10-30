@@ -9,7 +9,7 @@ scripts:
 
 # Übungsstunde
 
-Aufbau und Handhabung der Schlange habt ihr gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
+Aufbau und Handhabung der Schlange hast du gemeinsam erarbeitet. In dieser Stunde suchst du dir einen von zwei Wegen aus.
 
 | Weg | Was du machst | Wohin |
 | --- | --- | --- |
@@ -92,7 +92,7 @@ void drehen(Queue<String> pSchlange) {
 }
 ```
 
-Der leere Sonst-Zweig des Struktogramms braucht in Java kein `else`.
+Der leere Sonst-Zweig des Struktogramms muss in Java nicht als `else` stehen.
 
 ::::
 
@@ -416,7 +416,7 @@ Bei `kopie` ist der dritte Test der wichtigste: `return pSchlange;` würde die e
 ## Stufe 5: Knobelaufgabe
 
 :::snippet{#aufgabe}
-**Abzählreim.** Kinder stehen im Kreis. Reihum wird gezählt, und wer bei der letzten Silbe dran ist, scheidet aus. Danach wird beim nächsten Kind weitergezählt. Wer bleibt übrig?
+**Abzählreim.** Kinder stehen im Kreis. Reihum wird gezählt, und wer bei der letzten Silbe an der Reihe ist, scheidet aus. Danach wird beim nächsten Kind weitergezählt. Wer bleibt übrig?
 
 Implementiere `String abzaehlen(Queue<String> pKinder, int pSilben)`. Für die Kinder Anna, Ben, Cem, Dora, Emil und einen Reim mit 3 Silben scheiden Cem, Anna, Emil und Ben aus – übrig bleibt **Dora**. Bei einer leeren Schlange liefert die Methode `null`.
 :::
@@ -446,7 +446,7 @@ String abzaehlen(Queue<String> pKinder, int pSilben) {
 
 Der Kreis ist eine Schlange, bei der niemand wirklich ausscheidet, der nur gezählt wird: Wer eine Silbe abbekommt, wird vorne herausgenommen und **hinten wieder eingereiht** – genau wie bei `drehen` aus Stufe 2. Erst bei der letzten Silbe bleibt das Kind draußen.
 
-Wer übrig bleibt, ist das Kind, das als **letztes** ausscheidet, wenn man einfach weiterzählt, bis die Schlange leer ist.
+Wer übrig bleibt, ist das Kind, das als **letztes** ausscheidet, wenn du einfach weiterzählst, bis die Schlange leer ist.
 
 ::::
 

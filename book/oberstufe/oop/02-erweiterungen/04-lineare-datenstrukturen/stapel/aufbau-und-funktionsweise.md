@@ -67,7 +67,7 @@ Die Methode push soll eine neue Nachricht auf den Stapel legen.
 :::
 
 :::snippet{#brain}
-**Weiterdenken:** In push kommt es auf die **Reihenfolge** der Zuweisungen an. Was geht verloren, wenn man `head` zuerst auf den neuen Knoten setzt?
+**Weiterdenken:** In push kommt es auf die **Reihenfolge** der Zuweisungen an. Welcher Verweis geht verloren, wenn du `head` zuerst auf den neuen Knoten setzt?
 :::
 
 ## Nachrichten lesen und entfernen
@@ -84,14 +84,14 @@ Die Methode top soll die oberste Nachricht zurückgeben. Die Methode pop soll di
 
 ## Grenzfälle: der leere Stapel
 
-Bei der Schlange brauchte das Einreihen in eine leere Schlange einen eigenen Fall. Wie ist das beim Stapel?
+Bei der Schlange brauchte das Einreihen in eine leere Schlange einen eigenen Fall. Gilt das auch für den Stapel?
 
 ::jmp{id="stapel-grenzfaelle" src="grenzfaelle.jmp"}
 
 :::snippet{#aufgabe}
 1. Setze beide Schritte im Objektdiagramm um.
 2. Prüfe deine Algorithmen von oben an diesen beiden Fällen. Brauchen sie eine zusätzliche Fallunterscheidung?
-3. Was müssen top und pop tun, wenn der Stapel schon leer ist? Schlag in der [Dokumentation](./dokumentation) nach und ergänze deine Algorithmen.
+3. Was müssen top und pop tun, wenn der Stapel schon leer ist? Schlage in der [Dokumentation](./dokumentation) nach und ergänze deine Algorithmen.
 :::
 
 ::::protect{password="java-q-4-st-a-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -117,7 +117,7 @@ Worauf es ankam:
 
 - **Die Reihenfolge in push.** Wer zuerst `head` auf den neuen Knoten setzt, hat danach keinen Verweis mehr auf den alten Stapel – er ist verloren.
 - **Kein Sonderfall beim leeren Stapel.** Auf einen leeren Stapel zeigt `head` auf `null`. Der neue Knoten bekommt also `null` als Nachfolger – genau richtig für den untersten Knoten. Beim Entfernen des letzten Knotens wird `head` zu dessen Nachfolger, also `null`. Weil es keinen zweiten Verweis wie `tail` gibt, muss nichts nachgezogen werden.
-- **Nur top und pop prüfen auf leer.** Laut Dokumentation liefert `top` dann `null` und `pop` tut nichts. Ohne die Prüfung bricht der Zugriff auf `head` mit einer `NullPointerException` ab.
+- **Nur top und pop prüfen auf leer.** Laut Dokumentation liefert `top` dann `null` und `pop` tut nichts. Ohne die Prüfung löst der Zugriff auf `head` eine `NullPointerException` aus.
 
 ::::
 

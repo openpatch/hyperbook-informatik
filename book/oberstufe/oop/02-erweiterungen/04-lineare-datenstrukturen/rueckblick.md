@@ -7,7 +7,7 @@ permaid: java-datenstrukturen-rueckblick
 
 # Rückblick
 
-Schlange, Stapel und Liste unterscheiden sich nicht darin, **was** sie speichern, sondern darin, **wer als Nächstes drankommt**: der Erste, der kam, der Letzte, der kam, oder der, den man auswählt. Genau diese Frage muss man bei einer Anwendung stellen – nicht die nach dem Speicherplatz.
+Schlange, Stapel und Liste unterscheiden sich nicht darin, **was** sie speichern, sondern darin, **welches Element als Nächstes an die Reihe kommt**: das zuerst kam, das zuletzt kam oder das, das du auswählst. Genau diese Frage musst du bei jeder Anwendung stellen – nicht die nach dem Speicherplatz.
 
 ## Das kann ich jetzt
 
@@ -31,7 +31,7 @@ b) Dieselbe Folge mit einer Schlange: `enqueue("A")`, `enqueue("B")`, `enqueue("
 
 c) In einer Liste stehen A, B, C. Es wird `toFirst()`, `next()`, `remove()`, `insert("D")` und `toLast()` ausgeführt. Was liefert `getContent()` jetzt, und welche Elemente stehen in der Liste?
 
-d) `pop()` und `dequeue()` liefern in den Abiturklassen nichts zurück. Wie kommt man trotzdem an das Element, das entfernt wird?
+d) `pop()` und `dequeue()` liefern in den Abiturklassen nichts zurück. Wie kommst du dann an das entfernte Element?
 
 e) Welche Vorkehrung muss man treffen, bevor man mit dem Ergebnis von `top()` weiterarbeitet, etwa `top().equals(...)`? Was passiert sonst?
 :::
@@ -64,9 +64,9 @@ b)
 
 c) Nach `toFirst()` und `next()` ist B aktuell. `remove()` entfernt B, C wird aktuell. `insert("D")` fügt D **vor** C ein. `toLast()` macht C aktuell. `getContent()` liefert **C**, in der Liste stehen A, D, C.
 
-d) Man holt es sich **vorher** mit `top()` beziehungsweise `front()` und entfernt es erst danach.
+d) Du holst es dir **vorher** mit `top()` beziehungsweise `front()` und entfernst es erst danach.
 
-e) Man muss mit `isEmpty()` prüfen, ob überhaupt etwas da ist. Auf einem leeren Stapel liefert `top()` den Wert `null`, und `null.equals(...)` bricht zur **Laufzeit** mit einer `NullPointerException` ab.
+e) Du musst mit `isEmpty()` prüfen, ob überhaupt etwas da ist. Auf einem leeren Stapel liefert `top()` den Wert `null`, und `null.equals(...)` löst zur **Laufzeit** eine `NullPointerException` aus.
 
 ::::
 
@@ -77,7 +77,7 @@ Wähle für jeden Fall die passende Struktur und begründe mit dem Zugriffsprinz
 
 a) Ein Browser hat einen Zurück- **und** einen Vorwärts-Knopf. Wie viele Strukturen braucht man, und welche?
 
-b) Eine Arztpraxis ruft in der Reihenfolge der Ankunft auf – Notfälle kommen aber immer zuerst dran.
+b) Eine Arztpraxis ruft in der Reihenfolge der Ankunft auf – Notfälle kommen aber immer zuerst an die Reihe.
 
 c) Eine Bestenliste, in die neue Ergebnisse an der richtigen Stelle einsortiert werden.
 
@@ -86,7 +86,7 @@ d) Ein Labyrinth soll so durchsucht werden, dass zuerst der zuletzt betretene We
 
 ::::collapsible{title="Tipp"}
 
-Stell für jeden Fall genau eine Frage: **Wer kommt als Nächstes dran – der Neueste, der Älteste oder der, den ich auswähle?** Manchmal braucht man mehr als eine Struktur.
+Stell für jeden Fall genau eine Frage: **Wer kommt als Nächstes dran – der Neueste, der Älteste oder das, das ich auswähle?** Manchmal braucht es mehr als eine Struktur.
 
 ::::
 
@@ -105,7 +105,7 @@ d) **Stapel.** Der zuletzt betretene Weg wird zuerst weiterverfolgt – das ergi
 :::snippet{#aufgabe}
 **Aufgabe 3: Strukturen kombinieren**
 
-a) `void umdrehen(Queue<String> pSchlange)` soll die Reihenfolge einer Schlange umkehren. Benutze dazu einen Stapel. Entwirf zuerst im Editor ein Struktogramm, setze es dann um.
+a) `void umdrehen(Queue<String> pSchlange)` soll die Reihenfolge einer Schlange umkehren. Benutze dazu einen Stapel. Entwirf zuerst im Editor ein Struktogramm, setze es anschließend um.
 
 b) `boolean istPalindrom(String pWort)` soll prüfen, ob ein Wort vorwärts und rückwärts gleich gelesen wird, etwa `otto` oder `anna`. Benutze dazu einen Stapel **und** eine Schlange.
 :::
@@ -344,7 +344,7 @@ Struktur begründet auswählen (A/M).
 
 {r4{ein Baum}}
 
-{h{Warum heißt der Absturz bei fehlendem Basisfall wohl Stapelüberlauf?}}
+{h{Warum heißt der Absturz bei fehlendem Basisfall Stapelüberlauf?}}
 {H{Richtig.}}
 
 **5. Was liefert pop in der Abiturklasse Stack zurück?**

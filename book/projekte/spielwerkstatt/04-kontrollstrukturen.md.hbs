@@ -21,6 +21,8 @@ Im Kapitel [Kontrollstrukturen](../../oberstufe/oop/01-grundlagen/03-kontrollstr
 - **Schleife:** Was kommt in deinem Spiel viele Male vor, nur an einer anderen Stelle?
 :::
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
 Such dir mindestens eine Mechanik mit einer **Verzweigung** und eine mit einer **Schleife** aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
@@ -59,6 +61,26 @@ Wie viele Münzen es gibt, zählst du im Konstruktor mit: Nach jedem `this.add(m
 
 Aufwand: ★★☆
 
+<!-- MVP: 04-spielende -->
+
+**MVP zum Ausprobieren:** Drücke dreimal die Leertaste innerhalb von fünf Sekunden. Starte danach neu und warte ab.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-spielende"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-spielende.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Ersetze den Tastendruck durch dein Sammelereignis und halte beim Ende auch den Spieler an.
+
+<!-- /MVP -->
+
 ### Ein Rahmen aus Steinen
 
 **Im Spiel:** Eine Mauer rund um die Wiese, damit niemand aus dem Bild läuft.
@@ -77,6 +99,26 @@ for (int x = -360; x <= 360; x = x + 48) {
 
 Aufwand: ★☆☆
 
+<!-- MVP: 04-rahmen -->
+
+**MVP zum Ausprobieren:** Ändere die Schrittweite von 40 auf 60. Wie ändern sich die Lücken?
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-rahmen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-rahmen.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Ersetze die Kisten durch deine Steine und passe Grenzen und Schrittweite an deren Größe an.
+
+<!-- /MVP -->
+
 ### Münzreihen und Münzfelder
 
 **Im Spiel:** Münzen liegen in einer Reihe, in einem Rechteck oder als Treppe.
@@ -84,6 +126,26 @@ Aufwand: ★☆☆
 **Dahinter steckt:** für eine Reihe eine Schleife, für ein Rechteck zwei verschachtelte Schleifen, wie beim [Punktegitter](../../oberstufe/oop/01-grundlagen/03-kontrollstrukturen/06-verschachtelte-schleifen). Für eine Treppe hängt die Grenze der inneren Schleife von der äußeren ab.
 
 Aufwand: ★★☆
+
+<!-- MVP: 04-muenzfeld -->
+
+**MVP zum Ausprobieren:** Ersetze s < 6 durch s <= z. Aus dem Rechteck wird eine Treppe.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-muenzfeld"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-muenzfeld.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Übernimm die beiden Schleifen und setze darin deine Münzen.
+
+<!-- /MVP -->
 
 ### Ein Wald mit Lichtungen
 
@@ -93,6 +155,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 04-wald -->
+
+**MVP zum Ausprobieren:** Ändere s != 3 zu (z + s) % 3 != 0.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-wald"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-wald.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Setze statt Kisten Bäume; die Bedingung entscheidet, welche Plätze frei bleiben.
+
+<!-- /MVP -->
+
 ### Bonus für Schnelle
 
 **Im Spiel:** Wer alle Münzen hat **und** noch mehr als 20 Sekunden übrig, bekommt einen Stern.
@@ -100,6 +182,26 @@ Aufwand: ★★★
 **Dahinter steckt:** ein [logischer Ausdruck](../../oberstufe/oop/01-grundlagen/03-kontrollstrukturen/02-logische-ausdruecke) mit `&&`. Schreibe die Bedingung vorher als Satz auf. Welche Fälle gibt es, und welcher bekommt welche Meldung?
 
 Aufwand: ★☆☆
+
+<!-- MVP: 04-bonus -->
+
+**MVP zum Ausprobieren:** Teste zeit = 20 und zeit = 21 sowie punkte = 2.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-bonus"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-bonus.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Prüfe die kombinierte Bedingung genau einmal beim Spielende.
+
+<!-- /MVP -->
 
 ### Die Zeit wird knapp
 
@@ -109,6 +211,26 @@ Aufwand: ★☆☆
 
 Aufwand: ★☆☆
 
+<!-- MVP: 04-zeit-knapp -->
+
+**MVP zum Ausprobieren:** Warte, bis die Zeit unter zehn Sekunden fällt.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-zeit-knapp"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-zeit-knapp.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Übernimm die Farbänderung in die laufende Aktualisierung deiner Zeitanzeige.
+
+<!-- /MVP -->
+
 ### Schwierigkeitsstufen
 
 **Im Spiel:** Oben in `Welt` steht eine Stufe von 1 bis 3. Je höher, desto weniger Zeit und desto langsamer die Figur.
@@ -116,6 +238,26 @@ Aufwand: ★☆☆
 **Dahinter steckt:** eine `switch`-Anweisung im Konstruktor, die je nach Stufe `zeit` und das Tempo setzt.
 
 Aufwand: ★★☆
+
+<!-- MVP: 04-schwierigkeit -->
+
+**MVP zum Ausprobieren:** Setze stufe auf 1, 2 und 3 und starte jeweils neu.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-schwierigkeit"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-schwierigkeit.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Setze mit demselben switch die Zeit und held.setTempo in deiner Welt.
+
+<!-- /MVP -->
 
 ### Am Rand hinaus, auf der anderen Seite herein
 
@@ -134,6 +276,26 @@ if (held.getX() > 384) {
 Oben und unten geht es genauso. Das klappt nur ohne Steinrahmen, oder mit einer Lücke darin.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 04-rand -->
+
+**MVP zum Ausprobieren:** Halte eine Pfeiltaste gedrückt, bis die Figur den Rand überquert.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-rand"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-rand.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Verwende die Grenzen deines Fensters. Die kleine Bühne hier reicht von −240 bis 240 und −180 bis 180.
+
+<!-- /MVP -->
 
 ### Ein Zauber, der nachlässt
 
@@ -158,6 +320,26 @@ Gestartet wird der Effekt mit `eileNoch = 10;`, zum Beispiel wenn eine bestimmte
 
 Aufwand: ★★☆
 
+<!-- MVP: 04-eile -->
+
+**MVP zum Ausprobieren:** Bewege dich mit den Pfeiltasten. Leertaste startet den Eile-Zauber für drei Sekunden.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-04-eile"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/04-eile.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Starte die Restzeit beim Einsammeln deines magischen Gegenstands.
+
+<!-- /MVP -->
+
 ## Deine eigene Idee
 
 Wo soll dein Spiel eine Entscheidung treffen? Was kommt viele Male vor? Vielleicht ein Zaun, eine Allee, ein Schachbrettboden aus zwei Kacheln oder eine Meldung, wenn die Hälfte der Münzen gefunden ist.
@@ -171,7 +353,5 @@ Wo soll dein Spiel eine Entscheidung treffen? Was kommt viele Male vor? Vielleic
 Der Checkpoint nach diesem Kapitel hat einen Rahmen aus Steinen, eine Münzreihe aus einer Schleife, und er erkennt Gewinnen und Verlieren. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Kontrollstrukturen (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-03-kontrollstrukturen.json"}
-
-:archive[Checkpoint: Kontrollstrukturen (Projekt für den Rechner)]{name="spielwerkstatt-ef-03-kontrollstrukturen"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

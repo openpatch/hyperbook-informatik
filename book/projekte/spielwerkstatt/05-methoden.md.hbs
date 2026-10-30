@@ -12,7 +12,7 @@ keywords:
 
 # Methoden im Spiel
 
-Im Kapitel [Methoden und Modularisierung](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung) hast du gelernt, Anweisungen unter einem Namen zusammenzufassen. Dein Konstruktor ist inzwischen vermutlich lang geworden. Viermal dieselben Zeilen für einen Stein, dreimal fast dieselben für einen Baum. Wer darin etwas sucht, sucht lange.
+Im Kapitel [Methoden und Modularisierung](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung) hast du gelernt, Anweisungen unter einem Namen zusammenzufassen. Dein Konstruktor ist inzwischen vermutlich lang geworden. Viermal dieselben Zeilen für einen Stein, dreimal fast dieselben für einen Baum. Wer darin etwas sucht, muss lange suchen.
 
 :::snippet{#merken}
 **Die Leitfragen für dein Spiel:**
@@ -20,9 +20,11 @@ Im Kapitel [Methoden und Modularisierung](../../oberstufe/oop/01-grundlagen/04-m
 - Welche Frage stellt dein Spiel immer wieder? Daraus wird eine Methode mit **Rückgabewert**.
 :::
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
-Hier geht es weniger um neue Dinge im Spiel als um besseren Code. Am Ende soll dein Spiel genauso funktionieren wie vorher, aber man soll es lesen können. Such dir mindestens zwei Ideen aus.
+Hier geht es weniger um neue Dinge im Spiel als um besseren Code. Am Ende soll dein Spiel genauso funktionieren wie vorher, aber du sollst es lesen können. Such dir mindestens zwei Ideen aus.
 
 ### Bausteine für die Landschaft
 
@@ -47,6 +49,26 @@ this.setzePflanze(32, 0, 140, -40);   // eine Tanne
 
 Aufwand: ★☆☆
 
+<!-- MVP: 05-bausteine -->
+
+**MVP zum Ausprobieren:** Ändere das Kostüm in setzeStein. Beide Steine ändern sich.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-05-bausteine"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/05-bausteine.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Bündele den Bau eines Objekts in einer Methode mit Koordinaten als Parametern.
+
+<!-- /MVP -->
+
 ### Mauern mit beliebiger Länge
 
 **Im Spiel:** Mauern, Zäune und Hecken in jeder Länge, waagerecht oder senkrecht.
@@ -54,6 +76,26 @@ Aufwand: ★☆☆
 **Dahinter steckt:** eine Methode mit Schleife, `setzeMauer(double pX, double pY, int pAnzahl)`. Mit [Überladen](../../oberstufe/oop/01-grundlagen/04-methoden-und-modularisierung/03-modularisierung) gibt es eine zweite Methode desselben Namens mit einem weiteren Parameter für die Richtung.
 
 Aufwand: ★★☆
+
+<!-- MVP: 05-mauer -->
+
+**MVP zum Ausprobieren:** Ändere die Anzahl und den letzten Parameter des zweiten Aufrufs.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-05-mauer"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/05-mauer.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Nutze eine überladene Methode für die Standardrichtung und eine mit Richtungsparameter.
+
+<!-- /MVP -->
 
 ### Der Konstruktor als Inhaltsverzeichnis
 
@@ -73,6 +115,26 @@ public Welt() {
 
 Aufwand: ★★☆
 
+<!-- MVP: 05-inhaltsverzeichnis -->
+
+**MVP zum Ausprobieren:** Öffne die aufgerufenen Methoden und ergänze eine Methode verteileSchatz.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-05-inhaltsverzeichnis"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/05-inhaltsverzeichnis.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Gib den Abschnitten deines Weltaufbaus eigene sprechende Methodennamen.
+
+<!-- /MVP -->
+
 ### Fragen mit Rückgabewert
 
 **Im Spiel:** Die Bedingungen in `run()` lesen sich wie Sätze.
@@ -91,6 +153,26 @@ if (this.istGewonnen()) {
 
 Aufwand: ★☆☆
 
+<!-- MVP: 05-rueckgabewert -->
+
+**MVP zum Ausprobieren:** Drücke dreimal Leertaste. Ändere danach die Gewinnbedingung in istGewonnen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-05-rueckgabewert"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/05-rueckgabewert.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Formuliere wiederkehrende Bedingungen als boolean-Methoden.
+
+<!-- /MVP -->
+
 ### Eine Uhr mit Minuten
 
 **Im Spiel:** Statt „Zeit: 75“ steht „Zeit: 1:15“ in der Anzeige.
@@ -101,6 +183,26 @@ Diese Methode kannst du sogar **testen**, wie im Abschnitt [Methoden mit Tests p
 
 Aufwand: ★★☆
 
+<!-- MVP: 05-minuten -->
+
+**MVP zum Ausprobieren:** Prüfe die Ausgaben für 0, 59, 60, 65 und 605 Sekunden.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-05-minuten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/05-minuten.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Rufe zeitText mit den ganzen Sekunden deiner Spielzeit auf.
+
+<!-- /MVP -->
+
 ### Eine Methode fürs Spielende
 
 **Im Spiel:** Gewinnen, Verlieren und vielleicht weitere Enden laufen alle gleich ab: Das Spiel steht, die Figur bleibt stehen, eine Meldung erscheint.
@@ -109,9 +211,29 @@ Aufwand: ★★☆
 
 Aufwand: ★☆☆
 
+<!-- MVP: 05-beenden -->
+
+**MVP zum Ausprobieren:** Pfeiltasten bewegen die Figur. G gewinnt, V verliert.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-05-beenden"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/05-beenden.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Rufe beende mit passender Meldung aus allen Endbedingungen auf.
+
+<!-- /MVP -->
+
 ## Deine eigene Idee
 
-Gehe deinen Code von oben nach unten durch. Wo wiederholt sich etwas? Wo müsstest du einen Kommentar schreiben, damit man versteht, was passiert? Beides sind Stellen für eine Methode, und der Kommentar wird zu ihrem Namen.
+Gehe deinen Code von oben nach unten durch. Wo wiederholt sich etwas? Wo müsstest du einen Kommentar schreiben, damit du verstehst, was passiert? Beides sind Stellen für eine Methode, und der Kommentar wird zu ihrem Namen.
 
 :::snippet{#aufgabe}
 **Fürs Tagebuch:** Wähle eine deiner Methoden aus. Wie viele Zeilen hat sie dir gespart? Was müsstest du ändern, wenn alle Steine eine andere Farbe bekommen sollen, einmal **mit** und einmal **ohne** die Methode?
@@ -122,7 +244,5 @@ Gehe deinen Code von oben nach unten durch. Wo wiederholt sich etwas? Wo müsste
 Der Checkpoint nach diesem Kapitel kann dasselbe wie der nach den Kontrollstrukturen, ist aber in Methoden zerlegt: `baueRahmen`, `setzeStein`, `setzePflanze`, `setzeMuenze`, `istGewonnen` und `beende`. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Methoden (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-04-methoden.json"}
-
-:archive[Checkpoint: Methoden (Projekt für den Rechner)]{name="spielwerkstatt-ef-04-methoden"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

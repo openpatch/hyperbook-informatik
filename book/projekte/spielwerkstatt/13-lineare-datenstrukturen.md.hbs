@@ -14,16 +14,18 @@ keywords:
 
 # Lineare Datenstrukturen im Spiel
 
-Im Kapitel [Lineare Datenstrukturen](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen) hast du drei Strukturen kennengelernt, die Dinge in einer Reihe speichern. Sie unterscheiden sich nur darin, **wer als Nächstes drankommt**. Genau diese Frage stellt ein Spiel ständig.
+Im Kapitel [Lineare Datenstrukturen](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen) hast du drei Strukturen kennengelernt, die Dinge in einer Reihe speichern. Sie unterscheiden sich nur darin, **welches Element als Nächstes an die Reihe kommt**. Genau diese Frage stellt ein Spiel ständig.
 
 :::snippet{#merken}
 **Die Leitfrage für dein Spiel:** Wer kommt als Nächstes dran?
-- **der Erste**, der kam: eine [Warteschlange](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange), FIFO
-- **der Letzte**, der kam: ein [Stapel](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel), LIFO
-- **irgendeiner**, oder alle der Reihe nach: eine [Liste](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste)
+- **das zuerst Eingereihte**: eine [Warteschlange](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/warteschlange), FIFO
+- **das zuletzt Aufgelegte**: ein [Stapel](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/stapel), LIFO
+- **ein Beliebiges**, oder alle der Reihe nach: eine [Liste](../../oberstufe/oop/02-erweiterungen/04-lineare-datenstrukturen/liste)
 :::
 
 Du kommst in der Übungsstunde nach jeder Struktur hierher – erst nach der Schlange, dann nach dem Stapel, dann nach der Liste. Bau jedes Mal **eine** Mechanik mit der Struktur ein, die ihr gerade besprochen habt. Zu jeder Struktur gibt es ein ausführlich erklärtes Beispiel mit lauffähigem Code.
+
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
 
 ## Mechaniken mit einer Schlange
 
@@ -35,6 +37,26 @@ Du kommst in der Übungsstunde nach jeder Struktur hierher – erst nach der Sch
 
 Aufwand: ★☆☆
 
+<!-- MVP: 13-meldungen -->
+
+**MVP zum Ausprobieren:** Drücke mehrfach Leertaste. Jede Meldung bleibt zwei Sekunden stehen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-meldungen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-meldungen.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Reihe Ereignisse mit enqueue ein und verwalte nur für die gerade angezeigte Meldung eine Restzeit.
+
+<!-- /MVP -->
+
 ### Gegnerwellen
 
 **Im Spiel:** Ist ein Raum leer, kommt die nächste Welle. Zuerst drei Schleime, dann zwei Fledermäuse, dann alles zusammen.
@@ -42,6 +64,26 @@ Aufwand: ★☆☆
 **Dahinter steckt:** eine Schlange aus Wellen, zum Beispiel als Zeichenketten `"GGG"`, `"VV"`, `"GGVV"`. Was zuerst eingeplant wurde, kommt zuerst.
 
 Aufwand: ★★☆
+
+<!-- MVP: 13-wellen -->
+
+**MVP zum Ausprobieren:** Leertaste besiegt die aktuelle Welle. Danach erscheint die nächste.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-wellen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-wellen.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Starte die nächste Welle, sobald dein Spiel keine Gegner der aktuellen Welle mehr findet.
+
+<!-- /MVP -->
 
 ### Befehle vorausplanen
 
@@ -51,6 +93,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★☆
 
+<!-- MVP: 13-befehle -->
+
+**MVP zum Ausprobieren:** Plane mit den Pfeiltasten. Leertaste startet die Ausführung mit zwei Schritten pro Sekunde.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-befehle"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-befehle.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Trenne das Einreihen der Befehle vom zeitgesteuerten Abarbeiten.
+
+<!-- /MVP -->
+
 ### Snake
 
 **Im Spiel:** Eine Schlange aus Körperteilen kriecht über das Raster. Frisst sie etwas, wird sie länger.
@@ -59,13 +121,53 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 13-snake -->
+
+**MVP zum Ausprobieren:** Steuere mit den Pfeiltasten zur Münze. Beim Fressen bleibt das Schwanzende einen Schritt länger liegen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-snake"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-snake.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Die Queue beginnt beim Schwanz. Neue Kopfsegmente kommen mit enqueue ans Ende.
+
+<!-- /MVP -->
+
 ### Wer ist am Zug?
 
 **Im Spiel:** ein rundenbasierter Kampf. Spieler und Gegner handeln abwechselnd in fester Reihenfolge.
 
-**Dahinter steckt:** eine Schlange der Kämpfenden. Wer dran war, wird vorne herausgenommen und hinten wieder eingereiht.
+**Dahinter steckt:** eine Schlange der Kämpfenden. Wer an der Reihe war, wird vorne herausgenommen und hinten wieder eingereiht.
 
 Aufwand: ★★☆
+
+<!-- MVP: 13-runden -->
+
+**MVP zum Ausprobieren:** Leertaste führt jeweils einen Zug aus.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-runden"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-runden.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Nimm den Handelnden vorne heraus und reihe ihn nach seinem Zug hinten wieder ein.
+
+<!-- /MVP -->
 
 ## Mechaniken mit einem Stapel
 
@@ -89,6 +191,26 @@ Warum speichert der Stapel Plätze und nicht einfach den Spieler? Überlege, wor
 
 Aufwand: ★★☆
 
+<!-- MVP: 13-spur -->
+
+**MVP zum Ausprobieren:** Pfeiltasten gehen einen Schritt. R nimmt den letzten Schritt zurück.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-spur"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-spur.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere neue Platz-Objekte mit alten Koordinaten, keine Verweise auf die bewegte Figur.
+
+<!-- /MVP -->
+
 ### Kisten schieben und zurücknehmen
 
 **Im Spiel:** Kisten lassen sich schieben, und eine Taste nimmt den letzten Schiebezug zurück, dann den davor.
@@ -96,6 +218,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** ein Stapel von Zügen. Ausführlich erklärt im Beispiel [Kisten schieben und zurücknehmen](./21-kisten).
 
 Aufwand: ★★★
+
+<!-- MVP: 13-kisten -->
+
+**MVP zum Ausprobieren:** Rechts schiebt die Kiste. R nimmt einen Schiebezug zurück.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-kisten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-kisten.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere pro Zug die alten Positionen aller betroffenen Objekte.
+
+<!-- /MVP -->
 
 ### Räume und Menüs
 
@@ -105,6 +247,26 @@ Aufwand: ★★★
 
 Aufwand: ★★☆
 
+<!-- MVP: 13-menues -->
+
+**MVP zum Ausprobieren:** Leertaste öffnet eine weitere Ebene. Escape führt zurück.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-menues"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-menues.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere beim Betreten die bisherige Ansicht auf dem Stapel und hole sie beim Zurückgehen herunter.
+
+<!-- /MVP -->
+
 ### Ein Kartenstapel
 
 **Im Spiel:** Man zieht Karten mit Zaubersprüchen oder Ereignissen von einem gemischten Stapel. Benutzte Karten kommen auf einen Ablagestapel.
@@ -112,6 +274,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** zwei Stapel. Ist der Nachziehstapel leer, wird der Ablagestapel gemischt und wird zum neuen Nachziehstapel.
 
 Aufwand: ★★☆
+
+<!-- MVP: 13-karten -->
+
+**MVP zum Ausprobieren:** Ziehe mit Leertaste mehrfach. Nach drei Karten wird der Ablagestapel neu gemischt.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-karten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-karten.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Benutze zwei Stapel; zum Mischen kannst du die Ablage vorübergehend in ein Feld legen.
+
+<!-- /MVP -->
 
 ## Mechaniken mit einer Liste
 
@@ -123,6 +305,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★☆
 
+<!-- MVP: 13-inventar -->
+
+**MVP zum Ausprobieren:** N wählt den nächsten Gegenstand, Leertaste benutzt und entfernt ihn.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-inventar"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-inventar.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Das aktuelle Listenelement ist die Auswahl. Nach dem Entfernen zeigt die Liste auf den Nachfolger.
+
+<!-- /MVP -->
+
 ### Eine Patrouille
 
 **Im Spiel:** Eine Wache läuft eine feste Runde über mehrere Wegpunkte, immer wieder.
@@ -130,6 +332,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** eine Liste von Plätzen. Das aktuelle Element ist das nächste Ziel. Ist es erreicht, geht es mit `next()` weiter, und am Ende mit `toFirst()` wieder von vorn.
 
 Aufwand: ★★☆
+
+<!-- MVP: 13-patrouille -->
+
+**MVP zum Ausprobieren:** Beobachte die Runde und ergänze einen fünften Wegpunkt.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-patrouille"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-patrouille.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Das aktuelle Listenelement ist das Ziel. Nach dem letzten Wegpunkt beginnt die Runde wieder vorne.
+
+<!-- /MVP -->
 
 ### Was ist noch offen?
 
@@ -139,6 +361,26 @@ Aufwand: ★★☆
 
 Aufwand: ★☆☆
 
+<!-- MVP: 13-offen -->
+
+**MVP zum Ausprobieren:** Leertaste sammelt jeweils den ersten noch fehlenden Gegenstand.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-offen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-offen.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Entferne beim echten Einsammeln den passenden Eintrag und baue die Anzeige aus den verbleibenden Einträgen.
+
+<!-- /MVP -->
+
 ### Ein Questlog
 
 **Im Spiel:** Figuren geben Aufträge. Eine Liste zeigt die offenen, erledigte verschwinden, neue kommen an beliebiger Stelle dazu.
@@ -146,6 +388,26 @@ Aufwand: ★☆☆
 **Dahinter steckt:** eine Liste von Aufträgen. Anders als bei Schlange und Stapel wird auch **in der Mitte** entfernt.
 
 Aufwand: ★★☆
+
+<!-- MVP: 13-quests -->
+
+**MVP zum Ausprobieren:** N wählt einen Auftrag, Leertaste erledigt ihn. A fügt einen Auftrag vor der Auswahl ein.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-quests"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-quests.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Benutze insert und remove an der aktuellen Stelle, statt die Liste nur vorne oder hinten zu verändern.
+
+<!-- /MVP -->
 
 ### Mehrere Zauber gleichzeitig
 
@@ -155,6 +417,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 13-effekte -->
+
+**MVP zum Ausprobieren:** Leertaste startet drei verschieden lange Effekte. Beobachte, wie Einträge aus der Mitte verschwinden.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-effekte"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-effekte.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Nach remove steht der Zeiger bereits beim Nachfolger. Rufe dort kein zusätzliches next auf.
+
+<!-- /MVP -->
+
 ### Ein Gespräch der Reihe nach
 
 **Im Spiel:** Eine Figur erzählt eine kleine Geschichte in mehreren Sätzen. Jeder steht ein paar Sekunden in ihrer Sprechblase, dann kommt der nächste.
@@ -162,6 +444,26 @@ Aufwand: ★★★
 **Dahinter steckt:** eine Schlange von Sätzen, wie bei den Meldungen, nur mit `say(…)` statt einer Textzeile.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 13-gespraech -->
+
+**MVP zum Ausprobieren:** Starte und lies die drei aufeinanderfolgenden Sprechblasen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-13-gespraech"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/13-gespraech.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Lege die Sätze beim Gesprächsbeginn in eine Schlange und entnimm sie zeitgesteuert.
+
+<!-- /MVP -->
 
 ## Und ohne Spiel?
 
@@ -175,7 +477,7 @@ Wer in der Klausur entscheiden muss, welche Struktur passt, stellt genau eine Fr
 
 ## Deine eigene Idee
 
-Wo in deinem Spiel wartet etwas darauf, drangenommen zu werden? Wo soll etwas rückgängig gemacht werden? Wo gibt es eine veränderliche Sammlung, aus der man auswählt?
+Wo in deinem Spiel wartet etwas darauf, behandelt zu werden? Wo soll etwas rückgängig gemacht werden? Wo gibt es eine veränderliche Sammlung, aus der du auswählst?
 
 :::snippet{#aufgabe}
 **Fürs Tagebuch:** Begründe für jede Struktur, die du eingebaut hast, warum es diese ist. Beschreibe für eine davon genau, was im Spiel passieren würde, wenn du stattdessen eine der anderen beiden genommen hättest.
@@ -186,7 +488,5 @@ Wo in deinem Spiel wartet etwas darauf, drangenommen zu werden? Wo soll etwas r�
 Im Checkpoint nach diesem Kapitel stellen sich Meldungen in einer Schlange an, und ein Stapel merkt sich die Spur des Spielers, die man mit R zurückgehen kann. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Lineare Datenstrukturen (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-04-lineare-datenstrukturen.json"}
-
-:archive[Checkpoint: Lineare Datenstrukturen (Projekt für den Rechner)]{name="spielwerkstatt-q-04-lineare-datenstrukturen"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

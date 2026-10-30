@@ -21,7 +21,7 @@ Damit kannst du jetzt die Klassen lesen, die bisher „fertig für dich“ waren
 **Die Leitfragen für dein Spiel:**
 - Welche Dinge in deinem Spiel haben ein **eigenes Verhalten**? Sie bekommen eine eigene Klasse.
 - Welche Klassen haben **etwas gemeinsam**? Das gehört in eine Oberklasse.
-- Wer muss **wen kennen**, damit etwas passieren kann? Das ist eine Assoziation.
+- Welches Objekt muss **welches andere kennen**, damit etwas passieren kann? Das ist eine Assoziation.
 :::
 
 ## Die fertigen Klassen, geöffnet
@@ -31,9 +31,11 @@ Damit kannst du jetzt die Klassen lesen, die bisher „fertig für dich“ waren
 | Klasse | Was du jetzt darin erkennst |
 | --- | --- |
 | `Hindernis` | eine Unterklasse von `Sprite`. Der Spieler **erkennt** sie an ihrer Klasse: `getTouchingSprite(Hindernis.class)`. Sie überschreibt `addCostume`, um nach dem Kostüm auch eine Hitbox nur für die untere Bildhälfte zu setzen. |
-| `Muenze` | eine Unterklasse von `AnimatedSprite` mit eigenem `run()`, das die Animation abspielt |
+| `Muenze` | eine Unterklasse von `Sprite` mit eigenem `run()`, das die Animation abspielt |
 | `Spieler` | `run()` mit den Pfeiltasten. Das Attribut `tempo` ist `private` und nur über `setTempo` änderbar, das ist das Geheimnisprinzip. Die Ereignisblöcke der Welt ruft er selbst auf: `(Welt) this.getStage()` liefert die Bühne, auf der er steht. |
 | `Spielwelt` | die Oberklasse deiner `Welt`. Dein `Welt`-Konstruktor ruft ihren Konstruktor zuerst auf, so liegt die Wiese, bevor deine Dinge daraufkommen. Sie schaltet auch die Sortierung nach y ein. |
+
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
 
 ## Mechaniken
 
@@ -51,12 +53,32 @@ public class Stein extends Hindernis {
    public Stein() {
       this.addCostume("stein", "assets/backgrounds/tilesets/tileset-dungeon.png", 128, 48, 16, 16);
       // Steine bilden die Mauer am Rand: Sie halten mit dem ganzen Bild auf, nicht nur unten.
-      this.setHitbox(0, 0, 16, 0, 16, 16, 0, 16);
+      this.setHitbox(new Polygon(new double[] {0, 16, 16, 0}, new double[] {0, 0, 16, 16}));
    }
 }
 ```
 
 Aufwand: ★☆☆
+
+<!-- MVP: 07-hindernisse -->
+
+**MVP zum Ausprobieren:** Laufe mit den Pfeiltasten gegen die Kiste. Ergänze eine weitere Stein-Instanz.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-hindernisse"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-hindernisse.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Prüfe die gemeinsame Oberklasse, damit alle Hindernisarten dieselbe Kollision auslösen.
+
+<!-- /MVP -->
 
 ### Ein Gegner
 
@@ -77,6 +99,26 @@ public void run() {
 
 Aufwand: ★★☆
 
+<!-- MVP: 07-gegner -->
+
+**MVP zum Ausprobieren:** Beobachte die Richtungswechsel an den beiden Kisten.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-gegner"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-gegner.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Die Richtung gehört als Attribut zum Gegner; nach einer Kollision wird die Bewegung zurückgenommen.
+
+<!-- /MVP -->
+
 ### Leben und Treffer
 
 **Im Spiel:** Erwischt dich ein Gegner, verlierst du ein Leben und fängst am Start wieder an. Ohne Leben ist das Spiel vorbei.
@@ -93,6 +135,26 @@ if (this.getTouchingSprite(Gegner.class) != null) {
 
 Aufwand: ★★☆
 
+<!-- MVP: 07-leben -->
+
+**MVP zum Ausprobieren:** Laufe nach rechts in die Kiste. Nach jedem Treffer geht es zurück zum Start.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-leben"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-leben.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Lass den Spieler den Treffer melden und die Welt über Leben und Neustart entscheiden.
+
+<!-- /MVP -->
+
 ### Ein Verfolger
 
 **Im Spiel:** Ein Geist schwebt langsam auf dich zu, egal wo du bist.
@@ -100,6 +162,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** eine [Assoziation](../../oberstufe/oop/01-grundlagen/06-objektorientierung/03-assoziation). Der Verfolger kennt den Spieler, weil die Welt ihn im Konstruktor übergibt: `new Verfolger(held)`. In `run()` vergleicht er seine Position mit der des Spielers und geht ein Stück in dessen Richtung.
 
 Aufwand: ★★☆
+
+<!-- MVP: 07-verfolger -->
+
+**MVP zum Ausprobieren:** Steuere den Hasen mit den Pfeiltasten. Die rote Kiste verfolgt ihn.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-verfolger"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-verfolger.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Gib dem Gegner sein Ziel im Konstruktor, statt es in jedem Bild neu zu suchen.
+
+<!-- /MVP -->
 
 ### Gegenstände mit gemeinsamer Oberklasse
 
@@ -109,6 +191,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 07-gegenstaende -->
+
+**MVP zum Ausprobieren:** Sammle mit den Pfeiltasten Münze und Trank.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-gegenstaende"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-gegenstaende.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Der Spieler prüft nur Gegenstand.class. Das jeweils gefundene Objekt beantwortet einsammeln.
+
+<!-- /MVP -->
+
 ### Tür und Schlüssel
 
 **Im Spiel:** Eine Tür versperrt den Weg zu einem Schatz. Erst mit dem passenden Schlüssel geht sie auf.
@@ -116,6 +218,26 @@ Aufwand: ★★★
 **Dahinter steckt:** Die `Tuer` ist ein `Hindernis` und kennt ihren `Schluessel`. Wird er eingesammelt, entfernt sich die Tür mit `remove()`. Bei mehreren Türen weiß so jede, welcher Schlüssel zu ihr gehört.
 
 Aufwand: ★★★
+
+<!-- MVP: 07-tuer -->
+
+**MVP zum Ausprobieren:** Bewege dich zur Münze, die hier den Schlüssel darstellt. Die zugehörige Tür verschwindet.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-tuer"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-tuer.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Verbinde jede Tür mit genau ihrem Schlüssel. Weitere Paare brauchen dieselbe Klasse, nur andere Objekte.
+
+<!-- /MVP -->
 
 ### Figuren, die etwas zu sagen haben
 
@@ -125,6 +247,26 @@ Aufwand: ★★★
 
 Aufwand: ★★☆
 
+<!-- MVP: 07-npc -->
+
+**MVP zum Ausprobieren:** Nähere dich der Kiste mit den Pfeiltasten und gehe wieder weg.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-npc"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-npc.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Übergib jedem NPC den Spieler und seinen eigenen Satz.
+
+<!-- /MVP -->
+
 ### Tiere, die umherstreifen
 
 **Im Spiel:** Hühner, Kühe oder Hasen laufen ziellos über die Wiese. Sie stören nicht, aber die Welt wirkt lebendig.
@@ -132,6 +274,26 @@ Aufwand: ★★☆
 **Dahinter steckt:** eine Klasse `Tier` mit einer Richtung als Attribut. Alle paar Sekunden wählt das Tier mit `this.pickRandom(0, 3)` eine neue Richtung, in den Bildern dazwischen geht es in die alte. Stößt es an ein Hindernis, kehrt es um. Tiere gibt es in `assets/actor/animal/`.
 
 Aufwand: ★★☆
+
+<!-- MVP: 07-tiere -->
+
+**MVP zum Ausprobieren:** Beobachte beide Hasen. Verkürze die Zeit zwischen zwei Richtungswechseln.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-tiere"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-tiere.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Jedes Tier merkt sich seine eigene Richtung und seine eigene Wartezeit.
+
+<!-- /MVP -->
 
 ### Räume als eigene Bühnen
 
@@ -148,7 +310,7 @@ Welt hoehle = new Welt(planHoehle);
 // wenn der Spieler den Ausgang erreicht
 held.remove();
 hoehle.add(held);
-Window.getInstance().transitionToStage(hoehle, 500);
+Window.getInstance().transitionToStage(hoehle, 0.5);
 ```
 
 Der Spieler zieht mit um: Er wird von der alten Bühne genommen und auf die neue gestellt. Damit jeder Raum seine Nachbarn kennt, bekommt die Welt Attribute für ihre Ausgänge, zum Beispiel `private Welt rechts;`, und eine Methode, die sie setzt. Das ist eine Assoziation zwischen Objekten derselben Klasse.
@@ -156,6 +318,22 @@ Der Spieler zieht mit um: Er wird von der alten Bühne genommen und auf die neue
 Vorsicht: Bisher erzeugt jede `Welt` in ihrem Konstruktor einen eigenen Spieler. Bei mehreren Räumen gäbe es dann mehrere. Erzeuge den Spieler deshalb einmal, zum Beispiel in `main`, und gib ihn der Welt, die er gerade betritt, etwa mit einer Methode `betrete(Spieler pSpieler)`. Sie stellt ihn auf die Bühne und merkt ihn sich in `held`.
 
 Aufwand: ★★★
+
+<!-- MVP: 07-buehnen -->
+
+**MVP zum Ausprobieren:** Sammle mit Leertaste eine Münze. Wechsle mit rechts den Raum und mit links zurück.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-07-buehnen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/07-buehnen.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Erzeuge jede Bühne einmal und merke sie dir. Der Zustand gehört zum Raum; ein Spielerwechsel braucht die dafür vorgesehene Bibliotheksfunktion.
+
+<!-- /MVP -->
 
 ## Deine eigene Idee
 
@@ -170,7 +348,5 @@ Welche Figur, welches Ding oder welches Hindernis in deinem Spiel soll sich selb
 Im Checkpoint nach diesem Kapitel gibt es eigene Klassen `Stein` und `Pflanze`, zwei Schleime als `Gegner` und drei Leben. Der `Spieler` meldet Treffer an die Welt. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Objektorientierung (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-06-objektorientierung.json"}
-
-:archive[Checkpoint: Objektorientierung (Projekt für den Rechner)]{name="spielwerkstatt-ef-06-objektorientierung"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

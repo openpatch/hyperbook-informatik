@@ -160,7 +160,7 @@ public boolean isEmpty() {
 Worauf es ankam:
 
 - **Die Reihenfolge in `push`.** Stünde `head = neuerKnoten;` zuerst, zeigte danach nichts mehr auf den alten Stapel – er wäre weg.
-- **`pop` und `top` prüfen auf den leeren Stapel.** Ohne die Prüfung bricht `head.getNext()` mit einer `NullPointerException` ab. Die Dokumentation legt ausdrücklich fest, dass `pop` auf einem leeren Stapel **nichts** tut.
+- **`pop` und `top` prüfen auf den leeren Stapel.** Ohne die Prüfung löst `head.getNext()` eine `NullPointerException` aus. Die Dokumentation legt ausdrücklich fest, dass `pop` auf einem leeren Stapel **nichts** tut.
 - **`pop` gibt nichts zurück.** Wer den Inhalt braucht, holt ihn sich vorher mit `top`. Das ist die Aufteilung aus der Dokumentation – und der Grund für die Frage auf der Seite [Aufbau und Funktionsweise](./aufbau-und-funktionsweise).
 - **Keine Schleife, nirgends.** Alle vier Methoden sind O(1): Sie fassen nur den obersten Knoten an, egal wie hoch der Stapel ist.
 

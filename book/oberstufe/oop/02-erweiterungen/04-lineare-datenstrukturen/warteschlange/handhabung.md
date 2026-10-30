@@ -48,7 +48,7 @@ Steht in einer Aufgabe „die Schlange soll danach unverändert sein“, brauchs
 :::snippet{#aufgabe}
 a) Sage voraus, was das Programm ausgibt. Führe es dann aus.
 
-b) Ergänze am Ende eine Zeile, die ausgibt, ob `wartende` jetzt leer ist. Was ist mit Anna, Ben und Cem passiert?
+b) Ergänze am Ende eine Zeile, die ausgibt, ob `wartende` jetzt leer ist. Was ist mit Anna, Ben und Cem geschehen?
 
 c) Vertausche die beiden Zeilen in der Schleife, sodass `dequeue()` vor `front()` steht. Sage voraus, was nun ausgegeben wird, und prüfe.
 :::
@@ -77,7 +77,7 @@ a) `Dran ist: Anna`, `Dran ist: Ben`, `Dran ist: Cem` – in der Reihenfolge des
 
 b) Die Ausgabe ist `true`. Die Schlange ist leer, die drei Namen sind aus ihr verschwunden. Das Abarbeiten **verbraucht** die Schlange.
 
-c) `Dran ist: Ben`, `Dran ist: Cem`, `Dran ist: null`. Anna wird entfernt, bevor jemand nachgesehen hat, und beim letzten Durchlauf liefert `front()` auf der leeren Schlange `null`. Die Regel: **erst `front`, dann `dequeue`.**
+c) `Dran ist: Ben`, `Dran ist: Cem`, `Dran ist: null`. Anna wird entfernt, bevor du nachgesehen hast, und beim letzten Durchlauf liefert `front()` auf der leeren Schlange `null`. Die Regel: **erst `front`, dann `dequeue`.**
 
 ::::
 
@@ -128,7 +128,7 @@ funktion enthaelt(pSchlange, pGesucht):
 
 c) `String letztes(Queue<String> pSchlange)` liefert das hinterste Element, bei einer leeren Schlange `null`. Die Schlange bleibt unverändert.
 
-d) `Queue<String> reissverschluss(Queue<String> pErste, Queue<String> pZweite)` liefert eine neue Schlange, in der die Elemente abwechselnd aus beiden Schlangen kommen – erst aus `pErste`, dann aus `pZweite`, dann wieder aus `pErste` und so weiter. Ist eine der beiden leer, kommt der Rest der anderen hinten an. Die beiden übergebenen Schlangen dürfen dabei leer werden.
+d) `Queue<String> reissverschluss(Queue<String> pErste, Queue<String> pZweite)` liefert eine neue Schlange, in der die Elemente abwechselnd aus beiden Schlangen kommen – erst aus `pErste`, dann aus `pZweite`, dann wieder aus `pErste` usw. Ist eine der beiden leer, kommt der Rest der anderen hinten an. Die beiden übergebenen Schlangen dürfen dabei leer werden.
 :::
 
 :::onlineide{libraries="nrw" height="640px" speed="1000000" id="schlange-werkzeug"}

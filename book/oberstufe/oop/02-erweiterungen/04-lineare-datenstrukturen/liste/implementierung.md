@@ -179,7 +179,7 @@ while (vorgaenger.getNextNode() != current) {
 }
 ```
 
-Danach hängst du den Verweis von vorgaenger um – und denkst daran, dass last neu gesetzt werden muss, wenn current der letzte Knoten war.
+Danach hängst du den Verweis von vorgaenger um – und beachtest, dass last neu gesetzt werden muss, wenn current der letzte Knoten war.
 
 :::
 
@@ -276,7 +276,7 @@ public class NRWList {
             last = vorgaenger;
         }
 
-        // Current wandert zum Nachfolger - gibt es keinen, wird hasAccess false.
+        // current wandert zum Nachfolger - gibt es keinen, wird hasAccess false.
         current = nachfolger;
     }
 

@@ -38,7 +38,9 @@ public class Welt extends Spielwelt {
       // ...
 ```
 
-Das `private` heißt: Nur die Welt selbst darf diese Variable ändern. Warum das wichtig ist, erfährst du im Kapitel über Objektorientierung. Bis dahin schreibst du es einfach davor.
+Das `private` heißt: Nur die Welt selbst darf diese Variable ändern. Warum das wichtig ist, erfährst du im Kapitel über Objektorientierung. Bis dahin übernimmst du das einfach so.
+
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
 
 ## Mechaniken
 
@@ -66,6 +68,22 @@ Den `Text` legst du im Konstruktor an, so wie den Titel im Startgerüst: `anzeig
 
 Aufwand: ★☆☆
 
+<!-- MVP: 03-muenzzaehler -->
+
+**MVP zum Ausprobieren:** Drücke eine Taste: Jeder Tastendruck steht für eine eingesammelte Münze.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-03-muenzzaehler"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/03-muenzzaehler.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Verschiebe die beiden Anweisungen aus whenKeyPressed nach wennMuenzeEingesammelt.
+
+<!-- /MVP -->
+
 ### Countdown
 
 **Im Spiel:** Die Zeit läuft rückwärts. Wer sammelt alle Münzen, bevor sie abgelaufen ist?
@@ -87,9 +105,25 @@ public void run() {
 **Achtung, Falle:** Schreibst du `1 / 60` statt `1.0 / 60`, bleibt die Zeit stehen. Warum? Überlege, welchen Datentyp das Ergebnis von `1 / 60` hat.
 :::
 
-Was passiert, wenn die Zeit abgelaufen ist? Im Moment nichts, sie wird einfach negativ. Das änderst du nach dem Kapitel über Kontrollstrukturen.
+Was passiert, wenn die Zeit abgelaufen ist? Im Moment nichts – die Anzeige zählt einfach ins Negative weiter. Das änderst du nach dem Kapitel über Kontrollstrukturen.
 
 Aufwand: ★★☆
+
+<!-- MVP: 03-countdown -->
+
+**MVP zum Ausprobieren:** Starte und beobachte die Sekunden. Ersetze 1.0 durch 1 und vergleiche.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-03-countdown"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/03-countdown.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Übernimm die double-Variable und die Zeitänderung in run. Das Anhalten folgt bei den Kontrollstrukturen.
+
+<!-- /MVP -->
 
 ### Münzen mit Wert
 
@@ -111,6 +145,22 @@ public void wennMuenzeEingesammelt() {
 
 Aufwand: ★☆☆
 
+<!-- MVP: 03-muenzwert -->
+
+**MVP zum Ausprobieren:** Drücke mehrere Tasten und rechne mit: 10, dann 15, dann 20 Punkte.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-03-muenzwert"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/03-muenzwert.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Übernimm punktzahl und wert sowie deren Änderung in dein Sammelereignis.
+
+<!-- /MVP -->
+
 ### Stoppuhr
 
 **Im Spiel:** Statt eines Countdowns misst das Spiel, wie lange du brauchst, auf eine Zehntelsekunde genau.
@@ -118,6 +168,22 @@ Aufwand: ★☆☆
 **Dahinter steckt:** eine `double`-Variable, die in `run()` wächst. Für eine Nachkommastelle rechnest du um: `(int) (zeit * 10) / 10.0`. Probiere aus, was ohne das `.0` passiert.
 
 Aufwand: ★★☆
+
+<!-- MVP: 03-stoppuhr -->
+
+**MVP zum Ausprobieren:** Beobachte die Zehntelsekunden. Ändere 10 und 10.0 zu 100 und 100.0.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-03-stoppuhr"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/03-stoppuhr.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Starte zeit bei 0 und zeige den berechneten Text in deiner Welt an.
+
+<!-- /MVP -->
 
 ### Ein Name für die Heldin oder den Helden
 
@@ -131,6 +197,22 @@ private String name = "Lea";
 
 Aufwand: ★☆☆
 
+<!-- MVP: 03-name -->
+
+**MVP zum Ausprobieren:** Ändere name und drücke eine Taste.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-03-name"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/03-name.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Verbinde den gespeicherten Namen und den Spielstand mit + zu deinem Anzeigetext.
+
+<!-- /MVP -->
+
 ### Tempo
 
 **Im Spiel:** Die Figur ist schneller oder langsamer als im Startgerüst.
@@ -142,6 +224,22 @@ held.setTempo(5);
 ```
 
 Aufwand: ★☆☆
+
+<!-- MVP: 03-tempo -->
+
+**MVP zum Ausprobieren:** Ändere tempo von 2 auf 5. Der Hase läuft automatisch hin und her.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-03-tempo"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/03-tempo.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Gib den ausprobierten Wert an held.setTempo weiter.
+
+<!-- /MVP -->
 
 ## Deine eigene Idee
 
@@ -156,7 +254,5 @@ Was soll sich dein Spiel noch merken? Ein Kontostand im Laden, die Zahl der Schr
 Der Checkpoint nach diesem Kapitel zählt die Münzen und lässt einen Countdown von 30 Sekunden laufen. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Variablen (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-02-variablen.json"}
-
-:archive[Checkpoint: Variablen (Projekt für den Rechner)]{name="spielwerkstatt-ef-02-variablen"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

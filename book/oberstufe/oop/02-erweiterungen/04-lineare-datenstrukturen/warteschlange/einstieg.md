@@ -9,7 +9,7 @@ scripts:
 
 # Einstieg: Wer zuerst kommt
 
-An der Supermarktkasse gilt eine Regel, die niemand aufschreiben muss: **Wer zuerst da war, ist zuerst dran.** Wer dazukommt, stellt sich hinten an. Bedient wird vorne. Dazwischen passiert nichts – man kann sich nicht in die Mitte stellen und auch niemanden aus der Mitte herausziehen.
+An der Supermarktkasse gilt eine Regel, die niemand aufschreiben muss: **Wer zuerst da war, ist zuerst an der Reihe.** Wer dazukommt, stellt sich hinten an. Bedient wird vorne. Dazwischen passiert nichts – man kann sich nicht in die Mitte stellen und auch niemanden aus der Mitte herausziehen.
 
 Genau diese Regel – und genau diese Beschränkung – ist die **Warteschlange**.
 
@@ -23,9 +23,9 @@ Das Prinzip heißt **FIFO** – *First In, First Out*: Was zuerst hineinkommt, k
 :::
 
 :::snippet{#merken}
-Dass man **nicht** in die Mitte greifen kann, ist kein Mangel, sondern der Zweck. Eine Struktur, die nur zwei Operationen zulässt, kann man nicht falsch bedienen – und sie lässt sich so bauen, dass beide Operationen **gleich schnell** sind, egal wie lang die Schlange ist.
+Dass du **nicht** in die Mitte greifen kann, ist kein Mangel, sondern der Zweck. Eine Struktur, die nur zwei Operationen zulässt, kannst du nicht falsch bedienen – und sie lässt sich so bauen, dass beide Operationen **gleich schnell** sind, egal wie lang die Schlange ist.
 
-Wo dir das im Rechner begegnet: Druckaufträge, eingehende Netzwerkpakete, Tastatureingaben, Aufgaben in einer Warteliste.
+Wo dir das begegnet: Druckaufträge, eingehende Netzwerkpakete, Tastatureingaben, Aufgaben in einer Warteliste.
 :::
 
 Von außen zeigt die Abiturklasse `Queue` nur diese Methoden. Wie sie innen aufgebaut ist, spielt für das Benutzen keine Rolle.
@@ -50,13 +50,13 @@ Unten liegt eine Operationsfolge bereit. Sage **zuerst** voraus, welche Ausgaben
 :::snippet{#aufgabe}
 a) Notiere die erwarteten Ausgaben, trage sie ein und lass die Folge ablaufen.
 
-b) Nur `front()` und `isEmpty()` liefern überhaupt etwas. Erkläre, warum `dequeue()` keinen Rückgabewert braucht. Wie kommt man an das Element, das gleich entfernt wird?
+b) Nur `front()` und `isEmpty()` liefern überhaupt etwas. Erkläre, warum `dequeue()` keinen Rückgabewert braucht. Wie kommst du an das Element, das entfernt wird?
 
 c) Reihe danach von Hand drei Namen ein und nimm sie wieder heraus. In welcher Reihenfolge kommen sie heraus?
 :::
 
 :::snippet{#brain}
-**Weiterdenken:** Die Schlange hat keine Methode, die sagt, wie viele Elemente in ihr stehen. Wie könntest du es trotzdem herausfinden – nur mit `enqueue`, `dequeue`, `front` und `isEmpty`? Und was ist danach mit der Schlange passiert?
+**Weiterdenken:** Die Schlange hat keine Methode, die sagt, wie viele Elemente in ihr stehen. Wie könntest du es trotzdem ermitteln – nur mit `enqueue`, `dequeue`, `front` und `isEmpty`? Welchen Zustand hat die Schlange danach?
 :::
 
 ::::protect{password="java-q-4-ws-e-1" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -67,7 +67,7 @@ b) Wer das vorderste Element braucht, holt es sich **vorher** mit `front()` und 
 
 c) In derselben Reihenfolge, in der sie hineingekommen sind – FIFO.
 
-**Weiterdenken:** Man nimmt so lange vorne heraus, bis die Schlange leer ist, und zählt dabei mit. Danach ist die Schlange allerdings **leer** – die Elemente sind verloren. Wie man zählt, ohne die Schlange zu zerstören, ist Thema der Seite [Mit der Schlange arbeiten](./handhabung).
+**Weiterdenken:** Du nimmst so lange vorne heraus, bis die Schlange leer ist, und zählst dabei mit. Danach ist die Schlange allerdings **leer** – die Elemente gehen verloren. Wie man zählt, ohne die Schlange zu zerstören, ist Thema der Seite [Mit der Schlange arbeiten](./handhabung).
 
 ::::
 
@@ -99,7 +99,7 @@ c) **Passt.** Das ist die Supermarktkasse in einer anderen Umgebung.
 
 d) **Passt.** Die Anfragen warten in einer Schlange und werden der Reihe nach abgearbeitet, sobald der Server frei ist.
 
-**Weiterdenken:** Man legt eine Schlange **pro Dringlichkeitsstufe** an. Behandelt wird immer aus der dringendsten Schlange, die nicht leer ist. Innerhalb einer Stufe gilt weiter: Wer zuerst kam, ist zuerst dran.
+**Weiterdenken:** Du legst eine Schlange **pro Dringlichkeitsstufe** an. Behandelt wird immer aus der dringendsten Schlange, die nicht leer ist. Innerhalb einer Stufe gilt weiter: Wer zuerst kam, ist zuerst an der Reihe.
 
 ::::
 

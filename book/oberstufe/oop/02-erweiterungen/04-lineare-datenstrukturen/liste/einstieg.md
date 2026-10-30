@@ -7,9 +7,9 @@ permaid: java-liste-einstieg
 
 # Einstieg: Jeder kann drankommen
 
-Schlange und Stapel können jeweils genau eine Sache: vorne beziehungsweise oben herausnehmen. Für einen Nachrichtenverlauf reicht das nicht. Dort will man **durchblättern**, eine bestimmte Nachricht löschen und eine neue an einer beliebigen Stelle einfügen.
+Schlange und Stapel erlauben jeweils nur einen Zugriff: vorne beziehungsweise oben herausnehmen. Für einen Nachrichtenverlauf reicht das nicht. Dort will man **durchblättern**, eine bestimmte Nachricht löschen und eine neue an einer beliebigen Stelle einfügen.
 
-Dafür gibt es die **Liste**. Bei ihr kommt nicht der Erste oder der Letzte dran, sondern **der, den man gerade ausgewählt hat**.
+Dafür gibt es die **Liste**. Bei ihr ist nicht das erste oder das letzte Element an der Reihe, sondern **das, das du gerade ausgewählt hast**.
 
 :::snippet{#definition}
 Eine **Liste** (englisch *list*) ist eine lineare Datenstruktur, bei der man an **jeder** Stelle lesen, einfügen und entfernen kann.
@@ -23,7 +23,7 @@ Dazu gibt es ein **aktuelles Element**, auf das die Liste gerade zeigt. Man bewe
 :::
 
 :::snippet{#merken}
-Die Liste hat **keine Nummern** wie ein Feld. Wer an das dritte Element will, geht vom ersten aus zweimal weiter – so wie man in einem Fotoalbum blättert, statt eine Seitenzahl aufzuschlagen.
+Die Liste hat **keine Nummern** wie ein Feld. Wer das dritte Element erreichen möchte, geht vom ersten aus zweimal weiter – so wie man in einem Fotoalbum blättert, statt eine Seitenzahl aufzuschlagen.
 :::
 
 Von außen zeigt die Abiturklasse `List` diese Methoden:
@@ -79,7 +79,7 @@ void main() {
 :::
 
 :::snippet{#brain}
-**Weiterdenken:** Nach dem letzten `next()` gibt es kein aktuelles Element mehr. Was liefert `getContent()` jetzt? Und was passiert bei `insert("Emil")`? Schlag in der [Dokumentation](./dokumentation) nach, bevor du es ausprobierst.
+**Weiterdenken:** Nach dem letzten `next()` gibt es kein aktuelles Element mehr. Was liefert `getContent()` jetzt? Und was passiert bei `insert("Emil")`? Schlage in der [Dokumentation](./dokumentation) nach, bevor du es ausprobierst.
 :::
 
 ::::protect{password="java-q-4-l-e-1" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -94,7 +94,7 @@ a)
 | `remove()` | Anna, Dora, **Cem** | Cem |
 | `next()` | Anna, Dora, Cem – kein aktuelles Element | false |
 
-`insert` fügt **vor** dem aktuellen Element ein, das aktuelle Element bleibt dasselbe. Nach `remove` wird der Nachfolger zum aktuellen Element.
+`insert` fügt **vor** dem aktuellen Element ein, dieses bleibt dabei dasselbe. Nach `remove` wird der Nachfolger zum aktuellen Element.
 
 b) Anna, Dora, Cem.
 
@@ -134,7 +134,7 @@ c) **Liste.** Überspringen ist `next`, Löschen ist `remove`, Umsortieren brauc
 
 d) **Schlange.** Wer zuerst kam, wird zuerst beantwortet.
 
-Die Leitfrage für alle drei Strukturen: **Wer kommt als Nächstes dran – der Erste, der Letzte oder der, den ich auswähle?**
+Die Leitfrage für alle drei Strukturen: **Wer kommt als Nächstes dran – der Erste, der Letzte oder das, das ich auswähle?}**
 
 ::::
 
@@ -180,7 +180,7 @@ Die Leitfrage für alle drei Strukturen: **Wer kommt als Nächstes dran – der 
 {h{Die Dokumentation legt das genau fest.}}
 {H{Richtig! Gibt es keinen Nachfolger, liefert hasAccess danach false.}}
 
-**4. Wie kommt man an das dritte Element einer Liste?**
+**4. Wie kommst du an das dritte Element einer Liste?**
 
 {r4{über den Index 2}}
 

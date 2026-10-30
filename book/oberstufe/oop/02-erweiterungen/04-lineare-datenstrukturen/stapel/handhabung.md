@@ -38,7 +38,7 @@ while (!hilf.isEmpty()) {
 }
 ```
 
-Auf dem Hilfsstapel liegt alles **verkehrt herum**. Erst das Zurückschichten dreht die Reihenfolge noch einmal um – und damit wieder richtig.
+Auf dem Hilfsstapel liegt alles **verkehrt herum**. Erst das Zurückschichten dreht die Reihenfolge noch einmal um – und damit wieder in die ursprüngliche Reihenfolge.
 :::
 
 ## Aufgabe 1: Abarbeiten
@@ -71,7 +71,7 @@ void main() {
 
 a) `Oben liegt: Cem`, `Oben liegt: Ben`, `Oben liegt: Anna` – umgekehrt zur Reihenfolge des Auflegens. Danach ist der Stapel leer.
 
-b) `Oben liegt: Ben`, `Oben liegt: Anna`, `Oben liegt: null`. Cem wird entfernt, bevor jemand nachgesehen hat, und beim letzten Durchlauf liefert `top()` auf dem leeren Stapel `null`. Die Regel: **erst `top`, dann `pop`.**
+b) `Oben liegt: Ben`, `Oben liegt: Anna`, `Oben liegt: null`. Cem wird entfernt, bevor du nachgesehen hast, und beim letzten Durchlauf liefert `top()` auf dem leeren Stapel `null`. Die Regel: **erst `top`, dann `pop`.**
 
 ::::
 

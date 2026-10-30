@@ -13,7 +13,7 @@ keywords:
 
 # Testen und Laufzeit im Spiel
 
-Im Kapitel [Testen und Laufzeit](../../oberstufe/oop/02-erweiterungen/07-testen-und-laufzeit) hast du gelernt, Programme systematisch zu prüfen und abzuschätzen, was sie kosten. Ein Spiel scheint dafür schlecht geeignet: Man testet es, indem man es spielt. Genau das ist das Problem.
+Im Kapitel [Testen und Laufzeit](../../oberstufe/oop/02-erweiterungen/07-testen-und-laufzeit) hast du gelernt, Programme systematisch zu prüfen und abzuschätzen, was sie kosten. Ein Spiel scheint dafür schlecht geeignet: Du testest es, indem du es spielst. Genau das ist das Problem.
 
 :::snippet{#merken}
 **Die Leitfragen für dein Spiel:**
@@ -25,7 +25,9 @@ Im Kapitel [Testen und Laufzeit](../../oberstufe/oop/02-erweiterungen/07-testen-
 
 Eine Punkteregel, wie sie in vielen Spielen steht: Wer mehrere Münzen hintereinander einsammelt, bekommt einen **Kombo-Bonus**. Ab der dritten Münze in Folge zählt jede doppelt, ab der sechsten dreifach. Ein Treffer setzt die Kombo zurück.
 
-Steht diese Regel mitten in `Welt` oder im `Spieler`, lässt sie sich nur prüfen, indem man spielt: sechs Münzen einsammeln, ohne getroffen zu werden, und dann nachrechnen. Bei jeder Änderung von vorn. Und ob die Grenze bei der dritten oder der vierten Münze liegt, merkt man dabei kaum.
+Steht diese Regel mitten in `Welt` oder im `Spieler`, lässt sie sich nur prüfen, indem man spielt: sechs Münzen einsammeln, ohne getroffen zu werden, und dann nachrechnen. Bei jeder Änderung von vorne. Und ob die Grenze bei der dritten oder der vierten Münze liegt, merkt man dabei kaum.
+
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
 
 ## Mechaniken
 
@@ -49,6 +51,22 @@ public class Punkteregel {
 
 Aufwand: ★★☆
 
+<!-- MVP: 16-punkteregel -->
+
+**MVP zum Ausprobieren:** Lies die Punktestände nach jedem Treffer. Nach fehler beginnt die Kombo wieder bei eins.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-16-punkteregel"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/16-punkteregel.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Halte die Regel frei von Grafik und Tastatur. Die Welt meldet nur Ereignisse und liest Ergebnisse.
+
+<!-- /MVP -->
+
 ### Tests, die in einer Sekunde laufen
 
 **Im Spiel:** nichts zu sehen. Aber im Reiter **Testrunner** unter dem Editor stehen vier grüne Haken.
@@ -69,6 +87,22 @@ void grenzeZumDoppelten() {
 
 Aufwand: ★★☆
 
+<!-- MVP: 16-regeltests -->
+
+**MVP zum Ausprobieren:** Starte die vier Tests im Testrunner. Ändere >= 3 zu > 3 und prüfe erneut.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-16-regeltests"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/16-regeltests.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Teste beide Seiten jeder Grenze und den Neustart der Kombo nach einem Fehler.
+
+<!-- /MVP -->
+
 ### Eine Testliste fürs Spielen
 
 **Im Spiel:** nichts zu sehen, aber weniger Überraschungen bei der Vorstellung.
@@ -77,6 +111,26 @@ Aufwand: ★★☆
 
 Aufwand: ★☆☆
 
+<!-- MVP: 16-testliste -->
+
+**MVP zum Ausprobieren:** Prüfe die Fälle im Kommentar: Rand, zwei Meldungen im selben Bild, letztes Leben und letzte Münze gleichzeitig, Leertaste während des Spiels.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-16-testliste"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/16-testliste.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Lege die Priorität gleichzeitiger Ereignisse fest und halte erwartetes und beobachtetes Verhalten in deiner Testliste fest.
+
+<!-- /MVP -->
+
 ### Was kostet die Kollisionsprüfung?
 
 **Im Spiel:** Mit 5 Gegnern läuft alles flüssig, mit 200 ruckelt es.
@@ -84,6 +138,22 @@ Aufwand: ★☆☆
 **Dahinter steckt:** Jeder Gegner prüft in jedem Bild, ob er ein Hindernis berührt. Fragt jeder jeden, sind das bei *n* Figuren etwa *n*² Vergleiche, 60-mal in der Sekunde. Mit dem Gitter aus dem Kapitel über Felder fragt jeder nur noch seine Nachbarfelder: eine feste Zahl von Zugriffen, egal wie groß das Level ist. Schätze für dein Spiel ab, wie viele Vergleiche ein Bild kostet.
 
 Aufwand: ★★★
+
+<!-- MVP: 16-kollisionen -->
+
+**MVP zum Ausprobieren:** Vergleiche 5, 50 und 200 Figuren. Die Zähler messen Prüfungen, keine Millisekunden.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-16-kollisionen"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/16-kollisionen.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Ersetze die innere Schleife über alle Figuren durch Zugriffe auf örtliche Nachbarzellen. Bei mehreren Figuren pro Zelle muss auch deren Anzahl berücksichtigt werden.
+
+<!-- /MVP -->
 
 ### Die Flutfüllung testen
 
@@ -95,13 +165,29 @@ Aufwand: ★★★
 
 Aufwand: ★★★
 
+<!-- MVP: 16-kartentests -->
+
+**MVP zum Ausprobieren:** Starte die Tests im Testrunner. Entferne eine Öffnung im Testplan.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-16-kartentests"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/16-kartentests.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Teste kleine Pläne mit bekanntem Ergebnis, einschließlich nicht erreichbarer Ziele und Randpositionen.
+
+<!-- /MVP -->
+
 ## Und ohne Spiel?
 
 | Im Spiel | Dieselbe Einsicht woanders |
 | --- | --- |
 | Punkteregel aus dem Sprite herauslösen | Geschäftslogik von der Benutzeroberfläche trennen |
 | Grenzen 2 → 3 und 5 → 6 prüfen | Notengrenzen, Rabattstufen, Altersgrenzen |
-| „das teste ich, indem ich es spiele“ | „das teste ich, indem ich es benutze“ |
+| „Das teste ich, indem ich es spiele.“ | „Das teste ich, indem ich es benutze.“ |
 | jeder gegen jeden | jeder Datensatz gegen jeden anderen beim Abgleich |
 
 **Schlecht testbarer Code ist fast immer schlecht entworfener Code.** Wenn ein Test unmöglich erscheint, liegt es selten am Test.
@@ -119,11 +205,9 @@ Welche Regel in deinem Spiel rechnet etwas aus, ohne etwas anzuzeigen? Preise im
 Im Checkpoint nach diesem Kapitel rechnet die Klasse `Punkteregel` die Punktzahl mit Kombo-Bonus aus, und `PunkteregelTest` prüft sie mit vier Tests. Starte sie über den Reiter **Testrunner**. Wie du den Checkpoint lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :::alert{info}
-Die Testklasse ist im Format der Online-IDE geschrieben. Auf dem Rechner brauchst du JUnit, das zum Beispiel BlueJ schon mitbringt. Entferne dort das `@Test` vor `class PunkteregelTest`.
+Die Testklasse ist im Format der Online-IDE geschrieben. Auf dem Rechner brauchst du JUnit, das zum Beispiel das Java-Erweiterungspaket von VS Code mitbringt. Entferne dort das `@Test` vor `class PunkteregelTest`.
 :::
 
 :download[Checkpoint: Testen (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-07-testen.json"}
-
-:archive[Checkpoint: Testen (Projekt für den Rechner)]{name="spielwerkstatt-q-07-testen"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

@@ -18,6 +18,8 @@ Im Kapitel [Felder](../../oberstufe/oop/01-grundlagen/05-felder) hast du gelernt
 **Die Leitfrage für dein Spiel:** Wo hast du viele Dinge derselben Art, die du einzeln anlegst? Und wo möchtest du über alle diese Dinge hinweg etwas zählen, suchen oder summieren?
 :::
 
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
+
 ## Mechaniken
 
 Such dir mindestens eine aus. Du darfst sie verändern, kombinieren oder dir etwas ganz anderes ausdenken.
@@ -54,15 +56,55 @@ Die Methoden `zuX` und `zuY` rechnen Spalte und Zeile in Koordinaten um: `-360 +
 
 Aufwand: ★★☆
 
+<!-- MVP: 06-plan -->
+
+**MVP zum Ausprobieren:** Versetze ein # oder ein M im Plan und starte neu.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-plan"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-plan.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Lass jede Zeichenart den passenden Gegenstand erzeugen.
+
+<!-- /MVP -->
+
 ### Mehrere Räume
 
 **Im Spiel:** Am rechten Rand gibt es eine Lücke in der Mauer. Wer hindurchgeht, steht im nächsten Raum, mit eigener Landschaft und eigenen Münzen. Links geht es zurück.
 
 **Dahinter steckt:** ein Plan je Raum, also mehrere Felder von Zeichenketten, und eine Variable für den aktuellen Raum. Verlässt der Spieler die Bühne, nimmt `this.removeAll()` alles herunter, und die Welt baut den anderen Raum aus seinem Plan auf. Der Spieler kommt auf der gegenüberliegenden Seite wieder herein. Damit das übersichtlich bleibt, steckt der Aufbau in einer Methode `baueRaum(String[] pPlan)`. Vorsicht: `removeAll()` nimmt auch den Spieler herunter. Er muss danach wieder auf die Bühne. Ob du dafür ein Feld wie `planWiese` einfach einer Variable `plan` zuweisen darfst oder es kopieren musst, klärt in der Qualifikationsphase das Kapitel über Referenzen.
 
-Ein Haken: Weil jeder Raum beim Betreten neu gebaut wird, vergisst er alles. Eingesammelte Münzen liegen wieder da, besiegte Gegner stehen wieder auf. Wie sich jeder Raum seinen Zustand merkt, steht bei *Räume als eigene Bühnen* in [Objektorientierung im Spiel](./07-objektorientierung).
+Achtung: Weil jeder Raum beim Betreten neu gebaut wird, vergisst er alles. Eingesammelte Münzen liegen wieder da, besiegte Gegner stehen wieder auf. Wie sich jeder Raum seinen Zustand merkt, steht bei *Räume als eigene Bühnen* in [Objektorientierung im Spiel](./07-objektorientierung).
 
 Aufwand: ★★★
+
+<!-- MVP: 06-raeume -->
+
+**MVP zum Ausprobieren:** Drücke rechts oder links, um den anderen Raum aus seinem Plan aufzubauen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-raeume"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-raeume.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Rufe baueRaum beim Durchqueren eines Ausgangs auf. Erzeuge entfernte Figuren beim Neubau erneut.
+
+<!-- /MVP -->
 
 ### Eine Welt größer als der Bildschirm
 
@@ -77,6 +119,26 @@ this.getCamera().setPosition(held.getX(), held.getY());
 Probiere aus, was mit den Anzeigen passiert, wenn sich die Kamera bewegt.
 
 Aufwand: ★★☆
+
+<!-- MVP: 06-kamera -->
+
+**MVP zum Ausprobieren:** Laufe mit den Pfeiltasten nach rechts. Beobachte auch die Textzeile.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-kamera"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-kamera.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Richte die Kamera in run auf deine Figur aus. Anzeigen brauchen eine feste Position relativ zum Fenster.
+
+<!-- /MVP -->
 
 ### Ein Händler mit Sprüchen
 
@@ -96,21 +158,81 @@ private String[] sprueche = {
 
 Aufwand: ★☆☆
 
+<!-- MVP: 06-sprueche -->
+
+**MVP zum Ausprobieren:** Starte mehrfach oder drücke Leertaste für einen neuen zufälligen Spruch.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-sprueche"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-sprueche.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Wähle den Index zufällig oder aus dem Zustand deines Spiels.
+
+<!-- /MVP -->
+
 ### Münzen mit verschiedenen Werten
 
 **Im Spiel:** Die erste Münze bringt 5 Punkte, die zweite 10, die dritte 50.
 
-**Dahinter steckt:** ein Feld mit den Werten, und die Zahl der schon eingesammelten Münzen ist der Index: `punktzahl = punktzahl + werte[punkte];`. Was passiert, wenn es mehr Münzen als Werte gibt? Das ist die [häufigste Fehlermeldung](../../oberstufe/oop/01-grundlagen/05-felder/01-eindimensionale-felder) bei Feldern.
+**Dahinter steckt:** ein Feld mit den Werten, und die Zahl der schon eingesammelten Münzen ist der Index: `punktzahl = punktzahl + werte[punkte];`. Was passiert, wenn es mehr Münzen als Werte gibt? Das ist die [typische Fehlermeldung beim Zugriff über den Feldrand hinaus](../../oberstufe/oop/01-grundlagen/05-felder/01-eindimensionale-felder).
 
 Aufwand: ★☆☆
 
+<!-- MVP: 06-werte -->
+
+**MVP zum Ausprobieren:** Drücke viermal Leertaste. Nach drei Münzen wird nicht mehr ins Feld gegriffen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-werte"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-werte.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Prüfe den Index vor dem Zugriff und erhöhe ihn erst nach dem Einsammeln.
+
+<!-- /MVP -->
+
 ### Wege aus parallelen Feldern
 
-**Im Spiel:** Münzen liegen genau dort, wo du sie haben willst, ohne Plan und ohne zwanzig einzelne Aufrufe.
+**Im Spiel:** Münzen liegen genau dort, wo du sie haben möchtest, ohne Plan und ohne zwanzig einzelne Aufrufe.
 
 **Dahinter steckt:** [parallele Felder](../../oberstufe/oop/01-grundlagen/05-felder/03-felder-veraendern) für die x- und y-Koordinaten. Die Münze Nummer `i` liegt bei `(xs[i], ys[i])`.
 
 Aufwand: ★☆☆
+
+<!-- MVP: 06-koordinaten -->
+
+**MVP zum Ausprobieren:** Ändere xs[2] und ys[2], indem du die dritten Werte im Code austauschst.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-koordinaten"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-koordinaten.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Halte beide Felder gleich lang; derselbe Index beschreibt denselben Platz.
+
+<!-- /MVP -->
 
 ### Statistik nach dem Spiel
 
@@ -119,6 +241,26 @@ Aufwand: ★☆☆
 **Dahinter steckt:** ein Feld, in das `wennMuenzeEingesammelt()` die aktuelle Zeit schreibt. Am Ende durchläufst du es mit den [drei Grundaufgaben](../../oberstufe/oop/01-grundlagen/05-felder/02-felder-durchlaufen): summieren, Extremwert suchen, zählen.
 
 Aufwand: ★★★
+
+<!-- MVP: 06-statistik -->
+
+**MVP zum Ausprobieren:** Drücke dreimal Leertaste mit verschieden langen Pausen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-06-statistik"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/06-statistik.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere entweder Zeitabstände oder Zeitpunkte. Bei Zeitpunkten musst du für die Einzeldauern die Differenzen bilden.
+
+<!-- /MVP -->
 
 ## Deine eigene Idee
 
@@ -133,7 +275,5 @@ Wo legst du in deinem Code noch viele Dinge einzeln an? Bäume, Gegner, Schilder
 Im Checkpoint nach diesem Kapitel entsteht die ganze Welt aus einem Plan: Steine, Pflanzen, Münzen und der Startplatz. Wie du ihn lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Felder (Online-IDE)]{src="./checkpoints/spielwerkstatt-ef-05-felder.json"}
-
-:archive[Checkpoint: Felder (Projekt für den Rechner)]{name="spielwerkstatt-ef-05-felder"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).

@@ -9,7 +9,7 @@ scripts:
 
 # Einstieg: Wer zuletzt kommt
 
-Drück in einem beliebigen Programm zehnmal Strg+Z. Die Änderungen werden **rückwärts** zurückgenommen – die letzte zuerst, die erste zuletzt. Das Programm hat sie sich gemerkt wie einen Stapel Teller: Neues kommt oben drauf, und heruntergenommen wird auch von oben.
+Drück in einem beliebigen Programm zehnmal Strg+Z. Die Änderungen werden **rückwärts** zurückgenommen – die letzte zuerst, die erste zuletzt. Das Programm hat sie sich gemerkt wie einen Stapel Teller: Neues kommt oben drauf – und auch von oben wird wieder heruntergenommen.
 
 Das ist die zweite Zugriffsregel, die in der Informatik überall auftaucht – und sie ist genau die **Umkehrung** der [Warteschlange](../warteschlange/einstieg).
 
@@ -64,7 +64,7 @@ c) Lege danach von Hand drei Namen auf und hebe sie wieder ab. In welcher Reihen
 :::
 
 :::snippet{#brain}
-**Weiterdenken:** Du legst die Buchstaben `L`, `A`, `G`, `E`, `R` nacheinander auf einen Stapel und hebst sie danach alle wieder ab. Welches Wort entsteht? Wofür könnte man diesen Effekt nutzen?
+**Weiterdenken:** Du legst die Buchstaben `L`, `A`, `G`, `E`, `R` nacheinander auf einen Stapel und hebst sie danach alle wieder ab. Welches Wort entsteht? Wofür könntest du diesen Effekt nutzen?
 :::
 
 ::::protect{password="java-q-4-st-e-1" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -75,7 +75,7 @@ b) Beim Stapel kommt der zuletzt aufgelegte Name zuerst wieder heraus, bei der S
 
 c) In umgekehrter Reihenfolge – LIFO.
 
-**Weiterdenken:** `REGAL`. Ein Stapel **dreht die Reihenfolge um**. Das braucht man immer dann, wenn etwas rückwärts abgearbeitet werden soll – etwa eine Zeichenkette umkehren oder einen Weg zurückgehen.
+**Weiterdenken:** `REGAL`. Ein Stapel **dreht die Reihenfolge um**. Das braucht man immer dann, wenn etwas rückwärts abgearbeitet werden soll – etwa um eine Zeichenkette umzukehren oder einen Weg zurückzugehen.
 
 ::::
 
@@ -107,7 +107,7 @@ d) **Stapel** – aber nicht gerecht: Wer sich früh beworben hat, rutscht immer
 
 ## Der Aufrufstapel
 
-Der wichtigste Stapel ist einer, den du nie selbst anlegst: Java führt für jedes Programm einen mit, um Methodenaufrufe zu verwalten. Ihn kennst du schon aus [2.3 Kellerstapel und Halde](../../02-felder-referenzen-generik/03-kellerstapel-und-halde) – und aus [3.1 Rekursion](../../03-rekursion-und-problemloesestrategien/01-rekursion), wo du ihn beim Aufrufbaum in Aktion gesehen hast.
+Der wichtigste Stapel ist einer, den du nie selbst anlegst: Java verwaltet für jedes Programm einen eigenen, um Methodenaufrufe zu verwalten. Ihn kennst du schon aus [2.3 Kellerstapel und Halde](../../02-felder-referenzen-generik/03-kellerstapel-und-halde) – und aus [3.1 Rekursion](../../03-rekursion-und-problemloesestrategien/01-rekursion), wo du ihn beim Aufrufbaum in Aktion gesehen hast.
 
 :::snippet{#aufgabe}
 a) Erkläre mit den Begriffen dieser Seite, was beim Aufruf einer Methode auf den Aufrufstapel gelegt und was beim `return` wieder abgehoben wird.
@@ -116,7 +116,7 @@ b) Begründe, warum dafür ein **Stapel** die richtige Struktur ist und keine Wa
 :::
 
 :::snippet{#brain}
-**Weiterdenken:** Eine Endlosrekursion bricht mit einem `StackOverflowError` ab. Erkläre den Namen dieses Fehlers.
+**Weiterdenken:** Eine Endlosrekursion endet mit einem `StackOverflowError`. Erkläre den Namen dieses Fehlers.
 :::
 
 ::::protect{password="java-q-4-st-a-1" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
@@ -170,7 +170,7 @@ b) Weil Methodenaufrufe **verschachtelt** sind: Ruft `a()` die Methode `b()` auf
 
 {c1{bei der Warteschlange an einem Drucker}}
 
-{h{Beim Drucker kommt dran, wer zuerst da war.}}
+{h{Beim Drucker ist zuerst an der Reihe, wer zuerst da war.}}
 {H{Richtig! Das ist eine Schlange, kein Stapel.}}
 
 **4. Auf einen leeren Stapel kommen A, B und C. Was liefert danach top?**

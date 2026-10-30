@@ -21,11 +21,13 @@ Im Kapitel [Rekursion und Problemlösestrategien](../../oberstufe/oop/02-erweite
 
 ## Woran es hakt
 
-Ein Level mit Mauern hat ein Problem, das ein Level ohne Mauern nicht hat: Man kann Münzen an Stellen legen, an die **niemand hinkommt**. Bei 16 mal 9 Feldern sieht man das noch mit dem Auge. Bei einem größeren Level, und erst recht bei einem, das der Rechner selbst erzeugt, hilft Hinsehen nicht mehr. Das Programm muss die Frage selbst beantworten:
+Ein Level mit Mauern hat ein Problem, das ein Level ohne Mauern nicht hat: Man kann Münzen an Stellen legen, an die **niemand hinkommt**. Bei 16 × 9 Feldern sieht man das noch mit dem Auge. Bei einem größeren Level, und erst recht bei einem, das der Rechner selbst erzeugt, hilft Hinsehen nicht mehr. Das Programm muss die Frage selbst beantworten:
 
 > Welche Felder kann der Spieler vom Start aus erreichen?
 
 Für das ganze Level ist das schwer. Für ein Feld ist es leicht: *Ein Feld ist erreichbar, wenn ich darauf stehe. Dann sind auch alle Nachbarn erreichbar, die keine Mauer sind.*
+
+Die **MVPs** sind kleine, eigenständig lauffähige Beispiele. Starte ein Beispiel mit ▶ und klicke für die Tastensteuerung in seine Ausgabe. Im Reiter `Beispiel.java` steht die jeweilige Idee. Falls ein Reiter `Baukasten.java` dabei ist, enthält er vorbereitete Hilfen für Figuren, Texte und Steuerung. Probiere zuerst die angegebene Änderung aus und übertrage dann die Idee in [deine Werkstatt](./00-werkstatt).
 
 ## Mechaniken
 
@@ -55,9 +57,29 @@ private void markiere(int pZeile, int pSpalte) {
 
 Was passiert ohne den Basisfall „schon markiert“? Überlege es dir, bevor du es ausprobierst.
 
-Ein Haken: Bäume und Felsen sind auf der Bühne größer als ein Feld des Plans. Die Flutfüllung hält ein Feld neben einem Baum für frei, obwohl man dort vielleicht hängen bleibt. Wie würdest du das lösen?
+Achtung: Bäume und Felsen sind auf der Bühne größer als ein Feld des Plans. Die Flutfüllung hält ein Feld neben einem Baum für frei, obwohl du dort vielleicht stecken bleibst. Wie würdest du das lösen?
 
 Aufwand: ★★☆
+
+<!-- MVP: 12-flutfuellung -->
+
+**MVP zum Ausprobieren:** Öffne im Plan die Mauer vor dem rechten Bereich und starte neu. + markiert erreichbare Felder.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-12-flutfuellung"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/12-flutfuellung.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Benutze die Markierungen, um nur erreichbare Münzen zur Gewinnbedingung zu zählen.
+
+<!-- /MVP -->
 
 ### Eine Kettenreaktion
 
@@ -67,6 +89,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★☆
 
+<!-- MVP: 12-kettenreaktion -->
+
+**MVP zum Ausprobieren:** Leertaste zündet das Fass links oben. Nur zusammenhängende Fässer explodieren.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-12-kettenreaktion"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/12-kettenreaktion.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Markiere ein Fass vor dem Weitergehen, damit es nicht mehrfach explodiert.
+
+<!-- /MVP -->
+
 ### Felder aufdecken wie bei Minesweeper
 
 **Im Spiel:** Der Boden ist verdeckt. Betritt man ein Feld ohne Falle in der Nähe, deckt sich die ganze zusammenhängende sichere Fläche auf.
@@ -75,6 +117,26 @@ Aufwand: ★★☆
 
 Aufwand: ★★★
 
+<!-- MVP: 12-minesweeper -->
+
+**MVP zum Ausprobieren:** Leertaste deckt die sichere Fläche links oben auf. Zahlen begrenzen die Ausbreitung.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-12-minesweeper"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/12-minesweeper.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Decke ein Feld immer auf, setze die Rekursion aber nur bei null Nachbarfallen fort.
+
+<!-- /MVP -->
+
 ### Ein Dungeon aus geteilten Räumen
 
 **Im Spiel:** Bei jedem Start sieht der Dungeon anders aus: Räume verschiedener Größe, durch Türen verbunden.
@@ -82,6 +144,26 @@ Aufwand: ★★★
 **Dahinter steckt:** [Teilen und Herrschen](../../oberstufe/oop/02-erweiterungen/03-rekursion-und-problemloesestrategien/02-teilen-und-herrschen). Ein großer Raum wird durch eine Mauer mit einer Tür in zwei kleinere geteilt, und jeder davon wieder, bis die Räume klein genug sind.
 
 Aufwand: ★★★
+
+<!-- MVP: 12-dungeon -->
+
+**MVP zum Ausprobieren:** Starte mehrfach. Die Trennwände haben zufällige Türen.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-12-dungeon"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/12-dungeon.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Teile nur ausreichend große Räume. Jede neue Wand braucht einen Durchgang.
+
+<!-- /MVP -->
 
 ### Ein Labyrinth, das sich selbst baut
 
@@ -93,6 +175,26 @@ Aufwand: ★★★
 
 Aufwand: ★★★
 
+<!-- MVP: 12-labyrinth -->
+
+**MVP zum Ausprobieren:** Starte mehrfach. Zeichne den Weg von links oben nach rechts unten nach.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-12-labyrinth"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/12-labyrinth.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Speichere besuchte Zellen und reiße nur die Wand zu einem noch unbesuchten Nachbarn ein.
+
+<!-- /MVP -->
+
 ### Der Weg zum Schatz
 
 **Im Spiel:** Ein Hinweis-Pfeil oder eine Spur aus Leuchtpunkten zeigt einen Weg vom Spieler zum Schatz.
@@ -102,6 +204,26 @@ Aufwand: ★★★
 *(Nur Leistungskurs.)*
 
 Aufwand: ★★★
+
+<!-- MVP: 12-schatzweg -->
+
+**MVP zum Ausprobieren:** Die Pluszeichen zeigen einen gefundenen Weg zum M. Baue eine Sackgasse ein.
+
+::::onlineide{libraries="scratch,nrw" height="560px" outputWidth="45%" speed="1000000" id="spielwerkstatt-mvp-12-schatzweg"}
+
+```java Beispiel.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/12-schatzweg.java"}}}
+```
+
+```java Baukasten.java
+{{{rfile "/book/projekte/spielwerkstatt/mvp/Baukasten.java"}}}
+```
+
+::::
+
+**In dein Spiel übertragen:** Unterscheide besuchte Felder von Feldern auf dem aktuellen Weg; nur der Weg wird beim Zurückgehen gelöscht.
+
+<!-- /MVP -->
 
 ## Und ohne Spiel?
 
@@ -127,7 +249,5 @@ Wo hat dein Spiel etwas, das sich ausbreitet, verzweigt oder in kleinere Teile d
 Im Checkpoint nach diesem Kapitel markiert eine Flutfüllung alle erreichbaren Felder. Eine Münze liegt eingemauert in der Ecke unten rechts. Sie ist blass und zählt nicht mit. Wie du den Checkpoint lädst, steht auf der [Startseite der Werkstatt](./#checkpoints).
 
 :download[Checkpoint: Rekursion (Online-IDE)]{src="./checkpoints/spielwerkstatt-q-03-rekursion.json"}
-
-:archive[Checkpoint: Rekursion (Projekt für den Rechner)]{name="spielwerkstatt-q-03-rekursion"}
 
 Weiterbauen kannst du in [deiner Werkstatt](./00-werkstatt).
