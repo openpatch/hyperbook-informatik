@@ -45,5 +45,15 @@
       ]
     }
   ],
-  "logo": "/logo.png"
+  "logo": "/logo.png",
+  "elements": {
+    "blockflow": { "cdn": true },
+    "excalidraw": { "cdn": true },
+    "geogebra": { "cdn": true },
+    "onlineide": { "cdn": true },
+    "openscad": { "cdn": true },
+    "pyide": { "cdn": true },
+    "sqlide": { "cdn": true },
+    "typst": { "cdn": true }
+  }
 }
