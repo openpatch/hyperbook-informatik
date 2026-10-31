@@ -1,0 +1,53 @@
+name: Mirror from hyperbook.cloud
+
+on:
+  # Runs hourly
+  schedule:
+    - cron: "0 * * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Mirroring pushes back into this repository
+permissions:
+  contents: write
+
+# Never run two mirrors at the same time; queued runs go through afterwards.
+concurrency:
+  group: mirror-from-cloud
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # Mirroring needs the full history of this repository.
+          fetch-depth: 0
+
+      - name: Fetch from hyperbook.cloud
+        env:
+          HBC_USER: ${{ secrets.HBC_USER }}
+          HBC_PASSWORD: ${{ secrets.HBC_PASSWORD }}
+        run: |
+          git config --global credential.helper \
+            '!f() { printf "username=%s\npassword=%s\n" "$HBC_USER" "$HBC_PASSWORD"; }; f'
+          git remote add cloud https://hyperbook.cloud/api/books/4/git
+          git fetch --prune cloud "+refs/heads/*:refs/remotes/cloud/*"
+
+      - name: Push to GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(git rev-parse refs/remotes/cloud/main)" = "$(git rev-parse refs/remotes/origin/main)" ]; then
+            echo "main is already in sync with hyperbook.cloud"
+            exit 0
+          fi
+
+          git push --force origin "refs/remotes/cloud/main:refs/heads/main"
+
+          # Pushes made with GITHUB_TOKEN do not trigger the Pages deploy
+          # (on: push), so start it explicitly.
+          gh workflow run pages.yml --ref main
