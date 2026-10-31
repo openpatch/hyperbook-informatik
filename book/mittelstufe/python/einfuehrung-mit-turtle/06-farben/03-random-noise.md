@@ -208,7 +208,7 @@ Mit der `if`-Bedingung wird in 30% der Fälle (bei `random() > 0.7`) der Farbind
 
 Ein glatter Farbverlauf ist schön – aber ein bisschen langweilig. Wenn du den Verlauf mit zufälligem Rauschen störst, entsteht etwas, das wie eine alte Wand oder ein vergilbtes Papier wirkt: eine Struktur, die nicht maschinell aussieht.
 
-![Ein diagonaler Farbverlauf von Blaugrün zu Gelb, gestört durch zufälliges Rauschen](./03-verlauf-noise.png)
+![Ein diagonaler Farbverlauf von Blaugrün zu Gelb, gestört durch zufälliges Rauschen](./03-verlauf-noise.jpg)
 
 :::pyide{canvas height="650px"}
 

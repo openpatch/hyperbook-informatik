@@ -8,7 +8,7 @@ permaid: daten-ach-du-dickes-ei
 
 ## Codierung von Lebensmitteln
 
-![Eiercode](./ei2.png "Ei mit Code - Urheber: HSL - Lizenz: inf-schule.de")-{width="300px"}
+![Eiercode](./ei2.jpg "Ei mit Code - Urheber: HSL - Lizenz: inf-schule.de")-{width="300px"}
 
 Auf vielen Verpackungen von Lebensmitteln finden sich Codierungen, die Informationen über das Produkt enthalten. Bei Eiern sind diese Daten direkt auf die Schale gedruckt! Im Bild sieht man beispielsweise die Zeichenfolge 0-DE-0733012. 
 

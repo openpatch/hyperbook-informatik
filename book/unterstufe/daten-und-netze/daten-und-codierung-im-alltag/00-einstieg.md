@@ -14,7 +14,7 @@ Diese Lernstrecke ist eine Abwandlung und Erweiterung der Lernstrecke von [inf-s
 
 ## Wer versteht denn sowas?
 
-![Codierung im Alltag](./daten-bsp.png "Codierungen im Alltag - Urheber: HSL - Lizenz: inf-schule.de")-
+![Codierung im Alltag](./daten-bsp.jpg "Codierungen im Alltag - Urheber: HSL - Lizenz: inf-schule.de")-
 
 In unserem Alltag begegnen uns immer wieder Daten in Form von Ziffern und Zeichen, deren Bedeutung nicht sofort zu erkennen ist.
 
