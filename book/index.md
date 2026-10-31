@@ -10,7 +10,7 @@ index: 0
 
 Mit diesem Hyperbook kannst du Konzepte der Informatik eigenständig erlernen. In vielen Fällen sind interaktive Übungen dabei, sodass du dein neues Wissen sofort testen kannst.
 
-Im Bereich Projekte findest du größere zusammenhängende Projekte, mit denen du entweder in einen neuen Teilbereich der Informatik einsteigen kannst oder dein vorhandnes Wissen ausbauen kannst.
+Im Bereich Projekte findest du größere zusammenhängende Projekte, mit denen du entweder in einen neuen Teilbereich der Informatik einsteigen kannst oder dein vorhandenes Wissen ausbauen kannst.
 
 Ein Kernansatz dieses Hyperbooks ist es dich direkt ans Machen zu bekommen. Das heißt, dass du am besten z.B. direkt mit dem Programmieren starten solltest, ohne großartig vorher Trockenübungen zu unternehmen. Daher empfehle ich dir immer mit einem Projekt zu starten.
 
