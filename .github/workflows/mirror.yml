@@ -11,6 +11,7 @@ on:
 # Mirroring pushes back into this repository
 permissions:
   contents: write
+  actions: write
 
 # Never run two mirrors at the same time; queued runs go through afterwards.
 concurrency:
