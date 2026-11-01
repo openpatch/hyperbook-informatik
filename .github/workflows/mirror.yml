@@ -35,20 +35,50 @@ jobs:
         run: |
           git config --global credential.helper \
             '!f() { printf "username=%s\npassword=%s\n" "$HBC_USER" "$HBC_PASSWORD"; }; f'
+          # Remember the current tags so we can detect changes (and new tags) later.
+          git tag --list | sort > "$RUNNER_TEMP/tags-before.txt"
+
           git remote add cloud https://hyperbook.cloud/api/books/4/git
-          git fetch --prune cloud "+refs/heads/*:refs/remotes/cloud/*"
+          git fetch --prune cloud \
+            "+refs/heads/*:refs/remotes/cloud/*" \
+            "+refs/tags/*:refs/tags/*"
 
       - name: Push to GitHub
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          main_in_sync=0
           if [ "$(git rev-parse refs/remotes/cloud/main)" = "$(git rev-parse refs/remotes/origin/main)" ]; then
-            echo "main is already in sync with hyperbook.cloud"
+            main_in_sync=1
+          fi
+
+          git tag --list | sort > "$RUNNER_TEMP/tags-after.txt"
+          tags_in_sync=0
+          if cmp -s "$RUNNER_TEMP/tags-before.txt" "$RUNNER_TEMP/tags-after.txt"; then
+            tags_in_sync=1
+          fi
+
+          if [ "$main_in_sync" = 1 ] && [ "$tags_in_sync" = 1 ]; then
+            echo "main and tags are already in sync with hyperbook.cloud"
             exit 0
           fi
 
-          git push --force origin "refs/remotes/cloud/main:refs/heads/main"
+          if [ "$main_in_sync" = 0 ]; then
+            git push --force origin "refs/remotes/cloud/main:refs/heads/main"
+          fi
+
+          if [ "$tags_in_sync" = 0 ]; then
+            git push --force --prune origin "refs/tags/*:refs/tags/*"
+          fi
 
           # Pushes made with GITHUB_TOKEN do not trigger the Pages deploy
-          # (on: push), so start it explicitly.
-          gh workflow run pages.yml --ref main
+          # (on: push of a tag), so start it explicitly for the newest new tag.
+          comm -13 "$RUNNER_TEMP/tags-before.txt" "$RUNNER_TEMP/tags-after.txt" \
+            | sort -V | tail -n 1 > "$RUNNER_TEMP/newest-tag.txt"
+          if [ -s "$RUNNER_TEMP/newest-tag.txt" ]; then
+            tag=$(cat "$RUNNER_TEMP/newest-tag.txt")
+            echo "New tag detected: $tag"
+            gh workflow run pages.yml --ref "$tag"
+          else
+            echo "No new tags; skipping the Pages deploy."
+          fi

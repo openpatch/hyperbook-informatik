@@ -1,9 +1,10 @@
 name: Deploy Hyperbook to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs when a new tag is pushed
   push:
-    branches: main
+    tags:
+      - '*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
