@@ -3,6 +3,8 @@ name: Web Components
 hide: true
 scripts:
   - /wc/asset-suche.js
+  - /wc/binaer-addition.js
+  - /wc/binaer-stellenwert.js
   - /wc/binary-to-ascii.js
   - /wc/bit-rows.js
   - /wc/card-matching.js
@@ -12,7 +14,9 @@ scripts:
   - /wc/ki-konfusionsmatrix.js
   - /wc/ki-neuron.js
   - /wc/ki-punktwolke.js
+  - /wc/logik-schaltung.js
   - /wc/memory-game.js
+  - /wc/mini-prozessor.js
   - /wc/oop-aufrufbaum.js
   - /wc/oop-dispatch.js
   - /wc/oop-kapselung.js
@@ -84,6 +88,94 @@ Zeigt interaktive Bit-Reihen an. Bits können zwischen 0 und 1 umgeschaltet werd
 ```
 
 <bit-rows id="wc-bits-demo"></bit-rows>
+
+---
+
+## Binär-Stellenwert
+
+Stellenwertkarten für das Binärsystem. Jede Karte ist ein Bit, darüber steht ihr Stellenwert, darunter die Summe als Dezimalzahl. Mit `ziel` wird daraus ein Training.
+
+| Attribute | Type   | Description |
+|-----------|--------|-------------|
+| `id`      | String | Eindeutiger Bezeichner zum Speichern des Zustands |
+| `bits`    | Number | Anzahl der Karten (1–16), Standard `8` |
+| `ziel`    | String | Kommagetrennte Zielzahlen der Reihe nach, oder `zufall` für endlose Zufallsaufgaben |
+| `summe`   | String | `nein` blendet die Umrechnung unter den Karten aus |
+| `werte`   | String | `nein` blendet die Stellenwerte über den Karten aus |
+
+**Beispiel:**
+```html
+<binaer-stellenwert id="stellen-frei" bits="8"></binaer-stellenwert>
+<binaer-stellenwert id="stellen-ziel" bits="8" ziel="5, 12, 100"></binaer-stellenwert>
+```
+
+<binaer-stellenwert id="wc-stellenwert" bits="6" ziel="zufall"></binaer-stellenwert>
+
+---
+
+## Binär-Addition
+
+Schriftliche Addition im Binärsystem zum Ausfüllen. Überträge und Ergebnisbits werden durch Anklicken gesetzt (leer → 0 → 1). Mit `register` hat das Ergebnis eine feste Breite; die Lernenden geben zusätzlich an, ob ein Überlauf entsteht.
+
+| Attribute  | Type    | Description |
+|------------|---------|-------------|
+| `id`       | String  | Eindeutiger Bezeichner zum Speichern des Zustands |
+| `bits`     | Number  | Stellen der Summanden (2–12), Standard `4` |
+| `aufgaben` | String  | feste Aufgaben, z. B. `"0011+0101, 1011+0110"`; ohne Angabe Zufallsaufgaben |
+| `register` | Boolean | feste Registerbreite mit Überlauf-Frage |
+
+**Beispiel:**
+```html
+<binaer-addition id="add-fest" bits="4" aufgaben="0110+0111"></binaer-addition>
+<binaer-addition id="add-register" bits="4" register></binaer-addition>
+```
+
+<binaer-addition id="wc-addition" bits="4" register></binaer-addition>
+
+---
+
+## Logik-Schaltung
+
+Simulator für logische Schaltungen mit Schaltzeichen nach DIN EN 60617. Die Schaltung wird als Text beschrieben, das Layout entsteht automatisch. Eingänge sind Schalter, Ausgänge Lampen, Leitungen mit Signal 1 sind hervorgehoben.
+
+| Attribute   | Type    | Description |
+|-------------|---------|-------------|
+| `id`        | String  | Eindeutiger Bezeichner zum Speichern des Zustands |
+| `eingaenge` | String  | Namen der Eingänge, kommagetrennt (höchstens 5) |
+| `schaltung` | String  | Gatter, getrennt durch `;` oder Zeilenumbruch: `Name = art(Eingang, …)`. Arten: `und`, `oder`, `nicht`, `xor`, `nand`, `nor`, `?` (von den Lernenden festzulegen) |
+| `ausgaenge` | String  | Gatter, die als Lampe erscheinen; ohne Angabe alle nicht weiterverwendeten |
+| `waehlbar`  | String  | Gatter, deren Art die Lernenden per Klick festlegen (zusätzlich zu `?`) |
+| `arten`     | String  | Auswahl beim Durchklicken wählbarer Gatter, Standard alle |
+| `soll`      | String  | Soll-Tabelle, z. B. `"S: 0110; C: 0001"` (Zeilen von 00…0 bis 11…1); blendet „Schaltung prüfen“ ein |
+| `tabelle`   | String  | `aus` (Standard), `zeigen` oder `ausfuellen` |
+| `editierbar`| Boolean | Lernende können Eingänge und Schaltung selbst eingeben |
+| `aufgabe`   | String  | Aufgabentext über der Schaltung |
+
+**Beispiel:**
+```html
+<logik-schaltung id="ha" eingaenge="A, B" schaltung="S = xor(A, B); C = und(A, B)" tabelle="zeigen"></logik-schaltung>
+<logik-schaltung id="ha-bauen" eingaenge="A, B" schaltung="S = ?(A, B); C = ?(A, B)" arten="und, oder, xor" soll="S: 0110; C: 0001"></logik-schaltung>
+```
+
+<logik-schaltung id="wc-logik" eingaenge="A, B, Cin" schaltung="X = xor(A, B); S = xor(X, Cin); U1 = und(A, B); U2 = und(X, Cin); Cout = oder(U1, U2)" ausgaenge="S, Cout" tabelle="zeigen"></logik-schaltung>
+
+---
+
+## Mini-Prozessor
+
+Stark vereinfachter Prozessor mit Befehlszähler, Befehlsregister, Akkumulator und gemeinsamem Speicher für Befehle und Daten. „Schritt“ führt jeweils eine Phase des Befehlszyklus aus (Holen, Dekodieren, Ausführen). Jede Zelle ist 8 Bit breit: 3 Bit Befehl, 5 Bit Adresse. Befehle: `STOPP` (0), `LADE` (1), `ADDIERE` (2), `SUBTRAHIERE` (3), `SPEICHERE` (4), `SPRINGE` (5). Zellen lassen sich als Zahl ändern.
+
+| Attribute  | Type   | Description |
+|------------|--------|-------------|
+| `speicher` | String | Zellinhalte, getrennt durch `;` – Befehl mit Adresse oder Zahl 0–255 |
+| `zellen`   | Number | Anzahl der Speicherzellen (4–16), Standard `8` |
+
+**Beispiel:**
+```html
+<mini-prozessor speicher="LADE 5; ADDIERE 6; SPEICHERE 7; STOPP; 0; 3; 4; 0"></mini-prozessor>
+```
+
+<mini-prozessor speicher="LADE 5; ADDIERE 6; SPEICHERE 7; STOPP; 0; 3; 4; 0"></mini-prozessor>
 
 ---
 

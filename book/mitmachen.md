@@ -131,6 +131,7 @@ Genau **ein** Kürzel je Bereich, und es wird nicht verschachtelt: `java-liste-a
 | Mittelstufe · Turtle-Grafiken | `turtle` |
 | Mittelstufe · Webentwicklung | `web` |
 | Mittelstufe · 3D-Druck | `3d-druck` |
+| Mittelstufe · Innenansichten des Computers | `rechner` |
 | Oberstufe · Datenbanken | `datenbanken` |
 | Oberstufe · Programmierung mit Java | `java` |
 | Oberstufe · Objektorientierte Modellierung | `oom` |

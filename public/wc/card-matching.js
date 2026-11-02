@@ -688,6 +688,11 @@ class CardMatching extends HTMLElement {
 
     const handleMove = (e) => {
       if (!this.draggedCard) return;
+      // Maustaste wurde außerhalb des Fensters losgelassen: Ziehen beenden.
+      if (e.type === "mousemove" && e.buttons === 0) {
+        handleEnd(e);
+        return;
+      }
 
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const clientY = e.touches ? e.touches[0].clientY : e.clientY;
@@ -741,29 +746,32 @@ class CardMatching extends HTMLElement {
         cardEl.classList.remove("dragging");
       }
 
-      const targetCard = this.cards.find((card) => {
-        if (card.id === this.draggedCard.id) return false;
-        if (card.type === this.draggedCard.type) return false;
-        if (this.draggedCard.connectedTo) return false;
-        if (card.connectedTo) return false;
-
-        const dx1 = this.draggedCard.position.x;
-        const dy1 = this.draggedCard.position.y;
-        const dw1 = 180;
-        const dh1 = 60;
-
-        const dx2 = card.position.x;
-        const dy2 = card.position.y;
-        const dw2 = 180;
-        const dh2 = 60;
-
-        return !(
-          dx1 + dw1 < dx2 ||
-          dx1 > dx2 + dw2 ||
-          dy1 + dh1 < dy2 ||
-          dy1 > dy2 + dh2
-        );
-      });
+      // Treffer über die tatsächlich gezeichneten Karten bestimmen. Die Positionen sind
+      // teils in Prozent, teils in Pixeln gespeichert und lassen sich nicht direkt
+      // vergleichen. Eine Verbindung entsteht nur, wenn sich die Karten deutlich
+      // überlappen; bei mehreren Kandidaten gewinnt die größte Überlappung.
+      let targetCard = null;
+      if (cardEl && !this.draggedCard.connectedTo) {
+        const r1 = cardEl.getBoundingClientRect();
+        let besteUeberlappung = 0;
+        this.cards.forEach((card) => {
+          if (card.id === this.draggedCard.id) return;
+          if (card.type === this.draggedCard.type) return;
+          if (card.connectedTo) return;
+          const el = this.shadowRoot.querySelector(`[data-id="${card.id}"]`);
+          if (!el) return;
+          const r2 = el.getBoundingClientRect();
+          const breite = Math.min(r1.right, r2.right) - Math.max(r1.left, r2.left);
+          const hoehe = Math.min(r1.bottom, r2.bottom) - Math.max(r1.top, r2.top);
+          if (breite <= 0 || hoehe <= 0) return;
+          const flaeche = breite * hoehe;
+          const kleinere = Math.min(r1.width * r1.height, r2.width * r2.height);
+          if (flaeche >= 0.3 * kleinere && flaeche > besteUeberlappung) {
+            besteUeberlappung = flaeche;
+            targetCard = card;
+          }
+        });
+      }
 
       if (targetCard) {
         this.createConnection(this.draggedCard.id, targetCard.id);
@@ -785,8 +793,11 @@ class CardMatching extends HTMLElement {
       this.draggedCard = null;
     };
 
-    container.addEventListener("mouseup", handleEnd);
-    container.addEventListener("touchend", handleEnd);
+    // Loslassen auch außerhalb des Spielfelds beendet das Ziehen – sonst klebt die Karte
+    // am Mauszeiger und verbindet sich beim nächsten Loslassen an zufälliger Stelle.
+    window.addEventListener("mouseup", handleEnd);
+    window.addEventListener("touchend", handleEnd);
+    window.addEventListener("touchcancel", handleEnd);
 
     svg.addEventListener("click", (e) => {
       const tape = e.target.closest(".tape");
