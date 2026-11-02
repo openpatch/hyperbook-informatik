@@ -116,7 +116,7 @@ def ordner(archivname: str) -> pathlib.Path:
 def workspace(archivname: str, name: str) -> dict:
     archiv = ordner(archivname)
     metadata = {
-        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "7.1.0",
+        "version": 1, "portableVersion": 1, "flavour": "nrw", "libraryVersion": "7.1.1",
         "startStage": "Main", "startFile": "Main.java", "pixelArt": True,
         "lesson": "spielwerkstatt", "checkpoint": archivname, "sourceEnvironment": "browser",
         "browserFeatures": [], "externalDependencies": [],
