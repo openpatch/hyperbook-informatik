@@ -9,7 +9,21 @@ scripts:
 
 # Einstieg: Wer zuerst kommt
 
-An der Supermarktkasse gilt eine Regel, die niemand aufschreiben muss: **Wer zuerst da war, ist zuerst an der Reihe.** Wer dazukommt, stellt sich hinten an. Bedient wird vorne. Dazwischen passiert nichts – man kann sich nicht in die Mitte stellen und auch niemanden aus der Mitte herausziehen.
+Stell dir vor, du stehst an der Supermarktkasse. Die Regel ist klar: **Wer zuerst da war, ist zuerst an der Reihe.** Du stellst dich hinten an, und die Kassiererin bedient die Person vorne. Niemand kann sich einfach in die Mitte drängeln – das wäre unfair und würde das System durcheinanderbringen. Genau dieses Prinzip steckt hinter der **Warteschlange** in der Informatik.
+
+Doch Warteschlangen sind nicht nur im Alltag wichtig. Sie spielen auch eine zentrale Rolle in vielen technischen Systemen:
+
+- **Druckaufträge:** Wenn mehrere Personen gleichzeitig etwas ausdrucken, werden die Aufträge in einer Warteschlange abgearbeitet.
+- **Netzwerkpakete:** Datenpakete, die über das Internet versendet werden, müssen in der richtigen Reihenfolge ankommen – auch hier sorgt eine Warteschlange für Ordnung.
+- **Serveranfragen:** Ein Webserver bekommt oft hunderte Anfragen pro Sekunde. Diese werden in einer Warteschlange zwischengespeichert und nacheinander bearbeitet.
+
+:::snippet{#beispiel}
+**Beispiel aus dem Alltag:**
+Du bist in einem Callcenter. Die Anrufe kommen rein, und die Mitarbeiter:innen nehmen sie in der Reihenfolge entgegen, in der sie eingehen. Wer zuerst anruft, wird zuerst bedient. Das ist eine klassische Warteschlange!
+
+**Beispiel aus der Technik:**
+Ein 3D-Drucker bekommt mehrere Druckaufträge. Der Drucker arbeitet sie nacheinander ab – der erste Auftrag, der eingeht, wird auch zuerst gedruckt.
+:::
 
 Genau diese Regel – und genau diese Beschränkung – ist die **Warteschlange**.
 
