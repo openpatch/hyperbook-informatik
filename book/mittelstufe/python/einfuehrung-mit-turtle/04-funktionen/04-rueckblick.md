@@ -262,6 +262,139 @@ e) Weil `ampelfarbe` damit nur **eine** Aufgabe hat: entscheiden. Man kann die E
 
 :::
 
+:::snippet{#aufgabe}
+**Aufgabe 4: Der wachsende Wald**
+
+Baue das Zielbild nach: fünf Bäume, die von links nach rechts um je 30 höher werden. Der kleinste ist 60 hoch, zwischen zwei Bäumen liegt ein Abstand von 130.
+
+a) Zeichne die fünf Bäume mit **einer Schleife** und nur **einem** Aufruf von `baum` darin.
+
+b) Bäume, die mindestens 120 hoch sind, bekommen eine dunkelgrüne Krone (`darkgreen`), die anderen eine grüne (`green`). Schreibe dafür eine Funktion `kronenfarbe(hoehe)`, die die passende Farbe **zurückgibt**.
+
+c) Warum ist es sinnvoll, die Farbe in einer eigenen Funktion zu bestimmen, statt sie in `baum` festzulegen?
+:::
+
+:::pyide{canvas compare pass=95 height="600px"}
+
+```python
+from turtle import *
+shape("turtle")
+speed(0)
+hideturtle()
+
+
+def baum(hoehe, farbe):
+    pensize(30)
+    pencolor("brown")
+    pendown()
+    forward(hoehe)
+    pencolor(farbe)
+    dot(70)
+    penup()
+    backward(hoehe)
+
+
+def abstand(weite):
+    right(90)
+    forward(weite)
+    left(90)
+
+
+# Deine Funktion kronenfarbe:
+
+
+# Hauptprogramm
+penup()
+goto(-260, -150)
+left(90)
+
+```
+
+```python file="solution.py" role="solution" hidden
+from turtle import *
+shape("turtle")
+speed(0)
+hideturtle()
+
+
+def baum(hoehe, farbe):
+    pensize(30)
+    pencolor("brown")
+    pendown()
+    forward(hoehe)
+    pencolor(farbe)
+    dot(70)
+    penup()
+    backward(hoehe)
+
+
+def abstand(weite):
+    right(90)
+    forward(weite)
+    left(90)
+
+
+def kronenfarbe(hoehe):
+    if hoehe >= 120:
+        return "darkgreen"
+    return "green"
+
+
+# Hauptprogramm
+penup()
+goto(-260, -150)
+left(90)
+
+for i in range(5):
+    hoehe = 60 + i * 30
+    baum(hoehe, kronenfarbe(hoehe))
+    abstand(130)
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Die Höhe in der Schleife"}
+
+Die Zählvariable `i` läuft von 0 bis 4. Daraus kannst du die Höhe berechnen: `hoehe = 60 + i * 30`.
+
+::::
+
+::::collapsible{title="Tipp 2: Funktion im Aufruf"}
+
+Ein Rückgabewert kann direkt als Argument dienen:
+
+```python
+baum(hoehe, kronenfarbe(hoehe))
+```
+
+Python berechnet zuerst `kronenfarbe(hoehe)` und setzt das Ergebnis dann als zweites Argument ein.
+
+::::
+
+:::protect{password="turtle-4-4-4" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+```python
+def kronenfarbe(hoehe):
+    if hoehe >= 120:
+        return "darkgreen"
+    return "green"
+
+
+# Hauptprogramm
+penup()
+goto(-260, -150)
+left(90)
+
+for i in range(5):
+    hoehe = 60 + i * 30
+    baum(hoehe, kronenfarbe(hoehe))
+    abstand(130)
+```
+
+c) `baum` muss nur noch zeichnen und weiß nichts über die Regel für die Farbe. Soll die Regel sich ändern, zum Beispiel ab 150 statt ab 120, änderst du nur `kronenfarbe`. Außerdem lässt sich die Regel unabhängig vom Zeichnen ausprobieren, etwa mit `print(kronenfarbe(90))`.
+
+:::
+
 ---
 
 ## Selbsttest

@@ -108,7 +108,207 @@ Achte bei `haus` darauf, dass die schrägen Strecken mitwachsen müssen. Für di
 
 ::::
 
-## Aufgabe 2: Mehrere Parameter
+## Aufgabe 2: Eine Häuserzeile nachbauen
+
+:::snippet{#aufgabe}
+Das Hauptprogramm unten ist schon fertig. Es ruft `haus(60)`, `haus(100)` und `haus(140)` auf – aber die Funktion `haus` kennt noch keinen Parameter.
+
+Ändere **nur die Funktion** `haus` so, dass dein Bild mit dem Zielbild übereinstimmt.
+:::
+
+:::snippet{#merken}
+**So arbeitest du mit dem Zielbild.** Nach jedem fehlerfreien Lauf vergleicht die Zeichenfläche dein Bild mit dem Zielbild:
+
+- Links von der Trennlinie siehst du **dein Bild**, rechts das **Ziel**. Die Trennlinie kannst du verschieben.
+- **Überlagern** legt das Ziel halb durchsichtig über dein Bild, **Unterschiede** markiert, wo es noch nicht passt.
+- Die Prozentzahl zeigt, wie gut dein Bild passt. Ab 95 % ist die Aufgabe gelöst, und das Bild bekommt einen grünen Rahmen.
+:::
+
+:::pyide{canvas compare pass=95 height="600px"}
+
+```python
+from turtle import *
+shape("turtle")
+speed(0)
+hideturtle()
+
+
+def baum(hoehe):
+    pensize(40)
+    pencolor("brown")
+    pendown()
+    forward(hoehe)
+    pencolor("green")
+    dot(100)
+    penup()
+    backward(hoehe)
+
+
+# Diese Funktion sollst du ändern
+def haus():
+    pensize(2)
+    pencolor("black")
+    pendown()
+    forward(100)
+    right(90)
+    fillcolor("red")
+    begin_fill()
+    forward(100)
+    left(135)
+    forward(71)
+    left(90)
+    forward(71)
+    end_fill()
+    left(90)
+    forward(141)
+    left(135)
+    forward(100)
+    left(135)
+    forward(141)
+    left(135)
+    forward(100)
+    penup()
+    backward(100)
+    left(90)
+
+
+def abstand(weite):
+    right(90)
+    forward(weite)
+    left(90)
+
+
+# Hauptprogramm – hier musst du nichts ändern
+penup()
+goto(-260, -180)
+left(90)
+
+baum(100)
+abstand(60)
+haus(60)
+abstand(90)
+haus(100)
+abstand(130)
+haus(140)
+abstand(210)
+baum(160)
+```
+
+```python file="solution.py" role="solution" hidden
+from turtle import *
+shape("turtle")
+speed(0)
+hideturtle()
+
+
+def baum(hoehe):
+    pensize(40)
+    pencolor("brown")
+    pendown()
+    forward(hoehe)
+    pencolor("green")
+    dot(100)
+    penup()
+    backward(hoehe)
+
+
+def haus(breite):
+    pensize(2)
+    pencolor("black")
+    pendown()
+    forward(breite)
+    right(90)
+    fillcolor("red")
+    begin_fill()
+    forward(breite)
+    left(135)
+    forward(breite * 0.71)
+    left(90)
+    forward(breite * 0.71)
+    end_fill()
+    left(90)
+    forward(breite * 1.41)
+    left(135)
+    forward(breite)
+    left(135)
+    forward(breite * 1.41)
+    left(135)
+    forward(breite)
+    penup()
+    backward(breite)
+    left(90)
+
+
+def abstand(weite):
+    right(90)
+    forward(weite)
+    left(90)
+
+
+penup()
+goto(-260, -180)
+left(90)
+
+baum(100)
+abstand(60)
+haus(60)
+abstand(90)
+haus(100)
+abstand(130)
+haus(140)
+abstand(210)
+baum(160)
+```
+
+:::
+
+::::collapsible{title="Tipp 1: Was bedeutet die Fehlermeldung?"}
+
+Solange `haus` keinen Parameter hat, meldet Python beim Aufruf `haus(60)`, dass die Funktion **kein** Argument erwartet. Ergänze im Kopf der Funktion einen Parameter: `def haus(breite):`
+
+::::
+
+::::collapsible{title="Tipp 2: Welche Zahlen müssen weg?"}
+
+Jede `100` im Rumpf ist eine Seite des Hauses und wird zu `breite`. Die schrägen Strecken müssen mitwachsen: Aus `141` wird `breite * 1.41`, aus `71` wird `breite * 0.71`.
+
+::::
+
+:::protect{password="turtle-4-2-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+```python
+def haus(breite):
+    pensize(2)
+    pencolor("black")
+    pendown()
+    forward(breite)
+    right(90)
+    fillcolor("red")
+    begin_fill()
+    forward(breite)
+    left(135)
+    forward(breite * 0.71)
+    left(90)
+    forward(breite * 0.71)
+    end_fill()
+    left(90)
+    forward(breite * 1.41)
+    left(135)
+    forward(breite)
+    left(135)
+    forward(breite * 1.41)
+    left(135)
+    forward(breite)
+    penup()
+    backward(breite)
+    left(90)
+```
+
+Das Hauptprogramm bleibt unverändert. Die Funktion rufst du dreimal mit verschiedenen Argumenten auf und bekommst drei verschiedene Häuser.
+
+:::
+
+## Aufgabe 3: Mehrere Parameter
 
 :::snippet{#aufgabe}
 Erweitere die Funktion `baum` so, dass man **zwei** Dinge angeben kann: die Höhe des Stamms und die Farbe der Krone.
@@ -184,7 +384,7 @@ baum(70, "red")
 
 :::
 
-## Aufgabe 3: Bekannte Funktionen einordnen
+## Aufgabe 4: Bekannte Funktionen einordnen
 
 :::snippet{#aufgabe}
 Ohne die Fachbegriffe zu verwenden, hast du längst Funktionen **mit** und **ohne** Parameter benutzt.
@@ -204,21 +404,27 @@ Bei `goto(0, 0)` sind es sogar zwei Parameter, bei `screensize(400, 300)` ebenfa
 
 ::::
 
-## Aufgabe 4: Ein Vieleck als Funktion
+## Aufgabe 5: Ein Vieleck als Funktion
 
 :::snippet{#aufgabe}
 Schreibe eine Funktion `vieleck(ecken, seite)`, die ein regelmäßiges Vieleck mit der angegebenen Eckenzahl und Seitenlänge zeichnet.
 
-Zeichne damit anschließend ein Dreieck, ein Sechseck und ein Zwölfeck an verschiedenen Stellen.
+Zeichne damit anschließend so wie im Zielbild drei Vielecke nebeneinander:
+
+| Vieleck | Startpunkt | Seitenlänge |
+| --- | --- | --- |
+| Dreieck | `(-220, -50)` | 60 |
+| Sechseck | `(-40, -50)` | 50 |
+| Zwölfeck | `(140, -50)` | 30 |
 :::
 
-:::pyide{canvas height="600px"}
+:::pyide{canvas compare pass=95 height="600px"}
 
 ```python
 from turtle import *
 shape("turtle")
-screensize(600, 400)
 speed(0)
+hideturtle()
 
 
 def vieleck(ecken, seite):
@@ -228,9 +434,39 @@ def vieleck(ecken, seite):
 
 # Hauptprogramm
 penup()
-goto(-200, 0)
+goto(-220, -50)
 pendown()
 vieleck(3, 60)
+```
+
+```python file="solution.py" role="solution" hidden
+from turtle import *
+shape("turtle")
+speed(0)
+hideturtle()
+
+
+def vieleck(ecken, seite):
+    winkel = 360 / ecken
+    for i in range(ecken):
+        forward(seite)
+        left(winkel)
+
+
+penup()
+goto(-220, -50)
+pendown()
+vieleck(3, 60)
+
+penup()
+goto(-40, -50)
+pendown()
+vieleck(6, 50)
+
+penup()
+goto(140, -50)
+pendown()
+vieleck(12, 30)
 ```
 
 :::
@@ -254,8 +490,8 @@ def vieleck(ecken, seite):
 ```python
 from turtle import *
 shape("turtle")
-screensize(600, 400)
 speed(0)
+hideturtle()
 
 
 def vieleck(ecken, seite):
