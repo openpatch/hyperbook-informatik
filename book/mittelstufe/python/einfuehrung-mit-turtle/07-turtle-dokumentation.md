@@ -88,6 +88,8 @@ Für `align` sind `"left"`, `"center"` und `"right"` möglich.
 | `position()` | beide Koordinaten als Paar. Kurzform: `pos` |
 | `heading()` | die aktuelle Blickrichtung in Grad |
 | `towards(x, y)` | den Winkel von der Turtle zum Punkt (x \| y) |
+| `distance(x, y)` | den Abstand der Turtle zum Punkt (x \| y). Statt eines Punkts geht auch eine andere Turtle: `distance(futter)` |
+| `isdown()` | ob der Stift gerade unten ist |
 | `isvisible()` | ob die Turtle gerade sichtbar ist |
 
 ## Zeichenfläche und Darstellung
@@ -109,6 +111,17 @@ Der **Ursprung (0 | 0) liegt in der Mitte** der Zeichenfläche, die y-Achse zeig
 
 Bei `screensize(640, 480)` reicht die Fläche also von -320 bis 320 in x-Richtung und von -240 bis 240 in y-Richtung.
 :::
+
+## Tastatur, Maus und Timer
+
+| Befehl | Wirkung |
+| --- | --- |
+| `onkey(funktion, taste)` | ruft die Funktion auf, wenn die Taste gedrückt wird |
+| `listen()` | lässt die Zeichenfläche auf die Tastatur hören |
+| `onscreenclick(funktion)` | ruft die Funktion bei einem Klick auf; sie bekommt `x` und `y` der Klickstelle |
+| `ontimer(funktion, ms)` | ruft die Funktion einmal nach `ms` Millisekunden auf |
+
+Die Funktion wird jeweils **ohne Klammern** übergeben. Statt einer Funktion meldet `None` sie wieder ab. Tastennamen sind zum Beispiel `"Up"`, `"Down"`, `"Left"`, `"Right"`, `"space"` und `"a"`. Die Zeichenfläche hört erst auf Tasten, wenn du sie einmal angeklickt hast. Beispiele findest du im Kapitel [Tastatur und Maus](./04-funktionen/04-tastatur-und-maus).
 
 ## Mehrere Turtles
 
@@ -157,8 +170,6 @@ In Büchern und Tutorials zu anderen Turtle-Varianten begegnen dir Befehle, die 
 | `done()`, `mainloop()`, `exitonclick()` | nicht nötig – die Zeichnung bleibt ohnehin stehen |
 | `tracer()`, `update()` | nutze stattdessen `speed(0)` |
 | `stamp()`, `undo()` | nicht verfügbar |
-| `onkey()`, `onclick()`, `ontimer()` | Tastatur- und Mausereignisse werden nicht unterstützt. Nutze `input()` |
-| `distance(x, y)` | nicht verfügbar. Berechne den Abstand selbst mit dem Satz des Pythagoras |
 | `circle(radius, winkel)` | der zweite Parameter sind hier **Schritte**, kein Winkel |
 
 Falls du mit TigerJython gearbeitet hast, hilft dir diese Übersetzungstabelle:

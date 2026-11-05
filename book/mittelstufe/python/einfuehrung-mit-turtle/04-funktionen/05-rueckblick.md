@@ -1,6 +1,6 @@
 ---
 title: Rückblick
-index: 4
+index: 5
 permaid: turtle-funktionen-rueckblick
 ---
 
@@ -14,7 +14,17 @@ Funktionen bringen nichts Neues, was das Programm **kann** – sie bringen Ordnu
 - [ ] Ich weiß, dass beim Definieren noch nichts passiert. ([4.1](./01-funktionen-ohne-parameter))
 - [ ] Ich kann Funktionen mit **Parametern** schreiben und den Unterschied zum **Argument** erklären. ([4.2](./02-funktionen-mit-parametern))
 - [ ] Ich kann eine Funktion mit **Rückgabewert** schreiben und den Unterschied zu `print` erklären. ([4.3](./03-funktionen-mit-rueckgabewert))
+- [ ] Ich kann Funktionen mit `onkey`, `onscreenclick` und `ontimer` an Ereignisse binden und weiß, warum die Funktion dabei ohne Klammern übergeben wird. ([4.4](./04-tastatur-und-maus))
 - [ ] Ich erkenne, wann sich eine eigene Funktion lohnt.
+
+:::snippet{#challenge}
+**Lust auf mehr?** Es gibt zwei Seiten, auf denen du deine Funktionen einmal ohne Zielvorgabe benutzt. Such dir eine aus – oder mach beide.
+
+- [Challenge: Kunst aus Funktionen](./06-challenges-funktionen) – ein Motiv, oft gestempelt, mit Parametern variiert.
+- [Challenge: Spiele aus Funktionen](./07-challenges-spiele) – Figuren, die auf Tasten, Klicks und den Takt reagieren.
+
+Beide Seiten sind freiwillig, für den Rest des Lernpfads brauchst du sie nicht.
+:::
 
 ## Gemischte Aufgaben
 

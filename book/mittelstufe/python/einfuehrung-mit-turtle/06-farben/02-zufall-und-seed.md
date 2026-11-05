@@ -224,8 +224,8 @@ Jeder `randint`-Aufruf verbraucht eine Zahl aus der Folge. Wenn du pro Punkt dre
 
 In den Challenges der Kapitel 3, 4 und 5 hast du `seed` schon gesehen, ohne dass es erklärt wurde. Jetzt weißt du, was es macht:
 
-- [Kapitel 4, Challenge "Zufallswald"](../04-funktionen/05-challenges-funktionen) – ohne `seed`, jeder Wald ist anders
-- [Kapitel 4, Challenge "Komposition"](../04-funktionen/05-challenges-funktionen) – ohne `seed`, jedes Bild ist einmalig
+- [Kapitel 4, Challenge "Zufallswald"](../04-funktionen/06-challenges-funktionen) – ohne `seed`, jeder Wald ist anders
+- [Kapitel 4, Challenge "Komposition"](../04-funktionen/06-challenges-funktionen) – ohne `seed`, jedes Bild ist einmalig
 - [Kapitel 5, Challenge "Stadt bei Nacht"](../05-listen/04-challenges-listen) – mit `seed(42)`, die Sterne stehen reproduzierbar
 
 Wenn du jetzt eigene Serien machst, weißt du: **Ohne** seed ist jedes Bild ein Unikat. **Mit** seed ist es reproduzierbar – und eine andere Seed-Zahl gibt dir das nächste Bild der Serie.

@@ -1,6 +1,6 @@
 ---
 title: Challenge – Kunst aus Funktionen
-index: 5
+index: 6
 permaid: turtle-challenges-funktionen
 ---
 
