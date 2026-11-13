@@ -130,8 +130,8 @@ funktion hole(pNummer):
 
 :::collapsible{title="Eigene Containerkonfigurationen"}
 
-<oop-containerterminal id="containerterminal-eigen" stapel="6001,6002,6003 | 6004,6005 | 6006,6007,6008,6009" auftrag="6002,6004,6008,6001" hoehe="4" bestwert="290"></oop-containerterminal>
+Trage in eigene Startaufstellung deine gewünschten Werte ein.
 
-:::
-Text
+<oop-containerterminal id="containerterminal-eigen" eigene hoehe="4"></oop-containerterminal>
+
 :::
