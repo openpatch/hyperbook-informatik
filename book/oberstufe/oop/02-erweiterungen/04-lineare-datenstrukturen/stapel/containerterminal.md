@@ -45,12 +45,6 @@ b) **Entwickle** einen Ablauf für den **ganzen Auftrag**, der möglichst wenig 
 :::
 ::textinput{id="containerterminal-1b" height="120px" placeholder=" Meine Strategie: Einen Container, der im Weg steht, stelle ich ... – Gesamtkosten: ... Euro."}
 
-::::collapsible{title="Tipp zu c)" id="container-tipp-planen"}
-
-Schau auf die Reihe der Lkw: Von welchem Stapel wird heute **gar nichts** abgeholt?
-
-::::
-
 ## Aufgabe 2: Die Strategie als Struktogramm
 
 Damit der Kran deine Strategie ohne dich ausführen kann, muss sie als **Algorithmus** dastehen – so genau, dass jemand anderes sie Schritt für Schritt abarbeiten kann, ohne nachzufragen. Dafür stehen dir die Befehle des Krans zur Verfügung – die meisten kennst du schon von der Seite [Der Kran](./containerterminal-kran). Neu ist `naechsteAbholung`. Die Stapel heißen 1, 2 und 3, die Freifläche heißt **0**.
