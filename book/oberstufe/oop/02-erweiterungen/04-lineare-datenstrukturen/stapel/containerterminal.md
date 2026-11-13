@@ -38,17 +38,12 @@ a) **Wende** für den ersten Lkw die folgende Abfolge **an** und **ermittle** di
    2. 4711 auf den Lkw verladen,
    3. 2001 zurück auf Stapel 1 stellen.
 :::
-::textinput{id="containerterminal-1a" height="80px" placeholder="a) Mit dieser Abfolge kostet 4711 ... Euro."}
+::textinput{id="containerterminal-1a" height="80px" placeholder="Mit dieser Abfolge kostet 4711 ... Euro."}
 
 :::snippet{#aufgabe}
-b) Starte neu. **Entwickle** einen günstigeren Ablauf für 4711 und **gib** die Kosten **an**.
+b) **Entwickle** einen Ablauf für den **ganzen Auftrag**, der möglichst wenig kostet. **Beschreibe** deine Strategie in einem Satz: Wohin stellst du einen Container, der im Weg steht? **Gib** die Gesamtkosten **an**.
 :::
-::textinput{id="containerterminal-1b" height="80px" placeholder="b) Mein Ablauf für 4711: ... – Kosten: ... Euro."}
-
-:::snippet{#aufgabe}
-c) **Entwickle** einen Ablauf für den **ganzen Auftrag**, der möglichst wenig kostet. **Beschreibe** deine Strategie in einem Satz: Wohin stellst du einen Container, der im Weg steht? **Gib** die Gesamtkosten **an**.
-:::
-::textinput{id="containerterminal-1c" height="120px" placeholder="c) Meine Strategie: Einen Container, der im Weg steht, stelle ich ... – Gesamtkosten: ... Euro."}
+::textinput{id="containerterminal-1b" height="120px" placeholder=" Meine Strategie: Einen Container, der im Weg steht, stelle ich ... – Gesamtkosten: ... Euro."}
 
 ::::collapsible{title="Tipp zu c)" id="container-tipp-planen"}
 
@@ -80,13 +75,10 @@ Wählt eine Strategie aus:
 
 - **A – Freifläche:** Alles, was über dem gesuchten Container steht, kommt auf die Freifläche. Nach dem Verladen kommt es zurück.
 - **B – Nachbarstapel:** Ein Container, der im Weg steht, kommt auf einen anderen Stapel mit Platz. Nur wenn keiner Platz hat, kommt er auf die Freifläche.
-- **C – Vorausschauend:** Ein Container, der im Weg steht, kommt auf den Stapel, der am längsten ungestört bleibt.
 
 a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **einen** Container verlädt, und **stellt** ihn als Struktogramm **dar**. Bedenkt die Grenzfälle: Der Container steht schon oben. Der Container ist gar nicht im Terminal.
 
-b) **Kran-Test:** Tauscht die Rechner mit einem Paar, das eine andere Strategie hat. **Führt** dessen Struktogramm für alle drei Lkw in der Simulation unten **aus** – wörtlich, so wie es dasteht, auch wenn ihr es besser wisst. **Notiert** im Textfeld die Kosten und jede Stelle, an der ihr raten musstet.
-
-c) Zurück am eigenen Rechner: **Überarbeitet** euer Struktogramm mithilfe der Rückmeldung.
+b) **Kran-Test:** Wendet den Algorithmus an der Visualisierung an.
 :::
 
 :::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
