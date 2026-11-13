@@ -81,8 +81,6 @@ funktion hole(pNummer):
 ```
 :::
 
-::textinput{id="containerterminal-2a" height="60px" placeholder="Unsere Strategie: A / B / C"}
-
 <oop-containerterminal id="containerterminal-krantest" stapel="0815,4711,2001 | 1234,3003 | 5005" auftrag="4711,1234,0815" hoehe="4" bestwert="160"></oop-containerterminal>
 
 ::textinput{id="containerterminal-2b" height="120px" placeholder="b) Rückmeldung aus dem Kran-Test: Kosten ... Euro. Raten mussten wir an dieser Stelle: ..."}
