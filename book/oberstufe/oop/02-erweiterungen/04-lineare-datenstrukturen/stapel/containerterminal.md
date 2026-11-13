@@ -116,10 +116,10 @@ Am nächsten Morgen sieht das Terminal anders aus – und Stapel 3 ist voll. Die
 a) **Führt** euer Struktogramm aus Aufgabe 2 hier **aus** und **gebt** die Kosten **an**.
 :::
 
-::textinput{id="containerterminal-3a" height="80px" placeholder="a) Mit unserem Struktogramm kostet der zweite Tag ... Euro."}
+::textinput{id="containerterminal-3a" height="80px" placeholder="Mit unserem Struktogramm kostet der zweite Tag ... Euro."}
 
 :::snippet{#aufgabe}
-b) **Betrachte** deinen Ablauf aus der 1b und **überführe** diesen in ein Struktogramm.
+b) **Betrachte** deinen Ablauf aus der 1b. Intuitiv wählt man eine bessere Strategie, als die, die ihr umgesetzt habt. **Erstelle** ein Struktogramm zur Strategie aus 1b.
 :::
 
 :::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
