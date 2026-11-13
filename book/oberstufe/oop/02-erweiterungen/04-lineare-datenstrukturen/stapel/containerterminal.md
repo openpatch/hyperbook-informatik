@@ -127,3 +127,11 @@ b) **Betrachte** deinen Ablauf aus der 1b und **überführe** diesen in ein Stru
 funktion hole(pNummer):
 ```
 :::
+
+:::collapsible{title="Eigene Containerkonfigurationen"}
+
+<oop-containerterminal id="containerterminal-eigen" stapel="6001,6002,6003 | 6004,6005 | 6006,6007,6008,6009" auftrag="6002,6004,6008,6001" hoehe="4" bestwert="290"></oop-containerterminal>
+
+:::
+Text
+:::
