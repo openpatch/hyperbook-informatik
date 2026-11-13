@@ -112,19 +112,18 @@ Jede der zwei Strategien hat dasselbe Gerüst: Stapel suchen – **solange** obe
 Am nächsten Morgen sieht das Terminal anders aus – und Stapel 3 ist voll. Die Lkw wollen **6002**, **6004**, **6008** und **6001**.
 
 a) **Führt** euer Struktogramm aus Aufgabe 2 hier **aus** und **gebt** die Kosten **an**.
-
-b) **Ermittelt** einen Ablauf, der möglichst wenig kostet, und **gebt** die Kosten **an**.
-
-c) **Beurteilt**, ob eure Strategie auch hier zum günstigsten Ergebnis führt. **Beschreibt**, wie man sie ändern müsste.
 :::
-
-<oop-containerterminal id="containerterminal-tag-2" stapel="6001,6002,6003 | 6004,6005 | 6006,6007,6008,6009" auftrag="6002,6004,6008,6001" hoehe="4" bestwert="290"></oop-containerterminal>
 
 ::textinput{id="containerterminal-3a" height="80px" placeholder="a) Mit unserem Struktogramm kostet der zweite Tag ... Euro."}
 
-::textinput{id="containerterminal-3b" height="80px" placeholder="b) Mein Ablauf: ... – Kosten: ... Euro."}
+:::snippet{#aufgabe}
+b) **
+:::
 
 ::textinput{id="containerterminal-3c" height="120px" placeholder="c) Unsere Strategie führt hier (nicht) zum günstigsten Ergebnis, weil ... Ändern müsste man ..."}
+
+<oop-containerterminal id="containerterminal-tag-2" stapel="6001,6002,6003 | 6004,6005 | 6006,6007,6008,6009" auftrag="6002,6004,6008,6001" hoehe="4" bestwert="290"></oop-containerterminal>
+
 
 ::::collapsible{title="Tipp" id="container-tipp-tag-2"}
 
