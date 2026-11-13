@@ -108,34 +108,22 @@ Jede der zwei Strategien hat dasselbe Gerüst: Stapel suchen – **solange** obe
 
 ## Aufgabe 3: Der zweite Tag
 
-:::snippet{#aufgabe}
 Am nächsten Morgen sieht das Terminal anders aus – und Stapel 3 ist voll. Die Lkw wollen **6002**, **6004**, **6008** und **6001**.
 
+<oop-containerterminal id="containerterminal-tag-2" stapel="6001,6002,6003 | 6004,6005 | 6006,6007,6008,6009" auftrag="6002,6004,6008,6001" hoehe="4" bestwert="290"></oop-containerterminal>
+
+:::snippet{#aufgabe}
 a) **Führt** euer Struktogramm aus Aufgabe 2 hier **aus** und **gebt** die Kosten **an**.
 :::
 
 ::textinput{id="containerterminal-3a" height="80px" placeholder="a) Mit unserem Struktogramm kostet der zweite Tag ... Euro."}
 
 :::snippet{#aufgabe}
-b) **
+b) **Betrachte** deinen Ablauf aus der 1b und **überführe** diesen in ein Struktogramm.
 :::
 
-::textinput{id="containerterminal-3c" height="120px" placeholder="c) Unsere Strategie führt hier (nicht) zum günstigsten Ergebnis, weil ... Ändern müsste man ..."}
-
-<oop-containerterminal id="containerterminal-tag-2" stapel="6001,6002,6003 | 6004,6005 | 6006,6007,6008,6009" auftrag="6002,6004,6008,6001" hoehe="4" bestwert="290"></oop-containerterminal>
-
-
-::::collapsible{title="Tipp" id="container-tipp-tag-2"}
-
-Setzt du 6003 auf Stapel 2, blockiert er dort 6004. Auf Stapel 3 ist kein Platz. Manchmal ist die teure Freifläche die günstigste Wahl – wenn du den Container dort einfach stehen lässt.
-
-::::
-
----
-
-Weiter geht es mit dem Programmieren: Aus deinem Struktogramm wird Java – [Containerterminal: Programmieren](./containerterminal-programmieren)
-
-<!-- Versteckte Seite (hide: true) für die Übungsstunde Q1 GK G2 am 20.11.2026 (Planen und Struktogramm);
-     programmiert wird am 24.11.2026.
-     Lösungen bis zur Freigabe in entwuerfe/containerterminal-loesungen.md (die Seite
-     loesungen listet die Passwörter auch versteckter Seiten). -->
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
+```
+funktion hole(pNummer):
+```
+:::
