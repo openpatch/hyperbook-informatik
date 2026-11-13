@@ -78,7 +78,7 @@ Wählt eine Strategie aus:
 
 a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **einen** Container verlädt, und **stellt** ihn als Struktogramm **dar**. Bedenkt die Grenzfälle: Der Container steht schon oben. Der Container ist gar nicht im Terminal.
 
-b) **Kran-Test:** Wendet den Algorithmus an der Visualisierung an.
+b) **Kran-Test:** Wendet den Algorithmus in der Visualisierung an.
 :::
 
 :::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
@@ -95,7 +95,7 @@ funktion hole(pNummer):
 
 ::::collapsible{title="Tipp 1: Das Gerüst" id="container-tipp-struktogramm-1"}
 
-Jede der drei Strategien hat dasselbe Gerüst: Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten wegsetzen – verladen. Die Strategien unterscheiden sich nur darin, **wohin** der Kran den Container setzt. Strategie A braucht danach noch eine zweite Schleife.
+Jede der zwei Strategien hat dasselbe Gerüst: Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten wegsetzen – verladen. Die Strategien unterscheiden sich nur darin, **wohin** der Kran den Container setzt. Strategie A braucht danach noch eine zweite Schleife.
 
 ::::
 
@@ -103,7 +103,6 @@ Jede der drei Strategien hat dasselbe Gerüst: Stapel suchen – **solange** obe
 
 - **A:** immer Stapel 0.
 - **B:** Für die Stapel 1, 2, 3 liefert `s % 3 + 1` den nächsten Stapel „im Kreis“: aus 1 wird 2, aus 2 wird 3, aus 3 wird 1. Ist er voll, nimm den übernächsten. Sind beide voll, bleibt nur 0.
-- **C:** Vergleiche `naechsteAbholung` der beiden anderen Stapel. Ein Stapel mit 0 ist der beste Platz, sonst der mit der **größeren** Zahl. Ein voller Stapel scheidet aus.
 
 ::::
 
