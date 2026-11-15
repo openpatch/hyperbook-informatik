@@ -13,9 +13,7 @@ Die Lösungen stehen **vorerst außerhalb von `book/`**: Die Seite `loesungen` l
 
 a) 80 + 20 + 80 = **180 Euro**. Danach stehen auf Stapel 1 wieder 0815 und 2001.
 
-b) 2001 auf einen Nachbarstapel umsetzen und 4711 verladen: 50 + 20 = **70 Euro**. Die Reihenfolge der übrigen Container ändert sich dabei – das stört niemanden.
-
-c) Stellt man 2001 auf Stapel 2, liegt er auf dem Container 1234, der als Nächstes abgeholt wird: Er muss gleich noch einmal bewegt werden. Auf Stapel 3 steht nur 5005, der heute nicht abgeholt wird. Wer **beide** Blocker (2001 und später 3003) auf Stapel 3 stellt, zahlt 2 · 50 + 3 · 20 = **160 Euro**. Mit der Freifläche kostet derselbe Auftrag 540 Euro.
+b) Für 4711 allein genügt: 2001 auf einen Nachbarstapel umsetzen und 4711 verladen: 50 + 20 = **70 Euro**. Stellt man 2001 auf Stapel 2, liegt er auf dem Container 1234, der als Nächstes abgeholt wird: Er muss gleich noch einmal bewegt werden. Auf Stapel 3 steht nur 5005, der heute nicht abgeholt wird. Wer **beide** Blocker (2001 und später 3003) auf Stapel 3 stellt, zahlt 2 · 50 + 3 · 20 = **160 Euro**. Mit der Freifläche kostet derselbe Auftrag 540 Euro. Strategie in einem Satz: „Einen Container, der im Weg steht, stelle ich auf den Stapel, von dem nichts mehr abgeholt wird.“
 
 ::::
 
@@ -24,7 +22,7 @@ c) Stellt man 2001 auf Stapel 2, liegt er auf dem Container 1234, der als Nächs
 
 ::::protect{password="java-q-4-st-c-8" description="Mögliche Struktogramme. Erfrage das Passwort bei deiner Lehrkraft."}
 
-Alle drei Strategien teilen dasselbe Gerüst; sie unterscheiden sich nur darin, **wohin** der Kran einen Blocker setzt. Struktogramme in Worten sind richtig, solange sie eindeutig sind – genau das prüft der Kran-Test.
+Beide Strategien teilen dasselbe Gerüst – auch die vorausschauende aus Aufgabe 3b; sie unterscheiden sich nur darin, **wohin** der Kran einen Blocker setzt. Struktogramme in Worten sind richtig, solange sie eindeutig sind – genau das prüft der Kran-Test.
 
 **A – Freifläche** (das Muster „Erhalten“ mit der Freifläche als Hilfsstapel), Auftrag am ersten Tag: **540 Euro**
 
@@ -59,7 +57,23 @@ funktion hole(pNummer):
 ```
 :::
 
-**C – Vorausschauend**, Auftrag am ersten Tag: **160 Euro**
+Typische Stellen, an denen im Kran-Test geraten werden muss:
+
+- **Was, wenn der gesuchte Container schon oben steht?** Steht die Bedingung „solange oben nicht der gesuchte“ im Kopf der Schleife, ist der Fall erledigt. Wer „nimm den obersten weg“ ohne Schleife schreibt, verlädt den falschen Container.
+- **Welcher Nachbar?** „Auf einen anderen Stapel“ lässt offen, auf welchen – und was geschieht, wenn er voll ist.
+- **Wohin kommen die Container von der Freifläche zurück?** Auf `s`, den Stapel, aus dem sie kamen.
+
+::::
+
+## Planen – Aufgabe 3: Der zweite Tag
+
+::::protect{password="java-q-4-st-c-7" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
+
+a) Mit den Struktogrammen aus Aufgabe 2 (Musterlösung) kostet der zweite Tag: Freifläche **720 Euro**, Nachbarstapel **430 Euro**. Eigene Struktogramme können davon abweichen – entscheidend ist, dass das Ergebnis zum Struktogramm passt.
+
+b) Von Hand (Aufgabe 1b) waren es 160 Euro, mit A 540 Euro, mit B 210 Euro: Beim Planen schaut man auf die Reihe der Lkw, der Algorithmus nicht. Mit `naechsteAbholung` kann er es; am Gerüst ändert sich nur das Ziel von `umsetzen`.
+
+**Vorausschauend**, erster Tag **160 Euro**, zweiter Tag **380 Euro**
 
 :::struktolab{fontSize=15}
 ```
@@ -79,24 +93,9 @@ funktion hole(pNummer):
 
 Dabei ist `ruhe(i)` die nächste Abholung von Stapel `i`, wobei 0 („nie“) als sehr große Zahl zählt. In Worten genügt: „ziel = der andere Stapel mit Platz, von dem am spätesten etwas abgeholt wird; ein Stapel, von dem nichts abgeholt wird, ist der beste“.
 
-Typische Stellen, an denen im Kran-Test geraten werden muss:
+Im Kran-Test unklar bleibt oft: **Was, wenn zwei Stapel gleich gut sind?** Haben beide dieselbe nächste Abholung, braucht es eine Regel (etwa: der erste).
 
-- **Was, wenn der gesuchte Container schon oben steht?** Steht die Bedingung „solange oben nicht der gesuchte“ im Kopf der Schleife, ist der Fall erledigt. Wer „nimm den obersten weg“ ohne Schleife schreibt, verlädt den falschen Container.
-- **Welcher Nachbar?** „Auf einen anderen Stapel“ lässt offen, auf welchen – und was geschieht, wenn er voll ist.
-- **Wohin kommen die Container von der Freifläche zurück?** Auf `s`, den Stapel, aus dem sie kamen.
-- **Wann ist „vorausschauend“ gleich gut?** Haben beide Stapel dieselbe nächste Abholung, braucht es eine Regel (etwa: der erste).
-
-::::
-
-## Planen – Aufgabe 3: Der zweite Tag
-
-::::protect{password="java-q-4-st-c-7" description="Auflösung. Erfrage das Passwort bei deiner Lehrkraft."}
-
-a) Mit den Struktogrammen aus Aufgabe 2 (Musterlösung) kostet der zweite Tag: Freifläche **720 Euro**, Nachbarstapel **430 Euro**, vorausschauend **380 Euro**. Eigene Struktogramme können davon abweichen – entscheidend ist, dass das Ergebnis zum Struktogramm passt.
-
-b) Günstigster Ablauf, **290 Euro**: 6003 auf die Freifläche (80), 6002 verladen (20), 6005 auf die Freifläche (80), 6004 verladen (20), 6009 auf Stapel 2 (50), 6008 verladen (20), 6001 verladen (20).
-
-c) Keine der drei Strategien erreicht die 290 Euro. Die Regel aus Aufgabe 1 („Blocker auf den Stapel, von dem nichts mehr abgeholt wird“) greift hier nicht: Stapel 3 ist voll, und auf Stapel 1 und 2 wartet jeweils noch ein Container. Ein Blocker auf dem Nachbarstapel müsste später ein zweites Mal bewegt werden (50 + 50 = 100 Euro) – die Freifläche kostet nur 80 Euro, **wenn der Container dort stehen bleibt**. Teuer wird die Freifläche erst durch das Zurückholen. Eine bessere Regel: Würde ein Blocker auf jedem freien Stapel wieder im Weg stehen, kommt er auf die Freifläche und bleibt dort.
+*Zum Weiterdenken:* Der günstigste Ablauf am zweiten Tag kostet **290 Euro**: 6003 auf die Freifläche (80), 6002 verladen (20), 6005 auf die Freifläche (80), 6004 verladen (20), 6009 auf Stapel 2 (50), 6008 verladen (20), 6001 verladen (20). Keine der drei Strategien erreicht ihn. Die Regel aus Aufgabe 1 („Blocker auf den Stapel, von dem nichts mehr abgeholt wird“) greift hier nicht: Stapel 3 ist voll, und auf Stapel 1 und 2 wartet jeweils noch ein Container. Ein Blocker auf dem Nachbarstapel müsste später ein zweites Mal bewegt werden (50 + 50 = 100 Euro) – die Freifläche kostet nur 80 Euro, **wenn der Container dort stehen bleibt**. Teuer wird die Freifläche erst durch das Zurückholen. Eine bessere Regel: Würde ein Blocker auf jedem freien Stapel wieder im Weg stehen, kommt er auf die Freifläche und bleibt dort.
 
 ::::
 
@@ -144,7 +143,7 @@ public void holeMitNachbar(String pNummer) {
 }
 ```
 
-**Strategie C – Vorausschauend**
+**Aufgabe 4c – Vorausschauend** (Struktogramm aus Aufgabe 3b)
 
 ```java
 // Wie lange bleibt ein Stapel ungestört? Ohne Abholung: sehr lange.
@@ -176,7 +175,7 @@ public void holeVorausschauend(String pNummer) {
 
 `hole` ruft die Methode der eigenen Strategie auf, z. B. `holeVorausschauend(pNummer);`.
 
-b) Kosten für den ganzen Auftrag: A **540 Euro**, B **210 Euro**, C **160 Euro**. Weichen sie vom Kran-Test ab, wurde das Struktogramm beim Test anders gelesen als programmiert – genau die Stellen, an denen geraten werden musste.
+b) Kosten für den ganzen Auftrag: A **540 Euro**, B **210 Euro**; c) vorausschauend **160 Euro**. Weichen sie vom Kran-Test ab, wurde das Struktogramm beim Test anders gelesen als programmiert – genau die Stellen, an denen geraten werden musste.
 
 ::::
 
@@ -188,7 +187,7 @@ b) Kosten für den ganzen Auftrag: A **540 Euro**, B **210 Euro**, C **160 Euro*
 
 **B – Nachbarstapel, 210 Euro:** Kein Blocker fährt zur Freifläche, keiner wird zurückgestellt. Vermeidbar ist noch eine Bewegung: 2001 landet auf Stapel 2 – genau über 1234, der als Nächstes abgeholt wird – und muss deshalb ein zweites Mal umgesetzt werden (50 Euro).
 
-**C – vorausschauend, 160 Euro:** 2001 und 3003 kommen auf Stapel 3, von dem nichts abgeholt wird; jeder Blocker wird nur einmal bewegt (2 · 50 Euro), dazu dreimal verladen (3 · 20 Euro). Günstiger geht es für diesen Auftrag nicht.
+**Vorausschauend (4c), 160 Euro:** 2001 und 3003 kommen auf Stapel 3, von dem nichts abgeholt wird; jeder Blocker wird nur einmal bewegt (2 · 50 Euro), dazu dreimal verladen (3 · 20 Euro). Günstiger geht es für diesen Auftrag nicht.
 
 Die Unterschiede entstehen durch das Ziel der Blocker: Die Freifläche ist teuer und zwingt zum Zurückstellen; ein beliebiger Nachbarstapel kann einen späteren Container blockieren; erst der Blick auf die nächste Abholung vermeidet doppelte Bewegungen.
 
@@ -204,7 +203,7 @@ b) Vermeidbare Kranbewegungen im Auftrag des ersten Tages:
 
 - **A – Freifläche (540 Euro):** Jedes Zurückstellen ist vermeidbar. 2001 fährt zweimal zur Freifläche und zurück, 3003 einmal – insgesamt sechs Fahrten zu je 80 Euro. Nötig wäre je Blocker nur **eine** Bewegung, am günstigsten auf einen Nachbarstapel (50 Euro).
 - **B – Nachbarstapel (210 Euro):** Das zweite Umsetzen von 2001. Er landet zuerst auf Stapel 2, genau über 1234, der als Nächstes abgeholt wird, und muss dort noch einmal weg (50 Euro).
-- **C – vorausschauend (160 Euro):** keine. Jeder Blocker wird genau einmal bewegt; das ist für diesen Auftrag das Minimum.
+- **Vorausschauend (160 Euro):** keine. Jeder Blocker wird genau einmal bewegt; das ist für diesen Auftrag das Minimum.
 
 ::::
 
@@ -214,7 +213,7 @@ b) Vermeidbare Kranbewegungen im Auftrag des ersten Tages:
 
 Mögliche Testfälle mit den Kosten der Musterlösungen (nachgerechnet):
 
-| Testfall | A Freifläche | B Nachbarstapel | C vorausschauend | Bestwert |
+| Testfall | A Freifläche | B Nachbarstapel | vorausschauend | Bestwert |
 | --- | --- | --- | --- | --- |
 | Container steht schon oben (`hole("2001")` am ersten Tag) | 20 € | 20 € | 20 € | 20 € |
 | Container gibt es nicht (`hole("9999")`) | 0 €, nichts bewegt | 0 €, nichts bewegt | 0 €, nichts bewegt | – |
@@ -225,7 +224,7 @@ Wo die Strategien versagen oder teuer werden:
 
 - **A** ist immer korrekt, aber teuer: Jeder Blocker kostet zweimal 80 Euro.
 - **B** achtet nicht darauf, was unter dem Ziel steht. Am zweiten Tag setzt die Strategie Blocker auf Container, die bald abgeholt werden, und muss sie erneut bewegen.
-- **C** benutzt die Freifläche nur, wenn kein Stapel Platz hat. Am zweiten Tag wäre es günstiger, einen Blocker auf der Freifläche **stehen zu lassen** (80 Euro einmal) – jeder Stapel mit Platz liegt dort über einem Container, der noch gebraucht wird. Das zeigt der Bestwert von 290 Euro.
+- **Vorausschauend** benutzt die Freifläche nur, wenn kein Stapel Platz hat. Am zweiten Tag wäre es günstiger, einen Blocker auf der Freifläche **stehen zu lassen** (80 Euro einmal) – jeder Stapel mit Platz liegt dort über einem Container, der noch gebraucht wird. Das zeigt der Bestwert von 290 Euro.
 
 Ein Grenzfall für Fortgeschrittene: Steht der gesuchte Container auf der **Freifläche** unter anderen Containern, versucht Strategie A `umsetzen(0, 0)`. Der Kran meldet einen Fehlversuch, nichts bewegt sich – und die Schleife läuft endlos. Mit A allein entsteht diese Lage nie, wohl aber, wenn Strategien gemischt werden.
 
@@ -261,7 +260,7 @@ Erwartet: Stapel 1 liefert 1 (4711), Stapel 2 liefert 2 (1234), Stapel 3 liefert
 
 ::::protect{password="java-q-4-st-c-5" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
-Benutzt die Hilfsmethode `ruhe` aus der Lösung zu Strategie C.
+Benutzt die Hilfsmethode `ruhe` aus der Lösung zu Aufgabe 4c.
 
 ```java
 public void hole(String pNummer) {

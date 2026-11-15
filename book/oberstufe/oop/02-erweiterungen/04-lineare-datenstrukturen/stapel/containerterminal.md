@@ -43,7 +43,7 @@ a) **Wende** für den ersten Lkw die folgende Abfolge **an** und **ermittle** di
 :::snippet{#aufgabe}
 b) **Entwickle** einen Ablauf für den **ganzen Auftrag**, der möglichst wenig kostet. **Beschreibe** deine Strategie in einem Satz: Wohin stellst du einen Container, der im Weg steht? **Gib** die Gesamtkosten **an**.
 :::
-::textinput{id="containerterminal-1b" height="120px" placeholder=" Meine Strategie: Einen Container, der im Weg steht, stelle ich ... – Gesamtkosten: ... Euro."}
+::textinput{id="containerterminal-1b" height="120px" placeholder="Meine Strategie: Einen Container, der im Weg steht, stelle ich ... – Gesamtkosten: ... Euro."}
 
 ## Aufgabe 2: Die Strategie als Struktogramm
 
@@ -72,7 +72,7 @@ Wählt eine Strategie aus:
 
 a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **einen** Container verlädt, und **stellt** ihn als Struktogramm **dar**. Bedenkt die Grenzfälle: Der Container steht schon oben. Der Container ist gar nicht im Terminal.
 
-b) **Kran-Test:** Wendet den Algorithmus in der Visualisierung an.
+b) **Kran-Test:** **Führt** euer Struktogramm in der Simulation unten für alle drei Lkw **aus** – wörtlich, so wie es dasteht, auch wenn ihr wisst, was gemeint war. **Notiert** die Kosten und jede Stelle, an der ihr raten musstet, und **verbessert** das Struktogramm.
 :::
 
 :::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
@@ -83,11 +83,11 @@ funktion hole(pNummer):
 
 <oop-containerterminal id="containerterminal-krantest" stapel="0815,4711,2001 | 1234,3003 | 5005" auftrag="4711,1234,0815" hoehe="4" bestwert="160"></oop-containerterminal>
 
-::textinput{id="containerterminal-2b" height="120px" placeholder="b) Rückmeldung aus dem Kran-Test: Kosten ... Euro. Raten mussten wir an dieser Stelle: ..."}
+::textinput{id="containerterminal-2b" height="120px" placeholder="Kran-Test: Unser Struktogramm kostet ... Euro. Raten mussten wir an dieser Stelle: ..."}
 
 ::::collapsible{title="Tipp 1: Das Gerüst" id="container-tipp-struktogramm-1"}
 
-Jede der zwei Strategien hat dasselbe Gerüst: Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten wegsetzen – verladen. Die Strategien unterscheiden sich nur darin, **wohin** der Kran den Container setzt. Strategie A braucht danach noch eine zweite Schleife.
+Beide Strategien haben dasselbe Gerüst: Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten wegsetzen – verladen. Die Strategien unterscheiden sich nur darin, **wohin** der Kran den Container setzt. Strategie A braucht danach noch eine zweite Schleife.
 
 ::::
 
@@ -111,19 +111,38 @@ a) **Führt** euer Struktogramm aus Aufgabe 2 hier **aus** und **gebt** die Kost
 ::textinput{id="containerterminal-3a" height="80px" placeholder="Mit unserem Struktogramm kostet der zweite Tag ... Euro."}
 
 :::snippet{#aufgabe}
-b) **Betrachte** deinen Ablauf aus der 1b. Intuitiv wählt man eine bessere Strategie, als die, die ihr umgesetzt habt. **Erstelle** ein Struktogramm zur Strategie aus 1b.
+b) **Vergleicht** die Kosten eures Struktogramms am ersten Tag mit euren Kosten aus Aufgabe 1b: Von Hand wart ihr vermutlich günstiger. **Erstellt** ein Struktogramm `hole(pNummer)` zu eurer Strategie aus 1b. **Führt** es für beide Tage **aus** und **gebt** die Kosten **an**.
 :::
 
-:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-3b"}
 ```
 funktion hole(pNummer):
 ```
 :::
 
+::textinput{id="containerterminal-3b" height="80px" placeholder="Mit unserer Strategie aus 1b kostet der erste Tag ... Euro, der zweite Tag ... Euro."}
+
+::::collapsible{title="Tipp 1 zu b): Was wisst ihr beim Planen?" id="container-tipp-3b-1"}
+
+Beim Planen von Hand schaut ihr auf die Reihe der Lkw: Von welchem Stapel wird heute gar nichts mehr abgeholt? Euer Algorithmus aus Aufgabe 2 schaut nicht hin. Mit `naechsteAbholung(s)` kann er es. Am Gerüst ändert sich nichts – nur das Ziel von `umsetzen`.
+
+::::
+
+::::collapsible{title="Tipp 2 zu b): Welcher Stapel ist der beste Platz?" id="container-tipp-3b-2"}
+
+Vergleiche `naechsteAbholung` der beiden anderen Stapel. Ein Stapel mit 0 ist der beste Platz, sonst der mit der **größeren** Zahl. Ein voller Stapel scheidet aus. Haben beide Stapel keinen Platz, bleibt nur die Freifläche.
+
+::::
+
 :::collapsible{title="Eigene Containerkonfigurationen"}
 
-Trage in eigene Startaufstellung deine gewünschten Werte ein.
+Trage unter **Eigene Startaufstellung** Stapel und Lkw ein und probiere dein Struktogramm an einer eigenen Lage aus.
 
 <oop-containerterminal id="containerterminal-eigen" eigene hoehe="4"></oop-containerterminal>
 
 :::
+
+<!-- Versteckte Seite (hide: true) für die Übungsstunde Q1 GK G2 am 20.11.2026 (Planen und Struktogramm);
+     programmiert wird am 24.11.2026 auf der Seite containerterminal-programmieren.
+     Lösungen bis zur Freigabe in entwuerfe/containerterminal-loesungen.md (die Seite
+     loesungen listet die Passwörter auch versteckter Seiten). -->

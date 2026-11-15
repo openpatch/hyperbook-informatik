@@ -10,7 +10,7 @@ scripts:
 
 # Containerterminal: Programmieren
 
-Auf der Seite [Containerterminal: Planen](./containerterminal) habt ihr zu eurer Strategie (A, B oder C) ein Struktogramm `hole(pNummer)` entwickelt und im Kran-Test überprüft. Jetzt wird daraus Java. Startzustand und Auftrag sind die vom ersten Tag: Die Lkw holen **4711**, **1234** und **0815**.
+Auf der Seite [Containerterminal: Planen](./containerterminal) habt ihr zu eurer Strategie (A oder B) ein Struktogramm `hole(pNummer)` entwickelt und im Kran-Test überprüft, in Aufgabe 3b außerdem eines zu eurer eigenen, vorausschauenden Strategie. Jetzt wird daraus Java. Startzustand und Auftrag sind die vom ersten Tag: Die Lkw holen **4711**, **1234** und **0815**.
 
 :::snippet{#merken}
 **Vom Struktogramm zu Java**
@@ -29,7 +29,7 @@ Die Befehle des Krans heißen in Java genauso – du schreibst nur `terminal.` d
 | Stapel `s` ist leer | `terminal.oben(s) == null` |
 :::
 
-Du programmierst nur in der Klasse **`Disponent`**. Die anderen Klassen sind fertig – ihre Reiter musst du nicht lesen.
+Du programmierst nur in der Klasse **`Disponent`**. Die anderen Klassen (`Terminal`, `Container`, `Spiel`) sind fertig und laufen unsichtbar im Hintergrund mit.
 
 :::onlineide{libraries="nrw" height="680px" speed="1000000" id="stapel-containerterminal"}
 
@@ -75,7 +75,7 @@ public class Disponent {
 
     }
 
-    /** Strategie C: Blocker auf den Stapel, der am laengsten ungestoert bleibt. */
+    /** Aufgabe 3b, vorausschauend: Blocker auf den Stapel, der am laengsten ungestoert bleibt. */
     public void holeVorausschauend(String pNummer) {
 
     }
@@ -92,7 +92,7 @@ public class Disponent {
 }
 ```
 
-```java Container.java
+```java Container.java hidden
 public class Container {
 
     private String nummer;
@@ -114,7 +114,7 @@ public class Container {
 }
 ```
 
-```java Terminal.java
+```java Terminal.java hidden
 /**
  * Das Containerterminal: Stapel 1 bis 3 (je hoechstens 4 Container) und die
  * Freiflaeche (Stapel 0, unbegrenzt). Container bewegt nur der Kran - jede
@@ -339,7 +339,7 @@ public class Terminal {
 }
 ```
 
-```java Spiel.java
+```java Spiel.java hidden
 /**
  * Drei Wellen: Lkw holen ab, ein Schiff liefert, wieder holen Lkw ab.
  * Diese Klasse wird nicht veraendert.
@@ -477,24 +477,27 @@ class DisponentTest {
 ## Aufgabe 4: Eure Strategie in Java
 
 :::snippet{#aufgabe}
-a) **Implementiert** die Methode eurer Strategie, indem ihr euer überarbeitetes Struktogramm aus Aufgabe 2 übersetzt:
+a) **Implementiert** die Methode eurer Strategie, indem ihr euer verbessertes Struktogramm aus Aufgabe 2 übersetzt:
 
 - Strategie A: `holeMitFreiflaeche`
 - Strategie B: `holeMitNachbar`
-- Strategie C: `holeVorausschauend`
 
 Tragt den Aufruf eurer Methode in `hole` ein. Euer Programm ist fertig, wenn im Reiter **Testrunner** die Tests zu eurer Strategie grün sind – die Tests der anderen Strategien dürfen rot bleiben.
 
 b) **Startet** `main` und **gebt** die Kosten **an**. **Vergleicht** sie mit den Kosten aus dem Kran-Test.
+
+c) **Implementiert** euer Struktogramm aus Aufgabe 3b als `holeVorausschauend` und **ruft** es in `hole` **auf**. **Startet** `main` erneut und **vergleicht** die Kosten.
 :::
 
 ::textinput{id="containerterminal-4b" height="80px" placeholder="b) Unser Programm kostet ... Euro, im Kran-Test waren es ... Euro, weil ..."}
+
+::textinput{id="containerterminal-4c" height="80px" placeholder="c) Mit holeVorausschauend kostet der Auftrag ... Euro, also ... Euro weniger, weil ..."}
 
 Unmögliche Bewegungen – etwa auf einen vollen Stapel – führt der Kran nicht aus. Er meldet sie mit „Nicht moeglich: …“ und zählt einen Fehlversuch.
 
 ::::collapsible{title="Tipp 1: Das Gerüst in Java" id="container-tipp-geruest"}
 
-Jede der drei Strategien beginnt gleich. Den Grenzfall „nicht im Terminal“ fängst du vor der Schleife ab – sonst liefert `terminal.oben(s)` irgendwann `null`.
+Alle Strategien beginnen gleich. Den Grenzfall „nicht im Terminal“ fängst du vor der Schleife ab – sonst liefert `terminal.oben(s)` irgendwann `null`.
 
 ```java
 int s = terminal.finde(pNummer);
@@ -521,7 +524,7 @@ Für die Stapel 1, 2, 3 liefert `s % 3 + 1` den nächsten Stapel „im Kreis“:
 
 ::::
 
-::::collapsible{title="Tipp 2 für C: Welcher Stapel bleibt am längsten ungestört?" id="container-tipp-voraus"}
+::::collapsible{title="Tipp 2 zu c): Welcher Stapel bleibt am längsten ungestört?" id="container-tipp-voraus"}
 
 Ein Stapel, von dem nichts abgeholt wird (`terminal.naechsteAbholung(i)` liefert 0), ist der beste Platz. Sonst gilt: Je **größer** die nächste Abholung, desto länger stört der Blocker dort niemanden. Eine kleine Hilfsmethode, die für „nichts wird abgeholt“ eine sehr große Zahl liefert, macht den Vergleich einfach. Gehe mit einer Schleife über die Stapel 1 bis 3 und überspringe den eigenen Stapel und volle Stapel.
 
@@ -532,7 +535,7 @@ Ein Stapel, von dem nichts abgeholt wird (`terminal.naechsteAbholung(i)` liefert
 :::snippet{#aufgabe}
 a) `main` gibt eine Zeile `Kranbefehle: …` aus. Kopiert sie in das Feld unten und drückt **Abspielen**: Der Kran führt genau die Bewegungen aus, die euer Programm gemacht hat. **Erläutert**, wie die Kosten zustande kommen.
 
-b) Tragt eure Kosten in der Klasse zusammen. **Vergleicht** die drei Strategien und **erläutert**, wodurch die Unterschiede entstehen.
+b) Tragt eure Kosten in der Klasse zusammen. **Vergleicht** die Freifläche, den Nachbarstapel und die vorausschauende Strategie und **erläutert**, wodurch die Unterschiede entstehen.
 :::
 
 <oop-containerterminal id="containerterminal-abspielen" abspielen stapel="0815,4711,2001 | 1234,3003 | 5005" auftrag="4711,1234,0815" hoehe="4" bestwert="160"></oop-containerterminal>
@@ -550,7 +553,7 @@ Fertig? Sucht euch eine der Aufgaben aus.
 ### Zusatz A: Eine zweite Strategie
 
 :::snippet{#aufgabe}
-a) **Implementiert** eine zweite Strategie und lasst sie über `hole` laufen.
+a) **Implementiert** die Strategie aus Aufgabe 2, die ihr nicht gewählt habt, und lasst sie über `hole` laufen.
 
 b) Spielt die Kranbefehle ab. **Bestimmt** eine Kranbewegung, die bei dieser Strategie noch vermeidbar wäre.
 :::
@@ -572,7 +575,7 @@ Der erste Tag ist nur **ein** Testfall. Unter **Eigene Startaufstellung** denkst
 ### Zusatz C: `naechsteAbholung` selbst bauen
 
 :::snippet{#aufgabe}
-Bisher hat `Terminal` dir `naechsteAbholung` fertig geliefert. **Implementiere** in `Disponent` eine eigene Methode `public int naechsteAbholung(int pStapel)`, ohne in `Terminal.java` nachzusehen. Sie liefert die kleinste Abholung größer als 0 auf dem Stapel, 0 heißt „nichts wird abgeholt“. Ein `Container` kennt seine Abholung: `getAbholung()`.
+Bisher hat `Terminal` dir `naechsteAbholung` fertig geliefert. **Implementiere** in `Disponent` eine eigene Methode `public int naechsteAbholung(int pStapel)`, ohne die fertige Methode aus `Terminal` zu benutzen. Sie liefert die kleinste Abholung größer als 0 auf dem Stapel, 0 heißt „nichts wird abgeholt“. Ein `Container` kennt seine Abholung: `getAbholung()`.
 
 Arbeite mit `terminal.stapel(pStapel)`: Die Methode liefert eine **Kopie** des Stapels – nachsehen kostet nichts. Prüfe in `main`, ob deine Methode für die Stapel 1, 2 und 3 dasselbe liefert wie die von `Terminal`.
 :::
@@ -623,5 +626,6 @@ c) **Beschreibe**, wie eine **tiefe** Kopie erzeugt werden müsste.
 
 <!-- KLP QPh GK: "implementieren Algorithmen ... unter Verwendung von dynamischen Datenstrukturen (Stapel) (I)",
      "testen Programme systematisch anhand von Beispielen (I)". Vorgriff auf Q1-III: Kosten von Strategien vergleichen.
-     Pflicht sind Aufgabe 4 und 5: Jedes Paar programmiert seine Strategie aus Aufgabe 2, verglichen wird in der Klasse.
+     Pflicht sind Aufgabe 4 und 5: Jedes Paar programmiert seine Strategie aus Aufgabe 2 (A oder B) und die
+     vorausschauende Strategie aus Aufgabe 3b, verglichen wird in der Klasse.
      Versteckte Seite (hide: true) für Q1 GK G2: Struktogramme am 20.11.2026, programmiert am 24.11.2026. -->
