@@ -236,7 +236,7 @@ public class Uebungen {
 }
 ```
 
-```java UebungenTest.java
+```java UebungenTest.java hidden
 @Test
 class UebungenTest {
 
