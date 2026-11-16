@@ -473,6 +473,27 @@ Sobald oben auf der Kopie der gesuchte Container steht, ist die Antwort klar: `r
 
 ::::
 
+::::collapsible{title="Tipp 3: Struktogramm" id="kran-tipp-finde-3"}
+
+:::struktolab
+```java
+public int finde(String pNummer) {
+    for (int i = 0; i <= 3; i++) {
+        Stack<Container> k = stapel(i);
+        while (!k.isEmpty()) {
+            if (k.top().getNummer().equals(pNummer)) {
+                return i;
+            }
+            k.pop();
+        }
+    }
+    return -1;
+}
+```
+:::
+
+::::
+
 ::::protect{password="java-q-4-st-c-10" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```java
