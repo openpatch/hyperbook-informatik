@@ -85,7 +85,7 @@ Der Startzustand im Konstruktor des Terminals:
 
 ![Containerterminal Situation](./containerterminal-kran-situation.png)
 
-:::onlineide{libraries="nrw" height="640px" speed="1000000" id="stapel-containerterminal-kran"}
+:::onlineide{libraries="nrw" height="640px" speed="1000000" id="stapel-containerterminal-kran" dock}
 
 ```java Main.java
 void main() {
