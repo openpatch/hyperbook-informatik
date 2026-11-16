@@ -75,7 +75,7 @@ a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **ei
 b) **Kran-Test:** **Führt** euer Struktogramm in der Simulation unten für alle drei Lkw **aus** – wörtlich, so wie es dasteht, auch wenn ihr wisst, was gemeint war. **Notiert** die Kosten und jede Stelle, an der ihr raten musstet, und **verbessert** das Struktogramm.
 :::
 
-:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm" dock}
 ```java
 void hole(int pNummer)
 ```
