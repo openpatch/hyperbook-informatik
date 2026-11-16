@@ -76,8 +76,8 @@ b) **Kran-Test:** **Führt** euer Struktogramm in der Simulation unten für alle
 :::
 
 :::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm"}
-```
-funktion hole(pNummer):
+```java
+void hole(int pNummer)
 ```
 :::
 
