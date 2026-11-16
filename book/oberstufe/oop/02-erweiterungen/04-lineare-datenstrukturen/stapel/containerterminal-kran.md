@@ -3,6 +3,8 @@ name: "Containerterminal: Der Kran"
 index: 7
 lang: de
 permaid: java-stapel-containerterminal-kran
+scripts:
+  - /wc/oop-containerterminal.js
 ---
 
 # Containerterminal: Der Kran
@@ -79,6 +81,8 @@ Ein `Container` kennt seine Nummer: `getNummer()`. Unmögliche Bewegungen – et
 :::
 
 Der Startzustand im Konstruktor (jeweils von unten nach oben):
+
+<oop-containerterminal id="containerterminal-tag-1" stapel="0815,4711,2001 | 1234,3003 | 5005" hoehe="4"></oop-containerterminal>
 
 | Stapel 1 | Stapel 2 | Stapel 3 | Freifläche (0) |
 | --- | --- | --- | --- |
