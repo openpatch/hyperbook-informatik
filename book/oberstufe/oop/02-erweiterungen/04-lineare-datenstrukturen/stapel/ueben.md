@@ -188,9 +188,11 @@ e) `Stack<String> kopie(Stack<String> pStapel)` liefert einen neuen Stapel mit d
 f) Bevor du `kopie` programmierst: Entwirf im Editor zuerst ein Struktogramm. Setze es danach um.
 :::
 
-:::struktolab{mode="edit" fontSize=15 id="stapel-struktogramm-kopie"}
+:::struktolab{mode="edit" fontSize=15 id="stapel-struktogramm-kopie" code="java"}
 ```
-funktion kopie(pStapel):
+Stapel kopie(pStapel) {
+
+}
 ```
 :::
 
