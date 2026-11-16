@@ -114,9 +114,11 @@ a) **Führt** euer Struktogramm aus Aufgabe 2 hier **aus** und **gebt** die Kost
 b) **Vergleicht** die Kosten eures Struktogramms am ersten Tag mit euren Kosten aus Aufgabe 1b: Von Hand wart ihr vermutlich günstiger. **Erstellt** ein Struktogramm `hole(pNummer)` zu eurer Strategie aus 1b. **Führt** es für beide Tage **aus** und **gebt** die Kosten **an**.
 :::
 
-:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-3b"}
-```
-funktion hole(pNummer):
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-3b" dock}
+```java
+Container hole(int pNummer) {
+  
+}
 ```
 :::
 
