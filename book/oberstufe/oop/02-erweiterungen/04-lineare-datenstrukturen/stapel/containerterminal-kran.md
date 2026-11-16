@@ -503,10 +503,6 @@ Die Schleife braucht keine Prüfung auf `isEmpty`: `finde` hat schon festgestell
 
 ::::
 
----
-
-Weiter geht es mit [Containerterminal: Planen](./containerterminal): Jetzt kostet jede Kranbewegung Geld.
-
 <!-- KLP QPh GK: "erläutern Operationen dynamischer (linearer) Datenstrukturen (A)",
      "implementieren ... Algorithmen auch unter Verwendung von dynamischen Datenstrukturen (I)".
      Q1 GK G2, Di 17.11.2026 (zweite Hälfte der Doppelstunde): Klasse Terminal kennenlernen,
