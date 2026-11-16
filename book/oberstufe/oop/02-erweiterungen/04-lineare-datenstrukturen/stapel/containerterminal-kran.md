@@ -305,7 +305,7 @@ public class Container {
 }
 ```
 
-```java TerminalTest.java
+```java TerminalTest.java hidden
 @Test
 class TerminalTest {
 
