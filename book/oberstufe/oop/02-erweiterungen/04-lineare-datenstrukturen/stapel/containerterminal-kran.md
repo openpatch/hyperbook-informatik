@@ -17,6 +17,48 @@ In diesem Kapitel baust du ein Terminal mit drei Stapeln und einer Freifläche i
 
 ## Das Terminal in Java
 
+```mermaid
+classDiagram
+    class Terminal {
+        -Stack<Container> frei
+        -Stack<Container> s1
+        -Stack<Container> s2
+        -Stack<Container> s3
+        -int fehler
+        -String verladen
+        -String befehle
+        +Terminal()
+        +leeren()
+        +aufbauen(int pStapel, String pNummer, int pAbholung)
+        +stapel(int pStapel) Stack<Container>
+        +oben(int pStapel) Container
+        +hoehe(int pStapel) int
+        +istVoll(int pStapel) boolean
+        +finde(String pNummer) int
+        +anzahlDarueber(String pNummer) int
+        +verladen(int pVon)
+        +umsetzen(int pVon, int pNach)
+        +getFehler() int
+        +getVerladen() String
+        +beschreibung(int pStapel) String
+        +bericht() String
+        +getKranbefehle() String
+        -merke(String pBefehl)
+        -fehlversuch(String pText)
+        -gib(int pStapel) Stack<Container>
+    }
+
+    class Container {
+        -String nummer
+        -int abholung
+        +Container(String pNummer, int pAbholung)
+        +getNummer() String
+        +getAbholung() int
+    }
+
+    Terminal "1" *-- "0..*" Container : verwaltet
+```
+
 :::snippet{#merken}
 **Die Klasse `Terminal`**
 
