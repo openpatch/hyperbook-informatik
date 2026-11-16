@@ -116,7 +116,7 @@ b) **Vergleicht** die Kosten eures Struktogramms am ersten Tag mit euren Kosten 
 
 :::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-3b" dock}
 ```java
-Container hole(int pNummer) {
+void hole(int pNummer) {
   
 }
 ```
