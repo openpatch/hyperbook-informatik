@@ -24,7 +24,9 @@ Das Terminal hat drei Stapel und eine Freifläche – jeweils ein Objekt der Abi
 
 ```mermaid
 classDiagram
-  Terminal
+  class Terminal {
+  
+  }
 ```
 
 | Methode | Was sie tut |
