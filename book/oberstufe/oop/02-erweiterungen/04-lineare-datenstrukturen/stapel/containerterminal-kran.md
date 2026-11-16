@@ -34,10 +34,10 @@ classDiagram
         +oben(int pStapel) Container
         +hoehe(int pStapel) int
         +istVoll(int pStapel) boolean
-        +finde(String pNummer) int
-        +anzahlDarueber(String pNummer) int
+        +*finde(String pNummer)* int
+        +**anzahlDarueber(String pNummer)** int
         +verladen(int pVon)
-        +umsetzen(int pVon, int pNach)
+        +**umsetzen(int pVon, int pNach)**
         +getFehler() int
         +getVerladen() String
         +beschreibung(int pStapel) String
