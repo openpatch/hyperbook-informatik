@@ -22,6 +22,12 @@ In diesem Kapitel baust du ein Terminal mit drei Stapeln und einer Freifläche i
 
 Das Terminal hat drei Stapel und eine Freifläche – jeweils ein Objekt der Abiturklasse `Stack<Container>`. Sie werden über eine Nummer angesprochen: **1, 2, 3** sind die Stapel, **0** ist die Freifläche. Die Stapel 1 bis 3 tragen höchstens **vier** Container, auf die Freifläche passt beliebig viel.
 
+```mermaid
+class Terminal {
+  
+}
+```
+
 | Methode | Was sie tut |
 | --- | --- |
 | `Container oben(int pStapel)` | der oberste Container oder `null` |
