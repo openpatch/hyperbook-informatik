@@ -80,7 +80,7 @@ Das Terminal hat drei Stapel und eine Freifläche – jeweils ein Objekt der Abi
 Ein `Container` kennt seine Nummer: `getNummer()`. Unmögliche Bewegungen – etwa von einem leeren Stapel – führt der Kran nicht aus. Er meldet sie mit „Nicht moeglich: …“ und zählt einen Fehlversuch.
 :::
 
-Der Startzustand im Konstruktor (jeweils von unten nach oben):
+Der Startzustand im Konstruktor:
 
 ![Containerterminal Situation](./containerterminal-kran-situation.png)
 
