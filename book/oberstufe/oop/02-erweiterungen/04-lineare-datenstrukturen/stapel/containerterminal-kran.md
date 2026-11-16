@@ -419,6 +419,24 @@ Erst nachsehen, dann entfernen: `gib(pNach).push(gib(pVon).top());` und danach `
 
 ::::
 
+::::collapsible{title="Tipp 3: Struktogramm" id="kran-tipp-umsetzen-3"}
+
+:::struktolab
+```java
+public void umsetzen(int pVon, int pNach) {
+    if (pVon == pNach || gib(pVon).isEmpty() || istVoll(pNach)) {
+        fehlversuch("umsetzen(" + pVon + ", " + pNach + ")");
+        return;
+    }
+    gib(pNach).push(gib(pVon).top());
+    gib(pVon).pop();
+    merke("umsetzen(" + pVon + "," + pNach + ")");
+}
+```
+:::
+
+::::
+
 ::::protect{password="java-q-4-st-c-9" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```java
