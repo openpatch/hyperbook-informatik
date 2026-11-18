@@ -95,7 +95,35 @@ Dabei ist `ruhe(i)` die nächste Abholung von Stapel `i`, wobei 0 („nie“) al
 
 Im Kran-Test unklar bleibt oft: **Was, wenn zwei Stapel gleich gut sind?** Haben beide dieselbe nächste Abholung, braucht es eine Regel (etwa: der erste).
 
-*Zum Weiterdenken:* Der günstigste Ablauf am zweiten Tag kostet **290 Euro**: 6003 auf die Freifläche (80), 6002 verladen (20), 6005 auf die Freifläche (80), 6004 verladen (20), 6009 auf Stapel 2 (50), 6008 verladen (20), 6001 verladen (20). Keine der drei Strategien erreicht ihn. Die Regel aus Aufgabe 1 („Blocker auf den Stapel, von dem nichts mehr abgeholt wird“) greift hier nicht: Stapel 3 ist voll, und auf Stapel 1 und 2 wartet jeweils noch ein Container. Ein Blocker auf dem Nachbarstapel müsste später ein zweites Mal bewegt werden (50 + 50 = 100 Euro) – die Freifläche kostet nur 80 Euro, **wenn der Container dort stehen bleibt**. Teuer wird die Freifläche erst durch das Zurückholen. Eine bessere Regel: Würde ein Blocker auf jedem freien Stapel wieder im Weg stehen, kommt er auf die Freifläche und bleibt dort.
+::::
+
+::::protect{password="java-q-4-st-c-14" description="Auflösung zu c). Erfrage das Passwort bei deiner Lehrkraft."}
+
+1. Der günstigste Ablauf am zweiten Tag kostet **290 Euro**: 6003 auf die Freifläche (80), 6002 verladen (20), 6005 auf die Freifläche (80), 6004 verladen (20), 6009 auf Stapel 2 (50), 6008 verladen (20), 6001 verladen (20).
+
+2. Keine der drei Strategien erreicht ihn. Die Regel aus Aufgabe 1 („Blocker auf den Stapel, von dem nichts mehr abgeholt wird“) greift hier nicht: Stapel 3 ist voll, und auf Stapel 1 und 2 wartet jeweils noch ein Container. Ein Blocker auf dem Nachbarstapel müsste später ein zweites Mal bewegt werden (50 + 50 = 100 Euro). Die Freifläche kostet nur 80 Euro, **wenn der Container dort stehen bleibt**. Teuer wird die Freifläche erst durch das Zurückholen.
+
+3. Regel: Wird auch vom besten freien Stapel noch etwas abgeholt, kommt der Blocker auf die Freifläche und bleibt dort. Am Struktogramm aus b) kommt nur eine Abfrage vor `umsetzen` hinzu. Erster Tag **160 Euro**, zweiter Tag **290 Euro**:
+
+:::struktolab{fontSize=15}
+```
+funktion hole(pNummer):
+    s = finde(pNummer)
+    falls s != -1:
+        wiederhole solange oben(s).getNummer() != pNummer:
+            ziel = 0
+            wiederhole für i = 1 bis 3:
+                falls i != s und nicht istVoll(i):
+                    falls ziel == 0 oder ruhe(i) > ruhe(ziel):
+                        ziel = i
+            falls ziel != 0 und naechsteAbholung(ziel) != 0:
+                ziel = 0
+            umsetzen(s, ziel)
+        verladen(s)
+```
+:::
+
+Auch diese Regel ist nicht immer optimal. Sie rechnet damit, dass ein Blocker auf einem Stapel mit späterer Abholung genau einmal zurückgesetzt werden muss. Wer mit den eigenen Containerkonfigurationen ein Gegenbeispiel findet, hat das Problem verstanden.
 
 ::::
 

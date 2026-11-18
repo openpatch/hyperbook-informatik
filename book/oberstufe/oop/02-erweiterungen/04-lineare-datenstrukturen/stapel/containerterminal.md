@@ -65,7 +65,7 @@ Die Nummer eines Containers liefert `oben(s).getNummer()`. Was sich nicht mit ei
 :::
 
 :::snippet{#aufgabe}
-Wählt eine Strategie aus:
+Wählt eine Strategie aus und öffnet ihren Reiter unten. Dort findet ihr euer Struktogramm und die Tipps zu eurer Strategie:
 
 - **A – Freifläche:** Alles, was über dem gesuchten Container steht, kommt auf die Freifläche. Nach dem Verladen kommt es zurück.
 - **B – Nachbarstapel:** Ein Container, der im Weg steht, kommt auf einen anderen Stapel mit Platz. Nur wenn keiner Platz hat, kommt er auf die Freifläche.
@@ -75,28 +75,167 @@ a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **ei
 b) **Kran-Test:** **Führt** euer Struktogramm in der Simulation unten für alle drei Lkw **aus** – wörtlich, so wie es dasteht, auch wenn ihr wisst, was gemeint war. **Notiert** die Kosten und jede Stelle, an der ihr raten musstet, und **verbessert** das Struktogramm.
 :::
 
-:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm" dock}
+::::::tabs{id="containerterminal-strategie"}
+
+:::::tab{title="Strategie A – Freifläche" id="containerterminal-strategie-a"}
+
+Alles, was über dem gesuchten Container steht, kommt auf die Freifläche. Nach dem Verladen kommt es zurück.
+
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-a" dock="Struktogramm: Strategie A" embedded="true"}
 ```java
-void hole(int pNummer)
+void hole(String pNummer) {
+
+}
 ```
 :::
+
+::::collapsible{title="Tipp 1: Das Gerüst" id="container-tipp-a-1"}
+
+Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten auf die Freifläche setzen – verladen. Danach räumt eine **zweite Schleife** die Freifläche wieder ab.
+
+::::
+
+::::collapsible{title="Tipp 2: Wohin damit – und zurück?" id="container-tipp-a-2"}
+
+Ein Container, der im Weg steht, kommt immer auf Stapel **0**. Nach dem Verladen holt eine zweite Schleife alles zurück: **Solange** auf der Freifläche noch ein Container steht, kommt der oberste zurück auf den Stapel, aus dem er kam.
+
+::::
+
+::::collapsible{title="Tipp 3: Ein Struktogramm mit Lücken" id="container-tipp-a-3"}
+
+Das Gerüst steht schon. Übertragt es in euer Struktogramm oben und füllt die Lücken `???`.
+
+:::struktolab{fontSize=15}
+```java
+void hole(String pNummer) {
+    int s = finde(pNummer);
+    if (s != -1) {
+        while (!oben(s).getNummer().equals(pNummer)) {
+            umsetzen(s, ???);
+        }
+        verladen(s);
+        while (???) {
+            umsetzen(???, ???);
+        }
+    }
+}
+```
+:::
+
+::::
+
+::::collapsible{title="Tipp 4: Struktogramm-Puzzle" id="container-tipp-a-4"}
+
+Alle Bausteine sind da – nur an der falschen Stelle. Zieht sie in die richtige Reihenfolge und schiebt die Anweisungen in die passende Schleife oder Verzweigung.
+
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-puzzle-a" dock="Struktogramm: Strategie A Puzzle"}
+```java
+void hole(String pNummer) {
+    umsetzen(0, s);
+    while (oben(0) != null) {
+    }
+    verladen(s);
+    if (s != -1) {
+    }
+    umsetzen(s, 0);
+    int s = finde(pNummer);
+    while (!oben(s).getNummer().equals(pNummer)) {
+    }
+}
+```
+:::
+
+::::
+
+:::::
+
+:::::tab{title="Strategie B – Nachbarstapel" id="containerterminal-strategie-b"}
+
+Ein Container, der im Weg steht, kommt auf einen anderen Stapel mit Platz. Nur wenn keiner Platz hat, kommt er auf die Freifläche.
+
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-b" dock="Struktogramm: Strategie B"}
+```java
+void hole(String pNummer) {
+
+}
+```
+:::
+
+::::collapsible{title="Tipp 1: Das Gerüst" id="container-tipp-b-1"}
+
+Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten auf einen anderen Stapel setzen – verladen. Die eigentliche Arbeit steckt in der Frage, **wohin** der Container kommt.
+
+::::
+
+::::collapsible{title="Tipp 2: Wohin damit?" id="container-tipp-b-2"}
+
+Ein Container, der im Weg steht, kommt auf den nächsten Stapel „im Kreis“: von 1 auf 2, von 2 auf 3, von 3 auf 1. Ist der voll, nehmt den übernächsten. Sind beide voll, bleibt nur die Freifläche 0.
+
+Das dürft ihr in Worten schreiben. Kürzer geht es mit `s % 3 + 1`: Für die Stapel 1, 2, 3 liefert das genau den nächsten Stapel im Kreis.
+
+::::
+
+::::collapsible{title="Tipp 3: Ein Struktogramm mit Lücken" id="container-tipp-b-3"}
+
+Das Gerüst steht schon. Übertragt es in euer Struktogramm oben und füllt die Lücken `???`.
+
+:::struktolab{fontSize=15}
+```java
+void hole(String pNummer) {
+    int s = finde(pNummer);
+    if (s != -1) {
+        while (!oben(s).getNummer().equals(pNummer)) {
+            int ziel = ???;
+            if (istVoll(ziel)) {
+                ziel = ???;
+            }
+            if (istVoll(ziel)) {
+                ziel = ???;
+            }
+            umsetzen(s, ziel);
+        }
+        verladen(s);
+    }
+}
+```
+:::
+
+::::
+
+::::collapsible{title="Tipp 4: Struktogramm-Puzzle" id="container-tipp-b-4"}
+
+Alle Bausteine sind da – nur an der falschen Stelle. Zieht sie in die richtige Reihenfolge und schiebt die Anweisungen in die passende Schleife oder Verzweigung.
+
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-puzzle-b" dock="Struktogramm: Strategie B Puzzle"}
+```java
+void hole(String pNummer) {
+    ziel = 0;
+    verladen(s);
+    if (istVoll(ziel)) {
+    }
+    int ziel = s % 3 + 1;
+    while (!oben(s).getNummer().equals(pNummer)) {
+    }
+    ziel = ziel % 3 + 1;
+    umsetzen(s, ziel);
+    if (s != -1) {
+    }
+    int s = finde(pNummer);
+    if (istVoll(ziel)) {
+    }
+}
+```
+:::
+
+::::
+
+:::::
+
+::::::
 
 <oop-containerterminal id="containerterminal-krantest" stapel="0815,4711,2001 | 1234,3003 | 5005" auftrag="4711,1234,0815" hoehe="4" bestwert="160"></oop-containerterminal>
 
 ::textinput{id="containerterminal-2b" height="120px" placeholder="Kran-Test: Unser Struktogramm kostet ... Euro. Raten mussten wir an dieser Stelle: ..."}
-
-::::collapsible{title="Tipp 1: Das Gerüst" id="container-tipp-struktogramm-1"}
-
-Beide Strategien haben dasselbe Gerüst: Stapel suchen – **solange** oben nicht der gesuchte Container steht, den obersten wegsetzen – verladen. Die Strategien unterscheiden sich nur darin, **wohin** der Kran den Container setzt. Strategie A braucht danach noch eine zweite Schleife.
-
-::::
-
-::::collapsible{title="Tipp 2: Wohin damit?" id="container-tipp-struktogramm-2"}
-
-- **A:** immer Stapel 0.
-- **B:** Für die Stapel 1, 2, 3 liefert `s % 3 + 1` den nächsten Stapel „im Kreis“: aus 1 wird 2, aus 2 wird 3, aus 3 wird 1. Ist er voll, nimm den übernächsten. Sind beide voll, bleibt nur 0.
-
-::::
 
 ## Aufgabe 3: Der zweite Tag
 
@@ -114,9 +253,9 @@ a) **Führt** euer Struktogramm aus Aufgabe 2 hier **aus** und **gebt** die Kost
 b) **Vergleicht** die Kosten eures Struktogramms am ersten Tag mit euren Kosten aus Aufgabe 1b: Von Hand wart ihr vermutlich günstiger. **Erstellt** ein Struktogramm `hole(pNummer)` zu eurer Strategie aus 1b. **Führt** es für beide Tage **aus** und **gebt** die Kosten **an**.
 :::
 
-:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-3b" dock}
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-3b" dock="Struktogramm: Aufgabe 3b"}
 ```java
-void hole(int pNummer) {
+void hole(String pNummer) {
   
 }
 ```
@@ -133,6 +272,25 @@ Beim Planen von Hand schaut ihr auf die Reihe der Lkw: Von welchem Stapel wird h
 ::::collapsible{title="Tipp 2 zu b): Welcher Stapel ist der beste Platz?" id="container-tipp-3b-2"}
 
 Vergleiche `naechsteAbholung` der beiden anderen Stapel. Ein Stapel mit 0 ist der beste Platz, sonst der mit der **größeren** Zahl. Ein voller Stapel scheidet aus. Haben beide Stapel keinen Platz, bleibt nur die Freifläche.
+
+::::
+
+:::snippet{#aufgabe}
+c) **Für Knobelnde:** Am zweiten Tag zeigt die Simulation **290 Euro** als günstigsten Ablauf. Euer Struktogramm aus b) liegt vermutlich darüber. Das ist kein Fehler: Die Regel „Blocker auf den Stapel, von dem am spätesten etwas abgeholt wird“ findet den Ablauf für 290 Euro nicht.
+
+1. **Ermittelt** in der Simulation zum zweiten Tag einen Ablauf, der nur 290 Euro kostet.
+2. Euer Ablauf benutzt die Freifläche, obwohl sie teurer ist als Umsetzen. **Erklärt**, warum sie sich hier trotzdem lohnt.
+3. **Formuliert** eine Regel, wann ein Blocker auf die Freifläche kommt, und **ergänzt** euer Struktogramm aus b). **Prüft**, ob es an beiden Tagen den günstigsten Ablauf erreicht.
+:::
+
+::textinput{id="containerterminal-3c" height="120px" placeholder="Ablauf für 290 Euro: ... – Die Freifläche lohnt sich, weil ... – Unsere Regel: ..."}
+
+::::collapsible{title="Tipp zu c): Was kostet ein Blocker insgesamt?" id="container-tipp-3c"}
+
+Rechnet für einen Blocker beide Wege durch – bis zum Ende des Tages:
+
+- Er kommt auf einen Stapel, von dem noch etwas abgeholt wird. Was passiert später mit ihm?
+- Er kommt auf die Freifläche. Muss er von dort überhaupt zurück?
 
 ::::
 
