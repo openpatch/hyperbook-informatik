@@ -134,15 +134,15 @@ for seite in range(3):
     right(120)
 ```
 
-Noch kürzer geht es mit `circle`: `circle(GROESSE)` zeichnet einen Kreis, `circle(GROESSE, 3)` ein Dreieck, `circle(GROESSE, 6)` ein Sechseck.
+Noch kürzer geht es mit `circle`: `circle(GROESSE)` zeichnet einen Kreis, `circle(GROESSE, steps=3)` ein Dreieck, `circle(GROESSE, steps=6)` ein Sechseck.
 
 ::::
 
 ::::collapsible{title="Tipp 3: Es dauert ewig"}
 
-Jeder Kreis besteht aus 120 winzigen Strichen. Bei `ANZAHL = 24` sind das schon fast 3000 Striche – das merkt der Browser.
+Jeder Kreis besteht aus vielen kleinen Strichen, und auch mit `speed(0)` zeigt die Turtle jeden einzeln an. Bei `ANZAHL = 24` kommen schnell einige Hundert Striche zusammen.
 
-Zwei Auswege: `ANZAHL` kleiner machen, oder dem Kreis weniger Ecken geben. `circle(90, 30)` sieht fast aus wie ein Kreis, ist aber viermal schneller.
+Schneller geht es, wenn die Turtle erst alles im Verborgenen zeichnet und das Bild dann auf einen Schlag zeigt: Schreib `tracer(0)` vor die Schleife und `update()` ganz ans Ende.
 
 ::::
 

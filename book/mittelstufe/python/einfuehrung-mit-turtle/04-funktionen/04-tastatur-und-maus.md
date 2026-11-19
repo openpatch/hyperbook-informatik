@@ -18,6 +18,8 @@ a) Starte das Programm. Klicke einmal auf die Zeichenfläche und drücke dann di
 b) Analysiere das Programm und erläutere, was `onkey` und `listen` bewirken.
 
 c) Beim Aufruf von `onkey` steht hinter `vor` **keine** Klammer. Probiere aus, was passiert, wenn du `onkey(vor(), "Up")` schreibst, und erkläre den Unterschied.
+
+d) Halte die Pfeiltaste nach oben eine Weile gedrückt und beobachte, wann die Turtle losfährt. Ersetze dann `onkey` durch `onkeypress` und vergleiche.
 :::
 
 :::pyide{canvas height="600px"}
@@ -61,7 +63,8 @@ onkey(vor, "Up")
 listen()
 ```
 
-- `onkey(funktion, taste)` merkt sich: Wenn diese Taste gedrückt wird, rufe diese Funktion auf.
+- `onkey(funktion, taste)` merkt sich: Wenn diese Taste **losgelassen** wird, rufe diese Funktion auf.
+- `onkeypress(funktion, taste)` funktioniert genauso, reagiert aber schon beim **Drücken**. Hältst du die Taste fest, wird die Funktion immer wieder aufgerufen – praktisch zum Fahren.
 - `listen()` sorgt dafür, dass die Zeichenfläche auf die Tastatur hört.
 - Die Funktion wird **ohne Klammern** übergeben. Mit Klammern würde sie sofort einmal aufgerufen – übergeben würde dann nur ihr Ergebnis, und das ist `None`.
 - Ein Tastendruck ist ein **Ereignis** (englisch *event*). Ein Programm, das auf Ereignisse wartet und reagiert, heißt **ereignisgesteuert**.

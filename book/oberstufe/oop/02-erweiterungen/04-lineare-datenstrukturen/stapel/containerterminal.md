@@ -69,7 +69,7 @@ Wählt eine Strategie aus und öffnet ihren Reiter unten. Dort findet ihr euer S
 - **A – Freifläche:** Alles, was über dem gesuchten Container steht, kommt auf die Freifläche. Nach dem Verladen kommt es zurück.
 - **B – Nachbarstapel:** Ein Container, der im Weg steht, kommt auf einen anderen Stapel mit Platz. Nur wenn keiner Platz hat, kommt er auf die Freifläche.
 
-a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **einen** Container verlädt, und **stellt** ihn als Struktogramm **dar**. Bedenkt die Grenzfälle: Der Container steht schon oben. Der Container ist gar nicht im Terminal.
+a) **Entwickelt** zu eurer Strategie einen Algorithmus `hole(pNummer)`, der **einen** Container verlädt, und **stellt** ihn als Struktogramm oder als Java-Quelltext **dar**. Bedenkt die Grenzfälle: Der Container steht schon oben. Der Container ist gar nicht im Terminal.
 
 b) **Kran-Test:** **Führt** euer Struktogramm in der Simulation unten für alle drei Lkw **aus** – wörtlich, so wie es dasteht, auch wenn ihr wisst, was gemeint war. **Notiert** die Kosten und jede Stelle, an der ihr raten musstet, und **verbessert** das Struktogramm.
 :::
