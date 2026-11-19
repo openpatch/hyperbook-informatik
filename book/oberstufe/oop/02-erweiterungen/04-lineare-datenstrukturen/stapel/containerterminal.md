@@ -3,7 +3,6 @@ name: "Containerterminal: Planen"
 index: 8
 lang: de
 permaid: java-stapel-containerterminal
-hide: true
 scripts:
   - /wc/oop-containerterminal.js
 ---

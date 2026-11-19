@@ -3,7 +3,6 @@ name: "Containerterminal: Programmieren"
 index: 9
 lang: de
 permaid: java-stapel-containerterminal-programmieren
-hide: true
 scripts:
   - /wc/oop-containerterminal.js
 ---

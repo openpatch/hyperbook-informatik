@@ -5,7 +5,6 @@ lang: de
 permaid: java-stapel-containerterminal-kran
 scripts:
   - /wc/oop-containerterminal.js
-next: null
 ---
 
 # Containerterminal: Der Kran
