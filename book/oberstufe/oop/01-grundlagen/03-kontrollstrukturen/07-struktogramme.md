@@ -182,7 +182,7 @@ Und: Die Falsch-Spalte bleibt leer. Zeichne sie trotzdem – weglassen darfst du
 
 ::::
 
-:::protect{password="java-ef-3-7-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+::::protect{password="java-ef-3-7-2" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```java Main.java
 void main() {
@@ -212,7 +212,7 @@ wiederhole für i = 1 bis n:
 ```
 :::
 
-:::
+::::
 
 ## Aufgabe 3: Darstellungen überführen
 
@@ -264,7 +264,7 @@ Es gibt eine **äußere Schleife** (die Raute mit `a != b`, zu der zwei Pfeile z
 
 ::::
 
-:::protect{password="java-ef-3-7-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+::::protect{password="java-ef-3-7-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 ```java Main.java
 void main() {
@@ -300,7 +300,7 @@ ausgabe(a)
 
 Der Algorithmus berechnet den **größten gemeinsamen Teiler** von `a` und `b`. Er heißt **euklidischer Algorithmus** und ist über 2000 Jahre alt. Teste ihn mit 48 und 18 – heraus kommt 6.
 
-:::
+::::
 
 ## Zusatzaufgabe
 

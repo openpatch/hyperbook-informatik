@@ -7,7 +7,7 @@ lang: de
 
 Ein **Feld** (englisch *array*) speichert mehrere Werte **desselben** :t[Datentyps]{#datentyp} unter einem Namen. Auf die einzelnen Elemente greift man über ihren **Index** zu, gezählt ab 0.
 
-:::alert{warning}
+:::alert{warn}
 Vorsicht bei der Übersetzung: Das deutsche „Feld" meint hier **array**, nicht das englische *field*. Was im Englischen *field* heißt, ist bei uns ein :t[Attribut]{#attribut}.
 :::
 

@@ -11,7 +11,7 @@ Für Verschlüsselungsverfahren spielt die Klasse String eine große Rolle, da i
 
 Daher werden wir zunächst lernen wie wir die Klasse String verwenden können.
 
-Wir reduzieren uns dabei auf Methoden, die in den [Vorgaben des Zentralabiturs](<(https://www.standardsicherung.schulministerium.nrw.de/cms/zentralabitur-gost/faecher/getfile.php?file=5438)>) stehen. Denn mit diesen Methoden wird im Zentralabitur ein sicherer Umgang erwartet.
+Wir reduzieren uns dabei auf Methoden, die in den [Vorgaben des Zentralabiturs](<https://www.standardsicherung.schulministerium.nrw.de/cms/zentralabitur-gost/faecher/getfile.php?file=5438>) stehen. Denn mit diesen Methoden wird im Zentralabitur ein sicherer Umgang erwartet.
 
 ## Was ist ein String?
 

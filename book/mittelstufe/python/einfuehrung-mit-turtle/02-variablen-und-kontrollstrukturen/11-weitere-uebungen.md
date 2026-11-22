@@ -298,7 +298,7 @@ Danach gibt das Programm aus, wie viele Artikel gekauft wurden und was sie zusam
 **Implementiere das Programm in Python**
 :::
 
-:::pyide
+:::pyide{id="e4a4a96d1a633279e841d9a575b2226fdf72e273bab277bb7641d70f6e910309"}
 
 ```python
 
@@ -359,7 +359,7 @@ Ein Beispiel für Zielstockwerk −2: Ausgegeben wird `Etage -1`, `Etage -2`, `D
 **Implementiere das Programm in Python**
 :::
 
-:::pyide
+:::pyide{id="e4a4a96d1a633279e841d9a575b2226fdf72e273bab277bb7641d70f6e910309-2"}
 
 ```python
 
@@ -424,7 +424,7 @@ Nach jeder Antwort gibt es „richtig“ aus oder „falsch, richtig wäre …�
 **Implementiere das Programm in Python**
 :::
 
-:::pyide
+:::pyide{id="e4a4a96d1a633279e841d9a575b2226fdf72e273bab277bb7641d70f6e910309-3"}
 
 ```python
 

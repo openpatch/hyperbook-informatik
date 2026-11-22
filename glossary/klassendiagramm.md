@@ -36,7 +36,7 @@ Wenn eine Methode eine Rückgabe hat, dann wird der Datentyp ans Ende geschriebe
 [METHODENNAME](): [RÜCKGABEDATENTYP]
 ```
 
-::excalidraw{src="/assets/klassendiagramm_stufe1.excalidraw" aspectRatio="4/3" autoZoom=true center=true}
+::excalidraw{src="/assets/klassendiagramm_stufe1.excalidraw" aspectRatio="4/3" autoZoom=true id="3fcfe0dca0d5f59d9e4e334d4351ca224747b4b7eab19bd3908b7f0c36f9afb4"}
 
 ## Stufe 2
 
@@ -46,4 +46,4 @@ In der Stufe 2 kommen Zugriffsmodifikatoren hinzu.
 - `#` für protected – (engl. geschützt), Zugriff nur von der Klasse sowie von Unterklassen (Klassen, die erben)
 - `−` für private – (engl. privat), nur die Klasse selbst kann es sehen
 
-::excalidraw{src="/assets/klassendiagramm_stufe2.excalidraw" aspectRatio="4/3" autoZoom=true center=true}
+::excalidraw{src="/assets/klassendiagramm_stufe2.excalidraw" aspectRatio="4/3" autoZoom=true id="e22f28f28f3205b240ea4f7b51fac35917df3f0bedfbd5851e37bd7df06c2383"}

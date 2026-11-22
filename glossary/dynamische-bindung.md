@@ -16,6 +16,6 @@ f.berechneFlaeche();   // die Fassung aus Kreis läuft, nicht die aus Form
 
 Die dynamische Bindung ist der Mechanismus hinter der :t[Polymorphie]{#polymorphie}. Sie erlaubt es, eine Methode einmal zu schreiben, statt in jeder Unterklasse eine Fallunterscheidung zu wiederholen.
 
-:::alert{warning}
+:::alert{warn}
 Ruft ein Konstruktor der Oberklasse eine überschriebene Methode auf, greift die dynamische Bindung bereits – zu einem Zeitpunkt, an dem die Unterklasse noch gar nicht fertig aufgebaut ist.
 :::

@@ -248,7 +248,7 @@ d) Formuliere in einem Satz, was Generik gewinnt.
 e) Nenne eine Stelle in den kommenden Kapiteln, an der Generik gebraucht wird.
 :::
 
-:::protect{password="java-q-2-5-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
+::::protect{password="java-q-2-5-3" description="Lösung. Erfrage das Passwort bei deiner Lehrkraft."}
 
 a) Man muss den Rückgabewert **casten**, also den Typ ausdrücklich angeben: `Punkt p = (Punkt) behaelter.gib();`. Ohne das kennt der Übersetzer nur `Object` und lässt keine Punkt-Methode zu.
 
@@ -264,7 +264,7 @@ e) Bei allen **Datenstrukturen**: `Stack<ContentType>`, `Queue<ContentType>`, `L
 Ein Unterschied zum echten Java: In der Online-IDE funktioniert `private T[] inhalt = new T[pMax];`. In echtem Java ist das **nicht** erlaubt; dort behilft man sich mit einem `Object[]` und einem Cast bei der Entnahme. Wer außerhalb der Online-IDE weiterarbeitet, wird darüber stolpern.
 :::
 
-:::
+::::
 
 <!--
 Rückblick zu KLP QPh, Daten und ihre Strukturierung: zweidimensionale Felder,

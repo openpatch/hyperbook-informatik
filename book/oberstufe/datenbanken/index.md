@@ -54,8 +54,6 @@ Eine Regel begleitet dich durch den ganzen Lernpfad: **Erst denken, dann ausfüh
 9. **Projekt** – eine eigene Datenbank von der Idee bis zur Abfrage
 10. **Referenz** – SQL zum Nachschlagen
 
-Wenn du in der Mittelstufe schon einmal mit Datenbanken gearbeitet hast, findest du unter [Datenbanksysteme](/mittelstufe/datenbanksysteme) die einfachere Einführung. Für diesen Lernpfad brauchst du sie nicht.
-
 <!--
 Bezug zum Kernlehrplan (nur für Lehrkräfte, erscheint nicht im Hyperbook)
 

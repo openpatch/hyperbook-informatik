@@ -80,7 +80,7 @@ b) **Kran-Test:** **Führt** euer Struktogramm in der Simulation unten für alle
 
 Alles, was über dem gesuchten Container steht, kommt auf die Freifläche. Nach dem Verladen kommt es zurück.
 
-:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-a" dock="Struktogramm: Strategie A" embedded="true"}
+:::struktolab{mode="edit" fontSize=15 id="containerterminal-struktogramm-a" dock="Struktogramm: Strategie A"}
 ```java
 void hole(String pNummer) {
 

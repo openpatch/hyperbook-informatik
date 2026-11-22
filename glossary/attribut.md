@@ -7,7 +7,7 @@ lang: de
 
 In der objektorientierten Programmierung sind **Attribute** (englisch *fields*, seltener *attributes*) spezielle :t[Variablen]{#variable}, die die Eigenschaften eines :t[Objekts]{#objekt} darstellen. Attribute werden innerhalb einer Klasse deklariert und meistens im :t[Konstruktor]{#konstruktor} initialisiert.
 
-:::alert{warning}
+:::alert{warn}
 Vorsicht bei der Rückübersetzung: Das englische *field* meint ein Attribut – **nicht** das deutsche :t[Feld]{#feld}, das für *array* steht.
 :::
 

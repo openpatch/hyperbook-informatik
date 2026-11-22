@@ -22,7 +22,7 @@ c) Beim Aufruf von `onkey` steht hinter `vor` **keine** Klammer. Probiere aus, w
 d) Halte die Pfeiltaste nach oben eine Weile gedrückt und beobachte, wann die Turtle losfährt. Ersetze dann `onkey` durch `onkeypress` und vergleiche.
 :::
 
-:::pyide{canvas height="600px"}
+:::pyide{canvas height="600px" id="910db2d376512ab38a37d612dbe9879911c5c928c82c358d9be8af852aa0d397"}
 
 ```python
 from turtle import *
@@ -90,7 +90,7 @@ Erweitere das Programm aus Aufgabe 1 zu einer Zeichenmaschine:
 Zeichne damit ein Bild, das du jemandem zeigen willst.
 :::
 
-:::pyide{canvas height="600px"}
+:::pyide{canvas height="600px" id="910db2d376512ab38a37d612dbe9879911c5c928c82c358d9be8af852aa0d397-2"}
 
 ```python
 from turtle import *
@@ -509,7 +509,7 @@ def schritt():
 
 ::::
 
-:::protect{password="turtle-4-tasten-4" description="Lösung für „Mehr Futter". Erfrage das Passwort bei deiner Lehrkraft."}
+:::protect{password="turtle-4-tasten-4" description="Lösung für „Mehr Futter“. Erfrage das Passwort bei deiner Lehrkraft."}
 
 Die Funktion `schritt` wird ersetzt, darüber kommt die Zählvariable:
 
