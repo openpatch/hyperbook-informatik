@@ -61,7 +61,7 @@ Bei Alter in `B2` und Kartenstatus in `C2` kann die Formel `=WENN(UND(B2<=17;C2=
 {H{Richtig.}}
 
 **2. Welcher Operator bedeutet ungleich?**
-{r2{!=}}
+{r2{ !=}}
 {r2{!<>}}
 {r2{><}}
 {H{Richtig.}}
