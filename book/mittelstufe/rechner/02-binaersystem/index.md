@@ -21,6 +21,8 @@ Im Computer gibt es keine Ziffern von 0 bis 9, sondern nur zwei Zustände: Strom
 - Speichergrößen wie kB, MB und GB einzuschätzen
 - Zahlen zwischen **Dezimalsystem** und **Binärsystem** umzurechnen
 - im Binärsystem zu **addieren** und zu erkennen, wann ein **Überlauf** entsteht
+- Zahlen mit dem **Bitshift** zu verschieben – und warum das verdoppeln und halbieren heißt
+- **negative Zahlen** mit dem **Zweierkomplement** darzustellen und dadurch durch Addieren zu subtrahieren
 
 :::alert{info}
 Das Binärsystem kennst du vielleicht noch aus Klasse 6. Dort hast du mit Münzen oder Fingern gezählt. Hier geht es weiter: Du rechnest damit.

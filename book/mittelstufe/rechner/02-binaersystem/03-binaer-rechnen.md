@@ -123,7 +123,7 @@ Multiplizieren besteht also nur aus **Verschieben und Addieren** – genau das, 
 :::
 
 :::snippet{#brain}
-**Und Subtrahieren?** Prozessoren haben dafür oft gar kein eigenes Rechenwerk – sie addieren stattdessen eine geschickt umgeformte Zahl, das **Zweierkomplement**. In einem 4-Bit-Register gilt: 7 − 3 ist dasselbe wie 7 + 13, denn 7 + 13 = 20, und davon bleiben nach dem Überlauf 20 − 16 = 4 übrig. Der Überlauf ist hier also kein Fehler, sondern ein Trick! Findest du heraus, welche Zahl man für „− 5“ addieren muss?
+**Und Subtrahieren?** Prozessoren haben dafür oft gar kein eigenes Rechenwerk – sie addieren stattdessen eine geschickt umgeformte Zahl, das **Zweierkomplement**. In einem 4-Bit-Register gilt: 7 − 3 ist dasselbe wie 7 + 13, denn 7 + 13 = 20, und davon bleiben nach dem Überlauf 20 − 16 = 4 übrig. Der Überlauf ist hier also kein Fehler, sondern ein Trick! Findest du heraus, welche Zahl man für „− 5“ addieren muss? Die Antwort lernst du in [Lektion 2.5](./05-zweierkomplement).
 :::
 
 ---

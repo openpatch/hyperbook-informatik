@@ -40,7 +40,7 @@ UV-INF-SEK1-09-03). Die Zuordnung der Kompetenzerwartungen steht am Ende dieser 
 | Kapitel | Leitfrage | Am Ende kannst du … |
 | --- | --- | --- |
 | [1. Was steckt im Computer?](./01-aufbau) | Woraus besteht ein Computer? | Komponenten benennen und dem EVA-Prinzip zuordnen |
-| [2. Alles nur 0 und 1](./02-binaersystem) | Wie stellt ein Computer Zahlen dar? | im Binärsystem umrechnen und rechnen |
+| [2. Alles nur 0 und 1](./02-binaersystem) | Wie stellt ein Computer Zahlen dar? | im Binärsystem umrechnen und rechnen, Zahlen per Bitshift verschieben und negative Zahlen im Zweierkomplement darstellen |
 | [3. Rechnen mit Schaltern](./03-schaltungen) | Wie rechnet ein Computer? | logische Schaltungen simulieren und ein Addierwerk erklären |
 | [4. Von der Hardware zur Software](./04-software) | Wie wird aus Hardware ein nützliches Gerät? | Software einordnen und eine Kaufberatung erstellen |
 
@@ -53,7 +53,8 @@ Lehrplanbezug (SILP UV 9.3):
 - beschreiben das EVA-Prinzip als grundlegendes Prinzip der Datenverarbeitung (DI): 1.1, 1.3
 - erläutern die logische und arithmetische Arbeitsweise von Informatiksystemen auf Grundlage
   des Binärsystems (A): 2.1, 3.1–3.3, 4.2
-- wenden Zahlendarstellungen und Grundrechenarten im Binärsystem an (MI/DI): 2.2, 2.3
+- wenden Zahlendarstellungen und Grundrechenarten im Binärsystem an (MI/DI): 2.2–2.5
+  (2.4 Bitshift und 2.5 Zweierkomplement erweitern die Zahlendarstellung über das SILP hinaus)
 - simulieren logische Schaltungen mit geeigneter Software (MI): 3.1–3.3
 Verbindliche Absprachen: Rechnermodelle aus dem Sammlungsraum zerlegen (1.3);
 Stellenwert-/Binärsystem mit Mathematik (2.2, als Wiederholung aus Jg. 6);
